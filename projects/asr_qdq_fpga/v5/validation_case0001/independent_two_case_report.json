@@ -1,0 +1,243 @@
+{
+  "created_utc": "2026-09-22T17:43:25.137030+00:00",
+  "cases": {
+    "case_0000": {
+      "case_id": "case_0000",
+      "original_golden_path": "D:\\program\\python\\ASR-ONNX\\software4npu\\temp\\model_a_fpga_vectors\\random200_v1\\cases\\case_0000\\expected.npz",
+      "original_inputs_sha256": "f312ca8cabedd451c360c46fdcffc1f9704ae61ae1d5cb16e703804d9dbe2496",
+      "original_golden_sha256": "da4e158e5ff4da8b0615e8a0fb70bbf365d7b061524af921bef3565db49c4d99",
+      "result_path": "D:\\fpga\\fproject\\adder_16\\asr\\v5\\reports\\case_0000_v5_b001_full_chain_001\\result.json",
+      "result_sha256": "a1669bafa1444bab6a23e7aa844a00aa2f6dd797c8703261a1afa49602f30b3a",
+      "hardware_outputs_sha256": "a1b2f2083d3e865461548c6b5ed4f8f9fd06c0b9d8c8685e4ac70493017e5c4a",
+      "comparisons": {
+        "encoder_memory": {
+          "shape": [
+            1,
+            31,
+            512
+          ],
+          "dtype": "float32",
+          "shape_dtype_match": true,
+          "elements": 15872,
+          "bit_exact": true,
+          "passed": true,
+          "all_finite": true,
+          "failed_elements": 0,
+          "max_abs_error": 0.0,
+          "rms_error": 0.0,
+          "max_tolerance_fraction": 0.0,
+          "first_failing_flat_indices": []
+        },
+        "encoder_memory_lengths": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "shape_dtype_match": true,
+          "elements": 1,
+          "bit_exact": true,
+          "passed": true,
+          "all_finite": true,
+          "failed_elements": 0,
+          "max_abs_error": 0.0,
+          "rms_error": 0.0,
+          "max_tolerance_fraction": 0.0,
+          "first_failing_flat_indices": []
+        },
+        "decoder_log_probs": {
+          "shape": [
+            1,
+            5000
+          ],
+          "dtype": "float32",
+          "shape_dtype_match": true,
+          "elements": 5000,
+          "bit_exact": false,
+          "passed": true,
+          "all_finite": true,
+          "failed_elements": 0,
+          "max_abs_error": 0.0043239593505859375,
+          "rms_error": 0.0007597333526711227,
+          "max_tolerance_fraction": 0.38930612310011453,
+          "first_failing_flat_indices": []
+        }
+      },
+      "elapsed_seconds": 1947.0808229999966,
+      "encoder_seconds": 1824.4958018999896,
+      "decoder_seconds": 121.44497310003499,
+      "original_model_sha256": {
+        "encoder": "58e3a6bb6a95cdb7c5cc5397793d8daac2cfd1f4e9500ad1a742295396fc0ed2",
+        "decoder": "c59a0001e54cad634304c1b527771ebc22ecac7d165ef444666d0708db99ad3c"
+      },
+      "host_implementation_sha256": {
+        "compat_algorithms.py": "5d37fe1d747ed71add1a1efbc46c36dac815546cebf0c187f846bc1e1eebc344",
+        "compat_ethernet.py": "18da76c2a3b91a7d1e2f5245d74fa4a2c9af3bca0bec97fcc5b199f66223f5d2",
+        "ethernet_transport.py": "4fee94b4d09dc5cf30b2799d26b866b0926a8a11a7e883bd8e079d1f75a29af7",
+        "frozen_imports.py": "a055f5a6f07bedf456b4ff039a255331260282b70822be348c7f280e165c75ff",
+        "onnx_executor_v5.py": "0b69806073d69e99a94352261024d2643635a67e74714d675402a08dc2b3cbe8"
+      },
+      "bitstream_sha256": "e07da6cad366c43947f358432d0fccc482f4020462cfb8663508602e1119aab5",
+      "decoder_top1_actual": 4999,
+      "decoder_top1_expected": 4999,
+      "decoder_top1_matches": true,
+      "deployment_declared_golden_pass": true,
+      "deployment_declared_acceptance_pass": true,
+      "independent_matches_deployment_verdict": true,
+      "clean_session": true,
+      "ethernet": {
+        "transport": "udp-v4",
+        "session": 229772578,
+        "next_sequence": 1649389,
+        "active": false,
+        "poisoned": false,
+        "closed": true,
+        "close_confirmed": true,
+        "one_outstanding_batch": true,
+        "batches": 1649387,
+        "max_batch_commands": 60,
+        "datagrams_sent": 1649389,
+        "datagrams_received": 1649389,
+        "retransmissions": 0,
+        "discarded_datagrams": 0,
+        "bytes_sent": 1650452898,
+        "bytes_received": 509461266
+      },
+      "pass_all": true
+    },
+    "case_0001": {
+      "case_id": "case_0001",
+      "original_golden_path": "D:\\program\\python\\ASR-ONNX\\software4npu\\temp\\model_a_fpga_vectors\\random200_v1\\cases\\case_0001\\expected.npz",
+      "original_inputs_sha256": "0c416a25d6bf1b8c6f0537c77e25020e2ebec5cfb8fd70d32bcf7c16dbba08a3",
+      "original_golden_sha256": "947fe5090bd97a097c0b3f0ba42541c3bb39ac5a0d9626cd999255634421641d",
+      "result_path": "D:\\fpga\\fproject\\adder_16\\asr\\v5\\validation_case0001\\runs\\case_0001_full_chain_001\\result.json",
+      "result_sha256": "99bb5906893839ccc926d24f4a6d51724229555f2cd0a4230601d348008e1d67",
+      "hardware_outputs_sha256": "85594af4b905dd935cb670eefc1dc7eeacbd984d13283a0327bde9c7eefae8dd",
+      "comparisons": {
+        "encoder_memory": {
+          "shape": [
+            1,
+            31,
+            512
+          ],
+          "dtype": "float32",
+          "shape_dtype_match": true,
+          "elements": 15872,
+          "bit_exact": true,
+          "passed": true,
+          "all_finite": true,
+          "failed_elements": 0,
+          "max_abs_error": 0.0,
+          "rms_error": 0.0,
+          "max_tolerance_fraction": 0.0,
+          "first_failing_flat_indices": []
+        },
+        "encoder_memory_lengths": {
+          "shape": [
+            1
+          ],
+          "dtype": "int64",
+          "shape_dtype_match": true,
+          "elements": 1,
+          "bit_exact": true,
+          "passed": true,
+          "all_finite": true,
+          "failed_elements": 0,
+          "max_abs_error": 0.0,
+          "rms_error": 0.0,
+          "max_tolerance_fraction": 0.0,
+          "first_failing_flat_indices": []
+        },
+        "decoder_log_probs": {
+          "shape": [
+            1,
+            5000
+          ],
+          "dtype": "float32",
+          "shape_dtype_match": true,
+          "elements": 5000,
+          "bit_exact": false,
+          "passed": false,
+          "all_finite": true,
+          "failed_elements": 17,
+          "max_abs_error": 0.01969432830810547,
+          "rms_error": 0.004689012749007957,
+          "max_tolerance_fraction": 3.8611077982673687,
+          "first_failing_flat_indices": [
+            15,
+            216,
+            462,
+            617,
+            621,
+            673,
+            681,
+            714
+          ]
+        }
+      },
+      "elapsed_seconds": 1947.9376481999643,
+      "encoder_seconds": 1825.0373073000228,
+      "decoder_seconds": 121.78653830004623,
+      "original_model_sha256": {
+        "encoder": "58e3a6bb6a95cdb7c5cc5397793d8daac2cfd1f4e9500ad1a742295396fc0ed2",
+        "decoder": "c59a0001e54cad634304c1b527771ebc22ecac7d165ef444666d0708db99ad3c"
+      },
+      "host_implementation_sha256": {
+        "compat_algorithms.py": "5d37fe1d747ed71add1a1efbc46c36dac815546cebf0c187f846bc1e1eebc344",
+        "compat_ethernet.py": "18da76c2a3b91a7d1e2f5245d74fa4a2c9af3bca0bec97fcc5b199f66223f5d2",
+        "ethernet_transport.py": "4fee94b4d09dc5cf30b2799d26b866b0926a8a11a7e883bd8e079d1f75a29af7",
+        "frozen_imports.py": "a055f5a6f07bedf456b4ff039a255331260282b70822be348c7f280e165c75ff",
+        "onnx_executor_v5.py": "0b69806073d69e99a94352261024d2643635a67e74714d675402a08dc2b3cbe8"
+      },
+      "bitstream_sha256": "e07da6cad366c43947f358432d0fccc482f4020462cfb8663508602e1119aab5",
+      "decoder_top1_actual": 4999,
+      "decoder_top1_expected": 4999,
+      "decoder_top1_matches": true,
+      "deployment_declared_golden_pass": false,
+      "deployment_declared_acceptance_pass": false,
+      "independent_matches_deployment_verdict": true,
+      "clean_session": true,
+      "ethernet": {
+        "transport": "udp-v4",
+        "session": 4198786161,
+        "next_sequence": 1649389,
+        "active": false,
+        "poisoned": false,
+        "closed": true,
+        "close_confirmed": true,
+        "one_outstanding_batch": true,
+        "batches": 1649387,
+        "max_batch_commands": 60,
+        "datagrams_sent": 1649389,
+        "datagrams_received": 1649389,
+        "retransmissions": 0,
+        "discarded_datagrams": 0,
+        "bytes_sent": 1650452898,
+        "bytes_received": 509461266
+      },
+      "pass_all": false
+    }
+  },
+  "verifier_sha256": "d03037d907a2f927c9c35841b1dfd8cf05dbe261d9927b86856e4341f103901c",
+  "independent_original_golden_check": true,
+  "comparator": "Scalar Python float64 element loop; no deployment comparator import",
+  "criterion": "Each float abs(actual-golden) <= 0.001 + 0.001*abs(golden); integers exact",
+  "scope": "Two original random 128-frame/16-token Encoder->Decoder forward calls; not full ASR coverage",
+  "no_fpga_access": true,
+  "no_inference_or_regenerated_golden": true,
+  "same_models": true,
+  "same_host_implementation": true,
+  "different_original_inputs": true,
+  "original_input_tensor_comparison": {
+    "feats": {
+      "same_shape_dtype": true,
+      "elements": 10240,
+      "differing_elements": 10240
+    },
+    "tokens": {
+      "same_shape_dtype": true,
+      "elements": 16,
+      "differing_elements": 15
+    }
+  },
+  "pass_all": false
+}

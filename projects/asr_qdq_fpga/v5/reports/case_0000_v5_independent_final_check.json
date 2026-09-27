@@ -1,0 +1,54 @@
+{
+  "independent_original_golden_check": true,
+  "comparator": "scalar Python float64 element loop; no imported deployment comparator",
+  "pass_all": true,
+  "comparisons": {
+    "encoder_memory": {
+      "shape": [
+        1,
+        31,
+        512
+      ],
+      "dtype": "float32",
+      "shape_dtype_match": true,
+      "elements": 15872,
+      "failed_elements": 0,
+      "max_abs": 0.0,
+      "bit_exact": true,
+      "passed": true
+    },
+    "encoder_memory_lengths": {
+      "shape": [
+        1
+      ],
+      "dtype": "int64",
+      "shape_dtype_match": true,
+      "elements": 1,
+      "failed_elements": 0,
+      "max_abs": 0.0,
+      "bit_exact": true,
+      "passed": true
+    },
+    "decoder_log_probs": {
+      "shape": [
+        1,
+        5000
+      ],
+      "dtype": "float32",
+      "shape_dtype_match": true,
+      "elements": 5000,
+      "failed_elements": 0,
+      "max_abs": 0.0043239593505859375,
+      "bit_exact": false,
+      "passed": true
+    }
+  },
+  "original_golden_path": "D:\\program\\python\\ASR-ONNX\\software4npu\\temp\\model_a_fpga_vectors\\random200_v1\\cases\\case_0000\\expected.npz",
+  "original_golden_sha256": "da4e158e5ff4da8b0615e8a0fb70bbf365d7b061524af921bef3565db49c4d99",
+  "hardware_outputs_path": "D:\\fpga\\fproject\\adder_16\\asr\\v5\\reports\\case_0000_v5_b001_full_chain_001\\hardware_outputs.npz",
+  "hardware_outputs_sha256": "a1b2f2083d3e865461548c6b5ed4f8f9fd06c0b9d8c8685e4ac70493017e5c4a",
+  "physical_result_sha256": "a1669bafa1444bab6a23e7aa844a00aa2f6dd797c8703261a1afa49602f30b3a",
+  "decoder_bit_exact_prior_uart": true,
+  "prior_uart_scope": "Decoder-only with original golden Encoder memory; not old full-chain proof",
+  "clean_session": true
+}

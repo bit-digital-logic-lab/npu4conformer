@@ -1,0 +1,4 @@
+# Offline transport and comparator tests. The frozen scheduler imports ONNX
+# while loading the transport modules; these tests do not run ONNX inference.
+numpy>=1.26,<3
+onnx>=1.16,<2

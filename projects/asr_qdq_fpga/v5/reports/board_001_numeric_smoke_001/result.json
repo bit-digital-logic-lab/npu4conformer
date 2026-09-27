@@ -1,0 +1,264 @@
+{
+  "physical_fpga_executed": true,
+  "reference": "offline random/edge CPU arithmetic (NOT original case acceptance)",
+  "tests": [
+    {
+      "name": "matrix ((31, 129), (129, 64))",
+      "outputs": [
+        {
+          "shape": [
+            31,
+            64
+          ],
+          "bit_exact": true,
+          "max_abs": 0.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "matrix ((3, 521), (521, 3))",
+      "outputs": [
+        {
+          "shape": [
+            3,
+            3
+          ],
+          "bit_exact": true,
+          "max_abs": 0.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "matrix ((1, 15), (15, 31))",
+      "outputs": [
+        {
+          "shape": [
+            1,
+            31
+          ],
+          "bit_exact": true,
+          "max_abs": 0.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "matrix ((1, 31), (31, 65))",
+      "outputs": [
+        {
+          "shape": [
+            1,
+            65
+          ],
+          "bit_exact": true,
+          "max_abs": 0.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "FMA broadcast",
+      "outputs": [
+        {
+          "shape": [
+            2,
+            512
+          ],
+          "bit_exact": true,
+          "max_abs": 0.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "LayerNorm extent512",
+      "outputs": [
+        {
+          "shape": [
+            31,
+            512
+          ],
+          "bit_exact": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "shape": [
+            31,
+            1
+          ],
+          "bit_exact": true,
+          "max_abs": 0.0,
+          "passed": true
+        },
+        {
+          "shape": [
+            31,
+            1
+          ],
+          "bit_exact": true,
+          "max_abs": 0.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "Sigmoid rational",
+      "outputs": [
+        {
+          "shape": [
+            8193
+          ],
+          "bit_exact": true,
+          "max_abs": 0.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "Softmax SIMD16",
+      "outputs": [
+        {
+          "shape": [
+            8,
+            31,
+            31
+          ],
+          "bit_exact": true,
+          "max_abs": 0.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "Softmax FTZ",
+      "outputs": [
+        {
+          "shape": [
+            1,
+            5
+          ],
+          "bit_exact": false,
+          "max_abs": 6.054601485195952e-39,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "BatchNorm",
+      "outputs": [
+        {
+          "shape": [
+            1,
+            512,
+            31
+          ],
+          "bit_exact": true,
+          "max_abs": 0.0,
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "pass_all": true,
+  "backend": {
+    "backend": "hardware-v5-onnx-compatible",
+    "hardware_executed": true,
+    "commands": {
+      "0": 1,
+      "64": 1,
+      "79": 1,
+      "65": 4554,
+      "70": 250,
+      "66": 2640,
+      "67": 155,
+      "71": 39,
+      "72": 31,
+      "68": 4233
+    },
+    "bytes_sent": 2955949,
+    "bytes_received": 1629308,
+    "scalar_flag_counts": {
+      "0": 4708
+    },
+    "protocol_version": 2,
+    "memory_words": 32768,
+    "physical_fpga_executed": true,
+    "execution_cycles": {
+      "70": 4428434,
+      "67": 1971612,
+      "71": 3037530,
+      "72": 63986,
+      "68": 81663
+    },
+    "execution_calls": {
+      "70": 250,
+      "67": 155,
+      "71": 39,
+      "72": 31,
+      "68": 4233
+    },
+    "execution_cycles_total": 9583225,
+    "execution_cycle_counter": "per-command modulo 2^32; summed by host",
+    "elapsed_seconds": 1.6474693000200205,
+    "matrix_tile_limits": [
+      31,
+      64,
+      256
+    ],
+    "resident_scope": "intra-operator; host tensors between nodes",
+    "ethernet": {
+      "transport": "udp-v4",
+      "session": 2144980587,
+      "next_sequence": 4913,
+      "active": true,
+      "poisoned": false,
+      "closed": false,
+      "close_confirmed": false,
+      "one_outstanding_batch": true,
+      "batches": 4912,
+      "max_batch_commands": 60,
+      "datagrams_sent": 4913,
+      "datagrams_received": 4913,
+      "retransmissions": 0,
+      "discarded_datagrams": 0,
+      "bytes_sent": 2955949,
+      "bytes_received": 1629308
+    },
+    "numerical_backend": "V5 physical FMA/MLAS sequences; original INT16 QDQ graph",
+    "max_transfer_words_per_batch": 336,
+    "compat_onnx": true,
+    "cpu_numeric_fallback": false
+  },
+  "ethernet_after_close": {
+    "transport": "udp-v4",
+    "session": 2144980587,
+    "next_sequence": 4914,
+    "active": false,
+    "poisoned": false,
+    "closed": true,
+    "close_confirmed": true,
+    "one_outstanding_batch": true,
+    "batches": 4912,
+    "max_batch_commands": 60,
+    "datagrams_sent": 4914,
+    "datagrams_received": 4914,
+    "retransmissions": 0,
+    "discarded_datagrams": 0,
+    "bytes_sent": 2955967,
+    "bytes_received": 1629326
+  },
+  "seconds": 1.6491784999961965
+}

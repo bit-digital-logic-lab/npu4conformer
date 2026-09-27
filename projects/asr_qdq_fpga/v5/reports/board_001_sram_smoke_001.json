@@ -1,0 +1,109 @@
+{
+  "started_utc": "2026-09-22T15:35:45.191006+00:00",
+  "pass_test": true,
+  "data_arithmetic_pass": true,
+  "cleanup_confirmed": true,
+  "safe_for_followup_job": true,
+  "hardware_access_attempted": true,
+  "hardware_accessed": true,
+  "handshake_complete": true,
+  "hardware_access_semantics": "True means HELLO/PING completed; null means attempted but not confirmed",
+  "automatic_reopen_attempted": false,
+  "scope": "transport SRAM plus tiny V2 arithmetic smoke, not model golden",
+  "fpga_endpoint": [
+    "169.254.35.4",
+    49152
+  ],
+  "bind_ip": "169.254.147.66",
+  "per_attempt_timeout_seconds": 3,
+  "identical_packet_retries": 2,
+  "source_sha256": "1772fedb83506ae5e1784ba26823fb48a3495d74041bc96adfcfabc0cab5ca4e",
+  "roundtrip": {
+    "words": 32768,
+    "rounds": 20,
+    "all_exact": true,
+    "write_seconds": 0.7718849000521004,
+    "read_seconds": 0.7681646998971701,
+    "write_payload_MBps": 3.3961540118521025,
+    "read_payload_MBps": 3.4126014907361895
+  },
+  "vec_add_bit_exact": true,
+  "signed_int16_mm_exact": true,
+  "backend": {
+    "backend": "hardware-v4-ethernet",
+    "hardware_executed": true,
+    "commands": {
+      "0": 1,
+      "64": 1,
+      "65": 3904,
+      "66": 3902,
+      "67": 1,
+      "69": 1
+    },
+    "bytes_sent": 2801626,
+    "bytes_received": 2770392,
+    "scalar_flag_counts": {
+      "0": 2
+    },
+    "protocol_version": 2,
+    "memory_words": 32768,
+    "physical_fpga_executed": true,
+    "execution_cycles": {
+      "67": 40,
+      "69": 76
+    },
+    "execution_calls": {
+      "67": 1,
+      "69": 1
+    },
+    "execution_cycles_total": 116,
+    "execution_cycle_counter": "per-command modulo 2^32; summed by host",
+    "elapsed_seconds": 1.5431116000399925,
+    "matrix_tile_limits": [
+      31,
+      64,
+      256
+    ],
+    "resident_scope": "intra-operator; host tensors between nodes",
+    "ethernet": {
+      "transport": "udp-v4",
+      "session": 2134532477,
+      "next_sequence": 3931,
+      "active": true,
+      "poisoned": false,
+      "closed": false,
+      "close_confirmed": false,
+      "one_outstanding_batch": true,
+      "batches": 3930,
+      "max_batch_commands": 2,
+      "datagrams_sent": 3931,
+      "datagrams_received": 3931,
+      "retransmissions": 0,
+      "discarded_datagrams": 0,
+      "bytes_sent": 2801626,
+      "bytes_received": 2770392
+    },
+    "numerical_backend": "unmodified frozen V2; Ethernet write/read overrides only",
+    "max_transfer_words_per_batch": 336
+  },
+  "ethernet_after_close": {
+    "transport": "udp-v4",
+    "session": 2134532477,
+    "next_sequence": 3932,
+    "active": false,
+    "poisoned": false,
+    "closed": true,
+    "close_confirmed": true,
+    "one_outstanding_batch": true,
+    "batches": 3930,
+    "max_batch_commands": 2,
+    "datagrams_sent": 3932,
+    "datagrams_received": 3932,
+    "retransmissions": 0,
+    "discarded_datagrams": 0,
+    "bytes_sent": 2801644,
+    "bytes_received": 2770410
+  },
+  "finished_utc": "2026-09-22T15:35:46.737535+00:00",
+  "elapsed_seconds": 1.545273800031282
+}

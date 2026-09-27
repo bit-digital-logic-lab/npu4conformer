@@ -1,0 +1,19 @@
+{
+  "backend": "synthesizable_rtl_simulation",
+  "physical_fpga_executed": false,
+  "passed": true,
+  "tests": [
+    "legacy_ping_and_v2_info",
+    "bram_burst_sizes_and_last_word",
+    "write_crc_length_range_flags_are_transactional",
+    "all_16_resident_scalar_ops_bit_exact_to_frozen_scalar",
+    "broadcast_exact_inplace_and_rejected_partial_aliases",
+    "vector_severe_arithmetic_flag_aborts",
+    "left_fold_reduce_bit_exact_and_overlapping_destination",
+    "random_signed16_matrix_and_cross_k_signed48_accumulation",
+    "matrix_wide_dimensions_overlap_and_signed48_overflow",
+    "reset_interrupts_vector_and_matrix_then_recovers_without_clearing_bram"
+  ],
+  "transactions": 503,
+  "seconds": 1.1129065999994054
+}

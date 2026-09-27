@@ -1,0 +1,20 @@
+{
+  "archive": "software4npu-main.zip",
+  "archive_sha256": "6f370e6b27fc24a868572b77c21c6741f4e5643b91f39c0a4be7de5cb5380b41",
+  "files": {
+    "README.md": "c68b098df99e91e0d4a3993c07a5e3502186d22b281e6af95aa3b57252b2d3e0",
+    "config/model.yaml": "add4f9af8dceb9c8dfaf01fdf385e178de352360e25b2a1d3f22591cf0a5f708",
+    "espnet2/legacy/nets/pytorch_backend/conformer/encoder_layer.py": "0fbb71e01ca98eebbc0332d250ae7b5fb5ebb67c15cf104a5e6572b5dc737f6c",
+    "espnet2/legacy/nets/pytorch_backend/transformer/attention.py": "71d754d1ee3d9e55898a822527b7a86291a3d471c2574d9d70fa96e141ca92a6",
+    "espnet2/legacy/nets/pytorch_backend/transformer/embedding.py": "f97658cd2307303aac8782ebbf4b1d2c6fb4a8aaff4f38f324cd374d76d23055",
+    "espnet2/legacy/nets/pytorch_backend/transformer/layer_norm.py": "5f2b40be03a3f345a6d86231ba38e3acf1f22eb28ec81d17474d908cb06ad8fd",
+    "espnet2/asr/encoder/conformer_encoder.py": "9ae928fe1c7fcb18211135594205aaa4942ee1b92dd47a6aa7bacf8d070f09c8"
+  },
+  "checkpoint_full_sha256": "8e94fe626aefaec3662a101cba7e112fd108de4871602c34852c27b09384b21b",
+  "selected_checkpoint_sha256": "1ce98e16e278eb2bfa61a7e7c407bef00929d7f2deabc739b0b689cae6576949",
+  "checkpoint_repository": "pyf98/librispeech_conformer",
+  "checkpoint_revision": "b74448c3b089eceea913735bd59a76d5252d8eec",
+  "selected_layer": 0,
+  "tested_head": 0,
+  "verified_vendor_files_unchanged": true
+}

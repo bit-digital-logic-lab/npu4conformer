@@ -1,0 +1,4 @@
+# Versions verified in the existing asronnx312_int16 environment (Python 3.12).
+numpy==2.5.2
+onnx==1.22.0
+# Windows UART uses ctypes/Kernel32. On non-Windows only, install pyserial.

@@ -1,0 +1,34 @@
+{
+  "backend": "ALL_FPGA_HLS_INT16",
+  "port": "COM3",
+  "status": "TRANSFER_PASS",
+  "input_bytes": 675368,
+  "packets": 330,
+  "wire_attempts": 333,
+  "transport_events": [
+    {
+      "tag": 121,
+      "attempt": 1,
+      "error": "ACK status=2 tag=121, expected=121",
+      "injected": false
+    },
+    {
+      "tag": 174,
+      "attempt": 1,
+      "error": "ACK status=2 tag=174, expected=174",
+      "injected": false
+    },
+    {
+      "tag": 308,
+      "attempt": 1,
+      "error": "ACK status=2 tag=308, expected=308",
+      "injected": false
+    }
+  ],
+  "elapsed_seconds": 64.11289140000008,
+  "output_words": 8768,
+  "host_operations": "binary I/O, CRC, IEEE754 unpack only",
+  "injected_crc_at": null,
+  "duplicate_checked_at": null,
+  "bitstream_sha256": "85c37c54efbc8c857db66d49ff4f9f0bec2a8c46fc989149c130eb7d88ce1566"
+}

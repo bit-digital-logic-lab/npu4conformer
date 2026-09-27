@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "baseline_manifest": "C:\\Academic_Work\\CIM_learning\\software4npu-main\\results\\asr_chip\\random200_delivery_manifest.json",
+  "baseline_manifest_sha256": "458f9ea1dc51cd5251f6d764e4ae86a3db63af730894fa9d5231ee1e2e79a7f7",
+  "verified_file_count": 418,
+  "changed_files": [],
+  "scope": "All code/docs/results enumerated in prior delivery manifest; original model identity additionally checked by each Recognizer load."
+}

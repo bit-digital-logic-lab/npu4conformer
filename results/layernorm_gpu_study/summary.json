@@ -1,0 +1,210 @@
+{
+  "source_sha256": "5815279e37251b5dc93b12d0475862907c45d1bc06eb76d504d90fb4434a44bc",
+  "source_file": "layernorm_results_before_migration/run_20260919/comparison.json",
+  "kind": "derived aggregate summary; no per-utterance transcripts or raw tensors",
+  "fpga_executed": false,
+  "audio_results": {
+    "native": {
+      "status": "complete",
+      "mode": "native",
+      "utterances": 200,
+      "metrics": {
+        "substitutions": 86,
+        "deletions": 8,
+        "insertions": 9,
+        "hits": 4085,
+        "reference_words": 4179,
+        "hypothesis_words": 4180,
+        "errors": 103,
+        "utterance_count": 200,
+        "wer": 0.02464704474754726,
+        "wer_percent": 2.464704474754726,
+        "normalization": {
+          "lowercase": true,
+          "remove_punctuation": false,
+          "punctuation_definition": "Unicode category P; characters deleted without replacement",
+          "whitespace": "split and join with one space"
+        },
+        "empty_reference_policy": "N=0: insertion count; empty/empty: 0"
+      },
+      "timing": {
+        "total_audio_seconds": 1465.855125,
+        "total_inference_seconds": 254.47845140004938,
+        "rtf": 0.17360409433370802,
+        "first_utterance_seconds": 1.4566702000010991,
+        "steady_state_rtf": 0.17390170207106367,
+        "steady_state_utterances": 199
+      },
+      "device": "cuda:0"
+    },
+    "pow2": {
+      "status": "complete",
+      "mode": "pow2",
+      "utterances": 200,
+      "metrics": {
+        "substitutions": 117,
+        "deletions": 26,
+        "insertions": 24,
+        "hits": 4036,
+        "reference_words": 4179,
+        "hypothesis_words": 4177,
+        "errors": 167,
+        "utterance_count": 200,
+        "wer": 0.0399617133285475,
+        "wer_percent": 3.99617133285475,
+        "normalization": {
+          "lowercase": true,
+          "remove_punctuation": false,
+          "punctuation_definition": "Unicode category P; characters deleted without replacement",
+          "whitespace": "split and join with one space"
+        },
+        "empty_reference_policy": "N=0: insertion count; empty/empty: 0"
+      },
+      "timing": {
+        "total_audio_seconds": 1465.855125,
+        "total_inference_seconds": 318.0903217002051,
+        "rtf": 0.2169998359832491,
+        "first_utterance_seconds": 1.5393092000012984,
+        "steady_state_rtf": 0.21756530052478143,
+        "steady_state_utterances": 199
+      },
+      "device": "cuda:0"
+    }
+  },
+  "random_results": {
+    "native": {
+      "status": "complete",
+      "cases": 200,
+      "mode": "native",
+      "device": "cuda:0",
+      "seconds": 6.787716299950262
+    },
+    "manual_exact": {
+      "status": "complete",
+      "cases": 200,
+      "mode": "manual_exact",
+      "device": "cuda:0",
+      "seconds": 11.487435800081585,
+      "vs_native": {
+        "encoder_memory": {
+          "cases": 200,
+          "elements": 3174400,
+          "max_abs_error": 3.62396240234375e-05,
+          "mae": 1.0669309301547693e-07,
+          "rmse": 1.9890507279964065e-07,
+          "relative_l2": 8.452496157570375e-07,
+          "min_case_cosine": 0.9999999999902438,
+          "exact_equal_cases": 0,
+          "probe_allclose_cases": 200,
+          "probe_atol": 0.0001,
+          "probe_rtol": 0.0001,
+          "probe_close_fraction": 1.0,
+          "argmax_equal": 6200,
+          "argmax_total": 6200
+        },
+        "encoder_memory_lengths": {
+          "cases": 200,
+          "all_equal": true
+        },
+        "ctc_log_probs": {
+          "cases": 200,
+          "elements": 31000000,
+          "max_abs_error": 0.00023174285888671875,
+          "mae": 2.4855505127315184e-06,
+          "rmse": 6.175178987002042e-06,
+          "relative_l2": 3.889103776325845e-07,
+          "min_case_cosine": 0.9999999999961835,
+          "exact_equal_cases": 0,
+          "probe_allclose_cases": 200,
+          "probe_atol": 0.0001,
+          "probe_rtol": 0.0001,
+          "probe_close_fraction": 1.0,
+          "argmax_equal": 6200,
+          "argmax_total": 6200
+        },
+        "decoder_log_probs": {
+          "cases": 200,
+          "elements": 1000000,
+          "max_abs_error": 1.33514404296875e-05,
+          "mae": 7.990566827356816e-07,
+          "rmse": 1.139052910999591e-06,
+          "relative_l2": 1.031658522918248e-07,
+          "min_case_cosine": 0.9999999999999907,
+          "exact_equal_cases": 0,
+          "probe_allclose_cases": 200,
+          "probe_atol": 0.0001,
+          "probe_rtol": 0.0001,
+          "probe_close_fraction": 1.0,
+          "argmax_equal": 200,
+          "argmax_total": 200
+        }
+      }
+    },
+    "pow2": {
+      "status": "complete",
+      "cases": 200,
+      "mode": "pow2",
+      "device": "cuda:0",
+      "seconds": 13.424003500069375,
+      "vs_native": {
+        "encoder_memory": {
+          "cases": 200,
+          "elements": 3174400,
+          "max_abs_error": 2.1204647421836853,
+          "mae": 0.11560788475720223,
+          "rmse": 0.16098900070016411,
+          "relative_l2": 0.6841247891148254,
+          "min_case_cosine": 0.6085478022946162,
+          "exact_equal_cases": 0,
+          "probe_allclose_cases": 0,
+          "probe_atol": 0.0001,
+          "probe_rtol": 0.0001,
+          "probe_close_fraction": 0.0013240297379032257,
+          "argmax_equal": 2951,
+          "argmax_total": 6200
+        },
+        "encoder_memory_lengths": {
+          "cases": 200,
+          "all_equal": true
+        },
+        "ctc_log_probs": {
+          "cases": 200,
+          "elements": 31000000,
+          "max_abs_error": 15.259352684020996,
+          "mae": 2.100780582452981,
+          "rmse": 2.682381287292836,
+          "relative_l2": 0.16893533314442372,
+          "min_case_cosine": 0.9768665368957595,
+          "exact_equal_cases": 0,
+          "probe_allclose_cases": 0,
+          "probe_atol": 0.0001,
+          "probe_rtol": 0.0001,
+          "probe_close_fraction": 0.0005005806451612903,
+          "argmax_equal": 6109,
+          "argmax_total": 6200
+        },
+        "decoder_log_probs": {
+          "cases": 200,
+          "elements": 1000000,
+          "max_abs_error": 8.145328521728516,
+          "mae": 1.2506451773063498,
+          "rmse": 1.5215529043382687,
+          "relative_l2": 0.137809491260073,
+          "min_case_cosine": 0.9945914097717148,
+          "exact_equal_cases": 0,
+          "probe_allclose_cases": 0,
+          "probe_atol": 0.0001,
+          "probe_rtol": 0.0001,
+          "probe_close_fraction": 0.00046,
+          "argmax_equal": 174,
+          "argmax_total": 200
+        }
+      }
+    }
+  },
+  "audio_scope": "fixed 200-sample dev-clean diagnostic, not full dev/test WER",
+  "wer_increase_percentage_points": 1.531466858100024,
+  "additional_source_sha256": {
+    "layernorm_results_before_migration/layernorm_results_before_migration/run_20260919/random200/comparison.json": "92b7d621fdc9017e5a69384303b722406ebd0ffd5aa3b6455b94f448dff36925"
+  }
+}

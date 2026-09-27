@@ -1,0 +1,5951 @@
+{
+  "scope": "diagnostic-only; NOT new golden acceptance data",
+  "hardware_accessed": false,
+  "original_model_modified": false,
+  "original_golden_modified": false,
+  "frozen_modified": false,
+  "started_utc": "2026-09-22T17:44:45.382814+00:00",
+  "completed": true,
+  "original_run": "D:\\fpga\\fproject\\adder_16\\asr\\v5\\validation_case0001\\runs\\case_0001_full_chain_001",
+  "checkpoints_are_sparse": true,
+  "first_difference_limit": "First among saved checkpoints in original graph topological order, not necessarily first unsaved graph operation",
+  "versions": {
+    "onnx": "1.22.0",
+    "onnxruntime": "1.30.0",
+    "numpy": "2.5.2"
+  },
+  "script_sha256": "d95710930a2751f903834745c2c07d98411f4f3fbdb75dbc9573bf01ffab4c24",
+  "actual_encoder_input_bit_exact_original_golden": true,
+  "source_hashes": {
+    "decoder_onnx": "c59a0001e54cad634304c1b527771ebc22ecac7d165ef444666d0708db99ad3c",
+    "inputs_npz": "0c416a25d6bf1b8c6f0537c77e25020e2ebec5cfb8fd70d32bcf7c16dbba08a3",
+    "original_expected_npz": "947fe5090bd97a097c0b3f0ba42541c3bb39ac5a0d9626cd999255634421641d",
+    "actual_encoder_outputs": "ac454bae9b7d71cd8d25cccd5afbce188942e4e25a2b798b09fc6a785c8e0ac7",
+    "dataset_json": "74f63c3686979f2678a850ed2dbc35670e1cedd1227bd2e041864ff5616532ca",
+    "physical_run_manifest": "f3c09650ed65bedeca1be4b1669d4a9e6717ee65c230e89a00dca74a334a44df"
+  },
+  "ort_configuration": {
+    "provider": "CPUExecutionProvider",
+    "graph_optimization": "ORT_DISABLE_ALL",
+    "execution_mode": "ORT_SEQUENTIAL",
+    "intra_op_num_threads": 4,
+    "inter_op_num_threads": 1,
+    "original_dataset_threads": 4
+  },
+  "int16_opset21_probe": {
+    "pass_probe": true,
+    "opset": 21,
+    "q_dtype": "int16",
+    "q": [
+      2,
+      -12
+    ],
+    "dq": [
+      0.25,
+      -1.5
+    ],
+    "providers": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "checkpoint_files": 52,
+  "shape_inference": "success",
+  "original_opsets": {
+    "ai.onnx": 21
+  },
+  "appended_checkpoint_outputs": 51,
+  "fallback_output_annotations": [],
+  "node_graph_unchanged": true,
+  "in_memory_augmented_model_sha256": "a5d00fcc9a93fa1b57a1d02d052860b4f13d37db490c39b965479f3f833a856c",
+  "ort_inference_seconds": 0.024552299990318716,
+  "comparisons": [
+    {
+      "tensor": "memory_QuantizeLinear_Output",
+      "topological_index": 470,
+      "node_name": "memory_QuantizeLinear",
+      "operator": "QuantizeLinear",
+      "checkpoint": "hardware_decoder_0094.npz",
+      "checkpoint_sha256": "350318b1305ecd254d57546750b819b265d142c32fc84b1a8344912289870bad",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "int16",
+        "ort_dtype": "int16",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": [],
+        "signed_int16_difference_histogram": {}
+      }
+    },
+    {
+      "tensor": "/Shape_output_0",
+      "topological_index": 471,
+      "node_name": "/Shape",
+      "operator": "Shape",
+      "checkpoint": "hardware_decoder_0095.npz",
+      "checkpoint_sha256": "5a434d1f329dd424c9d9df1c2eb58a2f823c7084cc400bc803a50dbc579bf600",
+      "comparison": {
+        "actual_shape": [
+          2
+        ],
+        "ort_shape": [
+          2
+        ],
+        "actual_dtype": "int64",
+        "ort_dtype": "int64",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 2,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/embed/embed.0/Gather_output_0",
+      "topological_index": 668,
+      "node_name": "/embed/embed.0/Gather",
+      "operator": "Gather",
+      "checkpoint": "hardware_decoder_0096.npz",
+      "checkpoint_sha256": "b68876a706a53d801ff6a3c52695285886a4658bef64012e5731bf8b7d73ec1b",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "memory_DequantizeLinear_Output",
+      "topological_index": 669,
+      "node_name": "memory_DequantizeLinear",
+      "operator": "DequantizeLinear",
+      "checkpoint": "hardware_decoder_0097.npz",
+      "checkpoint_sha256": "b2115c5355ba6f9c4d0d201fa2303e53759f29962dbf9820fe6699df5fc3d185",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/Gather_output_0",
+      "topological_index": 670,
+      "node_name": "/Gather",
+      "operator": "Gather",
+      "checkpoint": "hardware_decoder_0098.npz",
+      "checkpoint_sha256": "b1ca6bf4dbefe3a930ffb763307527fb158d81dc0aed4ce4b3e72ae183a9f5b4",
+      "comparison": {
+        "actual_shape": [],
+        "ort_shape": [],
+        "actual_dtype": "int64",
+        "ort_dtype": "int64",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 1,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/embed/embed.0/Gather_output_0_QuantizeLinear_Output",
+      "topological_index": 732,
+      "node_name": "/embed/embed.0/Gather_output_0_QuantizeLinear",
+      "operator": "QuantizeLinear",
+      "checkpoint": "hardware_decoder_0099.npz",
+      "checkpoint_sha256": "9dda2ca8b25be8540bdc1a558e18a7e27dd777f4ab88ced31376ca18254b288e",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "int16",
+        "ort_dtype": "int16",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": [],
+        "signed_int16_difference_histogram": {}
+      }
+    },
+    {
+      "tensor": "/Cast_output_0",
+      "topological_index": 733,
+      "node_name": "/Cast",
+      "operator": "Cast",
+      "checkpoint": "hardware_decoder_0100.npz",
+      "checkpoint_sha256": "459d1ad9bd1ea235428e016e03c918e088d349cf8cbd0ee5f6e879b9266a0a7c",
+      "comparison": {
+        "actual_shape": [],
+        "ort_shape": [],
+        "actual_dtype": "int64",
+        "ort_dtype": "int64",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 1,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/decoders.0/src_attn/linear_k/MatMul_output_0",
+      "topological_index": 734,
+      "node_name": "/decoders.0/src_attn/linear_k/MatMul",
+      "operator": "MatMul",
+      "checkpoint": "hardware_decoder_0101.npz",
+      "checkpoint_sha256": "34f33d9656386108e4a639514681b73ef52a7a2d68256a37589697a5330e1cb9",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 13376,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 3.337860107421875e-06,
+        "rms_error": 1.1453393511099692e-07,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.11250818520784378,
+            "ort": 0.11250817775726318,
+            "delta": 7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": 0.020582836121320724,
+            "ort": 0.020582839846611023,
+            "delta": -3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.06103235110640526,
+            "ort": 0.06103234365582466,
+            "delta": 7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": -0.04946841299533844,
+            "ort": -0.04946840927004814,
+            "delta": -3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": -2.726274251937866,
+            "ort": -2.726273536682129,
+            "delta": -7.152557373046875e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.06847905367612839,
+            "ort": -0.06847904622554779,
+            "delta": -7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": -0.14369997382164001,
+            "ort": -0.14369995892047882,
+            "delta": -1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": 0.06547202169895172,
+            "ort": 0.06547203660011292,
+            "delta": -1.4901161193847656e-08
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.0/src_attn/linear_v/MatMul_output_0",
+      "topological_index": 735,
+      "node_name": "/decoders.0/src_attn/linear_v/MatMul",
+      "operator": "MatMul",
+      "checkpoint": "hardware_decoder_0102.npz",
+      "checkpoint_sha256": "a6d0413ba16ab8f1a54451518ec28cdba82534e65e8ea1a89704a8cb1ac17a13",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 13586,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 3.814697265625e-06,
+        "rms_error": 8.51308918045783e-08,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": -0.00476879021152854,
+            "ort": -0.004768786020576954,
+            "delta": -4.190951585769653e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.06871175765991211,
+            "ort": 0.06871172785758972,
+            "delta": 2.9802322387695312e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": 0.04615835100412369,
+            "ort": 0.04615837335586548,
+            "delta": -2.2351741790771484e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.03513598069548607,
+            "ort": 0.03513598442077637,
+            "delta": -3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": -0.030149400234222412,
+            "ort": -0.030149396508932114,
+            "delta": -3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.008097713813185692,
+            "ort": -0.008097718469798565,
+            "delta": 4.6566128730773926e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.020950419828295708,
+            "ort": 0.020950408652424812,
+            "delta": 1.1175870895385742e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": 0.062473561614751816,
+            "ort": 0.062473587691783905,
+            "delta": -2.60770320892334e-08
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.1/src_attn/linear_k/MatMul_output_0",
+      "topological_index": 736,
+      "node_name": "/decoders.1/src_attn/linear_k/MatMul",
+      "operator": "MatMul",
+      "checkpoint": "hardware_decoder_0103.npz",
+      "checkpoint_sha256": "57313f550de94f90432258ecf7c4f840ce3edb503af8145964e0016721e23831",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 13729,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 8.58306884765625e-06,
+        "rms_error": 2.4745827981220017e-07,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.041579630225896835,
+            "ort": 0.04157964512705803,
+            "delta": -1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": -0.02504371665418148,
+            "ort": -0.02504371851682663,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": 0.008721393533051014,
+            "ort": 0.008721405640244484,
+            "delta": -1.210719347000122e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.010953638702630997,
+            "ort": 0.010953646153211594,
+            "delta": -7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": -0.011527834460139275,
+            "ort": -0.011527824215590954,
+            "delta": -1.0244548320770264e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": 0.02001088857650757,
+            "ort": 0.020010890439152718,
+            "delta": -1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": -0.05656837671995163,
+            "ort": -0.05656839907169342,
+            "delta": 2.2351741790771484e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": 0.0009402876021340489,
+            "ort": 0.000940294936299324,
+            "delta": -7.334165275096893e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.1/src_attn/linear_v/MatMul_output_0",
+      "topological_index": 737,
+      "node_name": "/decoders.1/src_attn/linear_v/MatMul",
+      "operator": "MatMul",
+      "checkpoint": "hardware_decoder_0104.npz",
+      "checkpoint_sha256": "8a892441591e88ac61b78529e60dd4f467562c7b076d7b7d0db646024ce9b8d7",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 13719,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 2.384185791015625e-06,
+        "rms_error": 1.55933756128136e-07,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": -0.0654338002204895,
+            "ort": -0.0654338151216507,
+            "delta": 1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -0.04932205751538277,
+            "ort": -0.04932212829589844,
+            "delta": 7.078051567077637e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": -0.03191344812512398,
+            "ort": -0.031913481652736664,
+            "delta": 3.3527612686157227e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.08273531496524811,
+            "ort": 0.08273530006408691,
+            "delta": 1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": -0.04869881272315979,
+            "ort": -0.04869887977838516,
+            "delta": 6.705522537231445e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.06911181658506393,
+            "ort": 0.06911171972751617,
+            "delta": 9.685754776000977e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": -0.9265895485877991,
+            "ort": -0.9265894889831543,
+            "delta": -5.960464477539063e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              9
+            ],
+            "actual": 0.22408007085323334,
+            "ort": 0.22408002614974976,
+            "delta": 4.470348358154297e-08
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.2/src_attn/linear_k/MatMul_output_0",
+      "topological_index": 738,
+      "node_name": "/decoders.2/src_attn/linear_k/MatMul",
+      "operator": "MatMul",
+      "checkpoint": "hardware_decoder_0105.npz",
+      "checkpoint_sha256": "ace1fe28ba45f536f684ec9b6eec014f07fa3d25cba54ea75922e8d278f7b065",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 13624,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 4.76837158203125e-06,
+        "rms_error": 2.745234170871273e-07,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.12819521129131317,
+            "ort": 0.12819519639015198,
+            "delta": 1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": -0.9618518352508545,
+            "ort": -0.9618515372276306,
+            "delta": -2.980232238769531e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -0.023430749773979187,
+            "ort": -0.02343074604868889,
+            "delta": -3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 1.1789531707763672,
+            "ort": 1.1789530515670776,
+            "delta": 1.1920928955078125e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.015371417626738548,
+            "ort": 0.015371423214673996,
+            "delta": -5.587935447692871e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": 0.11620963364839554,
+            "ort": 0.11620961129665375,
+            "delta": 2.2351741790771484e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": -0.07867151498794556,
+            "ort": -0.07867158204317093,
+            "delta": 6.705522537231445e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": -0.7735216617584229,
+            "ort": -0.7735213041305542,
+            "delta": -3.5762786865234375e-07
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.2/src_attn/linear_v/MatMul_output_0",
+      "topological_index": 739,
+      "node_name": "/decoders.2/src_attn/linear_v/MatMul",
+      "operator": "MatMul",
+      "checkpoint": "hardware_decoder_0106.npz",
+      "checkpoint_sha256": "3f94be9a9bfbcf4ee72a4dc727561da9bfffe17285df16e1daead8ba1136b0f7",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 13681,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 1.430511474609375e-06,
+        "rms_error": 2.0016818234633596e-07,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.398982435464859,
+            "ort": 0.3989824056625366,
+            "delta": 2.9802322387695312e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": -0.008802722208201885,
+            "ort": -0.008802779018878937,
+            "delta": 5.681067705154419e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -0.19382502138614655,
+            "ort": -0.19382499158382416,
+            "delta": -2.9802322387695312e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.20017686486244202,
+            "ort": 0.20017680525779724,
+            "delta": 5.960464477539063e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.14247356355190277,
+            "ort": -0.14247354865074158,
+            "delta": -1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": -0.32728859782218933,
+            "ort": -0.32728856801986694,
+            "delta": -2.9802322387695312e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              9
+            ],
+            "actual": -1.0391700267791748,
+            "ort": -1.0391697883605957,
+            "delta": -2.384185791015625e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              10
+            ],
+            "actual": 0.15965178608894348,
+            "ort": 0.1596517413854599,
+            "delta": 4.470348358154297e-08
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.3/src_attn/linear_k/MatMul_output_0",
+      "topological_index": 740,
+      "node_name": "/decoders.3/src_attn/linear_k/MatMul",
+      "operator": "MatMul",
+      "checkpoint": "hardware_decoder_0107.npz",
+      "checkpoint_sha256": "c9bf5bbc405f514a73822cbf3d2832a211372f8f0b940820de4bc8c7c5b4578a",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 13636,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 3.814697265625e-06,
+        "rms_error": 2.8280145759893896e-07,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.8475894331932068,
+            "ort": 0.8475892543792725,
+            "delta": 1.7881393432617188e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 2.2214150428771973,
+            "ort": 2.22141432762146,
+            "delta": 7.152557373046875e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": 0.2110626995563507,
+            "ort": 0.21106268465518951,
+            "delta": 1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.8930050134658813,
+            "ort": 0.8930048942565918,
+            "delta": 1.1920928955078125e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": -0.020416339859366417,
+            "ort": -0.020416345447301865,
+            "delta": 5.587935447692871e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.22825933992862701,
+            "ort": 0.2282593697309494,
+            "delta": -2.9802322387695312e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": 0.06465393304824829,
+            "ort": 0.06465400010347366,
+            "delta": -6.705522537231445e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.1092286929488182,
+            "ort": 0.1092287003993988,
+            "delta": -7.450580596923828e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.3/src_attn/linear_v/MatMul_output_0",
+      "topological_index": 741,
+      "node_name": "/decoders.3/src_attn/linear_v/MatMul",
+      "operator": "MatMul",
+      "checkpoint": "hardware_decoder_0108.npz",
+      "checkpoint_sha256": "4c28a2e7d6da92438e3058ce865a0a939e561b09997267402b2b6673a4d6616b",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 13723,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 1.6689300537109375e-06,
+        "rms_error": 2.1810402155413126e-07,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.025421984493732452,
+            "ort": 0.025421902537345886,
+            "delta": 8.195638656616211e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.08840353786945343,
+            "ort": 0.08840354532003403,
+            "delta": -7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -0.1635889708995819,
+            "ort": -0.1635890156030655,
+            "delta": 4.470348358154297e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.3035745620727539,
+            "ort": 0.3035745918750763,
+            "delta": -2.9802322387695312e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.46357372403144836,
+            "ort": 0.4635738134384155,
+            "delta": -8.940696716308594e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": -0.10382917523384094,
+            "ort": -0.10382921248674393,
+            "delta": 3.725290298461914e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.1730828732252121,
+            "ort": -0.1730828583240509,
+            "delta": -1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": -0.15955743193626404,
+            "ort": -0.15955746173858643,
+            "delta": 2.9802322387695312e-08
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.4/src_attn/linear_k/MatMul_output_0",
+      "topological_index": 742,
+      "node_name": "/decoders.4/src_attn/linear_k/MatMul",
+      "operator": "MatMul",
+      "checkpoint": "hardware_decoder_0109.npz",
+      "checkpoint_sha256": "d698b360706fb7a753009ee613eebecbf955fab1a53750d8cdbeb7b67f56039f",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 13575,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 3.814697265625e-06,
+        "rms_error": 3.393460431948849e-07,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 1.1736220121383667,
+            "ort": 1.173621654510498,
+            "delta": 3.5762786865234375e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.49882742762565613,
+            "ort": 0.4988273084163666,
+            "delta": 1.1920928955078125e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": 0.8147647976875305,
+            "ort": 0.8147646188735962,
+            "delta": 1.7881393432617188e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": -1.0542049407958984,
+            "ort": -1.0542056560516357,
+            "delta": 7.152557373046875e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.4566509425640106,
+            "ort": 0.45665091276168823,
+            "delta": 2.9802322387695312e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": -1.3247419595718384,
+            "ort": -1.324742317199707,
+            "delta": 3.5762786865234375e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": -1.1841652393341064,
+            "ort": -1.1841647624969482,
+            "delta": -4.76837158203125e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              11
+            ],
+            "actual": 0.44041794538497925,
+            "ort": 0.4404177665710449,
+            "delta": 1.7881393432617188e-07
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.4/src_attn/linear_v/MatMul_output_0",
+      "topological_index": 743,
+      "node_name": "/decoders.4/src_attn/linear_v/MatMul",
+      "operator": "MatMul",
+      "checkpoint": "hardware_decoder_0110.npz",
+      "checkpoint_sha256": "5a60f2e51732087167ad1d90deff627c28e81071ba8f1ad03f34e58dff0f77c4",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 13939,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 1.9073486328125e-06,
+        "rms_error": 3.003110623140953e-07,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.7732990384101868,
+            "ort": 0.7732990980148315,
+            "delta": -5.960464477539063e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": 0.07859356701374054,
+            "ort": 0.07859348505735397,
+            "delta": 8.195638656616211e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.26288726925849915,
+            "ort": -0.26288729906082153,
+            "delta": 2.9802322387695312e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": -2.301978349685669,
+            "ort": -2.3019790649414062,
+            "delta": 7.152557373046875e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              9
+            ],
+            "actual": -0.011639020405709743,
+            "ort": -0.011638998985290527,
+            "delta": -2.1420419216156006e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              10
+            ],
+            "actual": -0.40876227617263794,
+            "ort": -0.4087620973587036,
+            "delta": -1.7881393432617188e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              11
+            ],
+            "actual": -0.6244683861732483,
+            "ort": -0.6244686245918274,
+            "delta": 2.384185791015625e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              12
+            ],
+            "actual": 0.021283820271492004,
+            "ort": 0.021283768117427826,
+            "delta": 5.21540641784668e-08
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.5/src_attn/linear_k/MatMul_output_0",
+      "topological_index": 744,
+      "node_name": "/decoders.5/src_attn/linear_k/MatMul",
+      "operator": "MatMul",
+      "checkpoint": "hardware_decoder_0111.npz",
+      "checkpoint_sha256": "74ce7b3810ed1dad3ec6779d477680ebbb3da235a4e41197901c08acc9cf1be0",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 13551,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 3.337860107421875e-06,
+        "rms_error": 3.692342750600902e-07,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": -1.4601515531539917,
+            "ort": -1.4601516723632812,
+            "delta": 1.1920928955078125e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": -0.3856225907802582,
+            "ort": -0.385623037815094,
+            "delta": 4.470348358154297e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": 0.7329986095428467,
+            "ort": 0.7329983711242676,
+            "delta": 2.384185791015625e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": -2.485639810562134,
+            "ort": -2.4856393337249756,
+            "delta": -4.76837158203125e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": -0.13584889471530914,
+            "ort": -0.1358490139245987,
+            "delta": 1.1920928955078125e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.28364139795303345,
+            "ort": 0.2836412787437439,
+            "delta": 1.1920928955078125e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": 1.5687416791915894,
+            "ort": 1.5687413215637207,
+            "delta": 3.5762786865234375e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.5863110423088074,
+            "ort": 0.586310863494873,
+            "delta": 1.7881393432617188e-07
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.5/src_attn/linear_v/MatMul_output_0",
+      "topological_index": 745,
+      "node_name": "/decoders.5/src_attn/linear_v/MatMul",
+      "operator": "MatMul",
+      "checkpoint": "hardware_decoder_0112.npz",
+      "checkpoint_sha256": "78418b7a807ea4649085e7758b4699789abf6b5d8a4b355f7403625d044faef6",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 13970,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 2.6226043701171875e-06,
+        "rms_error": 3.9552606700334257e-07,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": -0.8424855470657349,
+            "ort": -0.8424854874610901,
+            "delta": -5.960464477539063e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": -2.47411847114563,
+            "ort": -2.4741177558898926,
+            "delta": -7.152557373046875e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -3.23624587059021,
+            "ort": -3.236245632171631,
+            "delta": -2.384185791015625e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": -1.9100276231765747,
+            "ort": -1.9100277423858643,
+            "delta": 1.1920928955078125e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": -0.019995801150798798,
+            "ort": -0.019995925948023796,
+            "delta": 1.2479722499847412e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 1.698270559310913,
+            "ort": 1.6982700824737549,
+            "delta": 4.76837158203125e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": 0.6338832974433899,
+            "ort": 0.6338832378387451,
+            "delta": 5.960464477539063e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": -0.15188923478126526,
+            "ort": -0.15188929438591003,
+            "delta": 5.960464477539063e-08
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/embed/embed.0/Gather_output_0_DequantizeLinear_Output",
+      "topological_index": 746,
+      "node_name": "/embed/embed.0/Gather_output_0_DequantizeLinear",
+      "operator": "DequantizeLinear",
+      "checkpoint": "hardware_decoder_0113.npz",
+      "checkpoint_sha256": "a505d9c9f4f49694f6fbec02d9bfd63df25b77ca506fc62d594d27df741ac406",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/decoders.0/norm1/LayerNormalization_output_0",
+      "topological_index": 839,
+      "node_name": "/decoders.0/norm1/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0114.npz",
+      "checkpoint_sha256": "87aa254be09aba547a970aa46c848566c5a7595524ff905a673e48a8758c0d9b",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 6372,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 2.384185791015625e-07,
+        "rms_error": 2.3806812354983748e-08,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.0007800208404660225,
+            "ort": 0.0007800241583026946,
+            "delta": -3.3178366720676422e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": -0.00010261539136990905,
+            "ort": -0.00010261527495458722,
+            "delta": -1.1641532182693481e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": 0.0018424877198413014,
+            "ort": 0.0018424890004098415,
+            "delta": -1.280568540096283e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.00016662369307596236,
+            "ort": 0.0001666236639721319,
+            "delta": 2.9103830456733704e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": -0.0008890912868082523,
+            "ort": -0.0008890913450159132,
+            "delta": 5.820766091346741e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": -0.003957606852054596,
+            "ort": -0.003957605455070734,
+            "delta": -1.3969838619232178e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": 0.006858120672404766,
+            "ort": 0.006858121603727341,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.015405239537358284,
+            "ort": 0.015405243262648582,
+            "delta": -3.725290298461914e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.0/self_attn/Softmax_output_0",
+      "topological_index": 895,
+      "node_name": "/decoders.0/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_decoder_0115.npz",
+      "checkpoint_sha256": "fc3ff2d19ae7c6584506c35cafce7934ed1f42b9c6fed4f69f0c4b57bb8ebaa8",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          16,
+          16
+        ],
+        "ort_shape": [
+          1,
+          8,
+          16,
+          16
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 2048,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 713,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 5.882978439331055e-05,
+        "rms_error": 2.0888242009673467e-06,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              2,
+              2
+            ],
+            "actual": 0.17840230464935303,
+            "ort": 0.17840231955051422,
+            "delta": -1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              3
+            ],
+            "actual": 0.1604820340871811,
+            "ort": 0.16048204898834229,
+            "delta": -1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              5,
+              3
+            ],
+            "actual": 0.15015912055969238,
+            "ort": 0.15015913546085358,
+            "delta": -1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              5,
+              4
+            ],
+            "actual": 0.11788448691368103,
+            "ort": 0.11788449436426163,
+            "delta": -7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              5,
+              5
+            ],
+            "actual": 0.10799498111009598,
+            "ort": 0.10799498856067657,
+            "delta": -7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              6,
+              5
+            ],
+            "actual": 0.11220890283584595,
+            "ort": 0.11220888793468475,
+            "delta": 1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              7,
+              0
+            ],
+            "actual": 0.37838447093963623,
+            "ort": 0.37837907671928406,
+            "delta": 5.3942203521728516e-06
+          },
+          {
+            "index": [
+              0,
+              0,
+              7,
+              1
+            ],
+            "actual": 0.08888588100671768,
+            "ort": 0.0888846144080162,
+            "delta": 1.2665987014770508e-06
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.0/norm2/LayerNormalization_output_0",
+      "topological_index": 917,
+      "node_name": "/decoders.0/norm2/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0116.npz",
+      "checkpoint_sha256": "6de2833ddb704b811604fbf5cc73ee9c1faf9819570e2c5170d407c838aae661",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 7677,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.00038954615592956543,
+        "rms_error": 1.0439884286434155e-05,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.04882098361849785,
+            "ort": 0.04882097989320755,
+            "delta": 3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": 0.0002252531994599849,
+            "ort": 0.0002252531558042392,
+            "delta": 4.3655745685100555e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.002971700392663479,
+            "ort": 0.0029717013239860535,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.008114387281239033,
+            "ort": 0.008114389143884182,
+            "delta": -1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.004138578660786152,
+            "ort": -0.004138574935495853,
+            "delta": -3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.012278597801923752,
+            "ort": 0.012278598733246326,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": -0.007497075479477644,
+            "ort": -0.007497079204767942,
+            "delta": 3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              9
+            ],
+            "actual": -0.006203843280673027,
+            "ort": -0.006203844211995602,
+            "delta": 9.313225746154785e-10
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.0/src_attn/Softmax_output_0",
+      "topological_index": 960,
+      "node_name": "/decoders.0/src_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_decoder_0117.npz",
+      "checkpoint_sha256": "96b6240b8207137cf2d0537b4526b66ce14a724fd07b50c0cebd488090da4019",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          16,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          16,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 3968,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 2596,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.00011175870895385742,
+        "rms_error": 8.303115482648407e-06,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "actual": 0.0017060346435755491,
+            "ort": 0.0017060345271602273,
+            "delta": 1.1641532182693481e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              8
+            ],
+            "actual": 0.0011134316446259618,
+            "ort": 0.00111343152821064,
+            "delta": 1.1641532182693481e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              11
+            ],
+            "actual": 0.001888680155389011,
+            "ort": 0.001888680038973689,
+            "delta": 1.1641532182693481e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              13
+            ],
+            "actual": 0.0009707995923236012,
+            "ort": 0.0009707995341159403,
+            "delta": 5.820766091346741e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              16
+            ],
+            "actual": 0.0008619245490990579,
+            "ort": 0.000861924490891397,
+            "delta": 5.820766091346741e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              19
+            ],
+            "actual": 0.0009699412621557713,
+            "ort": 0.0009699412039481103,
+            "delta": 5.820766091346741e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              21
+            ],
+            "actual": 0.0004972380702383816,
+            "ort": 0.0004972380120307207,
+            "delta": 5.820766091346741e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              22
+            ],
+            "actual": 0.000284830603050068,
+            "ort": 0.00028483057394623756,
+            "delta": 2.9103830456733704e-11
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.0/norm3/LayerNormalization_output_0",
+      "topological_index": 981,
+      "node_name": "/decoders.0/norm3/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0118.npz",
+      "checkpoint_sha256": "e4600472b31c1cb8bd844fcb7103a4d948385899508f894e3e921c0ff078307f",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 7233,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0008101314306259155,
+        "rms_error": 2.9602097387787073e-05,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.01050666905939579,
+            "ort": 0.010506668128073215,
+            "delta": 9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -0.0022250066976994276,
+            "ort": -0.0022250073961913586,
+            "delta": 6.984919309616089e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": -0.0002517558168619871,
+            "ort": -0.00025175613700412214,
+            "delta": 3.2014213502407074e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.023067422211170197,
+            "ort": 0.023067420348525047,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              16
+            ],
+            "actual": 0.013789845630526543,
+            "ort": 0.013789844699203968,
+            "delta": 9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              18
+            ],
+            "actual": -0.0018956558778882027,
+            "ort": -0.001895655645057559,
+            "delta": -2.3283064365386963e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              19
+            ],
+            "actual": -0.004968309309333563,
+            "ort": -0.0049683088436722755,
+            "delta": -4.656612873077393e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              21
+            ],
+            "actual": 0.006672683171927929,
+            "ort": 0.006672682706266642,
+            "delta": 4.656612873077393e-10
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.1/norm1/LayerNormalization_output_0",
+      "topological_index": 1002,
+      "node_name": "/decoders.1/norm1/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0119.npz",
+      "checkpoint_sha256": "52289629d7efe12617f3975ed6a3db81cbb0f587659492c12f2a23af18db9839",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 7346,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0009551751427352428,
+        "rms_error": 5.817485725092823e-05,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.02056797780096531,
+            "ort": 0.020567968487739563,
+            "delta": 9.313225746154785e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.024739157408475876,
+            "ort": 0.02473914995789528,
+            "delta": 7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": 0.0037061315961182117,
+            "ort": 0.0037061276379972696,
+            "delta": 3.958120942115784e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.010054973885416985,
+            "ort": 0.010054969228804111,
+            "delta": 4.6566128730773926e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": -0.004696182440966368,
+            "ort": -0.004696184769272804,
+            "delta": 2.3283064365386963e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.009044348262250423,
+            "ort": 0.009044346399605274,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": 0.01286426279693842,
+            "ort": 0.01286426093429327,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.005089370999485254,
+            "ort": 0.005089368671178818,
+            "delta": 2.3283064365386963e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.1/self_attn/Softmax_output_0",
+      "topological_index": 1058,
+      "node_name": "/decoders.1/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_decoder_0120.npz",
+      "checkpoint_sha256": "b72f9611d4759be38d9de67db8e80c989cbecbb4c483a8774cd6549764fddd7c",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          16,
+          16
+        ],
+        "ort_shape": [
+          1,
+          8,
+          16,
+          16
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 2048,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 1049,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0003496408462524414,
+        "rms_error": 3.0094531984875714e-05,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "actual": 0.13326631486415863,
+            "ort": 0.13326629996299744,
+            "delta": 1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              2,
+              0
+            ],
+            "actual": 0.9718654751777649,
+            "ort": 0.9718464016914368,
+            "delta": 1.9073486328125e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              2,
+              1
+            ],
+            "actual": 0.02544861100614071,
+            "ort": 0.025466570630669594,
+            "delta": -1.7959624528884888e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              2,
+              2
+            ],
+            "actual": 0.0026860255748033524,
+            "ort": 0.002686946652829647,
+            "delta": -9.210780262947083e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              0
+            ],
+            "actual": 0.86396723985672,
+            "ort": 0.8639671802520752,
+            "delta": 5.960464477539063e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              1
+            ],
+            "actual": 0.08945419639348984,
+            "ort": 0.08945418894290924,
+            "delta": 7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              2
+            ],
+            "actual": 0.04601674899458885,
+            "ort": 0.04601674526929855,
+            "delta": 3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              3
+            ],
+            "actual": 0.0005618648137897253,
+            "ort": 0.0005618647555820644,
+            "delta": 5.820766091346741e-11
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.1/norm2/LayerNormalization_output_0",
+      "topological_index": 1080,
+      "node_name": "/decoders.1/norm2/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0121.npz",
+      "checkpoint_sha256": "3eccf36ddfaf7a4a1c98a714b807a4398474cec17c48a187934398dc8f78f277",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 7989,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0007207617163658142,
+        "rms_error": 7.420080702914989e-05,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.038891613483428955,
+            "ort": 0.03889160975813866,
+            "delta": 3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.04074801877140999,
+            "ort": 0.04074801132082939,
+            "delta": 7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -0.023327376693487167,
+            "ort": -0.023327380418777466,
+            "delta": 3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.03253700211644173,
+            "ort": 0.03253699839115143,
+            "delta": 3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": -0.003982561640441418,
+            "ort": -0.003982562106102705,
+            "delta": 4.656612873077393e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.014005784876644611,
+            "ort": 0.014005783945322037,
+            "delta": 9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.013975191861391068,
+            "ort": 0.013975189998745918,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": 0.009221305139362812,
+            "ort": 0.009221302345395088,
+            "delta": 2.7939677238464355e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.1/src_attn/Softmax_output_0",
+      "topological_index": 1123,
+      "node_name": "/decoders.1/src_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_decoder_0122.npz",
+      "checkpoint_sha256": "a57e424bc192a19897266b8e018ffe6e1a3763ded66f4f34f5ae8d570426ef4b",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          16,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          16,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 3968,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 3733,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0003151148557662964,
+        "rms_error": 1.9165130233973203e-05,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0,
+              2
+            ],
+            "actual": 0.021082671359181404,
+            "ort": 0.021082673221826553,
+            "delta": -1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              7
+            ],
+            "actual": 0.0006011007353663445,
+            "ort": 0.0006011007935740054,
+            "delta": -5.820766091346741e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              9
+            ],
+            "actual": 0.0014348463155329227,
+            "ort": 0.0014348464319482446,
+            "delta": -1.1641532182693481e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              12
+            ],
+            "actual": 0.0004724426835309714,
+            "ort": 0.00047244271263480186,
+            "delta": -2.9103830456733704e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              13
+            ],
+            "actual": 0.0007015185547061265,
+            "ort": 0.0007015186129137874,
+            "delta": -5.820766091346741e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              15
+            ],
+            "actual": 0.0004361526807770133,
+            "ort": 0.00043615270988084376,
+            "delta": -2.9103830456733704e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              20
+            ],
+            "actual": 0.0008759595802985132,
+            "ort": 0.0008759596385061741,
+            "delta": -5.820766091346741e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              21
+            ],
+            "actual": 0.0008564452291466296,
+            "ort": 0.0008564452873542905,
+            "delta": -5.820766091346741e-11
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.1/norm3/LayerNormalization_output_0",
+      "topological_index": 1144,
+      "node_name": "/decoders.1/norm3/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0123.npz",
+      "checkpoint_sha256": "1ac2996c87f2bf9487384eaa7ecedd8e97602f692b00df26b1929a30fbac5cb7",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 7970,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 10,
+        "max_abs_error": 0.00193805992603302,
+        "rms_error": 0.000163161176693216,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -0.01085209846496582,
+            "ort": -0.01085210032761097,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.015773151069879532,
+            "ort": 0.015773147344589233,
+            "delta": 3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.0008770942222326994,
+            "ort": -0.0008770968997851014,
+            "delta": 2.6775524020195007e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.015420541167259216,
+            "ort": 0.015420539304614067,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": -0.0168643556535244,
+            "ort": -0.016864357516169548,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              9
+            ],
+            "actual": 0.021642576903104782,
+            "ort": 0.021642575040459633,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              10
+            ],
+            "actual": -0.01593107357621193,
+            "ort": -0.01593107543885708,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              13
+            ],
+            "actual": 0.0008828174322843552,
+            "ort": 0.000882814871147275,
+            "delta": 2.561137080192566e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.2/norm1/LayerNormalization_output_0",
+      "topological_index": 1165,
+      "node_name": "/decoders.2/norm1/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0124.npz",
+      "checkpoint_sha256": "b291aa972a9ca2c35cb8b8b318972d2a5742ac377ca12a55adc9c6f087aec9c8",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 7965,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 6,
+        "max_abs_error": 0.0012797117233276367,
+        "rms_error": 0.00014412976723582959,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -0.019114328548312187,
+            "ort": -0.019114326685667038,
+            "delta": -1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.004235267639160156,
+            "ort": 0.004235268570482731,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": -0.011085126549005508,
+            "ort": -0.01108512468636036,
+            "delta": -1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.0011640614829957485,
+            "ort": 0.0011640628799796104,
+            "delta": -1.3969838619232178e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": 0.0030001336708664894,
+            "ort": 0.003000134602189064,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.004856455605477095,
+            "ort": 0.004856456536799669,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": -0.0019766963087022305,
+            "ort": -0.001976695377379656,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              9
+            ],
+            "actual": 0.01468665897846222,
+            "ort": 0.014686660841107368,
+            "delta": -1.862645149230957e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.2/self_attn/Softmax_output_0",
+      "topological_index": 1221,
+      "node_name": "/decoders.2/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_decoder_0125.npz",
+      "checkpoint_sha256": "ad0084ecec3c7fe85bac071357cfeb24ce0c713cdb2e5092152af6454e8b1634",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          16,
+          16
+        ],
+        "ort_shape": [
+          1,
+          8,
+          16,
+          16
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 2048,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 1063,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0010589957237243652,
+        "rms_error": 7.66779706768405e-05,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              2,
+              0
+            ],
+            "actual": 0.584626317024231,
+            "ort": 0.5847160816192627,
+            "delta": -8.976459503173828e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              2,
+              1
+            ],
+            "actual": 0.32964131236076355,
+            "ort": 0.32960572838783264,
+            "delta": 3.55839729309082e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              2,
+              2
+            ],
+            "actual": 0.0857323706150055,
+            "ort": 0.08567828685045242,
+            "delta": 5.408376455307007e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              0
+            ],
+            "actual": 0.7012104392051697,
+            "ort": 0.701190710067749,
+            "delta": 1.9729137420654297e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              1
+            ],
+            "actual": 0.06102927774190903,
+            "ort": 0.06104353442788124,
+            "delta": -1.4256685972213745e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              2
+            ],
+            "actual": 0.16667969524860382,
+            "ort": 0.16663141548633575,
+            "delta": 4.8279762268066406e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              3
+            ],
+            "actual": 0.07108055055141449,
+            "ort": 0.07113435864448547,
+            "delta": -5.380809307098389e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              4,
+              0
+            ],
+            "actual": 0.46047112345695496,
+            "ort": 0.4605861306190491,
+            "delta": -0.00011500716209411621
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.2/norm2/LayerNormalization_output_0",
+      "topological_index": 1243,
+      "node_name": "/decoders.2/norm2/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0126.npz",
+      "checkpoint_sha256": "2922ac0559d10e6d05d115eafdfc49b377f293afdb33e58a59c0ca01b78fbb80",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 8041,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0009831339120864868,
+        "rms_error": 0.0001365848891094755,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.03588614985346794,
+            "ort": 0.03588615357875824,
+            "delta": -3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.031552523374557495,
+            "ort": 0.031552527099847794,
+            "delta": -3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.004630089271813631,
+            "ort": 0.00463009113445878,
+            "delta": -1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.0017137322574853897,
+            "ort": 0.0017137331888079643,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": -0.0032496743369847536,
+            "ort": -0.0032496738713234663,
+            "delta": -4.656612873077393e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": 0.006898427847772837,
+            "ort": 0.006898428313434124,
+            "delta": -4.656612873077393e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.019541649147868156,
+            "ort": 0.019541651010513306,
+            "delta": -1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": 0.008774233981966972,
+            "ort": 0.008774238638579845,
+            "delta": -4.6566128730773926e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.2/src_attn/Softmax_output_0",
+      "topological_index": 1286,
+      "node_name": "/decoders.2/src_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_decoder_0127.npz",
+      "checkpoint_sha256": "741d54aa35fe08ca1926c841379ab9a950b2310d0261b78dcdeee7578737ae6b",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          16,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          16,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 3968,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 3750,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.000657394528388977,
+        "rms_error": 4.791261516745591e-05,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "actual": 0.014315037988126278,
+            "ort": 0.014315038919448853,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "actual": 9.196902101393789e-05,
+            "ort": 9.19690282898955e-05,
+            "delta": -7.275957614183426e-12
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              2
+            ],
+            "actual": 0.00011039787204936147,
+            "ort": 0.0001103978866012767,
+            "delta": -1.4551915228366852e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              3
+            ],
+            "actual": 0.00019109009008388966,
+            "ort": 0.0001910901046358049,
+            "delta": -1.4551915228366852e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              4
+            ],
+            "actual": 0.00013557974307332188,
+            "ort": 0.0001355797576252371,
+            "delta": -1.4551915228366852e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "actual": 6.794997170800343e-05,
+            "ort": 6.794997898396105e-05,
+            "delta": -7.275957614183426e-12
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              6
+            ],
+            "actual": 0.00021325224952306598,
+            "ort": 0.0002132522640749812,
+            "delta": -1.4551915228366852e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              7
+            ],
+            "actual": 0.00011692521366057917,
+            "ort": 0.00011692522093653679,
+            "delta": -7.275957614183426e-12
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.2/norm3/LayerNormalization_output_0",
+      "topological_index": 1307,
+      "node_name": "/decoders.2/norm3/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0128.npz",
+      "checkpoint_sha256": "28d7ca2a369868c5947f25e444b2b0d251324f8587e86d4c389c61317c2b81f1",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 7714,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 153,
+        "max_abs_error": 0.005529165267944336,
+        "rms_error": 0.0003759041830120503,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.07853561639785767,
+            "ort": 0.07853560894727707,
+            "delta": 7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.08490288257598877,
+            "ort": 0.08490287512540817,
+            "delta": 7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -0.0349852554500103,
+            "ort": -0.03498525172472,
+            "delta": -3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.025354361161589622,
+            "ort": -0.025354359298944473,
+            "delta": -1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.01232150848954916,
+            "ort": 0.012321509420871735,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": -0.042463697493076324,
+            "ort": -0.04246370121836662,
+            "delta": 3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              13
+            ],
+            "actual": -0.03288070857524872,
+            "ort": -0.03288070484995842,
+            "delta": -3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              14
+            ],
+            "actual": 0.030470270663499832,
+            "ort": 0.030470268800854683,
+            "delta": 1.862645149230957e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.3/norm1/LayerNormalization_output_0",
+      "topological_index": 1328,
+      "node_name": "/decoders.3/norm1/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0129.npz",
+      "checkpoint_sha256": "cfc69be813334cb73a8c2e48f5095803fa2c2f8e9b657da78cdc73133f32ee5a",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 7968,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 1,
+        "max_abs_error": 0.0014376789331436157,
+        "rms_error": 0.0001943203766846173,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.03034750372171402,
+            "ort": 0.03034749999642372,
+            "delta": 3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.03453589975833893,
+            "ort": 0.03453589603304863,
+            "delta": 3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.0068856822326779366,
+            "ort": 0.006885681301355362,
+            "delta": 9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": -0.0034958028700202703,
+            "ort": -0.003495803801342845,
+            "delta": 9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.008446121588349342,
+            "ort": 0.008446120657026768,
+            "delta": 9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": 0.003160560969263315,
+            "ort": 0.0031605600379407406,
+            "delta": 9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": -0.00039706655661575496,
+            "ort": -0.0003970676043536514,
+            "delta": 1.0477378964424133e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": 0.013358714058995247,
+            "ort": 0.013358713127672672,
+            "delta": 9.313225746154785e-10
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.3/self_attn/Softmax_output_0",
+      "topological_index": 1384,
+      "node_name": "/decoders.3/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_decoder_0130.npz",
+      "checkpoint_sha256": "edb30cf41177b7e2c897b9e26a3d6cbe5db17dd9c52181faf21fa3334157a423",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          16,
+          16
+        ],
+        "ort_shape": [
+          1,
+          8,
+          16,
+          16
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 2048,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 1066,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 1,
+        "max_abs_error": 0.001457899808883667,
+        "rms_error": 0.000118910729334159,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              2,
+              0
+            ],
+            "actual": 0.3886171281337738,
+            "ort": 0.388863205909729,
+            "delta": -0.0002460777759552002
+          },
+          {
+            "index": [
+              0,
+              0,
+              2,
+              1
+            ],
+            "actual": 0.5997081995010376,
+            "ort": 0.5994629263877869,
+            "delta": 0.0002452731132507324
+          },
+          {
+            "index": [
+              0,
+              0,
+              2,
+              2
+            ],
+            "actual": 0.011674626730382442,
+            "ort": 0.01167390588670969,
+            "delta": 7.208436727523804e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              0
+            ],
+            "actual": 0.06837254017591476,
+            "ort": 0.06834862381219864,
+            "delta": 2.3916363716125488e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              1
+            ],
+            "actual": 0.9166889786720276,
+            "ort": 0.9166868925094604,
+            "delta": 2.086162567138672e-06
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              2
+            ],
+            "actual": 0.012950479052960873,
+            "ort": 0.012972953729331493,
+            "delta": -2.2474676370620728e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              3
+            ],
+            "actual": 0.0019880279432982206,
+            "ort": 0.0019914780277758837,
+            "delta": -3.45008447766304e-06
+          },
+          {
+            "index": [
+              0,
+              0,
+              4,
+              0
+            ],
+            "actual": 0.18888066709041595,
+            "ort": 0.18893255293369293,
+            "delta": -5.188584327697754e-05
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.3/norm2/LayerNormalization_output_0",
+      "topological_index": 1406,
+      "node_name": "/decoders.3/norm2/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0131.npz",
+      "checkpoint_sha256": "953174abc026d3d3c7bb0999d6e89e600546885913773fa4eb16bd20adab1dc4",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 7950,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 2,
+        "max_abs_error": 0.0013275258243083954,
+        "rms_error": 0.00017934807666609225,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.02697233483195305,
+            "ort": 0.0269723329693079,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.006462752819061279,
+            "ort": 0.006462751887738705,
+            "delta": 9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.004280410706996918,
+            "ort": 0.00428041024133563,
+            "delta": 4.656612873077393e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.007370102219283581,
+            "ort": 0.007370101287961006,
+            "delta": 9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.011079726740717888,
+            "ort": -0.011079728603363037,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.015612689778208733,
+            "ort": 0.015612688846886158,
+            "delta": 9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": 0.01860601268708706,
+            "ort": 0.01860601082444191,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              9
+            ],
+            "actual": -0.0032996535301208496,
+            "ort": -0.0032996544614434242,
+            "delta": 9.313225746154785e-10
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.3/src_attn/Softmax_output_0",
+      "topological_index": 1449,
+      "node_name": "/decoders.3/src_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_decoder_0132.npz",
+      "checkpoint_sha256": "816c67aea5acb20e7436c28188c7b9de09f3b50d56a054ba6f17ea9c732f0e3a",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          16,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          16,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 3968,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 3771,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0007873028516769409,
+        "rms_error": 5.703803797919382e-05,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "actual": 0.0014586923643946648,
+            "ort": 0.001458692247979343,
+            "delta": 1.1641532182693481e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "actual": 0.000526844582054764,
+            "ort": 0.0005268445238471031,
+            "delta": 5.820766091346741e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              3
+            ],
+            "actual": 0.0007986315176822245,
+            "ort": 0.0007986314594745636,
+            "delta": 5.820766091346741e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              4
+            ],
+            "actual": 0.00024226735695265234,
+            "ort": 0.0002422673424007371,
+            "delta": 1.4551915228366852e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "actual": 0.00019936070020776242,
+            "ort": 0.00019936065655201674,
+            "delta": 4.3655745685100555e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              6
+            ],
+            "actual": 0.000673065020237118,
+            "ort": 0.0006730649620294571,
+            "delta": 5.820766091346741e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              7
+            ],
+            "actual": 0.00042548312922008336,
+            "ort": 0.00042548307101242244,
+            "delta": 5.820766091346741e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              8
+            ],
+            "actual": 0.0002705052320379764,
+            "ort": 0.00027050520293414593,
+            "delta": 2.9103830456733704e-11
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.3/norm3/LayerNormalization_output_0",
+      "topological_index": 1470,
+      "node_name": "/decoders.3/norm3/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0133.npz",
+      "checkpoint_sha256": "c14d7a4769b79993b0ac482ab688f80a697ed0357071bb8007ea0a2e2a2756ba",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 8107,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 691,
+        "max_abs_error": 0.003937661647796631,
+        "rms_error": 0.0006611556273119381,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.03570933640003204,
+            "ort": 0.03570931404829025,
+            "delta": 2.2351741790771484e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.2074948102235794,
+            "ort": 0.20749476552009583,
+            "delta": 4.470348358154297e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": 0.0033802837133407593,
+            "ort": 0.0033802720718085766,
+            "delta": 1.1641532182693481e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.026483779773116112,
+            "ort": 0.026483766734600067,
+            "delta": 1.30385160446167e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.07733609527349472,
+            "ort": 0.07733607292175293,
+            "delta": 2.2351741790771484e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.05538966879248619,
+            "ort": 0.0553896501660347,
+            "delta": 1.862645149230957e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.12417101860046387,
+            "ort": -0.12417102605104446,
+            "delta": 7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.046637944877147675,
+            "ort": 0.04663792625069618,
+            "delta": 1.862645149230957e-08
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.4/norm1/LayerNormalization_output_0",
+      "topological_index": 1491,
+      "node_name": "/decoders.4/norm1/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0134.npz",
+      "checkpoint_sha256": "dd5fa1d828f1faf03383251f159ba37460dad7689a9a91cc1da4e2d28d9896f4",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 8057,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 11,
+        "max_abs_error": 0.0013183429837226868,
+        "rms_error": 0.00026628888975238206,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.022978967055678368,
+            "ort": 0.02297896333038807,
+            "delta": 3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.07151919603347778,
+            "ort": 0.07151918858289719,
+            "delta": 7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -0.04333820939064026,
+            "ort": -0.04333821311593056,
+            "delta": 3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": -0.0023520290851593018,
+            "ort": -0.0023520314134657383,
+            "delta": 2.3283064365386963e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.007453618571162224,
+            "ort": 0.007453616242855787,
+            "delta": 2.3283064365386963e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.015431872569024563,
+            "ort": 0.01543186791241169,
+            "delta": 4.6566128730773926e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": -0.0029710850212723017,
+            "ort": -0.002971087349578738,
+            "delta": 2.3283064365386963e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": 0.04553675279021263,
+            "ort": 0.045536741614341736,
+            "delta": 1.1175870895385742e-08
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.4/self_attn/Softmax_output_0",
+      "topological_index": 1547,
+      "node_name": "/decoders.4/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_decoder_0135.npz",
+      "checkpoint_sha256": "79aee2dfd115e83c7c09f39c5cc1cac060b5628e024a6dfdccb963d8eb28fc24",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          16,
+          16
+        ],
+        "ort_shape": [
+          1,
+          8,
+          16,
+          16
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 2048,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 1065,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 1,
+        "max_abs_error": 0.0016516149044036865,
+        "rms_error": 0.00015273518327258312,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              2,
+              0
+            ],
+            "actual": 0.9808110594749451,
+            "ort": 0.980851411819458,
+            "delta": -4.035234451293945e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              2,
+              1
+            ],
+            "actual": 0.0163838230073452,
+            "ort": 0.016353050246834755,
+            "delta": 3.077276051044464e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              2,
+              2
+            ],
+            "actual": 0.002805151976644993,
+            "ort": 0.002795584499835968,
+            "delta": 9.56747680902481e-06
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              0
+            ],
+            "actual": 0.957310140132904,
+            "ort": 0.9571987986564636,
+            "delta": 0.00011134147644042969
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              1
+            ],
+            "actual": 0.01632017455995083,
+            "ort": 0.01635594293475151,
+            "delta": -3.576837480068207e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              2
+            ],
+            "actual": 0.01650301180779934,
+            "ort": 0.016564607620239258,
+            "delta": -6.159581243991852e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              3
+            ],
+            "actual": 0.009866557084023952,
+            "ort": 0.009880582801997662,
+            "delta": -1.4025717973709106e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              4,
+              0
+            ],
+            "actual": 0.3704012632369995,
+            "ort": 0.36972713470458984,
+            "delta": 0.000674128532409668
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.4/norm2/LayerNormalization_output_0",
+      "topological_index": 1569,
+      "node_name": "/decoders.4/norm2/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0136.npz",
+      "checkpoint_sha256": "39b4fbaba8cd0ca529a471517fd4a6f517775e2fef83fa0af6c05bc391baf043",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 7816,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 1,
+        "max_abs_error": 0.0010820291936397552,
+        "rms_error": 0.00019059066212518097,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": 0.0061350069008767605,
+            "ort": 0.0061350055038928986,
+            "delta": 1.3969838619232178e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": 0.003035685047507286,
+            "ort": 0.00303568784147501,
+            "delta": -2.7939677238464355e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.009415412321686745,
+            "ort": 0.00941541325300932,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.009395170956850052,
+            "ort": 0.009395171888172626,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.021360088139772415,
+            "ort": -0.021360084414482117,
+            "delta": -3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": 0.013477589935064316,
+            "ort": 0.013477591797709465,
+            "delta": -1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": 0.037474244832992554,
+            "ort": 0.03747423738241196,
+            "delta": 7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              9
+            ],
+            "actual": 0.009030797518789768,
+            "ort": 0.009030794724822044,
+            "delta": 2.7939677238464355e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.4/src_attn/Softmax_output_0",
+      "topological_index": 1612,
+      "node_name": "/decoders.4/src_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_decoder_0137.npz",
+      "checkpoint_sha256": "0eb6d89a3c95bd135c9948831564fdd1d7a7f96d91b2611395d44067909328f7",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          16,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          16,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 3968,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 3746,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 3,
+        "max_abs_error": 0.0021357834339141846,
+        "rms_error": 8.954972977797443e-05,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "actual": 0.040450382977724075,
+            "ort": 0.04045039042830467,
+            "delta": -7.450580596923828e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "actual": 0.0028305514715611935,
+            "ort": 0.0028305519372224808,
+            "delta": -4.656612873077393e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              2
+            ],
+            "actual": 0.004486022982746363,
+            "ort": 0.00448602344840765,
+            "delta": -4.656612873077393e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              3
+            ],
+            "actual": 0.00943982694298029,
+            "ort": 0.009439828805625439,
+            "delta": -1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              4
+            ],
+            "actual": 0.008392497897148132,
+            "ort": 0.008392498828470707,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "actual": 0.006927266716957092,
+            "ort": 0.006927267648279667,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              6
+            ],
+            "actual": 0.0071273306384682655,
+            "ort": 0.00712733156979084,
+            "delta": -9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              7
+            ],
+            "actual": 0.006974590476602316,
+            "ort": 0.0069745914079248905,
+            "delta": -9.313225746154785e-10
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.4/norm3/LayerNormalization_output_0",
+      "topological_index": 1633,
+      "node_name": "/decoders.4/norm3/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0138.npz",
+      "checkpoint_sha256": "cce41a0ba9286eec872aa560adec9890669dc870da30a76355dc1ed849c32963",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 8036,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 1295,
+        "max_abs_error": 0.0054739415645599365,
+        "rms_error": 0.0010151473250698685,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.35398733615875244,
+            "ort": 0.3539873957633972,
+            "delta": -5.960464477539063e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -0.15966710448265076,
+            "ort": -0.15966711938381195,
+            "delta": 1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": -0.015244118869304657,
+            "ort": -0.015244124457240105,
+            "delta": 5.587935447692871e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.2424984574317932,
+            "ort": 0.2424984723329544,
+            "delta": -1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.05087842047214508,
+            "ort": 0.050878431648015976,
+            "delta": -1.1175870895385742e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.21072101593017578,
+            "ort": -0.21072104573249817,
+            "delta": 2.9802322387695312e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": 0.06614670157432556,
+            "ort": 0.06614671647548676,
+            "delta": -1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              10
+            ],
+            "actual": -0.07201317697763443,
+            "ort": -0.07201316952705383,
+            "delta": -7.450580596923828e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.5/norm1/LayerNormalization_output_0",
+      "topological_index": 1654,
+      "node_name": "/decoders.5/norm1/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0139.npz",
+      "checkpoint_sha256": "41c4d6b7dbef77cbc35f0073368fb08c0b9dae12847466454f12b98956e5763c",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 8050,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 52,
+        "max_abs_error": 0.0019927918910980225,
+        "rms_error": 0.00034743093127107813,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": -0.002324903616681695,
+            "ort": -0.0023249031510204077,
+            "delta": -4.656612873077393e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -0.16115453839302063,
+            "ort": -0.16115455329418182,
+            "delta": 1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.04940282553434372,
+            "ort": 0.04940282925963402,
+            "delta": -3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.048119910061359406,
+            "ort": 0.0481199212372303,
+            "delta": -1.1175870895385742e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.008109888061881065,
+            "ort": -0.00810989085584879,
+            "delta": 2.7939677238464355e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": 0.06125165894627571,
+            "ort": 0.061251673847436905,
+            "delta": -1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              10
+            ],
+            "actual": -0.00048119574785232544,
+            "ort": -0.00048119184793904424,
+            "delta": -3.899913281202316e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              11
+            ],
+            "actual": 0.04302835464477539,
+            "ort": 0.04302836209535599,
+            "delta": -7.450580596923828e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.5/self_attn/Softmax_output_0",
+      "topological_index": 1710,
+      "node_name": "/decoders.5/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_decoder_0140.npz",
+      "checkpoint_sha256": "64168c2e4b49a5656165bf734bd53135c66f5ee47d66748873dfceeffe0cd29a",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          16,
+          16
+        ],
+        "ort_shape": [
+          1,
+          8,
+          16,
+          16
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 2048,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 1080,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 2,
+        "max_abs_error": 0.002078801393508911,
+        "rms_error": 0.00018894724798338328,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "actual": 0.8429938554763794,
+            "ort": 0.8429460525512695,
+            "delta": 4.780292510986328e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "actual": 0.15700611472129822,
+            "ort": 0.15705397725105286,
+            "delta": -4.786252975463867e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              2,
+              0
+            ],
+            "actual": 0.23093625903129578,
+            "ort": 0.23068004846572876,
+            "delta": 0.0002562105655670166
+          },
+          {
+            "index": [
+              0,
+              0,
+              2,
+              1
+            ],
+            "actual": 0.15485358238220215,
+            "ort": 0.15468178689479828,
+            "delta": 0.00017179548740386963
+          },
+          {
+            "index": [
+              0,
+              0,
+              2,
+              2
+            ],
+            "actual": 0.6142101287841797,
+            "ort": 0.6146382093429565,
+            "delta": -0.00042808055877685547
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              0
+            ],
+            "actual": 0.47455069422721863,
+            "ort": 0.4743661880493164,
+            "delta": 0.00018450617790222168
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              1
+            ],
+            "actual": 0.06124703958630562,
+            "ort": 0.06122322753071785,
+            "delta": 2.3812055587768555e-05
+          },
+          {
+            "index": [
+              0,
+              0,
+              3,
+              2
+            ],
+            "actual": 0.2850010097026825,
+            "ort": 0.28489020466804504,
+            "delta": 0.00011080503463745117
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.5/norm2/LayerNormalization_output_0",
+      "topological_index": 1732,
+      "node_name": "/decoders.5/norm2/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0141.npz",
+      "checkpoint_sha256": "92f0cac8071d7022f194b330aeecbf825d031ea5d198624682b22687d2d51564",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 8139,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0009879246354103088,
+        "rms_error": 0.00017323764675622173,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": -0.006341035943478346,
+            "ort": -0.006341034080833197,
+            "delta": -1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.08897663652896881,
+            "ort": 0.08897662162780762,
+            "delta": 1.4901161193847656e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": -0.005327513907104731,
+            "ort": -0.005327512510120869,
+            "delta": -1.3969838619232178e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.025521138682961464,
+            "ort": 0.025521136820316315,
+            "delta": 1.862645149230957e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.01891842857003212,
+            "ort": 0.018918422982096672,
+            "delta": 5.587935447692871e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.019496873021125793,
+            "ort": -0.019496869295835495,
+            "delta": -3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": -0.03266153857111931,
+            "ort": -0.03266152739524841,
+            "delta": -1.1175870895385742e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              8
+            ],
+            "actual": 0.02611192874610424,
+            "ort": 0.026111923158168793,
+            "delta": 5.587935447692871e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.5/src_attn/Softmax_output_0",
+      "topological_index": 1775,
+      "node_name": "/decoders.5/src_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_decoder_0142.npz",
+      "checkpoint_sha256": "78d09015668d5748a4325f075626aaa66a767f729e7609941626a3ed977bcf53",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          16,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          16,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 3968,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 3846,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 1,
+        "max_abs_error": 0.0014370381832122803,
+        "rms_error": 9.355781501852505e-05,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "actual": 0.000839419022668153,
+            "ort": 0.0008394189644604921,
+            "delta": 5.820766091346741e-11
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "actual": 0.0055090864188969135,
+            "ort": 0.005509085487574339,
+            "delta": 9.313225746154785e-10
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              2
+            ],
+            "actual": 0.022494129836559296,
+            "ort": 0.022494126111268997,
+            "delta": 3.725290298461914e-09
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              3
+            ],
+            "actual": 0.23729068040847778,
+            "ort": 0.237290620803833,
+            "delta": 5.960464477539063e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              4
+            ],
+            "actual": 0.29390567541122437,
+            "ort": 0.2939056158065796,
+            "delta": 5.960464477539063e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              5
+            ],
+            "actual": 0.18285086750984192,
+            "ort": 0.18285083770751953,
+            "delta": 2.9802322387695312e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              6
+            ],
+            "actual": 0.1743147075176239,
+            "ort": 0.1743146777153015,
+            "delta": 2.9802322387695312e-08
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              7
+            ],
+            "actual": 0.05450522154569626,
+            "ort": 0.05450521782040596,
+            "delta": 3.725290298461914e-09
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/decoders.5/norm3/LayerNormalization_output_0",
+      "topological_index": 1796,
+      "node_name": "/decoders.5/norm3/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0143.npz",
+      "checkpoint_sha256": "ff2a5747483b4880417d5c11fa29579015e3523cac3b7af89b6100088f8fbcfd",
+      "comparison": {
+        "actual_shape": [
+          1,
+          16,
+          512
+        ],
+        "ort_shape": [
+          1,
+          16,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 8192,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 8192,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 1377,
+        "max_abs_error": 0.007266104221343994,
+        "rms_error": 0.00121626787486551,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0
+            ],
+            "actual": -0.3566298186779022,
+            "ort": -0.3566311001777649,
+            "delta": 1.2814998626708984e-06
+          },
+          {
+            "index": [
+              0,
+              0,
+              1
+            ],
+            "actual": 0.8527317047119141,
+            "ort": 0.8527299165725708,
+            "delta": 1.7881393432617188e-06
+          },
+          {
+            "index": [
+              0,
+              0,
+              2
+            ],
+            "actual": -0.20453380048274994,
+            "ort": -0.20453405380249023,
+            "delta": 2.5331974029541016e-07
+          },
+          {
+            "index": [
+              0,
+              0,
+              3
+            ],
+            "actual": -0.05323652923107147,
+            "ort": -0.05323798209428787,
+            "delta": 1.4528632164001465e-06
+          },
+          {
+            "index": [
+              0,
+              0,
+              4
+            ],
+            "actual": 0.7959853410720825,
+            "ort": 0.7959834933280945,
+            "delta": 1.8477439880371094e-06
+          },
+          {
+            "index": [
+              0,
+              0,
+              5
+            ],
+            "actual": 0.544045627117157,
+            "ort": 0.5440439581871033,
+            "delta": 1.6689300537109375e-06
+          },
+          {
+            "index": [
+              0,
+              0,
+              6
+            ],
+            "actual": -0.02874729037284851,
+            "ort": -0.02874869480729103,
+            "delta": 1.4044344425201416e-06
+          },
+          {
+            "index": [
+              0,
+              0,
+              7
+            ],
+            "actual": -0.5172765254974365,
+            "ort": -0.5172776579856873,
+            "delta": 1.1324882507324219e-06
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/after_norm/LayerNormalization_output_0",
+      "topological_index": 1820,
+      "node_name": "/after_norm/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_decoder_0144.npz",
+      "checkpoint_sha256": "95a48fed4a71228ad06638c949016160b091e3b41a5be5bb9d9c44ab955cffd7",
+      "comparison": {
+        "actual_shape": [
+          1,
+          512
+        ],
+        "ort_shape": [
+          1,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 512,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 512,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 18,
+        "max_abs_error": 0.0015936829149723053,
+        "rms_error": 0.0004629668140353119,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0
+            ],
+            "actual": 0.08814498782157898,
+            "ort": 0.08877070993185043,
+            "delta": -0.0006257221102714539
+          },
+          {
+            "index": [
+              0,
+              1
+            ],
+            "actual": 0.2039388120174408,
+            "ort": 0.2040531486272812,
+            "delta": -0.00011433660984039307
+          },
+          {
+            "index": [
+              0,
+              2
+            ],
+            "actual": -0.013317722827196121,
+            "ort": -0.013307042419910431,
+            "delta": -1.0680407285690308e-05
+          },
+          {
+            "index": [
+              0,
+              3
+            ],
+            "actual": 0.22722980380058289,
+            "ort": 0.2274017035961151,
+            "delta": -0.00017189979553222656
+          },
+          {
+            "index": [
+              0,
+              4
+            ],
+            "actual": 0.013652913272380829,
+            "ort": 0.01425207406282425,
+            "delta": -0.0005991607904434204
+          },
+          {
+            "index": [
+              0,
+              5
+            ],
+            "actual": -0.12545785307884216,
+            "ort": -0.12554706633090973,
+            "delta": 8.921325206756592e-05
+          },
+          {
+            "index": [
+              0,
+              6
+            ],
+            "actual": 0.12718896567821503,
+            "ort": 0.12782970070838928,
+            "delta": -0.0006407350301742554
+          },
+          {
+            "index": [
+              0,
+              7
+            ],
+            "actual": -0.35650211572647095,
+            "ort": -0.35677987337112427,
+            "delta": 0.0002777576446533203
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "log_probs",
+      "topological_index": 1826,
+      "node_name": "/LogSoftmax",
+      "operator": "LogSoftmax",
+      "checkpoint": "hardware_decoder_0145.npz",
+      "checkpoint_sha256": "91eb6cdeef59d89c6c7ea2cc8066ffc5f8a6ff733d605175654d5ae4167b98de",
+      "comparison": {
+        "actual_shape": [
+          1,
+          5000
+        ],
+        "ort_shape": [
+          1,
+          5000
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 5000,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 5000,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": false,
+        "failing_elements": 17,
+        "max_abs_error": 0.01969432830810547,
+        "rms_error": 0.004689012749007957,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0
+            ],
+            "actual": -10.646660804748535,
+            "ort": -10.650371551513672,
+            "delta": 0.0037107467651367188
+          },
+          {
+            "index": [
+              0,
+              1
+            ],
+            "actual": -10.646660804748535,
+            "ort": -10.650371551513672,
+            "delta": 0.0037107467651367188
+          },
+          {
+            "index": [
+              0,
+              2
+            ],
+            "actual": -9.376494407653809,
+            "ort": -9.3778657913208,
+            "delta": 0.0013713836669921875
+          },
+          {
+            "index": [
+              0,
+              3
+            ],
+            "actual": -1.8209933042526245,
+            "ort": -1.8223650455474854,
+            "delta": 0.0013717412948608398
+          },
+          {
+            "index": [
+              0,
+              4
+            ],
+            "actual": -7.381966590881348,
+            "ort": -7.3848981857299805,
+            "delta": 0.0029315948486328125
+          },
+          {
+            "index": [
+              0,
+              5
+            ],
+            "actual": -8.622113227844238,
+            "ort": -8.627774238586426,
+            "delta": 0.0056610107421875
+          },
+          {
+            "index": [
+              0,
+              6
+            ],
+            "actual": -8.629910469055176,
+            "ort": -8.631282806396484,
+            "delta": 0.0013723373413085938
+          },
+          {
+            "index": [
+              0,
+              7
+            ],
+            "actual": -7.373000144958496,
+            "ort": -7.374761581420898,
+            "delta": 0.0017614364624023438
+          }
+        ]
+      }
+    }
+  ],
+  "first_numeric_difference": {
+    "tensor": "/decoders.0/src_attn/linear_k/MatMul_output_0",
+    "topological_index": 734,
+    "node_name": "/decoders.0/src_attn/linear_k/MatMul",
+    "operator": "MatMul",
+    "checkpoint": "hardware_decoder_0101.npz",
+    "checkpoint_sha256": "34f33d9656386108e4a639514681b73ef52a7a2d68256a37589697a5330e1cb9",
+    "comparison": {
+      "actual_shape": [
+        1,
+        31,
+        512
+      ],
+      "ort_shape": [
+        1,
+        31,
+        512
+      ],
+      "actual_dtype": "float32",
+      "ort_dtype": "float32",
+      "shape_match": true,
+      "dtype_match": true,
+      "elements": 15872,
+      "all_finite": true,
+      "numerically_equal": false,
+      "numeric_differing_elements": 13376,
+      "bit_exact": false,
+      "atol": 0.001,
+      "rtol": 0.001,
+      "within_diagnostic_tolerance": true,
+      "failing_elements": 0,
+      "max_abs_error": 3.337860107421875e-06,
+      "rms_error": 1.1453393511099692e-07,
+      "first_numeric_differences": [
+        {
+          "index": [
+            0,
+            0,
+            0
+          ],
+          "actual": 0.11250818520784378,
+          "ort": 0.11250817775726318,
+          "delta": 7.450580596923828e-09
+        },
+        {
+          "index": [
+            0,
+            0,
+            2
+          ],
+          "actual": 0.020582836121320724,
+          "ort": 0.020582839846611023,
+          "delta": -3.725290298461914e-09
+        },
+        {
+          "index": [
+            0,
+            0,
+            3
+          ],
+          "actual": 0.06103235110640526,
+          "ort": 0.06103234365582466,
+          "delta": 7.450580596923828e-09
+        },
+        {
+          "index": [
+            0,
+            0,
+            4
+          ],
+          "actual": -0.04946841299533844,
+          "ort": -0.04946840927004814,
+          "delta": -3.725290298461914e-09
+        },
+        {
+          "index": [
+            0,
+            0,
+            5
+          ],
+          "actual": -2.726274251937866,
+          "ort": -2.726273536682129,
+          "delta": -7.152557373046875e-07
+        },
+        {
+          "index": [
+            0,
+            0,
+            6
+          ],
+          "actual": -0.06847905367612839,
+          "ort": -0.06847904622554779,
+          "delta": -7.450580596923828e-09
+        },
+        {
+          "index": [
+            0,
+            0,
+            7
+          ],
+          "actual": -0.14369997382164001,
+          "ort": -0.14369995892047882,
+          "delta": -1.4901161193847656e-08
+        },
+        {
+          "index": [
+            0,
+            0,
+            8
+          ],
+          "actual": 0.06547202169895172,
+          "ort": 0.06547203660011292,
+          "delta": -1.4901161193847656e-08
+        }
+      ]
+    }
+  },
+  "first_int16_difference": null,
+  "first_outside_diagnostic_tolerance": {
+    "tensor": "/decoders.1/norm3/LayerNormalization_output_0",
+    "topological_index": 1144,
+    "node_name": "/decoders.1/norm3/LayerNormalization",
+    "operator": "LayerNormalization",
+    "checkpoint": "hardware_decoder_0123.npz",
+    "checkpoint_sha256": "1ac2996c87f2bf9487384eaa7ecedd8e97602f692b00df26b1929a30fbac5cb7",
+    "comparison": {
+      "actual_shape": [
+        1,
+        16,
+        512
+      ],
+      "ort_shape": [
+        1,
+        16,
+        512
+      ],
+      "actual_dtype": "float32",
+      "ort_dtype": "float32",
+      "shape_match": true,
+      "dtype_match": true,
+      "elements": 8192,
+      "all_finite": true,
+      "numerically_equal": false,
+      "numeric_differing_elements": 7970,
+      "bit_exact": false,
+      "atol": 0.001,
+      "rtol": 0.001,
+      "within_diagnostic_tolerance": false,
+      "failing_elements": 10,
+      "max_abs_error": 0.00193805992603302,
+      "rms_error": 0.000163161176693216,
+      "first_numeric_differences": [
+        {
+          "index": [
+            0,
+            0,
+            2
+          ],
+          "actual": -0.01085209846496582,
+          "ort": -0.01085210032761097,
+          "delta": 1.862645149230957e-09
+        },
+        {
+          "index": [
+            0,
+            0,
+            3
+          ],
+          "actual": 0.015773151069879532,
+          "ort": 0.015773147344589233,
+          "delta": 3.725290298461914e-09
+        },
+        {
+          "index": [
+            0,
+            0,
+            6
+          ],
+          "actual": -0.0008770942222326994,
+          "ort": -0.0008770968997851014,
+          "delta": 2.6775524020195007e-09
+        },
+        {
+          "index": [
+            0,
+            0,
+            7
+          ],
+          "actual": 0.015420541167259216,
+          "ort": 0.015420539304614067,
+          "delta": 1.862645149230957e-09
+        },
+        {
+          "index": [
+            0,
+            0,
+            8
+          ],
+          "actual": -0.0168643556535244,
+          "ort": -0.016864357516169548,
+          "delta": 1.862645149230957e-09
+        },
+        {
+          "index": [
+            0,
+            0,
+            9
+          ],
+          "actual": 0.021642576903104782,
+          "ort": 0.021642575040459633,
+          "delta": 1.862645149230957e-09
+        },
+        {
+          "index": [
+            0,
+            0,
+            10
+          ],
+          "actual": -0.01593107357621193,
+          "ort": -0.01593107543885708,
+          "delta": 1.862645149230957e-09
+        },
+        {
+          "index": [
+            0,
+            0,
+            13
+          ],
+          "actual": 0.0008828174322843552,
+          "ort": 0.000882814871147275,
+          "delta": 2.561137080192566e-09
+        }
+      ]
+    }
+  },
+  "all_checkpoint_tensors_compared": 52,
+  "diagnostic_final_ort_vs_original_golden": {
+    "log_probs": {
+      "actual_shape": [
+        1,
+        5000
+      ],
+      "ort_shape": [
+        1,
+        5000
+      ],
+      "actual_dtype": "float32",
+      "ort_dtype": "float32",
+      "shape_match": true,
+      "dtype_match": true,
+      "elements": 5000,
+      "all_finite": true,
+      "numerically_equal": true,
+      "numeric_differing_elements": 0,
+      "bit_exact": true,
+      "atol": 0.001,
+      "rtol": 0.001,
+      "within_diagnostic_tolerance": true,
+      "failing_elements": 0,
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "first_numeric_differences": []
+    }
+  },
+  "physical_final_vs_diagnostic_ort": {
+    "log_probs": {
+      "actual_shape": [
+        1,
+        5000
+      ],
+      "ort_shape": [
+        1,
+        5000
+      ],
+      "actual_dtype": "float32",
+      "ort_dtype": "float32",
+      "shape_match": true,
+      "dtype_match": true,
+      "elements": 5000,
+      "all_finite": true,
+      "numerically_equal": false,
+      "numeric_differing_elements": 5000,
+      "bit_exact": false,
+      "atol": 0.001,
+      "rtol": 0.001,
+      "within_diagnostic_tolerance": false,
+      "failing_elements": 17,
+      "max_abs_error": 0.01969432830810547,
+      "rms_error": 0.004689012749007957,
+      "first_numeric_differences": [
+        {
+          "index": [
+            0,
+            0
+          ],
+          "actual": -10.646660804748535,
+          "ort": -10.650371551513672,
+          "delta": 0.0037107467651367188
+        },
+        {
+          "index": [
+            0,
+            1
+          ],
+          "actual": -10.646660804748535,
+          "ort": -10.650371551513672,
+          "delta": 0.0037107467651367188
+        },
+        {
+          "index": [
+            0,
+            2
+          ],
+          "actual": -9.376494407653809,
+          "ort": -9.3778657913208,
+          "delta": 0.0013713836669921875
+        },
+        {
+          "index": [
+            0,
+            3
+          ],
+          "actual": -1.8209933042526245,
+          "ort": -1.8223650455474854,
+          "delta": 0.0013717412948608398
+        },
+        {
+          "index": [
+            0,
+            4
+          ],
+          "actual": -7.381966590881348,
+          "ort": -7.3848981857299805,
+          "delta": 0.0029315948486328125
+        },
+        {
+          "index": [
+            0,
+            5
+          ],
+          "actual": -8.622113227844238,
+          "ort": -8.627774238586426,
+          "delta": 0.0056610107421875
+        },
+        {
+          "index": [
+            0,
+            6
+          ],
+          "actual": -8.629910469055176,
+          "ort": -8.631282806396484,
+          "delta": 0.0013723373413085938
+        },
+        {
+          "index": [
+            0,
+            7
+          ],
+          "actual": -7.373000144958496,
+          "ort": -7.374761581420898,
+          "delta": 0.0017614364624023438
+        }
+      ]
+    }
+  },
+  "all_original_sources_unchanged": true,
+  "diagnostic_outputs_saved_as_new_golden": false,
+  "diagnostic_final_bit_exact_original_golden": true,
+  "finished_utc": "2026-09-22T17:44:46.038886+00:00",
+  "elapsed_seconds": 0.6560999000212178
+}

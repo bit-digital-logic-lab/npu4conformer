@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "all_fpga_outputs_bit_exact": true,
+  "output_values": 1089,
+  "metrics": {
+    "context": {
+      "max_abs": 0.0007309913635253906,
+      "mean_abs": 0.0001669225748628378,
+      "relative_l2": 8.207749156697843e-05
+    },
+    "contribution": {
+      "max_abs": 0.00218963623046875,
+      "mean_abs": 0.0003805680898949504,
+      "relative_l2": 4.2888458806699975e-05
+    },
+    "with_output_bias": {
+      "max_abs": 0.00218963623046875,
+      "mean_abs": 0.00038053735261200927,
+      "relative_l2": 4.289110285077554e-05
+    },
+    "probability": {
+      "max_abs": 0.0,
+      "mean_abs": 0.0,
+      "relative_l2": 0.0
+    }
+  },
+  "input_sha256": "65b2a35eb5cd81717c462e7c38efe6ad20f5df4f61b5ecb8a4d4341a6303ef54",
+  "output_sha256": "419e4e707bd95b28d2c84870f049b0096b67ea735e9a7e12dd93220ccf37b059",
+  "max_abs_threshold": 0.1,
+  "relative_l2_threshold": 0.005
+}

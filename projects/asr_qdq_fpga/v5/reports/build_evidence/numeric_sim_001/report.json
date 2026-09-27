@@ -1,0 +1,8 @@
+{
+  "pass_all": true,
+  "checked": 262,
+  "total": 262,
+  "failures": [],
+  "hardware_executed": false,
+  "simulation": "Vivado XSIM + generated AMD floating_point FMA IP"
+}

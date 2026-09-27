@@ -1,0 +1,420 @@
+{
+  "schema": "asr-original-golden-ethernet-v5",
+  "started_utc": "2026-09-22T15:36:14.822920+00:00",
+  "pid": 6892,
+  "completed": true,
+  "physical_fpga_executed": true,
+  "golden_pass": true,
+  "acceptance_pass": true,
+  "scope": "full_chain",
+  "golden_pass_scope": "full_chain",
+  "scope_description": "Original case_0000 Encoder 12 layers -> Decoder 6 layers, one call each",
+  "full_chain_tested": true,
+  "encoder_hardware_executed": true,
+  "ctc_included": false,
+  "new_cropped_input": false,
+  "model_modified": false,
+  "cpu_arithmetic_fallback": false,
+  "golden_reference_regenerated": false,
+  "numerical_implementation": "Encoder V5 physical FMA/MLAS order; Decoder legacy V2 physical arithmetic; original INT16 QDQ graph",
+  "cpu_work": "Static constant folding, storage/indexing and protocol packing; no dynamic numerical fallback",
+  "transport": "IPv4 UDP",
+  "fpga_endpoint": [
+    "169.254.35.4",
+    49152
+  ],
+  "local_host": "169.254.147.66",
+  "deadline_utc": "2026-09-22T20:45:00+00:00",
+  "per_attempt_timeout_seconds": 5.0,
+  "identical_packet_retries": 2,
+  "provenance": {
+    "case_id": "case_0000",
+    "case_dir": "D:\\program\\python\\ASR-ONNX\\software4npu\\temp\\model_a_fpga_vectors\\random200_v1\\cases\\case_0000",
+    "dataset_sha256": "74f63c3686979f2678a850ed2dbc35670e1cedd1227bd2e041864ff5616532ca",
+    "case_sha256": "264b5d4e95b97331ad4662cfbb5680ddc5d84cb0cd10a4d10fb9930c7301e451",
+    "inputs_sha256": "f312ca8cabedd451c360c46fdcffc1f9704ae61ae1d5cb16e703804d9dbe2496",
+    "expected_sha256": "da4e158e5ff4da8b0615e8a0fb70bbf365d7b061524af921bef3565db49c4d99",
+    "model_sha256": {
+      "encoder": "58e3a6bb6a95cdb7c5cc5397793d8daac2cfd1f4e9500ad1a742295396fc0ed2",
+      "decoder": "c59a0001e54cad634304c1b527771ebc22ecac7d165ef444666d0708db99ad3c"
+    },
+    "generator_versions": {
+      "python": "3.12.14",
+      "numpy": "2.5.2",
+      "onnx": "1.22.0",
+      "onnxruntime": "1.30.0"
+    },
+    "golden_source": "User existing ONNX Runtime CPU expected.npz, not custom Python executor",
+    "npz_binary_tensor_hashes_verified": true
+  },
+  "frozen_root": "D:\\fpga\\fproject\\adder_16\\asr\\releases\\v2_20260922_pre_golden",
+  "freeze_manifest_sha256": "a424940ee9dad52c6069c25d3d55605991567273bc98265b8a67876f04c65dbb",
+  "bitstream_file": "D:\\fpga\\fproject\\adder_16\\asr\\v5\\build\\board_001_fma\\asr_v4_ax7035.bit",
+  "bitstream_file_sha256": "e07da6cad366c43947f358432d0fccc482f4020462cfb8663508602e1119aab5",
+  "bitstream_readback_hash_available": false,
+  "source_sha256": {
+    "D:\\fpga\\fproject\\adder_16\\asr\\v5\\scripts\\run_golden_ethernet.py": "16ad8dbb7b7b8edfae8a06d61bd40d442b17f5fec35c5dfad17efa71d0049fcc",
+    "D:\\fpga\\fproject\\adder_16\\asr\\golden_validation\\scripts\\golden_common.py": "95b3ba47d303c7530952ab7b14a7d2c7dfc9a562bc1532d71d75962e5e4bb66a",
+    "D:\\fpga\\fproject\\adder_16\\asr\\v5\\host\\compat_algorithms.py": "5d37fe1d747ed71add1a1efbc46c36dac815546cebf0c187f846bc1e1eebc344",
+    "D:\\fpga\\fproject\\adder_16\\asr\\v5\\host\\compat_ethernet.py": "18da76c2a3b91a7d1e2f5245d74fa4a2c9af3bca0bec97fcc5b199f66223f5d2",
+    "D:\\fpga\\fproject\\adder_16\\asr\\v5\\host\\ethernet_transport.py": "4fee94b4d09dc5cf30b2799d26b866b0926a8a11a7e883bd8e079d1f75a29af7",
+    "D:\\fpga\\fproject\\adder_16\\asr\\v5\\host\\frozen_imports.py": "a055f5a6f07bedf456b4ff039a255331260282b70822be348c7f280e165c75ff",
+    "D:\\fpga\\fproject\\adder_16\\asr\\v5\\host\\onnx_executor_v5.py": "0b69806073d69e99a94352261024d2643635a67e74714d675402a08dc2b3cbe8"
+  },
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.2",
+    "onnx": "1.22.0"
+  },
+  "acceptance": {
+    "float_atol": 0.001,
+    "float_rtol": 0.001,
+    "integer_exact": true,
+    "dtype_shape_finite_required": true,
+    "criterion_fixed_before_hardware": true
+  },
+  "stages": {
+    "encoder": {
+      "seconds": 1824.4958018999896,
+      "execution": {
+        "backend": "hardware-v5-onnx-compatible",
+        "hardware_executed": true,
+        "static_folded_nodes": 1879,
+        "dynamic_executed_nodes": 3085,
+        "operators": {
+          "Sub": 2,
+          "Div": 25,
+          "Gather": 79,
+          "Unsqueeze": 164,
+          "Shape": 103,
+          "QuantizeLinear": 828,
+          "ConstantOfShape": 13,
+          "DequantizeLinear": 828,
+          "Conv": 38,
+          "Not": 1,
+          "Slice": 39,
+          "Relu": 2,
+          "Squeeze": 13,
+          "Cast": 50,
+          "Equal": 1,
+          "ReduceSum": 1,
+          "Transpose": 97,
+          "Mul": 98,
+          "Concat": 97,
+          "Reshape": 85,
+          "MatMul": 145,
+          "Add": 207,
+          "LayerNormalization": 61,
+          "Sigmoid": 48,
+          "Where": 24,
+          "Softmax": 12,
+          "Split": 12,
+          "BatchNormalization": 12
+        }
+      }
+    },
+    "decoder": {
+      "seconds": 121.44497310003499,
+      "execution": {
+        "backend": "hardware-v4-ethernet",
+        "hardware_executed": true,
+        "static_folded_nodes": 727,
+        "dynamic_executed_nodes": 1100,
+        "operators": {
+          "QuantizeLinear": 302,
+          "Shape": 26,
+          "Gather": 28,
+          "DequantizeLinear": 302,
+          "Cast": 14,
+          "MatMul": 84,
+          "Range": 1,
+          "Mul": 1,
+          "Unsqueeze": 53,
+          "LessOrEqual": 1,
+          "Add": 79,
+          "Slice": 1,
+          "Equal": 1,
+          "LayerNormalization": 19,
+          "Concat": 48,
+          "Reshape": 48,
+          "Transpose": 48,
+          "Div": 12,
+          "Where": 12,
+          "Softmax": 12,
+          "Relu": 6,
+          "Gemm": 1,
+          "LogSoftmax": 1
+        }
+      }
+    }
+  },
+  "golden_comparisons": {
+    "encoder_memory": {
+      "pass_golden": true,
+      "actual_shape": [
+        1,
+        31,
+        512
+      ],
+      "expected_shape": [
+        1,
+        31,
+        512
+      ],
+      "actual_dtype": "float32",
+      "expected_dtype": "float32",
+      "shape_match": true,
+      "dtype_match": true,
+      "atol": 0.001,
+      "rtol": 0.001,
+      "all_finite": true,
+      "bit_exact": true,
+      "elements": 15872,
+      "acceptance": "Every element: abs(actual-golden) <= atol + rtol*abs(golden)",
+      "failing_elements": 0,
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "worst_abs_index": [
+        0,
+        0,
+        0
+      ],
+      "worst_actual": -1.9954135417938232,
+      "worst_expected": -1.9954135417938232,
+      "first_failing_indices": []
+    },
+    "encoder_memory_lengths": {
+      "pass_golden": true,
+      "actual_shape": [
+        1
+      ],
+      "expected_shape": [
+        1
+      ],
+      "actual_dtype": "int64",
+      "expected_dtype": "int64",
+      "shape_match": true,
+      "dtype_match": true,
+      "atol": 0,
+      "rtol": 0,
+      "all_finite": true,
+      "bit_exact": true,
+      "elements": 1,
+      "acceptance": "Exact integer equality, no floating tolerance",
+      "failing_elements": 0
+    },
+    "decoder_log_probs": {
+      "pass_golden": true,
+      "actual_shape": [
+        1,
+        5000
+      ],
+      "expected_shape": [
+        1,
+        5000
+      ],
+      "actual_dtype": "float32",
+      "expected_dtype": "float32",
+      "shape_match": true,
+      "dtype_match": true,
+      "atol": 0.001,
+      "rtol": 0.001,
+      "all_finite": true,
+      "bit_exact": false,
+      "elements": 5000,
+      "acceptance": "Every element: abs(actual-golden) <= atol + rtol*abs(golden)",
+      "failing_elements": 0,
+      "max_abs_error": 0.0043239593505859375,
+      "rms_error": 0.0007597333526711227,
+      "worst_abs_index": [
+        0,
+        33
+      ],
+      "worst_actual": -10.979803085327148,
+      "worst_expected": -10.975479125976562,
+      "first_failing_indices": []
+    }
+  },
+  "live_protocol": {
+    "info": "ASR2",
+    "version": 2,
+    "memory_words": 32768,
+    "ethernet": {
+      "transport": "udp-v4",
+      "session": 229772578,
+      "next_sequence": 4,
+      "active": true,
+      "poisoned": false,
+      "closed": false,
+      "close_confirmed": false,
+      "one_outstanding_batch": true,
+      "batches": 3,
+      "max_batch_commands": 1,
+      "datagrams_sent": 4,
+      "datagrams_received": 4,
+      "retransmissions": 0,
+      "discarded_datagrams": 0,
+      "bytes_sent": 102,
+      "bytes_received": 150
+    }
+  },
+  "encoder_backend": {
+    "backend": "hardware-v5-onnx-compatible",
+    "hardware_executed": true,
+    "commands": {
+      "0": 1,
+      "64": 1,
+      "79": 1,
+      "65": 2081731,
+      "67": 396302,
+      "66": 602446,
+      "70": 32407,
+      "72": 1891,
+      "71": 2390,
+      "68": 50592
+    },
+    "bytes_sent": 1444162850,
+    "bytes_received": 453853442,
+    "scalar_flag_counts": {
+      "0": 483581,
+      "8": 1
+    },
+    "protocol_version": 2,
+    "memory_words": 32768,
+    "physical_fpga_executed": true,
+    "execution_cycles": {
+      "67": 1626500981,
+      "70": 64498357552,
+      "72": 3901080,
+      "71": 359864864,
+      "68": 979104
+    },
+    "execution_calls": {
+      "67": 396302,
+      "70": 32407,
+      "72": 1891,
+      "71": 2390,
+      "68": 50592
+    },
+    "execution_cycles_total": 66489603581,
+    "execution_cycle_counter": "per-command modulo 2^32; summed by host",
+    "elapsed_seconds": 1825.101331599988,
+    "matrix_tile_limits": [
+      31,
+      64,
+      256
+    ],
+    "resident_scope": "intra-operator; host tensors between nodes",
+    "ethernet": {
+      "transport": "udp-v4",
+      "session": 229772578,
+      "next_sequence": 1441180,
+      "active": true,
+      "poisoned": false,
+      "closed": false,
+      "close_confirmed": false,
+      "one_outstanding_batch": true,
+      "batches": 1441179,
+      "max_batch_commands": 60,
+      "datagrams_sent": 1441180,
+      "datagrams_received": 1441180,
+      "retransmissions": 0,
+      "discarded_datagrams": 0,
+      "bytes_sent": 1444162850,
+      "bytes_received": 453853442
+    },
+    "numerical_backend": "V5 physical FMA/MLAS sequences; original INT16 QDQ graph",
+    "max_transfer_words_per_batch": 336,
+    "compat_onnx": true,
+    "cpu_numeric_fallback": false
+  },
+  "decoder_uses_actual_encoder_output": true,
+  "end_provenance_verified": true,
+  "backend": {
+    "backend": "hardware-v4-ethernet",
+    "hardware_executed": true,
+    "commands": {
+      "0": 1,
+      "64": 2,
+      "79": 1,
+      "65": 2381171,
+      "67": 405916,
+      "66": 676518,
+      "70": 32407,
+      "72": 1891,
+      "71": 2390,
+      "68": 54244,
+      "69": 1886
+    },
+    "bytes_sent": 1650452880,
+    "bytes_received": 509461248,
+    "scalar_flag_counts": {
+      "0": 13614,
+      "24": 720,
+      "16": 818
+    },
+    "protocol_version": 2,
+    "memory_words": 32768,
+    "physical_fpga_executed": true,
+    "execution_cycles": {
+      "67": 222198147,
+      "69": 2295796440,
+      "68": 2888087
+    },
+    "execution_calls": {
+      "67": 9614,
+      "69": 1886,
+      "68": 3652
+    },
+    "execution_cycles_total": 2520882674,
+    "execution_cycle_counter": "per-command modulo 2^32; summed by host",
+    "elapsed_seconds": 121.97707600001013,
+    "matrix_tile_limits": [
+      31,
+      64,
+      256
+    ],
+    "resident_scope": "intra-operator; host tensors between nodes",
+    "ethernet": {
+      "transport": "udp-v4",
+      "session": 229772578,
+      "next_sequence": 1649388,
+      "active": true,
+      "poisoned": false,
+      "closed": false,
+      "close_confirmed": false,
+      "one_outstanding_batch": true,
+      "batches": 1649387,
+      "max_batch_commands": 60,
+      "datagrams_sent": 1649388,
+      "datagrams_received": 1649388,
+      "retransmissions": 0,
+      "discarded_datagrams": 0,
+      "bytes_sent": 1650452880,
+      "bytes_received": 509461248
+    },
+    "numerical_backend": "unmodified frozen V2; Ethernet write/read overrides only",
+    "max_transfer_words_per_batch": 336
+  },
+  "ethernet_after_close": {
+    "transport": "udp-v4",
+    "session": 229772578,
+    "next_sequence": 1649389,
+    "active": false,
+    "poisoned": false,
+    "closed": true,
+    "close_confirmed": true,
+    "one_outstanding_batch": true,
+    "batches": 1649387,
+    "max_batch_commands": 60,
+    "datagrams_sent": 1649389,
+    "datagrams_received": 1649389,
+    "retransmissions": 0,
+    "discarded_datagrams": 0,
+    "bytes_sent": 1650452898,
+    "bytes_received": 509461266
+  },
+  "finished_utc": "2026-09-22T16:08:41.907378+00:00",
+  "elapsed_seconds": 1947.0808229999966,
+  "checkpoint_files": 145
+}

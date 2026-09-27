@@ -1,0 +1,3778 @@
+{
+  "scope": "diagnostic-only; NOT new golden acceptance data",
+  "hardware_accessed": false,
+  "original_model_modified": false,
+  "original_golden_modified": false,
+  "frozen_modified": false,
+  "started_utc": "2026-09-22T17:40:43.069826+00:00",
+  "completed": true,
+  "original_run": "D:\\fpga\\fproject\\adder_16\\asr\\v5\\validation_case0001\\runs\\case_0001_full_chain_001",
+  "checkpoints_are_sparse": true,
+  "first_difference_limit": "First among saved checkpoints in original graph topological order, not necessarily first unsaved graph operation",
+  "versions": {
+    "onnx": "1.22.0",
+    "onnxruntime": "1.30.0",
+    "numpy": "2.5.2"
+  },
+  "script_sha256": "d10dae89dbde63f7229a828677005fa81ca8deba913f584fa649f574af5f6114",
+  "source_hashes": {
+    "encoder_onnx": "58e3a6bb6a95cdb7c5cc5397793d8daac2cfd1f4e9500ad1a742295396fc0ed2",
+    "inputs_npz": "0c416a25d6bf1b8c6f0537c77e25020e2ebec5cfb8fd70d32bcf7c16dbba08a3",
+    "original_expected_npz": "947fe5090bd97a097c0b3f0ba42541c3bb39ac5a0d9626cd999255634421641d",
+    "dataset_json": "74f63c3686979f2678a850ed2dbc35670e1cedd1227bd2e041864ff5616532ca",
+    "physical_run_manifest": "f3c09650ed65bedeca1be4b1669d4a9e6717ee65c230e89a00dca74a334a44df"
+  },
+  "ort_configuration": {
+    "provider": "CPUExecutionProvider",
+    "graph_optimization": "ORT_DISABLE_ALL",
+    "execution_mode": "ORT_SEQUENTIAL",
+    "intra_op_num_threads": 4,
+    "inter_op_num_threads": 1,
+    "original_dataset_threads": 4
+  },
+  "int16_opset21_probe": {
+    "pass_probe": true,
+    "opset": 21,
+    "q_dtype": "int16",
+    "q": [
+      2,
+      -12
+    ],
+    "dq": [
+      0.25,
+      -1.5
+    ],
+    "providers": [
+      "CPUExecutionProvider"
+    ]
+  },
+  "checkpoint_files": 93,
+  "shape_inference": "success",
+  "original_opsets": {
+    "ai.onnx": 21
+  },
+  "appended_checkpoint_outputs": 93,
+  "fallback_output_annotations": [],
+  "node_graph_unchanged": true,
+  "in_memory_augmented_model_sha256": "d1c18d5ed3415fd5699fef8eb4e63b65edfa7e54055bf7c22347e51cd4d0d9d7",
+  "ort_inference_seconds": 0.08778820000588894,
+  "comparisons": [
+    {
+      "tensor": "/Sub_output_0",
+      "topological_index": 1289,
+      "node_name": "/Sub",
+      "operator": "Sub",
+      "checkpoint": "hardware_encoder_0001.npz",
+      "checkpoint_sha256": "ed17b66bdb4bc9efc7df9c1feeca5b6518fa6e82d0d8fdd3596fad93681989cc",
+      "comparison": {
+        "actual_shape": [
+          1,
+          128,
+          80
+        ],
+        "ort_shape": [
+          1,
+          128,
+          80
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 10240,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/Div_output_0",
+      "topological_index": 1722,
+      "node_name": "/Div",
+      "operator": "Div",
+      "checkpoint": "hardware_encoder_0002.npz",
+      "checkpoint_sha256": "09fc1d61ba25086340bd39a0e2b3a6bfc67b8e89c8f2740541b311ad5c13e1b9",
+      "comparison": {
+        "actual_shape": [
+          1,
+          128,
+          80
+        ],
+        "ort_shape": [
+          1,
+          128,
+          80
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 10240,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/Gather_output_0",
+      "topological_index": 1881,
+      "node_name": "/Gather",
+      "operator": "Gather",
+      "checkpoint": "hardware_encoder_0003.npz",
+      "checkpoint_sha256": "03ce62c3768caff90e6ec5361fbabbc7493fc4f89280e108743da441c359cd97",
+      "comparison": {
+        "actual_shape": [
+          1,
+          128
+        ],
+        "ort_shape": [
+          1,
+          128
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 128,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/embed/Unsqueeze_output_0",
+      "topological_index": 1882,
+      "node_name": "/encoder/embed/Unsqueeze",
+      "operator": "Unsqueeze",
+      "checkpoint": "hardware_encoder_0004.npz",
+      "checkpoint_sha256": "cdae6aed738a47bc97495851b06e0d8d127c69121163a6194e702756af12c275",
+      "comparison": {
+        "actual_shape": [
+          1,
+          1,
+          128,
+          80
+        ],
+        "ort_shape": [
+          1,
+          1,
+          128,
+          80
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 10240,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/Shape_output_0",
+      "topological_index": 1883,
+      "node_name": "/Shape",
+      "operator": "Shape",
+      "checkpoint": "hardware_encoder_0005.npz",
+      "checkpoint_sha256": "4132e8a88798db7f63c6f60b33e089f1ef56a492e0e1da68888ac0532590f9b3",
+      "comparison": {
+        "actual_shape": [
+          2
+        ],
+        "ort_shape": [
+          2
+        ],
+        "actual_dtype": "int64",
+        "ort_dtype": "int64",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 2,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/embed/Unsqueeze_output_0_QuantizeLinear_Output",
+      "topological_index": 1884,
+      "node_name": "/encoder/embed/Unsqueeze_output_0_QuantizeLinear",
+      "operator": "QuantizeLinear",
+      "checkpoint": "hardware_encoder_0006.npz",
+      "checkpoint_sha256": "60e0818f777872c12377645d4d130214c840f2215817b389955e0727054a001b",
+      "comparison": {
+        "actual_shape": [
+          1,
+          1,
+          128,
+          80
+        ],
+        "ort_shape": [
+          1,
+          1,
+          128,
+          80
+        ],
+        "actual_dtype": "int16",
+        "ort_dtype": "int16",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 10240,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": [],
+        "signed_int16_difference_histogram": {}
+      }
+    },
+    {
+      "tensor": "/ConstantOfShape_output_0",
+      "topological_index": 1885,
+      "node_name": "/ConstantOfShape",
+      "operator": "ConstantOfShape",
+      "checkpoint": "hardware_encoder_0007.npz",
+      "checkpoint_sha256": "a263c99696e107145ab9b93e38b0ae400447e3c5e32cb1317e5ae76350d10e54",
+      "comparison": {
+        "actual_shape": [
+          1,
+          128
+        ],
+        "ort_shape": [
+          1,
+          128
+        ],
+        "actual_dtype": "bool",
+        "ort_dtype": "bool",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 128,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/embed/Unsqueeze_output_0_DequantizeLinear_Output",
+      "topological_index": 1886,
+      "node_name": "/encoder/embed/Unsqueeze_output_0_DequantizeLinear",
+      "operator": "DequantizeLinear",
+      "checkpoint": "hardware_encoder_0008.npz",
+      "checkpoint_sha256": "a48c4880e3df4439e5ae0a3d8de29258e8f245b519e563ba607099f4a623f731",
+      "comparison": {
+        "actual_shape": [
+          1,
+          1,
+          128,
+          80
+        ],
+        "ort_shape": [
+          1,
+          1,
+          128,
+          80
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 10240,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/Unsqueeze_output_0",
+      "topological_index": 1887,
+      "node_name": "/encoder/Unsqueeze",
+      "operator": "Unsqueeze",
+      "checkpoint": "hardware_encoder_0009.npz",
+      "checkpoint_sha256": "0a25d59e7a5d84d0e6b05c0d42997bdeb76aa7bb4e1982aa7e2a663a843a2d44",
+      "comparison": {
+        "actual_shape": [
+          1,
+          1,
+          128
+        ],
+        "ort_shape": [
+          1,
+          1,
+          128
+        ],
+        "actual_dtype": "bool",
+        "ort_dtype": "bool",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 128,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/embed/conv/conv.0/Conv_output_0",
+      "topological_index": 1888,
+      "node_name": "/encoder/embed/conv/conv.0/Conv",
+      "operator": "Conv",
+      "checkpoint": "hardware_encoder_0010.npz",
+      "checkpoint_sha256": "e68186423758f659ed4f2f8be6ff3aae283f4afba95975a525ae00696276ba26",
+      "comparison": {
+        "actual_shape": [
+          1,
+          512,
+          63,
+          39
+        ],
+        "ort_shape": [
+          1,
+          512,
+          63,
+          39
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 1257984,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/Not_output_0",
+      "topological_index": 1889,
+      "node_name": "/encoder/Not",
+      "operator": "Not",
+      "checkpoint": "hardware_encoder_0011.npz",
+      "checkpoint_sha256": "577c4ec07054641cac457ee0b1ee9c65668627d1fdf9382067a61398da301c31",
+      "comparison": {
+        "actual_shape": [
+          1,
+          1,
+          128
+        ],
+        "ort_shape": [
+          1,
+          1,
+          128
+        ],
+        "actual_dtype": "bool",
+        "ort_dtype": "bool",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 128,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/embed/conv/conv.0/Conv_output_0_QuantizeLinear_Output",
+      "topological_index": 1890,
+      "node_name": "/encoder/embed/conv/conv.0/Conv_output_0_QuantizeLinear",
+      "operator": "QuantizeLinear",
+      "checkpoint": "hardware_encoder_0012.npz",
+      "checkpoint_sha256": "6f01e3d0602921faeac7bf049b2b981d00eea1d71ec3ac0808eaa83a0f753c27",
+      "comparison": {
+        "actual_shape": [
+          1,
+          512,
+          63,
+          39
+        ],
+        "ort_shape": [
+          1,
+          512,
+          63,
+          39
+        ],
+        "actual_dtype": "int16",
+        "ort_dtype": "int16",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 1257984,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": [],
+        "signed_int16_difference_histogram": {}
+      }
+    },
+    {
+      "tensor": "/encoder/embed/Slice_output_0",
+      "topological_index": 1891,
+      "node_name": "/encoder/embed/Slice",
+      "operator": "Slice",
+      "checkpoint": "hardware_encoder_0013.npz",
+      "checkpoint_sha256": "8a02788f0b80c1d0f9691bffffdb6bb229d829dd3fa2f7bfafa939e0b96ad1e2",
+      "comparison": {
+        "actual_shape": [
+          1,
+          1,
+          63
+        ],
+        "ort_shape": [
+          1,
+          1,
+          63
+        ],
+        "actual_dtype": "bool",
+        "ort_dtype": "bool",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 63,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/embed/conv/conv.0/Conv_output_0_DequantizeLinear_Output",
+      "topological_index": 1892,
+      "node_name": "/encoder/embed/conv/conv.0/Conv_output_0_DequantizeLinear",
+      "operator": "DequantizeLinear",
+      "checkpoint": "hardware_encoder_0014.npz",
+      "checkpoint_sha256": "c9cdc59c29905cb35665f64d8738b8969108338a39cb76910eadc72b41365dbf",
+      "comparison": {
+        "actual_shape": [
+          1,
+          512,
+          63,
+          39
+        ],
+        "ort_shape": [
+          1,
+          512,
+          63,
+          39
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 1257984,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/embed/Slice_1_output_0",
+      "topological_index": 1893,
+      "node_name": "/encoder/embed/Slice_1",
+      "operator": "Slice",
+      "checkpoint": "hardware_encoder_0015.npz",
+      "checkpoint_sha256": "32bb313c725f19dd6f431e81e12388c3e3dc49c11f10ec13d397ee1be5c66e50",
+      "comparison": {
+        "actual_shape": [
+          1,
+          1,
+          31
+        ],
+        "ort_shape": [
+          1,
+          1,
+          31
+        ],
+        "actual_dtype": "bool",
+        "ort_dtype": "bool",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 31,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/embed/conv/conv.1/Relu_output_0",
+      "topological_index": 1894,
+      "node_name": "/encoder/embed/conv/conv.1/Relu",
+      "operator": "Relu",
+      "checkpoint": "hardware_encoder_0016.npz",
+      "checkpoint_sha256": "722069e7d4f5fc907f1cc546a06be0e47763db5f2d613bb07f1ac3acfe65a4be",
+      "comparison": {
+        "actual_shape": [
+          1,
+          512,
+          63,
+          39
+        ],
+        "ort_shape": [
+          1,
+          512,
+          63,
+          39
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 1257984,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.0/self_attn/Unsqueeze_76_output_0",
+      "topological_index": 1895,
+      "node_name": "/encoder/encoders.0/self_attn/Unsqueeze_76",
+      "operator": "Unsqueeze",
+      "checkpoint": "hardware_encoder_0017.npz",
+      "checkpoint_sha256": "fa700ff06cc2162f45490c4bf1b4739ac5729fb221c8bdf23e097b6c46940654",
+      "comparison": {
+        "actual_shape": [
+          1,
+          1,
+          1,
+          31
+        ],
+        "ort_shape": [
+          1,
+          1,
+          1,
+          31
+        ],
+        "actual_dtype": "bool",
+        "ort_dtype": "bool",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 31,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/Squeeze_output_0",
+      "topological_index": 1896,
+      "node_name": "/encoder/Squeeze",
+      "operator": "Squeeze",
+      "checkpoint": "hardware_encoder_0018.npz",
+      "checkpoint_sha256": "31dc64c0a7beafb32172ba75134cbc45dd16a5170fe11476c3a7a47a53d7767c",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31
+        ],
+        "ort_shape": [
+          1,
+          31
+        ],
+        "actual_dtype": "bool",
+        "ort_dtype": "bool",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 31,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/embed/conv/conv.1/Relu_output_0_QuantizeLinear_Output",
+      "topological_index": 1897,
+      "node_name": "/encoder/embed/conv/conv.1/Relu_output_0_QuantizeLinear",
+      "operator": "QuantizeLinear",
+      "checkpoint": "hardware_encoder_0019.npz",
+      "checkpoint_sha256": "d7613f038a3f990b4bdcaadfe3d046ff95331ecd1a3ba9556d7c007c3be52da6",
+      "comparison": {
+        "actual_shape": [
+          1,
+          512,
+          63,
+          39
+        ],
+        "ort_shape": [
+          1,
+          512,
+          63,
+          39
+        ],
+        "actual_dtype": "int16",
+        "ort_dtype": "int16",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 1257984,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": [],
+        "signed_int16_difference_histogram": {}
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.0/self_attn/Cast_2_output_0",
+      "topological_index": 1898,
+      "node_name": "/encoder/encoders.0/self_attn/Cast_2",
+      "operator": "Cast",
+      "checkpoint": "hardware_encoder_0020.npz",
+      "checkpoint_sha256": "870f9d1be0fef3c1baa83847dbd9b750fbc5580b7a771fc9aca711e6579f09b0",
+      "comparison": {
+        "actual_shape": [
+          1,
+          1,
+          1,
+          31
+        ],
+        "ort_shape": [
+          1,
+          1,
+          1,
+          31
+        ],
+        "actual_dtype": "int64",
+        "ort_dtype": "int64",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 31,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0,
+        "rtol": 0,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.0/norm_ff_macaron/LayerNormalization_output_0",
+      "topological_index": 1962,
+      "node_name": "/encoder/encoders.0/norm_ff_macaron/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0021.npz",
+      "checkpoint_sha256": "ca761687d093bb986a9e81933e5630f96587eb3f679a0f14e866100110c684da",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.0/norm_mha/LayerNormalization_output_0",
+      "topological_index": 2132,
+      "node_name": "/encoder/encoders.0/norm_mha/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0022.npz",
+      "checkpoint_sha256": "e7a7d3331b611a926917d8550c55f6b7b7114bac0dcd4ab9da97bf138fd4486c",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.0/self_attn/Softmax_output_0",
+      "topological_index": 2244,
+      "node_name": "/encoder/encoders.0/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_encoder_0023.npz",
+      "checkpoint_sha256": "e2e1639c5bf44e74ecb9cd0a0ca76c2229c4dee5dd71df92920acd56b24ff50e",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 7688,
+        "all_finite": true,
+        "numerically_equal": false,
+        "numeric_differing_elements": 581,
+        "bit_exact": false,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 1.084028797458878e-38,
+        "rms_error": 5.449373280198231e-40,
+        "first_numeric_differences": [
+          {
+            "index": [
+              0,
+              0,
+              0,
+              11
+            ],
+            "actual": 0.0,
+            "ort": 1.3032075718220799e-43,
+            "delta": -1.3032075718220799e-43
+          },
+          {
+            "index": [
+              0,
+              0,
+              0,
+              26
+            ],
+            "actual": 0.0,
+            "ort": 8.747409481762665e-40,
+            "delta": -8.747409481762665e-40
+          },
+          {
+            "index": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "actual": 0.0,
+            "ort": 3.707688600264712e-39,
+            "delta": -3.707688600264712e-39
+          },
+          {
+            "index": [
+              0,
+              0,
+              1,
+              4
+            ],
+            "actual": 0.0,
+            "ort": 1.064986832886861e-43,
+            "delta": -1.064986832886861e-43
+          },
+          {
+            "index": [
+              0,
+              0,
+              1,
+              5
+            ],
+            "actual": 0.0,
+            "ort": 1.401298464324817e-45,
+            "delta": -1.401298464324817e-45
+          },
+          {
+            "index": [
+              0,
+              0,
+              1,
+              6
+            ],
+            "actual": 0.0,
+            "ort": 8.407790785948902e-45,
+            "delta": -8.407790785948902e-45
+          },
+          {
+            "index": [
+              0,
+              0,
+              1,
+              11
+            ],
+            "actual": 0.0,
+            "ort": 9.540039945123355e-42,
+            "delta": -9.540039945123355e-42
+          },
+          {
+            "index": [
+              0,
+              0,
+              1,
+              18
+            ],
+            "actual": 0.0,
+            "ort": 4.1280851460544786e-41,
+            "delta": -4.1280851460544786e-41
+          }
+        ]
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.0/norm_conv/LayerNormalization_output_0",
+      "topological_index": 2269,
+      "node_name": "/encoder/encoders.0/norm_conv/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0024.npz",
+      "checkpoint_sha256": "9b5f14311a0ac810486d8a822d7bb58b527ad9ddf48c486946249eb61bde395c",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.0/norm_ff/LayerNormalization_output_0",
+      "topological_index": 2313,
+      "node_name": "/encoder/encoders.0/norm_ff/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0025.npz",
+      "checkpoint_sha256": "29c87e3d6b823f03b1cd2e63483bea55ecb0fa52711816da382d8ec8dfffe182",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.0/norm_final/LayerNormalization_output_0",
+      "topological_index": 2340,
+      "node_name": "/encoder/encoders.0/norm_final/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0026.npz",
+      "checkpoint_sha256": "3d246d15c9a4df6989a2845941729e4b448e5844d616912556578c72b50fb5aa",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.1/norm_ff_macaron/LayerNormalization_output_0",
+      "topological_index": 2343,
+      "node_name": "/encoder/encoders.1/norm_ff_macaron/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0027.npz",
+      "checkpoint_sha256": "2e22540e80133719be22e0c74004b8299b5a6c1e4c7e747b79147626e1307caa",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.1/norm_mha/LayerNormalization_output_0",
+      "topological_index": 2370,
+      "node_name": "/encoder/encoders.1/norm_mha/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0028.npz",
+      "checkpoint_sha256": "26ec20ea10d24a1a96c2441d899c1b434fb6e7161e1fa49f30140cefad17d8d7",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.1/self_attn/Softmax_output_0",
+      "topological_index": 2482,
+      "node_name": "/encoder/encoders.1/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_encoder_0029.npz",
+      "checkpoint_sha256": "ca2b770fc9b10990bf3f08f721f0e9f9f4305ceb32352561153a25259d05a2f0",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 7688,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.1/norm_conv/LayerNormalization_output_0",
+      "topological_index": 2507,
+      "node_name": "/encoder/encoders.1/norm_conv/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0030.npz",
+      "checkpoint_sha256": "4f9b0346543406de7544c846193aca0a654a30992cfd265f7b209cbacf96451a",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.1/norm_ff/LayerNormalization_output_0",
+      "topological_index": 2551,
+      "node_name": "/encoder/encoders.1/norm_ff/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0031.npz",
+      "checkpoint_sha256": "ea28714c25642d7503f53f9472b226f133948616c38e2aed86dc4162232aed62",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.1/norm_final/LayerNormalization_output_0",
+      "topological_index": 2578,
+      "node_name": "/encoder/encoders.1/norm_final/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0032.npz",
+      "checkpoint_sha256": "b5b5959c6d5c29fea3fbcaf327b3a3c2dd9e99a19b09062e91e18b46ddcdfbe2",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.2/norm_ff_macaron/LayerNormalization_output_0",
+      "topological_index": 2581,
+      "node_name": "/encoder/encoders.2/norm_ff_macaron/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0033.npz",
+      "checkpoint_sha256": "cffceff649aa79fbbcbd8f3cab8ea91b6222ed6791b51b72cc1dae7478a84860",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.2/norm_mha/LayerNormalization_output_0",
+      "topological_index": 2608,
+      "node_name": "/encoder/encoders.2/norm_mha/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0034.npz",
+      "checkpoint_sha256": "882c36ec77235c9ee7a64ca4495a25bee2b9f8a0f6a756da65c4708a2f16da26",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.2/self_attn/Softmax_output_0",
+      "topological_index": 2720,
+      "node_name": "/encoder/encoders.2/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_encoder_0035.npz",
+      "checkpoint_sha256": "0e2054aa4139d63c878bc93ff3ef36b6110bf6f97807058273878b826448fec8",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 7688,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.2/norm_conv/LayerNormalization_output_0",
+      "topological_index": 2745,
+      "node_name": "/encoder/encoders.2/norm_conv/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0036.npz",
+      "checkpoint_sha256": "c82c3b12fac30b0ef8b2d9c3fde77d12ebfe2d989df54a0a855926711d934e38",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.2/norm_ff/LayerNormalization_output_0",
+      "topological_index": 2789,
+      "node_name": "/encoder/encoders.2/norm_ff/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0037.npz",
+      "checkpoint_sha256": "6725f51abee641282d65111c91212eb0bc9d5239245409c4d5180b7c6309852c",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.2/norm_final/LayerNormalization_output_0",
+      "topological_index": 2816,
+      "node_name": "/encoder/encoders.2/norm_final/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0038.npz",
+      "checkpoint_sha256": "814e5ddcd2705ef17e66433bf506046c03ff551e6bf3f98f038751914c63b3d8",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.3/norm_ff_macaron/LayerNormalization_output_0",
+      "topological_index": 2819,
+      "node_name": "/encoder/encoders.3/norm_ff_macaron/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0039.npz",
+      "checkpoint_sha256": "45f2f88092a94ea95bfd21dd84d190c69592f0e0ade5e485d2e538c464e0bba7",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.3/norm_mha/LayerNormalization_output_0",
+      "topological_index": 2846,
+      "node_name": "/encoder/encoders.3/norm_mha/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0040.npz",
+      "checkpoint_sha256": "be6a391c6eb05e87418beb1b08cfb97c3408ee62d8a595759dbeddacc481966a",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.3/self_attn/Softmax_output_0",
+      "topological_index": 2958,
+      "node_name": "/encoder/encoders.3/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_encoder_0041.npz",
+      "checkpoint_sha256": "b30b3f041991c0014b8342c2886ed1ed9e08c117d50843cf8f86c69bc459201e",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 7688,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.3/norm_conv/LayerNormalization_output_0",
+      "topological_index": 2983,
+      "node_name": "/encoder/encoders.3/norm_conv/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0042.npz",
+      "checkpoint_sha256": "aab27283668b97efdd204c3a39e508f236a92f1c81c94fd7dae3b580cc7385b2",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.3/norm_ff/LayerNormalization_output_0",
+      "topological_index": 3027,
+      "node_name": "/encoder/encoders.3/norm_ff/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0043.npz",
+      "checkpoint_sha256": "8a14cf64bd0b7376248cc153e40bae9f16e24d8db90b33fc9fd1bf8f8e8f6d7f",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.3/norm_final/LayerNormalization_output_0",
+      "topological_index": 3054,
+      "node_name": "/encoder/encoders.3/norm_final/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0044.npz",
+      "checkpoint_sha256": "3a435c60ade39875000bf9ba3fb6c066b6b5ae6001fe7262df4b4546db999104",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.4/norm_ff_macaron/LayerNormalization_output_0",
+      "topological_index": 3057,
+      "node_name": "/encoder/encoders.4/norm_ff_macaron/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0045.npz",
+      "checkpoint_sha256": "dc54286e917b2662bc69824546c193cd931c737c968900a9e71fa38bee4db19f",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.4/norm_mha/LayerNormalization_output_0",
+      "topological_index": 3084,
+      "node_name": "/encoder/encoders.4/norm_mha/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0046.npz",
+      "checkpoint_sha256": "ef99a0a58e408afc3a241c3c41b39dd612937dfc452173e31304d8a2eec3e859",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.4/self_attn/Softmax_output_0",
+      "topological_index": 3196,
+      "node_name": "/encoder/encoders.4/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_encoder_0047.npz",
+      "checkpoint_sha256": "4a70f6c2e6b0cc2d1ff7d39a33d117aba8ebf2db8def3db26586515cbfa3ea63",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 7688,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.4/norm_conv/LayerNormalization_output_0",
+      "topological_index": 3221,
+      "node_name": "/encoder/encoders.4/norm_conv/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0048.npz",
+      "checkpoint_sha256": "6e755add9fb6fd76c98cb57e2bf025f6dc5e5f5cc6da5174e5f00613a3dc22c7",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.4/norm_ff/LayerNormalization_output_0",
+      "topological_index": 3265,
+      "node_name": "/encoder/encoders.4/norm_ff/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0049.npz",
+      "checkpoint_sha256": "85430881982664d208c8dd17877eb7ecfa7f1d027317db150d24012f90d7ee53",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.4/norm_final/LayerNormalization_output_0",
+      "topological_index": 3292,
+      "node_name": "/encoder/encoders.4/norm_final/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0050.npz",
+      "checkpoint_sha256": "c2896ab571af6f11dceaaf4ebfdae75a26ba9fa78f8238574ccaf3fa59fd7ca2",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.5/norm_ff_macaron/LayerNormalization_output_0",
+      "topological_index": 3295,
+      "node_name": "/encoder/encoders.5/norm_ff_macaron/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0051.npz",
+      "checkpoint_sha256": "73157f92fb47f4ca3880624ad3ac5b4b643115a1d66f412ea8b5ece04bf116d4",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.5/norm_mha/LayerNormalization_output_0",
+      "topological_index": 3322,
+      "node_name": "/encoder/encoders.5/norm_mha/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0052.npz",
+      "checkpoint_sha256": "8718d1abe1a9167041c70b5c936f7a56eea98db417f10a7e50422bada9b26aaa",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.5/self_attn/Softmax_output_0",
+      "topological_index": 3434,
+      "node_name": "/encoder/encoders.5/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_encoder_0053.npz",
+      "checkpoint_sha256": "33618b09bb7ef42e4d7c768ca1cfd31a21aba16b36eac4508dea4d68889a7f19",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 7688,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.5/norm_conv/LayerNormalization_output_0",
+      "topological_index": 3459,
+      "node_name": "/encoder/encoders.5/norm_conv/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0054.npz",
+      "checkpoint_sha256": "c36a7fadd5465ba171b9e133d2a347e5dab8ec2353ed5d8527e4d3f72a9256c0",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.5/norm_ff/LayerNormalization_output_0",
+      "topological_index": 3503,
+      "node_name": "/encoder/encoders.5/norm_ff/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0055.npz",
+      "checkpoint_sha256": "ecd7f5cbf71c8f83ab9443f1ddb524f7a854fd9d0864a540122cbb6d700389e9",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.5/norm_final/LayerNormalization_output_0",
+      "topological_index": 3530,
+      "node_name": "/encoder/encoders.5/norm_final/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0056.npz",
+      "checkpoint_sha256": "45372800910d370822ab20caf495341a8c6e83bf746d555f4d8a14bad9b268e8",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.6/norm_ff_macaron/LayerNormalization_output_0",
+      "topological_index": 3533,
+      "node_name": "/encoder/encoders.6/norm_ff_macaron/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0057.npz",
+      "checkpoint_sha256": "ac654cab76b262261a5da36afb2b503bb6444c1785a6298b050435b97dc4e2e3",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.6/norm_mha/LayerNormalization_output_0",
+      "topological_index": 3560,
+      "node_name": "/encoder/encoders.6/norm_mha/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0058.npz",
+      "checkpoint_sha256": "06689b2a85e2c519f5785af13883cdb62956fa4a734c248ba066862943818200",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.6/self_attn/Softmax_output_0",
+      "topological_index": 3672,
+      "node_name": "/encoder/encoders.6/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_encoder_0059.npz",
+      "checkpoint_sha256": "23df7ad119a32c70f81201f47e569e098fbf67595076a69cb778f0ef22838dc7",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 7688,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.6/norm_conv/LayerNormalization_output_0",
+      "topological_index": 3697,
+      "node_name": "/encoder/encoders.6/norm_conv/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0060.npz",
+      "checkpoint_sha256": "111b0e5131cde504e92ef6945662c31ac454945e923141364034ca33dbd488f1",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.6/norm_ff/LayerNormalization_output_0",
+      "topological_index": 3741,
+      "node_name": "/encoder/encoders.6/norm_ff/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0061.npz",
+      "checkpoint_sha256": "baa55dcb89d8b09a03f79fcc924aaa070cd818172cdcd43c10f0c8acbdfcb073",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.6/norm_final/LayerNormalization_output_0",
+      "topological_index": 3768,
+      "node_name": "/encoder/encoders.6/norm_final/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0062.npz",
+      "checkpoint_sha256": "b8fdf59a3f31cc492db85f89fdcc35b5c3af69411b3064865f332da37239dde9",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.7/norm_ff_macaron/LayerNormalization_output_0",
+      "topological_index": 3771,
+      "node_name": "/encoder/encoders.7/norm_ff_macaron/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0063.npz",
+      "checkpoint_sha256": "4da2c5bc587d5707e75dbcdc44e412aff96e0760a459f9fe71a9d9cc76e8afab",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.7/norm_mha/LayerNormalization_output_0",
+      "topological_index": 3798,
+      "node_name": "/encoder/encoders.7/norm_mha/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0064.npz",
+      "checkpoint_sha256": "c936e83f76da5ef0e5a64d3e81b347f4027f7dd29ca2a49447c50ac6ed2766cd",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.7/self_attn/Softmax_output_0",
+      "topological_index": 3910,
+      "node_name": "/encoder/encoders.7/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_encoder_0065.npz",
+      "checkpoint_sha256": "6dbd8d243a6d5f5d22b96a7e549a389649e4145d9c40167f552bf6e4f390c6b6",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 7688,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.7/norm_conv/LayerNormalization_output_0",
+      "topological_index": 3935,
+      "node_name": "/encoder/encoders.7/norm_conv/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0066.npz",
+      "checkpoint_sha256": "3bb0754921f9f78bff64279cd6fc668b910a4cd17a59eaed0008f79b29f67c11",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.7/norm_ff/LayerNormalization_output_0",
+      "topological_index": 3979,
+      "node_name": "/encoder/encoders.7/norm_ff/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0067.npz",
+      "checkpoint_sha256": "4cd7e6f681ace6136d42dba881a43a0693d408d477f28ba6b4e94bc471686021",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.7/norm_final/LayerNormalization_output_0",
+      "topological_index": 4006,
+      "node_name": "/encoder/encoders.7/norm_final/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0068.npz",
+      "checkpoint_sha256": "586f411026f11eb02b2276e7cbeeb7fc7a2d8a7118992c8dcf4c3e8930d8b022",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.8/norm_ff_macaron/LayerNormalization_output_0",
+      "topological_index": 4009,
+      "node_name": "/encoder/encoders.8/norm_ff_macaron/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0069.npz",
+      "checkpoint_sha256": "5df6a2ee6565309c8690195aac76774679e59e04105add90d3da567a89af4cb3",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.8/norm_mha/LayerNormalization_output_0",
+      "topological_index": 4036,
+      "node_name": "/encoder/encoders.8/norm_mha/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0070.npz",
+      "checkpoint_sha256": "7ad556ccb85aefcaeaa7ba3a7c596a6605d4587df2d057bddbca9a93ae2611db",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.8/self_attn/Softmax_output_0",
+      "topological_index": 4148,
+      "node_name": "/encoder/encoders.8/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_encoder_0071.npz",
+      "checkpoint_sha256": "d154fc9658a2ccc26ddb42270674740fdf41eff9d3bd1a1d01b1262822eafb3f",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 7688,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.8/norm_conv/LayerNormalization_output_0",
+      "topological_index": 4173,
+      "node_name": "/encoder/encoders.8/norm_conv/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0072.npz",
+      "checkpoint_sha256": "696f1a516796292d0f880ec9673531350ca9a80ac326987ea0794c9ce126a37e",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.8/norm_ff/LayerNormalization_output_0",
+      "topological_index": 4217,
+      "node_name": "/encoder/encoders.8/norm_ff/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0073.npz",
+      "checkpoint_sha256": "4b623b0ae592e6070827059db49657d3d890f25d3f564ae481731fc9174fbebe",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.8/norm_final/LayerNormalization_output_0",
+      "topological_index": 4244,
+      "node_name": "/encoder/encoders.8/norm_final/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0074.npz",
+      "checkpoint_sha256": "3aa1cddeb3f7915d9ef6238f44f8ed46d8eeade4db433dbe3b6d8791d9ac6225",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.9/norm_ff_macaron/LayerNormalization_output_0",
+      "topological_index": 4247,
+      "node_name": "/encoder/encoders.9/norm_ff_macaron/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0075.npz",
+      "checkpoint_sha256": "abef98dd2ab76b0efcf20dc82b13e73e90dfa5f812aaaa32e71e7c1a30d732a0",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.9/norm_mha/LayerNormalization_output_0",
+      "topological_index": 4274,
+      "node_name": "/encoder/encoders.9/norm_mha/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0076.npz",
+      "checkpoint_sha256": "89c99b3e1eef02a288d9577872000cb897d6783ab75bc0a7015f234c385aca64",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.9/self_attn/Softmax_output_0",
+      "topological_index": 4386,
+      "node_name": "/encoder/encoders.9/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_encoder_0077.npz",
+      "checkpoint_sha256": "a8ccd59a1adcb6f4125974efd6db884c60680caf3df603d82c4aca1ca6985ebf",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 7688,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.9/norm_conv/LayerNormalization_output_0",
+      "topological_index": 4411,
+      "node_name": "/encoder/encoders.9/norm_conv/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0078.npz",
+      "checkpoint_sha256": "4746ca4bd5607772ce7271b27a8aacb3e4db4055c4083655082c26a58d01fd48",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.9/norm_ff/LayerNormalization_output_0",
+      "topological_index": 4455,
+      "node_name": "/encoder/encoders.9/norm_ff/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0079.npz",
+      "checkpoint_sha256": "626ed3931d40b500a9882a9f3c583c52331cc21c4888d42fdecbba1851ed68b6",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.9/norm_final/LayerNormalization_output_0",
+      "topological_index": 4482,
+      "node_name": "/encoder/encoders.9/norm_final/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0080.npz",
+      "checkpoint_sha256": "8df7f29d5770d239d3657fba1f683bf758fc938e4101f39fb82f6970b2b36abc",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.10/norm_ff_macaron/LayerNormalization_output_0",
+      "topological_index": 4485,
+      "node_name": "/encoder/encoders.10/norm_ff_macaron/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0081.npz",
+      "checkpoint_sha256": "f11697d4983a27b53e8db291a4a2505e60ba54726fa69e9350bfdc4d0292834e",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.10/norm_mha/LayerNormalization_output_0",
+      "topological_index": 4512,
+      "node_name": "/encoder/encoders.10/norm_mha/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0082.npz",
+      "checkpoint_sha256": "db52f83f8046856b6bb45149850135f7f1732755bad815bf59afeca9cf31393e",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.10/self_attn/Softmax_output_0",
+      "topological_index": 4624,
+      "node_name": "/encoder/encoders.10/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_encoder_0083.npz",
+      "checkpoint_sha256": "9d69acf9565197c6756bd898075d064a2de1a93f327d686a714fbea6636f4ea4",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 7688,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.10/norm_conv/LayerNormalization_output_0",
+      "topological_index": 4649,
+      "node_name": "/encoder/encoders.10/norm_conv/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0084.npz",
+      "checkpoint_sha256": "a68f58a64b658ec57ac443862f8fdbaff56d664ba53e99c5bc1b8c551ba7c117",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.10/norm_ff/LayerNormalization_output_0",
+      "topological_index": 4693,
+      "node_name": "/encoder/encoders.10/norm_ff/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0085.npz",
+      "checkpoint_sha256": "0639657a15de8486fb9c660957f56b4a28c8c0fd7c780615d99c70de1a52e363",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.10/norm_final/LayerNormalization_output_0",
+      "topological_index": 4720,
+      "node_name": "/encoder/encoders.10/norm_final/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0086.npz",
+      "checkpoint_sha256": "2453799fdc686bf31c835f7d657a7baff1f691e097f022f64618d995c1926d16",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.11/norm_ff_macaron/LayerNormalization_output_0",
+      "topological_index": 4723,
+      "node_name": "/encoder/encoders.11/norm_ff_macaron/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0087.npz",
+      "checkpoint_sha256": "00d7f2896579bd69b843949967064b87b2e4a1808a7bc8eba948a29548c0a699",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.11/norm_mha/LayerNormalization_output_0",
+      "topological_index": 4750,
+      "node_name": "/encoder/encoders.11/norm_mha/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0088.npz",
+      "checkpoint_sha256": "d101bf52ba4544d920e2874d33cf6fd19a562e0ce55f0f9df73ef448f0379102",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.11/self_attn/Softmax_output_0",
+      "topological_index": 4862,
+      "node_name": "/encoder/encoders.11/self_attn/Softmax",
+      "operator": "Softmax",
+      "checkpoint": "hardware_encoder_0089.npz",
+      "checkpoint_sha256": "fbe98a48f3ed36ff07f28f568e78c585464d66566b6a729017312aad92129614",
+      "comparison": {
+        "actual_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "ort_shape": [
+          1,
+          8,
+          31,
+          31
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 7688,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.11/norm_conv/LayerNormalization_output_0",
+      "topological_index": 4887,
+      "node_name": "/encoder/encoders.11/norm_conv/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0090.npz",
+      "checkpoint_sha256": "735aa760781ba7263f090992dfcf92a57d34c69bc3b8a39728fee0239bdad323",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.11/norm_ff/LayerNormalization_output_0",
+      "topological_index": 4931,
+      "node_name": "/encoder/encoders.11/norm_ff/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0091.npz",
+      "checkpoint_sha256": "744708c15eb1e48da8ebd04645ee9f65b82a90f40d7c09b77c18aef27056e949",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "/encoder/encoders.11/norm_final/LayerNormalization_output_0",
+      "topological_index": 4958,
+      "node_name": "/encoder/encoders.11/norm_final/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0092.npz",
+      "checkpoint_sha256": "811b69e5a9bd20c8fa4259a53f20fe478c0ec7a1b73b17a8bde117f37644ecf8",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    },
+    {
+      "tensor": "memory_QuantizeLinear_Input",
+      "topological_index": 4961,
+      "node_name": "/encoder/after_norm/LayerNormalization",
+      "operator": "LayerNormalization",
+      "checkpoint": "hardware_encoder_0093.npz",
+      "checkpoint_sha256": "e8a97e7ee6de0c8bf0d787c457ba0a6766a091022b5dad39c6c06a4641d5a5c1",
+      "comparison": {
+        "actual_shape": [
+          1,
+          31,
+          512
+        ],
+        "ort_shape": [
+          1,
+          31,
+          512
+        ],
+        "actual_dtype": "float32",
+        "ort_dtype": "float32",
+        "shape_match": true,
+        "dtype_match": true,
+        "elements": 15872,
+        "all_finite": true,
+        "numerically_equal": true,
+        "numeric_differing_elements": 0,
+        "bit_exact": true,
+        "atol": 0.001,
+        "rtol": 0.001,
+        "within_diagnostic_tolerance": true,
+        "failing_elements": 0,
+        "max_abs_error": 0.0,
+        "rms_error": 0.0,
+        "first_numeric_differences": []
+      }
+    }
+  ],
+  "first_numeric_difference": {
+    "tensor": "/encoder/encoders.0/self_attn/Softmax_output_0",
+    "topological_index": 2244,
+    "node_name": "/encoder/encoders.0/self_attn/Softmax",
+    "operator": "Softmax",
+    "checkpoint": "hardware_encoder_0023.npz",
+    "checkpoint_sha256": "e2e1639c5bf44e74ecb9cd0a0ca76c2229c4dee5dd71df92920acd56b24ff50e",
+    "comparison": {
+      "actual_shape": [
+        1,
+        8,
+        31,
+        31
+      ],
+      "ort_shape": [
+        1,
+        8,
+        31,
+        31
+      ],
+      "actual_dtype": "float32",
+      "ort_dtype": "float32",
+      "shape_match": true,
+      "dtype_match": true,
+      "elements": 7688,
+      "all_finite": true,
+      "numerically_equal": false,
+      "numeric_differing_elements": 581,
+      "bit_exact": false,
+      "atol": 0.001,
+      "rtol": 0.001,
+      "within_diagnostic_tolerance": true,
+      "failing_elements": 0,
+      "max_abs_error": 1.084028797458878e-38,
+      "rms_error": 5.449373280198231e-40,
+      "first_numeric_differences": [
+        {
+          "index": [
+            0,
+            0,
+            0,
+            11
+          ],
+          "actual": 0.0,
+          "ort": 1.3032075718220799e-43,
+          "delta": -1.3032075718220799e-43
+        },
+        {
+          "index": [
+            0,
+            0,
+            0,
+            26
+          ],
+          "actual": 0.0,
+          "ort": 8.747409481762665e-40,
+          "delta": -8.747409481762665e-40
+        },
+        {
+          "index": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "actual": 0.0,
+          "ort": 3.707688600264712e-39,
+          "delta": -3.707688600264712e-39
+        },
+        {
+          "index": [
+            0,
+            0,
+            1,
+            4
+          ],
+          "actual": 0.0,
+          "ort": 1.064986832886861e-43,
+          "delta": -1.064986832886861e-43
+        },
+        {
+          "index": [
+            0,
+            0,
+            1,
+            5
+          ],
+          "actual": 0.0,
+          "ort": 1.401298464324817e-45,
+          "delta": -1.401298464324817e-45
+        },
+        {
+          "index": [
+            0,
+            0,
+            1,
+            6
+          ],
+          "actual": 0.0,
+          "ort": 8.407790785948902e-45,
+          "delta": -8.407790785948902e-45
+        },
+        {
+          "index": [
+            0,
+            0,
+            1,
+            11
+          ],
+          "actual": 0.0,
+          "ort": 9.540039945123355e-42,
+          "delta": -9.540039945123355e-42
+        },
+        {
+          "index": [
+            0,
+            0,
+            1,
+            18
+          ],
+          "actual": 0.0,
+          "ort": 4.1280851460544786e-41,
+          "delta": -4.1280851460544786e-41
+        }
+      ]
+    }
+  },
+  "first_int16_difference": null,
+  "first_outside_diagnostic_tolerance": null,
+  "all_checkpoint_tensors_compared": 93,
+  "diagnostic_final_ort_vs_original_golden": {
+    "memory": {
+      "actual_shape": [
+        1,
+        31,
+        512
+      ],
+      "ort_shape": [
+        1,
+        31,
+        512
+      ],
+      "actual_dtype": "float32",
+      "ort_dtype": "float32",
+      "shape_match": true,
+      "dtype_match": true,
+      "elements": 15872,
+      "all_finite": true,
+      "numerically_equal": true,
+      "numeric_differing_elements": 0,
+      "bit_exact": true,
+      "atol": 0.001,
+      "rtol": 0.001,
+      "within_diagnostic_tolerance": true,
+      "failing_elements": 0,
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "first_numeric_differences": []
+    },
+    "memory_lengths": {
+      "actual_shape": [
+        1
+      ],
+      "ort_shape": [
+        1
+      ],
+      "actual_dtype": "int64",
+      "ort_dtype": "int64",
+      "shape_match": true,
+      "dtype_match": true,
+      "elements": 1,
+      "all_finite": true,
+      "numerically_equal": true,
+      "numeric_differing_elements": 0,
+      "bit_exact": true,
+      "atol": 0,
+      "rtol": 0,
+      "within_diagnostic_tolerance": true,
+      "failing_elements": 0,
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "first_numeric_differences": []
+    }
+  },
+  "physical_final_vs_diagnostic_ort": {
+    "memory": {
+      "actual_shape": [
+        1,
+        31,
+        512
+      ],
+      "ort_shape": [
+        1,
+        31,
+        512
+      ],
+      "actual_dtype": "float32",
+      "ort_dtype": "float32",
+      "shape_match": true,
+      "dtype_match": true,
+      "elements": 15872,
+      "all_finite": true,
+      "numerically_equal": true,
+      "numeric_differing_elements": 0,
+      "bit_exact": true,
+      "atol": 0.001,
+      "rtol": 0.001,
+      "within_diagnostic_tolerance": true,
+      "failing_elements": 0,
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "first_numeric_differences": []
+    },
+    "memory_lengths": {
+      "actual_shape": [
+        1
+      ],
+      "ort_shape": [
+        1
+      ],
+      "actual_dtype": "int64",
+      "ort_dtype": "int64",
+      "shape_match": true,
+      "dtype_match": true,
+      "elements": 1,
+      "all_finite": true,
+      "numerically_equal": true,
+      "numeric_differing_elements": 0,
+      "bit_exact": true,
+      "atol": 0,
+      "rtol": 0,
+      "within_diagnostic_tolerance": true,
+      "failing_elements": 0,
+      "max_abs_error": 0.0,
+      "rms_error": 0.0,
+      "first_numeric_differences": []
+    }
+  },
+  "all_original_sources_unchanged": true,
+  "diagnostic_outputs_saved_as_new_golden": false,
+  "diagnostic_final_bit_exact_original_golden": true,
+  "finished_utc": "2026-09-22T17:40:45.224985+00:00",
+  "elapsed_seconds": 2.1559787999722175
+}

@@ -1,0 +1,229 @@
+{
+  "status": "PASS",
+  "scope": "Model A encoder layer 0 head 0; all inference operators on FPGA",
+  "bitstream_sha256": "85c37c54efbc8c857db66d49ff4f9f0bec2a8c46fc989149c130eb7d88ce1566",
+  "physical_output_values": 14225,
+  "resource": {
+    "lut": 11567,
+    "lut_capacity": 20800,
+    "ff": 5754,
+    "ff_capacity": 41600,
+    "bram36_equivalent": 33.5,
+    "bram36_capacity": 50,
+    "dsp": 9,
+    "dsp_capacity": 90
+  },
+  "timing": {
+    "clock_mhz": 50,
+    "wns_ns": 2.265,
+    "whs_ns": 0.02,
+    "wpws_ns": 8.75,
+    "failing_endpoints": 0
+  },
+  "cosim": {
+    "status": "PASS",
+    "cycles": 3905841,
+    "ideal_fifo_latency_ms": 78.11682
+  },
+  "unit_tests": {
+    "passed": 10,
+    "total": 10
+  },
+  "cases": [
+    {
+      "sequence_length": 1,
+      "verification": {
+        "status": "PASS",
+        "all_fpga_outputs_bit_exact": true,
+        "output_values": 1089,
+        "metrics": {
+          "context": {
+            "max_abs": 0.0007309913635253906,
+            "mean_abs": 0.0001669225748628378,
+            "relative_l2": 8.207749156697843e-05
+          },
+          "contribution": {
+            "max_abs": 0.00218963623046875,
+            "mean_abs": 0.0003805680898949504,
+            "relative_l2": 4.2888458806699975e-05
+          },
+          "with_output_bias": {
+            "max_abs": 0.00218963623046875,
+            "mean_abs": 0.00038053735261200927,
+            "relative_l2": 4.289110285077554e-05
+          },
+          "probability": {
+            "max_abs": 0.0,
+            "mean_abs": 0.0,
+            "relative_l2": 0.0
+          }
+        },
+        "input_sha256": "65b2a35eb5cd81717c462e7c38efe6ad20f5df4f61b5ecb8a4d4341a6303ef54",
+        "output_sha256": "419e4e707bd95b28d2c84870f049b0096b67ea735e9a7e12dd93220ccf37b059",
+        "max_abs_threshold": 0.1,
+        "relative_l2_threshold": 0.005
+      },
+      "transport": {
+        "backend": "ALL_FPGA_HLS_INT16",
+        "port": "COM3",
+        "status": "TRANSFER_PASS",
+        "input_bytes": 661032,
+        "packets": 323,
+        "wire_attempts": 324,
+        "transport_events": [
+          {
+            "tag": 2,
+            "attempt": 1,
+            "error": "ACK status=1 tag=2, expected=2",
+            "injected": true
+          }
+        ],
+        "elapsed_seconds": 59.666959800058976,
+        "output_words": 1089,
+        "host_operations": "binary I/O, CRC, IEEE754 unpack only",
+        "injected_crc_at": 2,
+        "duplicate_checked_at": 7,
+        "bitstream_sha256": "85c37c54efbc8c857db66d49ff4f9f0bec2a8c46fc989149c130eb7d88ce1566"
+      },
+      "mask_rows": [
+        1
+      ],
+      "uart_transactions_including_duplicate": 325
+    },
+    {
+      "sequence_length": 4,
+      "verification": {
+        "status": "PASS",
+        "all_fpga_outputs_bit_exact": true,
+        "output_values": 4368,
+        "metrics": {
+          "context": {
+            "max_abs": 0.005382061004638672,
+            "mean_abs": 0.0006303717136688647,
+            "relative_l2": 0.00044740477173754864
+          },
+          "contribution": {
+            "max_abs": 0.03241920471191406,
+            "mean_abs": 0.0027290479860084815,
+            "relative_l2": 0.0005354257745998768
+          },
+          "with_output_bias": {
+            "max_abs": 0.03241729736328125,
+            "mean_abs": 0.0027290315747450222,
+            "relative_l2": 0.0005353482905591739
+          },
+          "probability": {
+            "max_abs": 0.00040435791015625,
+            "mean_abs": 9.124751159106381e-05,
+            "relative_l2": 0.00038704198650596743
+          }
+        },
+        "input_sha256": "44d95ee76511ad83ab0ef237e2e6539346919faf1b1ed58aa65f24f57b0bba18",
+        "output_sha256": "9cbb3521bc0ce5b04973ec6d20b7700a77919cbae831cdecab5eb2ae9781169d",
+        "max_abs_threshold": 0.1,
+        "relative_l2_threshold": 0.005
+      },
+      "transport": {
+        "backend": "ALL_FPGA_HLS_INT16",
+        "port": "COM3",
+        "status": "TRANSFER_PASS",
+        "input_bytes": 667176,
+        "packets": 326,
+        "wire_attempts": 326,
+        "transport_events": [],
+        "elapsed_seconds": 60.88022420019843,
+        "output_words": 4368,
+        "host_operations": "binary I/O, CRC, IEEE754 unpack only",
+        "injected_crc_at": null,
+        "duplicate_checked_at": null,
+        "bitstream_sha256": "85c37c54efbc8c857db66d49ff4f9f0bec2a8c46fc989149c130eb7d88ce1566"
+      },
+      "mask_rows": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "uart_transactions_including_duplicate": 326
+    },
+    {
+      "sequence_length": 8,
+      "verification": {
+        "status": "PASS",
+        "all_fpga_outputs_bit_exact": true,
+        "output_values": 8768,
+        "metrics": {
+          "context": {
+            "max_abs": 0.00972534716129303,
+            "mean_abs": 0.0005228861245996086,
+            "relative_l2": 0.0005497680853655847
+          },
+          "contribution": {
+            "max_abs": 0.05750083923339844,
+            "mean_abs": 0.002253531277858656,
+            "relative_l2": 0.0006697716184961037
+          },
+          "with_output_bias": {
+            "max_abs": 0.05750083923339844,
+            "mean_abs": 0.002253551515124741,
+            "relative_l2": 0.0006695846939683498
+          },
+          "probability": {
+            "max_abs": 0.000725865364074707,
+            "mean_abs": 3.659120866484099e-05,
+            "relative_l2": 0.00045284274836792537
+          }
+        },
+        "input_sha256": "aee33d3929be4ad16343de658f2e86c0ec9d9d8f41b013af313706cdc5c00345",
+        "output_sha256": "697fb588040aaa09e18fb5d864bb951b05f0d92a092cdd5c5fda0e42ae4353f7",
+        "max_abs_threshold": 0.1,
+        "relative_l2_threshold": 0.005
+      },
+      "transport": {
+        "backend": "ALL_FPGA_HLS_INT16",
+        "port": "COM3",
+        "status": "TRANSFER_PASS",
+        "input_bytes": 675368,
+        "packets": 330,
+        "wire_attempts": 333,
+        "transport_events": [
+          {
+            "tag": 121,
+            "attempt": 1,
+            "error": "ACK status=2 tag=121, expected=121",
+            "injected": false
+          },
+          {
+            "tag": 174,
+            "attempt": 1,
+            "error": "ACK status=2 tag=174, expected=174",
+            "injected": false
+          },
+          {
+            "tag": 308,
+            "attempt": 1,
+            "error": "ACK status=2 tag=308, expected=308",
+            "injected": false
+          }
+        ],
+        "elapsed_seconds": 64.11289140000008,
+        "output_words": 8768,
+        "host_operations": "binary I/O, CRC, IEEE754 unpack only",
+        "injected_crc_at": null,
+        "duplicate_checked_at": null,
+        "bitstream_sha256": "85c37c54efbc8c857db66d49ff4f9f0bec2a8c46fc989149c130eb7d88ce1566"
+      },
+      "mask_rows": [
+        127,
+        127,
+        0,
+        127,
+        127,
+        127,
+        127,
+        127
+      ],
+      "uart_transactions_including_duplicate": 333
+    }
+  ]
+}

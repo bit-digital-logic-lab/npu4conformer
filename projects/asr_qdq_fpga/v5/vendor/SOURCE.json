@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/alexforencich/verilog-ethernet",
+  "commit": "77320a9471d19c7dd383914bc049e02d9f4f1ffb",
+  "license": "MIT (COPYING retained)",
+  "upstream_status": "deprecated in favor of fpganinja/taxi; pinned for the tested Artix-7 RGMII example and stable plain-Verilog integration",
+  "scope": "Ethernet MAC/ARP/IPv4/UDP components only, no ASR/model arithmetic"
+}

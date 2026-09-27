@@ -1,0 +1,35 @@
+# Local Python environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+# Hardware tool outputs
+.Xil/
+build/
+core_hls/
+artifacts/
+*.bit
+*.dcp
+*.vvp
+*.wdb
+*.vcd
+*.jou
+*.log
+# Model weights and golden/output tensors, including parameter-bearing fixtures
+weights/
+*.onnx
+*.pth
+*.pt
+*.npz
+*.bin
+*.zip
+# New runs are external; selected historic JSON and RPT evidence stays tracked.
+**/reports/local_*/
+results/local_*/
+.DS_Store
+Thumbs.db
+/.local-assets.json
+# Restore-only portions of the historical V2 snapshot
+/projects/asr_qdq_fpga/releases/v2_20260922_pre_golden/reports/
+/projects/asr_qdq_fpga/releases/v2_20260922_pre_golden/v2/reports/

@@ -1,0 +1,15 @@
+{
+  "backend": "ALL_FPGA_HLS_INT16",
+  "port": "COM3",
+  "status": "TRANSFER_PASS",
+  "input_bytes": 667176,
+  "packets": 326,
+  "wire_attempts": 326,
+  "transport_events": [],
+  "elapsed_seconds": 60.88022420019843,
+  "output_words": 4368,
+  "host_operations": "binary I/O, CRC, IEEE754 unpack only",
+  "injected_crc_at": null,
+  "duplicate_checked_at": null,
+  "bitstream_sha256": "85c37c54efbc8c857db66d49ff4f9f0bec2a8c46fc989149c130eb7d88ce1566"
+}
