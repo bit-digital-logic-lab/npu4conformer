@@ -2,20 +2,66 @@
   "task": "ds_unified_graph",
   "model": "opencode-go/deepseek-v4.1-flash",
   "started": "2026-10-30",
-  "phase": "E_post_merge_regression",
-  "status": "running",
+  "phase": "F_report_result_review_handoff",
+  "status": "complete",
   "phases": [
-    {"id": "A", "name": "reliable top snapshot + provenance", "status": "done",
-     "evidence": ["unified/rtl (base copy)", "SOURCE_SHA256.json"]},
-    {"id": "B", "name": "explicit MATF/A16C descriptor + fallback gate", "status": "done",
-     "evidence": ["rtl/wc_graph_ctrl.sv", "rtl/wc_graph_top.sv", "tests badflag/fallback"]},
-    {"id": "C", "name": "per-channel epilogue + fused MAT engine", "status": "done",
-     "evidence": ["rtl/epilogue_stream_engine_v024.sv", "rtl/matrix_stream_fusion_top_v024.sv"]},
-    {"id": "D", "name": "small graph fused/fallback/DIV/SQRT/fault", "status": "done",
-     "evidence": ["unified/logs/v024_*.log", "unified/fixtures/v024_ref.json"]},
-    {"id": "E", "name": "merge specialist patches + re-regress", "status": "running",
-     "evidence": ["MERGE_TABLE.md", "unified/logs/run_v024_merge.log"]},
-    {"id": "F", "name": "report/result/filelist/SHA + review handoff", "status": "pending"}
+    {
+      "id": "A",
+      "name": "reliable top snapshot + provenance",
+      "status": "done",
+      "evidence": [
+        "unified/rtl (base copy)",
+        "SOURCE_SHA256.json"
+      ]
+    },
+    {
+      "id": "B",
+      "name": "explicit MATF/A16C descriptor + fallback gate",
+      "status": "done",
+      "evidence": [
+        "rtl/wc_graph_ctrl.sv",
+        "rtl/wc_graph_top.sv",
+        "tests badflag/fallback"
+      ]
+    },
+    {
+      "id": "C",
+      "name": "per-channel epilogue + fused MAT engine",
+      "status": "done",
+      "evidence": [
+        "rtl/epilogue_stream_engine_v024.sv",
+        "rtl/matrix_stream_fusion_top_v024.sv"
+      ]
+    },
+    {
+      "id": "D",
+      "name": "small graph fused/fallback/DIV/SQRT/fault",
+      "status": "done",
+      "evidence": [
+        "unified/logs/v024_*.log",
+        "unified/fixtures/v024_ref.json"
+      ]
+    },
+    {
+      "id": "E",
+      "name": "merge specialist patches + re-regress",
+      "status": "done",
+      "evidence": [
+        "MERGE_TABLE.md",
+        "unified/logs/run_v024_final.log",
+        "unified/logs/run_base_smoke.log"
+      ]
+    },
+    {
+      "id": "F",
+      "name": "report/result/filelist/SHA + review handoff",
+      "status": "done",
+      "evidence": [
+        "REPORT.md",
+        "result.json",
+        "unified/SHA256SUMS.txt"
+      ]
+    }
   ],
   "decisions": [
     "fusion is opt-in by header FUSION_ALLOW + MATF word; never inferred",
@@ -25,7 +71,10 @@
     "deferred with reasons: matrix reuse, fusion dual-bank, epilogue ping-pong, graph lookahead, vector op17"
   ],
   "not_claimed": [
-    "synthesis/STA/board/VNC/push", "frequency or whole-model seconds",
-    "full 591-tensor DAG", "automatic fusion swallowing", "exact DIV/SQRT"
+    "synthesis/STA/board/VNC/push",
+    "frequency or whole-model seconds",
+    "full 591-tensor DAG",
+    "automatic fusion swallowing",
+    "exact DIV/SQRT"
   ]
 }

@@ -1,0 +1,8 @@
+{
+  "rc": 0,
+  "pass": true,
+  "result": "result.json",
+  "stage_failures": [],
+  "regression_failures": [],
+  "error": null
+}

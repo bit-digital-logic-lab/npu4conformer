@@ -12,4 +12,4 @@ V024_DRAIN rd_pending=0 wr_pending=0 b_pending=8 quiesced=0 iso_blocked=0 held_b
 V024_END done=1 fault=1 error=0e iso=1 requires_reset=1 fetch_to=0 drain_timeout=0 cycles=30720
 V024_QUIESCE post_iso_req=0 rd=0 wr=0 b=8 quiesced=0
 V024_RESULT PASS
-tb/tb_v024_unified.sv:262: $finish called at 246164000 (1ps)
+tb/tb_v024_unified.sv:267: $finish called at 246164000 (1ps)

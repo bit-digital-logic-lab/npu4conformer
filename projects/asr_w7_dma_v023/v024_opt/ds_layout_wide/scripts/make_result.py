@@ -22,7 +22,7 @@ result = {
     "model": "opencode-go/deepseek-v4.1-flash",
     "date": time.strftime("%Y-%m-%d %H:%M:%S"),
     "rc": rc,
-    "run_all_log_rc": 0,
+    "run_all_log_rc": rc,
     "verdict": verdict,
     "acceptance": "main agent must independently review; agent exit 0 is not acceptance",
     "mode": "logic_simulation_only",

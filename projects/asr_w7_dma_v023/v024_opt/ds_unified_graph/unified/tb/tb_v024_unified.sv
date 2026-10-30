@@ -242,6 +242,11 @@ module tb_v024_unified;
    if (!dut.csr.done_latched || fault) begin $display("V024_FB_NOT_DONE done=%0d fault=%0d",dut.csr.done_latched,fault); errors=errors+1; end
    if (matrix_fused_used) begin $display("V024_FB_UNEXPECTED_FUSION"); errors=errors+1; end
    if (!port_quiesced) begin $display("V024_FB_NOT_DRAINED"); errors=errors+1; end
+  end else if (mode==4) begin
+   // explicit MATF + count=1, but one of two consumers is not tagged A16C
+   if (!dut.csr.done_latched || fault) begin $display("V024_MC_NOT_DONE done=%0d fault=%0d",dut.csr.done_latched,fault); errors=errors+1; end
+   if (matrix_fused_used) begin $display("V024_MC_UNEXPECTED_FUSION"); errors=errors+1; end
+   if (!port_quiesced) begin $display("V024_MC_NOT_DRAINED"); errors=errors+1; end
   end else begin
    if (!dut.csr.done_latched) begin $display("V024_DONE_MISSING"); errors=errors+1; end
   end

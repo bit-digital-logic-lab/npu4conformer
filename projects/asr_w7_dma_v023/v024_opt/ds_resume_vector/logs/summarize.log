@@ -1,0 +1,15 @@
+| group | cases | sim rc | check rc | notes |
+|---|---:|---:|---:|---|
+| 4-lane short banks | 90 | ok | ok | vcyc 30..1773 |
+| 7-stage core | 9 | ok | ok | vcyc 46..21165 |
+| abort/reset | 2 | ok | ok |  |
+| full 8734 | 1 | ok | ok | vcyc 21165..21165 |
+| latency x3 | 7 | ok | ok | vcyc 46..21165 |
+| official fixture | 1 | ok | ok | vcyc 2750..2750 |
+| operand modes | 6 | ok | ok | vcyc 1982..3867 |
+| tails | 22 | ok | ok | vcyc 986..2750 |
+
+- abort_newepoch: vcyc=None done=4238 last_b=4230 b_at_done=0 b_after=0 aw_after=0 rbeats=None wbeats=None vcompleted=257 vflags=0
+- full8734: vcyc=21165 done=21255 last_b=21247 b_at_done=0 b_after=0 aw_after=0 rbeats=6572 wbeats=2184 vcompleted=8734 vflags=0
+- official_fixture_1001: vcyc=2750 done=2840 last_b=2832 b_at_done=0 b_after=0 aw_after=0 rbeats=773 wbeats=251 vcompleted=1001 vflags=0
+- reset_newepoch: vcyc=None done=4238 last_b=4230 b_at_done=0 b_after=0 aw_after=0 rbeats=None wbeats=None vcompleted=257 vflags=0

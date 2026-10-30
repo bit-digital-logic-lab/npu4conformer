@@ -1,0 +1,14 @@
+compile_baseline rc=0
+full8734_sim_baseline rc=0
+full8734_check_baseline rc=0
+full8734_baseline_vs_new byte_identical=1
+full8734_cycles baseline=53078 new4=21165 new7=21165
+tail_0270_sim_baseline rc=0
+tail_0270_check_baseline rc=0
+tail_0270_baseline_vs_new byte_identical=1
+tail_0270_cycles baseline=2286 new4=1001 new7=1007
+official_fixture_1001_sim_baseline rc=0
+official_fixture_1001_check_baseline rc=0
+official_fixture_1001_baseline_vs_new byte_identical=1
+official_fixture_1001_cycles baseline=6733 new4=2750 new7=2753
+BASELINE PASS byte_identical=3/3

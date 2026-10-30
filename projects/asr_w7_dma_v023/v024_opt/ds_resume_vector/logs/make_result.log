@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "run_all_exit_rc": 0,
+  "cases": 122,
+  "regression_count": 138,
+  "stage_failures": [],
+  "regression_failures": [],
+  "error": null
+}

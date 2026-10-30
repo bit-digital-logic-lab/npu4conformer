@@ -232,6 +232,8 @@ mode 0 的源/目标都对齐时覆盖率接近 100%；mode 1 的 25.8% 是相�
 4. mode 2 没有整拍快路径；门控只降低部分 case 的读 beat，不消除全部多读。
 5. 6B C48 固定走标量，因此其 fastpath 覆盖率为 0 是设计选择，不是遗漏。
 6. 统一顶层整合属于 `ds_unified_graph`/主 agent，本目录未改其他 worker。
+7. 未跑 HDL 行/分支覆盖率工具；本报告的“覆盖率”是 fastpath 元素覆盖率与
+   场景覆盖（mode/bytes/unaligned/4KiB/短尾/错误），不是代码覆盖率。
 
 ## 8. 复跑
 

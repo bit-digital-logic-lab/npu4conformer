@@ -96,6 +96,15 @@ def main():
     if 'V024_FB_UNEXPECTED_FUSION' in fblog:
         fail('fallback unexpectedly fused')
 
+    # ---- multi-consumer fallback ----
+    mclog = (LOG / 'v024_multicons.log').read_text()
+    if 'V024_RESULT PASS' not in mclog:
+        fail('multi-consumer run did not print V024_RESULT PASS')
+    if 'V024_FUSION used=0' not in mclog:
+        fail('multi-consumer run did not fall back to legacy (used=0)')
+    if 'V024_MC_UNEXPECTED_FUSION' in mclog:
+        fail('multi-consumer run fused despite an untagged consumer')
+
     # ---- bad flag ----
     badlog = (LOG / 'v024_badflag.log').read_text()
     if 'V024_RESULT PASS' not in badlog:

@@ -1,0 +1,13 @@
+official_fixture_1001 seed=1 tag=s1 sim_rc=0 check_rc=0
+official_fixture_1001 seed=2 tag=s2 sim_rc=0 check_rc=0
+official_fixture_1001 seed=3735928559 tag=s3 sim_rc=0 check_rc=0
+official_fixture_1001 seed=1515870810 tag=s4 sim_rc=0 check_rc=0
+tail_0260 seed=7 tag=s5 sim_rc=0 check_rc=0
+tail_0260 seed=305419896 tag=s6 sim_rc=0 check_rc=0
+tail_0270 seed=3405691582 tag=s7 sim_rc=0 check_rc=0
+mul_0010 seed=1959364493 tag=s8 sim_rc=0 check_rc=0
+i16_0016 seed=1437226410 tag=s9 sim_rc=0 check_rc=0
+full8734 seed=2654435769 tag=s10 sim_rc=0 check_rc=0
+official_fixture_1001 seed=4276993775 tag=x7a sim_rc=0 check_rc=0
+tail_0270 seed=232373521 tag=x7b sim_rc=0 check_rc=0
+full8734 seed=2654435769 tag=x7c sim_rc=0 check_rc=0

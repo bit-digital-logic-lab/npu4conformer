@@ -113,3 +113,58 @@ sim_mul_0257 rc=0 seconds=3 log=logs/mul_0257.log
 sim_mul_0511 rc=0 seconds=4 log=logs/mul_0511.log
 sim_mul_0513 rc=0 seconds=5 log=logs/mul_0513.log
 sim_mul_1001 rc=0 seconds=9 log=logs/mul_1001.log
+sim_official_fixture_1001 rc=0 seconds=10 log=logs/official_fixture_1001.log
+sim_reset_newepoch rc=0 seconds=13 log=logs/reset_newepoch.log
+sim_tail_0256 rc=0 seconds=4 log=logs/tail_0256.log
+sim_tail_0257 rc=0 seconds=4 log=logs/tail_0257.log
+sim_tail_0258 rc=0 seconds=4 log=logs/tail_0258.log
+sim_tail_0259 rc=0 seconds=4 log=logs/tail_0259.log
+sim_tail_0260 rc=0 seconds=4 log=logs/tail_0260.log
+sim_tail_0261 rc=0 seconds=4 log=logs/tail_0261.log
+sim_tail_0262 rc=0 seconds=3 log=logs/tail_0262.log
+sim_tail_0263 rc=0 seconds=4 log=logs/tail_0263.log
+sim_tail_0264 rc=0 seconds=4 log=logs/tail_0264.log
+sim_tail_0265 rc=0 seconds=4 log=logs/tail_0265.log
+sim_tail_0266 rc=0 seconds=4 log=logs/tail_0266.log
+sim_tail_0267 rc=0 seconds=4 log=logs/tail_0267.log
+sim_tail_0268 rc=0 seconds=4 log=logs/tail_0268.log
+sim_tail_0269 rc=0 seconds=4 log=logs/tail_0269.log
+sim_tail_0270 rc=0 seconds=4 log=logs/tail_0270.log
+sim_tail_0271 rc=0 seconds=4 log=logs/tail_0271.log
+sim_tail_0272 rc=0 seconds=4 log=logs/tail_0272.log
+sim_tail_0273 rc=0 seconds=4 log=logs/tail_0273.log
+sim_tail_0383 rc=0 seconds=4 log=logs/tail_0383.log
+sim_tail_0511 rc=0 seconds=6 log=logs/tail_0511.log
+sim_tail_0513 rc=0 seconds=6 log=logs/tail_0513.log
+sim_tail_1001 rc=0 seconds=9 log=logs/tail_1001.log
+== 5. latency-variable build: vector_fma_lane EXTRA_STAGES=3 ==
+sim_x3_full8734 rc=0 seconds=59 log=logs/full8734_x3.log
+sim_x3_official_fixture_1001 rc=0 seconds=9 log=logs/official_fixture_1001_x3.log
+sim_x3_tail_0260 rc=0 seconds=3 log=logs/tail_0260_x3.log
+sim_x3_tail_0270 rc=0 seconds=4 log=logs/tail_0270_x3.log
+sim_x3_tail_0513 rc=0 seconds=5 log=logs/tail_0513_x3.log
+sim_x3_mul_0010 rc=0 seconds=2 log=logs/mul_0010_x3.log
+sim_x3_i16_0016 rc=0 seconds=1 log=logs/i16_0016_x3.log
+== 6. ds_fma_deep 7-stage core through the same vector engine ==
+sim_fma7_full8734 rc=0 seconds=54 log=logs/full8734_fma7.log
+sim_fma7_official_fixture_1001 rc=0 seconds=7 log=logs/official_fixture_1001_fma7.log
+sim_fma7_tail_0260 rc=0 seconds=4 log=logs/tail_0260_fma7.log
+sim_fma7_tail_0270 rc=0 seconds=3 log=logs/tail_0270_fma7.log
+sim_fma7_tail_0513 rc=0 seconds=5 log=logs/tail_0513_fma7.log
+sim_fma7_mul_0010 rc=0 seconds=1 log=logs/mul_0010_fma7.log
+sim_fma7_i16_0016 rc=0 seconds=2 log=logs/i16_0016_fma7.log
+sim_fma7_abort_newepoch rc=0 seconds=11 log=logs/abort_newepoch_fma7.log
+sim_fma7_reset_newepoch rc=0 seconds=11 log=logs/reset_newepoch_fma7.log
+sim_fma7_latency rc=0 seconds=0 log=logs/fma7_latency.log
+== 7. negative control (corrupted gold must be rejected) ==
+negative_control rc=0 seconds=0 log=logs/negative_control.log
+== 8. random AXI backpressure seed sweep ==
+backpressure_seeds rc=0 seconds=180 log=logs/backpressure_console.log
+== 9. same-input baseline cycle comparison ==
+baseline_compare rc=0 seconds=179 log=logs/baseline_console.log
+== 10. summary / REPORT / result ==
+summarize rc=0 seconds=0 log=logs/summarize.log
+make_result rc=0 seconds=0 log=logs/make_result.log
+== run status ==
+RUN_ALL final_rc=0 FAILS=0
+RUN_ALL_PASS vector op17 + 4-lane fixed-op + 7-stage-latency regression; not full-model/board acceptance

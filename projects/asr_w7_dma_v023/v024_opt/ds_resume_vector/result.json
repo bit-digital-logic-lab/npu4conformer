@@ -1,0 +1,1149 @@
+{
+  "task": "ds_resume_vector",
+  "model": "opencode-go/deepseek-v4.1-flash",
+  "timestamp": "2026-10-30T16:15:54+08:00",
+  "scope": "local RTL logic simulation only: op17 FMA II=1 into the real 4-stage fp32_fma_pipe and into the ds_fma_deep 7-stage candidate; 4-lane fixed-op short-bank tail fix; independent gold, backpressure, abort/reset epoch and same-input baseline",
+  "pass": true,
+  "run_all_exit_rc": 0,
+  "checks": {
+    "expected_case_count": 122,
+    "manifest_case_count": 122,
+    "expected_regression_count": 138,
+    "regression_count": 138,
+    "missing_regression": [],
+    "extra_regression": [],
+    "duplicate_regression": [],
+    "nonzero_regression": [],
+    "missing_stage_rc": [],
+    "extra_stage_rc": [],
+    "nonzero_stage_rc": [],
+    "frozen_sources": true,
+    "unique_modules": true,
+    "negative_control_expected_failure": true,
+    "backpressure_rows": 13,
+    "backpressure_ok": true,
+    "baseline_ok": true,
+    "fma7_latency_ok": true,
+    "groups": {
+      "4-lane fixed-op tails": {
+        "count": 90,
+        "sim_ok": true,
+        "check_ok": true
+      },
+      "FMA operand modes": {
+        "count": 6,
+        "sim_ok": true,
+        "check_ok": true
+      },
+      "FMA tails": {
+        "count": 22,
+        "sim_ok": true,
+        "check_ok": true
+      },
+      "abort/reset new epoch": {
+        "count": 2,
+        "sim_ok": true,
+        "check_ok": true
+      },
+      "ds_fma_deep 7-stage core": {
+        "count": 9,
+        "sim_ok": true,
+        "check_ok": true
+      },
+      "full 8734": {
+        "count": 1,
+        "sim_ok": true,
+        "check_ok": true
+      },
+      "latency EXTRA_STAGES=3": {
+        "count": 7,
+        "sim_ok": true,
+        "check_ok": true
+      },
+      "official fixture": {
+        "count": 1,
+        "sim_ok": true,
+        "check_ok": true
+      }
+    }
+  },
+  "regression": [
+    {
+      "case": "abort_newepoch",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0002",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0003",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0004",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0005",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0006",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0007",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0008",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0009",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0010",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0011",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0012",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0013",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0014",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0015",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0016",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0017",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0031",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0032",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0033",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0063",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0064",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0065",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0127",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0255",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0256",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0257",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0511",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_0513",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "add_1001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma_bscalar_1001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma_btiled1024",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma_btiled2048",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma_cscalar_1001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma_period128_1001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma_period32_1001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "full8734",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0002",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0003",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0004",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0005",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0006",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0007",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0008",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0009",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0010",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0011",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0012",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0013",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0014",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0015",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0016",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0017",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0031",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0032",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0033",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0063",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0064",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0065",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0127",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0255",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0256",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0257",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0511",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0513",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_1001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0002",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0003",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0004",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0005",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0006",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0007",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0008",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0009",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0010",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0011",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0012",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0013",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0014",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0015",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0016",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0017",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0031",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0032",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0033",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0063",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0064",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0065",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0127",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0255",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0256",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0257",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0511",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0513",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_1001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "official_fixture_1001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "reset_newepoch",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0256",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0257",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0258",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0259",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0260",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0261",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0262",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0263",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0264",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0265",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0266",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0267",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0268",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0269",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0270",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0271",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0272",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0273",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0383",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0511",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0513",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_1001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "x3:full8734",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "x3:official_fixture_1001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "x3:tail_0260",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "x3:tail_0270",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "x3:tail_0513",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "x3:mul_0010",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "x3:i16_0016",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma7:full8734",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma7:official_fixture_1001",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma7:tail_0260",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma7:tail_0270",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma7:tail_0513",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma7:mul_0010",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma7:i16_0016",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma7:abort_newepoch",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "fma7:reset_newepoch",
+      "sim_rc": 0,
+      "check_rc": 0
+    }
+  ],
+  "cases": 122,
+  "regression_count": 138,
+  "rc": {
+    "gen_fixtures": 0,
+    "audit_imported": 0,
+    "check_frozen": 0,
+    "check_unique_modules": 0,
+    "compile_top": 0,
+    "compile_plan": 0,
+    "compile_plan_x3": 0,
+    "compile_abort": 0,
+    "compile_top_fma7": 0,
+    "compile_plan_fma7": 0,
+    "compile_abort_fma7": 0,
+    "compile_fma7_latency": 0,
+    "sim_abort_newepoch": 0,
+    "sim_add_0001": 0,
+    "sim_add_0002": 0,
+    "sim_add_0003": 0,
+    "sim_add_0004": 0,
+    "sim_add_0005": 0,
+    "sim_add_0006": 0,
+    "sim_add_0007": 0,
+    "sim_add_0008": 0,
+    "sim_add_0009": 0,
+    "sim_add_0010": 0,
+    "sim_add_0011": 0,
+    "sim_add_0012": 0,
+    "sim_add_0013": 0,
+    "sim_add_0014": 0,
+    "sim_add_0015": 0,
+    "sim_add_0016": 0,
+    "sim_add_0017": 0,
+    "sim_add_0031": 0,
+    "sim_add_0032": 0,
+    "sim_add_0033": 0,
+    "sim_add_0063": 0,
+    "sim_add_0064": 0,
+    "sim_add_0065": 0,
+    "sim_add_0127": 0,
+    "sim_add_0255": 0,
+    "sim_add_0256": 0,
+    "sim_add_0257": 0,
+    "sim_add_0511": 0,
+    "sim_add_0513": 0,
+    "sim_add_1001": 0,
+    "sim_fma_bscalar_1001": 0,
+    "sim_fma_btiled1024": 0,
+    "sim_fma_btiled2048": 0,
+    "sim_fma_cscalar_1001": 0,
+    "sim_fma_period128_1001": 0,
+    "sim_fma_period32_1001": 0,
+    "sim_full8734": 0,
+    "sim_i16_0001": 0,
+    "sim_i16_0002": 0,
+    "sim_i16_0003": 0,
+    "sim_i16_0004": 0,
+    "sim_i16_0005": 0,
+    "sim_i16_0006": 0,
+    "sim_i16_0007": 0,
+    "sim_i16_0008": 0,
+    "sim_i16_0009": 0,
+    "sim_i16_0010": 0,
+    "sim_i16_0011": 0,
+    "sim_i16_0012": 0,
+    "sim_i16_0013": 0,
+    "sim_i16_0014": 0,
+    "sim_i16_0015": 0,
+    "sim_i16_0016": 0,
+    "sim_i16_0017": 0,
+    "sim_i16_0031": 0,
+    "sim_i16_0032": 0,
+    "sim_i16_0033": 0,
+    "sim_i16_0063": 0,
+    "sim_i16_0064": 0,
+    "sim_i16_0065": 0,
+    "sim_i16_0127": 0,
+    "sim_i16_0255": 0,
+    "sim_i16_0256": 0,
+    "sim_i16_0257": 0,
+    "sim_i16_0511": 0,
+    "sim_i16_0513": 0,
+    "sim_i16_1001": 0,
+    "sim_mul_0001": 0,
+    "sim_mul_0002": 0,
+    "sim_mul_0003": 0,
+    "sim_mul_0004": 0,
+    "sim_mul_0005": 0,
+    "sim_mul_0006": 0,
+    "sim_mul_0007": 0,
+    "sim_mul_0008": 0,
+    "sim_mul_0009": 0,
+    "sim_mul_0010": 0,
+    "sim_mul_0011": 0,
+    "sim_mul_0012": 0,
+    "sim_mul_0013": 0,
+    "sim_mul_0014": 0,
+    "sim_mul_0015": 0,
+    "sim_mul_0016": 0,
+    "sim_mul_0017": 0,
+    "sim_mul_0031": 0,
+    "sim_mul_0032": 0,
+    "sim_mul_0033": 0,
+    "sim_mul_0063": 0,
+    "sim_mul_0064": 0,
+    "sim_mul_0065": 0,
+    "sim_mul_0127": 0,
+    "sim_mul_0255": 0,
+    "sim_mul_0256": 0,
+    "sim_mul_0257": 0,
+    "sim_mul_0511": 0,
+    "sim_mul_0513": 0,
+    "sim_mul_1001": 0,
+    "sim_official_fixture_1001": 0,
+    "sim_reset_newepoch": 0,
+    "sim_tail_0256": 0,
+    "sim_tail_0257": 0,
+    "sim_tail_0258": 0,
+    "sim_tail_0259": 0,
+    "sim_tail_0260": 0,
+    "sim_tail_0261": 0,
+    "sim_tail_0262": 0,
+    "sim_tail_0263": 0,
+    "sim_tail_0264": 0,
+    "sim_tail_0265": 0,
+    "sim_tail_0266": 0,
+    "sim_tail_0267": 0,
+    "sim_tail_0268": 0,
+    "sim_tail_0269": 0,
+    "sim_tail_0270": 0,
+    "sim_tail_0271": 0,
+    "sim_tail_0272": 0,
+    "sim_tail_0273": 0,
+    "sim_tail_0383": 0,
+    "sim_tail_0511": 0,
+    "sim_tail_0513": 0,
+    "sim_tail_1001": 0,
+    "sim_x3_full8734": 0,
+    "sim_x3_official_fixture_1001": 0,
+    "sim_x3_tail_0260": 0,
+    "sim_x3_tail_0270": 0,
+    "sim_x3_tail_0513": 0,
+    "sim_x3_mul_0010": 0,
+    "sim_x3_i16_0016": 0,
+    "sim_fma7_full8734": 0,
+    "sim_fma7_official_fixture_1001": 0,
+    "sim_fma7_tail_0260": 0,
+    "sim_fma7_tail_0270": 0,
+    "sim_fma7_tail_0513": 0,
+    "sim_fma7_mul_0010": 0,
+    "sim_fma7_i16_0016": 0,
+    "sim_fma7_abort_newepoch": 0,
+    "sim_fma7_reset_newepoch": 0,
+    "sim_fma7_latency": 0,
+    "negative_control": 0,
+    "backpressure_seeds": 0,
+    "baseline_compare": 0,
+    "summarize": 0
+  },
+  "stage_failures": [],
+  "regression_failures": [],
+  "fma7_latency": {
+    "sha256": "b062284af692349ac0afe1de14ac0d10f0cbbab97a5b33f849b50a93caccac82",
+    "log": "logs/fma7_latency.log",
+    "pass": true,
+    "measured_latency_cycles": 7,
+    "ii": 1
+  },
+  "baseline": {
+    "compile_baseline rc": "0",
+    "full8734_sim_baseline rc": "0",
+    "full8734_check_baseline rc": "0",
+    "full8734_baseline_vs_new byte_identical": "1",
+    "full8734_cycles baseline": "53078 new4=21165 new7=21165",
+    "tail_0270_sim_baseline rc": "0",
+    "tail_0270_check_baseline rc": "0",
+    "tail_0270_baseline_vs_new byte_identical": "1",
+    "tail_0270_cycles baseline": "2286 new4=1001 new7=1007",
+    "official_fixture_1001_sim_baseline rc": "0",
+    "official_fixture_1001_check_baseline rc": "0",
+    "official_fixture_1001_baseline_vs_new byte_identical": "1",
+    "official_fixture_1001_cycles baseline": "6733 new4=2750 new7=2753",
+    "BASELINE PASS byte_identical": "3/3"
+  },
+  "backpressure": [
+    {
+      "case": "official_fixture_1001",
+      "seed": "1",
+      "tag": "s1",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "official_fixture_1001",
+      "seed": "2",
+      "tag": "s2",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "official_fixture_1001",
+      "seed": "3735928559",
+      "tag": "s3",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "official_fixture_1001",
+      "seed": "1515870810",
+      "tag": "s4",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0260",
+      "seed": "7",
+      "tag": "s5",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0260",
+      "seed": "305419896",
+      "tag": "s6",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0270",
+      "seed": "3405691582",
+      "tag": "s7",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "mul_0010",
+      "seed": "1959364493",
+      "tag": "s8",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "i16_0016",
+      "seed": "1437226410",
+      "tag": "s9",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "full8734",
+      "seed": "2654435769",
+      "tag": "s10",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "official_fixture_1001",
+      "seed": "4276993775",
+      "tag": "x7a",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "tail_0270",
+      "seed": "232373521",
+      "tag": "x7b",
+      "sim_rc": 0,
+      "check_rc": 0
+    },
+    {
+      "case": "full8734",
+      "seed": "2654435769",
+      "tag": "x7c",
+      "sim_rc": 0,
+      "check_rc": 0
+    }
+  ],
+  "imported_audit": {
+    "source": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_resume_vector/imported/logs",
+    "case_count_in_imported_manifest": 70,
+    "imported_dump_and_log_checked_ok": 65,
+    "independent_check_failures": [],
+    "missing_dump_or_log": [
+      "tail_0271",
+      "tail_0272",
+      "tail_0273",
+      "tail_0511",
+      "tail_1001"
+    ],
+    "old_rc_entries": 68,
+    "old_rc_has_tail_0270": false,
+    "old_rc_has_abort_newepoch": true,
+    "old_x3_logs": [
+      "compile_plan_x3",
+      "full8734_x3",
+      "mul_0005_x3",
+      "tail_0260_x3",
+      "tail_0513_x3"
+    ],
+    "old_backpressure_logs": [],
+    "conclusion": "The imported logs were audited, but they are NOT the acceptance evidence: 5 case dump(s) are missing and the old run has no result.json.  Every case is re-run in this tree.",
+    "pass": true
+  },
+  "upstream_sha256": {
+    "fma_vec_sha256": "5a995d68158bf82714fc79110156d3b6af21c3fb09b2d3f67f51c5ef4961cdd7",
+    "refmodel_sha256": "38eb7ed944f05d6ac45ff68b69fbaa4b0b5b895f0eef46fa33e138395ceb64e2",
+    "official_mem_sha256": "f32a92db9c29047a8d78256057452d8d2c506c8a08ab462d9e0039eee0016189",
+    "official_gold_sha256": "579f4a5d3e1c232cd9c069fa597796ac4ad376ce008066e270813b6faf3ac448"
+  },
+  "sha256": {
+    "filelist_vector_fma.f": "02284cf1a3fbbf2908c79e123dd8a834d3d47361f85e52df3d79bb58fadac136",
+    "filelist_vector_fma7.f": "c08ad27c75f517d73373729454df5a63c2485fe57f49f07fc6aaf83513c756ab",
+    "run_all.sh": "79f65b155de7e61f8cc317455484db36632fa929f71f406abbba8b50234aafd8",
+    "baseline_compare.sh": "bc18ca609277de68cd26b77dd587ca592e399f8a9bd95ce1be5a3f25abf24b7c",
+    "backpressure_seeds.sh": "e7a5d44850e6eb01f560fc826522b2d1404c51b5373aa8944b431c8bf544683c",
+    "rtl/ddr_vector_engine_pipe.sv": "dad7cac00ecbe5a722ed68f64c5650bd7dc77a07356280e9d550acb5a852f84c",
+    "rtl/vector_fma_lane.sv": "09175e5963140349ed39f9ff83b5fd3bb35edc07d6e6b4529fe3128a6315584b",
+    "rtl/fp32_fma_pipe.sv": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12",
+    "fma7/fp32_fma_pipe.sv": "b062284af692349ac0afe1de14ac0d10f0cbbab97a5b33f849b50a93caccac82",
+    "baseline/ddr_vector_engine_pipe_base.sv": "234e9c34b9ca6ad5eae94cead08d3030d7c0e838a6720500f21347b66e9bec2e",
+    "tb/wc_graph_bfm.sv": "36ca51c93343179251a5a537ec95085a03972e3a109e07ee273a6caa8ee76273",
+    "tb/tb_vector_fma_plan.sv": "e9488cad91c7bbbaafd143217b0303cf507a849e5aac00a0393307878679776b",
+    "tb/tb_vector_fma_abort_reset.sv": "909dd4b7d4776136d667c495f0b2eea7217c56cff24f5c3d7285211a2f30cd21",
+    "tb/tb_fma7_latency.sv": "f6a354910748c450bf7fa790793f970229c996114b0e250e6780b27fd30f8d20",
+    "scripts/gen_cases.py": "58cceea3a86569292d7524d4692c548c7848e82299f2e2b66013bda270caa829",
+    "scripts/check_case.py": "d5275744cea8e9320f42669f687db8d01f1899c2aaf95f744cbf499a84dab29d",
+    "scripts/check_unique_modules.py": "72e05bfd577c9e9e5124120b17d5fc278c65f2cc783827401631cd0fe9ad1e74",
+    "scripts/check_frozen.py": "651627815b8f52da0e0751dc38be6c7f1b1f2aaddbd231b94098bcc03475de9a",
+    "scripts/audit_imported.py": "32e84ccb8f35572c52dc85263f04d88547825a6328647580db6c3e35536e495f",
+    "scripts/negative_control.py": "951a9183835dcf7fd3f201c94e922fec0a7c825c56a011b7b7bea7585f109b92",
+    "scripts/make_result.py": "c8372a07087c37f7b12fe4fdeefb5654c83712e2af75ab365d33e1ccc467706a",
+    "scripts/summarize.py": "3d9bf288dc55db7301ac1a8f104b11d546fd2d43e8817b94ce0d301377978ccf",
+    "scripts/report_gen.py": "97fb99f6211b4bfa7b4882da9b0ca3b778cae875f48e09f1461ce13fc389ff27",
+    "fixtures/manifest.json": "8261024e5f488c3d2e2348bd5e2e03005265ec1cd1ec877d65b4cf72b26385cb",
+    "imported/fixtures_manifest.json": "f78b7eb7f64c0521e2d7313e56e4e83e83e7fcad0d09b1b1501a9d120989fb5d",
+    "imported/logs/rc.txt": "3cbe74f4502b245be088d9128a050d89659449e2380b8b45ae717b138bd80648"
+  },
+  "filelist": "filelist_vector_fma.f (+ filelist_vector_fma7.f)",
+  "reproduce": "bash run_all.sh",
+  "tested": [
+    "full 8734 adversarial FMA vectors through WCPG graph + shared AXI128 + real 4-stage fp32_fma_pipe",
+    "the same full set plus official fixture/tails through the ds_fma_deep 7-stage core (SHA b062284a...)",
+    "FMA tails 256 (tail 0), 257..273 (tails 1..17), 383, 511, 513, 1001",
+    "4-lane fixed-op MUL/ADD/F32_I16 totals 1..17 (includes the previously untested 10..16), 31/32/33, 63/64/65, 127, 255/256/257, 511, 513, 1001",
+    "bscalar, cscalar, periodic B 32/128, btiled 32-element tile 1024/2048",
+    "official work/tests/fma_fixture 1001-vector memory/gold/descriptor",
+    "latency-variable EXTRA_STAGES=3 build on full/official/tails/fixed-op cases",
+    "actual 7-stage latency/II/flush directed test: latency=7, II=1, flush drops in-flight, new epoch exact",
+    "random AXI BFM backpressure seeds on canonical and 7-stage builds",
+    "abort mid-op and reset mid-op followed by a new-epoch 257-value plan on both core builds",
+    "negative control: two corrupted gold words must be rejected by the independent checker",
+    "same-input/same-BFM baseline cycle comparison on full8734, tail270 and official fixture"
+  ],
+  "unfinished": [
+    "AR-001 (fp32_fma_pipe asserts in_ready while flush=1) is a core-level protocol finding in ds_fma_deep; this vector engine never issues during core_flush and is not the fix owner (ds_repair_fmaflush).",
+    "4-lane op17 (four FMA cores / four 129-bit accumulators) is costed but not implemented; this is a single-lane II=1 op17.",
+    "multi-tile btiled (period > 32 with coefficient-tile switching) is existing engine behaviour and is not changed or claimed.",
+    "matrix W7A16C48 numerics are not modified or re-verified here; matrix/layout abort is outside this task.",
+    "no full 591-tensor DAG, host executor, ONNX, WER/CER, synthesis, STA, Vivado, board, VNC or push.",
+    "no frequency, ns, 300/600 MHz or whole-model seconds claim.",
+    "the 8,734 vectors and deterministic tails are strong adversarial selection, not an exhaustive 2^96 FMA proof."
+  ],
+  "limits": [
+    "logic simulation with a sparse AXI BFM, not a DDR timing model",
+    "the baseline engine is a copied read-only v023 comparison, not the deliverable",
+    "module/vector-child PASS is not a unified-graph or system PASS"
+  ],
+  "x3_cases": [
+    "full8734",
+    "official_fixture_1001",
+    "tail_0260",
+    "tail_0270",
+    "tail_0513",
+    "mul_0010",
+    "i16_0016"
+  ],
+  "fma7_cases": [
+    "full8734",
+    "official_fixture_1001",
+    "tail_0260",
+    "tail_0270",
+    "tail_0513",
+    "mul_0010",
+    "i16_0016",
+    "abort_newepoch",
+    "reset_newepoch"
+  ]
+}

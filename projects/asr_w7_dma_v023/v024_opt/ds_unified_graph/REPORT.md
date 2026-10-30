@@ -148,27 +148,42 @@ flush 握手漏洞；端口/延迟契约不变（7 级、II=1）。
 |---|---|
 | fused 小图：MATF + per-channel + DIV + SQRT + A16 copy | `done=1,fault=0,error=0,cycles=18724`；A16 512/512、copy 512/512 与独立 gold 全等；`FUSION used=1 c48_ddr_bytes=0 a16_bytes=2048`；`b_pending=0,quiesced=1`；rc=0 |
 | fallback：MATF 请求但 `queue_count=2` + 非 A16C consumer | `used=0,cycles=16973`，legacy C48；I16 512/512 与独立 gold 全等（v2 cluster；v3 延后）；rc=0 |
+| 多消费者：MATF `count=1`，一个 A16C + 一个未标记 consumer | `used=0,cycles=19749`，回退 legacy C48；done=1,fault=0；rc=0 |
 | header 未允许但节点带 MATF | `done=1,fault=1,error=0x04,cycles=383`，未执行任何融合；rc=0 |
 | fused A16 写 B 永久不返回 | `fault=1,error=0x0E,isolation=1,requires_reset=1,b_pending=8,quiesced=0,cycles=30720`；隔离后新 AR/AW/W=0；rc=0 |
 | 64 条定向 FMA vs mul+add | RTL 与单次舍入 gold **64/64 bit-exact**；64/64 与 mul+add 不同；rc=0 |
 | DIV / SQRT | 最大相对误差 DIV=9.102e-4、SQRT=5.089e-6，均在冻结容差内；flag/approx 语义见 `v024_ref.json` |
 
 最终一次入口脚本运行：`RUN_V024_PASS`，`logs/run_v024_final.log` 与
-`logs/rc.tsv` 五个仿真全部 `rc=0`。
+`logs/rc.tsv` 六个仿真全部 `rc=0`。
 
 独立 gold 来自 `scripts/gen_v024_graph.py`：ds_matrix 的独立整数模型 →
 numpy float32 → 单次舍入 FMA → RNE/clip；不读 RTL 输出。DIV/SQRT gold
 由输入数组独立计算。所有 fixture/gold SHA 冻结在 `REFERENCE_FREEZE.json`。
 
-### 7.1 回归范围说明
+### 7.1 回归范围说明与 base smoke
 
-上述 5 个仿真是**统一候选**的验收；不是 V0.23 的 26 项异常收尾全跑。
-V0.23 baseline 的 `safety_normal/multitask` 在本机高负载下用原 90/120s
-`timeout` 会超时（日志显示它仍在推进到 20k+ 周期），且 `run_safety.sh` 与
+上述 6 个仿真是**统一候选**的验收；不是 V0.23 的 26 项异常收尾全跑。
+
+为避免把“默认路径未回归”建立在旧 PASS 上，另跑了定向 base smoke：
+`unified/scripts/run_base_smoke.sh` 用统一后的 controller/top 重编译
+`tb_safety_integrated`，覆盖：
+
+| base smoke | 结果 |
+|---|---|
+| `safety_normal`（默认 header 未允许融合，9 节点 exact） | rc=0，`SAFETY_RESULT PASS` |
+| `safety_multitask`（MAT 队列 2 descriptor） | rc=0，`SAFETY_RESULT PASS` |
+| `bad_queue_magic`（错误码 0x03） | rc=0，`SAFETY_RESULT PASS` |
+| `bad_vec_op`（错误码 0x07） | rc=0，`SAFETY_RESULT PASS` |
+| `hold_b_c`（B 永久不返回，0x0E 隔离） | rc=0，`SAFETY_RESULT PASS` |
+
+日志：`unified/logs/base_*.log`、`unified/logs/run_base_smoke.log`。
+这些 timeout 用 180–360s；原 `run_safety.sh` 的 90/120s 在本机高负载下会
+把仍在推进的 `safety_normal` 杀掉（rc=124），且 `run_safety.sh` 与
 `run_v024.sh` 共用 `logs/rc.tsv`，不能并发跑。因此本报告**不**声称
-“V0.23 26 项全通过”；只声称统一候选的上述真实仿真与独立 judge 通过。
-`wc_graph_ctrl/top` 的改动只增加显式融合分支，默认 header 未允许时行为与
-V0.23 相同；未用旧 PASS 代替。
+“V0.23 26 项全通过”；只声称统一候选 6 个仿真 + 独立 judge + 上述 5 项
+base smoke 通过。`wc_graph_ctrl/top` 的改动只增加显式融合分支，默认
+header 未允许时行为与 V0.23 相同；未用旧 PASS 代替。
 
 ## 8. 未完成 / 不声称
 
@@ -194,4 +209,4 @@ V0.23 相同；未用旧 PASS 代替。
 
 最终 `result.json` 记录 rc、SHA、测了什么、没做什么；`exit.json` 由
 supervisor 在进程退出时写。**主 agent 验收不因 exit 0 自动通过**：本报告
-的“通过”只对应上表 5 个真实仿真和独立 judge。
+的“通过”只对应上表 6 个真实仿真和独立 judge。

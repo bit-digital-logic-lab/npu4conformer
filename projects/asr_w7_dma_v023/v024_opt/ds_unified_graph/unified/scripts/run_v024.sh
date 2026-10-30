@@ -43,30 +43,37 @@ run v024_fallback 300 vvp build/tb_v024.vvp \
   +memfile=fixtures/mem_v024_fallback.hex +outfile=logs/v024_fallback_out.hex \
   +watchdog=100000 +mode=1
 
-echo "== 4. plan rejection: MATF without header FUSION_ALLOW =="
+echo "== 4. multi-consumer plan: one untagged consumer -> legacy fallback =="
+run v024_multicons 300 vvp build/tb_v024.vvp \
+  +memfile=fixtures/mem_v024_multicons.hex +outfile=logs/v024_multicons_out.hex \
+  +watchdog=100000 +mode=4
+
+echo "== 5. plan rejection: MATF without header FUSION_ALLOW =="
 run v024_badflag 120 vvp build/tb_v024.vvp \
   +memfile=fixtures/mem_v024_badflag.hex +outfile=logs/v024_badflag_out.hex \
   +watchdog=40000 +mode=3 +expect_error=4
 
-echo "== 5. fused A16 write B held: watchdog isolation, no false drain =="
+echo "== 6. fused A16 write B held: watchdog isolation, no false drain =="
 run v024_hold 300 vvp build/tb_v024.vvp \
   +memfile=fixtures/mem_v024_fused.hex +outfile=logs/v024_hold_out.hex \
   +watchdog=80000 +mode=2 +hold_b_lo=04004000 +hold_b_hi=04005000
 
-echo "== 6. directed single-rounding FMA vs mul+add =="
+echo "== 7. directed single-rounding FMA vs mul+add =="
 run v024_lane 60 vvp build/tb_epi.vvp
 
-echo "== 7. independent judge =="
+echo "== 8. independent judge =="
 python3 scripts/check_v024.py > logs/check_v024.log 2>&1
 CHECK_RC=$?
 cat logs/check_v024.log
 
-echo "== 8. SHA =="
-sha256sum REPORT.md result.json INTERFACE.md filelist_v024_unified.f progress.json \
-  USER_UPDATES.md scripts/*.py scripts/*.sh rtl/*.sv tb/*.sv \
+echo "== 9. SHA =="
+sha256sum ../REPORT.md ../result.json ../INTERFACE.md ../MERGE_TABLE.md \
+  ../SOURCE_SHA256.json ../STAGE_FOR_REVIEW.md ../progress.json ../USER_UPDATES.md \
+  filelist_v024_unified.f REFERENCE_FREEZE.json scripts/*.py scripts/*.sh \
+  rtl/*.sv tb/*.sv deferred/*.sv \
   fixtures/v024_ref.json fixtures/gold_a16.hex fixtures/gold_fallback_i16.hex \
   fixtures/lane_vectors.hex fixtures/lane_gold.hex fixtures/lane_muladd.hex \
-  > SHA256SUMS.txt 2>/dev/null || true
+  > SHA256SUMS.txt
 
 if [ $FAILS -ne 0 ] || [ $CHECK_RC -ne 0 ]; then
   echo "RUN_V024_FAIL rc=$FAILS check_rc=$CHECK_RC"

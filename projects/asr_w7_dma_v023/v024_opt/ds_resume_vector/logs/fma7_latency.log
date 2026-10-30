@@ -1,0 +1,6 @@
+FMA7_STREAM ii1 n=64 accepted=64 received=64 latency=7 edge_delta=7 gaps=0 stalls=0
+FMA7_STREAM backpressure n=32 accepted=32 received=32 latency=7 edge_delta=7 gaps=14 stalls=39
+FMA7_FLUSH in_flight=5 post_flush_outputs=0 flush_cycles=1
+FMA7_STREAM new_epoch n=16 accepted=16 received=16 latency=7 edge_delta=7 gaps=0 stalls=39
+FMA7_LATENCY PASS latency=7 ii1=1 bp=1 flush_drop=1 new_epoch=1
+tb/tb_fma7_latency.sv:214: $finish called at 1712000 (1ps)

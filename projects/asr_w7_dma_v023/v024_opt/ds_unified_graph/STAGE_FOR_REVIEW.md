@@ -13,12 +13,14 @@ STA, board, VNC or push.
 2. Explicit-request fallback: a `MATF` node with `queue_count=2` and a
    non-`A16C` consumer must run the **legacy C48** path and still match
    `fixtures/gold_fallback_i16.hex`.
-3. Plan rejection: `MATF` word without header `FUSION_ALLOW` must report
+3. Multi-consumer: `MATF` with `count=1`, one `A16C` and one untagged consumer
+   must fall back (`used=0`), complete and stay drained.
+4. Plan rejection: `MATF` word without header `FUSION_ALLOW` must report
    `error=0x04` and terminate.
-4. Fault/drain: hold the A16 write B response; the MAT watchdog must end in
+5. Fault/drain: hold the A16 write B response; the MAT watchdog must end in
    `fault=1,error=0x0E,isolation=1,requires_reset=1,b_pending>0,quiesced=0`;
    no new AR/AW/W after isolation.
-5. Directed FMA contract: 64 vectors where single-rounding FMA differs from
+6. Directed FMA contract: 64 vectors where single-rounding FMA differs from
    `mul`-then-`add` in FP32; `fixtures/lane_gold.hex` vs `lane_muladd.hex`.
 
 ## Exact commands

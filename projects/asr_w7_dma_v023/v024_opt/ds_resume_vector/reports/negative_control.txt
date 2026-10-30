@@ -1,0 +1,6 @@
+case=tail_0256 rc=1 observed=expected_failure
+  CHECK_NEGATIVE_OK case=tail_0256 (expected failure observed)
+case=mul_0010 rc=1 observed=expected_failure
+  CHECK_NEGATIVE_OK case=mul_0010 (expected failure observed)
+controls=2 expected_failure=2
+overall=pass

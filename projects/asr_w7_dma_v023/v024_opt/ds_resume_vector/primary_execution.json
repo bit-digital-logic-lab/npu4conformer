@@ -1,1 +1,1 @@
-{"state": "running", "supervisor_pid": 120394, "started": 1793347182.821584, "note": "agent exited with no result; primary owns actual blocking regression to completion"}
+{"state": "complete", "rc": 0, "ended": 1793348154.4206698, "result_exists": true, "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_resume_vector/logs/primary_supervised_console.log"}

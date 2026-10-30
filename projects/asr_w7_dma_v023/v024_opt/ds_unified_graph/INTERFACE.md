@@ -1,6 +1,7 @@
 # INTERFACE — ds_unified_graph (v024 unified candidate)
 
-Status (early, updated during work): **logic-simulation candidate only**.
+Status (final): **logic-simulation candidate; unified regression PASS in this directory**.
+Acceptance is still by the main agent, not by `exit.json` rc alone.
 Single clock, no CDC / async FIFO. No synthesis, Vivado/STA, board, VNC or push.
 This file is published early so `ds_adversarial_review` and `ds_final_organize`
 can test/consume the stage without waiting for `exit.json`.

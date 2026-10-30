@@ -308,6 +308,53 @@ def main():
     blob_b, _ = write_plan(memf, fb_nodes, flags=0x10000)
     (FIX / 'mem_v024_fallback.hex').write_text('\n'.join(f'{w:08x}' for w in memf) + '\n')
 
+    # ---- multi-consumer plan: one A16C consumer, one untagged consumer.
+    # Fusion must be refused because a consumer is not explicitly A16C. ----
+    memm = mem_image()
+    put_bytes(memm, PARAM_A, a_bytes)
+    put_bytes(memm, PARAM_W, w_bytes)
+    emit_desc(memm, QUEUE, 1, FB_C)
+    for off, w in {
+        0x000: lay(0, PARAM_A, ARENA_A, 1024, 2),
+        0x100: lay(0, PARAM_W, ARENA_B, 512, 2),
+        0x200: vec(14 | (1 << 13), FB_C, D_IN, 0, FB_D0, 1024),
+        0x300: vec(15 | (1 << 9), FB_D0, 0, 0, FB_D1, 1024),
+        0x400: lay(0, FB_C, ARENA_OUT, 1024, 2),
+    }.items():
+        for i, v in enumerate(w):
+            put(memm, PAY + off + i * 4, v)
+    mc_nodes = [
+        G.node(G.T_IN, 0, 0, base=PARAM_A, count=512,
+               flags=G.FLAG_ROOT | G.FLAG_EXTERNAL, input_tid=0, output_tid=0,
+               input_base=PARAM_A, input_bytes=2048,
+               output_base=PARAM_A, output_bytes=2048, version=1, epoch=1),
+        G.node(G.T_LAY, 1, 1 << 0, base=PAY + 0x000, count=0,
+               input_tid=0, output_tid=1, input_base=PARAM_A, input_bytes=2048,
+               output_base=ARENA_A, output_bytes=2048, version=1, epoch=2),
+        G.node(G.T_LAY, 2, 1 << 0, base=PAY + 0x100, count=0,
+               input_tid=0, output_tid=2, input_base=PARAM_W, input_bytes=1024,
+               output_base=ARENA_B, output_bytes=1024, version=1, epoch=3),
+        G.node(G.T_MAT, 3, (1 << 1) | (1 << 2), base=QUEUE, count=1,
+               input_tid=1, output_tid=3, input_base=ARENA_A, input_bytes=2048,
+               output_base=FB_C, output_bytes=6144, version=1, epoch=4),
+        G.node(G.T_VEC, 4, 1 << 3, base=PAY + 0x200, count=0,
+               input_tid=3, output_tid=4, input_base=FB_C, input_bytes=6144,
+               output_base=FB_D0, output_bytes=4096, version=1, epoch=5),
+        G.node(G.T_VEC, 5, 1 << 4, base=PAY + 0x300, count=0,
+               flags=G.FLAG_OUTPUT | G.FLAG_RETAINED,
+               input_tid=4, output_tid=5, input_base=FB_D0, input_bytes=4096,
+               output_base=FB_D1, output_bytes=2048, version=1, epoch=6),
+        G.node(G.T_LAY, 6, 1 << 3, base=PAY + 0x400, count=0,
+               input_tid=3, output_tid=6, input_base=FB_C, input_bytes=2048,
+               output_base=ARENA_OUT, output_bytes=2048, version=1, epoch=7),
+    ]
+    mc_nodes[3][14] = matf_word(pc_en=0, relu=0, mode=0)
+    mc_nodes[6][14] = 0x41313643   # tagged A16C
+    mc_nodes[6][15] = 0
+    # node 4 stays untagged -> cons_bad -> fallback
+    write_plan(memm, mc_nodes, flags=G.FLAG_SYNTH_ORDER | 0x10000)
+    (FIX / 'mem_v024_multicons.hex').write_text('\n'.join(f'{w:08x}' for w in memm) + '\n')
+
     # ---- bad plan: MATF word present but header FUSION_ALLOW clear ----
     memb = mem_image()
     put_bytes(memb, PARAM_A, a_bytes)

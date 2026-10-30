@@ -1,6 +1,7 @@
 # INTERFACE — ds_layout_wide (V0.24 Layout 128-bit fast path)
 
-Status: work in progress (this file is published before the RTL is final).
+Status: FINAL for this task (2026-10-30). Candidate SHA256
+`5477651c09c98781de3b6fe5d8a913c93fb685414fc4971685f15f87eae5c365`.
 Logic simulation only. No synthesis/Vivado/board/VNC/push. No frequency or
 whole-model second claims.
 

@@ -8,4 +8,4 @@ V024_AXI rburst=94 wburst=60 rbeats=1404 wbeats=960 tag_err=0 rpeak=1 wpeak=1
 V024_DRAIN rd_pending=0 wr_pending=0 b_pending=0 quiesced=1 iso_blocked=0 held_b=0 returned_b=60
 V024_END done=1 fault=0 error=00 iso=0 requires_reset=0 fetch_to=0 drain_timeout=0 cycles=18724
 V024_RESULT PASS
-tb/tb_v024_unified.sv:262: $finish called at 149796000 (1ps)
+tb/tb_v024_unified.sv:267: $finish called at 149796000 (1ps)

@@ -2,6 +2,7 @@
   "fixtures/mem_v024_fused.hex": "fd05f8f4ff4f3754c3a9c89786887b69168c3cbe015be44e6d6718deae52e26b",
   "fixtures/mem_v024_fallback.hex": "65215da2effd30717dc5be9b4f1372779b4ec305d14ea170b9640881de5f250d",
   "fixtures/mem_v024_badflag.hex": "cf4ef665549dd063e82c26b20de239c4c2ce98382ab3dcdc23824e4ffa2ae655",
+  "fixtures/mem_v024_multicons.hex": "361471f76f5883c0efae32b9f968e2179832960799309e6199efadb372d76c98",
   "fixtures/gold_a16.hex": "da364d27fee9848fcfc8e637ce006557dafd4aead4031f4c7d8bd549ef9e3b8e",
   "fixtures/gold_fallback_i16.hex": "ee7c68902f3b20a11f754d95d3f1ee88f7598d01eb7481de9f9c6e5d8f69d69d",
   "fixtures/lane_vectors.hex": "7bbc7913fdb539e87b78fd604b6682d6e0026174645491bc78f7556b64849afc",

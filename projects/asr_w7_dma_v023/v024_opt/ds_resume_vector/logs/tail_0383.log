@@ -1,0 +1,7 @@
+HOST START plan=10008000 total=383 out=04010000 outwords=383 cycle=16
+STATUS busy=0 done=1 fault=0 aborted=0 err=00 cycles=1169 completed=1 last=0
+VEC vcyc=1111 vrb=4608 vwb=1532 vcompleted=383 vflags=00 vfault=0 vaborted=0 vrejected=0
+AXI rburst=21 wburst=6 rbeats=308 wbeats=96 rdstall=7 wrstall=34 tag_err=0
+BOUNDARY done_cycle=1201 last_b_cycle=1193 b_count_at_done=0 b_after_done=0 aw_after_done=0
+VEC_FMA_PLAN PASS total=383 outwords=383 done_cycle=1201 last_b=1193 vcyc=1111 rbeats=308 wbeats=96
+tb/tb_vector_fma_plan.sv:234: $finish called at 10220000 (1ps)
