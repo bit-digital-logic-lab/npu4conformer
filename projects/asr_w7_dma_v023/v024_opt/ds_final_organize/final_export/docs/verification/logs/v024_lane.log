@@ -1,0 +1,3 @@
+V024_LANE seen=64 gold_mismatch=0 muladd_diff_fixture=1
+V024_LANE_RESULT PASS
+sim/tb/tb_v024_epilogue.sv:77: $finish called at 956000 (1ps)

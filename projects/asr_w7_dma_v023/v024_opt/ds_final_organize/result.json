@@ -1,0 +1,206 @@
+{
+ "task": "ds_final_organize",
+ "title": "V0.24 final clean export after unified integration and independent review",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "date": "2026-10-30",
+ "status": "complete-logic-simulation",
+ "rc": 0,
+ "entry_rc": 0,
+ "scope": "local RTL logic simulation only; no synthesis/Vivado/STA/board/VNC/push; no frequency or whole-model-seconds claim",
+ "export_dir": "final_export/",
+ "unique_filelist": "final_export/filelist.f",
+ "filelist_sha256": "dab954e13c6ab83c956edee8b1854d8fd3d8105edf2ba79187dc5b547a8889c4",
+ "rerun": "bash final_export/scripts/sim/run_export_all.sh",
+ "entry": "final_export/scripts/sim/run_export.sh",
+ "independent_judge": "final_export/scripts/analysis/check_export.py",
+ "organization": [
+  "rtl/{matrix,memory,dma,vector,layout,graph,epilogue,common}",
+  "sim/{tb,fixtures}",
+  "scripts/{sim,analysis}",
+  "software",
+  "docs/{design,verification,performance}",
+  "skills",
+  "assets_manifest"
+ ],
+ "selection": {
+  "integrated": "ds_unified_graph/unified v024_unified_top (frozen sources)",
+  "baseline_smoke": "v023_integrated_top (focused 5-case smoke only, distinct module)",
+  "rtl_sources": 51,
+  "unique_modules": 51,
+  "duplicate_modules": {},
+  "reference_freeze_ok": true,
+  "filelist_entries": 51
+ },
+ "tests": {
+  "run_export_all": {
+   "rc": 0,
+   "marker": "EXPORT_ALL_PASS",
+   "log": "final_export/docs/verification/logs/run_export_console.log",
+   "rc_tsv": "final_export/docs/verification/logs/rc.tsv"
+  },
+  "v024_fused": {
+   "rc": 0,
+   "cycles": 18724,
+   "done": 1,
+   "fault": 0,
+   "error": 0,
+   "fusion_used": 1,
+   "c48_ddr_bytes": 0,
+   "a16_bytes": 2048,
+   "a16_mismatch_512": 0,
+   "copy_mismatch_512": 0,
+   "drained": true
+  },
+  "v024_fallback": {
+   "rc": 0,
+   "cycles": 16973,
+   "done": 1,
+   "fault": 0,
+   "error": 0,
+   "fusion_used": 0,
+   "fallback_i16_mismatch_512": 0,
+   "drained": true
+  },
+  "v024_multicons": {
+   "rc": 0,
+   "cycles": 19749,
+   "done": 1,
+   "fault": 0,
+   "error": 0,
+   "fusion_used": 0,
+   "drained": true
+  },
+  "v024_badflag": {
+   "rc": 0,
+   "cycles": 383,
+   "done": 1,
+   "fault": 1,
+   "error": 4,
+   "fusion_used": 0
+  },
+  "v024_hold": {
+   "rc": 0,
+   "cycles": 30720,
+   "done": 1,
+   "fault": 1,
+   "error": 14,
+   "isolation": 1,
+   "requires_reset": 1,
+   "b_pending": 8,
+   "quiesced": 0
+  },
+  "v024_lane": {
+   "rc": 0,
+   "vectors": 64,
+   "gold_mismatch": 0,
+   "fma_vs_muladd_diff": 64
+  },
+  "div": {
+   "worst_rel": 0.0009102,
+   "tol": 0.0012,
+   "bad": 0
+  },
+  "sqrt": {
+   "worst_rel": 5.089e-06,
+   "tol": 6e-06,
+   "bad": 0
+  },
+  "base_smoke": {
+   "rc": 0,
+   "cases": {
+    "base_normal": 0,
+    "base_multitask": 0,
+    "base_bad_queue_magic": 0,
+    "base_bad_vec_op": 0,
+    "base_hold_b_c": 0
+   },
+   "marker": "SAFETY_RESULT PASS",
+   "note": "focused smoke, not the 26-test closeout"
+  }
+ },
+ "sha256": {
+  "filelist.f": "dab954e13c6ab83c956edee8b1854d8fd3d8105edf2ba79187dc5b547a8889c4",
+  "README.md": "2baf19865b5884096fe5901e588ce7d7f2f21d5de0a68b79f8a36a8573ddc0ac",
+  "RESULTS.md": "81e6cb070bde277812ecd6255d9bc0afa53d38b92452e8e1762b3a4d1f470506",
+  "FILE_SHA256.txt": "8ed5fcdf08178f8d5d29fe65d6080f01e5bf3a0eab7006646f99712fa2e0f737",
+  "SOURCE_SHA256.json": "a4a9f6cee55544408d637b4943bd42e9829f5360bdeb58f53f89c05b5173675a",
+  "REFERENCE_FREEZE.json": "18080b8980a934551e76fbe9fd49be586c82ad8d6778778ca8d93d2d6a452dde",
+  "v024_unified_top.sv": "31c4a732d24282724b0ba5cdece7d8d5d3937d95bb871bfe80f0711fe317e040",
+  "fp32_fma_pipe.sv": "3c1114bc40078fd357bb968e8daecc53e68ad4da25a6ae586ce658b4d2a5e0c5",
+  "REPORT.md": "8e9e2b3a1eabb13592a9dd63f4ac3b8f2277f5f8710bb1ff7bd9f79f40149f82"
+ },
+ "asset_manifest": {
+  "file_sha256": "final_export/assets_manifest/FILE_SHA256.txt",
+  "old_to_new": "final_export/assets_manifest/OLD_TO_NEW.csv",
+  "old_to_new_md": "final_export/assets_manifest/OLD_TO_NEW.md",
+  "source_sha": "final_export/assets_manifest/SOURCE_SHA256.json",
+  "summary": "final_export/assets_manifest/SUMMARY.json",
+  "unselected": "final_export/assets_manifest/UNSELECTED.md",
+  "missing_assets": "final_export/assets_manifest/MISSING_ASSETS.md",
+  "verified_count": 150,
+  "sha256sum_c_rc": 0,
+  "export_files": 159
+ },
+ "deferred": [
+  {
+   "worker": "ds_storage_write",
+   "reason": "AR-008 generic 4KiB/back-to-back open; two-descriptor legacy queue hit MAT watchdog in unified plan"
+  },
+  {
+   "worker": "ds_layout_wide",
+   "reason": "mode-0 copies exceeded 20k MAT watchdog and doubled Icarus wall time in the unified plan"
+  },
+  {
+   "worker": "ds_matrix_reuse",
+   "reason": "ABI adds cfg_w_reuse and split stage release; not re-verified in both tops"
+  },
+  {
+   "worker": "ds_fusion_buffers",
+   "reason": "dual top is broadcast-parameter only; not merged with per-column table"
+  },
+  {
+   "worker": "ds_epilogue_channels/ds_repair_epilogue",
+   "reason": "AR-006 simultaneous A16+FP32 backpressure not independently closed"
+  },
+  {
+   "worker": "ds_graph_prefetch",
+   "reason": "controller variant lacks MATF; own result rc=1; lookahead only 114 cycles (0.48%)"
+  },
+  {
+   "worker": "ds_vector_fma/ds_resume_vector",
+   "reason": "adds abort/aborted ports; unified numeric path uses op3/op4; 4-lane op17 not implemented"
+  },
+  {
+   "worker": "ds_fma_deep",
+   "reason": "pre-repair b062... has AR-001 flush handshake; superseded by ds_repair_fmaflush 3c1114bc..."
+  }
+ ],
+ "rejected_claims": [
+  "59.8% control overhead (real exclusive non-engine 1.83%)",
+  "zero extra BRAM / fixed 1-cycle collect / 8x layout / FMA halved as acceptance metrics",
+  "54.8KB as vector-exclusive traffic",
+  "multi-HP bandwidth addition or peak1 as single-transaction proof",
+  "automatic fusion swallowing",
+  "strict IEEE FMA",
+  "old 7.745ns on new RTL or 250-300MHz",
+  "whole-model seconds / WER-CER / full 591 DAG"
+ ],
+ "not_claimed": [
+  "full 512-dim ASR / 591-tensor DAG / CASE0000",
+  "sealed payload re-lower and complete host executor",
+  "synthesis/STA/Fmax/resources/power/CDC",
+  "board DDR/MIG/HP topology, VNC, push",
+  "frequency or whole-model seconds",
+  "exact DIV/SQRT",
+  "per-tile per-channel host DMA",
+  "4-lane op17 FMA"
+ ],
+ "unfinished": [
+  "full-model data and host executor are absent; small fixtures are not a substitute",
+  "deferred module optimisations are not integrated",
+  "independent reviewer AR-006/AR-008 remain open for their candidate paths",
+  "no synthesis/STA/board/frequency evidence",
+  "main-agent acceptance is separate; exit 0 is not automatic acceptance"
+ ],
+ "evidence_warning": "main-agent acceptance is required; this result records a rerun in the export directory, not an automatic whole-project PASS"
+}

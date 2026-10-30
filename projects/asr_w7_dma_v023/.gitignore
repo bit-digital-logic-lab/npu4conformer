@@ -14,3 +14,7 @@ supervisor.log
 
 # Keep selected historical simulation evidence shipped in this snapshot.
 !*.log
+
+# The curated clean export ships its testbench, fixtures and run scripts.
+!v024_opt/ds_final_organize/final_export/sim/
+!v024_opt/ds_final_organize/final_export/scripts/sim/

@@ -1,0 +1,76 @@
+== 0. independent fixtures + gold ==
+== 1. serial compile ==
+== 2. fused small graph (A16 + per-channel + DIV + SQRT) ==
+v024_fused rc=0 seconds=83
+== 3. explicit fallback to legacy C48 path ==
+v024_fallback rc=0 seconds=78
+== 4. multi-consumer plan -> legacy fallback ==
+v024_multicons rc=0 seconds=93
+== 5. MATF without FUSION_ALLOW -> error 0x04 ==
+v024_badflag rc=0 seconds=3
+== 6. fused A16 write B held -> isolation, no false drain ==
+v024_hold rc=0 seconds=126
+== 7. directed single-rounding FMA vs mul+add ==
+v024_lane rc=0 seconds=0
+== 8. independent judge ==
+INFO DIV worst_rel=9.102e-04 bad=0
+INFO SQRT worst_rel=5.089e-06 bad=0
+INFO FMA vs mul+add differing vectors: 64/64
+V024_CHECK PASS
+== 9. focused baseline smoke (default header, no fusion) ==
+base_normal rc=0 seconds=54
+base_multitask rc=0 seconds=58
+base_bad_queue_magic rc=0 seconds=24
+base_bad_vec_op rc=0 seconds=27
+base_hold_b_c rc=0 seconds=31
+RUN_EXPORT_PASS (small-graph integrated candidate + focused baseline smoke;
+                 no full-model, synthesis, STA, board or frequency claim)
+{
+  "fixture": "V0.24 unified small graph",
+  "runs": {
+    "v024_fused": {
+      "rc": 0,
+      "cycles": 18724
+    },
+    "v024_fallback": {
+      "rc": 0,
+      "cycles": 16973
+    },
+    "v024_multicons": {
+      "rc": 0,
+      "cycles": 19749
+    },
+    "v024_badflag": {
+      "rc": 0,
+      "cycles": 383
+    },
+    "v024_hold": {
+      "rc": 0,
+      "cycles": 30720
+    }
+  },
+  "base_smoke_rc": {
+    "base_normal": 0,
+    "base_multitask": 0,
+    "base_bad_queue_magic": 0,
+    "base_bad_vec_op": 0,
+    "base_hold_b_c": 0
+  },
+  "fused_c48_ddr_bytes": 0,
+  "fused_a16_bytes": 2048,
+  "div_worst_rel": 0.0009102,
+  "sqrt_worst_rel": 5.089e-06,
+  "fma_vs_muladd_diff": 64,
+  "note": "logic cycles only; not additive; no whole-model or board claim"
+}
+INFO filelist entries=51 unique_modules=51
+{
+  "files": 118,
+  "rtl_sources": 51,
+  "filelist_entries": 51,
+  "unique_modules": 51,
+  "duplicate_modules": {},
+  "frozen_references": 10,
+  "fail": 0
+}
+EXPORT_ALL_PASS

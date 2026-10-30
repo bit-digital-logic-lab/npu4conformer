@@ -1,0 +1,71 @@
+{
+  "included": {
+    "rtl": {
+      "count": 51,
+      "one_per_module": true
+    },
+    "sim_tb": {
+      "count": 4
+    },
+    "fixtures": {
+      "count": 18
+    },
+    "scripts": {
+      "count": 8
+    },
+    "software": {
+      "count": 3
+    },
+    "docs": {
+      "count": 45
+    },
+    "skills": {
+      "count": 18
+    }
+  },
+  "missing": [
+    {
+      "asset": "model_a_v0_22(1).zip",
+      "approx_bytes": 589462902,
+      "reason": "original sealed baseline archive; not copied"
+    },
+    {
+      "asset": "assets/parameters001/parameters.bin",
+      "bytes": 173715968,
+      "reason": "model weights; not copied"
+    },
+    {
+      "asset": "assets/parameters002/parameters.bin",
+      "bytes": 173715968,
+      "reason": "model weights; not copied"
+    },
+    {
+      "asset": "original ONNX / full 512-dim inputs",
+      "status": "not present",
+      "reason": "full CASE0000 cannot run"
+    },
+    {
+      "asset": "host executor / sealed 591 payload",
+      "status": "partial only",
+      "reason": "not re-lowered for V0.24"
+    },
+    {
+      "asset": "full 591-tensor fixtures/goldens",
+      "status": "not present",
+      "reason": "full graph not run"
+    },
+    {
+      "asset": "Vivado/STA reports for this RTL",
+      "status": "none",
+      "reason": "no synthesis"
+    },
+    {
+      "asset": "board bitstream / VNC / DDR PHY model",
+      "status": "none",
+      "reason": "no board run"
+    }
+  ],
+  "source_sha": "SOURCE_SHA256.json",
+  "file_sha": "FILE_SHA256.txt",
+  "note": "small fixtures are not a substitute for the missing full model"
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>模块活动波形</title>
+<style>
+body{font:14px system-ui,sans-serif;color:#dae4ef;background:#101823;margin:0}header{padding:22px 28px;background:#172333}h1{font-size:23px;margin:0 0 8px}p{line-height:1.6;margin:6px 0}.muted{color:#a3b4c8}main{padding:18px 28px}button,input,select{background:#24364a;color:#edf3fa;border:1px solid #485d74;border-radius:5px;padding:8px;margin:3px}button{cursor:pointer}input{width:220px}#viewport{overflow:auto;border:1px solid #34485e;border-radius:8px;margin-top:14px}canvas{display:block}#tooltip{position:fixed;pointer-events:none;display:none;max-width:460px;background:#23384e;white-space:pre-wrap;padding:12px;border:1px solid #7393b2;border-radius:6px;font:12px monospace;z-index:10}table{border-collapse:collapse;width:100%;margin-top:12px}td,th{border-bottom:1px solid #34485e;text-align:left;padding:9px;word-break:break-word}.legend{display:inline-block;margin:8px 14px 4px 0}.dot{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px}#range{font:13px monospace;margin:10px 0}#empty{padding:20px;color:#a3b4c8}
+</style>
+<header><h1 id="heading"></h1><p id="scope"></p><p class="muted">滚轮缩放 · ← → 平移 · 点击波形锁定/释放游标 · 悬停查看事件 · 不同时间域分别显示</p></header>
+<main><select id="domain" aria-label="时间域"></select><input id="search" placeholder="搜索模块 / 信号" aria-label="搜索模块"><button id="zoomIn">放大＋</button><button id="zoomOut">缩小－</button><button id="left">←</button><button id="right">→</button><button id="reset">全窗口</button><div id="range"></div><div id="legend"></div><div id="viewport"><canvas id="wave"></canvas></div><div id="empty" hidden>没有匹配的模块</div><h3>游标时刻的模块状态</h3><p id="cursor" class="muted">移动到波形上查看；点击可锁定游标。</p><table><thead><tr><th>模块 / 信号</th><th>状态</th><th>区间</th><th>任务与原因</th></tr></thead><tbody id="readout"></tbody></table><p class="muted">绿色是计算/有效传输；橙色是等待；灰色是明确空闲；斜纹是未知采样。busy信号高不等于有效计算。很窄的脉冲请放大查看。</p></main><div id="tooltip"></div>
+<script id="trace-data" type="application/json">__TRACE_JSON__</script>
+<script>
+'use strict';
+const DATA=JSON.parse(document.getElementById('trace-data').textContent);
+const $=id=>document.getElementById(id),canvas=$('wave'),ctx=canvas.getContext('2d');
+document.title=DATA.title;$('heading').textContent=DATA.title;$('scope').textContent=DATA.scope;
+const colors={compute:'#5dbdaf',active:'#5dbdaf',payload:'#62caa3',idle_no_work:'#546379',idle_no_request:'#546379',unknown:'#87919f',backpressure:'#e99b6c',wait_memory:'#e8c06c',starved_input:'#c4a1e6',fifo_full:'#de8d9b',bank_conflict:'#dfb978',drain:'#70a9d7','0':'#80c9c2','1':'#80c9c2',X:'#e792a4',Z:'#d9b777'};
+const labels={compute:'计算',active:'执行',payload:'有效传输',idle_no_work:'空闲',idle_no_request:'无请求',unknown:'未知',backpressure:'反压',wait_memory:'等待存储',starved_input:'缺输入',fifo_full:'FIFO满',bank_conflict:'Bank冲突',drain:'排空',dispatch_or_drain:'调度/排空'};
+for(const g of DATA.groups){const opt=document.createElement('option');opt.value=g.name;opt.textContent=g.name+' · '+g.unit;$('domain').append(opt)}
+let group=DATA.groups[0],lo=group?group.start:0,hi=group?group.end:1,cursor=null,locked=false,lanes=[],width=1100;
+const labelWidth=260,top=42,rowHeight=44;
+const fmt=x=>Number.isInteger(x)?String(x):x.toFixed(2);
+function eventAt(l,t){let a=0,b=l.spans.length;while(a<b){const m=(a+b)>>1;if(l.spans[m].end<=t)a=m+1;else b=m}const e=l.spans[a];return e&&e.start<=t&&t<e.end?e:null}
+function windowSet(a,b){if(!group)return;const full=group.end-group.start;let span=Math.max(Math.min(1,full),Math.min(full,b-a));a=Math.max(group.start,Math.min(group.end-span,a));lo=a;hi=a+span;draw()}
+function draw(){
+ if(!group){$('empty').hidden=false;return}
+ lanes=DATA.lanes.filter(l=>l.group===group.name&&l.name.toLowerCase().includes($('search').value.toLowerCase()));
+ $('empty').hidden=lanes.length>0;width=Math.max(850,$('viewport').clientWidth);const height=top+lanes.length*rowHeight+18;
+ const dpr=window.devicePixelRatio||1;canvas.width=width*dpr;canvas.height=height*dpr;canvas.style.width=width+'px';canvas.style.height=height+'px';ctx.setTransform(dpr,0,0,dpr,0,0);
+ ctx.fillStyle='#121e2c';ctx.fillRect(0,0,width,height);ctx.font='12px monospace';const plot=width-labelWidth-14;
+ const x=t=>labelWidth+(t-lo)/(hi-lo)*plot;
+ for(let i=0;i<=8;i++){let t=lo+(hi-lo)*i/8;ctx.strokeStyle='#2d3c50';ctx.beginPath();ctx.moveTo(x(t),top-12);ctx.lineTo(x(t),height);ctx.stroke();ctx.fillStyle='#aec1d6';ctx.fillText(fmt(t),Math.min(x(t)+2,width-70),23)}
+ lanes.forEach((l,i)=>{let y=top+i*rowHeight;ctx.fillStyle=i%2?'#152334':'#18283a';ctx.fillRect(0,y,width,rowHeight);ctx.fillStyle='#dce8f4';ctx.save();ctx.beginPath();ctx.rect(6,y,labelWidth-14,rowHeight);ctx.clip();ctx.fillText(l.name,10,y+20);ctx.fillStyle='#9db0c5';ctx.font='10px monospace';ctx.fillText('coverage '+(l.known_coverage*100).toFixed(1)+'% · '+l.evidence,10,y+35);ctx.restore();ctx.font='12px monospace';
+  for(const e of l.spans){if(e.end<=lo||e.start>=hi)continue;const left=x(Math.max(lo,e.start)),right=x(Math.min(hi,e.end));ctx.fillStyle=colors[e.state]||'#c8a67c';
+   if(l.kind==='signal'&&['0','1','X','Z'].includes(e.state)){const sy=e.state==='0'?y+31:e.state==='1'?y+8:y+20;ctx.strokeStyle=ctx.fillStyle;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(left,y+20);ctx.lineTo(left,sy);ctx.lineTo(right,sy);ctx.stroke();if(right-left>24)ctx.fillText(e.state,left+4,y+17)}
+   else {ctx.fillRect(left,y+7,Math.max(1,right-left),29);if(e.state==='unknown'){ctx.save();ctx.beginPath();ctx.rect(left,y+7,Math.max(1,right-left),29);ctx.clip();ctx.strokeStyle='#bbc3cc';for(let j=left-30;j<right;j+=10){ctx.beginPath();ctx.moveTo(j,y+36);ctx.lineTo(j+29,y+7);ctx.stroke()}ctx.restore()}if(right-left>80){ctx.save();ctx.beginPath();ctx.rect(left,y+7,right-left,29);ctx.clip();ctx.fillStyle='#102131';ctx.fillText((labels[e.state]||e.state)+' '+(e.tensor||e.transfer_id||''),left+4,y+26);ctx.restore()}}
+  }
+ });
+ if(cursor!==null&&cursor>=lo&&cursor<=hi){ctx.strokeStyle='#eaf2ff';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x(cursor),top-12);ctx.lineTo(x(cursor),height);ctx.stroke()}
+ $('range').textContent='窗口 ['+fmt(lo)+', '+fmt(hi)+') '+group.unit+(group.clock_hz?' · 时钟 '+(group.clock_hz/1e6)+' MHz（采样配置，不是Fmax）':'')+' · '+lanes.length+' 行';
+ const states=[...new Set(lanes.flatMap(l=>l.spans.map(e=>e.state)))];$('legend').replaceChildren();for(const state of states){const span=document.createElement('span');span.className='legend';const dot=document.createElement('span');dot.className='dot';dot.style.background=colors[state]||'#c8a67c';span.append(dot,document.createTextNode(labels[state]||state));$('legend').append(span)}
+ readout();
+}
+function readout(){const body=$('readout');body.replaceChildren();if(cursor===null)return;$('cursor').textContent=(locked?'锁定 ':'游标 ')+fmt(cursor)+' '+group.unit;for(const l of lanes){const e=eventAt(l,cursor),tr=document.createElement('tr');for(const text of [l.name,e?(labels[e.state]||e.state):'超出采样窗口',e?'['+fmt(e.start)+', '+fmt(e.end)+')':'',e?[e.tensor,e.op,e.reason,e.blocked_by?'blocked_by='+e.blocked_by:''].filter(Boolean).join(' · '):'']){const td=document.createElement('td');td.textContent=text;tr.append(td)}body.append(tr)}}
+function pos(ev){const b=canvas.getBoundingClientRect(),x=ev.clientX-b.left,y=ev.clientY-b.top;return {t:lo+(x-labelWidth)/(width-labelWidth-14)*(hi-lo),i:Math.floor((y-top)/rowHeight),x,y}}
+canvas.addEventListener('mousemove',ev=>{if(!group)return;const p=pos(ev);if(p.x<labelWidth||p.i<0||p.i>=lanes.length){$('tooltip').style.display='none';return}const e=eventAt(lanes[p.i],p.t);if(!locked){cursor=p.t;draw()}if(e){$('tooltip').textContent=lanes[p.i].name+'\n'+JSON.stringify(e,null,2);$('tooltip').style.display='block';$('tooltip').style.left=Math.max(4,Math.min(ev.clientX+12,window.innerWidth-490))+'px';$('tooltip').style.top=Math.max(4,Math.min(ev.clientY+12,window.innerHeight-260))+'px'}else $('tooltip').style.display='none'});
+canvas.addEventListener('mouseleave',()=>{$('tooltip').style.display='none'});
+canvas.addEventListener('click',ev=>{const p=pos(ev);if(group&&p.x>=labelWidth){locked=!locked;cursor=p.t;draw()}});
+function zoom(f,at=(lo+hi)/2){const span=(hi-lo)*f;const ratio=(at-lo)/(hi-lo);windowSet(at-ratio*span,at+(1-ratio)*span)}
+canvas.addEventListener('wheel',ev=>{ev.preventDefault();if(group)zoom(ev.deltaY>0?1.3:1/1.3,Math.max(lo,Math.min(hi,pos(ev).t)))},{passive:false});
+$('zoomIn').onclick=()=>zoom(.5);$('zoomOut').onclick=()=>zoom(2);$('left').onclick=()=>windowSet(lo-(hi-lo)*.35,hi-(hi-lo)*.35);$('right').onclick=()=>windowSet(lo+(hi-lo)*.35,hi+(hi-lo)*.35);
+$('reset').onclick=()=>{if(group)windowSet(group.start,group.end)};$('search').oninput=draw;
+$('domain').onchange=()=>{group=DATA.groups.find(g=>g.name===$('domain').value);cursor=null;locked=false;lo=group.start;hi=group.end;draw()};window.addEventListener('resize',draw);draw();
+</script></html>

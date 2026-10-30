@@ -1,0 +1,50 @@
+[
+  {
+    "path": "traffic-ledger/SKILL.md",
+    "sha256": "2b41a8c80b61d42c94e28e04c3e8c0a24267b9f7e5d698ba870d8398b16d4eee"
+  },
+  {
+    "path": "traffic-ledger/references/instrumentation.md",
+    "sha256": "a27f75256ba54056049e150a1bedffb9a34d2a7049c5f4cc27da5db2935828a9"
+  },
+  {
+    "path": "traffic-ledger/references/schema.md",
+    "sha256": "db26c1f7249ee37ffa331268ed055d78223e6ff7c945e8eafe66964423ed6662"
+  },
+  {
+    "path": "traffic-ledger/scripts/analyze.py",
+    "sha256": "c9e3bd7cc131a2e9c98c4f269f200b7aca549aedce3eb566903876ddf6534662"
+  },
+  {
+    "path": "traffic-ledger/scripts/demo.py",
+    "sha256": "13ca8982d2fb9d77eb72ef4bbf5122b09e2b6e5c2d7f8594f436bf739aa10ce5"
+  },
+  {
+    "path": "traffic-ledger/scripts/ledger.py",
+    "sha256": "b0aa3f4a49ace337c46469e34709b8ac556967d51cf4f4ce7817e96c1a58f706"
+  },
+  {
+    "path": "traffic-ledger/scripts/selftest.py",
+    "sha256": "9fa1cdb5ea943241c71f9de00c6db84f1a1851efdf5876430ac3ff6b56df8d40"
+  },
+  {
+    "path": "module-activity-waveform/SKILL.md",
+    "sha256": "61a1b6ae7ad1780accfe6a8b3f5c842b699f4abc690e66befcf38f0e00dca9dd"
+  },
+  {
+    "path": "module-activity-waveform/references/instrumentation.md",
+    "sha256": "8b1afbe46e6cb527eb7a66a5fb6081ba010c0ae32896ebfa06cd07c2639f10a1"
+  },
+  {
+    "path": "module-activity-waveform/scripts/render.py",
+    "sha256": "7f7adbab78663594127974b2609d030239c43659001e9c021c245687d5a8a7ad"
+  },
+  {
+    "path": "module-activity-waveform/scripts/selftest.py",
+    "sha256": "7aa52a56d4db5f47479019186eaac0cf27af744abcdc9eb0616a38b0cbdf7292"
+  },
+  {
+    "path": "module-activity-waveform/scripts/viewer.html",
+    "sha256": "e3759a69417d031bcd4ce9795b83d85ee7bcd3a523293f846f5160c7ac534fd7"
+  }
+]

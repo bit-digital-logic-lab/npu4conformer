@@ -422,6 +422,38 @@
       "bytes": 2359296
     },
     {
+      "path": "ds_final_organize/final_export/sim/fixtures/mem_bad_queue_magic.hex",
+      "bytes": 2359296
+    },
+    {
+      "path": "ds_final_organize/final_export/sim/fixtures/mem_bad_vec_op.hex",
+      "bytes": 2359296
+    },
+    {
+      "path": "ds_final_organize/final_export/sim/fixtures/mem_v024_fallback.hex",
+      "bytes": 2359296
+    },
+    {
+      "path": "ds_final_organize/final_export/sim/fixtures/mem_v024_badflag.hex",
+      "bytes": 2359296
+    },
+    {
+      "path": "ds_final_organize/final_export/sim/fixtures/mem_normal.hex",
+      "bytes": 2359296
+    },
+    {
+      "path": "ds_final_organize/final_export/sim/fixtures/mem_v024_fused.hex",
+      "bytes": 2359296
+    },
+    {
+      "path": "ds_final_organize/final_export/sim/fixtures/mem_multitask.hex",
+      "bytes": 2359296
+    },
+    {
+      "path": "ds_final_organize/final_export/sim/fixtures/mem_v024_multicons.hex",
+      "bytes": 2359296
+    },
+    {
       "path": "ds_resume_vector/fixtures/cases/add_0065/mem.hex",
       "bytes": 2359296
     },

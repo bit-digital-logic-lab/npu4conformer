@@ -1,0 +1,45 @@
+{
+ "task": "ds_final_organize",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "stage": "S4-complete",
+ "status": "complete-logic-simulation",
+ "rc": 0,
+ "waited_for": {
+  "ds_unified_graph": "exit rc=0 + result.json",
+  "ds_adversarial_review": "exit rc=0 + result.json"
+ },
+ "export_dir": "final_export/",
+ "filelist": "final_export/filelist.f (51 unique modules)",
+ "entry": "bash final_export/scripts/sim/run_export_all.sh",
+ "entry_rc": 0,
+ "tests": {
+  "v024_fused": 0,
+  "v024_fallback": 0,
+  "v024_multicons": 0,
+  "v024_badflag": 0,
+  "v024_hold": 0,
+  "v024_lane": 0,
+  "base_normal": 0,
+  "base_multitask": 0,
+  "base_bad_queue_magic": 0,
+  "base_bad_vec_op": 0,
+  "base_hold_b_c": 0,
+  "judge": "V024_CHECK PASS"
+ },
+ "manifest": {
+  "files": 150,
+  "export_files": 159,
+  "sha256sum_c_rc": 0,
+  "unique_modules": 51,
+  "frozen_references": 10
+ },
+ "unfinished": [
+  "full 512-dim model / 591 DAG / host executor",
+  "synthesis/STA/board/frequency",
+  "deferred module optimisations",
+  "main-agent acceptance"
+ ],
+ "next": [
+  "main-agent acceptance"
+ ]
+}

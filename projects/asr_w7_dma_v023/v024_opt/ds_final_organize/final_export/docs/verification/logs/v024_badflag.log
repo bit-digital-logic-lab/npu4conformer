@@ -1,0 +1,8 @@
+V024_CSR status=00000006 err=00000004 completed=0 last=0 cycles=129 fetch=123 op=0
+V024_CSR vec_total=0 layout_total=0 matrix_total=0 vec_ops=0 layout_ops=0 matrix_ops=0
+V024_FUSION used=0 c48_ddr_bytes=0 a16_bytes=0
+V024_AXI rburst=5 wburst=0 rbeats=52 wbeats=0 tag_err=0 rpeak=1 wpeak=0
+V024_DRAIN rd_pending=0 wr_pending=0 b_pending=0 quiesced=1 iso_blocked=0 held_b=0 returned_b=0
+V024_END done=1 fault=1 error=04 iso=0 requires_reset=0 fetch_to=0 drain_timeout=0 cycles=383
+V024_RESULT PASS
+sim/tb/tb_v024_unified.sv:267: $finish called at 3068000 (1ps)

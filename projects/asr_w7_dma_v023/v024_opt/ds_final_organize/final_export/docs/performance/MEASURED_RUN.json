@@ -1,0 +1,38 @@
+{
+  "fixture": "V0.24 unified small graph",
+  "runs": {
+    "v024_fused": {
+      "rc": 0,
+      "cycles": 18724
+    },
+    "v024_fallback": {
+      "rc": 0,
+      "cycles": 16973
+    },
+    "v024_multicons": {
+      "rc": 0,
+      "cycles": 19749
+    },
+    "v024_badflag": {
+      "rc": 0,
+      "cycles": 383
+    },
+    "v024_hold": {
+      "rc": 0,
+      "cycles": 30720
+    }
+  },
+  "base_smoke_rc": {
+    "base_normal": 0,
+    "base_multitask": 0,
+    "base_bad_queue_magic": 0,
+    "base_bad_vec_op": 0,
+    "base_hold_b_c": 0
+  },
+  "fused_c48_ddr_bytes": 0,
+  "fused_a16_bytes": 2048,
+  "div_worst_rel": 0.0009102,
+  "sqrt_worst_rel": 5.089e-06,
+  "fma_vs_muladd_diff": 64,
+  "note": "logic cycles only; not additive; no whole-model or board claim"
+}
