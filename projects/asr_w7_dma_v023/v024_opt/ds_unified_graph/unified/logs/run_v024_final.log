@@ -1,0 +1,20 @@
+== 0. independent fixtures + gold ==
+== 1. single-threaded compile ==
+== 2. fused small graph (A16 + per-channel + DIV + SQRT) ==
+v024_fused rc=0 seconds=86
+== 3. explicit-request fallback to legacy C48 path ==
+v024_fallback rc=0 seconds=93
+== 4. plan rejection: MATF without header FUSION_ALLOW ==
+v024_badflag rc=0 seconds=3
+== 5. fused A16 write B held: watchdog isolation, no false drain ==
+v024_hold rc=0 seconds=165
+== 6. directed single-rounding FMA vs mul+add ==
+v024_lane rc=0 seconds=0
+== 7. independent judge ==
+INFO DIV worst_rel=9.102e-04 bad=0
+INFO SQRT worst_rel=5.089e-06 bad=0
+INFO FMA vs mul+add differing vectors: 64/64
+V024_CHECK PASS
+== 8. SHA ==
+RUN_V024_PASS (unified candidate; whole-model/synthesis not claimed)
+rc=0

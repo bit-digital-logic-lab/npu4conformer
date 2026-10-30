@@ -1,0 +1,2 @@
+DONE asr_fma_ip in=8734 out=8734 cycles=8742
+tb/tb_asr_fma_ip.sv:73: $finish called at 69956000 (1ps)

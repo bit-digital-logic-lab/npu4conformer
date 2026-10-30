@@ -1,0 +1,30 @@
+{
+ "broken_rtl": "all lanes forced to lane_scale[0]/lane_bias[0]",
+ "errors": [
+  "a16: tag 0000 data got=80007fff80008000 exp=80007fff7fff8000",
+  "a16: tag 0001 data got=800080007fff7fff exp=7fff80007fff7fff",
+  "a16: tag 0002 data got=80007fff7fff7fff exp=7fff7fff7fff7fff",
+  "a16: tag 0003 data got=7fff7fff7fff7fff exp=80007fff7fff7fff",
+  "a16: tag 0004 data got=7fff7fff7fff7fff exp=7fff7fff80007fff",
+  "a16: tag 0005 data got=800080007fff41d5 exp=8000e061800041d5",
+  "a16: tag 0006 data got=7fff80007fff7fff exp=7fff7fff80007fff",
+  "a16: tag 0007 data got=8000800080008000 exp=80007fff80008000",
+  "a16: tag 0008 data got=7fff80007fff8000 exp=7fff800080008000",
+  "a16: tag 0009 data got=80007fff80007fff exp=7fff7fff80007fff",
+  "a16: tag 000a data got=80007fff80007fff exp=7fff7fff80007fff",
+  "a16: tag 000b data got=7fff800080008000 exp=8000800080008000",
+  "a16: tag 000c data got=7fff800080007fff exp=7fff80007fff7fff",
+  "a16: tag 000d data got=80007fff7fff7fff exp=8000768280007fff",
+  "a16: tag 000e data got=80007fff7fff8000 exp=8000800080008000",
+  "a16: tag 000f data got=80007fff7fff7fff exp=800080007fff7fff",
+  "a16: tag 0010 data got=7fff800080007fff exp=7fff90c37fff7fff",
+  "a16: tag 0011 data got=800080007fff7fff exp=7fff80007fff7fff",
+  "a16: tag 0012 data got=7fff7fffe78b7fff exp=80007fffe7877fff",
+  "a16: tag 0013 data got=8000800080007fff exp=7fff800080007fff"
+ ],
+ "expected": "comparison must fail",
+ "name": "negative_control_per_column",
+ "pass": true,
+ "rc": 0,
+ "unexpectedly_passed": false
+}

@@ -1,0 +1,72 @@
+{
+ "reference_copy_sha": [
+  "006b2e9b4696d461cd97ad90dc4fc88978372f861a293bfc8130dc202a9f7f90  /home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_epilogue/ref_probe/scripts/run_epilogue.sh",
+  "75d5340428cb85f5c104f8814ad1c36d3406ae2c698113c2de5414b94ce76321  /home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_epilogue/ref_probe/tb/tb_epilogue.sv",
+  "006b2e9b4696d461cd97ad90dc4fc88978372f861a293bfc8130dc202a9f7f90  /home/yang/Desktop/\u9879\u76ee/v024_opt/ds_adversarial_review/scripts/run_epilogue.sh",
+  "75d5340428cb85f5c104f8814ad1c36d3406ae2c698113c2de5414b94ce76321  /home/yang/Desktop/\u9879\u76ee/v024_opt/ds_adversarial_review/tb/tb_epilogue.sv"
+ ],
+ "original_advisory": {
+  "old": {
+   "AR-006_rc": 1,
+   "AR-007_rc": 1
+  },
+  "new": {
+   "AR-006_rc": 1,
+   "AR-007_rc": 0
+  },
+  "root_cause": "the advisory TB stops driving a16_ready/fp32x4_ready after the last send_beat and during cfg/param/drain waits; a consumer that never re-asserts ready cannot drain any correct pipelined RTL"
+ },
+ "corrected_ready_old": {
+  "AR-006": {
+   "rc": 0,
+   "result": "RESULT mode=3 a16=32 fp=32 errors=0 hits=128 misses=0 colerr=0 rej=0 cyc=254",
+   "pass": true
+  },
+  "AR-007": {
+   "rc": 0,
+   "result": "RESULT mode=0 a16=72 fp=72 errors=0 hits=256 misses=0 colerr=0 rej=4 cyc=395",
+   "pass": true
+  }
+ },
+ "corrected_ready_new": {
+  "AR-006": {
+   "rc": 0,
+   "result": "RESULT mode=3 a16=32 fp=32 errors=0 hits=128 misses=0 colerr=0 rej=0 cyc=245",
+   "pass": true
+  },
+  "AR-007": {
+   "rc": 0,
+   "result": "RESULT mode=0 a16=72 fp=72 errors=0 hits=256 misses=0 colerr=0 rej=4 cyc=382",
+   "pass": true
+  }
+ },
+ "strict_gate_old": {
+  "gate_rc": 1,
+  "case_count": 28,
+  "failed": [
+   "cfg_pending_beat"
+  ],
+  "fail_lines": {
+   "cfg_pending_beat": [
+    "FAIL cfg_ready with pending input beat",
+    "FAIL spill valid withdrawn without handshake",
+    "FAIL STABLE spill tag=0",
+    "FAIL cfg_ready with pending input beat",
+    "FAIL spill valid withdrawn without handshake",
+    "FAIL cfg_ready with pending input beat",
+    "FAIL spill valid withdrawn without handshake",
+    "FAIL cfg_ready with pending input beat",
+    "FAIL spill valid withdrawn without handshake",
+    "FAIL cfg_ready with pending input beat",
+    "FAIL spill valid withdrawn without handshake",
+    "FAIL cfg_ready with pending input beat"
+   ]
+  }
+ },
+ "strict_gate_new": {
+  "gate_rc": 0,
+  "case_count": 28,
+  "failed": [],
+  "fail_lines": {}
+ }
+}

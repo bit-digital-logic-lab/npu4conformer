@@ -1,0 +1,8 @@
+INFO cluster done fault=0 code=00 cycles=2616 compute=272 rdblk=2 wrblk=64 cgrp=256 ccyc=260 craw=0
+INFO dma rd_bursts=12 rd_bytes=3072 armax=8 fifohi=2 wr_bursts=24 wr_bytes=6144 bmax=1 bfm_rbeats=192 bfm_wbeats=384 maxrd=8 maxwr=1
+INFO storage cseg=64 wrcmd=24 wrbeat=384 coal=64 gen=0 flush=24 maxb=1 cvalstall=0 csegstall=0
+PASS tb_cluster_v3 M=32 N=32 K=32 PIPE=4 cycles=2616 rv=1 wr_bytes=6144
+- /home/yang/Desktop/项目/v024_opt/ds_storage_write/tests/tb_cluster_v3.sv:192: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 26us; walltime 0.101 s; speed 259.782 us/s
+- Verilator: cpu 0.101 s on 1 threads; allocated 8 MB

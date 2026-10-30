@@ -1,0 +1,1 @@
+/home/yang/Desktop/项目/v024_opt/ds_fma_deep/tests/tb_lzc_tree.sv:54: vvp.tgt sorry: procedural continuous assignments are not yet fully supported. The RHS of this assignment will only be evaluated once, at the time the assignment statement is executed.

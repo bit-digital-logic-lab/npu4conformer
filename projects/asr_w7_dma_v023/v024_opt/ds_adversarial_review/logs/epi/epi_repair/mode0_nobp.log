@@ -1,0 +1,10 @@
+EPI mode=0 dir=vectors/epi
+ld t0
+t0 ok
+t1 ok
+ld b0
+b0 ok 0 32
+beats: bank0=0..31 bank1=32..63 scalar=64..71
+RESULT mode=0 a16=72 fp=72 errors=0 hits=256 misses=0 colerr=0 rej=4 cyc=382
+PASS
+/home/yang/Desktop/项目/v024_opt/ds_adversarial_review/tb/tb_epilogue.sv:423: $finish called at 3865000 (1ps)

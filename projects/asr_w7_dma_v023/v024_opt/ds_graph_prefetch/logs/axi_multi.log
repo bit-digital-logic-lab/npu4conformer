@@ -1,0 +1,7 @@
+AXI_STRESS rd_bursts=40 wr_bursts=24 r_beats=180 w_beats=108 b_resp=24
+AXI_STRESS done r=40/40 w=24/24 b=24/24
+AXI_STRESS peaks xbar_rd=7 xbar_wr=7 bfm_rd=32 bfm_aw=16 bfm_b=4 sampled rd=32 wr=16 b=4
+AXI_STRESS tag_err=0 data_err=0 bfm_data_err=0 wlast_err=0 bfm_wlast_err=0 unexpected_r=0 unexpected_w=0
+AXI_STRESS iso_done=1 iso_hs=0 iso_blocked=9 quiesced=1 rd_pending=0 wr_pending=0 b_pending=0
+AXI_STRESS_RESULT PASS
+tb/tb_axi_multi.sv:270: $finish called at 3476000 (1ps)

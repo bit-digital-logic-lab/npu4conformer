@@ -1,0 +1,34 @@
+{
+  "commands_total": 47,
+  "commands_nonzero": 0,
+  "failures": [],
+  "runs_missing_verdict": []
+}
+run_cache_slots                            PASS           cycles=- rdbytes=- wrbytes=- Wbytes=-
+run_m32n32k32_c0_r0                        PASS           cycles=1194 rdbytes=3072 wrbytes=6144 Wbytes=1024
+run_m32n32k32_c0_r1                        PASS           cycles=1194 rdbytes=3072 wrbytes=6144 Wbytes=1024
+run_m32n64k32_c0_r1                        PASS           cycles=2387 rdbytes=6144 wrbytes=12288 Wbytes=2048
+run_m32n32k32_c1_r0                        PASS           cycles=1585 rdbytes=9216 wrbytes=6144 Wbytes=1024
+run_m64n32k96_c0_r1                        PASS           cycles=4367 rdbytes=15360 wrbytes=12288 Wbytes=3072
+run_m64n32k96_c0_r0                        PASS           cycles=4550 rdbytes=18432 wrbytes=12288 Wbytes=6144
+run_m64n32k96_c1_r1                        PASS           cycles=5154 rdbytes=27648 wrbytes=12288 Wbytes=3072
+run_m64n64k96_c0_r1                        PASS           cycles=8735 rdbytes=30720 wrbytes=24576 Wbytes=6144
+run_m96n32k96_c0_r1                        PASS           cycles=6645 rdbytes=24576 wrbytes=18432 Wbytes=6144
+run_m96n64k64_c1_r1                        PASS           cycles=12388 rdbytes=69632 wrbytes=36864 Wbytes=8192
+run_m64n32k1_c0_r1                         PASS           cycles=1964 rdbytes=5120 wrbytes=12288 Wbytes=1024
+run_m64n32k32_c0_r1                        PASS           cycles=2202 rdbytes=5120 wrbytes=12288 Wbytes=1024
+run_m64n32k33_c0_r1                        PASS           cycles=3047 rdbytes=10240 wrbytes=12288 Wbytes=2048
+run_m64n32k65_c0_r1                        PASS           cycles=4128 rdbytes=15360 wrbytes=12288 Wbytes=3072
+run_ovf_m64n32k32_c1_r1                    PASS_FAULT     cycles=1122 rdbytes=- wrbytes=- Wbytes=-
+run_badpar_m64n32k96_c0_r1                 PASS_FAULT     cycles=203 rdbytes=- wrbytes=- Wbytes=-
+run_fault_rd_m64n32k96_c0_r1               PASS_FAULT     cycles=137 rdbytes=- wrbytes=- Wbytes=-
+run_fault_wr_m64n32k96_c0_r1               PASS_FAULT     cycles=2514 rdbytes=- wrbytes=- Wbytes=-
+run_bp_m64n32k96_c1_r1                     PASS           cycles=28142 rdbytes=27648 wrbytes=12288 Wbytes=3072
+run_ref_c0                                 PASS           cycles=4552 rdbytes=- wrbytes=- Wbytes=-
+run_ref_c1                                 PASS           cycles=5329 rdbytes=- wrbytes=- Wbytes=-
+run_cluster_m64n32k96_c0_r1                PASS           cycles=7236 rdbytes=- wrbytes=- Wbytes=-
+run_cluster_m64n32k96_c0_r0                PASS           cycles=7612 rdbytes=- wrbytes=- Wbytes=-
+run_cluster_m64n32k96_c1_r1                PASS           cycles=8435 rdbytes=- wrbytes=- Wbytes=-
+run_cluster_m64n64k96_c0_r1                PASS           cycles=14591 rdbytes=- wrbytes=- Wbytes=-
+run_cluster_m96n32k96_c0_r1                PASS           cycles=11083 rdbytes=- wrbytes=- Wbytes=-
+run_cluster_m96n64k64_c1_r1                PASS           cycles=22172 rdbytes=- wrbytes=- Wbytes=-

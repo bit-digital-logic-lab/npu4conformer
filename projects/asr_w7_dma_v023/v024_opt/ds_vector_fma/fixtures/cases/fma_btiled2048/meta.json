@@ -1,0 +1,24 @@
+{
+  "name": "fma_btiled2048",
+  "op": 17,
+  "total": 2048,
+  "out16": 0,
+  "outwords": 2048,
+  "plan_base": 268468224,
+  "d_addr": 67219456,
+  "gold_count": 2048,
+  "gold_sha256": "144bc05ace4d24bef3eb2d80795f4783e9f3b62580fd6c241b005eda7329ee7c",
+  "inputs_sha256": "7d7d57a8bbfe127a6df60b05466774c522aaf9839ad292ce743532daf5bf66f2",
+  "mem_sha256": "2bf42995d668b9fd86de2e6c6772bf600f2226e9c150ab94386ba225e54e6501",
+  "desc": [
+    576079171,
+    16401,
+    67108864,
+    67145728,
+    67182592,
+    67219456,
+    2048,
+    32
+  ],
+  "mode": "btiled32"
+}

@@ -1,0 +1,31 @@
+WAIT cyc=5000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+WAIT cyc=10000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+MATST t=83340 st=1 core_done=0 acc=0
+MATST t=83348 st=2 core_done=0 acc=0
+MATST t=83356 st=3 core_done=0 acc=0
+MATST t=83364 st=4 core_done=0 acc=0
+MATDONE t=98492 st=5 acc=1 core_done=1 cyc=1890
+MATST t=98492 st=5 core_done=1 acc=1
+MATST t=98500 st=0 core_done=1 acc=1
+MATST t=98636 st=1 core_done=1 acc=1
+MATST t=98644 st=2 core_done=1 acc=1
+MATST t=98652 st=3 core_done=1 acc=1
+MATST t=98668 st=4 core_done=0 acc=1
+MATDONE t=113692 st=5 acc=2 core_done=1 cyc=1878
+MATST t=113692 st=5 core_done=1 acc=2
+MATST t=113700 st=0 core_done=1 acc=2
+WAIT cyc=15000 busy=1 fault=0 err=00 iso=0 rd=1 wr=0 b=0
+WAIT cyc=20000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+WAIT cyc=25000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+SAFETY_CSR status=00000002 err=00000000 completed=9 last=8 cycles=25610 fetch=277 op=25274
+SAFETY_CSR vec_total=4670 layout_total=16784 matrix_total=3768 vec_ops=4 layout_ops=3 matrix_ops=2
+SAFETY_CSR iso_status=00000000 rd_pending=0 wr_pending=0 b_pending=0 iso_blocked=0 lockout_rej=0
+SAFETY_SUM vec_done=4 vec_sum=4670 lay_done=3 lay_sum=16784 mat_core_done=11567
+SAFETY_MATRIX ops=2 acc=2 st=0 completed=2 index=1 err=00 cyc=1878 total=3768
+SAFETY_OVERLAP seq_lay=0 seq_vec=0 seq_mat=0 seq_direct=0
+SAFETY_DRAIN rd_pending=0 wr_pending=0 b_pending=0 quiesced=1 iso_blocked=0 held_r=0 held_b=0 returned_b=206
+SAFETY_END done=1 fault=0 error=00 iso=0 requires_reset=0 seq_dto=0 seq_ito=0 fetch_to=0 drain_timeout=0 cycles=25755
+SAFETY_AXI rburst=143 wburst=206 rbeats=2024 wbeats=1984 tag_err=0 bfm_rbeats=2024 bfm_wbeats=1984
+SAFETY_LU valid=0 hits=6 misses=1 fetches=6 aborts=0 epoch=2 has_seq=0
+SAFETY_RESULT PASS
+tb/tb_lookahead_safety.sv:385: $finish called at 206044000 (1ps)

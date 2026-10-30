@@ -1,0 +1,53 @@
+EPI mode=1 dir=vectors/epi
+ld t0
+t0 ok
+t1 ok
+ld b0
+b0 ok 0 32
+beats: bank0=0..31 bank1=32..63 scalar=64..71
+FAIL fp32 tag=2000 lane=0 got=469e3900 exp=46ed5300
+FAIL fp32 tag=2000 lane=1 got=46888c00 exp=46cccf80
+FAIL fp32 tag=2000 lane=2 got=4680ae00 exp=46c10280
+FAIL fp32 tag=2001 lane=0 got=44174000 exp=44629000
+FAIL fp32 tag=2001 lane=2 got=46bdd400 exp=470e5dc0
+FAIL fp32 tag=2001 lane=3 got=45fb2c00 exp=463c5c00
+FAIL a16 tag=2000 lane=0 got=4f1c exp=76aa
+FAIL a16 tag=2000 lane=1 got=4446 exp=6668
+FAIL a16 tag=2000 lane=2 got=4057 exp=6081
+FAIL fp32 tag=2002 lane=0 got=46a2f900 exp=46f47300
+FAIL fp32 tag=2002 lane=1 got=46a1a400 exp=46f27380
+FAIL fp32 tag=2002 lane=2 got=468f2200 exp=46d6b080
+FAIL a16 tag=2001 lane=0 got=025d exp=038a
+FAIL a16 tag=2001 lane=2 got=5eea exp=7fff
+FAIL a16 tag=2001 lane=3 got=1f66 exp=2f17
+FAIL fp32 tag=2003 lane=0 got=46528c00 exp=469de680
+FAIL fp32 tag=2003 lane=1 got=461d6800 exp=466c1700
+FAIL a16 tag=2002 lane=0 got=517c exp=7a3a
+FAIL a16 tag=2002 lane=1 got=50d2 exp=793a
+FAIL a16 tag=2002 lane=2 got=4791 exp=6b58
+FAIL fp32 tag=2004 lane=0 got=46b72e00 exp=47096140
+FAIL fp32 tag=2004 lane=1 got=46a45000 exp=46f67580
+FAIL fp32 tag=2004 lane=2 got=457b0000 exp=45bc3600
+FAIL fp32 tag=2004 lane=3 got=46a4c400 exp=46f72380
+FAIL a16 tag=2003 lane=0 got=34a3 exp=4ef3
+FAIL a16 tag=2003 lane=1 got=275a exp=3b06
+FAIL fp32 tag=2005 lane=3 got=46b28200 exp=4705e040
+FAIL a16 tag=2004 lane=0 got=5b97 exp=7fff
+FAIL a16 tag=2004 lane=1 got=5228 exp=7b3b
+FAIL a16 tag=2004 lane=2 got=0fb0 exp=1787
+FAIL a16 tag=2004 lane=3 got=5262 exp=7b92
+FAIL fp32 tag=2006 lane=0 got=463e7600 exp=468ed600
+FAIL fp32 tag=2006 lane=1 got=46756e00 exp=46b81000
+FAIL fp32 tag=2006 lane=2 got=46632e00 exp=46aa6000
+FAIL a16 tag=2005 lane=3 got=5941 exp=7fff
+FAIL fp32 tag=2007 lane=0 got=45b2e800 exp=46062900
+FAIL fp32 tag=2007 lane=1 got=45039000 exp=45454400
+FAIL a16 tag=2006 lane=0 got=2f9e exp=476b
+FAIL a16 tag=2006 lane=1 got=3d5c exp=5c08
+FAIL a16 tag=2006 lane=2 got=38cc exp=5530
+FAIL a16 tag=2007 lane=0 got=165d exp=218a
+FAIL a16 tag=2007 lane=1 got=0839 exp=0c54
+RESULT mode=1 a16=8 fp=8 errors=10 hits=24 misses=0 colerr=0 rej=0 cyc=196
+FAIL
+FATAL: /home/yang/Desktop/项目/v024_opt/ds_adversarial_review/tb/tb_epilogue.sv:392: mismatch
+       Time: 2005000  Scope: tb_epilogue

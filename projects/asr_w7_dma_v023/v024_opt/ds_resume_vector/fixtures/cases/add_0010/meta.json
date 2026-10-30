@@ -1,0 +1,23 @@
+{
+  "name": "add_0010",
+  "op": 0,
+  "total": 10,
+  "out16": 0,
+  "outwords": 10,
+  "plan_base": 268468224,
+  "d_addr": 67174400,
+  "gold_count": 10,
+  "gold_sha256": "9d6fc9e3dc05cce0b8c229484ef9aa4ecb93d4f24a702ef6a005ec7ca0e99604",
+  "inputs_sha256": "850147b8ebb6f3c9f8ea88ede551ab54f6d5cadb316959117555cfa9a6c0d0f3",
+  "mem_sha256": "a64fe889c7e555d46d710237719b8c7680caabc5e37eee698dcb8b8faf73bd96",
+  "desc": [
+    576079171,
+    0,
+    67108864,
+    67112960,
+    67117056,
+    67174400,
+    10,
+    0
+  ]
+}

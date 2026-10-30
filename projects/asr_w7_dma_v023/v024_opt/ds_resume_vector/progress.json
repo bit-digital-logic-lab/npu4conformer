@@ -1,0 +1,38 @@
+{
+  "task": "ds_resume_vector",
+  "model": "opencode-go/deepseek-v4.1-flash",
+  "scope": "take over ds_vector_fma; independent-gold re-run of op17 FMA II=1, 4-lane fixed-op tails, EXTRA_STAGES=3, actual ds_fma_deep 7-stage core, negative control, abort/reset new epoch, same-input baseline",
+  "stages": [
+    {
+      "stage": "0_read_inputs",
+      "status": "done",
+      "note": "Read REVIEW_DECISIONS.md and ds_adversarial_review/FINDINGS.md; copied old RTL/TB/scripts/fixtures/build/logs read-only into this tree; imported old logs kept under imported/."
+    },
+    {
+      "stage": "1_audit_imported",
+      "status": "done",
+      "note": "Old exit0 had no result.json and its rc.txt stopped at sim_tail_0269; tail_0270 dump exists but was never checked; 5 case dumps missing. 65 existing dumps re-checked against independent gold, 0 mismatches. Old PASS text is not used."
+    },
+    {
+      "stage": "2_interface",
+      "status": "done",
+      "note": "INTERFACE.md corrected: 4-lane collection drains on lane out_valid, not a fixed delay; documents two core builds and the 7-stage latency test."
+    },
+    {
+      "stage": "3_gap_cases",
+      "status": "done",
+      "note": "Added fixed-op totals 10..16 (old owner's gap) plus 31/32/33, 63/64/65, 256, 511/513; 122 deterministic cases generated from refmodel gold."
+    },
+    {
+      "stage": "4_regression",
+      "status": "running",
+      "note": "run_all.sh: canonical 4-stage all cases, EXTRA_STAGES=3, actual 7-stage candidate, directed latency/flush, negative control, backpressure seeds, abort/reset new epoch, baseline comparison."
+    },
+    {
+      "stage": "5_delivery",
+      "status": "pending",
+      "note": "REPORT.md/result.json/reports/run_all_status.json with same pass/rc, SHA map, tested and unverified scope."
+    }
+  ],
+  "updated": "2026-10-30"
+}

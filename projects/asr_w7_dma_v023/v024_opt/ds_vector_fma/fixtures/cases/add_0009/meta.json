@@ -1,0 +1,23 @@
+{
+  "name": "add_0009",
+  "op": 0,
+  "total": 9,
+  "out16": 0,
+  "outwords": 9,
+  "plan_base": 268468224,
+  "d_addr": 67174400,
+  "gold_count": 9,
+  "gold_sha256": "e9b0051342d6121397b418c33271138fee81a36f35128d1d1ecf3ef9279b2d5e",
+  "inputs_sha256": "3f03f3573a566235620887fe16913e241b1647e5882df1169b3f69a408a78fcb",
+  "mem_sha256": "ee3bf3fef2ef8e4ee0d909fe0628ac75abb7320ac7c8c8bd781b30bdb4fb1cc6",
+  "desc": [
+    576079171,
+    0,
+    67108864,
+    67112960,
+    67117056,
+    67174400,
+    9,
+    0
+  ]
+}

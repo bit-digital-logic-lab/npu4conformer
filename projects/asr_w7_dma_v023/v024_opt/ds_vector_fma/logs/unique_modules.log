@@ -1,0 +1,18 @@
+{
+  "filelist": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_vector_fma/filelist_vector_fma.f",
+  "files": 39,
+  "modules": 39,
+  "duplicates": {},
+  "forbidden_stub_present": false,
+  "required_present_once": {
+    "vector_fma_lane": true,
+    "asr_fma_ip": true,
+    "fp32_fma_pipe": true,
+    "approx_div_sqrt": true,
+    "ddr_layout_engine": true,
+    "ddr_vector_engine_pipe": true,
+    "task_queue": true
+  },
+  "missing": [],
+  "pass": true
+}

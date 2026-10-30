@@ -1,0 +1,644 @@
+{
+  "task": "ds_fma_deep",
+  "model": "opencode-go/deepseek-v4.1-flash",
+  "timestamp": "2026-10-30T14:43:26+0800",
+  "scope": "Retime trusted gemini_fma_round2 4-stage/129-bit-acc fp32 FMA into 7 stages, II=1; numeric semantics preserved. Logic simulation only.",
+  "prohibitions_adhered": {
+    "no_synthesis": true,
+    "no_vivado": true,
+    "no_board": true,
+    "no_vnc": true,
+    "no_push": true,
+    "no_external_writes": true
+  },
+  "pipeline": {
+    "stages": 7,
+    "latency_cycles": 7,
+    "throughput_ii": 1,
+    "lzc": "9x16 grouped + tree lzc16/lzc8 (no 129-bit linear priority)"
+  },
+  "trusted_baseline_fp32_fma_pipe_sha256": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12",
+  "candidate_source_sha256": {
+    "asr_fma_ip.sv": "634eea1a15d1f8dbc7a2f8bae8eebd2b0e892da5978ed974ccb7645ff9b10599",
+    "epilogue_f32_to_i16.sv": "c51d3327a7fcfbe7e584f1efa275413644147669c9d216ea7f5fbf31b864af6b",
+    "epilogue_fma_stage.sv": "34b55dc340b33ee570c540453662404579a77b2f8e2b166dbb2563ab3740c00b",
+    "epilogue_i48_to_f32.sv": "637a7b327d35760bc5d741128d04f77bcddde87cc40886dcf24aff09cebd29bf",
+    "epilogue_lane.sv": "d00b4d57776a605cbed790d19e9a7be7bb4b0f1751d4f6b617a9ca35489435f7",
+    "epilogue_relu.sv": "0e008b394489fcdd2f453aeebee5288f1b812d715c5e8840d47f19bcb3142c4d",
+    "epilogue_stream_engine_v023.sv": "b99a664bc3e49bed21acf79c22281506e85ce347777ad578bfbe2c2a78984bce",
+    "fp32_fma_pipe.sv": "b062284af692349ac0afe1de14ac0d10f0cbbab97a5b33f849b50a93caccac82"
+  },
+  "frozen_inputs": {
+    "refmodel.py": {
+      "path": "/home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/ref/refmodel.py",
+      "sha256": "38eb7ed944f05d6ac45ff68b69fbaa4b0b5b895f0eef46fa33e138395ceb64e2",
+      "expected": "38eb7ed944f05d6ac45ff68b69fbaa4b0b5b895f0eef46fa33e138395ceb64e2",
+      "match": true
+    },
+    "baseline_4stage_fp32_fma_pipe.sv": {
+      "path": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/reference/baseline_4stage_fp32_fma_pipe.sv",
+      "sha256": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12",
+      "expected": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12",
+      "match": true
+    },
+    "fma_adversarial_8734.vec": {
+      "path": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/vectors/fma_adversarial_8734.vec",
+      "sha256": "5a995d68158bf82714fc79110156d3b6af21c3fb09b2d3f67f51c5ef4961cdd7",
+      "expected": "5a995d68158bf82714fc79110156d3b6af21c3fb09b2d3f67f51c5ef4961cdd7",
+      "match": true
+    },
+    "fma_random_gemini_20000.vec": {
+      "path": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/vectors/fma_random_gemini_20000.vec",
+      "sha256": "bc6ff4e57d0d1601aef34dfe46b4c1bacb673de82fb9aa6382be7dcd351485f5",
+      "expected": "bc6ff4e57d0d1601aef34dfe46b4c1bacb673de82fb9aa6382be7dcd351485f5",
+      "match": true
+    }
+  },
+  "local_random_vectors": {
+    "path": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/vectors/fma_random_local_20000.vec",
+    "lines": 20000,
+    "sha256": "404f0e842c7ed448c2a61d7489dee94bc87f9b9221c0986ba66acc9c0234c382"
+  },
+  "suites": {
+    "fma_adv_8734_bp0": {
+      "label": "fma_adv_8734_bp0",
+      "bp": 0,
+      "rc": 0,
+      "kind": "epilogue_fma_stage",
+      "vectors": 8734,
+      "mismatches": 0,
+      "tag_errors": 0,
+      "last_errors": 0,
+      "stability_errors": 0,
+      "latency_min": 7,
+      "latency_max": 7,
+      "latency_hist": {
+        "7": 8734
+      },
+      "throughput_span": 8734,
+      "by_mode": {
+        "0": {
+          "total": 1000,
+          "mismatches": 0,
+          "latency_set": [
+            7
+          ]
+        },
+        "1": {
+          "total": 6734,
+          "mismatches": 0,
+          "latency_set": [
+            7
+          ]
+        },
+        "2": {
+          "total": 1000,
+          "mismatches": 0,
+          "latency_set": [
+            7
+          ]
+        }
+      },
+      "examples": [],
+      "pass": true,
+      "watchdog": false,
+      "log": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/logs/fma_adv_8734_bp0.log",
+      "latency_ok": true,
+      "ii1_ok": true
+    },
+    "fma_adv_8734_bp1": {
+      "label": "fma_adv_8734_bp1",
+      "bp": 1,
+      "rc": 0,
+      "kind": "epilogue_fma_stage",
+      "vectors": 8734,
+      "mismatches": 0,
+      "tag_errors": 0,
+      "last_errors": 0,
+      "stability_errors": 0,
+      "latency_min": 7,
+      "latency_max": 37,
+      "latency_hist": {
+        "7": 64,
+        "8": 215,
+        "9": 454,
+        "10": 712,
+        "11": 891,
+        "12": 988,
+        "13": 1005,
+        "14": 921,
+        "15": 825,
+        "16": 632,
+        "17": 569,
+        "18": 426,
+        "19": 300,
+        "20": 229,
+        "21": 158,
+        "22": 115,
+        "23": 81,
+        "24": 47,
+        "25": 34,
+        "26": 27,
+        "27": 14,
+        "28": 6,
+        "29": 6,
+        "30": 4,
+        "31": 2,
+        "32": 3,
+        "35": 3,
+        "36": 1,
+        "37": 2
+      },
+      "throughput_span": 17538,
+      "by_mode": {
+        "0": {
+          "total": 1000,
+          "mismatches": 0,
+          "latency_set": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            31,
+            35,
+            37
+          ]
+        },
+        "1": {
+          "total": 6734,
+          "mismatches": 0,
+          "latency_set": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            35
+          ]
+        },
+        "2": {
+          "total": 1000,
+          "mismatches": 0,
+          "latency_set": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            30,
+            35,
+            36,
+            37
+          ]
+        }
+      },
+      "examples": [],
+      "pass": true,
+      "watchdog": false,
+      "log": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/logs/fma_adv_8734_bp1.log",
+      "latency_ok": true,
+      "ii1_ok": true
+    },
+    "fma_random_local_20000_bp0": {
+      "label": "fma_random_local_20000_bp0",
+      "bp": 0,
+      "rc": 0,
+      "kind": "epilogue_fma_stage",
+      "vectors": 20000,
+      "mismatches": 0,
+      "tag_errors": 0,
+      "last_errors": 0,
+      "stability_errors": 0,
+      "latency_min": 7,
+      "latency_max": 7,
+      "latency_hist": {
+        "7": 20000
+      },
+      "throughput_span": 20000,
+      "by_mode": {
+        "0": {
+          "total": 5612,
+          "mismatches": 0,
+          "latency_set": [
+            7
+          ]
+        },
+        "1": {
+          "total": 8349,
+          "mismatches": 0,
+          "latency_set": [
+            7
+          ]
+        },
+        "2": {
+          "total": 6039,
+          "mismatches": 0,
+          "latency_set": [
+            7
+          ]
+        }
+      },
+      "examples": [],
+      "pass": true,
+      "watchdog": false,
+      "log": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/logs/fma_random_local_20000_bp0.log",
+      "latency_ok": true,
+      "ii1_ok": true
+    },
+    "fma_random_local_20000_bp1": {
+      "label": "fma_random_local_20000_bp1",
+      "bp": 1,
+      "rc": 0,
+      "kind": "epilogue_fma_stage",
+      "vectors": 20000,
+      "mismatches": 0,
+      "tag_errors": 0,
+      "last_errors": 0,
+      "stability_errors": 0,
+      "latency_min": 7,
+      "latency_max": 42,
+      "latency_hist": {
+        "7": 164,
+        "8": 528,
+        "9": 1052,
+        "10": 1693,
+        "11": 2034,
+        "12": 2244,
+        "13": 2229,
+        "14": 2129,
+        "15": 1849,
+        "16": 1447,
+        "17": 1279,
+        "18": 983,
+        "19": 693,
+        "20": 530,
+        "21": 375,
+        "22": 233,
+        "23": 185,
+        "24": 114,
+        "25": 78,
+        "26": 49,
+        "27": 39,
+        "28": 19,
+        "29": 12,
+        "30": 11,
+        "31": 7,
+        "32": 7,
+        "33": 2,
+        "34": 5,
+        "35": 5,
+        "36": 1,
+        "37": 2,
+        "40": 1,
+        "42": 1
+      },
+      "throughput_span": 40074,
+      "by_mode": {
+        "0": {
+          "total": 5612,
+          "mismatches": 0,
+          "latency_set": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            34,
+            35,
+            37,
+            40
+          ]
+        },
+        "1": {
+          "total": 8349,
+          "mismatches": 0,
+          "latency_set": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35
+          ]
+        },
+        "2": {
+          "total": 6039,
+          "mismatches": 0,
+          "latency_set": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            42
+          ]
+        }
+      },
+      "examples": [],
+      "pass": true,
+      "watchdog": false,
+      "log": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/logs/fma_random_local_20000_bp1.log",
+      "latency_ok": true,
+      "ii1_ok": true
+    },
+    "fma_random_gemini_20000_bp0": {
+      "label": "fma_random_gemini_20000_bp0",
+      "bp": 0,
+      "rc": 0,
+      "kind": "epilogue_fma_stage",
+      "vectors": 20000,
+      "mismatches": 0,
+      "tag_errors": 0,
+      "last_errors": 0,
+      "stability_errors": 0,
+      "latency_min": 7,
+      "latency_max": 7,
+      "latency_hist": {
+        "7": 20000
+      },
+      "throughput_span": 20000,
+      "by_mode": {
+        "0": {
+          "total": 6129,
+          "mismatches": 0,
+          "latency_set": [
+            7
+          ]
+        },
+        "1": {
+          "total": 7163,
+          "mismatches": 0,
+          "latency_set": [
+            7
+          ]
+        },
+        "2": {
+          "total": 6708,
+          "mismatches": 0,
+          "latency_set": [
+            7
+          ]
+        }
+      },
+      "examples": [],
+      "pass": true,
+      "watchdog": false,
+      "log": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/logs/fma_random_gemini_20000_bp0.log",
+      "latency_ok": true,
+      "ii1_ok": true
+    },
+    "asr_ip_adv_8734": {
+      "label": "asr_ip_adv_8734",
+      "rc": 0,
+      "kind": "asr_fma_ip",
+      "vectors": 8734,
+      "mismatches": 0,
+      "examples": [],
+      "pass": true,
+      "watchdog": false,
+      "log": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/logs/asr_ip_adv_8734.log"
+    },
+    "asr_ip_random_20000": {
+      "label": "asr_ip_random_20000",
+      "rc": 0,
+      "kind": "asr_fma_ip",
+      "vectors": 20000,
+      "mismatches": 0,
+      "examples": [],
+      "pass": true,
+      "watchdog": false,
+      "log": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/logs/asr_ip_random_20000.log"
+    },
+    "equiv_adv_8734": {
+      "label": "equiv_adv_8734",
+      "kind": "equivalence_vs_trusted_4stage",
+      "rc": 0,
+      "vectors": 8734,
+      "mismatches": 0,
+      "base_latency_min": 4,
+      "base_latency_max": 4,
+      "watchdog": false,
+      "log": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/logs/equiv_adv_8734_cand.log",
+      "pass": true
+    },
+    "equiv_random_local_20000": {
+      "label": "equiv_random_local_20000",
+      "kind": "equivalence_vs_trusted_4stage",
+      "rc": 0,
+      "vectors": 20000,
+      "mismatches": 0,
+      "base_latency_min": 4,
+      "base_latency_max": 4,
+      "watchdog": false,
+      "log": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/logs/equiv_random_local_20000_cand.log",
+      "pass": true
+    },
+    "flush_latency_adapted": {
+      "label": "flush_latency_adapted",
+      "rc": 0,
+      "kind": "directed",
+      "FLUSH_ERRORS": 0,
+      "watchdog": false,
+      "log": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/logs/flush_latency_adapted.log",
+      "pass": true
+    },
+    "latency_ii_bypass": {
+      "label": "latency_ii_bypass",
+      "rc": 0,
+      "kind": "directed",
+      "LATENCY_TEST_ERRORS": 0,
+      "watchdog": false,
+      "log": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/logs/latency_ii_bypass.log",
+      "pass": true
+    },
+    "unit_directed": {
+      "label": "unit_directed",
+      "rc": 0,
+      "kind": "unit_directed",
+      "watchdog": false,
+      "log": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/logs/unit_directed.log",
+      "pass": true,
+      "passes": 13,
+      "fails": 0
+    },
+    "lzc_tree_exhaustive": {
+      "label": "lzc_tree_exhaustive",
+      "rc": 0,
+      "kind": "directed",
+      "LZC_ERRORS": 0,
+      "watchdog": false,
+      "log": "/home/yang/Desktop/项目/v024_opt/ds_fma_deep/logs/lzc_tree_exhaustive.log",
+      "pass": true
+    }
+  },
+  "overall_pass": true,
+  "rc": 0,
+  "process_exit_rc": 0,
+  "elapsed_seconds": 106.95,
+  "rerun_command": "./run_all_tests.sh",
+  "filelist": [
+    "run_all_tests.sh",
+    "candidate/fp32_fma_pipe.sv",
+    "candidate/epilogue_fma_stage.sv",
+    "candidate/asr_fma_ip.sv",
+    "candidate/epilogue_lane.sv",
+    "candidate/epilogue_i48_to_f32.sv",
+    "candidate/epilogue_f32_to_i16.sv",
+    "candidate/epilogue_relu.sv",
+    "candidate/epilogue_stream_engine_v023.sv",
+    "tests/tb_fma.sv",
+    "tests/tb_asr_fma_ip.sv",
+    "tests/tb_flush_lat.sv",
+    "tests/tb_fma_latency.sv",
+    "tests/tb_fp32_fma_pipe.sv",
+    "tests/tb_lzc_tree.sv",
+    "scripts/run_regression.py",
+    "scripts/gen_random_vectors.py",
+    "reference/baseline_4stage_fp32_fma_pipe.sv",
+    "vectors/fma_adversarial_8734.vec",
+    "vectors/fma_random_gemini_20000.vec",
+    "vectors/fma_random_local_20000.vec",
+    "INTERFACE.md",
+    "REPORT.md",
+    "USER_UPDATES.md",
+    "progress.json",
+    "result.json",
+    "FILELIST.txt"
+  ],
+  "what_was_tested": [
+    "7-stage II=1 fp32 FMA vs independent Fraction refmodel.fma_bits: 8734 adversarial BP0/BP1, 20000 local random BP0/BP1, 20000 frozen gemini random BP0",
+    "asr_fma_ip AXIS wrapper vs the same independent ref: 8734 + 20000",
+    "bit-exact equivalence vs trusted 4-stage gemini_fma_round2 RTL (cross-check, not golden): 8734 + 20000",
+    "epilogue mode0 bypass latency=7/II=1, in-flight flush, post-flush epoch, stall freeze",
+    "latency-adapted epilogue lane / i48 / fma / i16 flush test",
+    "exhaustive grouped/tree 129-bit LZC: 8x16-bit groups x 65535 words + 20000 random 129-bit patterns"
+  ],
+  "not_tested": [
+    "no synthesis/STA/Vivado; no ns or Fmax claim",
+    "no board run, no VNC, no push",
+    "no whole-model ASR graph / WER",
+    "vector FMA op17 integration and per-channel parameter tables are other workers"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "task": "ds_repair_fmaflush",
+  "status": "complete",
+  "top_rc": 0,
+  "stages": [
+    {
+      "stage": 1,
+      "name": "contract/interface",
+      "status": "done",
+      "evidence": "INTERFACE.md",
+      "note": "flush is a full barrier; out_valid is cancelled on the flush cycle; reset is also a barrier; project FTZ signed-zero special explicitly retained"
+    },
+    {
+      "stage": 2,
+      "name": "minimal RTL repair",
+      "status": "done",
+      "evidence": "rtl/fp32_fma_pipe.sv, reports/rtl_diff.patch",
+      "base_sha256": "b062284af692349ac0afe1de14ac0d10f0cbbab97a5b33f849b50a93caccac82",
+      "fixed_sha256": "3c1114bc40078fd357bb968e8daecc53e68ad4da25a6ae586ce658b4d2a5e0c5",
+      "note": "only in_ready/out_valid assignments and comments changed"
+    },
+    {
+      "stage": 3,
+      "name": "independent gold + vectors",
+      "status": "done",
+      "evidence": "gold/fma_gold_independent.py, gold/check_and_gen.py, logs/gate/gold_check.log",
+      "note": "frozen 8734 and 251 expected values reproduced exactly (0 mismatch); 2000 fresh vectors generated"
+    },
+    {
+      "stage": 4,
+      "name": "functional/backpressure/flush/reset/II/latency gate",
+      "status": "done",
+      "evidence": "scripts/run_all.sh, logs/gate/, result.json",
+      "note": "32 cases, 0 failures, gate rc 0; negative controls fail as expected"
+    },
+    {
+      "stage": 5,
+      "name": "report and deliverables",
+      "status": "done",
+      "evidence": "REPORT.md, result.json, SHA256SUMS, FINAL_SHA256SUMS, reports/"
+    }
+  ],
+  "unverified": [
+    "no synthesis / Vivado / STA / board / VNC / push",
+    "no top-level unified-graph integration",
+    "epilogue leaf i48/relu/i16 flush gating not modified (out of AR-001 scope)",
+    "no physical timing claim"
+  ]
+}

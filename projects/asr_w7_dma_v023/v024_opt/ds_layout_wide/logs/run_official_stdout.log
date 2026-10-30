@@ -1,0 +1,2 @@
+TOTAL cyc_base=397315 cyc_wide=382568 ratio=0.963 rreq=1778->1779 wreq=746->746 rbeat=2638->2638 wbeat=11890->11890 rbyte=42208->42208 eff_bytes=190204 of=-40242->-40242 coverage=0.033
+OFFICIAL_SUMMARY normal=8 error=12 fails=0 model_matches_preserved_gold=8/8

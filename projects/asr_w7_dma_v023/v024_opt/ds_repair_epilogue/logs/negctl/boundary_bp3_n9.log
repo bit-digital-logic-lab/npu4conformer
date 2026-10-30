@@ -1,0 +1,40 @@
+STRICT mode=3 dir=vectors bp=3 seed=409 n0=9 n1=32 ns=8
+beats: bank0=0..511 bank1=512..1023 scalar=1024..1087
+FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c
+FAIL a16 tag=0 lane=3 got=7ace exp=7fff
+FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4
+FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0
+FAIL a16 tag=1 lane=1 got=62c8 exp=7fff
+FAIL a16 tag=1 lane=2 got=10d9 exp=172b
+FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00
+FAIL fp tag=2 lane=2 got=46072100 exp=465b9960
+FAIL fp tag=2 lane=3 got=47286140 exp=478e1292
+FAIL packed[0] got tag=0 last=0 exp tag=0 last=0
+FAIL a16 tag=2 lane=0 got=03c7 exp=05ab
+FAIL a16 tag=2 lane=2 got=21c8 exp=36e6
+FAIL fp tag=4 lane=3 got=45d26200 exp=46662250
+FAIL fp tag=5 lane=0 got=46a52780 exp=4739ce50
+FAIL fp tag=5 lane=2 got=4699f980 exp=4736da58
+FAIL fp tag=5 lane=3 got=469df880 exp=47408904
+FAIL packed[1] got tag=2 last=0 exp tag=2 last=0
+FAIL fp tag=6 lane=1 got=47282640 exp=47d7722e
+FAIL fp tag=6 lane=2 got=470fe440 exp=47bcdccc
+FAIL a16 tag=4 lane=3 got=1a4c exp=3989
+FAIL a16 tag=5 lane=0 got=5294 exp=7fff
+FAIL a16 tag=5 lane=2 got=4cfd exp=7fff
+FAIL a16 tag=5 lane=3 got=4efc exp=7fff
+FAIL fp tag=7 lane=0 got=467c7900 exp=472d95d0
+FAIL fp tag=7 lane=3 got=46c65880 exp=4791aa72
+FAIL packed[2] got tag=4 last=0 exp tag=4 last=0
+FAIL fp tag=8 lane=1 got=46abda80 exp=46b69858
+FAIL fp tag=8 lane=2 got=467de500 exp=468ed130
+FAIL packed[3] got tag=6 last=0 exp tag=6 last=0
+FAIL a16 tag=7 lane=0 got=3f1e exp=7fff
+FAIL a16 tag=7 lane=3 got=632c exp=7fff
+FAIL a16 tag=8 lane=1 got=55ed exp=5b4c
+FAIL a16 tag=8 lane=2 got=3f79 exp=4769
+FAIL packed[4] got tag=8 last=1 exp tag=8 last=1
+RESULT mode=3 a16=9/9 pack=5/5 fp=9/9 spill=0/0 err=34 hits=36 misses=0 rej=0 cyc=190
+FAIL
+FATAL: /home/yang/Desktop/项目/v024_opt/ds_repair_epilogue/tb/tb_epilogue_strict.sv:584: mismatch
+       Time: 1945000  Scope: tb_epilogue_strict

@@ -1,0 +1,11 @@
+# Unique candidate compile filelist for V0.24 ds_storage_write.
+# Testbenches and BFMs are selected per top module by scripts/run_all.sh.
+rtl/block_storage_stream_v3.sv
+rtl/block_engine_prefetch_v3.sv
+rtl/matrix_p2_cluster_v3.sv
+rtl/operand_banks_dual_v2.sv
+rtl/block_address_v020.sv
+rtl/array16_w7_c48_cfg.sv
+rtl/pe_w7_c48_cfg.sv
+rtl/c_cache_banked4_pipe.sv
+rtl/axi_dma_v020_multi_v2.sv

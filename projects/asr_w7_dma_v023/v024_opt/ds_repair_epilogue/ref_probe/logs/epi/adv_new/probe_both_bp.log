@@ -1,0 +1,28 @@
+EPI mode=3 dir=vectors/epi
+ld t0
+t0 ok
+t1 ok
+ld b0
+b0 ok 0 32
+beats: bank0=0..31 bank1=32..63 scalar=64..71
+FAIL a16 missing tag=22
+FAIL a16 missing tag=23
+FAIL a16 missing tag=24
+FAIL a16 missing tag=25
+FAIL fp32 missing tag=25
+FAIL a16 missing tag=26
+FAIL fp32 missing tag=26
+FAIL a16 missing tag=27
+FAIL fp32 missing tag=27
+FAIL a16 missing tag=28
+FAIL fp32 missing tag=28
+FAIL a16 missing tag=29
+FAIL fp32 missing tag=29
+FAIL a16 missing tag=30
+FAIL fp32 missing tag=30
+FAIL a16 missing tag=31
+FAIL fp32 missing tag=31
+RESULT mode=3 a16=22 fp=25 errors=17 hits=128 misses=0 colerr=0 rej=0 cyc=20217
+FAIL
+FATAL: /home/yang/Desktop/项目/v024_opt/ds_repair_epilogue/ref_probe/tb/tb_epilogue.sv:424: mismatch
+       Time: 202215000  Scope: tb_epilogue

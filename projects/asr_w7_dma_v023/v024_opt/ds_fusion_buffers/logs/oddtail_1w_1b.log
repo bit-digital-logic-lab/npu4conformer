@@ -1,0 +1,3 @@
+ODDTAIL words=1 last_bytes=1 beats=1 bytes=1 strobe=0001 drain=4 errs=0
+ODDTAIL_PASS
+tb/tb_oddtail_writer.sv:204: $finish called at 210000 (1ps)

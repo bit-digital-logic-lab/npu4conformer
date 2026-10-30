@@ -1,0 +1,95 @@
+
+==== FMA 7-stage deep (numeric, II, flush, reset) ====
+compile rc=0
+stream_8734 rc=0
+flush_251 rc=0
+reset_251 rc=0
+ii_8734 rc=0
+flush_handshake_probe rc=1 (advisory; nonzero = AR-001 hazard)
+FMA_GATE_PASS fma_deep_final
+
+==== per-channel epilogue (functional + output-backpressure probes) ====
+compile rc=0
+mode0_nobp rc=0 RESULT mode=0 a16=72 fp=72 errors=0 hits=256 misses=0 colerr=0 rej=4 cyc=382
+mode1_abort_nobp rc=0 RESULT mode=1 a16=8 fp=8 errors=0 hits=24 misses=0 colerr=0 rej=0 cyc=201
+mode2_scalar_nobp rc=0 RESULT mode=2 a16=8 fp=8 errors=0 hits=0 misses=0 colerr=0 rej=0 cyc=108
+mode3_pc_nobp rc=0 RESULT mode=3 a16=32 fp=32 errors=0 hits=128 misses=0 colerr=0 rej=0 cyc=244
+mode4_stall rc=0 RESULT mode=4 a16=32 fp=32 errors=0 hits=128 misses=0 colerr=0 rej=0 cyc=283
+mode3_a16bp rc=0 RESULT mode=3 a16=32 fp=32 errors=0 hits=128 misses=0 colerr=0 rej=0 cyc=252
+mode3_fp32bp rc=0 RESULT mode=3 a16=32 fp=32 errors=0 hits=128 misses=0 colerr=0 rej=0 cyc=244
+probe_both_bp rc=1 (advisory; nonzero = AR-006 channel deadlock)
+probe_multiphase_a16bp rc=1 (advisory; nonzero = AR-007 multi-phase stall)
+EPI_GATE_PASS epi_pc_final2
+
+==== vector op17 II=1 and 4-lane tail ====
+compile rc=0
+op17_n1_o0_b0 rc=0 RESULT op=17 n=1 out16=0 cycles=29 b=1 last_b=29 done=32 errors=0
+op17_n2_o0_b0 rc=0 RESULT op=17 n=2 out16=0 cycles=30 b=1 last_b=30 done=33 errors=0
+op17_n3_o0_b0 rc=0 RESULT op=17 n=3 out16=0 cycles=31 b=1 last_b=31 done=34 errors=0
+op17_n4_o0_b0 rc=0 RESULT op=17 n=4 out16=0 cycles=32 b=1 last_b=32 done=35 errors=0
+op17_n5_o0_b0 rc=0 RESULT op=17 n=5 out16=0 cycles=40 b=1 last_b=40 done=43 errors=0
+op17_n7_o0_b0 rc=0 RESULT op=17 n=7 out16=0 cycles=42 b=1 last_b=42 done=45 errors=0
+op17_n8_o0_b0 rc=0 RESULT op=17 n=8 out16=0 cycles=43 b=1 last_b=43 done=46 errors=0
+op17_n9_o0_b0 rc=0 RESULT op=17 n=9 out16=0 cycles=51 b=1 last_b=51 done=54 errors=0
+op17_n16_o0_b0 rc=0 RESULT op=17 n=16 out16=0 cycles=65 b=1 last_b=65 done=68 errors=0
+op17_n17_o0_b0 rc=0 RESULT op=17 n=17 out16=0 cycles=73 b=1 last_b=73 done=76 errors=0
+op17_n127_o0_b0 rc=0 RESULT op=17 n=127 out16=0 cycles=372 b=1 last_b=372 done=375 errors=0
+op17_n255_o0_b0 rc=0 RESULT op=17 n=255 out16=0 cycles=724 b=1 last_b=724 done=727 errors=0
+op17_n256_o0_b0 rc=0 RESULT op=17 n=256 out16=0 cycles=725 b=1 last_b=725 done=728 errors=0
+op17_n257_o0_b0 rc=0 RESULT op=17 n=257 out16=0 cycles=730 b=2 last_b=730 done=733 errors=0
+op17_n1001_o0_b0 rc=0 RESULT op=17 n=1001 out16=0 cycles=1840 b=4 last_b=1840 done=1843 errors=0
+op17_n1001_o0_b25 rc=0 RESULT op=17 n=1001 out16=0 cycles=1865 b=4 last_b=1865 done=1868 errors=0
+op0_n1_o0_b0 rc=0 RESULT op=0 n=1 out16=0 cycles=25 b=1 last_b=25 done=28 errors=0
+op0_n2_o0_b0 rc=0 RESULT op=0 n=2 out16=0 cycles=25 b=1 last_b=25 done=28 errors=0
+op0_n3_o0_b0 rc=0 RESULT op=0 n=3 out16=0 cycles=25 b=1 last_b=25 done=28 errors=0
+op0_n4_o0_b0 rc=0 RESULT op=0 n=4 out16=0 cycles=25 b=1 last_b=25 done=28 errors=0
+op0_n5_o0_b0 rc=0 RESULT op=0 n=5 out16=0 cycles=31 b=1 last_b=31 done=34 errors=0
+op0_n7_o0_b0 rc=0 RESULT op=0 n=7 out16=0 cycles=31 b=1 last_b=31 done=34 errors=0
+op0_n8_o0_b0 rc=0 RESULT op=0 n=8 out16=0 cycles=31 b=1 last_b=31 done=34 errors=0
+op0_n9_o0_b0 rc=0 RESULT op=0 n=9 out16=0 cycles=37 b=1 last_b=37 done=40 errors=0
+op0_n10_o0_b0 rc=0 RESULT op=0 n=10 out16=0 cycles=37 b=1 last_b=37 done=40 errors=0
+op0_n15_o0_b0 rc=0 RESULT op=0 n=15 out16=0 cycles=43 b=1 last_b=43 done=46 errors=0
+op0_n16_o0_b0 rc=0 RESULT op=0 n=16 out16=0 cycles=43 b=1 last_b=43 done=46 errors=0
+op0_n17_o0_b0 rc=0 RESULT op=0 n=17 out16=0 cycles=49 b=1 last_b=49 done=52 errors=0
+op0_n127_o0_b0 rc=0 RESULT op=0 n=127 out16=0 cycles=211 b=1 last_b=211 done=214 errors=0
+op0_n255_o0_b0 rc=0 RESULT op=0 n=255 out16=0 cycles=403 b=1 last_b=403 done=406 errors=0
+op0_n257_o0_b0 rc=0 RESULT op=0 n=257 out16=0 cycles=408 b=2 last_b=408 done=411 errors=0
+op0_n1001_o0_b0 rc=0 RESULT op=0 n=1001 out16=0 cycles=1156 b=4 last_b=1156 done=1159 errors=0
+op15_n1_o1_b0 rc=0 RESULT op=15 n=1 out16=1 cycles=21 b=1 last_b=21 done=24 errors=0
+op15_n2_o1_b0 rc=0 RESULT op=15 n=2 out16=1 cycles=21 b=1 last_b=21 done=24 errors=0
+op15_n3_o1_b0 rc=0 RESULT op=15 n=3 out16=1 cycles=21 b=1 last_b=21 done=24 errors=0
+op15_n4_o1_b0 rc=0 RESULT op=15 n=4 out16=1 cycles=21 b=1 last_b=21 done=24 errors=0
+op15_n5_o1_b0 rc=0 RESULT op=15 n=5 out16=1 cycles=24 b=1 last_b=24 done=27 errors=0
+op15_n7_o1_b0 rc=0 RESULT op=15 n=7 out16=1 cycles=24 b=1 last_b=24 done=27 errors=0
+op15_n8_o1_b0 rc=0 RESULT op=15 n=8 out16=1 cycles=24 b=1 last_b=24 done=27 errors=0
+op15_n9_o1_b0 rc=0 RESULT op=15 n=9 out16=1 cycles=28 b=1 last_b=28 done=31 errors=0
+op15_n16_o1_b0 rc=0 RESULT op=15 n=16 out16=1 cycles=31 b=1 last_b=31 done=34 errors=0
+op15_n17_o1_b0 rc=0 RESULT op=15 n=17 out16=1 cycles=35 b=1 last_b=35 done=38 errors=0
+op15_n127_o1_b0 rc=0 RESULT op=15 n=127 out16=1 cycles=129 b=1 last_b=129 done=132 errors=0
+op15_n255_o1_b0 rc=0 RESULT op=15 n=255 out16=1 cycles=241 b=1 last_b=241 done=244 errors=0
+op15_n257_o1_b0 rc=0 RESULT op=15 n=257 out16=1 cycles=246 b=2 last_b=246 done=249 errors=0
+op15_n1001_o1_b0 rc=0 RESULT op=15 n=1001 out16=1 cycles=617 b=4 last_b=617 done=620 errors=0
+VECTOR_GATE_PASS vec_final
+
+==== storage write coalescer / 4 KiB ====
+compile rc=0
+native rc=0 RESULT mode=0 cseg=64 nreq=24 nbeats=384 maxbeats=16 pagesplit=2 wrbytes=6144 gen=0 errs=0
+pagecross rc=0 RESULT mode=1 cseg=64 nreq=24 nbeats=384 maxbeats=16 pagesplit=2 wrbytes=6144 gen=0 errs=0
+generic_single rc=0 RESULT mode=2 cseg=1 nreq=1 nbeats=6 maxbeats=6 pagesplit=0 wrbytes=96 gen=1 errs=0
+generic_pagecross_probe rc=1 (advisory; nonzero = 4KiB-crossing generic burst)
+generic_multi_probe rc=1 (advisory; nonzero = back-to-back generic stall)
+WRITE_GATE_PASS write_final
+
+==== matrix 2x1 W reuse (same fixture, reuse 0 vs 1) ====
+reuse=0 rc=0 PASS tb_reuse_cluster_axi M=64 N=32 K=96 CVALID=0 REUSE=0 cycles=7612 AXI_W_bytes=12288 AXI_W_beats=768 AXI_W_bursts=130 rd_bytes=18432
+reuse=1 rc=0 PASS tb_reuse_cluster_axi M=64 N=32 K=96 CVALID=0 REUSE=1 cycles=7236 AXI_W_bytes=12288 AXI_W_beats=768 AXI_W_bursts=130 rd_bytes=15360
+
+==== fusion dual done-after-last-B ====
+writer bdelay=0 RESULT bdelay=0 words=2 lastb=16 lastW=4 B=6 done=7 beats=2 err=0
+writer bdelay=5 RESULT bdelay=5 words=2 lastb=16 lastW=4 B=11 done=12 beats=2 err=0
+writer bdelay=30 RESULT bdelay=30 words=2 lastb=16 lastW=4 B=36 done=37 beats=2 err=0
+dual n64 bextra=3000 rc=0
+FUSION_DRAIN last_w=4825 last_b=7855 dma_done=7857 drain_cycles=3032
+FUSION_TB_PASS
+
+ALL_MODULE_GATES_PASS

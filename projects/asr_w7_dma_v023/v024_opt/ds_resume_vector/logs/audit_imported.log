@@ -1,0 +1,14 @@
+{
+  "case_count_in_imported_manifest": 70,
+  "imported_dump_and_log_checked_ok": 65,
+  "missing_dump_or_log": [
+    "tail_0271",
+    "tail_0272",
+    "tail_0273",
+    "tail_0511",
+    "tail_1001"
+  ],
+  "independent_check_failures": [],
+  "old_rc_entries": 68,
+  "pass": true
+}

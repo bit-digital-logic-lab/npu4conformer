@@ -1,0 +1,5 @@
+MODE=3 N=2000
+II_ACCEPT span=2000 n=2000 max_gap=1 accepted=2000
+RESULT mode=3 n=2000 out=2000 errors=0 cycles=2008
+PASS
+tb/tb_fma_mode4.sv:273: $finish called at 20125000 (1ps)

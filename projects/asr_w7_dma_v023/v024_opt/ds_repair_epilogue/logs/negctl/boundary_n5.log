@@ -1,0 +1,22 @@
+STRICT mode=3 dir=vectors bp=1 seed=205 n0=5 n1=32 ns=8
+beats: bank0=0..511 bank1=512..1023 scalar=1024..1087
+FAIL a16 tag=0 lane=3 got=7ace exp=7fff
+FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c
+FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4
+FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0
+FAIL a16 tag=1 lane=1 got=62c8 exp=7fff
+FAIL a16 tag=1 lane=2 got=10d9 exp=172b
+FAIL packed[0] got tag=0 last=0 exp tag=0 last=0
+FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00
+FAIL fp tag=2 lane=2 got=46072100 exp=465b9960
+FAIL fp tag=2 lane=3 got=47286140 exp=478e1292
+FAIL a16 tag=2 lane=0 got=03c7 exp=05ab
+FAIL a16 tag=2 lane=2 got=21c8 exp=36e6
+FAIL fp tag=4 lane=3 got=45d26200 exp=46662250
+FAIL packed[1] got tag=2 last=0 exp tag=2 last=0
+FAIL a16 tag=4 lane=3 got=1a4c exp=3989
+FAIL packed[2] got tag=4 last=1 exp tag=4 last=1
+RESULT mode=3 a16=5/5 pack=3/3 fp=5/5 spill=0/0 err=16 hits=20 misses=0 rej=0 cyc=178
+FAIL
+FATAL: /home/yang/Desktop/项目/v024_opt/ds_repair_epilogue/tb/tb_epilogue_strict.sv:584: mismatch
+       Time: 1825000  Scope: tb_epilogue_strict

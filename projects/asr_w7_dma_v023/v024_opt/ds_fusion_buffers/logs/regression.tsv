@@ -1,0 +1,40 @@
+label	kind	rc	check	tiles	cycles	c48_beats	c48w_bytes	c48r_bytes	a16_bytes	b_count	last_b	dma_done	overlap	bank_occ
+d_bp0_main	dual	0	0	1	2120	256			2048	8	2118	2120	0	1
+d_bp1_main	dual	0	0	1	2403	256			2048	8	2401	2403	0	1
+d_bp2_main	dual	0	0	1	2570	256			2048	8	2568	2570	0	1
+d_bp3_main	dual	0	0	1	2789	256			2048	8	2787	2789	0	1
+d_bp4_main	dual	0	0	1	9014	256			2048	8	9012	9014	0	1
+d_bextra_main	dual	0	0	1	2240	256			2048	8	2238	2240	0	1
+d_bextra_n64	dual	0	0	2	7857	512			4096	16	7855	7857	1522	2
+d_b0_n64	dual	0	0	2	3108	512			4096	16	3106	3108	260	2
+d_n96	dual	0	0	3	3412	768			6144	24	3410	3412	1306	2
+d_m64	dual	0	0	4	4393	1024			8192	32	4391	4393	1984	2
+d_edge	dual	0	0	1	1685	256			2048	8	1683	1685	0	1
+d_b0_n96	dual	0	0	3	3012	768			6144	24	3010	3012	506	2
+d_b0_m64	dual	0	0	4	3993	1024			8192	32	3991	3993	784	2
+d_b0_edge	dual	0	0	1	1517	256			2048	8	1515	1517	0	1
+d_fma0_main	dual	0	0	1	2120	256			2048	8	2118	2120	0	1
+d_fma2_main	dual	0	0	1	2120	256			2048	8	2118	2120	0	1
+d_relu_main	dual	0	0	1	2120	256			2048	8	2118	2120	0	1
+s_bp0_main	single	0	0	1	2122	256			2048	8	2118	2120		
+s_b120_main	single	0	0	1	2242	256			2048	8	2238	2240		
+s_n64_b3000	single	0	0	2	9165	512			4096	16	9161	9163		
+s_n96_b400	single	0	0	3	4337	768			6144	24	4333	4335		
+s_m64_b400	single	0	0	4	5789	1024			8192	32	5785	5787		
+s_b0_n64	single	0	0	2	3163	512			4096	16	3159	3161		
+s_b0_n96	single	0	0	3	3120	768			6144	24	3116	3118		
+s_b0_m64	single	0	0	4	4168	1024			8192	32	4164	4166		
+s_b0_edge	single	0	0	1	1519	256			2048	8	1515	1517		
+u_bp0_main	unfused	0	0	1	4397		6144	6144	2048	8	4393			
+u_n64	unfused	0	0	2	7638		12288	12288	4096	16	7634			
+u_n96	unfused	0	0	3	9751		18432	18432	6144	24	9747			
+u_m64	unfused	0	0	4	13005		24576	24576	8192	32	13001			
+u_edge	unfused	0	0	1	3527		6144	6144	2048	8	3523			
+u_b1_main	unfused	0	0	1	4480		6144	6144	2048	8	4476			
+oddtail_5w_3b	oddtail	0	None											
+oddtail_1w_1b	oddtail	0	None											
+oddtail_16w_16b	oddtail	0	None											
+oddtail_7w_8b	oddtail	0	None											
+fifo_unit	fifo	0	None											
+fifo_credit	fifo	0	None											
+epilogue_contract	contract	0	None											

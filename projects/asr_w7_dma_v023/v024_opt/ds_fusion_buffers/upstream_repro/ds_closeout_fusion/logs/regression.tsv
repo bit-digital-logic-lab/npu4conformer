@@ -1,0 +1,24 @@
+label	kind	rc	check_rc	ok	cycles	bytes_rd	bytes_wr	fifo_peak
+fused_bp0	fused	0	0	True	2122	9216	2048	1
+fused_bp1_random	fused	0	0	True	2405	9216	2048	1
+fused_bp2_wrlong	fused	0	0	True	2576	9216	2048	1
+fused_bp3_rdlong	fused	0	0	True	2807	9216	2048	1
+fused_bp4_heavy	fused	0	0	True	9016	9216	2048	1
+fused_edge	fused	0	0	True	1651	6144	2048	1
+fused_n64	fused	0	0	True	3471	12288	4096	1
+fused_fma0	fused	0	0	True	2122	9216	2048	1
+fused_fma2	fused	0	0	True	2122	9216	2048	1
+fused_relu	fused	0	0	True	2122	9216	2048	1
+unfused_bp0	unfused	0	0	True	4397	9216	2048	
+unfused_bp1_random	unfused	0	0	True	6013	9216	2048	
+unfused_bp2_wrlong	unfused	0	0	True	7274	9216	2048	
+unfused_bp3_rdlong	unfused	0	0	True	5814	9216	2048	
+unfused_bp4_heavy	unfused	0	0	True	21941	9216	2048	
+unfused_edge	unfused	0	0	True	5297	6144	2048	
+unfused_n64	unfused	0	0	True	10138	12288	4096	
+oddtail_5w_3b	oddtail	0	None	True				
+oddtail_1w_1b	oddtail	0	None	True				
+oddtail_16w_16b	oddtail	0	None	True				
+oddtail_7w_8b	oddtail	0	None	True				
+fifo_capacity	fifo	0	None	True				
+epilogue_contract	contract	0	None	True				

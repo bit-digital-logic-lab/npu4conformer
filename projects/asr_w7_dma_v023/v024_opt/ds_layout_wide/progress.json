@@ -1,0 +1,177 @@
+{
+ "task": "ds_layout_wide",
+ "phase": 10,
+ "status": "complete",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "date": "2026-10-30",
+ "read": [
+  "v024_opt/REVIEW_DECISIONS.md",
+  "v024_opt/REVIEW_INPUT.txt",
+  "v024_opt/README.md",
+  "v023_repair/ds_layout/REPORT.md",
+  "v023_repair/ds_layout/INTERFACE.md",
+  "v023_repair/ds_closeout_safety/REPORT.md",
+  "v023_repair/ds_closeout_safety/INTERFACE.md",
+  "v023_repair/ds_layout/rtl/ddr_layout_engine_v023_burst.sv",
+  "v023_repair/ds_layout/tests/*",
+  "v023_repair/ds_layout/scripts/{layout_model,gen_gold_fixtures,random_gold,gen_layout_fuzz}.py"
+ ],
+ "baseline": {
+  "file": "rtl/ddr_layout_engine_baseline_burst.sv",
+  "sha256": "4e45a39dcb07daeefc190d383ede885e57718f9a60c9d23eda61c4dae11eb893",
+  "source": "v023_repair/ds_layout/rtl/ddr_layout_engine_v023_burst.sv",
+  "also_selected_by": "v023_repair/ds_closeout_safety/filelist_safety.f"
+ },
+ "constraints": {
+  "write_scope": "this directory only",
+  "read_only": [
+   "v023_repair",
+   "work",
+   "ZIP",
+   "other v024_opt workers"
+  ],
+  "no_synthesis": true,
+  "no_vivado": true,
+  "no_board": true,
+  "no_vnc": true,
+  "no_push": true,
+  "compile_serial": true,
+  "watchdog_per_sim": true,
+  "independent_gold": "scripts/layout_model.py",
+  "failure_is_nonzero": true
+ },
+ "notes": [
+  "Port list kept identical; fast-path counters internal to RTL/TB only.",
+  "MODE2_PREFETCH is a measured gate, not a zero-overfetch claim."
+ ],
+ "phases": [
+  {
+   "phase": 1,
+   "status": "generating",
+   "note": "independent gold / edge / official fixture set",
+   "time": "2026-10-30 15:29:46"
+  },
+  {
+   "phase": 2,
+   "status": "compiling",
+   "note": "baseline + candidate + scalar variants (-j1)",
+   "time": "2026-10-30 15:29:55"
+  },
+  {
+   "phase": 3,
+   "status": "running",
+   "note": "official 8 normal + 12 error/ACL/lifecycle modes",
+   "time": "2026-10-30 15:29:55"
+  },
+  {
+   "phase": 4,
+   "status": "running",
+   "note": "32 independent gold + 53 new edge fixtures",
+   "time": "2026-10-30 15:30:18"
+  },
+  {
+   "phase": 5,
+   "status": "running",
+   "note": "100 preserved random + 52 new random/short-tail, independent gold",
+   "time": "2026-10-30 15:31:17"
+  },
+  {
+   "phase": 6,
+   "status": "running",
+   "note": "57 descriptor fuzz + scalar fallback equivalence",
+   "time": "2026-10-30 15:34:19"
+  },
+  {
+   "phase": 7,
+   "status": "running",
+   "note": "mode-2 prefetch gate A/B measurement",
+   "time": "2026-10-30 15:36:10"
+  },
+  {
+   "phase": 8,
+   "status": "running",
+   "note": "C48 6B cross-line negative control",
+   "time": "2026-10-30 15:38:27"
+  },
+  {
+   "phase": 9,
+   "status": "lint",
+   "note": "verilator lint + merge summary + hashes",
+   "time": "2026-10-30 15:38:28"
+  },
+  {
+   "phase": 10,
+   "status": "complete",
+   "note": "all suites finished; see logs/summary.json and REPORT.md",
+   "time": "2026-10-30 15:38:29"
+  },
+  {
+   "phase": 1,
+   "status": "generating",
+   "note": "independent gold / edge / official fixture set",
+   "time": "2026-10-30 15:56:04"
+  },
+  {
+   "phase": 2,
+   "status": "compiling",
+   "note": "baseline + candidate + scalar variants (-j1)",
+   "time": "2026-10-30 15:56:13"
+  },
+  {
+   "phase": 3,
+   "status": "running",
+   "note": "official 8 normal + 12 error/ACL/lifecycle modes",
+   "time": "2026-10-30 15:56:13"
+  },
+  {
+   "phase": 4,
+   "status": "running",
+   "note": "32 independent gold + 53 new edge fixtures",
+   "time": "2026-10-30 15:56:35"
+  },
+  {
+   "phase": 5,
+   "status": "running",
+   "note": "100 preserved random + 52 new random/short-tail, independent gold",
+   "time": "2026-10-30 15:57:28"
+  },
+  {
+   "phase": 6,
+   "status": "running",
+   "note": "57 descriptor fuzz + scalar fallback equivalence",
+   "time": "2026-10-30 16:00:08"
+  },
+  {
+   "phase": 7,
+   "status": "running",
+   "note": "mode-2 prefetch gate A/B measurement",
+   "time": "2026-10-30 16:01:34"
+  },
+  {
+   "phase": 8,
+   "status": "running",
+   "note": "C48 6B cross-line negative control",
+   "time": "2026-10-30 16:03:09"
+  },
+  {
+   "phase": 9,
+   "status": "lint",
+   "note": "verilator lint + merge summary + hashes",
+   "time": "2026-10-30 16:03:10"
+  },
+  {
+   "phase": 10,
+   "status": "complete",
+   "note": "all suites finished; see logs/summary.json and REPORT.md",
+   "time": "2026-10-30 16:03:11"
+  }
+ ],
+ "candidate_sha256": "5477651c09c98781de3b6fe5d8a913c93fb685414fc4971685f15f87eae5c365",
+ "verdict": "PASS_LOCAL_LOGIC",
+ "evidence": {
+  "summary": "logs/summary.json",
+  "result": "result.json",
+  "run_all": "logs/run_all.log",
+  "run_all_rc": 0
+ }
+}

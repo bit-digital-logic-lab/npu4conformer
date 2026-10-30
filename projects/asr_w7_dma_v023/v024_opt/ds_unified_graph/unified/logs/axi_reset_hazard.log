@@ -1,0 +1,7 @@
+HAZARD_ISO s_arvalid=0 m_arready=0 rd_pending=1 quiesced=0 iso_blocked=3
+HAZARD_DRAIN rd_pending=0 quiesced=1 data=00001000
+HAZARD_POST_RESET rd_pending=0 slave_pend=1
+HAZARD_STALE new_ar=4000 stale_data=00003000
+HAZARD_STALE_CONSUMED (expected: port must not be reused)
+HAZARD_RESULT PASS (isolation contract proven; reset reuse is unsafe by construction)
+tb/tb_axi_reset_hazard.sv:162: $finish called at 316000 (1ps)

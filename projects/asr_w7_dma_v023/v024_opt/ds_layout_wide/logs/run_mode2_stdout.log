@@ -1,0 +1,4 @@
+TOTAL gate1 cycles=1219647 read_requests=5316 read_beats=5316 read_bytes=85056
+TOTAL gate16 cycles=1217617 read_requests=4846 read_beats=5529 read_bytes=88464
+MODE2_GATE cases=45 fails=0 beats_lower=7 beats_equal=38 beats_higher=0 total_beat_delta_gate1=-213 total_request_delta_gate1=470 max_case_reduction=168(r2_21) max_case_request_increase=166(r2_15)
+NOTE: gate1 reduces read beats on 7/45 mode2 cases and is neutral on 38; it does not eliminate all re-reads; it trades more, shorter read requests and +0.17% cycles. gate16 reproduces the v023 baseline exactly.

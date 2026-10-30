@@ -1,0 +1,10 @@
+[PASS] flush held 4 cycles: accepts=0, in_ready=0, out_valid=0
+[PASS] parked output present before flush (tag=2222)
+[PASS] flush cancelled parked output; flush cycle presented no transfer
+[PASS] post-flush epoch latency=7 data=40400000 tag=2223
+[PASS] reset barrier: accepts=0, in_ready=0, out_valid=0
+[PASS] post-reset epoch latency=7 data=40c00000 tag=3334
+[PASS] 8-cycle flush stress: accepts=0
+[PASS] post-stress epoch latency=7 data=3f800000 tag=4445
+CONTRACT_ERRORS=0
+tb/tb_flush_contract.sv:193: $finish called at 760000 (1ps)

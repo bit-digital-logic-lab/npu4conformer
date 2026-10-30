@@ -1,0 +1,1 @@
+SCALAR_FALLBACK cases=70 fails=0 (FASTPATH=0 MODE2_PREFETCH=16 vs frozen v023 burst)

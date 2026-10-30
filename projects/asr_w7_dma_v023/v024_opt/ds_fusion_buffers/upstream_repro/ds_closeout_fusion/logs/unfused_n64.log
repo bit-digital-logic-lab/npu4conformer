@@ -1,0 +1,6 @@
+UNFUSED_DONE done=1 fault=0 code=00 cycles=10138 matrix_cycles=8538 tiles=2
+UNFUSED_TRAFFIC rd_aw=768 c48w_beats=768 c48w_bytes=12288 c48r_beats=768 c48r_bytes=12288 a16_beats=256 a16_bytes=4096
+UNFUSED_DRAIN c48_last_w=8481 c48_last_b=8539 a16_last_w=10086 a16_last_b=10134
+UNFUSED_WINDOW errors=0
+UNFUSED_TB_PASS
+tb/tb_unfused_cluster.sv:337: $finish called at 101500000 (1ps)

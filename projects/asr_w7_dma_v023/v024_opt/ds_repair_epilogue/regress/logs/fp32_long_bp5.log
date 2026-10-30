@@ -1,0 +1,7 @@
+CMD: /home/yang/Desktop/项目/v024_opt/ds_repair_epilogue/regress/build/tb_epilogue_channels +CMD_FILE=vectors/fp32_long_bp5.cmd +PAR_FILE=vectors/fp32_long_bp5.par +OUT_FILE=logs/fp32_long_bp5.out +BP=5 +MAX_CYCLES=2000000
+ABORT_CYCLE=-1
+STATS in=64 a16=64 pack=32 fp32=64 spill=64 c48stat=64 a16stat=64 fp32stat=64 spillstat=64
+TABLE hits=256 misses=0 align_err=0 rejects=0 saved=0
+STABILITY_ERRORS=0
+PARAM_ERRORS=0
+DRAINED cycle=517

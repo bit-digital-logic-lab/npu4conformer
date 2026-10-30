@@ -1,0 +1,11 @@
+{
+  "note": "same-engine A/B: SAME_CYCLE_CSEG=1 accepts cseg+first cval in one cycle; =0 keeps the v0.23 one-cycle cseg bubble.",
+  "old_bubble": {
+    "c_collect": 1688,
+    "cycles": 4785
+  },
+  "same_cycle": {
+    "c_collect": 1560,
+    "cycles": 4721
+  }
+}

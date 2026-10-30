@@ -1,0 +1,27 @@
+{
+ "note": "local reproduction db; reference tree is read-only",
+ "adv_old": {
+  "when": "2026-10-30T15:58:19",
+  "files": {
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_epilogue_channels/rtl/epilogue_f32_to_i16.sv": "c51d3327a7fcfbe7e584f1efa275413644147669c9d216ea7f5fbf31b864af6b",
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_epilogue_channels/rtl/epilogue_fma_stage.sv": "34b55dc340b33ee570c540453662404579a77b2f8e2b166dbb2563ab3740c00b",
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_epilogue_channels/rtl/epilogue_i48_to_f32.sv": "4c862453f53b26e18b832c5fd919da7f8f444b70f9a4affb060deb91a37f5a13",
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_epilogue_channels/rtl/epilogue_lane.sv": "c633576dd01da04ec2686096f9e90acdfc7ca4987925c8bb7d053df204cf3885",
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_epilogue_channels/rtl/epilogue_relu.sv": "0e008b394489fcdd2f453aeebee5288f1b812d715c5e8840d47f19bcb3142c4d",
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_epilogue_channels/rtl/epilogue_stream_engine_v024.sv": "4fff5c3f21b3924c421e4a91a82db40550b1d782b18348cad6bff125c9fcb305",
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_epilogue_channels/rtl/fp32_fma_pipe.sv": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12"
+  }
+ },
+ "adv_new": {
+  "when": "2026-10-30T15:58:23",
+  "files": {
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_epilogue/rtl/epilogue_f32_to_i16.sv": "c51d3327a7fcfbe7e584f1efa275413644147669c9d216ea7f5fbf31b864af6b",
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_epilogue/rtl/epilogue_fma_stage.sv": "34b55dc340b33ee570c540453662404579a77b2f8e2b166dbb2563ab3740c00b",
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_epilogue/rtl/epilogue_i48_to_f32.sv": "4c862453f53b26e18b832c5fd919da7f8f444b70f9a4affb060deb91a37f5a13",
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_epilogue/rtl/epilogue_lane.sv": "c633576dd01da04ec2686096f9e90acdfc7ca4987925c8bb7d053df204cf3885",
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_epilogue/rtl/epilogue_relu.sv": "0e008b394489fcdd2f453aeebee5288f1b812d715c5e8840d47f19bcb3142c4d",
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_epilogue/rtl/epilogue_stream_engine_v024.sv": "f4857c19686948289f74de969806e8baff99114596d37a56506d9322d3872b84",
+   "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_epilogue/rtl/fp32_fma_pipe.sv": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12"
+  }
+ }
+}

@@ -1,0 +1,13 @@
+HOST START plan=10008000 total=5 out=04010000 outwords=5 cycle=16
+STATUS busy=0 done=1 fault=1 aborted=0 err=04 cycles=92 completed=0 last=0
+VEC vcyc=34 vrb=64 vwb=0 vcompleted=0 vflags=01 vfault=1 vaborted=0 vrejected=0
+AXI rburst=5 wburst=0 rbeats=24 wbeats=0 rdstall=2 wrstall=0 tag_err=0
+BOUNDARY done_cycle=124 last_b_cycle=-1 b_count_at_done=0 b_after_done=0 aw_after_done=0
+CHECK_FAIL fault err=04
+CHECK_FAIL vector fault
+CHECK_FAIL completed=0 expected=5
+CHECK_FAIL numeric_flags=01
+CHECK_FAIL last_b=-1 done=124
+VEC_FMA_PLAN FAIL errors=5
+FATAL: tb/tb_vector_fma_plan.sv:237: vector fma plan failed
+       Time: 1580000  Scope: tb_vector_fma_plan

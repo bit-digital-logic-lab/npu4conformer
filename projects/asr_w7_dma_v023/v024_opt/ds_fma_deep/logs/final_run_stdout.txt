@@ -1,0 +1,34 @@
+===============================================================
+ ds_fma_deep regression  2026-10-30T14:41:39+08:00
+ model: opencode-go/deepseek-v4.1-flash  (logic simulation only)
+===============================================================
+[1] 8734 adversarial, BP=0
+[2] 8734 adversarial, BP=1
+[3] 20000 local random, BP=0
+[4] 20000 local random, BP=1
+[5] 20000 frozen gemini random, BP=0 (cross-check)
+[6] asr_fma_ip wrapper, 8734 adversarial
+[7] asr_fma_ip wrapper, 20000 local random
+[7b] equivalence vs trusted 4-stage RTL (cross-check, not golden)
+[8] flush (7-stage latency adapted)
+[9] explicit latency/II/bypass/stall
+[10] directed unit tests
+[11] exhaustive grouped/tree LZC (574k patterns)
+
+================ SUMMARY ================
+fma_adv_8734_bp0                   pass=True rc=0 mis=0 lat=7..7 span=8734
+fma_adv_8734_bp1                   pass=True rc=0 mis=0 lat=7..37 span=17538
+fma_random_local_20000_bp0         pass=True rc=0 mis=0 lat=7..7 span=20000
+fma_random_local_20000_bp1         pass=True rc=0 mis=0 lat=7..42 span=40074
+fma_random_gemini_20000_bp0        pass=True rc=0 mis=0 lat=7..7 span=20000
+asr_ip_adv_8734                    pass=True rc=0
+asr_ip_random_20000                pass=True rc=0
+equiv_adv_8734                     pass=True rc=0
+equiv_random_local_20000           pass=True rc=0
+flush_latency_adapted              pass=True rc=0
+latency_ii_bypass                  pass=True rc=0
+unit_directed                      pass=True rc=0
+lzc_tree_exhaustive                pass=True rc=0
+OVERALL: PASS
+elapsed 106.95s
+run_regression.py rc=0

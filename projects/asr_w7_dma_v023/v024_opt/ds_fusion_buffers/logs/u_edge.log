@@ -1,0 +1,6 @@
+UNFUSED_DONE done=1 fault=0 code=00 cycles=3527 matrix_cycles=2909 tiles=1
+UNFUSED_TRAFFIC rd_aw=384 c48w_beats=384 c48w_bytes=6144 c48r_beats=384 c48r_bytes=6144 a16_beats=128 a16_bytes=2048
+UNFUSED_DRAIN c48_last_w=2891 c48_last_b=2910 a16_last_w=3501 a16_last_b=3523 a16_b_count=8 bextra=0
+UNFUSED_WINDOW errors=0
+UNFUSED_TB_PASS
+tb/tb_unfused_baseline.sv:354: $finish called at 35390000 (1ps)

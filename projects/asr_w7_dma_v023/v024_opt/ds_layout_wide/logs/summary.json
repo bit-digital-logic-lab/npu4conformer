@@ -1,0 +1,210 @@
+{
+ "task": "ds_layout_wide",
+ "verdict": "PASS_LOCAL_LOGIC",
+ "checks": {
+  "official_normal_8_pass": true,
+  "official_error_modes_12_match": true,
+  "official_preserved_gold_matches_independent_model": true,
+  "gold_32_pass": true,
+  "edge_53_pass": true,
+  "random_152_pass": true,
+  "random_no_extra_read_beats_vs_v023": true,
+  "descriptor_fuzz_57_pass": true,
+  "scalar_fallback_identical": true,
+  "mode2_gate_measured": true,
+  "c48_negative_control_fails_and_fixed_passes": true,
+  "metrics_complete_no_masking": true,
+  "failure_path_exits_nonzero": true
+ },
+ "suites": {
+  "official": {
+   "base": {
+    "cycles": 397315,
+    "processed": 90482,
+    "read_requests": 1778,
+    "write_requests": 746,
+    "read_beats": 2638,
+    "write_beats": 11890,
+    "read_bytes": 42208,
+    "write_bytes": 190204,
+    "fast_elements": null
+   },
+   "wide": {
+    "cycles": 382568,
+    "processed": 90482,
+    "read_requests": 1779,
+    "write_requests": 746,
+    "read_beats": 2638,
+    "write_beats": 11890,
+    "read_bytes": 42208,
+    "write_bytes": 190204,
+    "fast_elements": 3016
+   },
+   "effective_bytes": 190204,
+   "src_bytes": 82450,
+   "overfetch_base": -40242,
+   "overfetch_wide": -40242,
+   "coverage": 0.033332596538538053,
+   "processed": 90482,
+   "overfetch_base_lines": 54,
+   "overfetch_wide_lines": 54,
+   "cases": 8,
+   "fails": 0
+  },
+  "gold": {
+   "base": {
+    "cycles": 515789,
+    "processed": 92990,
+    "read_requests": 5080,
+    "write_requests": 935,
+    "read_beats": 9239,
+    "write_beats": 14207,
+    "read_bytes": 147824,
+    "write_bytes": 225914,
+    "fast_elements": null
+   },
+   "wide": {
+    "cycles": 429870,
+    "processed": 92990,
+    "read_requests": 5351,
+    "write_requests": 935,
+    "read_beats": 9158,
+    "write_beats": 14207,
+    "read_bytes": 146528,
+    "write_bytes": 225914,
+    "fast_elements": 16964
+   },
+   "processed": 92990,
+   "effective_bytes": 225914,
+   "src_bytes": 208834,
+   "overfetch_base": -61010,
+   "overfetch_wide": -62306,
+   "coverage": 0.18242821808796644,
+   "fails": 0,
+   "cases": 32,
+   "overfetch_base_lines": 1990,
+   "overfetch_wide_lines": 1909
+  },
+  "edge": {
+   "base": {
+    "cycles": 460391,
+    "processed": 71914,
+    "read_requests": 2363,
+    "write_requests": 887,
+    "read_beats": 11425,
+    "write_beats": 12887,
+    "read_bytes": 182800,
+    "write_bytes": 203098,
+    "fast_elements": null
+   },
+   "wide": {
+    "cycles": 247818,
+    "processed": 71914,
+    "read_requests": 2403,
+    "write_requests": 887,
+    "read_beats": 11425,
+    "write_beats": 12887,
+    "read_bytes": 182800,
+    "write_bytes": 203098,
+    "fast_elements": 43776
+   },
+   "processed": 71914,
+   "effective_bytes": 203098,
+   "src_bytes": 243624,
+   "overfetch_base": -60824,
+   "overfetch_wide": -60824,
+   "coverage": 0.6087270906916595,
+   "fails": 0,
+   "cases": 53,
+   "overfetch_base_lines": 438,
+   "overfetch_wide_lines": 438
+  },
+  "random": {
+   "base": {
+    "cycles": 2326656,
+    "processed": 436663,
+    "read_requests": 25464,
+    "write_requests": 4827,
+    "read_beats": 51893,
+    "write_beats": 71393,
+    "read_bytes": 830288,
+    "write_bytes": 1129172,
+    "fast_elements": null
+   },
+   "wide": {
+    "cycles": 1888149,
+    "processed": 436663,
+    "read_requests": 25893,
+    "write_requests": 4843,
+    "read_beats": 51680,
+    "write_beats": 71393,
+    "read_bytes": 826880,
+    "write_bytes": 1129172,
+    "fast_elements": 89500
+   },
+   "processed": 436663,
+   "effective_bytes": 1129172,
+   "coverage": 0.20496355312907208,
+   "overfetch_base_lines": 11400,
+   "overfetch_wide_lines": 11187,
+   "cases": 152,
+   "fails": 0
+  }
+ },
+ "grand_totals": {
+  "base": {
+   "cycles": 3700151,
+   "processed": 692049,
+   "read_requests": 34685,
+   "write_requests": 7395,
+   "read_beats": 75195,
+   "write_beats": 110377,
+   "read_bytes": 1203120,
+   "write_bytes": 1748388,
+   "fast_elements": null
+  },
+  "wide": {
+   "cycles": 2948405,
+   "processed": 692049,
+   "read_requests": 35426,
+   "write_requests": 7411,
+   "read_beats": 74901,
+   "write_beats": 110377,
+   "read_bytes": 1198416,
+   "write_bytes": 1748388,
+   "fast_elements": 153256
+  },
+  "effective_bytes": 1748388,
+  "overfetch_base_lines": 13882,
+  "overfetch_wide_lines": 13588,
+  "coverage": 0.22145252720544353
+ },
+ "metric_audit": {
+  "ok": true,
+  "normal_rows": 245,
+  "allowed_absent_baseline_fast_counters": 245,
+  "allowed_absence_reason": "v023 baseline RTL has no fast path; its TB cannot print fast_* fields",
+  "errors": [],
+  "fuzz_cases": 57,
+  "fuzz_fails": 0,
+  "mode2_cases": 45,
+  "mode2_fails": 0,
+  "scalar_cases": 70,
+  "scalar_fails": 0
+ },
+ "fuzz": {
+  "cases": 57,
+  "fails": 0
+ },
+ "mode2_gate": {
+  "cases": 45,
+  "fails": 0
+ },
+ "notes": [
+  "Cycles are testbench cycles with a deterministic single-clock BFM; not board time.",
+  "Effective bytes = processed_elements * descriptor element size.",
+  "Overfetch_lines = AXI read beats - independently enumerated distinct 16B source lines actually consumed.",
+  "Mode-2 gate reduces read beats on 7/45 cases and is neutral on 38; it does not remove all re-reads.",
+  "No synthesis/Vivado/STA/board/VNC/push; no frequency or full-model seconds claim."
+ ]
+}

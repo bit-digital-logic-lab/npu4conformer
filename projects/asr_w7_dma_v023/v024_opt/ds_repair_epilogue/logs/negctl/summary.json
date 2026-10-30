@@ -1,0 +1,521 @@
+{
+ "tag": "negctl",
+ "gate_rc": 1,
+ "cases": {
+  "abort_bp1_random": {
+   "pass": true,
+   "result": "RESULT mode=1 a16=64/64 pack=32/32 fp=64/64 spill=0/0 err=0 hits=24 misses=0 rej=0 cyc=330",
+   "watchdog": false,
+   "fail_lines": []
+  },
+  "abort_bp2_long_stall": {
+   "pass": true,
+   "result": "RESULT mode=1 a16=64/64 pack=32/32 fp=64/64 spill=0/0 err=0 hits=24 misses=0 rej=0 cyc=1178",
+   "watchdog": false,
+   "fail_lines": []
+  },
+  "boundary_bp3_n129": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=129/129 pack=65/65 fp=129/129 spill=0/0 err=466 hits=516 misses=0 rej=0 cyc=559",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL fp tag=4 lane=3 got=45d26200 exp=46662250",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab"
+   ]
+  },
+  "boundary_bp3_n259": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=259/259 pack=130/130 fp=259/259 spill=0/0 err=974 hits=1036 misses=0 rej=0 cyc=967",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "boundary_bp3_n33": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=33/33 pack=17/17 fp=33/33 spill=0/0 err=120 hits=132 misses=0 rej=0 cyc=270",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "boundary_bp3_n9": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=9/9 pack=5/5 fp=9/9 spill=0/0 err=34 hits=36 misses=0 rej=0 cyc=190",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "boundary_n1": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=1/1 pack=1/1 fp=1/1 spill=0/0 err=3 hits=4 misses=0 rej=0 cyc=108",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL packed[0] got tag=0 last=1 exp tag=0 last=1",
+    "FAIL"
+   ]
+  },
+  "boundary_n127": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=127/127 pack=64/64 fp=127/127 spill=0/0 err=458 hits=508 misses=0 rej=0 cyc=546",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0"
+   ]
+  },
+  "boundary_n17": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=17/17 pack=9/9 fp=17/17 spill=0/0 err=61 hits=68 misses=0 rej=0 cyc=213",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "boundary_n2": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=2/2 pack=1/1 fp=2/2 spill=0/0 err=7 hits=8 misses=0 rej=0 cyc=167",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL packed[0] got tag=0 last=1 exp tag=0 last=1",
+    "FAIL"
+   ]
+  },
+  "boundary_n255": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=255/255 pack=128/128 fp=255/255 spill=0/0 err=961 hits=1020 misses=0 rej=0 cyc=940",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "boundary_n256": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=256/256 pack=128/128 fp=256/256 spill=0/0 err=965 hits=1024 misses=0 rej=0 cyc=949",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "boundary_n257": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=257/257 pack=129/129 fp=257/257 spill=0/0 err=965 hits=1028 misses=0 rej=0 cyc=950",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "boundary_n3": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=3/3 pack=2/2 fp=3/3 spill=0/0 err=13 hits=12 misses=0 rej=0 cyc=170",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "boundary_n31": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=31/31 pack=16/16 fp=31/31 spill=0/0 err=110 hits=124 misses=0 rej=0 cyc=254",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "boundary_n32": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=32/32 pack=16/16 fp=32/32 spill=0/0 err=117 hits=128 misses=0 rej=0 cyc=262",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL fp tag=4 lane=3 got=45d26200 exp=46662250",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab"
+   ]
+  },
+  "boundary_n5": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=5/5 pack=3/3 fp=5/5 spill=0/0 err=16 hits=20 misses=0 rej=0 cyc=178",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "boundary_n511": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=511/511 pack=256/256 fp=511/511 spill=0/0 err=1925 hits=2044 misses=0 rej=0 cyc=1722",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL fp tag=4 lane=3 got=45d26200 exp=46662250",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab"
+   ]
+  },
+  "boundary_n512": {
+   "pass": false,
+   "result": "RESULT mode=3 a16=512/512 pack=256/256 fp=512/512 spill=0/0 err=1930 hits=2048 misses=0 rej=0 cyc=1726",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL fp tag=4 lane=3 got=45d26200 exp=46662250",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab"
+   ]
+  },
+  "cfg_pending_beat": {
+   "pass": false,
+   "result": "RESULT mode=4 a16=65/65 pack=33/33 fp=65/65 spill=1/1 err=3 hits=4 misses=0 rej=0 cyc=345",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL packed[0] got tag=0 last=1 exp tag=0 last=1",
+    "FAIL"
+   ]
+  },
+  "multi_bp1_random": {
+   "pass": false,
+   "result": "RESULT mode=0 a16=1088/1088 pack=544/544 fp=1088/1088 spill=0/0 err=3379 hits=4096 misses=0 rej=4 cyc=3561",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6",
+    "FAIL fp tag=4 lane=3 got=45d26200 exp=46662250"
+   ]
+  },
+  "multi_bp2_long_stall": {
+   "pass": false,
+   "result": "RESULT mode=0 a16=1088/1088 pack=544/544 fp=1088/1088 spill=0/0 err=3379 hits=4096 misses=0 rej=4 cyc=17186",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "multi_bp3_a16_fp32": {
+   "pass": false,
+   "result": "RESULT mode=0 a16=1088/1088 pack=544/544 fp=1088/1088 spill=0/0 err=3379 hits=4096 misses=0 rej=4 cyc=3576",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "multi_bp4_packed": {
+   "pass": false,
+   "result": "RESULT mode=0 a16=1088/1088 pack=544/544 fp=1088/1088 spill=0/0 err=3379 hits=4096 misses=0 rej=4 cyc=6627",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6",
+    "FAIL fp tag=4 lane=3 got=45d26200 exp=46662250"
+   ]
+  },
+  "multi_odd_bp2": {
+   "pass": false,
+   "result": "RESULT mode=0 a16=831/831 pack=417/417 fp=831/831 spill=0/0 err=2631 hits=3072 misses=0 rej=4 cyc=13196",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "multi_odd_bp4": {
+   "pass": false,
+   "result": "RESULT mode=0 a16=319/319 pack=161/161 fp=319/319 spill=0/0 err=790 hits=1024 misses=0 rej=4 cyc=2080",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6",
+    "FAIL fp tag=4 lane=3 got=45d26200 exp=46662250"
+   ]
+  },
+  "spill_bp1_random": {
+   "pass": false,
+   "result": "RESULT mode=2 a16=512/512 pack=256/256 fp=512/512 spill=512/512 err=1930 hits=2048 misses=0 rej=0 cyc=1723",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  },
+  "spill_bp2_long_stall": {
+   "pass": false,
+   "result": "RESULT mode=2 a16=512/512 pack=256/256 fp=512/512 spill=512/512 err=1930 hits=2048 misses=0 rej=0 cyc=8378",
+   "watchdog": false,
+   "fail_lines": [
+    "FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c",
+    "FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4",
+    "FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0",
+    "FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00",
+    "FAIL fp tag=2 lane=2 got=46072100 exp=465b9960",
+    "FAIL fp tag=2 lane=3 got=47286140 exp=478e1292",
+    "FAIL a16 tag=0 lane=3 got=7ace exp=7fff",
+    "FAIL a16 tag=1 lane=1 got=62c8 exp=7fff",
+    "FAIL a16 tag=1 lane=2 got=10d9 exp=172b",
+    "FAIL packed[0] got tag=0 last=0 exp tag=0 last=0",
+    "FAIL a16 tag=2 lane=0 got=03c7 exp=05ab",
+    "FAIL a16 tag=2 lane=2 got=21c8 exp=36e6"
+   ]
+  }
+ },
+ "case_count": 28,
+ "failed": [
+  "boundary_bp3_n129",
+  "boundary_bp3_n259",
+  "boundary_bp3_n33",
+  "boundary_bp3_n9",
+  "boundary_n1",
+  "boundary_n127",
+  "boundary_n17",
+  "boundary_n2",
+  "boundary_n255",
+  "boundary_n256",
+  "boundary_n257",
+  "boundary_n3",
+  "boundary_n31",
+  "boundary_n32",
+  "boundary_n5",
+  "boundary_n511",
+  "boundary_n512",
+  "cfg_pending_beat",
+  "multi_bp1_random",
+  "multi_bp2_long_stall",
+  "multi_bp3_a16_fp32",
+  "multi_bp4_packed",
+  "multi_odd_bp2",
+  "multi_odd_bp4",
+  "spill_bp1_random",
+  "spill_bp2_long_stall"
+ ]
+}

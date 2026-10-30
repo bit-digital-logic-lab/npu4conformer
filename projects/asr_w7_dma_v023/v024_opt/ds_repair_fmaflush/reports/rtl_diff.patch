@@ -1,0 +1,30 @@
+--- "/home/yang/Desktop/\351\241\271\347\233\256/v024_opt/ds_fma_deep/candidate/fp32_fma_pipe.sv"	2026-10-30 14:21:07.186113948 +0800
++++ rtl/fp32_fma_pipe.sv	2026-10-30 15:30:25.807499401 +0800
+@@ -22,6 +22,9 @@
+ //
+ // Throughput is still II=1; latency is 7 cycles.  Full valid/ready
+ // backpressure, tag/last tracking and synchronous flush are preserved.
++// AR-001 repair: while flush (or reset) is asserted, in_ready and out_valid
++// are forced low, so no element is silently accepted and discarded and the
++// flush cycle itself never presents a downstream transfer.
+ //
+ // NOTE: this file deliberately makes no timing (ns / MHz) claim.  Only local
+ // logic simulation is performed by this task.
+@@ -63,8 +66,15 @@
+     wire s2_ready = !s2_valid || s3_ready;
+     wire s1_ready = !s1_valid || s2_ready;
+ 
+-    assign in_ready  = s1_ready;
+-    assign out_valid = s7_valid;
++    // AR-001 minimal handshake repair (logic unchanged elsewhere):
++    //   * flush is a full barrier: in_ready=0 while flush=1, so an upstream
++    //     element offered during flush is never reported as transferred.
++    //   * out_valid=0 on the flush cycle: flush explicitly cancels the
++    //     current-cycle output beat (including a result parked in S7).
++    //   * reset is also a barrier: no transfer is recognised while rst_n=0.
++    // The flop reset style stays asynchronous-assert / synchronous-release.
++    assign in_ready  = rst_n && !flush && s1_ready;
++    assign out_valid = rst_n && !flush && s7_valid;
+ 
+     // =========================================================================
+     // Grouped / tree leading-one detector

@@ -1,0 +1,14 @@
+SAFETY_CSR status=00000006 err=0000000e completed=0 last=0 cycles=3003 fetch=3001 op=0
+SAFETY_CSR vec_total=0 layout_total=0 matrix_total=0 vec_ops=0 layout_ops=0 matrix_ops=0
+SAFETY_CSR iso_status=00000003 rd_pending=1 wr_pending=0 b_pending=0 iso_blocked=0 lockout_rej=0
+SAFETY_SUM vec_done=0 vec_sum=0 lay_done=0 lay_sum=0 mat_core_done=0
+SAFETY_MATRIX ops=0 acc=0 st=0 completed=0 index=0 err=00 cyc=0 total=0
+SAFETY_OVERLAP seq_lay=0 seq_vec=0 seq_mat=0 seq_direct=0
+SAFETY_DRAIN rd_pending=1 wr_pending=0 b_pending=0 quiesced=0 iso_blocked=0 held_r=1 held_b=0 returned_b=0
+SAFETY_END done=1 fault=1 error=0e iso=1 requires_reset=1 seq_dto=0 seq_ito=0 fetch_to=1 drain_timeout=0 cycles=3145
+SAFETY_AXI rburst=1 wburst=0 rbeats=0 wbeats=0 tag_err=0 bfm_rbeats=0 bfm_wbeats=0
+SAFETY_QUIESCE post_iso_req=0 rd_pending=1 wr_pending=0 b_pending=0 quiesced=0
+SAFETY_RESTART bresp=2 lockout_rej=1 done_latched=1 requires_reset=1
+SAFETY_RESTART_TRAFFIC new_req=0
+SAFETY_RESULT PASS
+tb/tb_safety_integrated.sv:381: $finish called at 26036000 (1ps)

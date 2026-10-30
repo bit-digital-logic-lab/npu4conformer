@@ -1,0 +1,2 @@
+CHECK fused_bp1_random dut=1024 gold=1024 mismatch=0
+CHECK_PASS

@@ -1,0 +1,55 @@
+compile dual         rc=0 (0.8s)
+compile single       rc=0 (0.6s)
+compile unfused      rc=0 (0.6s)
+compile fifo_credit  rc=0 (0.0s)
+compile fifo_unit    rc=0 (0.0s)
+compile oddtail      rc=0 (0.1s)
+compile contract     rc=0 (0.1s)
+fixture main   rc=0
+fixture n64    rc=0
+fixture n96    rc=0
+fixture m64    rc=0
+fixture edge   rc=0
+d_bp0_main         dual    rc=0 check=0 ok=True cycles=2120
+d_bp1_main         dual    rc=0 check=0 ok=True cycles=2403
+d_bp2_main         dual    rc=0 check=0 ok=True cycles=2570
+d_bp3_main         dual    rc=0 check=0 ok=True cycles=2789
+d_bp4_main         dual    rc=0 check=0 ok=True cycles=9014
+d_bextra_main      dual    rc=0 check=0 ok=True cycles=2240
+d_bextra_n64       dual    rc=0 check=0 ok=True cycles=7857
+d_b0_n64           dual    rc=0 check=0 ok=True cycles=3108
+d_n96              dual    rc=0 check=0 ok=True cycles=3412
+d_m64              dual    rc=0 check=0 ok=True cycles=4393
+d_edge             dual    rc=0 check=0 ok=True cycles=1685
+d_b0_n96           dual    rc=0 check=0 ok=True cycles=3012
+d_b0_m64           dual    rc=0 check=0 ok=True cycles=3993
+d_b0_edge          dual    rc=0 check=0 ok=True cycles=1517
+d_fma0_main        dual    rc=0 check=0 ok=True cycles=2120
+d_fma2_main        dual    rc=0 check=0 ok=True cycles=2120
+d_relu_main        dual    rc=0 check=0 ok=True cycles=2120
+s_bp0_main         single  rc=0 check=0 ok=True cycles=2122
+s_b120_main        single  rc=0 check=0 ok=True cycles=2242
+s_n64_b3000        single  rc=0 check=0 ok=True cycles=9165
+s_n96_b400         single  rc=0 check=0 ok=True cycles=4337
+s_m64_b400         single  rc=0 check=0 ok=True cycles=5789
+s_b0_n64           single  rc=0 check=0 ok=True cycles=3163
+s_b0_n96           single  rc=0 check=0 ok=True cycles=3120
+s_b0_m64           single  rc=0 check=0 ok=True cycles=4168
+s_b0_edge          single  rc=0 check=0 ok=True cycles=1519
+u_bp0_main         unfused rc=0 check=0 ok=True cycles=4397
+u_n64              unfused rc=0 check=0 ok=True cycles=7638
+u_n96              unfused rc=0 check=0 ok=True cycles=9751
+u_m64              unfused rc=0 check=0 ok=True cycles=13005
+u_edge             unfused rc=0 check=0 ok=True cycles=3527
+u_b1_main          unfused rc=0 check=0 ok=True cycles=4480
+oddtail_5w_3b      oddtail rc=0 ok=True
+oddtail_1w_1b      oddtail rc=0 ok=True
+oddtail_16w_16b    oddtail rc=0 ok=True
+oddtail_7w_8b      oddtail rc=0 ok=True
+fifo_unit          fifo rc=0 ok=True
+fifo_credit        fifo rc=0 ok=True
+epilogue_contract  contract rc=0 ok=True cases=8
+TOTAL cases=39 passed=39 failed=0 status=PASS
+finalize: status=PASS sha_files=90
+wrote REPORT.md lines=254
+finalize: status=PASS sha_files=90

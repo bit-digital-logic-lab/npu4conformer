@@ -1,0 +1,2 @@
+V022_LAYOUT_AXI_PASS mode=          0 cycles=                 150 processed=       100 cache_hits=        14 cache_misses=         2 read_requests=         2 write_requests=         1 read_beats=        13 write_beats=        13 read_bytes=       208 write_bytes=       200 fast_elements=        96 fast_beats=        12 fast_groups=        12
+tests/tb_layout_engine_wide.sv:190: $finish called at 1264000 (1ps)

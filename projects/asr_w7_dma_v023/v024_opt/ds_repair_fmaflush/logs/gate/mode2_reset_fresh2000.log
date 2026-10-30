@@ -1,0 +1,4 @@
+MODE=2 N=2000
+RESULT mode=2 n=2000 out=2000 errors=0 cycles=2990
+PASS
+tb/tb_fma_mode4.sv:273: $finish called at 29975000 (1ps)

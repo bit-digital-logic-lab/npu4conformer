@@ -1,0 +1,76 @@
+{
+  "task": "ds_storage_write",
+  "title": "V0.24 Matrix C48 write coalescing + registered address validator",
+  "updated": "2026-10-30",
+  "current_phase": "P7-final-complete",
+  "scope": "logic simulation only; no synthesis, Vivado, STA, DRC, CDC, board, VNC or push",
+  "readonly": {
+    "v023_repair": "read-only reference; SHA frozen in REFERENCE_SHA256.json and checked by scripts/check_reference.py",
+    "work_zip_other_workers": "not written"
+  },
+  "phases": [
+    {"id": "P0", "name": "read REVIEW_DECISIONS/REVIEW_INPUT/README/v023 ds_matrix REPORT+INTERFACE/cycle_chain long_wait; freeze reference SHAs", "status": "done", "evidence": ["REFERENCE_SHA256.json", "logs/check_reference.log", "logs/readonly_check.txt"]},
+    {"id": "P1", "name": "write INTERFACE and candidate skeleton", "status": "done", "evidence": ["INTERFACE.md", "rtl/block_storage_stream_v3.sv", "rtl/block_engine_prefetch_v3.sv", "rtl/matrix_p2_cluster_v3.sv"]},
+    {"id": "P2", "name": "reproduce long_wait degradation with v2 baseline (engine and strict AXI cluster; WR_OUT control)", "status": "done", "evidence": ["run_ref_eng_fast", "run_ref_eng_bp", "run_ref_cl_lw", "run_ref_cl_wr64", "reports/long_wait_compare.json"]},
+    {"id": "P3", "name": "registered ld validator + cseg metadata FIFO + cseg/first-cval same cycle", "status": "done", "evidence": ["run_validator", "run_eng_nosame_c0", "run_eng_fast_c0", "reports/cseg_bubble_compare.json"]},
+    {"id": "P4", "name": "legal 16-beat/4KiB C48 coalescer with generic stride fallback", "status": "done", "evidence": ["run_coal_native", "run_coal_split", "run_coal_generic", "run_coal_tail", "run_coal_bad", "run_coal_abortm", "reports/storage_angles.json"]},
+    {"id": "P5", "name": "same-fixture regression: old C, multi-K, multi-N, bytes mask, fault/abort, strict AXI BFM; independent gold regen", "status": "done", "evidence": ["logs/metrics.txt", "logs/commands.log", "cmp_gold_k1", "cmp_gold_c1"]},
+    {"id": "P6", "name": "final report/result/filelist/repro/SHA", "status": "done", "evidence": ["REPORT.md", "result.json", "filelist.txt", "SHA256SUMS.txt", "scripts/run_all.sh"]},
+    {"id": "P7", "name": "final clean run: 28 runs, 0 failures, rc=0", "status": "done", "evidence": ["logs/console.log", "logs/metrics.json"]}
+  ],
+  "tests": {
+    "run_all_rc": 0,
+    "simulation_runs": 28,
+    "failed_steps": 0,
+    "compile_jobs": 1,
+    "watchdog": "timeout 600 per build/sim + TB internal $fatal",
+    "candidate_engine": {
+      "fast_c0_cycles": 4721,
+      "fast_c1_cycles": 5493,
+      "seeds": [4720, 4719, 4718],
+      "n64_cycles": 3630,
+      "k1_cycles": 4102,
+      "p12_cycles": 4102,
+      "edge_cycles": 5190,
+      "backpressure_cycles": 26470,
+      "read_fault_code": "09",
+      "write_fault_code": "0a",
+      "bad_parity_code": "09"
+    },
+    "long_wait_k32": {
+      "ref_v2_cycles": 4428,
+      "ref_v2_collect": 3777,
+      "ref_v2_wr_bursts": 65,
+      "ref_v2_wrout64_cycles": 4428,
+      "v3_cycles": 2616,
+      "v3_collect": 260,
+      "v3_wr_cmds": 24,
+      "v3_wr_bursts": 24,
+      "ref_over_v3": 1.6927,
+      "cycle_reduction": 1812
+    },
+    "storage": {
+      "native": {"cseg": 64, "wr_cmds": 24, "beats": 384, "bytes": 6144},
+      "split_4k": {"cseg": 64, "wr_cmds": 25, "beats": 384, "bytes": 6144},
+      "generic": {"cseg": 8, "wr_cmds": 8, "beats": 48, "bytes": 768},
+      "tail": {"cseg": 1, "wr_cmds": 1, "beats": 2, "bytes": 24},
+      "bad": {"cseg": 1, "wr_cmds": 0},
+      "abort": {"cseg": 1, "wr_cmds": 0}
+    },
+    "cseg_bubble": {
+      "same_cycle_cycles": 4721,
+      "same_cycle_collect": 1560,
+      "old_bubble_cycles": 4785,
+      "old_bubble_collect": 1688
+    }
+  },
+  "known_limits": [
+    "no full model / CASE0000 / ONNX / host executor or accuracy metric",
+    "no synthesis, STA, Fmax, CDC, multi-clock or board DDR/PHY",
+    "staging 6144 B is a logic dual-access array; no BRAM/port/power claim",
+    "generic path is limited to 128 B per cseg",
+    "K32 long_wait 1.6927x is a tested small-chain result, not a whole-model speedup",
+    "txn-BFM fast K96 candidate is 4721 vs v2 4552 (+169 cycles); reported, not hidden",
+    "DMA request context is still serialized; the fix is coalescing, not a larger B_OUT"
+  ]
+}

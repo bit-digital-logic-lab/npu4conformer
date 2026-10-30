@@ -1,0 +1,29 @@
+== 0. independent fixtures + gold ==
+== 1. single-threaded compile ==
+== 2. fused small graph (A16 + per-channel + DIV + SQRT) ==
+v024_fused rc=0 seconds=241
+== 3. explicit-request fallback to legacy C48 path ==
+Terminated
+v024_fallback rc=143 seconds=164
+== 4. plan rejection: MATF without header FUSION_ALLOW ==
+v024_badflag rc=0 seconds=5
+== 5. fused A16 write B held: watchdog isolation, no false drain ==
+v024_hold rc=0 seconds=8
+== 6. directed single-rounding FMA vs mul+add ==
+v024_lane rc=0 seconds=0
+== 7. independent judge ==
+FAIL fused A16 mismatch 503/512
+FAIL layout A16 copy mismatch 503/512
+INFO DIV worst_rel=9.102e-04 bad=0
+INFO SQRT worst_rel=5.089e-06 bad=0
+FAIL fused run did not print V024_RESULT PASS
+FAIL fused run did not prove explicit fusion with zero C48 DDR traffic
+FAIL fallback run did not print V024_RESULT PASS
+FAIL fallback did not prove legacy (used=0) execution
+FAIL hold-B run did not reach isolation contract
+FAIL hold-B run did not prove a non-drained port (b_pending>0, quiesced=0)
+INFO FMA vs mul+add differing vectors: 64/64
+V024_CHECK FAIL
+== 8. SHA ==
+RUN_V024_FAIL rc=1 check_rc=1
+rc=1

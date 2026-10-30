@@ -1,0 +1,54 @@
+== 0. fixtures (independent generator; no RTL output used) ==
+== 1. unique safety build (single-threaded) ==
+== 2. normal exact path + per-op counters ==
+safety_normal rc=124 seconds=90
+safety_multitask rc=0 seconds=90
+== 3. SEQ-exclusive ownership: patched vs delivered negative control ==
+mutex_lay_patched rc=0 seconds=0
+mutex_lay_baseline rc=0 seconds=0
+mutex_seq_patched rc=0 seconds=0
+mutex_seq_baseline rc=0 seconds=0
+mutex_healthy_patched rc=0 seconds=0
+== 4. real hung SEQ child ==
+mutex_hang_wait_patched rc=0 seconds=1
+mutex_hang_wait_baseline rc=0 seconds=0
+mutex_hang_run_patched rc=0 seconds=0
+mutex_hang_run_baseline rc=0 seconds=0
+== 5. bad queue / illegal operator ==
+bad_queue_magic rc=0 seconds=33
+bad_queue_backend rc=0 seconds=50
+bad_queue_pred rc=0 seconds=35
+bad_queue_overlap rc=0 seconds=43
+bad_mat_op rc=0 seconds=32
+bad_vec_op rc=0 seconds=35
+bad_lay_mode rc=0 seconds=1
+== 6. AXI permanent-response wait and drain boundary ==
+safety_hold_r_plan rc=0 seconds=9
+safety_hold_r_c rc=0 seconds=44
+safety_hold_b_c rc=0 seconds=56
+safety_hold_b_d0 rc=0 seconds=84
+safety_hold_r_c_delayed rc=0 seconds=79
+safety_restart rc=0 seconds=10
+== 7. AXI reset-reuse hazard proof ==
+axi_reset_hazard rc=0 seconds=0
+== 8. sealed same-load baseline (read-only RTL) ==
+baseline_chain_local rc=255 seconds=0
+== 9. evaluate ==
+{
+  "tests_total": 26,
+  "tests_passed": 17,
+  "tests_failed": 9,
+  "all_required_pass": false
+}
+FAIL normal_exact_path ['no SAFETY_RESULT PASS', 'end.done=None want 1', 'end.fault=None want 0', 'end.error=None want 0', 'end.iso=None want 0', 'end.requires_reset=None want 0', 'end.drain_timeout=None want 0', 'drain.quiesced=None want 1', 'drain.rd_pending=None want 0', 'drain.wr_pending=None want 0', 'drain.b_pending=None want 0', 'csr.vec_total=None want 4643', 'csr.layout_total=None want 16788', 'csr.matrix_total=None want 1880', 'overlap.seq_direct=None want 0', 'golden: missing output']
+FAIL negative_bad_queue_magic ['no SAFETY_RESULT PASS', 'end.done=None want 1', 'end.fault=None want 1', 'end.error=None want 3', 'end.iso=None want 0', 'end.requires_reset=None want 0', 'drain.quiesced=None want 1']
+FAIL negative_bad_queue_backend ['no SAFETY_RESULT PASS', 'end.done=None want 1', 'end.fault=None want 1', 'end.error=None want 3', 'end.iso=None want 0', 'end.requires_reset=None want 0', 'drain.quiesced=None want 1']
+FAIL negative_bad_queue_pred ['no SAFETY_RESULT PASS', 'end.done=None want 1', 'end.fault=None want 1', 'end.error=None want 4', 'end.iso=None want 0', 'end.requires_reset=None want 0', 'drain.quiesced=None want 1']
+FAIL negative_bad_queue_overlap ['no SAFETY_RESULT PASS', 'end.done=None want 1', 'end.fault=None want 1', 'end.error=None want 129', 'end.iso=None want 0', 'end.requires_reset=None want 0', 'drain.quiesced=None want 1']
+FAIL negative_bad_mat_op ['no SAFETY_RESULT PASS', 'end.done=None want 1', 'end.fault=None want 1', 'end.error=None want 129', 'end.iso=None want 0', 'end.requires_reset=None want 0', 'drain.quiesced=None want 1']
+FAIL negative_bad_vec_op ['no SAFETY_RESULT PASS', 'end.done=None want 1', 'end.fault=None want 1', 'end.error=None want 7', 'end.iso=None want 0', 'end.requires_reset=None want 0', 'drain.quiesced=None want 1', 'illegal vector op wrote vector data']
+FAIL negative_bad_lay_mode ['no SAFETY_RESULT PASS', 'end.done=None want 1', 'end.fault=None want 1', 'end.error=None want 7', 'end.iso=None want 0', 'end.requires_reset=None want 0', 'drain.quiesced=None want 1', 'illegal layout op wrote layout data']
+FAIL sealed_baseline_chain ['baseline failed']
+== 10. SHA ==
+RUN_SAFETY_FAIL rc=2 check_rc=1
+rc=1

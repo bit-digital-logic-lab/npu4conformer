@@ -1,0 +1,359 @@
+{
+ "case_count": 10,
+ "cases": [
+  {
+   "beats": 512,
+   "bp": 0,
+   "errors": [],
+   "expected": {
+    "a16": 512,
+    "fp32": 0,
+    "packed": 256,
+    "spill": 0
+   },
+   "name": "scalar_bp0",
+   "observed": {
+    "a16": 512,
+    "fp32": 0,
+    "packed": 256,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "seconds": 0.929,
+   "table": {
+    "align_err": 0,
+    "hits": 0,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 24576
+   },
+   "tb_stats": {
+    "a16": 512,
+    "fp32": 0,
+    "in": 512,
+    "pack": 256,
+    "spill": 0
+   }
+  },
+  {
+   "beats": 512,
+   "bp": 1,
+   "errors": [],
+   "expected": {
+    "a16": 512,
+    "fp32": 0,
+    "packed": 256,
+    "spill": 0
+   },
+   "name": "per_column_bp1",
+   "observed": {
+    "a16": 512,
+    "fp32": 0,
+    "packed": 256,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "seconds": 0.866,
+   "table": {
+    "align_err": 0,
+    "hits": 2048,
+    "misses": 0,
+    "rejects": 8,
+    "saved": 24576
+   },
+   "tb_stats": {
+    "a16": 512,
+    "fp32": 0,
+    "in": 512,
+    "pack": 256,
+    "spill": 0
+   }
+  },
+  {
+   "beats": 266,
+   "bp": 1,
+   "errors": [],
+   "expected": {
+    "a16": 266,
+    "fp32": 0,
+    "packed": 134,
+    "spill": 0
+   },
+   "name": "cross_short_bp1",
+   "observed": {
+    "a16": 266,
+    "fp32": 0,
+    "packed": 134,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "seconds": 0.315,
+   "table": {
+    "align_err": 0,
+    "hits": 1064,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 12768
+   },
+   "tb_stats": {
+    "a16": 266,
+    "fp32": 0,
+    "in": 266,
+    "pack": 134,
+    "spill": 0
+   }
+  },
+  {
+   "beats": 384,
+   "bp": 1,
+   "errors": [],
+   "expected": {
+    "a16": 384,
+    "fp32": 0,
+    "packed": 192,
+    "spill": 0
+   },
+   "name": "config_wait_bp1",
+   "observed": {
+    "a16": 384,
+    "fp32": 0,
+    "packed": 192,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "seconds": 0.465,
+   "table": {
+    "align_err": 0,
+    "hits": 1536,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 18432
+   },
+   "tb_stats": {
+    "a16": 384,
+    "fp32": 0,
+    "in": 384,
+    "pack": 192,
+    "spill": 0
+   }
+  },
+  {
+   "beats": 24,
+   "bp": 1,
+   "errors": [],
+   "expected": {
+    "a16": 24,
+    "fp32": 0,
+    "packed": 12,
+    "spill": 0
+   },
+   "name": "abort_recover",
+   "observed": {
+    "a16": 14,
+    "fp32": 0,
+    "packed": 7,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "seconds": 0.064,
+   "table": {
+    "align_err": 0,
+    "hits": 64,
+    "misses": 32,
+    "rejects": 0,
+    "saved": 1152
+   },
+   "tb_stats": {
+    "a16": 14,
+    "fp32": 0,
+    "in": 24,
+    "pack": 7,
+    "spill": 0
+   }
+  },
+  {
+   "beats": 24,
+   "bp": 1,
+   "errors": [],
+   "expected": {
+    "a16": 24,
+    "fp32": 16,
+    "packed": 12,
+    "spill": 0
+   },
+   "name": "abort_fp32_bp1",
+   "observed": {
+    "a16": 14,
+    "fp32": 8,
+    "packed": 7,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "seconds": 0.114,
+   "table": {
+    "align_err": 0,
+    "hits": 64,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 1152
+   },
+   "tb_stats": {
+    "a16": 14,
+    "fp32": 8,
+    "in": 24,
+    "pack": 7,
+    "spill": 0
+   }
+  },
+  {
+   "beats": 256,
+   "bp": 1,
+   "errors": [],
+   "expected": {
+    "a16": 256,
+    "fp32": 256,
+    "packed": 128,
+    "spill": 256
+   },
+   "name": "fp32_backpressure",
+   "observed": {
+    "a16": 256,
+    "fp32": 256,
+    "packed": 128,
+    "spill": 256
+   },
+   "pass": true,
+   "rc": 0,
+   "seconds": 0.366,
+   "table": {
+    "align_err": 0,
+    "hits": 1024,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 0
+   },
+   "tb_stats": {
+    "a16": 256,
+    "fp32": 256,
+    "in": 256,
+    "pack": 128,
+    "spill": 256
+   }
+  },
+  {
+   "beats": 64,
+   "bp": 5,
+   "errors": [],
+   "expected": {
+    "a16": 64,
+    "fp32": 64,
+    "packed": 32,
+    "spill": 64
+   },
+   "name": "fp32_long_bp5",
+   "observed": {
+    "a16": 64,
+    "fp32": 64,
+    "packed": 32,
+    "spill": 64
+   },
+   "pass": true,
+   "rc": 0,
+   "seconds": 0.114,
+   "table": {
+    "align_err": 0,
+    "hits": 256,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 0
+   },
+   "tb_stats": {
+    "a16": 64,
+    "fp32": 64,
+    "in": 64,
+    "pack": 32,
+    "spill": 64
+   }
+  },
+  {
+   "beats": 32,
+   "bp": 0,
+   "errors": [],
+   "expected": {
+    "a16": 32,
+    "fp32": 0,
+    "packed": 16,
+    "spill": 0
+   },
+   "name": "partial_table_bp0",
+   "observed": {
+    "a16": 32,
+    "fp32": 0,
+    "packed": 16,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "seconds": 0.114,
+   "table": {
+    "align_err": 0,
+    "hits": 96,
+    "misses": 32,
+    "rejects": 0,
+    "saved": 1536
+   },
+   "tb_stats": {
+    "a16": 32,
+    "fp32": 0,
+    "in": 32,
+    "pack": 16,
+    "spill": 0
+   }
+  },
+  {
+   "beats": 32,
+   "bp": 0,
+   "errors": [],
+   "expected": {
+    "a16": 32,
+    "fp32": 0,
+    "packed": 16,
+    "spill": 0
+   },
+   "name": "scalar_bias_only",
+   "observed": {
+    "a16": 32,
+    "fp32": 0,
+    "packed": 16,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "seconds": 0.114,
+   "table": {
+    "align_err": 0,
+    "hits": 0,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 1536
+   },
+   "tb_stats": {
+    "a16": 32,
+    "fp32": 0,
+    "in": 32,
+    "pack": 16,
+    "spill": 0
+   }
+  }
+ ],
+ "failed": [],
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "pass": true,
+ "tool": "iverilog 14.0 + vvp (logic simulation only)"
+}

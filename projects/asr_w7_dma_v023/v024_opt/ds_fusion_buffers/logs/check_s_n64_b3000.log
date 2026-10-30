@@ -1,0 +1,2 @@
+CHECK s_n64_b3000 dut=2048 gold=2048 mismatch=0
+CHECK_PASS

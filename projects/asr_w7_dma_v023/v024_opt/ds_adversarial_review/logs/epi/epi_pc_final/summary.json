@@ -1,0 +1,23 @@
+{
+ "tag": "epi_pc_final",
+ "gate_rc": 1,
+ "modes": {
+  "mode0": {
+   "pass": false,
+   "lines": [
+    "WATCHDOG cyc=199996 err=0 a16=23 fp=26"
+   ]
+  },
+  "mode1": {
+   "pass": false,
+   "lines": [
+    "FAIL a16 tag=2006 lane=1 got=3d5c exp=5c08",
+    "FAIL a16 tag=2006 lane=2 got=38cc exp=5530",
+    "FAIL a16 tag=2007 lane=0 got=165d exp=218a",
+    "FAIL a16 tag=2007 lane=1 got=0839 exp=0c54",
+    "RESULT mode=1 a16=8 fp=8 errors=10 hits=24 misses=0 colerr=0 rej=0 cyc=196",
+    "FAIL"
+   ]
+  }
+ }
+}

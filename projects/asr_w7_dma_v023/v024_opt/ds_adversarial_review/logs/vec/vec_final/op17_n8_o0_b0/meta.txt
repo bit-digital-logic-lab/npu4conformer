@@ -1,0 +1,1 @@
+op=17 n=8 out16=0 seed=0xaf7

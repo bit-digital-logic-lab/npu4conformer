@@ -1,0 +1,7 @@
+CMD: /home/yang/Desktop/项目/v024_opt/ds_epilogue_channels/build/neg_tb +CMD_FILE=vectors/per_column_bp1.cmd +PAR_FILE=vectors/per_column_bp1.par +OUT_FILE=logs/negctl/per_column_bp1.out +BP=1 +MAX_CYCLES=2000000
+ABORT_CYCLE=-1
+STATS in=512 a16=512 pack=256 fp32=0 spill=0 c48stat=512 a16stat=512 fp32stat=0 spillstat=0
+TABLE hits=2048 misses=0 align_err=0 rejects=8 saved=24576
+STABILITY_ERRORS=0
+PARAM_ERRORS=0
+DRAINED cycle=2109

@@ -1,0 +1,7 @@
+CMD: /home/yang/Desktop/项目/v024_opt/ds_epilogue_channels/build/tb_epilogue_channels +CMD_FILE=vectors/abort_recover.cmd +PAR_FILE=vectors/abort_recover.par +OUT_FILE=logs/abort_recover.out +BP=1 +MAX_CYCLES=2000000
+ABORT_CYCLE=99
+STATS in=24 a16=14 pack=7 fp32=0 spill=0 c48stat=24 a16stat=14 fp32stat=0 spillstat=0
+TABLE hits=64 misses=32 align_err=0 rejects=0 saved=1152
+STABILITY_ERRORS=0
+PARAM_ERRORS=0
+DRAINED cycle=153

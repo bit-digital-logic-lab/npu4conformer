@@ -1,0 +1,160 @@
+{
+ "task": "ds_unified_graph",
+ "title": "V0.24 unified candidate: explicit fused MAT + per-channel + DIV/SQRT + independent gold",
+ "status": "complete-logic-simulation",
+ "rc": 0,
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "date": "2026-10-30",
+ "scope": "local logic simulation only; no synthesis/Vivado/STA/board/VNC/push; no frequency/whole-model-seconds claim",
+ "unified_dir": "unified/",
+ "unique_filelist": "unified/filelist_v024_unified.f",
+ "rerun": "bash unified/scripts/run_v024.sh",
+ "independent_judge": "unified/scripts/check_v024.py",
+ "tests": {
+  "v024_fused": {
+   "rc": 0,
+   "cycles": 18724,
+   "done": 1,
+   "fault": 0,
+   "error": 0,
+   "fusion_used": 1,
+   "c48_ddr_bytes": 0,
+   "a16_bytes": 2048,
+   "a16_mismatch_512": 0,
+   "copy_mismatch_512": 0,
+   "drained": true,
+   "log": "unified/logs/v024_fused.log"
+  },
+  "v024_fallback": {
+   "rc": 0,
+   "cycles": 16973,
+   "done": 1,
+   "fault": 0,
+   "error": 0,
+   "fusion_used": 0,
+   "fallback_i16_mismatch_512": 0,
+   "log": "unified/logs/v024_fallback.log"
+  },
+  "v024_badflag": {
+   "rc": 0,
+   "cycles": 383,
+   "done": 1,
+   "fault": 1,
+   "error": 4,
+   "fusion_used": 0,
+   "log": "unified/logs/v024_badflag.log"
+  },
+  "v024_hold": {
+   "rc": 0,
+   "cycles": 30720,
+   "done": 1,
+   "fault": 1,
+   "error": 14,
+   "isolation": 1,
+   "requires_reset": 1,
+   "b_pending": 8,
+   "quiesced": 0,
+   "post_isolation_new_req": 0,
+   "log": "unified/logs/v024_hold.log"
+  },
+  "v024_lane": {
+   "rc": 0,
+   "vectors": 64,
+   "fma_gold_mismatch": 0,
+   "fma_vs_muladd_diff": 64,
+   "log": "unified/logs/v024_lane.log"
+  },
+  "div": {
+   "worst_rel": 0.0009102,
+   "tol": 0.0012,
+   "bad": 0
+  },
+  "sqrt": {
+   "worst_rel": 5.089e-06,
+   "tol": 6e-06,
+   "bad": 0
+  },
+  "run_v024": {
+   "rc": 0,
+   "marker": "RUN_V024_PASS",
+   "log": "unified/logs/run_v024_final.log"
+  }
+ },
+ "merged": [
+  {
+   "worker": "ds_repair_fmaflush",
+   "module": "fp32_fma_pipe",
+   "sha256": "3c1114bc40078fd357bb968e8daecc53e68ad4da25a6ae586ce658b4d2a5e0c5",
+   "why": "7-stage 129-bit FMA, II=1, AR-001 flush barrier; bit-identical arithmetic and 64/64 lane contract"
+  }
+ ],
+ "deferred": [
+  {
+   "worker": "ds_storage_write",
+   "reason": "two-descriptor legacy queue hit MAT watchdog 0x0E in unified regression; single-task native coalescer passes its own suite"
+  },
+  {
+   "worker": "ds_layout_wide",
+   "reason": "mode0 copies in this plan exceeded 20k MAT watchdog and ~2x Icarus wall time"
+  },
+  {
+   "worker": "ds_matrix_reuse",
+   "reason": "ABI adds cfg_w_reuse and split stage release; not re-verified in both tops"
+  },
+  {
+   "worker": "ds_fusion_buffers",
+   "reason": "dual top is broadcast-only; no per-channel merge"
+  },
+  {
+   "worker": "ds_epilogue_channels",
+   "reason": "wider ABI and open AR-006/007; V0.24 per-column table is used"
+  },
+  {
+   "worker": "ds_graph_prefetch",
+   "reason": "controller variant lacks MATF; own result rc=1"
+  },
+  {
+   "worker": "ds_vector_fma/ds_resume_vector",
+   "reason": "adds abort/aborted ports; DIV/SQRT use unchanged approx core"
+  }
+ ],
+ "not_claimed": [
+  "full 591-tensor DAG",
+  "sealed payload re-lower",
+  "synthesis/STA/board/VNC/push",
+  "frequency or whole-model seconds",
+  "WER/CER",
+  "automatic fusion swallowing",
+  "exact DIV/SQRT",
+  "V0.23 26-test closeout full pass"
+ ],
+ "known_limits": [
+  "per-channel table is host-preloaded once (64 words) before START; not per-tile host DMA",
+  "fusion only for header FUSION_ALLOW + MATF + count==1 + all consumers A16C/terminal",
+  "base smoke is focused, not the full 26-test closeout; see REPORT \u00a77.1",
+  "AR-012 review saw an intermediate killed fallback; final fallback now passes"
+ ],
+ "shas": {
+  "SOURCE_SHA256.json": "ac7300fdd3239e6096bfb6801e0541345452a1cc91e426c23c11826e12c7b0fc",
+  "MERGE_TABLE.md": "bc5a346f91843add9bcf0a846034d0b3707b480e62ed1785bf7bc21ca72484d0",
+  "REPORT.md": "3f4096ddadae2d70003373f662939a414f8fdae2260c847b3ebfdf4c2a8b98b4",
+  "INTERFACE.md": "04018b741866eef36ad96dd65049ad4971b360dec76c48fa5c8427bb137e28f2",
+  "unified/filelist_v024_unified.f": "8bca4788005b4f76723b9863474dbd53031fef5a22f8bc4651ec071952a0b3fe",
+  "unified/rtl/wc_graph_ctrl.sv": "6976094c509debda7205bd438d6b93e7644751ad3bdf77a77a22f38eaa2475ac",
+  "unified/rtl/wc_graph_top.sv": "475387eb15cc3fdb317c9e550ac330362b01424c78856e37576c8702714db82d",
+  "unified/rtl/v024_unified_top.sv": "31c4a732d24282724b0ba5cdece7d8d5d3937d95bb871bfe80f0711fe317e040",
+  "unified/rtl/v024_matrix_queue_engine.sv": "67e1e22bdd81fa00b8eb30348606ac4ef319510cbce647522d7f48c58c89ac00",
+  "unified/rtl/epilogue_stream_engine_v024.sv": "d9039f4a8f1c4885e378449bd1da95314af879875f949cc7bfe8ba614c660403",
+  "unified/rtl/matrix_stream_fusion_top_v024.sv": "5e29852cc631195d1cdc5f6ed7050a3207f02c3f89dbdab14ccd8393c408de40",
+  "unified/rtl/fp32_fma_pipe.sv": "3c1114bc40078fd357bb968e8daecc53e68ad4da25a6ae586ce658b4d2a5e0c5",
+  "unified/REFERENCE_FREEZE.json": "48ce25a9b6e0c16ead81aaa6303ddec7bc7173e3766f078885a3635133baa765",
+  "unified/scripts/gen_v024_graph.py": "48424c55d1d6621d4ac860b0c8aabf926c6b4ccf6655a06384bc5bfeafc8edd1",
+  "unified/scripts/check_v024.py": "2255f56f533d8dbeb87cb9e35793691294e4cec6050f6191ff81da3b168a31ae",
+  "unified/scripts/run_v024.sh": "d2b5cbe73b72cf42e6017c3d4cb00988cd5eac24dafa755fa942a8d763619b78"
+ },
+ "evidence": {
+  "run_rc_tsv": "v024_fused\t0\t86\tlogs/v024_fused.log\nv024_fallback\t0\t93\tlogs/v024_fallback.log\nv024_badflag\t0\t3\tlogs/v024_badflag.log\nv024_hold\t0\t165\tlogs/v024_hold.log\nv024_lane\t0\t0\tlogs/v024_lane.log\n",
+  "check_log": "INFO DIV worst_rel=9.102e-04 bad=0\nINFO SQRT worst_rel=5.089e-06 bad=0\nINFO FMA vs mul+add differing vectors: 64/64\nV024_CHECK PASS\n",
+  "warning": "main-agent acceptance is required; exit 0 alone is not acceptance"
+ }
+}

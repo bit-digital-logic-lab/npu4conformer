@@ -1,0 +1,5 @@
+MODE=4 N=251
+FLUSH_HANDSHAKES=0
+RESULT mode=4 n=251 out=0 errors=0 cycles=4
+PASS
+/home/yang/Desktop/项目/v024_opt/ds_adversarial_review/tb/tb_fma.sv:273: $finish called at 85000 (1ps)

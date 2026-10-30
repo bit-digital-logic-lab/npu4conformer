@@ -1,0 +1,5 @@
+MODE=3 N=8734
+II_ACCEPT span=8734 n=8734 max_gap=1 accepted=8734
+RESULT mode=3 n=8734 out=8734 errors=0 cycles=8739
+PASS
+/home/yang/Desktop/项目/v024_opt/ds_adversarial_review/tb/tb_fma.sv:273: $finish called at 87435000 (1ps)

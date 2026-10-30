@@ -1,0 +1,32 @@
+make_mutants	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/make_mutants.log	mutants written
+gold_check	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/gold_check.log	GOLD_CHECK=PASS
+prepare_asr_vectors	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/prepare_asr_vectors.log	wrote 8734 asr rows
+compile_tb_fma	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_fma.log	
+compile_tb_fma_latency	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_fma_latency.log	
+compile_tb_flush	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_flush.log	
+compile_tb_flush_contract	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_flush_contract.log	
+compile_tb_wrap_lane_lat	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_wrap_lane_lat.log	
+compile_tb_asr_fma_ip	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_asr_fma_ip.log	
+compile_tb_fma_m0	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_fma_m0.log	
+compile_tb_contract_m1	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_contract_m1.log	
+compile_tb_contract_m2	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_contract_m2.log	
+mode0_8734	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/mode0_8734.log	RESULT mode=0 n=8734 out=8734 errors=0;PASS
+mode1_flush_8734	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/mode1_flush_8734.log	RESULT mode=1 n=8734 out=0 errors=0;PASS
+mode2_reset_8734	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/mode2_reset_8734.log	RESULT mode=2 n=8734 out=8734 errors=0;PASS
+mode3_ii_8734	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/mode3_ii_8734.log	II_ACCEPT span=8734 n=8734 max_gap=1 accepted=8734;PASS
+mode4_flush_handshake	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/mode4_flush_handshake.log	FLUSH_HANDSHAKES=0;PASS
+mode0_fresh2000	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/mode0_fresh2000.log	RESULT mode=0 n=2000 out=2000 errors=0;PASS
+mode1_flush_fresh2000	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/mode1_flush_fresh2000.log	RESULT mode=1 n=2000 out=0 errors=0;PASS
+mode2_reset_fresh2000	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/mode2_reset_fresh2000.log	RESULT mode=2 n=2000 out=2000 errors=0;PASS
+mode3_ii_fresh2000	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/mode3_ii_fresh2000.log	max_gap=1;PASS
+mode4_flush_handshake_fresh	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/mode4_flush_handshake_fresh.log	FLUSH_HANDSHAKES=0;PASS
+latency_7_ii1_bypass	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/latency_7_ii1_bypass.log	latency=7, II=1;LATENCY_TEST_ERRORS=0
+flush_contract	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/flush_contract.log	CONTRACT_ERRORS=0
+flush_leaves	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/flush_leaves.log	FLUSH_ERRORS=0
+wrap_lane_latency	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/wrap_lane_latency.log	wrapper latency=7;lane mode0 bypass latency=12;WRAP_LANE_ERRORS=0
+asr_wrapper_8734	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/asr_wrapper_8734.log	DONE asr_fma_ip in=8734 out=8734
+asr_numeric_compare	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/asr_numeric_compare.log	asr_numeric_mismatch=0
+neg_m0_original_mode4	1	fail	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/neg_m0_original_mode4.log	FLUSH_HANDSHAKES=4;FAIL
+neg_m0_original_mode1	0	pass	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/neg_m0_original_mode1.log	RESULT mode=1 n=8734 out=0 errors=0;PASS
+neg_m1_inready_only	1	fail	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/neg_m1_inready_only.log	out_valid not cancelled combinationally;CONTRACT_ERRORS=2
+neg_m2_no_reset_gate	1	fail	/home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/logs/gate/neg_m2_no_reset_gate.log	in_ready=1 while rst_n=0;CONTRACT_ERRORS=3

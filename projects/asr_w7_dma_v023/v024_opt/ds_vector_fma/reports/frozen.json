@@ -1,0 +1,64 @@
+{
+  "frozen": {
+    "fp32_fma_pipe.sv": {
+      "sha256": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12",
+      "matches_v023": true
+    },
+    "asr_fma_ip.sv": {
+      "sha256": "634eea1a15d1f8dbc7a2f8bae8eebd2b0e892da5978ed974ccb7645ff9b10599",
+      "matches_v023": true
+    },
+    "approx_div_sqrt.sv": {
+      "sha256": "444fa2a42f47a7cde2ad736ead3177225319c6af3bb1c2ab27309233bee7a864",
+      "matches_v023": true
+    },
+    "approx_recip_lut.sv": {
+      "sha256": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+      "matches_v023": true
+    },
+    "approx_rsqrt_lut.sv": {
+      "sha256": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153",
+      "matches_v023": true
+    },
+    "pe_w7_c48_cfg.sv": {
+      "sha256": "d8b5089073f4629f113b7735316593b77335ad99d8adf0c6757bd2d70269f179",
+      "matches_v023": true
+    },
+    "array16_w7_c48_cfg.sv": {
+      "sha256": "c4203e0b7fc21b1b11e82579343236089342352d70b167b70791b8e69c03daae",
+      "matches_v023": true
+    },
+    "c_cache_banked4.sv": {
+      "sha256": "db4713635512574b5c67ee9ef8218736b2a7bc85b9625033f16fe69eddded718",
+      "matches_v023": true
+    },
+    "c_cache_banked4_pipe.sv": {
+      "sha256": "e34b79c7c28df229e47a8247056a8a1e3988a7ae0385709fbf621f79b329d1fa",
+      "matches_v023": true
+    },
+    "operand_banks_dual_v2.sv": {
+      "sha256": "0c3cd46224cd12aaed2461ab4a251fb3fce233e5c12ac21b403f4524cf45a112",
+      "matches_v023": true
+    },
+    "block_storage_stream_v2.sv": {
+      "sha256": "da18bfd22a327b7bae36d937f6c877bda4211413781a9dd7c390dea4ef11e538",
+      "matches_v023": true
+    },
+    "block_engine_prefetch_v2.sv": {
+      "sha256": "c15d23c5eda9d111a3fff56ad419d07a3bb64be9c8222bbbaa1212511c4bc749",
+      "matches_v023": true
+    },
+    "matrix_p2_cluster_v2.sv": {
+      "sha256": "0cfcfda99212ac443c4384d9000a121b577baceb60e13385ad849562e423a866",
+      "matches_v023": true
+    },
+    "ddr_layout_engine_v023_burst.sv": {
+      "sha256": "4e45a39dcb07daeefc190d383ede885e57718f9a60c9d23eda61c4dae11eb893",
+      "matches_v023": true
+    }
+  },
+  "changed": [],
+  "missing": [],
+  "pass": true,
+  "note": "ddr_vector_engine_pipe.sv is the intended edit; vector_fma_lane.sv is new. W7A16C48 matrix sources are byte-identical to v023."
+}

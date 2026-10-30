@@ -1,0 +1,2 @@
+PASS tb_cache_slots slot_alias=0 cross_slot_bypass=0 same_group_bypass=1 masked_write=1
+/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/tests/tb_cache_slots.sv:65: $finish called at 360000 (1ps)

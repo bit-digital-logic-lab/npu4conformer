@@ -1,0 +1,8 @@
+c_cache_banked4_pipe banks 4 x 512 x 48           98304 bits  12288 B  block RAM (ram_style=block)
+A stage banks              2 x 16 x 8 x 128       32768 bits   4096 B  distributed RAM
+W stage banks              2 x 16 x 64 x 8        16384 bits   2048 B  distributed RAM
+result_payload             1 x 49152              49152 bits   6144 B  registers (not an array)
+memory arrays total: 147456 bits / 18432 B
+C cache per slot: 49152 bits / 6144 B; two slots: 12288 B
+new memory arrays vs v023: 0 (control regs listed in capacity.json)
+PASS capacity inventory

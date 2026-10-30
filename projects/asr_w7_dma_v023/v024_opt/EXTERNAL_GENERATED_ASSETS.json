@@ -1,0 +1,1360 @@
+{
+  "files": [
+    {
+      "path": "ds_graph_prefetch/fixtures/mem_seq_lay_first.hex",
+      "bytes": 2359296,
+      "sha256": "77f900ab9734204978d69505b1e2071674a927fe150a74c73c29bb2d013fa36b",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_graph_prefetch/fixtures/mem_bad_queue_magic.hex",
+      "bytes": 2359296,
+      "sha256": "628fb50f19d890ead712751cd7c262099098807dba0b0110de1de57f5e0b3dd9",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_graph_prefetch/fixtures/mem_bad_mat_op.hex",
+      "bytes": 2359296,
+      "sha256": "9f393893e24174e350de59a3a63f80258b1eb030ce77ff3facd9b41e4498beda",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_graph_prefetch/fixtures/mem_seq_hang_wait.hex",
+      "bytes": 2359296,
+      "sha256": "57685f23bebccd80576485e3b5f86a34e1b9ee9ae21cf40f4798c39d43b93769",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_graph_prefetch/fixtures/mem_bad_vec_op.hex",
+      "bytes": 2359296,
+      "sha256": "e2dc2c8ffe219dc14817438c6be9271164735a6565573bf67ae599fc510caa67",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_graph_prefetch/fixtures/mem_bad_queue_pred.hex",
+      "bytes": 2359296,
+      "sha256": "c11f3f75c4f756d437a373e896b00c451ae984bb3a58ab6572d5dee987b43a06",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_graph_prefetch/fixtures/mem_seq_hang_run.hex",
+      "bytes": 2359296,
+      "sha256": "57685f23bebccd80576485e3b5f86a34e1b9ee9ae21cf40f4798c39d43b93769",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_graph_prefetch/fixtures/mem_normal.hex",
+      "bytes": 2359296,
+      "sha256": "1c657402c61de080db36933f2392b2ab21fb07d57c08f7f0e95c458c67c57f37",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_graph_prefetch/fixtures/mem_bad_queue_overlap.hex",
+      "bytes": 2359296,
+      "sha256": "97d1b272e9209ec9a5530bd10f00cc8a3aa99bb1dd03e2427b4924c4eb393cf2",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_graph_prefetch/fixtures/mem_multitask.hex",
+      "bytes": 2359296,
+      "sha256": "0cd67e3cc02e9614a3d5233174bcf2eb5398ea5cd271f5baf96aa57cc8dae532",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_graph_prefetch/fixtures/mem_bad_queue_backend.hex",
+      "bytes": 2359296,
+      "sha256": "291e4677fdab063fb0dfe63b17a3cf4de0aeff54bde6d2dafccf040b0cc44cfa",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_graph_prefetch/fixtures/mem_bad_lay_mode.hex",
+      "bytes": 2359296,
+      "sha256": "672ddd3c70c83c2ad5dfe1f7e714ad121a02e4cab41160ff84dc2c1f9b8e8f80",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_graph_prefetch/fixtures/mem_seq_seq_first.hex",
+      "bytes": 2359296,
+      "sha256": "752682232dd6de9db632b250e07edccb328e281b022718e34be4ae32bd464eab",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_seq_lay_first.hex",
+      "bytes": 2359296,
+      "sha256": "77f900ab9734204978d69505b1e2071674a927fe150a74c73c29bb2d013fa36b",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_bad_queue_magic.hex",
+      "bytes": 2359296,
+      "sha256": "628fb50f19d890ead712751cd7c262099098807dba0b0110de1de57f5e0b3dd9",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_bad_mat_op.hex",
+      "bytes": 2359296,
+      "sha256": "9f393893e24174e350de59a3a63f80258b1eb030ce77ff3facd9b41e4498beda",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_seq_hang_wait.hex",
+      "bytes": 2359296,
+      "sha256": "57685f23bebccd80576485e3b5f86a34e1b9ee9ae21cf40f4798c39d43b93769",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_bad_vec_op.hex",
+      "bytes": 2359296,
+      "sha256": "e2dc2c8ffe219dc14817438c6be9271164735a6565573bf67ae599fc510caa67",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mutex_lay_first.hex",
+      "bytes": 2359296,
+      "sha256": "73134b9c4bc9f6a8439ba98a83c482dabda8557a2e18799738030159bfe3b73c",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_bad_queue_pred.hex",
+      "bytes": 2359296,
+      "sha256": "c11f3f75c4f756d437a373e896b00c451ae984bb3a58ab6572d5dee987b43a06",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_v024_fallback.hex",
+      "bytes": 2359296,
+      "sha256": "65215da2effd30717dc5be9b4f1372779b4ec305d14ea170b9640881de5f250d",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_seq_hang_run.hex",
+      "bytes": 2359296,
+      "sha256": "57685f23bebccd80576485e3b5f86a34e1b9ee9ae21cf40f4798c39d43b93769",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mutex_hang_run.hex",
+      "bytes": 2359296,
+      "sha256": "6ff968b7a72b20845eeb92e85e02f439aecea1c79492d726c1eb2e498dee93f2",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_v024_badflag.hex",
+      "bytes": 2359296,
+      "sha256": "cf4ef665549dd063e82c26b20de239c4c2ce98382ab3dcdc23824e4ffa2ae655",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_normal.hex",
+      "bytes": 2359296,
+      "sha256": "1c657402c61de080db36933f2392b2ab21fb07d57c08f7f0e95c458c67c57f37",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_v024_fused.hex",
+      "bytes": 2359296,
+      "sha256": "fd05f8f4ff4f3754c3a9c89786887b69168c3cbe015be44e6d6718deae52e26b",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_bad_queue_overlap.hex",
+      "bytes": 2359296,
+      "sha256": "97d1b272e9209ec9a5530bd10f00cc8a3aa99bb1dd03e2427b4924c4eb393cf2",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_multitask.hex",
+      "bytes": 2359296,
+      "sha256": "0cd67e3cc02e9614a3d5233174bcf2eb5398ea5cd271f5baf96aa57cc8dae532",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mutex_seq_first.hex",
+      "bytes": 2359296,
+      "sha256": "db6bc4265d2533e9c3be60dcd6704803a2f56fcac6ff156bb1248b38dd744c1f",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_bad_queue_backend.hex",
+      "bytes": 2359296,
+      "sha256": "291e4677fdab063fb0dfe63b17a3cf4de0aeff54bde6d2dafccf040b0cc44cfa",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mutex_hang_wait.hex",
+      "bytes": 2359296,
+      "sha256": "6ff968b7a72b20845eeb92e85e02f439aecea1c79492d726c1eb2e498dee93f2",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_bad_lay_mode.hex",
+      "bytes": 2359296,
+      "sha256": "672ddd3c70c83c2ad5dfe1f7e714ad121a02e4cab41160ff84dc2c1f9b8e8f80",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mutex_healthy.hex",
+      "bytes": 2359296,
+      "sha256": "db6bc4265d2533e9c3be60dcd6704803a2f56fcac6ff156bb1248b38dd744c1f",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_unified_graph/unified/fixtures/mem_seq_seq_first.hex",
+      "bytes": 2359296,
+      "sha256": "752682232dd6de9db632b250e07edccb328e281b022718e34be4ae32bd464eab",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_0127/mem.hex",
+      "bytes": 2359296,
+      "sha256": "b3b293f541557b9ff0ce99b3c1e814c675de046bae65f8a16ee454dcb4bcf101",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/add_0007/mem.hex",
+      "bytes": 2359296,
+      "sha256": "f7b096a18e5777fdd5fbf308f54be8433e424ac1ff8033a7685902f40f3043f0",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_0257/mem.hex",
+      "bytes": 2359296,
+      "sha256": "2d28f2f16b28451e6c150b674d29cbf6c4b6736537bd77ecb368ad5f59866171",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/fma_btiled2048/mem.hex",
+      "bytes": 2359296,
+      "sha256": "2bf42995d668b9fd86de2e6c6772bf600f2226e9c150ab94386ba225e54e6501",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0257/mem.hex",
+      "bytes": 2359296,
+      "sha256": "0c9355494419bb936ebca1c160b4c42b9ea2089a8e6a23659d76055fcff5927a",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/add_0001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "a18db6a05d04e74e9239d3780ce368aca0c7bb27a7d356a4bdbbfef1e2371f7c",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/fma_btiled1024/mem.hex",
+      "bytes": 2359296,
+      "sha256": "eb10b650f64ef0222e32ebdc4b6ed3fed19fbadaa9aca0b28a7192662ceffe65",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0259/mem.hex",
+      "bytes": 2359296,
+      "sha256": "0ce77601ad3a955d8a5363a824859d519094a8dafa4644827a79074807f7faa2",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_0009/mem.hex",
+      "bytes": 2359296,
+      "sha256": "31674ff456b91528c55ac5d8852519f9d85633cef69f90141245f9bc2efa7433",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0263/mem.hex",
+      "bytes": 2359296,
+      "sha256": "23921476c50aeda59f6907442b56db7a26bf546abf7bc38df1c09a52a20e43e9",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_0005/mem.hex",
+      "bytes": 2359296,
+      "sha256": "bf90e24c6cec3663b58ad70713e5c0f5b7005210c4080659219255c4d138647d",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/abort_newepoch/mem.hex",
+      "bytes": 2359296,
+      "sha256": "012bd45b6d5fbbfd861ccbcb88f21a85f5be5431316ee50ad3c13bea2ca6245b",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_0257/mem.hex",
+      "bytes": 2359296,
+      "sha256": "e45e80d3239c535135bb185f3b5fc0d4908d088982a0da8954bf943cd312aa1f",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_0017/mem.hex",
+      "bytes": 2359296,
+      "sha256": "5d0f2a598885e6107c97590ad33da765ac8c892c0d3990343cd972e09ca8d16e",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/full8734/mem.hex",
+      "bytes": 2359296,
+      "sha256": "9d9b7125c819114fb0de096eb3d7a055c335c1c51bbb6a8efa90892783a096a6",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/fma_period32_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "6310253a362e6a4958186d1969823c27e0452a10bacae850def84c0d8deccf5a",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_0003/mem.hex",
+      "bytes": 2359296,
+      "sha256": "c79d518970ac56ae377a24dd6c6cc703a4315f01dd536a757120753a0c6c0772",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_0007/mem.hex",
+      "bytes": 2359296,
+      "sha256": "d744a0f1c6f85d2b594399e0925bace5e9f1d618844061c018aa374ae2436a63",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_0005/mem.hex",
+      "bytes": 2359296,
+      "sha256": "2a55c53e3cd8a9ad37acfa6b1a8acb1413b3159e1369ddfd11dd8cae5a361421",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_0006/mem.hex",
+      "bytes": 2359296,
+      "sha256": "6501d2dd47f4bbf2b5c06a469f14169265aa063137a8a5825344d1c0c09d0a7a",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0272/mem.hex",
+      "bytes": 2359296,
+      "sha256": "6b588937f83893acc557d0bec8aa40f0cedf00f7fa784d915dd8225dcb2298b9",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0511/mem.hex",
+      "bytes": 2359296,
+      "sha256": "7089bd6b253bb65ec8c491ecae56413db563dc432ee5f812f398c6f9fd915b1f",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/add_0017/mem.hex",
+      "bytes": 2359296,
+      "sha256": "87ff0da1eec0a477bb4e4785f99ca7c1ac0a3da98549e88c26c772a05e868174",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_0008/mem.hex",
+      "bytes": 2359296,
+      "sha256": "f529f453c92879121dcd815e9b20ecd37c2ce23ebdf729706b2ca8ecd5e15748",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/add_0002/mem.hex",
+      "bytes": 2359296,
+      "sha256": "e624d25628b239a3cff4feacea934bf0c34629adb3ab76e258dab7b73ce087a8",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_0004/mem.hex",
+      "bytes": 2359296,
+      "sha256": "60a3ec82febc539c119eb88dcbcf29930e384b436c155aba1a3fdfeaa259d11d",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/reset_newepoch/mem.hex",
+      "bytes": 2359296,
+      "sha256": "d432edda18152edf292a7cb2752c0c277ece2135396ac770edbf35aa45fa99b2",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/add_0003/mem.hex",
+      "bytes": 2359296,
+      "sha256": "85e5ccc0285550d24cc64a5c911aec7e918732026de80dfb5f66b349480501d4",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "edf2a71744789af59eaf49cc34d48c6cc1b15cb8cb381a965a643ee361e8de41",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0260/mem.hex",
+      "bytes": 2359296,
+      "sha256": "f3680c20f7db19bcd7f72f6cfd093c4bc3a84dd8227418dcc423233f4e493e70",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_0001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "4ed9b127b0d2cb9c1d97293ecb84ba4b55e702cbce624608cf234c9b9ce70225",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/add_0004/mem.hex",
+      "bytes": 2359296,
+      "sha256": "5ca9e660d3ff619d5a14016ea190bb9c78cab6f723525823cb1520550a1bcce6",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0268/mem.hex",
+      "bytes": 2359296,
+      "sha256": "c65b9e0af631fe013f1595d0aeb9eab9920617c1aa9688b56960e98e082b6b8f",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_0007/mem.hex",
+      "bytes": 2359296,
+      "sha256": "10692dee3e7b661c7805c40c72a57e4a7731c9a6eda04edd3808fdb60e568203",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_0009/mem.hex",
+      "bytes": 2359296,
+      "sha256": "81861520eb1e8a5d4fc3be17a6c22230da12856f0e5a4a076b22c606d38f8c8d",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0264/mem.hex",
+      "bytes": 2359296,
+      "sha256": "b7333e7c4f0abc5474f606e7a90f8f1797b333856b9703338ba2e78d8b74f918",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0265/mem.hex",
+      "bytes": 2359296,
+      "sha256": "05b068d5aca671991e12780413fec0cbdcd38f194337344cd9fd13ee6ca646b9",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_0002/mem.hex",
+      "bytes": 2359296,
+      "sha256": "ba6e51cb977cd7a7414da5d57d050fd759f1a9574194f174e4aa7f14fec970b7",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0271/mem.hex",
+      "bytes": 2359296,
+      "sha256": "b27bf109768aad370260b6cc2a622a0cfccefabd6f9f267b84d161846deffa22",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/add_0006/mem.hex",
+      "bytes": 2359296,
+      "sha256": "0ea4fab2912a950a7918e7a50ea408e765c138d2e0439c1cc841173bfc07cd08",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/fma_period128_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "5dd2c5fe0468f0f8ce71f5179ac7eafef638823e484bcf9847441599762dbe90",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0258/mem.hex",
+      "bytes": 2359296,
+      "sha256": "79a9ce65c934766d60ee35dede43ed8d37a75295b83e6cc1faf2dc03b83149dd",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_0008/mem.hex",
+      "bytes": 2359296,
+      "sha256": "b91b081fb8d588d25240905c008d23fb0ae9030c23ad555e4649580949599265",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "1a4c031462db6dfbe2527d3ed0f05a596bc206784a417e74293950ee038853ea",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_0001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "252be86cbc7425f7ea53c3701d50688e18a55de6ecc3d7f981123b6125b64c0a",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0270/mem.hex",
+      "bytes": 2359296,
+      "sha256": "44776fd805404cfb07e653ad9e338c11777e7ce14afc83324bbe181c45d94cde",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_0004/mem.hex",
+      "bytes": 2359296,
+      "sha256": "3b3f35132520855415bb48fc62f3d7afe22e8f0f220d374b7e9e71ac92ad5ee3",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_0127/mem.hex",
+      "bytes": 2359296,
+      "sha256": "49b9addf080e9a8ba0f3fe1ce012c19e8428e7ef024493fa93f0a787a2e8e8db",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/official_fixture_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "e4fb4cba8f4baa9760475c5026b68035d96dbd9766f765355f58a64503f751f7",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/fma_cscalar_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "25ff7ae66467ba4b8bd41c31fd911c329c41405d798b15127d33f7e8427c26da",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0383/mem.hex",
+      "bytes": 2359296,
+      "sha256": "870c1e22eec79f0a9ad2d385cd819471d06745e8c7dba580dd8e96a21e871436",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/add_0005/mem.hex",
+      "bytes": 2359296,
+      "sha256": "49af066fd99ba034b5fcca9a83afea20e30b9304944481db4ce1bab72dbac9b4",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "f7a8801bd35ec4862cf8a50536b95fc14f8db5f64b19d11e4f61e1ceb5b866f4",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_0003/mem.hex",
+      "bytes": 2359296,
+      "sha256": "740e4e0b3bf1887d2e690dba36059114c93ee15d5b3e91f4a5ad7db27a32d9b7",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0269/mem.hex",
+      "bytes": 2359296,
+      "sha256": "b769908e6b0095cfdb50e7c689801ec0d5a97d80a32e8e2258a11809d2a1d6dc",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_0255/mem.hex",
+      "bytes": 2359296,
+      "sha256": "2c2171d432938e11076936a066c5dc451baa284746c00b6850ccba9612f44db1",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_0002/mem.hex",
+      "bytes": 2359296,
+      "sha256": "77f8224012480b75007be163e65f530950e8419a2adc8071e4b546a7a69fa02f",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0273/mem.hex",
+      "bytes": 2359296,
+      "sha256": "5b67fd8539cec21f6f8b704495de4472b9273c0e8d8037167122b2dc1b1a37c2",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0513/mem.hex",
+      "bytes": 2359296,
+      "sha256": "c693caf1691e430ed839096a5f7ea31367bea18139c8b37323f807e1ab9afede",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0261/mem.hex",
+      "bytes": 2359296,
+      "sha256": "4d1e94c8c6beb39f689251b2818ea4f127f4c05f0a3f2d64f335e5f8f034a6fb",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0267/mem.hex",
+      "bytes": 2359296,
+      "sha256": "182647661149fe7c357c38f0a181933b33d6599686e99e3a8f15dad3bc236ce6",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_0006/mem.hex",
+      "bytes": 2359296,
+      "sha256": "2c934862683c27130b138d5d789e3385ca9e95e006c65f4e342ec987a2218b06",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/i16_0255/mem.hex",
+      "bytes": 2359296,
+      "sha256": "613f603ddaf97f6f8bce8e120be67d24e886f5ca28f8a250f21493d4fc4bad0d",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/add_0009/mem.hex",
+      "bytes": 2359296,
+      "sha256": "ee3bf3fef2ef8e4ee0d909fe0628ac75abb7320ac7c8c8bd781b30bdb4fb1cc6",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/fma_bscalar_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "6def36c263d1b7fbc4b264a82fde5dae7d2b898443b167cdc18bf4a25934a410",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0262/mem.hex",
+      "bytes": 2359296,
+      "sha256": "cf0881ec82e0919e8633c85c92a5b13a44ff01715b757c279ac718364c474a8e",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0256/mem.hex",
+      "bytes": 2359296,
+      "sha256": "9980aee21f60c39de887ae0b21c82d1ad8f442587870262d19490cf36177e727",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/tail_0266/mem.hex",
+      "bytes": 2359296,
+      "sha256": "ca571f5b957b1dc9cd95261237949f78fc38eae82c03e01f786569d62ca78358",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/mul_0017/mem.hex",
+      "bytes": 2359296,
+      "sha256": "93c5cebaca2e8fe6d6e2080f02fc5cc552b9db2548639ef29ada4f9c31456ff7",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_vector_fma/fixtures/cases/add_0008/mem.hex",
+      "bytes": 2359296,
+      "sha256": "10aab2397028412a6fd0b0db95f05607a06fe0ee4d956cf08d193806bdb53df4",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0065/mem.hex",
+      "bytes": 2359296,
+      "sha256": "fa70bc0ab4bb07cf92020fec1b3a89695e68038c8b4019dfe0b11c5a493cc391",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0015/mem.hex",
+      "bytes": 2359296,
+      "sha256": "ee4f7cadf39e68b7a6eea381478fc29303089e6ff72c8ac814dbf2550fcfe2f1",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0127/mem.hex",
+      "bytes": 2359296,
+      "sha256": "b3b293f541557b9ff0ce99b3c1e814c675de046bae65f8a16ee454dcb4bcf101",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0511/mem.hex",
+      "bytes": 2359296,
+      "sha256": "04887c69e0d78c88ccd95389a8a02a01843b8435a228fae0b25fad685804a438",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0007/mem.hex",
+      "bytes": 2359296,
+      "sha256": "f7b096a18e5777fdd5fbf308f54be8433e424ac1ff8033a7685902f40f3043f0",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0257/mem.hex",
+      "bytes": 2359296,
+      "sha256": "2d28f2f16b28451e6c150b674d29cbf6c4b6736537bd77ecb368ad5f59866171",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0033/mem.hex",
+      "bytes": 2359296,
+      "sha256": "87b8b55efbf0eafb1510ce120b222991c6028c139db7a1517528355f7298b93f",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/fma_btiled2048/mem.hex",
+      "bytes": 2359296,
+      "sha256": "2bf42995d668b9fd86de2e6c6772bf600f2226e9c150ab94386ba225e54e6501",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0256/mem.hex",
+      "bytes": 2359296,
+      "sha256": "c1899bd4fac6a34fa0040ccdd10420a8705813dc8647276748d42e823dd4aa48",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0063/mem.hex",
+      "bytes": 2359296,
+      "sha256": "0c24de801aebd732b7a93fcf32034496c0858ed3fd0b9e4bd06e6e5858f1c384",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0257/mem.hex",
+      "bytes": 2359296,
+      "sha256": "0c9355494419bb936ebca1c160b4c42b9ea2089a8e6a23659d76055fcff5927a",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "a18db6a05d04e74e9239d3780ce368aca0c7bb27a7d356a4bdbbfef1e2371f7c",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0011/mem.hex",
+      "bytes": 2359296,
+      "sha256": "998751cd9c9d08565c33b47e4d9fa7a8cd2774fb10b482ec6e04898f3c72e096",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0016/mem.hex",
+      "bytes": 2359296,
+      "sha256": "8e99f867ab65c6813adc9d8cca4702757994530be15e5f15dcd4c8485d955c5d",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0127/mem.hex",
+      "bytes": 2359296,
+      "sha256": "17e0c382803d9cacf370390ecdacceab74c2636e16b9a5db578dbf92f0463ac7",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0513/mem.hex",
+      "bytes": 2359296,
+      "sha256": "2ed9fed0fc0c451f7f567e63e0ee62a96d548c4c5f451695b84179b051c3d0ab",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0015/mem.hex",
+      "bytes": 2359296,
+      "sha256": "4581f6aa09429db0dfc3a0d814ebacb69a9b36bc188b60a5a3cf7dc6ee63abe7",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/fma_btiled1024/mem.hex",
+      "bytes": 2359296,
+      "sha256": "eb10b650f64ef0222e32ebdc4b6ed3fed19fbadaa9aca0b28a7192662ceffe65",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0259/mem.hex",
+      "bytes": 2359296,
+      "sha256": "0ce77601ad3a955d8a5363a824859d519094a8dafa4644827a79074807f7faa2",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0013/mem.hex",
+      "bytes": 2359296,
+      "sha256": "4fd414b83c2e6d60f47cd6814b6d65359a4f7fe73b3cd0af1423cdfec6dc6bb1",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0009/mem.hex",
+      "bytes": 2359296,
+      "sha256": "31674ff456b91528c55ac5d8852519f9d85633cef69f90141245f9bc2efa7433",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0263/mem.hex",
+      "bytes": 2359296,
+      "sha256": "23921476c50aeda59f6907442b56db7a26bf546abf7bc38df1c09a52a20e43e9",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0005/mem.hex",
+      "bytes": 2359296,
+      "sha256": "bf90e24c6cec3663b58ad70713e5c0f5b7005210c4080659219255c4d138647d",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/abort_newepoch/mem.hex",
+      "bytes": 2359296,
+      "sha256": "012bd45b6d5fbbfd861ccbcb88f21a85f5be5431316ee50ad3c13bea2ca6245b",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0257/mem.hex",
+      "bytes": 2359296,
+      "sha256": "e45e80d3239c535135bb185f3b5fc0d4908d088982a0da8954bf943cd312aa1f",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0017/mem.hex",
+      "bytes": 2359296,
+      "sha256": "5d0f2a598885e6107c97590ad33da765ac8c892c0d3990343cd972e09ca8d16e",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/full8734/mem.hex",
+      "bytes": 2359296,
+      "sha256": "9d9b7125c819114fb0de096eb3d7a055c335c1c51bbb6a8efa90892783a096a6",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0064/mem.hex",
+      "bytes": 2359296,
+      "sha256": "309099d12c0a1b53dda88506a1cb1b7405d232e1075d4c1fa54cdecca5dd6d84",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/fma_period32_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "6310253a362e6a4958186d1969823c27e0452a10bacae850def84c0d8deccf5a",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0032/mem.hex",
+      "bytes": 2359296,
+      "sha256": "c778e85d58c24472a1574ab93a22c606e10a456713dcb51b5fd21340f5bd6467",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0003/mem.hex",
+      "bytes": 2359296,
+      "sha256": "c79d518970ac56ae377a24dd6c6cc703a4315f01dd536a757120753a0c6c0772",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0007/mem.hex",
+      "bytes": 2359296,
+      "sha256": "d744a0f1c6f85d2b594399e0925bace5e9f1d618844061c018aa374ae2436a63",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0012/mem.hex",
+      "bytes": 2359296,
+      "sha256": "f0f0b1b3792e2ee9738536b8b807bc4d2ea23fca8bd0a0cd20ec193b0a5d6383",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0005/mem.hex",
+      "bytes": 2359296,
+      "sha256": "2a55c53e3cd8a9ad37acfa6b1a8acb1413b3159e1369ddfd11dd8cae5a361421",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0033/mem.hex",
+      "bytes": 2359296,
+      "sha256": "83f6006e452ee0b1bb4464bb3996827fab2b842b92f36b32b62a9ce68c723766",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0031/mem.hex",
+      "bytes": 2359296,
+      "sha256": "d992f9c5680ce8f3fe6c67bbdd14fe60aedc20270576818886e4b16cb5f4ee02",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0065/mem.hex",
+      "bytes": 2359296,
+      "sha256": "8c8fdcbe9f69ec7358a30a456af4d550627cb81e5d8b522b8836f561a7cce3f8",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0006/mem.hex",
+      "bytes": 2359296,
+      "sha256": "6501d2dd47f4bbf2b5c06a469f14169265aa063137a8a5825344d1c0c09d0a7a",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0272/mem.hex",
+      "bytes": 2359296,
+      "sha256": "6b588937f83893acc557d0bec8aa40f0cedf00f7fa784d915dd8225dcb2298b9",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0511/mem.hex",
+      "bytes": 2359296,
+      "sha256": "7089bd6b253bb65ec8c491ecae56413db563dc432ee5f812f398c6f9fd915b1f",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0017/mem.hex",
+      "bytes": 2359296,
+      "sha256": "87ff0da1eec0a477bb4e4785f99ca7c1ac0a3da98549e88c26c772a05e868174",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0064/mem.hex",
+      "bytes": 2359296,
+      "sha256": "73b81dae1602a8a43cfc60d7ab0543d842a2802f6ab17fcdbb6b534165d6c0c3",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0008/mem.hex",
+      "bytes": 2359296,
+      "sha256": "f529f453c92879121dcd815e9b20ecd37c2ce23ebdf729706b2ca8ecd5e15748",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0002/mem.hex",
+      "bytes": 2359296,
+      "sha256": "e624d25628b239a3cff4feacea934bf0c34629adb3ab76e258dab7b73ce087a8",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0004/mem.hex",
+      "bytes": 2359296,
+      "sha256": "60a3ec82febc539c119eb88dcbcf29930e384b436c155aba1a3fdfeaa259d11d",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0511/mem.hex",
+      "bytes": 2359296,
+      "sha256": "c213eb1acb6dff6d16bee0ea50410d34bf1b0139cc29d9a01aaae761051e3e51",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/reset_newepoch/mem.hex",
+      "bytes": 2359296,
+      "sha256": "d432edda18152edf292a7cb2752c0c277ece2135396ac770edbf35aa45fa99b2",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0003/mem.hex",
+      "bytes": 2359296,
+      "sha256": "85e5ccc0285550d24cc64a5c911aec7e918732026de80dfb5f66b349480501d4",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "edf2a71744789af59eaf49cc34d48c6cc1b15cb8cb381a965a643ee361e8de41",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0260/mem.hex",
+      "bytes": 2359296,
+      "sha256": "f3680c20f7db19bcd7f72f6cfd093c4bc3a84dd8227418dcc423233f4e493e70",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "4ed9b127b0d2cb9c1d97293ecb84ba4b55e702cbce624608cf234c9b9ce70225",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0004/mem.hex",
+      "bytes": 2359296,
+      "sha256": "5ca9e660d3ff619d5a14016ea190bb9c78cab6f723525823cb1520550a1bcce6",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0268/mem.hex",
+      "bytes": 2359296,
+      "sha256": "c65b9e0af631fe013f1595d0aeb9eab9920617c1aa9688b56960e98e082b6b8f",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0007/mem.hex",
+      "bytes": 2359296,
+      "sha256": "10692dee3e7b661c7805c40c72a57e4a7731c9a6eda04edd3808fdb60e568203",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0009/mem.hex",
+      "bytes": 2359296,
+      "sha256": "81861520eb1e8a5d4fc3be17a6c22230da12856f0e5a4a076b22c606d38f8c8d",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0264/mem.hex",
+      "bytes": 2359296,
+      "sha256": "b7333e7c4f0abc5474f606e7a90f8f1797b333856b9703338ba2e78d8b74f918",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0265/mem.hex",
+      "bytes": 2359296,
+      "sha256": "05b068d5aca671991e12780413fec0cbdcd38f194337344cd9fd13ee6ca646b9",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0012/mem.hex",
+      "bytes": 2359296,
+      "sha256": "be98399489c8c496a4fd043944bcabcd0376d37c6178793a69da620ec29e98b3",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0513/mem.hex",
+      "bytes": 2359296,
+      "sha256": "62df3500048d7f7decf1fc16422054d76ed62d32d3f4ba77e319b7ffb258af2f",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0002/mem.hex",
+      "bytes": 2359296,
+      "sha256": "ba6e51cb977cd7a7414da5d57d050fd759f1a9574194f174e4aa7f14fec970b7",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0271/mem.hex",
+      "bytes": 2359296,
+      "sha256": "b27bf109768aad370260b6cc2a622a0cfccefabd6f9f267b84d161846deffa22",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0014/mem.hex",
+      "bytes": 2359296,
+      "sha256": "0062b88ce9f137ef28218bfb2dd6af76ffd173d0e2f8d5fc5c8923b1ad3c2c96",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0016/mem.hex",
+      "bytes": 2359296,
+      "sha256": "22a7b50f2c9f52afea5966df73560d358516accf083c6d623b8f523a1d283728",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0014/mem.hex",
+      "bytes": 2359296,
+      "sha256": "673649581dce1f9483b6cc0de899b9025c1fa4bf255bf81d66ccaa899d2543ad",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0006/mem.hex",
+      "bytes": 2359296,
+      "sha256": "0ea4fab2912a950a7918e7a50ea408e765c138d2e0439c1cc841173bfc07cd08",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/fma_period128_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "5dd2c5fe0468f0f8ce71f5179ac7eafef638823e484bcf9847441599762dbe90",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0255/mem.hex",
+      "bytes": 2359296,
+      "sha256": "a43fc67553e0a22510c4a3f1e2500d67b1520195a0a7ad9d263dc0bf90d5d7f3",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0015/mem.hex",
+      "bytes": 2359296,
+      "sha256": "affa4d10a13ef9f10ce3aed0f85d903171343ffad5722642dca99ffc82dea5f8",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0258/mem.hex",
+      "bytes": 2359296,
+      "sha256": "79a9ce65c934766d60ee35dede43ed8d37a75295b83e6cc1faf2dc03b83149dd",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0008/mem.hex",
+      "bytes": 2359296,
+      "sha256": "b91b081fb8d588d25240905c008d23fb0ae9030c23ad555e4649580949599265",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "1a4c031462db6dfbe2527d3ed0f05a596bc206784a417e74293950ee038853ea",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0031/mem.hex",
+      "bytes": 2359296,
+      "sha256": "41f3f2a8d16a2edeab015706fc745ccd76d99d452f8ba255e75b61b6e6bc39a5",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0064/mem.hex",
+      "bytes": 2359296,
+      "sha256": "17b9e15eca4d08b93d654d126cc2130d928e9839323039a55331a6cca3f5e56d",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0011/mem.hex",
+      "bytes": 2359296,
+      "sha256": "65a9949530339533e335899a6f50cde5bfefd2bd855fbab53da87dd88f2724b2",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "252be86cbc7425f7ea53c3701d50688e18a55de6ecc3d7f981123b6125b64c0a",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0010/mem.hex",
+      "bytes": 2359296,
+      "sha256": "152231e0536a289f1ecda0d949670c1d5051e3ced1cb4d0b6cb9c2d1d5ded829",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0270/mem.hex",
+      "bytes": 2359296,
+      "sha256": "44776fd805404cfb07e653ad9e338c11777e7ce14afc83324bbe181c45d94cde",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0013/mem.hex",
+      "bytes": 2359296,
+      "sha256": "571528b65bd7ec8cc2caae1ec0206faecb68b6495c8c6a14eea3a5de715904ec",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0032/mem.hex",
+      "bytes": 2359296,
+      "sha256": "207c9ca29f972f2edde356c6abcd6b9eb18ba69ed29c787b4f506bc7d2f9c99b",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0004/mem.hex",
+      "bytes": 2359296,
+      "sha256": "3b3f35132520855415bb48fc62f3d7afe22e8f0f220d374b7e9e71ac92ad5ee3",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0127/mem.hex",
+      "bytes": 2359296,
+      "sha256": "49b9addf080e9a8ba0f3fe1ce012c19e8428e7ef024493fa93f0a787a2e8e8db",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/official_fixture_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "e4fb4cba8f4baa9760475c5026b68035d96dbd9766f765355f58a64503f751f7",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0511/mem.hex",
+      "bytes": 2359296,
+      "sha256": "449257a938b1d8e34e8c716984746effb65a308800a1f61d511164e12ec3275e",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/fma_cscalar_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "25ff7ae66467ba4b8bd41c31fd911c329c41405d798b15127d33f7e8427c26da",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0013/mem.hex",
+      "bytes": 2359296,
+      "sha256": "408b3fe6d37e787e3966e9b7f80b82bc5af9bbb664cb85fa34b1aa047e9104b7",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0383/mem.hex",
+      "bytes": 2359296,
+      "sha256": "870c1e22eec79f0a9ad2d385cd819471d06745e8c7dba580dd8e96a21e871436",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0065/mem.hex",
+      "bytes": 2359296,
+      "sha256": "8b239f968aefca111855ab2ccca3c6f3a88551c27d6705b8cd3f6adc96319209",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0011/mem.hex",
+      "bytes": 2359296,
+      "sha256": "7851a0ca9c5e9763bb8b47426b6c33f723cc10b188e05feecd47c510888574c9",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0005/mem.hex",
+      "bytes": 2359296,
+      "sha256": "49af066fd99ba034b5fcca9a83afea20e30b9304944481db4ce1bab72dbac9b4",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "f7a8801bd35ec4862cf8a50536b95fc14f8db5f64b19d11e4f61e1ceb5b866f4",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0003/mem.hex",
+      "bytes": 2359296,
+      "sha256": "740e4e0b3bf1887d2e690dba36059114c93ee15d5b3e91f4a5ad7db27a32d9b7",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0269/mem.hex",
+      "bytes": 2359296,
+      "sha256": "b769908e6b0095cfdb50e7c689801ec0d5a97d80a32e8e2258a11809d2a1d6dc",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0063/mem.hex",
+      "bytes": 2359296,
+      "sha256": "ecdfaf20d76501476e7af0d000c0f52b587ecfb4b92980276a1c89721880a0c7",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0255/mem.hex",
+      "bytes": 2359296,
+      "sha256": "2c2171d432938e11076936a066c5dc451baa284746c00b6850ccba9612f44db1",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0002/mem.hex",
+      "bytes": 2359296,
+      "sha256": "77f8224012480b75007be163e65f530950e8419a2adc8071e4b546a7a69fa02f",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0273/mem.hex",
+      "bytes": 2359296,
+      "sha256": "5b67fd8539cec21f6f8b704495de4472b9273c0e8d8037167122b2dc1b1a37c2",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0513/mem.hex",
+      "bytes": 2359296,
+      "sha256": "c693caf1691e430ed839096a5f7ea31367bea18139c8b37323f807e1ab9afede",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "b2e9aa2f50c1a9a7cc418ff2aee0a3422721aa9f224ae7c342470f1f3e918701",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0014/mem.hex",
+      "bytes": 2359296,
+      "sha256": "fcab23bf52d890046ab8f30e5405836878b833c82fd59bb66e0ca154f6254ff2",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0256/mem.hex",
+      "bytes": 2359296,
+      "sha256": "474ec9bcab457726839cb3b0ddf5b5f52de1c467fc4ccbcf4bff5377586710c1",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0063/mem.hex",
+      "bytes": 2359296,
+      "sha256": "b2e75f14031bad38c1e043b228f716a9c0a1ddd14a1423fea1a908321c90f526",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0261/mem.hex",
+      "bytes": 2359296,
+      "sha256": "4d1e94c8c6beb39f689251b2818ea4f127f4c05f0a3f2d64f335e5f8f034a6fb",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0267/mem.hex",
+      "bytes": 2359296,
+      "sha256": "182647661149fe7c357c38f0a181933b33d6599686e99e3a8f15dad3bc236ce6",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0006/mem.hex",
+      "bytes": 2359296,
+      "sha256": "2c934862683c27130b138d5d789e3385ca9e95e006c65f4e342ec987a2218b06",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0255/mem.hex",
+      "bytes": 2359296,
+      "sha256": "613f603ddaf97f6f8bce8e120be67d24e886f5ca28f8a250f21493d4fc4bad0d",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/i16_0033/mem.hex",
+      "bytes": 2359296,
+      "sha256": "f461317b137e5f4d3dbce681105ac8bd75b0c2ac65c0b160f66e9611164aeda6",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0012/mem.hex",
+      "bytes": 2359296,
+      "sha256": "ef48f0a2ae7ae44c22cf8dd7daccb8e3e587ef421b7cd482d7d075851ced446d",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0009/mem.hex",
+      "bytes": 2359296,
+      "sha256": "ee3bf3fef2ef8e4ee0d909fe0628ac75abb7320ac7c8c8bd781b30bdb4fb1cc6",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0513/mem.hex",
+      "bytes": 2359296,
+      "sha256": "75b8b45072f83cab3e31d64fedeccc9eaec1533b397f0aa5e450634d41fa920c",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0010/mem.hex",
+      "bytes": 2359296,
+      "sha256": "a64fe889c7e555d46d710237719b8c7680caabc5e37eee698dcb8b8faf73bd96",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/fma_bscalar_1001/mem.hex",
+      "bytes": 2359296,
+      "sha256": "6def36c263d1b7fbc4b264a82fde5dae7d2b898443b167cdc18bf4a25934a410",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0262/mem.hex",
+      "bytes": 2359296,
+      "sha256": "cf0881ec82e0919e8633c85c92a5b13a44ff01715b757c279ac718364c474a8e",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0010/mem.hex",
+      "bytes": 2359296,
+      "sha256": "8b343ab593731104d26491739239e679a8a4e60267ecf6e2894313980d412f1d",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0256/mem.hex",
+      "bytes": 2359296,
+      "sha256": "9980aee21f60c39de887ae0b21c82d1ad8f442587870262d19490cf36177e727",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0032/mem.hex",
+      "bytes": 2359296,
+      "sha256": "e23236ec1fa593e8d8c0ea15143c748083db71b8d5200502fe18a2bc790fb319",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0256/mem.hex",
+      "bytes": 2359296,
+      "sha256": "e338a4b1b2af7bce0dec2166b04e0ba89c4466c08ed52f071aa4972c10876cab",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0016/mem.hex",
+      "bytes": 2359296,
+      "sha256": "80674406646f3cbae0ac54d122a0b6f4dc701a1b589c0355b2533c6c6ee2a93c",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/tail_0266/mem.hex",
+      "bytes": 2359296,
+      "sha256": "ca571f5b957b1dc9cd95261237949f78fc38eae82c03e01f786569d62ca78358",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0017/mem.hex",
+      "bytes": 2359296,
+      "sha256": "93c5cebaca2e8fe6d6e2080f02fc5cc552b9db2548639ef29ada4f9c31456ff7",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0008/mem.hex",
+      "bytes": 2359296,
+      "sha256": "10aab2397028412a6fd0b0db95f05607a06fe0ee4d956cf08d193806bdb53df4",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/add_0257/mem.hex",
+      "bytes": 2359296,
+      "sha256": "f7c9777ee1e220c7b48f2b4861a708aa8a3c77adb1846bce8d8947148062bf19",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    },
+    {
+      "path": "ds_resume_vector/fixtures/cases/mul_0031/mem.hex",
+      "bytes": 2359296,
+      "sha256": "5e2877ada52848201fccf94eed1b3f94e2e5bbed17bfc75c49e7bed011d037a4",
+      "reason": "generated large fixture/output; regenerate with task scripts or restore local asset"
+    }
+  ]
+}

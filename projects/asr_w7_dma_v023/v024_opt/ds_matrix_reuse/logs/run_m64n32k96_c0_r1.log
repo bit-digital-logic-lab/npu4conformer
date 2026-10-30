@@ -1,0 +1,12 @@
+INFO init done mem=20480 words
+CFG m=64 n=32 k=96 cvalid=0 reuse=1 pos=3210 bases=03000000/03008000/03020000
+INFO done fault=0 code=00 cycles=4367 compute=1632 rdblk=9 wrblk=128 hits=0 miss=2 prehit=2 prewait=198 ov_rd=832 ov_wr=1442 cgrp=1536 ccyc=2466 craw=0 pdrain=5 adrain=20
+INFO reuse a=6 w=3 c=0 pairs=1 wsaved=3 pairmode=0 wblk=128
+INFO bfm rdcmds=9 wrcmds=128 rdbeats=960 wrbeats=768 shared=103 maxb=1 rdstall=3 wrstall=67 bout=0 wbusy=0
+INFO store rdblk=9 wrseg=128 rdbytes=15360 wrbytes=12288 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=64 N=32 K=96 CVALID=0 REUSE=1 PIPE=4 cycles=4367 rdbytes=15360 wrbytes=12288 Wbytes=3072
+- /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/tests/tb_reuse_engine.sv:312: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 453us; walltime 2.239 s; speed 202.609 us/s
+- Verilator: cpu 2.238 s on 1 threads; allocated 8 MB

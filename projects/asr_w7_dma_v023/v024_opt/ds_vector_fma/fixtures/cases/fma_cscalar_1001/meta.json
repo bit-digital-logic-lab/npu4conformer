@@ -1,0 +1,24 @@
+{
+  "name": "fma_cscalar_1001",
+  "op": 17,
+  "total": 1001,
+  "out16": 0,
+  "outwords": 1001,
+  "plan_base": 268468224,
+  "d_addr": 67174400,
+  "gold_count": 1001,
+  "gold_sha256": "2bc22541af6e56f019c849a10ec466bb3b2a34acc122395fcae398de7420b786",
+  "inputs_sha256": "03cfe8e8a7e780dd00eb6af5fb49f49781b6966ca5eba02d193b85d19c6bbc11",
+  "mem_sha256": "25ff7ae66467ba4b8bd41c31fd911c329c41405d798b15127d33f7e8427c26da",
+  "desc": [
+    576079171,
+    4113,
+    67108864,
+    67112960,
+    67117056,
+    67174400,
+    1001,
+    0
+  ],
+  "mode": "cscalar"
+}

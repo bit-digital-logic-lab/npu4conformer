@@ -1,0 +1,10 @@
+WARNING: tb/tb_vector_fma_abort_reset.sv:175: Invalid decimal value passed to $value$plusargs:
+                                              "abort".
+HOST plan1 START cycle=31
+HOST reset asserted cycle=3087 vector_busy=1 busy_count=3001
+HOST reset-quiescent aw=0 b=0
+HOST plan2 START cycle=3174
+HOST plan2 done=1 abort_done=0 fault=0 err=00 cycle=4310 done_cycle=4238 last_b=4230 b_count=0
+HOST plan2-post aw=0 b=0 vcompleted=257 vflags=00
+VEC_FMA_ABORT_RESET PASS scenario=x total1=8734 total2=257 done_cycle=4238 last_b=4230
+tb/tb_vector_fma_abort_reset.sv:289: $finish called at 34484000 (1ps)

@@ -1,0 +1,26 @@
+{
+ "tag": "mut_flush",
+ "gate_rc": 1,
+ "modes": {
+  "flush_251": {
+   "pass": false,
+   "rc_lines": []
+  },
+  "flush_handshake_probe": {
+   "pass": false,
+   "rc_lines": []
+  },
+  "ii_8734": {
+   "pass": false,
+   "rc_lines": []
+  },
+  "reset_251": {
+   "pass": false,
+   "rc_lines": []
+  },
+  "stream_8734": {
+   "pass": false,
+   "rc_lines": []
+  }
+ }
+}

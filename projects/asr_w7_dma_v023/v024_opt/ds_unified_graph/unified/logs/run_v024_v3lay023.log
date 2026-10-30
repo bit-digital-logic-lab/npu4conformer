@@ -1,0 +1,6 @@
+== 0. independent fixtures + gold ==
+== 1. single-threaded compile ==
+== 2. fused small graph (A16 + per-channel + DIV + SQRT) ==
+v024_fused rc=0 seconds=166
+== 3. explicit-request fallback to legacy C48 path ==
+rc=143

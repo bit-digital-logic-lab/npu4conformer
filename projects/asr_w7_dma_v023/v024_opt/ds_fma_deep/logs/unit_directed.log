@@ -1,0 +1,16 @@
+=== TEST START: fp32_fma_pipe Unit Verification ===
+[PASS] probe_mul_round: got 0x3fc00002 == expected 0x3fc00002
+[PASS] cancellation_fma: got 0xa8800000 == expected 0xa8800000
+[PASS] und_to_even_down: got 0x3f800000 == expected 0x3f800000
+[PASS] round_to_even_up: got 0x3f800002 == expected 0x3f800002
+[PASS] e_bias_exact_4_0: got 0x40800000 == expected 0x40800000
+[PASS] ias_exact_4_1875: got 0x40860000 == expected 0x40860000
+[PASS] zero_a_pass_c: got 0x40800000 == expected 0x40800000
+[PASS] zero_b_pass_c: got 0x40800000 == expected 0x40800000
+[PASS] zero_c_mul_only: got 0x40a00000 == expected 0x40a00000
+[PASS] inf_mul: got 0x7f800000 == expected 0x7f800000
+[PASS] nan_propagate: got 0x7fc00000 == expected 0x7fc00000
+[PASS] flush_test: pipeline cleared properly
+[PASS] backpressure_test: data received correctly after stall
+=== SUMMARY: passes=13, fails=0 ===
+ALL TESTS PASSED SUCCESSFULLY

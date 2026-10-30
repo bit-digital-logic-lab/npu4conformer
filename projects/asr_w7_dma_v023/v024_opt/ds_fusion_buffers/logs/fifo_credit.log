@@ -1,0 +1,3 @@
+CREDIT sent=512 recv=512 max_occ=15 credit=15 overflow=0 last_seen=1 errs=0
+CREDIT_PASS
+tb/tb_fifo_credit.sv:110: $finish called at 13160000 (1ps)

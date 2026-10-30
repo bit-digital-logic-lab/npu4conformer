@@ -1,0 +1,97 @@
+--- "/home/yang/Desktop/\351\241\271\347\233\256/v023_repair/ds_matrix/candidate/rtl/block_storage_stream_v2.sv"	2026-10-29 20:46:56.442765183 +0800
++++ candidate/rtl/block_storage_stream_reuse_v1.sv	2026-10-30 14:42:48.777820903 +0800
+@@ -1,5 +1,7 @@
+ `timescale 1ns/1ps
+-// V0.23 unified storage controller (V1 + PA-003/PA-004 corrections).
++// V0.24 W-reuse storage: v023 block_storage_stream_v2 plus independent A/W
++// compute read-stage selects and per-kind stage release.  The writeback path
++// (cseg/cval/packer/WSTRB/cwr_idle) is intentionally unchanged.
+ //
+ // Fixes the two serialization points in block_storage_dma_wide4:
+ //   1. A/W block transfers are loaded directly into one of two stage banks.
+@@ -14,7 +16,7 @@
+ // Block/header/ACL rules, address checks and the C tag fields are preserved
+ // from block_storage_dma_wide4.  This module is a transactional DMA terminal,
+ // not an AXI burst engine: the AXI master/DMA belongs to ds_ddr.
+-module block_storage_stream_v2 #(
++module block_storage_stream_reuse_v1 #(
+  parameter [31:0] ARENA_BASE=32'h03000000,
+  parameter [31:0] ARENA_END=32'h08000000,
+  parameter [31:0] PARAM_BASE=32'h10000000,
+@@ -46,8 +48,9 @@
+  output wire [31:0] stage_a_allowed,stage_w_allowed,stage_a_completed,stage_w_completed,
+  output wire [3:0] stage_a_encoding,stage_w_encoding,
+  input wire [1:0] stage_release,
++ input wire [1:0] stage_release_a,stage_release_w,
+  // compute-side bank read port
+- input wire rd_stage,rd_row_half,rd_col_half,
++ input wire rd_a_stage,rd_w_stage,rd_row_half,rd_col_half,
+  input wire [79:0] a_k,w_k,
+  output wire [255:0] a_values,output wire [111:0] w_values,
+ 
+@@ -84,7 +87,8 @@
+  output wire [63:0] read_wait_cycles,write_wait_cycles,
+  output wire [31:0] ov_same_cycle,rd_active_wr_active_cycles,
+  output wire rd_active,wr_active,
+- output wire [1:0] dbg_rstate,dbg_wwait
++ output wire [1:0] dbg_rstate,dbg_wwait,
++ output wire dbg_wr_en,output wire [1:0] dbg_wr_kind,output wire dbg_wr_stage
+ );
+  localparam RIDLE=0,RREQ=1,RRD=2,RCHDR=3;
+  function automatic [4:0] pop16(input [15:0] bits);
+@@ -238,10 +242,11 @@
+  assign c_ld_error=c_ld_error_r;
+  assign c_ld_code=c_ld_code_r;
+ 
+- operand_banks_dual_v1 banks(
++ operand_banks_dual_reuse banks(
+   .clk(clk),.wr_en(bank_wr_en),.wr_stage(cur_stage),.wr_kind(cur_kind[0]),
+   .wr_beat(recv[7:0]),.wr_data(rd_data),
+-  .rd_stage(rd_stage),.rd_row_half(rd_row_half),.rd_col_half(rd_col_half),
++  .rd_a_stage(rd_a_stage),.rd_w_stage(rd_w_stage),
++  .rd_row_half(rd_row_half),.rd_col_half(rd_col_half),
+   .a_k(a_k),.w_k(w_k),.a_values(a_values),.w_values(w_values));
+ 
+  // ---------------------------- write engine ----------------------------
+@@ -408,10 +413,16 @@
+     lq_rd<=lq_rd+1;lq_cnt<=lq_cnt-1;
+    end
+ 
+-   // stage release wins over a same-cycle completion
+-   for(i=0;i<2;i=i+1)if(stage_release[i])begin
+-    stg_have[i][0]<=0;stg_have[i][1]<=0;stg_ready[i][0]<=0;stg_ready[i][1]<=0;
+-    stg_fault[i][0]<=0;stg_fault[i][1]<=0;
++   // Stage release wins over a same-cycle completion.  The legacy
++   // stage_release[s] releases both kinds; the reuse engine drives the
++   // per-kind releases separately so W can stay pinned while A is refilled.
++   for(i=0;i<2;i=i+1)begin
++    if(stage_release[i]||stage_release_a[i])begin
++     stg_have[i][0]<=0;stg_ready[i][0]<=0;stg_fault[i][0]<=0;
++    end
++    if(stage_release[i]||stage_release_w[i])begin
++     stg_have[i][1]<=0;stg_ready[i][1]<=0;stg_fault[i][1]<=0;
++    end
+    end
+ 
+    // ---------------- write engine ----------------
+@@ -447,7 +458,11 @@
+    // on DMA error/abort, drop segment commands that were never posted and
+    // pad the accepted command with zero-strobe beats so the DMA beat count
+    // is still satisfied before the error exit.
+-   if(wr_err_sticky&&wq_cnt!=0)begin wq_cnt<=0;wq_rd<=wq_wr;end
++   // Abort must also drop segment commands that were accepted into the write
++   // queue but not yet posted.  v023 only did this for a sticky write error;
++   // an early compute fault (e.g. C48 overflow) could otherwise leave
++   // wq_cnt>0 and never reach cwr_idle/drain_done.
++   if((wr_err_sticky||abort)&&wq_cnt!=0)begin wq_cnt<=0;wq_rd<=wq_wr;end
+ 
+    if(w_cur_valid&&(sent_next==w_cur_beats)&&((nbytes_next==0)||w_pad))begin
+     if(!w_last_seen&&!w_pad&&!wr_err_sticky)begin
+@@ -488,4 +503,7 @@
+  assign wr_active=w_cur_valid||(wq_cnt!=0)||(b_out!=0)||(wr_req_valid);
+  assign dbg_rstate=rstate;
+  assign dbg_wwait={7'd0,w_cur_valid};
++ assign dbg_wr_en=bank_wr_en;
++ assign dbg_wr_kind=cur_kind;
++ assign dbg_wr_stage=cur_stage;
+ endmodule

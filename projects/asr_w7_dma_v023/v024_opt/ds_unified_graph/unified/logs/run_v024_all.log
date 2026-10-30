@@ -1,0 +1,3 @@
+== 0. independent fixtures + gold ==
+== 1. single-threaded compile ==
+== 2. fused small graph (A16 + per-channel + DIV + SQRT) ==

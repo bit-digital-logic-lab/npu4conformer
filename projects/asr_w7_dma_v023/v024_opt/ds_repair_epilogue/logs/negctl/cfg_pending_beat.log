@@ -1,0 +1,9 @@
+STRICT mode=4 dir=vectors bp=1 seed=111 n0=32 n1=32 ns=64
+beats: bank0=0..511 bank1=512..1023 scalar=1024..1087
+FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c
+FAIL a16 tag=0 lane=3 got=7ace exp=7fff
+FAIL packed[0] got tag=0 last=1 exp tag=0 last=1
+RESULT mode=4 a16=65/65 pack=33/33 fp=65/65 spill=1/1 err=3 hits=4 misses=0 rej=0 cyc=345
+FAIL
+FATAL: /home/yang/Desktop/项目/v024_opt/ds_repair_epilogue/tb/tb_epilogue_strict.sv:584: mismatch
+       Time: 3495000  Scope: tb_epilogue_strict

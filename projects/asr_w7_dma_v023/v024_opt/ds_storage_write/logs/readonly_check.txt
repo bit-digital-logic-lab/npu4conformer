@@ -1,0 +1,11 @@
+V0.24 ds_storage_write read-only boundary check
+================================================
+Writable: /home/yang/Desktop/项目/v024_opt/ds_storage_write only (plus /tmp/opencode build dirs)
+Read-only: /home/yang/Desktop/项目/v023_repair, /home/yang/Desktop/项目/work,
+           /home/yang/Desktop/项目/model_a_v0_22(1).zip, all other v024_opt worker dirs.
+
+Reference SHA-256 values are frozen in REFERENCE_SHA256.json and re-checked before
+every run by scripts/check_reference.py.  The final run reported:
+REFERENCE_CHECK PASS v023=18 fixtures=14 copies=9
+
+The v023 files were only read; their frozen SHAs still match after the run.

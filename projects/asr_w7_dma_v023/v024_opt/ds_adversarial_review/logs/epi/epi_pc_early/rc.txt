@@ -1,0 +1,3 @@
+compile rc=0
+mode0 rc=1
+mode1 rc=1

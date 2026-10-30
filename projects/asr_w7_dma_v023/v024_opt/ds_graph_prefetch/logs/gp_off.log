@@ -1,0 +1,16 @@
+GP_WAIT cyc=5000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+GP_WAIT cyc=10000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+GP_WAIT cyc=15000 busy=1 fault=0 err=00 iso=0 rd=0 wr=1 b=0
+GP_WAIT cyc=20000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+GP_CSR status=00000002 err=00000000 completed=9 last=8 cycles=23774 fetch=366 op=23339
+GP_CSR vec_total=4643 layout_total=16788 matrix_total=1880 vec_ops=4 layout_ops=3 matrix_ops=1
+GP_CSR last_vec=952 last_lay=6724 last_mat=1880
+GP_DRAIN rd_pending=0 wr_pending=0 b_pending=0 quiesced=1 iso=0
+GP_AXI rburst=130 wburst=141 rbeats=1828 wbeats=1600 tag_err=0 peak_rd=1 peak_wr=1
+GP_END done=1 fault=0 error=00 iso=0 requires_reset=0 cycles=23774
+GP_LU valid=0 hits=0 misses=7 fetches=0 aborts=0 epoch=2
+GP_LEDGER fetch=383 dispatch=8 engine=23339 idle=44
+GP_LEDGER_X fetch_only=383 engine_only=23339 dispatch_only=8 fetch_engine=0 dispatch_engine=0 fetch_dispatch=0 all=0
+GP_LEDGER_F fetch_hdr=12 fetch_node=256 fetch_payload=115 fetch_lookahead=0
+GP_RESULT PASS
+tb/tb_graph_prefetch.sv:354: $finish called at 191260000 (1ps)

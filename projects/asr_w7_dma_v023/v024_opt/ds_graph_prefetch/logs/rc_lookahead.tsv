@@ -1,0 +1,12 @@
+lu_normal	0	66
+lu_multitask	0	90
+lu_seq_lay	0	47
+lu_seq_seq	0	29
+lu_hang_wait	0	15
+lu_hang_run	0	13
+lu_bad_queue	0	62
+lu_bad_vec	0	40
+lu_bad_lay	0	2
+lu_hold_r_c	0	60
+lu_hold_b_c	0	40
+lu_restart	0	11

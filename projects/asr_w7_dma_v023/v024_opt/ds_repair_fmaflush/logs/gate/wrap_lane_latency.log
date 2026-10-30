@@ -1,0 +1,4 @@
+[PASS] wrapper latency=7 II=1 n=24
+[PASS] lane mode0 bypass latency=12 II=1 n=24
+WRAP_LANE_ERRORS=0
+tb/tb_wrap_lane_lat.sv:162: $finish called at 745000 (1ps)

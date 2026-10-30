@@ -1,0 +1,8 @@
+bad_total_mismatch 1 4 4 1.000 0 0 0 0 0 0 0 0
+bad_src_overflow 1 4 4 1.000 0 0 0 0 0 0 0 0
+bad_dst_overflow 1 4 4 1.000 0 0 0 0 0 0 0 0
+bad_overlap 1 4 4 1.000 0 0 0 0 0 0 0 0
+bad_param_end 1 4 4 1.000 0 0 0 0 0 0 0 0
+bad_param_mode2 1 2 2 1.000 0 0 0 0 0 0 0 0
+CYCLES_TOTAL orig=352545 cand=290554 ratio=0.824
+SUMMARY cases=57 fails=0

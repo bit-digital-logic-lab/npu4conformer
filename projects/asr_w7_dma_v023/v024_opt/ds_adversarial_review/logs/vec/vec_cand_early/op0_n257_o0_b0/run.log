@@ -1,0 +1,12 @@
+WARNING: /home/yang/Desktop/项目/v024_opt/ds_adversarial_revi $readmemh's file name argument contains non-printable characters.
+                                                                "/home/yang/Desktop/\377\377\377\377\377\377/v024_opt/ds_adversarial_review/logs/vec/vec_cand_early/op0_n257_o0_b0/a.hex"
+WARNING: /home/yang/Desktop/项目/v024_opt/ds_adversarial_revi $readmemh's file name argument contains non-printable characters.
+                                                                "/home/yang/Desktop/\377\377\377\377\377\377/v024_opt/ds_adversarial_review/logs/vec/vec_cand_early/op0_n257_o0_b0/b.hex"
+WARNING: /home/yang/Desktop/项目/v024_opt/ds_adversarial_revi $readmemh's file name argument contains non-printable characters.
+                                                                "/home/yang/Desktop/\377\377\377\377\377\377/v024_opt/ds_adversarial_review/logs/vec/vec_cand_early/op0_n257_o0_b0/c.hex"
+WARNING: /home/yang/Desktop/项目/v024_opt/ds_adversarial_revi $readmemh's file name argument contains non-printable characters.
+                                                                "/home/yang/Desktop/\377\377\377\377\377\377/v024_opt/ds_adversarial_review/logs/vec/vec_cand_early/op0_n257_o0_b0/exp32.hex"
+VEC op=0 n=257 out16=0 bdelay=0
+RESULT op=0 n=257 out16=0 cycles=408 b=2 last_b=408 done=411 errors=0
+PASS
+/home/yang/Desktop/项目/v024_opt/ds_adversarial_review/tb/tb_vector.sv:252: $finish called at 4175000 (1ps)

@@ -1,0 +1,3 @@
+[PASS] wrapper latency=7 II=1 n=24
+[PASS] lane mode0 bypass latency=12 II=1 n=24
+WRAP_LANE_ERRORS=0

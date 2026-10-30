@@ -1,0 +1,32 @@
+{
+ "done": [
+  "read review decisions/input/README and v023 primary_stream_fix + ds_closeout_fusion reports",
+  "published INTERFACE.md before RTL completion",
+  "implemented 2x32 per-column scale/bias ping-pong table with per-entry valid and bc/column sideband",
+  "implemented inactive-bank DMA preload and active-bank drain protection",
+  "implemented independent 4xFP32 post-ReLU output with its own ready/valid",
+  "preserved scalar broadcast addr 0/1 compatibility and per-entry fallback",
+  "built independent Python gold and real RTL testbench",
+  "fixed scale/bias pipeline alignment, legacy addr-2, A16/packed re-fork",
+  "fixed FP32 fork vs ReLU handshake under backpressure",
+  "10/10 scenarios pass, 0 mismatches/stability/parameter errors, all drain",
+  "negative control with broken RTL fails as required",
+  "frozen reference metadata + unique filelist + rerun scripts",
+  "final REPORT/result with rc, SHA, tested/not-tested, unique filelist, rerun scripts",
+  "noted ds_fusion_buffers optional-interface differences (parameter spelling, FP32/A16 coexistence) in INTERFACE.md section 8"
+ ],
+ "not_claimed": [
+  "synthesis/STA/Vivado/board/VNC/push",
+  "frequency or whole-model seconds",
+  "AXI/BFM/B-response or full-graph integration inside this module",
+  "residual arithmetic or reassociation",
+  "editing ds_fusion_buffers or other worker trees"
+ ],
+ "open": [
+  "main-agent independent acceptance"
+ ],
+ "stage": "complete_pending_main_agent_acceptance",
+ "task": "ds_epilogue_channels",
+ "updated": "2026-10-30T15:35:00+08:00",
+ "worker": "opencode-go/deepseek-v4.1-flash"
+}

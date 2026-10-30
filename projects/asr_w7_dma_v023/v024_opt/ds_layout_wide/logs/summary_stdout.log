@@ -1,0 +1,46 @@
+{
+ "verdict": "PASS_LOCAL_LOGIC",
+ "checks": {
+  "official_normal_8_pass": true,
+  "official_error_modes_12_match": true,
+  "official_preserved_gold_matches_independent_model": true,
+  "gold_32_pass": true,
+  "edge_53_pass": true,
+  "random_152_pass": true,
+  "random_no_extra_read_beats_vs_v023": true,
+  "descriptor_fuzz_57_pass": true,
+  "scalar_fallback_identical": true,
+  "mode2_gate_measured": true,
+  "c48_negative_control_fails_and_fixed_passes": true,
+  "metrics_complete_no_masking": true,
+  "failure_path_exits_nonzero": true
+ },
+ "grand_totals": {
+  "base": {
+   "cycles": 3700151,
+   "processed": 692049,
+   "read_requests": 34685,
+   "write_requests": 7395,
+   "read_beats": 75195,
+   "write_beats": 110377,
+   "read_bytes": 1203120,
+   "write_bytes": 1748388,
+   "fast_elements": null
+  },
+  "wide": {
+   "cycles": 2948405,
+   "processed": 692049,
+   "read_requests": 35426,
+   "write_requests": 7411,
+   "read_beats": 74901,
+   "write_beats": 110377,
+   "read_bytes": 1198416,
+   "write_bytes": 1748388,
+   "fast_elements": 153256
+  },
+  "effective_bytes": 1748388,
+  "overfetch_base_lines": 13882,
+  "overfetch_wide_lines": 13588,
+  "coverage": 0.22145252720544353
+ }
+}

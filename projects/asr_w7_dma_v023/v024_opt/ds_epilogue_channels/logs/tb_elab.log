@@ -1,0 +1,3 @@
+tb/tb_epilogue_channels.sv:207: error: Unable to bind wire/reg/memory `dut.fork_fire' in `tb_epilogue_channels'
+tb/tb_epilogue_channels.sv:207: error: Unable to elaborate condition expression.
+Elaboration failed

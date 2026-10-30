@@ -1,0 +1,2 @@
+CHECK s_n96_b400 dut=3072 gold=3072 mismatch=0
+CHECK_PASS

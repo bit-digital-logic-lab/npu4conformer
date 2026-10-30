@@ -1,0 +1,24 @@
+{
+  "name": "tail_0271",
+  "op": 17,
+  "total": 271,
+  "out16": 0,
+  "outwords": 271,
+  "plan_base": 268468224,
+  "d_addr": 67174400,
+  "gold_count": 271,
+  "gold_sha256": "380610f0f26bd48537a2bab7889047218dee53d05f5ed67851b185c87968e2e5",
+  "inputs_sha256": "ae977aef3ade9deb27c56f94ea5e9843a6e0bdc721d24ba538d8e698c403a947",
+  "mem_sha256": "b27bf109768aad370260b6cc2a622a0cfccefabd6f9f267b84d161846deffa22",
+  "desc": [
+    576079171,
+    17,
+    67108864,
+    67112960,
+    67117056,
+    67174400,
+    271,
+    0
+  ],
+  "tail": 15
+}

@@ -1,0 +1,26 @@
+{
+  "name": "official_fixture_1001",
+  "op": 17,
+  "total": 1001,
+  "out16": 0,
+  "outwords": 1001,
+  "plan_base": 268468224,
+  "d_addr": 67174400,
+  "gold_count": 1001,
+  "gold_sha256": "56788e6cecfc09c7f452beb38ef0a0ad2ffa6e4930a9436b2f9b4e3470a96d2e",
+  "inputs_sha256": "43754101261970c6c636a5e7c5bb6aea47e6fc1634b805efb0544579d37cd3de",
+  "mem_sha256": "e4fb4cba8f4baa9760475c5026b68035d96dbd9766f765355f58a64503f751f7",
+  "desc": [
+    576079171,
+    17,
+    67108864,
+    67112960,
+    67117056,
+    67174400,
+    1001,
+    0
+  ],
+  "mode": "official work/tests/fma_fixture",
+  "source_gold_sha256": "579f4a5d3e1c232cd9c069fa597796ac4ad376ce008066e270813b6faf3ac448",
+  "source_mem_sha256": "f32a92db9c29047a8d78256057452d8d2c506c8a08ab462d9e0039eee0016189"
+}

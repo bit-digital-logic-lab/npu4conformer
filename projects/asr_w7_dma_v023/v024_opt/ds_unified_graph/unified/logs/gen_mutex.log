@@ -1,0 +1,1 @@
+wrote mutex fixtures: ['mutex_hang_run.hex', 'mutex_hang_wait.hex', 'mutex_healthy.hex', 'mutex_lay_first.hex', 'mutex_seq_first.hex']

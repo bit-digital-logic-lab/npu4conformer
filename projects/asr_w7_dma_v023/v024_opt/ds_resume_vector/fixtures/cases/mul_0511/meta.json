@@ -1,0 +1,23 @@
+{
+  "name": "mul_0511",
+  "op": 2,
+  "total": 511,
+  "out16": 0,
+  "outwords": 511,
+  "plan_base": 268468224,
+  "d_addr": 67174400,
+  "gold_count": 511,
+  "gold_sha256": "5252a95def19bc09042224c49a0c9e29c030c1771e48474cbbf1614807e239ed",
+  "inputs_sha256": "46122b8b7b5117cc3494fa33dc02a466c1e6b8288e8eb8daf1205b334fce783d",
+  "mem_sha256": "c213eb1acb6dff6d16bee0ea50410d34bf1b0139cc29d9a01aaae761051e3e51",
+  "desc": [
+    576079171,
+    2,
+    67108864,
+    67112960,
+    67117056,
+    67174400,
+    511,
+    0
+  ]
+}

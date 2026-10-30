@@ -1,0 +1,23 @@
+{
+  "name": "mul_0002",
+  "op": 2,
+  "total": 2,
+  "out16": 0,
+  "outwords": 2,
+  "plan_base": 268468224,
+  "d_addr": 67174400,
+  "gold_count": 2,
+  "gold_sha256": "6f7f3da1c961bc361cc03233ee4fefcaa3a2edb5ffa1dc0cf6ef80efdb554ed1",
+  "inputs_sha256": "efb2f542be3cd31901e131ebce927bb51ca8cd5c319782c416eb496c79ea79b9",
+  "mem_sha256": "77f8224012480b75007be163e65f530950e8419a2adc8071e4b546a7a69fa02f",
+  "desc": [
+    576079171,
+    2,
+    67108864,
+    67112960,
+    67117056,
+    67174400,
+    2,
+    0
+  ]
+}

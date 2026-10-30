@@ -1,0 +1,4 @@
+frozen_8734 rows=8734 project_gold_mismatch=0 strict_vs_project_diff=58
+frozen_251 rows=251 project_gold_mismatch=0 strict_vs_project_diff=25
+wrote 2000 fresh vectors to /home/yang/Desktop/项目/v024_opt/ds_repair_fmaflush/vectors/fma_fresh_2000.txt
+GOLD_CHECK=PASS

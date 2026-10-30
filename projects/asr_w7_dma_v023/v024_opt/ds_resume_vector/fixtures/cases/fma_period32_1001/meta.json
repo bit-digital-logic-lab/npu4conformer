@@ -1,0 +1,24 @@
+{
+  "name": "fma_period32_1001",
+  "op": 17,
+  "total": 1001,
+  "out16": 0,
+  "outwords": 1001,
+  "plan_base": 268468224,
+  "d_addr": 67174400,
+  "gold_count": 1001,
+  "gold_sha256": "019db4728c47a6b6307b0dd629dd2013bea3ac760ba60c4a637ee7e46530a645",
+  "inputs_sha256": "d93c338153213ea366b5b38bacd900f727106201aadb831c06323efdca770ea0",
+  "mem_sha256": "6310253a362e6a4958186d1969823c27e0452a10bacae850def84c0d8deccf5a",
+  "desc": [
+    576079171,
+    17,
+    67108864,
+    67112960,
+    67117056,
+    67174400,
+    1001,
+    32
+  ],
+  "mode": "period32"
+}

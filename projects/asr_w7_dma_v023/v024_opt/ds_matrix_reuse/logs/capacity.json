@@ -1,0 +1,75 @@
+{
+  "task": "ds_matrix_reuse",
+  "kind": "logical declaration inventory, not synthesis/BRAM placement",
+  "arrays": [
+    {
+      "name": "c_cache_banked4_pipe banks",
+      "shape": "4 x 512 x 48",
+      "bits": 98304,
+      "bytes": 12288,
+      "style": "block RAM (ram_style=block)",
+      "role": "2 x 32x32 C48 slots"
+    },
+    {
+      "name": "A stage banks",
+      "shape": "2 x 16 x 8 x 128",
+      "bits": 32768,
+      "bytes": 4096,
+      "style": "distributed RAM",
+      "role": "2 x 32x32 A16 stages"
+    },
+    {
+      "name": "W stage banks",
+      "shape": "2 x 16 x 64 x 8",
+      "bits": 16384,
+      "bytes": 2048,
+      "style": "distributed RAM",
+      "role": "2 x 32x32 W7 stages"
+    },
+    {
+      "name": "result_payload",
+      "shape": "1 x 49152",
+      "bits": 49152,
+      "bytes": 6144,
+      "style": "registers (not an array)",
+      "role": "one 32x32 C48 result"
+    }
+  ],
+  "memory_array_bits": 147456,
+  "memory_array_bytes": 18432,
+  "c_cache_slot_bits": 49152,
+  "c_cache_slot_bytes": 6144,
+  "c_cache_two_slots_bytes": 12288,
+  "new_memory_arrays_vs_v023": 0,
+  "v023_array_check": {
+    "available": true,
+    "c_cache_sha_equal": true,
+    "operand_bank_array_decls_equal": true,
+    "storage_queue_array_decls_equal": true
+  },
+  "storage_register_arrays": [
+    " reg [15:0] lq_beats[0:LD_Q-1];",
+    " reg [15:0] wq_beats[0:WR_Q-1];",
+    " reg [1:0] lq_kind[0:LD_Q-1];",
+    " reg [31:0] lq_addr[0:LD_Q-1];",
+    " reg [31:0] wq_addr[0:WR_Q-1];"
+  ],
+  "engine_register_arrays": [],
+  "control_registers_added": [
+    "unit",
+    "use_pair",
+    "wst",
+    "curs",
+    "cload_u",
+    "res_slot",
+    "res_row[15:0]",
+    "res_step[1:0]",
+    "res_next[4:0]",
+    "res_issued",
+    "fresh_c[0:1]",
+    "w/a/c_load_blocks[31:0]",
+    "pair_schedules[31:0]",
+    "w_reuse_saved[31:0]"
+  ],
+  "note": "No new BRAM/LUTRAM array.  Extra flops are control/telemetry only; this is not a zero extra FF/LUT claim and not an STA/synthesis result."
+}

@@ -1,0 +1,1 @@
+CMD: iverilog -g2012 -Wall -o /home/yang/Desktop/项目/v024_opt/ds_repair_epilogue/regress/build/tb_epilogue_channels rtl/epilogue_i48_to_f32.sv rtl/epilogue_fma_stage.sv rtl/epilogue_f32_to_i16.sv rtl/epilogue_relu.sv rtl/epilogue_lane.sv rtl/fp32_fma_pipe.sv rtl/epilogue_stream_engine_v024.sv tb/tb_epilogue_channels.sv -s tb_epilogue_channels

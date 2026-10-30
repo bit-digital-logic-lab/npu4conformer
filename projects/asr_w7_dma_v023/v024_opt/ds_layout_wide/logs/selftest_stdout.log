@@ -1,0 +1,4 @@
+failure-path self-test: injected missing wide.cycles in random row 0
+audit_bad_rc=1 (must be non-zero)
+random:r0_0:wide: missing ['cycles']
+FAILURE_PATH_RC_NONZERO_OK

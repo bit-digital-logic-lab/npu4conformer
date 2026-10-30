@@ -1,0 +1,103 @@
+{
+  "task": "ds_closeout_fusion",
+  "title": "V0.23 real matrix C48 -> on-chip FMA(scale,bias) -> A16 -> AXI writeback fusion bridge",
+  "updated": "2026-10-30",
+  "scope": "local Icarus Verilog logic simulation only; no synthesis/Vivado/STA/board/VNC/push",
+  "status": "PASS_MODULE_LEVEL_FUSION_CHAIN",
+  "current_phase": "P6_done",
+  "phases": [
+    {
+      "id": "P0",
+      "name": "Read upstream reports/interfaces, audit the Gemini partial bridge, copy frozen candidates",
+      "status": "done",
+      "evidence": [
+        "primary_stream_fix/REPORT.md + INTERFACE.md read",
+        "primary_acceptance/round2 FMA 8734 / approx 15168 results read",
+        "integrated/REPORT.md + INTERFACE.md read",
+        "gemini_closeout_fusion top fails elaboration: 7 port errors, no build/logs",
+        "candidate/matrix and candidate/primary are byte-identical copies (diff -rq clean)",
+        "logs/upstream_sha256.txt"
+      ]
+    },
+    {
+      "id": "P1",
+      "name": "Implement the real C48 stream bridge: framer, elastic FIFO/credit, tile-last, row-major word index",
+      "status": "done",
+      "evidence": [
+        "rtl/fusion_c48_framer.sv",
+        "rtl/fusion_c48_fifo.sv",
+        "tb/tb_fifo_unit.sv: 1000 beats, max occupancy 15, no overflow"
+      ]
+    },
+    {
+      "id": "P2",
+      "name": "Closed-loop fused top: matrix -> epilogue -> 2 KiB reorder -> A16 writer -> AXI write DMA; B-response drain",
+      "status": "done",
+      "evidence": [
+        "rtl/matrix_stream_fusion_top.sv",
+        "rtl/fusion_a16_blockbuf.sv",
+        "rtl/fusion_a16_writer.sv",
+        "logs/fused_bp0.log"
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "Independent gold: exact-rational FMA single-rounding vs mul+add two-rounding; odd-tail vectors",
+      "status": "done",
+      "evidence": [
+        "scripts/gold_fusion.py",
+        "vectors/main/gold_a16.hex + gold_muladd_a16.hex",
+        "tb/tb_epilogue_contract.sv",
+        "logs/contract.log: FMA mismatch 0, FMA-vs-muladd 8/8"
+      ]
+    },
+    {
+      "id": "P4",
+      "name": "Same-load verification: 5 backpressure modes, edge/odd tiles, 2 tiles, fma/relu modes, odd-tail writes",
+      "status": "done",
+      "evidence": [
+        "result.json cases: 23/23 PASS",
+        "logs/regression.tsv",
+        "logs/oddtail_*.log",
+        "logs/fused_edge.log, logs/fused_n64.log"
+      ]
+    },
+    {
+      "id": "P5",
+      "name": "Real unfused baseline (C48 DDR write + readback) and cycle/bus-byte comparison",
+      "status": "done",
+      "evidence": [
+        "rtl/matrix_stream_unfused_top.sv",
+        "rtl/fusion_c48_gearbox.sv",
+        "result.json comparison: 2.07x-3.21x cycles, +12288 B/tile",
+        "logs/unfused_bp*.log"
+      ]
+    },
+    {
+      "id": "P6",
+      "name": "Deliver REPORT/result/INTERFACE/unique filelists/scripts/logs rc/SHA and limits",
+      "status": "done",
+      "evidence": [
+        "REPORT.md",
+        "INTERFACE.md",
+        "result.json",
+        "SHA256SUMS.txt (68 files)",
+        "filelist_fused.f (25 unique modules), filelist_unfused.f (28 unique modules)"
+      ]
+    }
+  ],
+  "verified": [
+    "23/23 simulation cases rc=0 and 0 A16 mismatches",
+    "C48 DDR bytes on fused path = 0 (structural tie-off + AW window monitor)",
+    "FIFO 1000-beat long-stall capacity test",
+    "odd-tail WSTRB 1/3/8/16 bytes",
+    "FMA single-rounding separate from mul+add"
+  ],
+  "not_claimed": [
+    "whole-model WER/CER",
+    "per-channel scale/bias",
+    "synthesis/STA/CDC/board",
+    "full 591 DAG / executor",
+    "BREADY=0 backpressure (DMA drives bready=1)"
+  ]
+}

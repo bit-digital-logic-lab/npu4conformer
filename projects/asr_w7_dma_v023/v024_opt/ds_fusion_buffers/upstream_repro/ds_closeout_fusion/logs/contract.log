@@ -1,0 +1,3 @@
+CONTRACT cases=8 fma_mismatch=0 fma_vs_muladd_diff=8
+CONTRACT_PASS
+tb/tb_epilogue_contract.sv:109: $finish called at 1050000 (1ps)

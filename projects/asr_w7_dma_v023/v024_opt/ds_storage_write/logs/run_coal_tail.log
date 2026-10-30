@@ -1,0 +1,6 @@
+INFO mode=2 cseg=1 wrcmd=1 wrbeat=2 coal=0 gen=1 flush=0 maxb=1 cvalstall=0 csegstall=0 wrbytes=24
+PASS storage_coalesce mode=2
+- /home/yang/Desktop/项目/v024_opt/ds_storage_write/tests/tb_storage_coalesce.sv:236: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 230ns; walltime 0.001 s; speed 352.833 us/s
+- Verilator: cpu 0.001 s on 1 threads; allocated 6 MB

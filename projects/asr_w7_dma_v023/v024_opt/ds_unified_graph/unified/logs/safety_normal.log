@@ -1,0 +1,11 @@
+WAIT cyc=5000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+WAIT cyc=10000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+MATST t=83484 st=1 core_done=0 acc=0
+MATST t=83492 st=2 core_done=0 acc=0
+MATST t=83500 st=3 core_done=0 acc=0
+MATST t=83508 st=4 core_done=0 acc=0
+MATDONE t=98556 st=5 acc=1 core_done=1 cyc=1880
+MATST t=98556 st=5 core_done=1 acc=1
+MATST t=98564 st=0 core_done=1 acc=1
+WAIT cyc=15000 busy=1 fault=0 err=00 iso=0 rd=0 wr=1 b=0
+WAIT cyc=20000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0

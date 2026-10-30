@@ -1,0 +1,808 @@
+{
+  "acceptance": "subject to main-agent review; worker rc=0 is not automatic acceptance",
+  "candidate_rtl": [
+    "rtl/block_storage_stream_v3.sv",
+    "rtl/block_engine_prefetch_v3.sv",
+    "rtl/matrix_p2_cluster_v3.sv"
+  ],
+  "commands_rc": {
+    "build_cl_fast": 0,
+    "build_cl_lw": 0,
+    "build_eng_badpar": 0,
+    "build_eng_bp": 0,
+    "build_eng_edge": 0,
+    "build_eng_errrd": 0,
+    "build_eng_errwr": 0,
+    "build_eng_fast": 0,
+    "build_eng_k1": 0,
+    "build_eng_n64": 0,
+    "build_eng_nosame": 0,
+    "build_ref_cl_fast": 0,
+    "build_ref_cl_lw": 0,
+    "build_ref_cl_wr64": 0,
+    "build_ref_eng_bp": 0,
+    "build_ref_eng_fast": 0,
+    "build_storage_coalesce": 0,
+    "build_validator": 0,
+    "check_reference": 0,
+    "cmp_gold_c1": 0,
+    "cmp_gold_k1": 0,
+    "regen_c1": 0,
+    "regen_k1": 0,
+    "run_cl_fast": 0,
+    "run_cl_lw": 0,
+    "run_coal_abortm": 0,
+    "run_coal_bad": 0,
+    "run_coal_generic": 0,
+    "run_coal_native": 0,
+    "run_coal_split": 0,
+    "run_coal_tail": 0,
+    "run_eng_badpar": 0,
+    "run_eng_bp": 0,
+    "run_eng_edge": 0,
+    "run_eng_errrd": 0,
+    "run_eng_errwr": 0,
+    "run_eng_fast_c0": 0,
+    "run_eng_fast_c1": 0,
+    "run_eng_fast_seed1": 0,
+    "run_eng_fast_seed2": 0,
+    "run_eng_fast_seed3": 0,
+    "run_eng_k1": 0,
+    "run_eng_n64": 0,
+    "run_eng_nosame_c0": 0,
+    "run_eng_p12": 0,
+    "run_ref_cl_fast": 0,
+    "run_ref_cl_lw": 0,
+    "run_ref_cl_wr64": 0,
+    "run_ref_eng_bp": 0,
+    "run_ref_eng_fast": 0,
+    "run_validator": 0
+  },
+  "cseg_bubble_compare": {
+    "note": "same-engine A/B: SAME_CYCLE_CSEG=1 accepts cseg+first cval in one cycle; =0 keeps the v0.23 one-cycle cseg bubble.",
+    "old_bubble": {
+      "c_collect": 1688,
+      "cycles": 4785
+    },
+    "same_cycle": {
+      "c_collect": 1560,
+      "cycles": 4721
+    }
+  },
+  "date": "2026-10-30",
+  "failed_steps": 0,
+  "file_sha256": {
+    "INTERFACE.md": "9309972d7263bec1558565722843c1ff1c376a875078c71da01d6d14d98b4c91",
+    "README.md": "1e03ec534cbe0ea8845826a7ffe56ac0c6e1c08d208cf050be2d9db399fc6e70",
+    "REFERENCE_SHA256.json": "cc26ee8955c019fab16d6eafefabf1888ea48c7418d1ecd2fc5273949dba6edc",
+    "REPORT.md": "72726451d6ebf6a4ce6b8bf03253d11c2e1107f55371f1ed5596300a2db1f46b",
+    "USER_UPDATES.md": "621f41130ed3c98dda67b945ad494b0a80d882561fab57f6f72f87a58e0e578d",
+    "filelist.txt": "96d37fce381dac1018e1c5d5066d69f243dd17f400294daae71b2867fdc75534",
+    "fixtures/eng_badpar/exp_c.txt": "d45a8903118afdce0a7c3302d2a48f3b5149693aae6d0f3218e3498b31de13a9",
+    "fixtures/eng_badpar/init.hex": "b3b98e5d7ca7d54d18ec403be6e1eb7d6707dc8f8a1bc47c30b184d3c5d461a6",
+    "fixtures/eng_c0/exp_c.txt": "d45a8903118afdce0a7c3302d2a48f3b5149693aae6d0f3218e3498b31de13a9",
+    "fixtures/eng_c0/init.hex": "edec4bd85aa4c1b96ca99d235cef82f961994563205d08f990dde668100cae0c",
+    "fixtures/eng_c1/exp_c.txt": "56e33b2694ddb84639f89b0a27cccb9e125dce3eeb638fe59270fa390794d0c9",
+    "fixtures/eng_c1/init.hex": "c3e4b1187939a494ed4f8b7cf36dce4861e59f0d24f79d23439e3b3ea1e3412e",
+    "fixtures/eng_edge/exp_c.txt": "0da08244a5f3d0429d3f5b36c3e6ddbb05738eb2527266dba6cc9b7ee01f850a",
+    "fixtures/eng_edge/init.hex": "24098266f8e6e6c805188738c127449a31c945c7b644766bc5f641b26608fa1e",
+    "fixtures/eng_k1/exp_c.txt": "36a38c45d8ed01760e4ec41d9f93efaf7cd5f3ef5d777441b30f8c4c2c6c94e8",
+    "fixtures/eng_k1/init.hex": "e374028582e6bc2e4000bca77bee6921d878dcb80faa7e5bc12993ae2e77838e",
+    "fixtures/eng_n64/exp_c.txt": "f15ffecc70afc03f0cb2b099fbbb512ed2e0bee44e8ad8bdbc55f912d5acf05d",
+    "fixtures/eng_n64/init.hex": "2a70e3526f3ab346f4465313dd2688460d269914d6b9d7d6112a392e5b65b38b",
+    "fixtures/eng_p12/exp_c.txt": "0be7ec9432c87bbf1a6f6dd856f378a01484f7662ca8f4b9fd4de38fada4d6a6",
+    "fixtures/eng_p12/init.hex": "97703831c31778502e1d799c7f9777dd9bcd41f3eeefd3322d22e0e89b5c9ff5",
+    "progress.json": "3213c72de74999cb05bd972bc7855d4883b8f5e61597ca9def167ef9e1177429",
+    "rtl/array16_w7_c48_cfg.sv": "c4203e0b7fc21b1b11e82579343236089342352d70b167b70791b8e69c03daae",
+    "rtl/axi_dma_v020_multi_v2.sv": "dda5aa9fa44f9a78e063b4f7ea4124c86b9252a89d0f720067f588d0592e163f",
+    "rtl/block_address_v020.sv": "9d2bba3f38965133122ca37da9d1ffe06de10807b45c6c6758f08fbe7a3ce63b",
+    "rtl/block_engine_prefetch_v3.sv": "f73d8f224f9fdfc153afed68cfa13cc11a66cfee856ef236d9a77b739873108e",
+    "rtl/block_storage_stream_v3.sv": "ddb87745321c00a332767bee3e1f562615c1ea66f7da2f34eeecccc575a5cc9a",
+    "rtl/c_cache_banked4_pipe.sv": "e34b79c7c28df229e47a8247056a8a1e3988a7ae0385709fbf621f79b329d1fa",
+    "rtl/matrix_p2_cluster_v3.sv": "319488cbe46863fbd40ab1cbdaa13479c49c2ecf75c73b1c3fc43413ba83c192",
+    "rtl/operand_banks_dual_v2.sv": "0c3cd46224cd12aaed2461ab4a251fb3fce233e5c12ac21b403f4524cf45a112",
+    "rtl/pe_w7_c48_cfg.sv": "d8b5089073f4629f113b7735316593b77335ad99d8adf0c6757bd2d70269f179",
+    "scripts/check_reference.py": "20f7db423d2987bffe6e8e9b5a096cb5aead54aa8d65991bfcb75e740d02eba5",
+    "scripts/collect_metrics.py": "84d4af1f3649df05934794aeead6c6da1a43a5912748bb9852e6b4ccb3c73835",
+    "scripts/make_result.py": "a7d4f668e4130aaf69d4810189d2fa20dd4ec8cc3176b75eea86e0b349454f37",
+    "scripts/run_all.sh": "077e4d050cb714f42d96a9e9a263b5a34314d2161c3ec828ac6335b0ab32912d",
+    "tests/axi128_ddr_bfm_v2.sv": "590429432f52414891110bf9bd256d7c2b18cac9355b8ae052cdc9406c3a4331",
+    "tests/gen_engine_vectors.py": "c5e224d62a5c304cf8c347311ab4e60d7479bb0af043d37a225d6e0d19c054f3",
+    "tests/tb_cluster_ref_wr64.sv": "f5b5642aeb35ca1820e90b9a6bb4229883eca637f73e9b6af8c16cc7419bb9ba",
+    "tests/tb_cluster_v3.sv": "4805973cab275d9a37b72fb67d341056ec04925e65eba865e03768f491fecddd",
+    "tests/tb_engine_v3.sv": "a9bf16973c69468c486ef5e52c7c5e3ecf40ba33fbb1e4b0b56165cdbc9e7d04",
+    "tests/tb_storage_coalesce.sv": "2a9a297126ea95339f827aa72eb43b29290ccec89d54d7f35c80ad316aa05760",
+    "tests/tb_validator_pipe.sv": "205c41497142df47e0c6de88810f394fa0a80e9ca6fb97cd237ccf85a42366a6",
+    "tests/txn_dma_bfm.sv": "10e3db5870d0c716c24b8726cbdb416e06c15e35039a188835fe460a79caf272"
+  },
+  "filelist": [
+    "rtl/block_storage_stream_v3.sv",
+    "rtl/block_engine_prefetch_v3.sv",
+    "rtl/matrix_p2_cluster_v3.sv",
+    "rtl/operand_banks_dual_v2.sv",
+    "rtl/block_address_v020.sv",
+    "rtl/array16_w7_c48_cfg.sv",
+    "rtl/pe_w7_c48_cfg.sv",
+    "rtl/c_cache_banked4_pipe.sv",
+    "rtl/axi_dma_v020_multi_v2.sv"
+  ],
+  "logs": {
+    "commands": "logs/commands.log",
+    "commands_sha256": "86cfdfdfce26c81ddf523f21d15d49310b785857491de167c1c2e81a889b3234",
+    "metrics": "logs/metrics.json"
+  },
+  "long_wait_compare": {
+    "cycle_reduction": 1812,
+    "degradation": {
+      "ref_fast_to_long_wait_cycles": 3029,
+      "ref_long_wait_over_fast": 3.1651,
+      "v3_fast_to_long_wait_cycles": 1251,
+      "v3_long_wait_over_fast": 1.9165
+    },
+    "fast": {
+      "ref_c_collect": 891,
+      "ref_cycles": 1399,
+      "v3_c_collect": 260,
+      "v3_cycles": 1365
+    },
+    "note": "K32 PIPE=4, same strict AXI128 BFM, LAT_MIN=LAT_MAX=48, same input/gold; cycles are start-to-done after the last B drains.",
+    "ref_over_v3": 1.6927,
+    "ref_v2": {
+      "c_collect": 3777,
+      "cycles": 4428,
+      "wr_bytes": 6144,
+      "write_bursts": 65
+    },
+    "ref_v2_wrout64": {
+      "c_collect": 3777,
+      "cycles": 4428,
+      "write_bursts": 65
+    },
+    "v3": {
+      "c_collect": 260,
+      "cseg": 64,
+      "cycles": 2616,
+      "max_b_credit": 1,
+      "wr_bytes": 6144,
+      "wr_cmds": 24,
+      "write_bursts": 24
+    }
+  },
+  "not_tested": [
+    "full 512-dim ASR model / CASE0000 / ONNX / host executor",
+    "WER/CER or quantized accuracy",
+    "synthesis, STA, Fmax, CDC, multi-clock, board DDR/PHY",
+    "physical Xilinx HP-port/SmartConnect arbitration",
+    "whole-model seconds or a frequency target",
+    "generic path with more than 128 B per cseg"
+  ],
+  "reference_manifest": "REFERENCE_SHA256.json",
+  "reference_manifest_sha256": "cc26ee8955c019fab16d6eafefabf1888ea48c7418d1ecd2fc5273949dba6edc",
+  "reference_root": "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_matrix",
+  "repro": "bash scripts/run_all.sh",
+  "run_all_rc": 0,
+  "scope": "logic simulation only; no synthesis, Vivado, STA, DRC, CDC, board, VNC or push; no frequency or whole-model seconds claim",
+  "status": "complete-logic-simulation",
+  "storage_angles": {
+    "abortm": {
+      "coal": 0,
+      "cseg": 1,
+      "csegstall": 0,
+      "cvalstall": 0,
+      "flush": 0,
+      "gen": 1,
+      "maxb": 0,
+      "status": "PASS",
+      "wrbeat": 0,
+      "wrcmd": 0
+    },
+    "bad": {
+      "coal": 0,
+      "cseg": 1,
+      "csegstall": 0,
+      "cvalstall": 0,
+      "flush": 0,
+      "gen": 0,
+      "maxb": 0,
+      "status": "PASS",
+      "wrbeat": 0,
+      "wrcmd": 0
+    },
+    "generic": {
+      "coal": 0,
+      "cseg": 8,
+      "csegstall": 0,
+      "cvalstall": 47,
+      "flush": 0,
+      "gen": 8,
+      "maxb": 2,
+      "status": "PASS",
+      "wrbeat": 48,
+      "wrcmd": 8
+    },
+    "native": {
+      "coal": 64,
+      "cseg": 64,
+      "csegstall": 0,
+      "cvalstall": 0,
+      "flush": 24,
+      "gen": 0,
+      "maxb": 2,
+      "status": "PASS",
+      "wrbeat": 384,
+      "wrcmd": 24
+    },
+    "split": {
+      "coal": 64,
+      "cseg": 64,
+      "csegstall": 0,
+      "cvalstall": 0,
+      "flush": 25,
+      "gen": 0,
+      "maxb": 2,
+      "status": "PASS",
+      "wrbeat": 384,
+      "wrcmd": 25
+    },
+    "tail": {
+      "coal": 0,
+      "cseg": 1,
+      "csegstall": 0,
+      "cvalstall": 0,
+      "flush": 0,
+      "gen": 1,
+      "maxb": 1,
+      "status": "PASS",
+      "wrbeat": 2,
+      "wrcmd": 1
+    }
+  },
+  "task": "ds_storage_write",
+  "tested": [
+    "v023 reference SHA freeze and independent integer gold regeneration/cmp",
+    "storage-level: 64x96B native -> 24 coalesced requests, C_BASE+0x80 4KiB split -> 25 requests, generic 128B stride, 24B/2-beat tail strobe, bad-segment fault, abort drain",
+    "registered ld validator: 4 commands on consecutive cycles, boundary/identity/alignment/wrap rejects",
+    "engine: fast K96 C0/C1, 3 seeds, multi-N N64, K32 single-tile, edge M17N19K33, P12 clip, write backpressure",
+    "engine fault contracts: read error 09, write error 0a, bad W parity 09, all with cwr_pending=0",
+    "candidate and v023 v2 on the same strict AXI128 BFM: K32 fast and long_wait (LAT=48)",
+    "v2 WR_OUT=64 long_wait control: cycles unchanged",
+    "same-engine cseg+first-cval A/B"
+  ],
+  "tests": {
+    "run_cl_fast": {
+      "name": "run_cl_fast",
+      "status": "PASS",
+      "values": {
+        "armax": 8,
+        "bfm_wbeats": 384,
+        "bmax": 1,
+        "ccyc": 260,
+        "cgrp": 256,
+        "coal": 64,
+        "code": 0,
+        "compute": 272,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 1365,
+        "flush": 24,
+        "gen": 0,
+        "maxb": 1,
+        "rv": 1,
+        "wr_bursts": 24,
+        "wr_bytes": 6144,
+        "wrbeat": 384,
+        "wrblk": 64,
+        "wrcmd": 24
+      }
+    },
+    "run_cl_lw": {
+      "name": "run_cl_lw",
+      "status": "PASS",
+      "values": {
+        "armax": 8,
+        "bfm_wbeats": 384,
+        "bmax": 1,
+        "ccyc": 260,
+        "cgrp": 256,
+        "coal": 64,
+        "code": 0,
+        "compute": 272,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 2616,
+        "flush": 24,
+        "gen": 0,
+        "maxb": 1,
+        "rv": 1,
+        "wr_bursts": 24,
+        "wr_bytes": 6144,
+        "wrbeat": 384,
+        "wrblk": 64,
+        "wrcmd": 24
+      }
+    },
+    "run_coal_abortm": {
+      "name": "run_coal_abortm",
+      "status": "PASS",
+      "values": {
+        "coal": 0,
+        "cseg": 1,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "flush": 0,
+        "gen": 1,
+        "maxb": 0,
+        "wrbeat": 0,
+        "wrcmd": 0
+      }
+    },
+    "run_coal_bad": {
+      "name": "run_coal_bad",
+      "status": "PASS",
+      "values": {
+        "coal": 0,
+        "cseg": 1,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "flush": 0,
+        "gen": 0,
+        "maxb": 0,
+        "wrbeat": 0,
+        "wrcmd": 0
+      }
+    },
+    "run_coal_generic": {
+      "name": "run_coal_generic",
+      "status": "PASS",
+      "values": {
+        "coal": 0,
+        "cseg": 8,
+        "csegstall": 0,
+        "cvalstall": 47,
+        "flush": 0,
+        "gen": 8,
+        "maxb": 2,
+        "wrbeat": 48,
+        "wrcmd": 8
+      }
+    },
+    "run_coal_native": {
+      "name": "run_coal_native",
+      "status": "PASS",
+      "values": {
+        "coal": 64,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "flush": 24,
+        "gen": 0,
+        "maxb": 2,
+        "wrbeat": 384,
+        "wrcmd": 24
+      }
+    },
+    "run_coal_split": {
+      "name": "run_coal_split",
+      "status": "PASS",
+      "values": {
+        "coal": 64,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "flush": 25,
+        "gen": 0,
+        "maxb": 2,
+        "wrbeat": 384,
+        "wrcmd": 25
+      }
+    },
+    "run_coal_tail": {
+      "name": "run_coal_tail",
+      "status": "PASS",
+      "values": {
+        "coal": 0,
+        "cseg": 1,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "flush": 0,
+        "gen": 1,
+        "maxb": 1,
+        "wrbeat": 2,
+        "wrcmd": 1
+      }
+    },
+    "run_eng_badpar": {
+      "name": "run_eng_badpar",
+      "status": "PASS_FAULT",
+      "values": {
+        "ccyc": 0,
+        "cgrp": 0,
+        "coal": 0,
+        "code": "09",
+        "compute": 0,
+        "cseg": 0,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cwr_pending": 0,
+        "cycles": 207,
+        "flush": 0,
+        "gen": 0,
+        "maxb": 0,
+        "wrbeat": 0,
+        "wrblk": 0,
+        "wrcmd": 0
+      }
+    },
+    "run_eng_bp": {
+      "name": "run_eng_bp",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1560,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 26470,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_edge": {
+      "name": "run_eng_edge",
+      "status": "PASS",
+      "values": {
+        "ccyc": 520,
+        "cgrp": 512,
+        "coal": 64,
+        "code": 0,
+        "compute": 394,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 5190,
+        "flush": 24,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 384,
+        "wrblk": 64,
+        "wrcmd": 24
+      }
+    },
+    "run_eng_errrd": {
+      "name": "run_eng_errrd",
+      "status": "PASS_FAULT",
+      "values": {
+        "ccyc": 0,
+        "cgrp": 0,
+        "coal": 0,
+        "code": "09",
+        "compute": 0,
+        "cseg": 0,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cwr_pending": 0,
+        "cycles": 141,
+        "flush": 0,
+        "gen": 0,
+        "maxb": 0,
+        "wrbeat": 0,
+        "wrblk": 0,
+        "wrcmd": 0
+      }
+    },
+    "run_eng_errwr": {
+      "name": "run_eng_errwr",
+      "status": "PASS_FAULT",
+      "values": {
+        "ccyc": 655,
+        "cgrp": 640,
+        "coal": 32,
+        "code": "0a",
+        "compute": 748,
+        "cseg": 32,
+        "csegstall": 5,
+        "cvalstall": 5,
+        "cwr_pending": 0,
+        "cycles": 1635,
+        "flush": 10,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 32,
+        "wrblk": 32,
+        "wrcmd": 2
+      }
+    },
+    "run_eng_fast_c0": {
+      "name": "run_eng_fast_c0",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1560,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4721,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_fast_c1": {
+      "name": "run_eng_fast_c1",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1560,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 5493,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_fast_seed1": {
+      "name": "run_eng_fast_seed1",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1560,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4720,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_fast_seed2": {
+      "name": "run_eng_fast_seed2",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1560,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4719,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_fast_seed3": {
+      "name": "run_eng_fast_seed3",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1560,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4718,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_k1": {
+      "name": "run_eng_k1",
+      "status": "PASS",
+      "values": {
+        "ccyc": 260,
+        "cgrp": 256,
+        "coal": 64,
+        "code": 0,
+        "compute": 272,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4102,
+        "flush": 24,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 384,
+        "wrblk": 64,
+        "wrcmd": 24
+      }
+    },
+    "run_eng_n64": {
+      "name": "run_eng_n64",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1040,
+        "cgrp": 1024,
+        "coal": 128,
+        "code": 0,
+        "compute": 1088,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 3630,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_nosame_c0": {
+      "name": "run_eng_nosame_c0",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1688,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4785,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_p12": {
+      "name": "run_eng_p12",
+      "status": "PASS",
+      "values": {
+        "ccyc": 260,
+        "cgrp": 256,
+        "coal": 64,
+        "code": 0,
+        "compute": 272,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4102,
+        "flush": 24,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 384,
+        "wrblk": 64,
+        "wrcmd": 24
+      }
+    },
+    "run_ref_cl_fast": {
+      "name": "run_ref_cl_fast",
+      "status": "PASS",
+      "values": {
+        "armax": 8,
+        "bfm_wbeats": 384,
+        "bmax": 2,
+        "ccyc": 891,
+        "cgrp": 256,
+        "code": 0,
+        "compute": 272,
+        "cycles": 1399,
+        "rv": 1,
+        "wr_bursts": 65,
+        "wr_bytes": 6144,
+        "wrblk": 64
+      }
+    },
+    "run_ref_cl_lw": {
+      "name": "run_ref_cl_lw",
+      "status": "PASS",
+      "values": {
+        "armax": 8,
+        "bfm_wbeats": 384,
+        "bmax": 2,
+        "ccyc": 3777,
+        "cgrp": 256,
+        "code": 0,
+        "compute": 272,
+        "cycles": 4428,
+        "rv": 1,
+        "wr_bursts": 65,
+        "wr_bytes": 6144,
+        "wrblk": 64
+      }
+    },
+    "run_ref_cl_wr64": {
+      "name": "run_ref_cl_wr64",
+      "status": "PASS",
+      "values": {
+        "armax": 8,
+        "bfm_wbeats": 384,
+        "bmax": 2,
+        "ccyc": 3777,
+        "cgrp": 256,
+        "code": 0,
+        "compute": 272,
+        "cycles": 4428,
+        "rv": 1,
+        "wr_bursts": 65,
+        "wr_bytes": 6144,
+        "wrblk": 64
+      }
+    },
+    "run_ref_eng_bp": {
+      "name": "run_ref_eng_bp",
+      "status": "PASS",
+      "values": {
+        "ccyc": 24453,
+        "cgrp": 1536,
+        "code": 0,
+        "compute": 1632,
+        "cycles": 26701,
+        "maxb": 1,
+        "wrblk": 128
+      }
+    },
+    "run_ref_eng_fast": {
+      "name": "run_ref_eng_fast",
+      "status": "PASS",
+      "values": {
+        "ccyc": 2448,
+        "cgrp": 1536,
+        "code": 0,
+        "compute": 1632,
+        "cycles": 4552,
+        "maxb": 1,
+        "wrblk": 128
+      }
+    },
+    "run_validator": {
+      "name": "run_validator",
+      "status": "PASS",
+      "values": {}
+    }
+  },
+  "title": "V0.24 Matrix C48 write coalescing + registered address validator",
+  "unmodified_reference_copies": [
+    "rtl/operand_banks_dual_v2.sv",
+    "rtl/block_address_v020.sv",
+    "rtl/array16_w7_c48_cfg.sv",
+    "rtl/pe_w7_c48_cfg.sv",
+    "rtl/c_cache_banked4_pipe.sv",
+    "rtl/axi_dma_v020_multi_v2.sv"
+  ]
+}

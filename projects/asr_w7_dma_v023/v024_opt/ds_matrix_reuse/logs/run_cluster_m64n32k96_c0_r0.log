@@ -1,0 +1,9 @@
+INFO cluster done fault=0 code=00 cycles=7612 rdblk=12 wrblk=128 cgrp=1536 a=6 w=6 c=0 pairs=0 wsaved=0
+INFO dma rd_bursts=72 rd_bytes=18432 armax=8 wr_bursts=130 wr_bytes=12288 bmax=2
+INFO axi  read_beats=1152 read_bursts=72 write_beats=768 write_bursts=130 aw=130 w=768 b=130 strb_bytes=12288 maxrd=8 maxwr=2
+INFO drain aw_cnt=0 b_cnt=0 wr_active=0
+PASS tb_reuse_cluster_axi M=64 N=32 K=96 CVALID=0 REUSE=0 cycles=7612 AXI_W_bytes=12288 AXI_W_beats=768 AXI_W_bursts=130 rd_bytes=18432
+- /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/tests/tb_reuse_cluster_axi.sv:185: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 76us; walltime 0.419 s; speed 182.088 us/s
+- Verilator: cpu 0.419 s on 1 threads; allocated 8 MB

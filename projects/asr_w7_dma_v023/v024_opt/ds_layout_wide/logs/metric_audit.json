@@ -1,0 +1,13 @@
+{
+ "ok": true,
+ "normal_rows": 245,
+ "allowed_absent_baseline_fast_counters": 245,
+ "allowed_absence_reason": "v023 baseline RTL has no fast path; its TB cannot print fast_* fields",
+ "errors": [],
+ "fuzz_cases": 57,
+ "fuzz_fails": 0,
+ "mode2_cases": 45,
+ "mode2_fails": 0,
+ "scalar_cases": 70,
+ "scalar_fails": 0
+}

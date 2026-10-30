@@ -1,0 +1,365 @@
+{
+ "commands": [
+  "python3 scripts/gen_vectors.py",
+  "python3 scripts/freeze_reference.py --check",
+  "python3 scripts/run_suite.py",
+  "python3 scripts/negative_control.py",
+  "python3 scripts/finalize.py",
+  "bash run_all.sh"
+ ],
+ "files": {
+  "INTERFACE.md": "78994f9ad60da1aacd600220aadaa35a336a0b39a14ed8e906c7a80cf3b70759",
+  "NEGATIVE_CONTROL.json": "66803d0522ff5222d09b1eb0038822fe1dfdb4f58d8e64acab160213aa5910d5",
+  "README.md": "d02e2ee36ed5adcc4d6ddd0f18fdcc3fb2d91eba4b63633ed322384f5c988598",
+  "REFERENCE_LOCK.json": "4af33999c063f87eab35e94f4d9f6829d224fe53c9c0268dd3f1ed62c02d8582",
+  "REPORT.md": "eb2600b6bba36541ac93cd971eab1dc799721e0df82f157c67c1ed1276328434",
+  "RUN_RESULT.json": "e82a842cdc712ab311bd437f7cf064026ee6e94f58a2543d549e078513b1002a",
+  "USER_UPDATES.md": "5d654ed794ce161da7efb70f4913f68fc26aa76ba4b77f39b8fb6c774ea5f2e8",
+  "filelist_v024.f": "12b8e6801cae332393c08c70ecdce68b8d5c4d29bed00b5a637ea8304ab6b7e5",
+  "progress.json": "fb9890589c263363000d555e2a10a923e1d3a6a06b65fc819faea7e267e34fe9",
+  "ref/refmodel.py": "38eb7ed944f05d6ac45ff68b69fbaa4b0b5b895f0eef46fa33e138395ceb64e2",
+  "rtl/epilogue_f32_to_i16.sv": "c51d3327a7fcfbe7e584f1efa275413644147669c9d216ea7f5fbf31b864af6b",
+  "rtl/epilogue_fma_stage.sv": "34b55dc340b33ee570c540453662404579a77b2f8e2b166dbb2563ab3740c00b",
+  "rtl/epilogue_i48_to_f32.sv": "4c862453f53b26e18b832c5fd919da7f8f444b70f9a4affb060deb91a37f5a13",
+  "rtl/epilogue_lane.sv": "c633576dd01da04ec2686096f9e90acdfc7ca4987925c8bb7d053df204cf3885",
+  "rtl/epilogue_relu.sv": "0e008b394489fcdd2f453aeebee5288f1b812d715c5e8840d47f19bcb3142c4d",
+  "rtl/epilogue_stream_engine_v024.sv": "4fff5c3f21b3924c421e4a91a82db40550b1d782b18348cad6bff125c9fcb305",
+  "rtl/fp32_fma_pipe.sv": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12",
+  "run_all.sh": "3d0baaaa0c40abe65b7fd089835b54f9dc7a66d7b352768395cce65a62a69388",
+  "scripts/finalize.py": "5e35f6887f6230e0ffb37fbb6962f1a1216e75601396d5af8e2da1b248ed5749",
+  "scripts/freeze_reference.py": "12288f2e56cf7c9368828dd59c30b3ff7ee91efd4aff5da42fbdbb685ae0c6f1",
+  "scripts/gen_vectors.py": "18d17551056b6bc40bfbe0850ab3d01b68a1325d9e58e977566287c899924338",
+  "scripts/gold_model.py": "5d1344f0748819de75af0116465937c9cf1e11324d42b0e8fe534f1b710b3992",
+  "scripts/negative_control.py": "e4a283cda5f1c2862df7881a9f7c148142eb9b44b725908a2d73a48bde96de82",
+  "scripts/run_suite.py": "cbac7eba3782c5e4b6ef1ff1ea868cb223f841a416d41094388996c3d13eb6ce",
+  "tb/tb_epilogue_channels.sv": "2916dc31b96e0b633e3974278cf906ce3c2ec84a7439a9fc235032b9680c0586",
+  "vectors/abort_fp32_bp1.cmd": "955a418ebe74bd0081982e8c6d226d21d527bd425d14a13e17b6cd9045ec88f9",
+  "vectors/abort_fp32_bp1.json": "a5ede7c1fef46bb05be07d63eb9185d5ddf905513c67ffd7124a8408d1800eb5",
+  "vectors/abort_fp32_bp1.par": "bd390d8f756a6de6980735c1d4bddbbd2005267246eb5b20f314bfd0cfd463b1",
+  "vectors/abort_recover.cmd": "f76a455026500a500495853de931c64574d1e325d3b7cf30754406636bd7155d",
+  "vectors/abort_recover.json": "a6a095b03f6ffd0a3f702525a3b13af597885df100e9aa858d5238ad278ea113",
+  "vectors/abort_recover.par": "e9d0b188271d4ef175677661b8a0b377025200ce8ddd148a05a4f2e5176ea3e7",
+  "vectors/config_wait_bp1.cmd": "8cda8ba9289cfc5fadec9e6ac84f643972616a64c47f9b80fd54d33a15965193",
+  "vectors/config_wait_bp1.json": "19de3528d7de009f740c632947d2388b5ce7d5b9f324fe4fa02626982d37c611",
+  "vectors/config_wait_bp1.par": "5dfef388b1178b1ec6a8a918c4e1b76530258156fb2c3f493a65a94ea710e34c",
+  "vectors/cross_short_bp1.cmd": "9f568f7e04cb8189e6b36c0a8ba0ab5e46b9835dc76cacecdc2e59a38251f4c7",
+  "vectors/cross_short_bp1.json": "fe90ef7a94736d50b95373311ea3e80e3f3755a74a46d37e386667dd80dca7c5",
+  "vectors/cross_short_bp1.par": "9a2a77ca6e274458e6ba636fec0b99ca66223398bd44b03257ad6a78d7e12a21",
+  "vectors/fp32_backpressure.cmd": "01e3d0813c680c13231064b26adf0d30da87b751509ca6fa10cefe40d94af0ea",
+  "vectors/fp32_backpressure.json": "485384633ce6f0e84404b24ce33b237cbfe167bbaf551b865d50e8bddfd7894f",
+  "vectors/fp32_backpressure.par": "d79f301b8ceac8c29f388f63fc45942e3b5aca99b8fad1698c7651a074f15041",
+  "vectors/fp32_long_bp5.cmd": "687427079fda5b97b42a36cc97e46e1f40d214013ea77ce9583749ebdea6b382",
+  "vectors/fp32_long_bp5.json": "6c2b2de43f1bdf83ef5dfae98d5fcfbf19709f302c788b1b0ac3dbaebac755e7",
+  "vectors/fp32_long_bp5.par": "ec34ca7f769f38155d529193da2ed4a730e83837beb49f8cb72f2a6b5f322e7a",
+  "vectors/manifest.json": "f126b644fe9a8a753f0a0617196778234df1482bb8b9468372549cd82839d035",
+  "vectors/partial_table_bp0.cmd": "f8a570796ff59a4128e2b9d8283d26978862f4f2a8493d8bbcf99acffc56f4dc",
+  "vectors/partial_table_bp0.json": "23d3b99a4458a31662e6f9425291dc80df9980ba0bb35f5499c75a710d3c7014",
+  "vectors/partial_table_bp0.par": "947f3013a78bd0f4f2527b3c0de73b6f95d20c3b2d4a744e6afd486e0c98767f",
+  "vectors/per_column_bp1.cmd": "f7d5916195a4911c4564c85bb958640749f7adfeeecdd0c835210016defd079b",
+  "vectors/per_column_bp1.json": "e7d76cdbf03530be8ca517be5c37fee4f5e609ea69f34dd62ea87ab0c70599f4",
+  "vectors/per_column_bp1.par": "f9756503ced9fd7d4057531b03c8e81b2fb42a6e32b631b5bec06799ab779be5",
+  "vectors/scalar_bias_only.cmd": "2991a70bb8a0e2d31be0ad270ae782295df078bda0fc4cb34bfbba99ca66165e",
+  "vectors/scalar_bias_only.json": "8a6018315611d42bcd186565605ca0cfdcac127aeb9b1331e1cd2f398a1d3283",
+  "vectors/scalar_bias_only.par": "877c720f53b561c0a3f196346f66681d4ccb08ef11a448432bb9249aabab3987",
+  "vectors/scalar_bp0.cmd": "75b514630e44d84c72c110131d1c37c0f7347e94945a86a8ddc355fae3ea587b",
+  "vectors/scalar_bp0.json": "50b2329bf6fb793024aef21a157d1f82e0c80f40044f8c7e217001afb674555c",
+  "vectors/scalar_bp0.par": "c8cd959111a8ecc3c9d43bd36fc793b6c51c00922f70b48be84e0eaeb88c2336"
+ },
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "negative_control": {
+  "broken_rtl": "all lanes forced to lane_scale[0]/lane_bias[0]",
+  "pass": true,
+  "rc": 0,
+  "unexpectedly_passed": false
+ },
+ "not_done": [
+  "no synthesis/Vivado/STA; no frequency claim",
+  "no board/VNC/push; no whole-model seconds or WER/CER",
+  "no AXI/BFM/B-response in this module; completion boundary is the last A16/packed/FP32/spill handshake",
+  "no residual add or reassociation; FP32 output is the post-ReLU value for a downstream RNE add",
+  "ds_fusion_buffers integration is an INTERFACE contract only; that worker's tree was not edited",
+  "only module-level Icarus logic simulation; integration/whole-graph acceptance is separate"
+ ],
+ "pass": true,
+ "rc": 0,
+ "reference_lock": {
+  "file": "REFERENCE_LOCK.json",
+  "file_count": 34,
+  "frozen_on": "2026-10-30",
+  "v023_primary_stream_fix": {
+   "asr_fma_ip.sv": "634eea1a15d1f8dbc7a2f8bae8eebd2b0e892da5978ed974ccb7645ff9b10599",
+   "epilogue_f32_to_i16.sv": "c51d3327a7fcfbe7e584f1efa275413644147669c9d216ea7f5fbf31b864af6b",
+   "epilogue_fma_stage.sv": "34b55dc340b33ee570c540453662404579a77b2f8e2b166dbb2563ab3740c00b",
+   "epilogue_i48_to_f32.sv": "637a7b327d35760bc5d741128d04f77bcddde87cc40886dcf24aff09cebd29bf",
+   "epilogue_lane.sv": "d00b4d57776a605cbed790d19e9a7be7bb4b0f1751d4f6b617a9ca35489435f7",
+   "epilogue_relu.sv": "0e008b394489fcdd2f453aeebee5288f1b812d715c5e8840d47f19bcb3142c4d",
+   "epilogue_stream_engine_v023.sv": "336e859f7c061e6c71b25761a299e00656f0fc2d8d18fcf77bdb40c0e98b2e18",
+   "fp32_fma_pipe.sv": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12"
+  }
+ },
+ "task": "ds_epilogue_channels",
+ "tested": {
+  "abort_fp32_bp1": {
+   "beats": 24,
+   "bp": 1,
+   "errors": [],
+   "expected": {
+    "a16": 24,
+    "fp32": 16,
+    "packed": 12,
+    "spill": 0
+   },
+   "observed": {
+    "a16": 14,
+    "fp32": 8,
+    "packed": 7,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "table": {
+    "align_err": 0,
+    "hits": 64,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 1152
+   }
+  },
+  "abort_recover": {
+   "beats": 24,
+   "bp": 1,
+   "errors": [],
+   "expected": {
+    "a16": 24,
+    "fp32": 0,
+    "packed": 12,
+    "spill": 0
+   },
+   "observed": {
+    "a16": 14,
+    "fp32": 0,
+    "packed": 7,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "table": {
+    "align_err": 0,
+    "hits": 64,
+    "misses": 32,
+    "rejects": 0,
+    "saved": 1152
+   }
+  },
+  "config_wait_bp1": {
+   "beats": 384,
+   "bp": 1,
+   "errors": [],
+   "expected": {
+    "a16": 384,
+    "fp32": 0,
+    "packed": 192,
+    "spill": 0
+   },
+   "observed": {
+    "a16": 384,
+    "fp32": 0,
+    "packed": 192,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "table": {
+    "align_err": 0,
+    "hits": 1536,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 18432
+   }
+  },
+  "cross_short_bp1": {
+   "beats": 266,
+   "bp": 1,
+   "errors": [],
+   "expected": {
+    "a16": 266,
+    "fp32": 0,
+    "packed": 134,
+    "spill": 0
+   },
+   "observed": {
+    "a16": 266,
+    "fp32": 0,
+    "packed": 134,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "table": {
+    "align_err": 0,
+    "hits": 1064,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 12768
+   }
+  },
+  "fp32_backpressure": {
+   "beats": 256,
+   "bp": 1,
+   "errors": [],
+   "expected": {
+    "a16": 256,
+    "fp32": 256,
+    "packed": 128,
+    "spill": 256
+   },
+   "observed": {
+    "a16": 256,
+    "fp32": 256,
+    "packed": 128,
+    "spill": 256
+   },
+   "pass": true,
+   "rc": 0,
+   "table": {
+    "align_err": 0,
+    "hits": 1024,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 0
+   }
+  },
+  "fp32_long_bp5": {
+   "beats": 64,
+   "bp": 5,
+   "errors": [],
+   "expected": {
+    "a16": 64,
+    "fp32": 64,
+    "packed": 32,
+    "spill": 64
+   },
+   "observed": {
+    "a16": 64,
+    "fp32": 64,
+    "packed": 32,
+    "spill": 64
+   },
+   "pass": true,
+   "rc": 0,
+   "table": {
+    "align_err": 0,
+    "hits": 256,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 0
+   }
+  },
+  "partial_table_bp0": {
+   "beats": 32,
+   "bp": 0,
+   "errors": [],
+   "expected": {
+    "a16": 32,
+    "fp32": 0,
+    "packed": 16,
+    "spill": 0
+   },
+   "observed": {
+    "a16": 32,
+    "fp32": 0,
+    "packed": 16,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "table": {
+    "align_err": 0,
+    "hits": 96,
+    "misses": 32,
+    "rejects": 0,
+    "saved": 1536
+   }
+  },
+  "per_column_bp1": {
+   "beats": 512,
+   "bp": 1,
+   "errors": [],
+   "expected": {
+    "a16": 512,
+    "fp32": 0,
+    "packed": 256,
+    "spill": 0
+   },
+   "observed": {
+    "a16": 512,
+    "fp32": 0,
+    "packed": 256,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "table": {
+    "align_err": 0,
+    "hits": 2048,
+    "misses": 0,
+    "rejects": 8,
+    "saved": 24576
+   }
+  },
+  "scalar_bias_only": {
+   "beats": 32,
+   "bp": 0,
+   "errors": [],
+   "expected": {
+    "a16": 32,
+    "fp32": 0,
+    "packed": 16,
+    "spill": 0
+   },
+   "observed": {
+    "a16": 32,
+    "fp32": 0,
+    "packed": 16,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "table": {
+    "align_err": 0,
+    "hits": 0,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 1536
+   }
+  },
+  "scalar_bp0": {
+   "beats": 512,
+   "bp": 0,
+   "errors": [],
+   "expected": {
+    "a16": 512,
+    "fp32": 0,
+    "packed": 256,
+    "spill": 0
+   },
+   "observed": {
+    "a16": 512,
+    "fp32": 0,
+    "packed": 256,
+    "spill": 0
+   },
+   "pass": true,
+   "rc": 0,
+   "table": {
+    "align_err": 0,
+    "hits": 0,
+    "misses": 0,
+    "rejects": 0,
+    "saved": 24576
+   }
+  }
+ },
+ "tool": "iverilog 14.0 + vvp (logic simulation only)",
+ "unique_filelist": "filelist_v024.f"
+}

@@ -1,0 +1,46 @@
+STRICT mode=4 dir=vectors bp=1 seed=111 n0=32 n1=32 ns=64
+beats: bank0=0..511 bank1=512..1023 scalar=1024..1087
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL STABLE spill tag=0
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+FAIL cfg_ready with pending input beat
+FAIL spill valid withdrawn without handshake
+WATCHDOG cyc=399996 err=41 a16=0 pack=0 fp=0 spill=0 pc=0/1
+FATAL: /home/yang/Desktop/项目/v024_opt/ds_repair_epilogue/tb/tb_epilogue_strict.sv:270: watchdog
+       Time: 4000000000  Scope: tb_epilogue_strict

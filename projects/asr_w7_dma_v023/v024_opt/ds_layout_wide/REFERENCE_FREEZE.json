@@ -1,0 +1,36 @@
+{
+ "frozen_at": "2026-10-30 16:03:11",
+ "baseline_rtl": {
+  "local": "rtl/ddr_layout_engine_baseline_burst.sv",
+  "sha256": "4e45a39dcb07daeefc190d383ede885e57718f9a60c9d23eda61c4dae11eb893",
+  "source": "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_layout/rtl/ddr_layout_engine_v023_burst.sv",
+  "source_sha256": "4e45a39dcb07daeefc190d383ede885e57718f9a60c9d23eda61c4dae11eb893",
+  "selected_by": "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_closeout_safety/filelist_safety.f"
+ },
+ "read_only_inputs": {
+  "v023/ds_layout/REPORT.md": "ea399f420eb6b8f29beefa9e82af76f06a3f9bf873ccfe7c5bc09a7d6c0cd177",
+  "v023/ds_layout/INTERFACE.md": "620cc22c4ab75cf79c7c8261e5aa8b74c22ef7a7c57161666099095f27e19d16",
+  "v023/ds_closeout_safety/REPORT.md": "78a859cb7d477f894a6e2aa5c4a28250e5d12fd984450f3648536110f2b3656a",
+  "v023/ds_closeout_safety/INTERFACE.md": "288f2bb04896f9e5270b8267543b2490e2ce7c49edfdd9202ede2fc5f6958bce",
+  "v024/REVIEW_DECISIONS.md": "22095ae915e894a737747050906219098724382ec5c0eb818c90c45eb7f05c52",
+  "work/rtl/u16_divmod.sv": "5ed69ab1748a321dc65b5e04ef32241b0e9568449707495ce19d6f6358e2f162",
+  "work/rtl/axi_dma_v019.sv": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531",
+  "work/rtl/ddr_layout_axi.sv": "a4728ffac826ef48776171598ebde6f58c8726f903d8b6af10cedb504c47a4c2",
+  "work/tests/layout_fixtures/meta.json": "7276cfdcff7407aa761a19d49d9ffece116f3b5de9516e664ead12deb8b9b72e"
+ },
+ "own_reference_assets": {
+  "scripts/layout_model.py": "60c4d6a4a83e696231a1f294ec1bb39d76b4f9b046bf8b6e293c1fb817b8ea41",
+  "scripts/metrics.py": "e71cb4d480a39be505bc69c0659f301f8743d9c4de2453d19d30339d95becb27",
+  "scripts/gen_gold_fixtures.py": "f673603bbedfd1e09ce36d24330beea7061788306a6deb8371115ad3fc7cb9ed",
+  "scripts/gen_edge_fixtures.py": "5b01e71ac7fc7367f532114edef791ad335951de46ffde72c93dfff153930bee",
+  "tests/axi128_memory_bfm.sv": "dd2e5a075f3605cee30aa5b506bd6271a0b434a12c9d12cc377f12b18c17cf58",
+  "tests/ddr_layout_axi_ref.sv": "a4728ffac826ef48776171598ebde6f58c8726f903d8b6af10cedb504c47a4c2",
+  "fixtures/official/meta.json": "7276cfdcff7407aa761a19d49d9ffece116f3b5de9516e664ead12deb8b9b72e",
+  "fixtures/gold/meta.json": "8b81f89b0eff6888fd787d73bb47efcd1fb300a253bc9839ccf327d3324bace8",
+  "fixtures/edge/meta.json": "87e2db621a3cba84d015e38566888e2772b172c906d7ba1bec2515377f872615"
+ },
+ "candidate": {
+  "local": "rtl/ddr_layout_engine_wide.sv",
+  "sha256": "5477651c09c98781de3b6fe5d8a913c93fb685414fc4971685f15f87eae5c365"
+ }
+}

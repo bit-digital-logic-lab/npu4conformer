@@ -1,0 +1,123 @@
+STRICT mode=3 dir=vectors bp=1 seed=233 n0=32 n1=32 ns=8
+beats: bank0=0..511 bank1=512..1023 scalar=1024..1087
+FAIL fp tag=0 lane=3 got=46f59b80 exp=4711d49c
+FAIL a16 tag=0 lane=3 got=7ace exp=7fff
+FAIL a16 tag=1 lane=1 got=62c8 exp=7fff
+FAIL a16 tag=1 lane=2 got=10d9 exp=172b
+FAIL fp tag=1 lane=1 got=46c58f80 exp=4701a6a4
+FAIL fp tag=1 lane=2 got=4586c600 exp=45b954c0
+FAIL packed[0] got tag=0 last=0 exp tag=0 last=0
+FAIL fp tag=2 lane=0 got=4471b000 exp=44b55c00
+FAIL fp tag=2 lane=2 got=46072100 exp=465b9960
+FAIL fp tag=2 lane=3 got=47286140 exp=478e1292
+FAIL fp tag=4 lane=3 got=45d26200 exp=46662250
+FAIL a16 tag=2 lane=0 got=03c7 exp=05ab
+FAIL a16 tag=2 lane=2 got=21c8 exp=36e6
+FAIL fp tag=5 lane=0 got=46a52780 exp=4739ce50
+FAIL fp tag=5 lane=2 got=4699f980 exp=4736da58
+FAIL fp tag=5 lane=3 got=469df880 exp=47408904
+FAIL packed[1] got tag=2 last=0 exp tag=2 last=0
+FAIL a16 tag=4 lane=3 got=1a4c exp=3989
+FAIL fp tag=6 lane=1 got=47282640 exp=47d7722e
+FAIL fp tag=6 lane=2 got=470fe440 exp=47bcdccc
+FAIL a16 tag=5 lane=0 got=5294 exp=7fff
+FAIL a16 tag=5 lane=2 got=4cfd exp=7fff
+FAIL a16 tag=5 lane=3 got=4efc exp=7fff
+FAIL fp tag=7 lane=0 got=467c7900 exp=472d95d0
+FAIL fp tag=7 lane=3 got=46c65880 exp=4791aa72
+FAIL packed[2] got tag=4 last=0 exp tag=4 last=0
+FAIL fp tag=8 lane=1 got=46abda80 exp=46b69858
+FAIL fp tag=8 lane=2 got=467de500 exp=468ed130
+FAIL a16 tag=7 lane=0 got=3f1e exp=7fff
+FAIL a16 tag=7 lane=3 got=632c exp=7fff
+FAIL a16 tag=8 lane=1 got=55ed exp=5b4c
+FAIL a16 tag=8 lane=2 got=3f79 exp=4769
+FAIL fp tag=10 lane=0 got=461fb700 exp=466f9580
+FAIL fp tag=10 lane=2 got=46e2ee80 exp=473862b8
+FAIL packed[3] got tag=6 last=0 exp tag=6 last=0
+FAIL packed[4] got tag=8 last=0 exp tag=8 last=0
+FAIL a16 tag=10 lane=0 got=27ee exp=3be5
+FAIL a16 tag=10 lane=2 got=7177 exp=7fff
+FAIL fp tag=11 lane=0 got=46f67f80 exp=4757b0b0
+FAIL fp tag=11 lane=2 got=46c7f880 exp=473b7a48
+FAIL fp tag=12 lane=0 got=468afd80 exp=470aff00
+FAIL fp tag=13 lane=0 got=473fc5c0 exp=47d7bf68
+FAIL fp tag=13 lane=1 got=46922880 exp=472900cc
+FAIL fp tag=13 lane=3 got=46e1fc80 exp=4789b6f2
+FAIL a16 tag=11 lane=0 got=7b40 exp=7fff
+FAIL a16 tag=11 lane=2 got=63fc exp=7fff
+FAIL packed[5] got tag=10 last=0 exp tag=10 last=0
+FAIL fp tag=14 lane=2 got=473f83c0 exp=47fb5e24
+FAIL a16 tag=12 lane=0 got=457f exp=7fff
+FAIL a16 tag=13 lane=1 got=4914 exp=7fff
+FAIL a16 tag=13 lane=3 got=70fe exp=7fff
+FAIL fp tag=15 lane=2 got=45bb2a00 exp=46868bd0
+FAIL fp tag=15 lane=3 got=47107940 exp=47d4338a
+FAIL packed[6] got tag=12 last=0 exp tag=12 last=0
+FAIL fp tag=16 lane=2 got=464aab00 exp=46640120
+FAIL fp tag=16 lane=3 got=46e9cc80 exp=470ad1b4
+FAIL a16 tag=15 lane=2 got=1765 exp=4346
+FAIL fp tag=17 lane=3 got=468f2e80 exp=46cdd428
+FAIL a16 tag=16 lane=2 got=32ab exp=3900
+FAIL a16 tag=16 lane=3 got=74e6 exp=7fff
+FAIL fp tag=18 lane=1 got=4711b3c0 exp=4763a9b4
+FAIL fp tag=18 lane=2 got=473d04c0 exp=47999454
+FAIL packed[7] got tag=14 last=0 exp tag=14 last=0
+FAIL a16 tag=17 lane=3 got=4797 exp=66ea
+FAIL fp tag=19 lane=1 got=471121c0 exp=47838732
+FAIL fp tag=19 lane=2 got=46ad1a80 exp=47224a28
+FAIL fp tag=19 lane=3 got=46dfad80 exp=4758b17c
+FAIL packed[8] got tag=16 last=0 exp tag=16 last=0
+FAIL fp tag=20 lane=1 got=4682dd80 exp=4706f604
+FAIL fp tag=20 lane=3 got=47400ec0 exp=47d21106
+FAIL a16 tag=19 lane=2 got=568d exp=7fff
+FAIL a16 tag=19 lane=3 got=6fd7 exp=7fff
+FAIL a16 tag=20 lane=1 got=416f exp=7fff
+FAIL fp tag=21 lane=0 got=471e0140 exp=47b1c258
+FAIL fp tag=21 lane=2 got=46eecc80 exp=478dca74
+FAIL fp tag=22 lane=0 got=472b12c0 exp=47d5d890
+FAIL fp tag=22 lane=1 got=47252e40 exp=47d3a46e
+FAIL fp tag=22 lane=2 got=46d14480 exp=4789562c
+FAIL packed[9] got tag=18 last=0 exp tag=18 last=0
+FAIL fp tag=23 lane=0 got=461cbf00 exp=46d78be0
+FAIL fp tag=23 lane=1 got=466eb300 exp=4727d894
+FAIL fp tag=23 lane=2 got=47045540 exp=47be3bf4
+FAIL packed[10] got tag=20 last=0 exp tag=20 last=0
+FAIL a16 tag=21 lane=2 got=7766 exp=7fff
+FAIL a16 tag=22 lane=2 got=68a2 exp=7fff
+FAIL fp tag=24 lane=2 got=47200cc0 exp=47340e88
+FAIL fp tag=24 lane=3 got=4738d3c0 exp=475b7bbc
+FAIL a16 tag=23 lane=0 got=2730 exp=6bc6
+FAIL a16 tag=23 lane=1 got=3bad exp=7fff
+FAIL fp tag=25 lane=2 got=459fda00 exp=45dbd040
+FAIL fp tag=26 lane=2 got=4706aac0 exp=475ad668
+FAIL packed[11] got tag=22 last=0 exp tag=22 last=0
+FAIL fp tag=27 lane=0 got=47199c40 exp=47866948
+FAIL a16 tag=25 lane=2 got=13fb exp=1b7a
+FAIL packed[12] got tag=24 last=0 exp tag=24 last=0
+FAIL fp tag=28 lane=0 got=461d6d00 exp=469d7000
+FAIL fp tag=28 lane=1 got=46db9780 exp=476275d4
+FAIL fp tag=28 lane=2 got=473272c0 exp=47bd9ac4
+FAIL fp tag=29 lane=0 got=46c86280 exp=476170b0
+FAIL fp tag=29 lane=1 got=46866080 exp=471b618c
+FAIL fp tag=29 lane=2 got=44ed0800 exp=458ccd40
+FAIL a16 tag=28 lane=0 got=275b exp=4eb8
+FAIL a16 tag=28 lane=1 got=6dcc exp=7fff
+FAIL fp tag=30 lane=3 got=463b3100 exp=46fb8ee8
+FAIL a16 tag=29 lane=0 got=6431 exp=7fff
+FAIL a16 tag=29 lane=1 got=4330 exp=7fff
+FAIL a16 tag=29 lane=2 got=0768 exp=119a
+FAIL fp tag=31 lane=0 got=473c2b40 exp=48015e64
+FAIL fp tag=31 lane=1 got=46108b00 exp=46cb48e8
+FAIL fp tag=31 lane=2 got=46cdb080 exp=4793d844
+FAIL fp tag=31 lane=3 got=468a4280 exp=474b1494
+FAIL packed[14] got tag=28 last=0 exp tag=28 last=0
+FAIL a16 tag=30 lane=3 got=2ecc exp=7dc7
+FAIL a16 tag=31 lane=1 got=2423 exp=65a4
+FAIL a16 tag=31 lane=2 got=66d8 exp=7fff
+FAIL a16 tag=31 lane=3 got=4521 exp=7fff
+FAIL packed[15] got tag=30 last=1 exp tag=30 last=1
+RESULT mode=3 a16=32/32 pack=16/16 fp=32/32 spill=0/0 err=117 hits=128 misses=0 rej=0 cyc=262
+FAIL
+FATAL: /home/yang/Desktop/项目/v024_opt/ds_repair_epilogue/tb/tb_epilogue_strict.sv:584: mismatch
+       Time: 2665000  Scope: tb_epilogue_strict

@@ -1,0 +1,83 @@
+{
+ "task": "ds_adversarial_review",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "updated": "2026-10-30T15:55:00+08:00",
+ "stages": [
+  {
+   "id": "S0",
+   "name": "read inputs + publish INTERFACE",
+   "status": "done"
+  },
+  {
+   "id": "S1",
+   "name": "FMA latency/flush gold + negative controls",
+   "status": "done",
+   "note": "8734 vectors, II=1, flush, reset; 7-stage deep passes; AR-001 flush handshake open"
+  },
+  {
+   "id": "S2",
+   "name": "per-channel column-tag gold/negative",
+   "status": "done",
+   "note": "found +2-beat misalignment at intermediate SHA (fixed); AR-006/007 output-backpressure deadlocks open"
+  },
+  {
+   "id": "S3",
+   "name": "vector tail 4-lane gold/negative",
+   "status": "done",
+   "note": "old v023 fails totals 9..16; candidate passes 1..17/127/255/256/257/1001; naive-gate mutant fails 5..8"
+  },
+  {
+   "id": "S4",
+   "name": "write merge 4KiB/stride gold/negative",
+   "status": "done",
+   "note": "native coalescer 24 req/16 beats/2 page splits PASS; generic page-cross burst + back-to-back stall open (AR-008)"
+  },
+  {
+   "id": "S5",
+   "name": "double-buffer doneB boundary",
+   "status": "done",
+   "note": "writer unit + dual main/n64 long-B rerun; done after last B"
+  },
+  {
+   "id": "S6",
+   "name": "graph prefetch old-epoch",
+   "status": "done",
+   "note": "graph_prefetch accounting 1.83% + epoch valid=0 evidence audited (AR-011)"
+  },
+  {
+   "id": "S7",
+   "name": "freeze v024 candidate SHAs and rerun",
+   "status": "done",
+   "note": "final SHAs frozen: fma b062, vector dad7, epi 4fff/c633, storage 0a25"
+  },
+  {
+   "id": "S8",
+   "name": "real integration on ds_unified_graph delivery",
+   "status": "blocked",
+   "note": "no ds_unified_graph result.json; fused 512/512 but fallback rc143, safety timeout (AR-012)"
+  }
+ ],
+ "artifacts": {
+  "gold": [
+   "fma_gold.py",
+   "epilogue_gold.py",
+   "gen_fma_vectors.py",
+   "gen_epilogue_vectors.py",
+   "gen_vector_vectors.py"
+  ],
+  "tb": [
+   "tb_fma.sv",
+   "tb_epilogue.sv",
+   "tb_vector.sv",
+   "tb_storage.sv"
+  ],
+  "scripts": [
+   "run_fma.sh",
+   "run_epilogue.sh",
+   "run_vector_tail.sh",
+   "run_write.sh"
+  ],
+  "findings": "FINDINGS.md"
+ },
+ "notes": "read-only to other workers; only USER_UPDATES pointers are appended"
+}

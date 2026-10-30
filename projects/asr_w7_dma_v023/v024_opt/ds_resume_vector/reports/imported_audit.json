@@ -1,0 +1,26 @@
+{
+  "source": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_resume_vector/imported/logs",
+  "case_count_in_imported_manifest": 70,
+  "imported_dump_and_log_checked_ok": 65,
+  "independent_check_failures": [],
+  "missing_dump_or_log": [
+    "tail_0271",
+    "tail_0272",
+    "tail_0273",
+    "tail_0511",
+    "tail_1001"
+  ],
+  "old_rc_entries": 68,
+  "old_rc_has_tail_0270": false,
+  "old_rc_has_abort_newepoch": true,
+  "old_x3_logs": [
+    "compile_plan_x3",
+    "full8734_x3",
+    "mul_0005_x3",
+    "tail_0260_x3",
+    "tail_0513_x3"
+  ],
+  "old_backpressure_logs": [],
+  "conclusion": "The imported logs were audited, but they are NOT the acceptance evidence: 5 case dump(s) are missing and the old run has no result.json.  Every case is re-run in this tree.",
+  "pass": true
+}

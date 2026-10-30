@@ -1,0 +1,27 @@
+{
+  "pass": true,
+  "changed": [],
+  "missing": [],
+  "payload": {
+    "rtl/ddr_vector_engine_pipe.sv": {
+      "sha256": "dad7cac00ecbe5a722ed68f64c5650bd7dc77a07356280e9d550acb5a852f84c",
+      "expected": "dad7cac00ecbe5a722ed68f64c5650bd7dc77a07356280e9d550acb5a852f84c",
+      "match": true
+    },
+    "rtl/vector_fma_lane.sv": {
+      "sha256": "09175e5963140349ed39f9ff83b5fd3bb35edc07d6e6b4529fe3128a6315584b",
+      "expected": "09175e5963140349ed39f9ff83b5fd3bb35edc07d6e6b4529fe3128a6315584b",
+      "match": true
+    },
+    "fma7/fp32_fma_pipe.sv": {
+      "sha256": "b062284af692349ac0afe1de14ac0d10f0cbbab97a5b33f849b50a93caccac82",
+      "expected": "b062284af692349ac0afe1de14ac0d10f0cbbab97a5b33f849b50a93caccac82",
+      "match": true
+    },
+    "baseline/ddr_vector_engine_pipe_base.sv": {
+      "sha256": "234e9c34b9ca6ad5eae94cead08d3030d7c0e838a6720500f21347b66e9bec2e",
+      "expected": "234e9c34b9ca6ad5eae94cead08d3030d7c0e838a6720500f21347b66e9bec2e",
+      "match": true
+    }
+  }
+}

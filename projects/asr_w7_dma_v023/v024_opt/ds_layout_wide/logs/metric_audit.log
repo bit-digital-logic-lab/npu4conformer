@@ -1,0 +1,3 @@
+rows=245 ok=True errors=0
+allowed_absent_baseline_fast_counters=245 (explicit, not zero-filled)
+fuzz=57/0 mode2=45/0 scalar=70/0

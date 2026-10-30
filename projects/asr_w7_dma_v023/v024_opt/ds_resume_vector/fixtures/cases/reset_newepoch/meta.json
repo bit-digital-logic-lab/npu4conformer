@@ -1,0 +1,28 @@
+{
+  "name": "reset_newepoch",
+  "op": 17,
+  "total": 257,
+  "out16": 0,
+  "outwords": 257,
+  "plan_base": 268500992,
+  "d_addr": 67321856,
+  "gold_count": 257,
+  "gold_sha256": "8424d8f4f17e43273741fb9fed58f66f5bcabaf1953f09d83d38f7c8703d210a",
+  "inputs_sha256": "c3eeec42356165bad27243c7a62a88df5de4818ab100f320f72a8481ba44c46e",
+  "mem_sha256": "d432edda18152edf292a7cb2752c0c277ece2135396ac770edbf35aa45fa99b2",
+  "scenario": "reset",
+  "plan1": 268468224,
+  "plan1_total": 8734,
+  "plan1_d": 67219456,
+  "plan2": 268500992,
+  "desc": [
+    576079171,
+    17,
+    67108864,
+    67112960,
+    67117056,
+    67321856,
+    257,
+    0
+  ]
+}

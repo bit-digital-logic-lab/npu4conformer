@@ -1,0 +1,62 @@
+{
+ "task": "ds_repair_epilogue",
+ "worker": "opencode-go/deepseek-v4.1-flash",
+ "updated": "2026-10-30T16:40:00+08:00",
+ "stage": "complete_pending_main_agent_acceptance",
+ "stages": [
+  {
+   "stage": "read_review_and_reproduce",
+   "done": [
+    "read REVIEW_DECISIONS.md and ds_adversarial_review/FINDINGS.md",
+    "copied the review run_epilogue.sh/tb byte-identically into ref_probe/ and reproduced AR-006 rc=1 (22 A16/25 FP32) and AR-007 rc=1 (watchdog 54/57) on the frozen old SHA"
+   ]
+  },
+  {
+   "stage": "root_cause",
+   "done": [
+    "proved the advisory TB stops driving a16_ready/fp32x4_ready after the last send_beat and during cfg/param/drain waits",
+    "same advisory TB plus only a continuous ready driver: old SHA completes 32/32 AR-006 and 72/72 AR-007; new SHA also passes",
+    "conclusion: the frozen-ready advisory is unsatisfiable by any correct pipelined RTL, not an RTL deadlock"
+   ]
+  },
+  {
+   "stage": "rtl_repair",
+   "done": [
+    "A16 moved to its own pending/ack register; valid cleared only by its own handshake",
+    "packer source released when the packer captures the beat, independent of A16 ack; empty half absorbs a beat while p128 is backpressured",
+    "FP32 per-lane pending kept; all four output valids stable while !ready",
+    "cfg_ready and legacy/active-bank param writes gated by !cval_valid, fixing config/param over a pending beat and spill valid withdrawal"
+   ]
+  },
+  {
+   "stage": "verification",
+   "done": [
+    "independent gold copied from the review (published contract, no RTL import); deterministic 1088-beat vectors generated",
+    "new strict TB with continuous independent ready, valid-stability checks, packed/spill scoreboards, exact counts and in-TB watchdog",
+    "28/28 strict cases pass on the new SHA; 1088-beat multi-phase and boundaries 1..512 pass",
+    "original worker 10/10 regression passes with the new RTL",
+    "negative control (column-0 mutation) rejected with real value mismatches in 26/28 cases",
+    "old SHA fails the original advisory (rc=1/1) and the new strict cfg_pending_beat case; new SHA passes the strict gate"
+   ]
+  },
+  {
+   "stage": "packaging",
+   "done": [
+    "INTERFACE.md published with the unchanged port list and repaired fork/config rules",
+    "run_all.sh rebuilds vectors, gate, negative control, worker regression, evidence and fresh result.json",
+    "REPORT.md, result.json, SHA256SUMS.txt, per-case logs and frozen SHAs written"
+   ]
+  }
+ ],
+ "open": [
+  "main-agent acceptance / unified integration",
+  "the published frozen-ready AR-006 advisory remains rc=1 on any correct RTL and must be replaced by the live-ready formal case"
+ ],
+ "not_claimed": [
+  "synthesis / Vivado / STA / timing / CDC / board / VNC / push",
+  "frequency, whole-model seconds, WER/CER, DRAM bandwidth",
+  "AXI/BFM/B-response inside this module",
+  "residual add / LayerNorm / reassociation",
+  "editing ds_fusion_buffers or unified_graph"
+ ]
+}

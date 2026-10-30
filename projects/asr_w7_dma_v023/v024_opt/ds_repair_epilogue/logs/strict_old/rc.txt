@@ -1,0 +1,30 @@
+== compile ==
+compile rc=0
+multi_bp1_random           rc=0 PASS RESULT mode=0 a16=1088/1088 pack=544/544 fp=1088/1088 spill=0/0 err=0 hits=4096 misses=0 rej=4 cyc=3994
+multi_bp2_long_stall       rc=0 PASS RESULT mode=0 a16=1088/1088 pack=544/544 fp=1088/1088 spill=0/0 err=0 hits=4096 misses=0 rej=4 cyc=17464
+multi_bp3_a16_fp32         rc=0 PASS RESULT mode=0 a16=1088/1088 pack=544/544 fp=1088/1088 spill=0/0 err=0 hits=4096 misses=0 rej=4 cyc=4080
+multi_bp4_packed           rc=0 PASS RESULT mode=0 a16=1088/1088 pack=544/544 fp=1088/1088 spill=0/0 err=0 hits=4096 misses=0 rej=4 cyc=6672
+multi_odd_bp2              rc=0 PASS RESULT mode=0 a16=831/831 pack=417/417 fp=831/831 spill=0/0 err=0 hits=3072 misses=0 rej=4 cyc=13701
+multi_odd_bp4              rc=0 PASS RESULT mode=0 a16=319/319 pack=161/161 fp=319/319 spill=0/0 err=0 hits=1024 misses=0 rej=4 cyc=2082
+spill_bp1_random           rc=0 PASS RESULT mode=2 a16=512/512 pack=256/256 fp=512/512 spill=512/512 err=0 hits=2048 misses=0 rej=0 cyc=1911
+spill_bp2_long_stall       rc=0 PASS RESULT mode=2 a16=512/512 pack=256/256 fp=512/512 spill=512/512 err=0 hits=2048 misses=0 rej=0 cyc=8562
+abort_bp1_random           rc=0 PASS RESULT mode=1 a16=64/64 pack=32/32 fp=64/64 spill=0/0 err=0 hits=24 misses=0 rej=0 cyc=358
+abort_bp2_long_stall       rc=0 PASS RESULT mode=1 a16=64/64 pack=32/32 fp=64/64 spill=0/0 err=0 hits=24 misses=0 rej=0 cyc=1240
+cfg_pending_beat           rc=1 FAIL 
+boundary_n1                rc=0 PASS RESULT mode=3 a16=1/1 pack=1/1 fp=1/1 spill=0/0 err=0 hits=4 misses=0 rej=0 cyc=108
+boundary_n2                rc=0 PASS RESULT mode=3 a16=2/2 pack=1/1 fp=2/2 spill=0/0 err=0 hits=8 misses=0 rej=0 cyc=169
+boundary_n3                rc=0 PASS RESULT mode=3 a16=3/3 pack=2/2 fp=3/3 spill=0/0 err=0 hits=12 misses=0 rej=0 cyc=170
+boundary_n5                rc=0 PASS RESULT mode=3 a16=5/5 pack=3/3 fp=5/5 spill=0/0 err=0 hits=20 misses=0 rej=0 cyc=178
+boundary_n17               rc=0 PASS RESULT mode=3 a16=17/17 pack=9/9 fp=17/17 spill=0/0 err=0 hits=68 misses=0 rej=0 cyc=220
+boundary_n31               rc=0 PASS RESULT mode=3 a16=31/31 pack=16/16 fp=31/31 spill=0/0 err=0 hits=124 misses=0 rej=0 cyc=270
+boundary_n32               rc=0 PASS RESULT mode=3 a16=32/32 pack=16/16 fp=32/32 spill=0/0 err=0 hits=128 misses=0 rej=0 cyc=270
+boundary_n127              rc=0 PASS RESULT mode=3 a16=127/127 pack=64/64 fp=127/127 spill=0/0 err=0 hits=508 misses=0 rej=0 cyc=590
+boundary_n255              rc=0 PASS RESULT mode=3 a16=255/255 pack=128/128 fp=255/255 spill=0/0 err=0 hits=1020 misses=0 rej=0 cyc=1044
+boundary_n256              rc=0 PASS RESULT mode=3 a16=256/256 pack=128/128 fp=256/256 spill=0/0 err=0 hits=1024 misses=0 rej=0 cyc=1046
+boundary_n257              rc=0 PASS RESULT mode=3 a16=257/257 pack=129/129 fp=257/257 spill=0/0 err=0 hits=1028 misses=0 rej=0 cyc=1047
+boundary_n511              rc=0 PASS RESULT mode=3 a16=511/511 pack=256/256 fp=511/511 spill=0/0 err=0 hits=2044 misses=0 rej=0 cyc=1921
+boundary_n512              rc=0 PASS RESULT mode=3 a16=512/512 pack=256/256 fp=512/512 spill=0/0 err=0 hits=2048 misses=0 rej=0 cyc=1961
+boundary_bp3_n9            rc=0 PASS RESULT mode=3 a16=9/9 pack=5/5 fp=9/9 spill=0/0 err=0 hits=36 misses=0 rej=0 cyc=198
+boundary_bp3_n33           rc=0 PASS RESULT mode=3 a16=33/33 pack=17/17 fp=33/33 spill=0/0 err=0 hits=132 misses=0 rej=0 cyc=289
+boundary_bp3_n129          rc=0 PASS RESULT mode=3 a16=129/129 pack=65/65 fp=129/129 spill=0/0 err=0 hits=516 misses=0 rej=0 cyc=618
+boundary_bp3_n259          rc=0 PASS RESULT mode=3 a16=259/259 pack=130/130 fp=259/259 spill=0/0 err=0 hits=1036 misses=0 rej=0 cyc=1088

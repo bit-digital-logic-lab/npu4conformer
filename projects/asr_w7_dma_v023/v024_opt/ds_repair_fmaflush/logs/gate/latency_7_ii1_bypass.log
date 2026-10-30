@@ -1,0 +1,6 @@
+[PASS] latency=7, II=1 over 40 interleaved beats
+[PASS] in-flight flush cleared the pipeline
+[PASS] post-flush transaction correct
+[PASS] output frozen under backpressure
+LATENCY_TEST_ERRORS=0
+tb/tb_fma_latency.sv:217: $finish called at 2590000 (1ps)

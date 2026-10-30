@@ -1,0 +1,40 @@
+{
+ "tag": "fma_deep_final",
+ "gate_rc": 0,
+ "modes": {
+  "flush_251": {
+   "pass": true,
+   "rc_lines": [
+    "RESULT mode=1 n=251 out=0 errors=0 cycles=408"
+   ]
+  },
+  "flush_handshake_probe": {
+   "pass": false,
+   "rc_lines": [
+    "FLUSH_HANDSHAKES=4",
+    "FAIL in_ready accepted traffic while flush was asserted",
+    "RESULT mode=4 n=251 out=0 errors=1 cycles=4",
+    "FAIL"
+   ]
+  },
+  "ii_8734": {
+   "pass": true,
+   "rc_lines": [
+    "II_ACCEPT span=8734 n=8734 max_gap=1 accepted=8734",
+    "RESULT mode=3 n=8734 out=8734 errors=0 cycles=8742"
+   ]
+  },
+  "reset_251": {
+   "pass": true,
+   "rc_lines": [
+    "RESULT mode=2 n=251 out=251 errors=0 cycles=456"
+   ]
+  },
+  "stream_8734": {
+   "pass": true,
+   "rc_lines": [
+    "RESULT mode=0 n=8734 out=8734 errors=0 cycles=12705"
+   ]
+  }
+ }
+}

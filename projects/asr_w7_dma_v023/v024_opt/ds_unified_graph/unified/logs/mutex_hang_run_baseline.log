@@ -1,0 +1,5 @@
+MUTEX_END done=0 fault=0 error=00 busy=1 seq_active=1 ov_seq_lay=0 ov_seq_vec=0 ov_seq_mat=0 ov_seq_direct=0 seq_start=89 lay_start=-1 cyc=5005
+MUTEX_NO_TERMINAL
+MUTEX_TIMEOUT cyc=5005
+MUTEX_RESULT FAIL
+tb/tb_graph_mutex.sv:225: $finish called at 40044000 (1ps)

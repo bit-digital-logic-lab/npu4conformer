@@ -1,0 +1,62 @@
+[
+ {
+  "beats": 512,
+  "bp": 0,
+  "name": "scalar_bp0",
+  "params": 2
+ },
+ {
+  "beats": 512,
+  "bp": 1,
+  "name": "per_column_bp1",
+  "params": 129
+ },
+ {
+  "beats": 266,
+  "bp": 1,
+  "name": "cross_short_bp1",
+  "params": 192
+ },
+ {
+  "beats": 384,
+  "bp": 1,
+  "name": "config_wait_bp1",
+  "params": 128
+ },
+ {
+  "beats": 24,
+  "bp": 1,
+  "name": "abort_recover",
+  "params": 64
+ },
+ {
+  "beats": 24,
+  "bp": 1,
+  "name": "abort_fp32_bp1",
+  "params": 64
+ },
+ {
+  "beats": 256,
+  "bp": 1,
+  "name": "fp32_backpressure",
+  "params": 64
+ },
+ {
+  "beats": 64,
+  "bp": 5,
+  "name": "fp32_long_bp5",
+  "params": 64
+ },
+ {
+  "beats": 32,
+  "bp": 0,
+  "name": "partial_table_bp0",
+  "params": 50
+ },
+ {
+  "beats": 32,
+  "bp": 0,
+  "name": "scalar_bias_only",
+  "params": 2
+ }
+]

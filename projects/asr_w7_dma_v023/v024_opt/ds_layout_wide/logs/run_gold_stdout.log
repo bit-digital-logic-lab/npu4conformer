@@ -1,0 +1,2 @@
+gold: cases=32 fails=0 cyc=515789->429870 coverage=0.182 of=-61010->-62306
+edge: cases=53 fails=0 cyc=460391->247818 coverage=0.609 of=-60824->-60824

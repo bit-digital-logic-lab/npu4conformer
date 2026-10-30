@@ -1,0 +1,1 @@
+op=17 n=127 out16=0 seed=0xc5c

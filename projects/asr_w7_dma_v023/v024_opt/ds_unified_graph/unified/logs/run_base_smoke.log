@@ -1,0 +1,7 @@
+normal rc=0
+multitask rc=0
+bad_queue_magic rc=0
+bad_vec_op rc=0
+hold_b_c rc=0
+BASE_SMOKE_PASS (focused; not the full 26-test closeout)
+rc=0

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "copy_i16",
+    "elements": 1001,
+    "output_bytes": 2002,
+    "mode": 0
+  },
+  {
+    "name": "pack_matrix_edges",
+    "elements": 4096,
+    "output_bytes": 8192,
+    "mode": 1
+  },
+  {
+    "name": "unpack_row_fp32",
+    "elements": 1155,
+    "output_bytes": 4620,
+    "mode": 3
+  },
+  {
+    "name": "unpack_nchw_fp32",
+    "elements": 1155,
+    "output_bytes": 4620,
+    "mode": 4
+  },
+  {
+    "name": "unpack_c48_compact",
+    "elements": 1155,
+    "output_bytes": 6930,
+    "mode": 3
+  },
+  {
+    "name": "conv_padding",
+    "elements": 2048,
+    "output_bytes": 4096,
+    "mode": 2
+  },
+  {
+    "name": "case0000_embed_conv0",
+    "elements": 78848,
+    "output_bytes": 157696,
+    "mode": 2
+  },
+  {
+    "name": "depthwise_31",
+    "elements": 1024,
+    "output_bytes": 2048,
+    "mode": 2
+  }
+]

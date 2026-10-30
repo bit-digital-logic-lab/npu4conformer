@@ -1,0 +1,5 @@
+STRICT mode=2 dir=vectors bp=1 seed=107 n0=512 n1=0 ns=0
+beats: bank0=0..511 bank1=512..1023 scalar=1024..1087
+RESULT mode=2 a16=512/512 pack=256/256 fp=512/512 spill=512/512 err=0 hits=2048 misses=0 rej=0 cyc=1911
+PASS
+/home/yang/Desktop/项目/v024_opt/ds_repair_epilogue/tb/tb_epilogue_strict.sv:583: $finish called at 19155000 (1ps)

@@ -1,0 +1,4 @@
+STORAGE cbase=03000c00
+WATCHDOG mode=2 errs=0
+FATAL: /home/yang/Desktop/项目/v024_opt/ds_adversarial_review/tb/tb_storage.sv:237: 
+       Time: 3000000000  Scope: tb_storage

@@ -1,0 +1,23 @@
+{
+  "name": "i16_0257",
+  "op": 15,
+  "total": 257,
+  "out16": 1,
+  "outwords": 129,
+  "plan_base": 268468224,
+  "d_addr": 67174400,
+  "gold_count": 129,
+  "gold_sha256": "3415cc3185c9117ac87ede11939b4003c888dd363c9c537f654fdeb5a821c5a5",
+  "inputs_sha256": "c3c34a0a06a4dbac89d1e384951c6b2d8a4f6cdb8c7db9c1cb42165376b51099",
+  "mem_sha256": "e45e80d3239c535135bb185f3b5fc0d4908d088982a0da8954bf943cd312aa1f",
+  "desc": [
+    576079171,
+    527,
+    67108864,
+    67112960,
+    67117056,
+    67174400,
+    257,
+    0
+  ]
+}

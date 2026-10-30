@@ -1,0 +1,38 @@
+{
+  "task": "ds_vector_fma",
+  "model": "opencode-go/deepseek-v4.1-flash",
+  "scope": "op17 FMA II=1 single-lane ready/valid into the real fp32_fma_pipe; 4-lane short-bank tail fix and fallback removal; independent FMA/tail/operand/abort/reset regressions",
+  "stages": [
+    {
+      "stage": "0_read_inputs",
+      "status": "done",
+      "note": "Read REVIEW_DECISIONS.md, REVIEW_INPUT.txt, v024 README, v023 ds_closeout_numeric REPORT/INTERFACE/RTL/TB/scripts and ds_numeric_adversarial refmodel/vectors. v023 read-only."
+    },
+    {
+      "stage": "1_interface",
+      "status": "done",
+      "note": "INTERFACE.md written early with latency-variable ready/valid FMA contract for ds_fma_deep."
+    },
+    {
+      "stage": "2_rtl",
+      "status": "done",
+      "note": "ddr_vector_engine_pipe.sv patched: op17 direct fp32_fma_pipe via vector_fma_lane, II=1 single-lane, tag/drain; 4-lane collection now uses lane out_valid, tail_wait/<=8 fallback removed; abort/drain preserved."
+    },
+    {
+      "stage": "3_fixtures",
+      "status": "done",
+      "note": "70 independent cases: full8734, 22 tails, scalar/tiled/periodic, official 1001 fixture, 53 short-bank fixed-op lane cases, abort/reset new epochs; refmodel gold."
+    },
+    {
+      "stage": "4_regression",
+      "status": "running",
+      "note": "run_all.sh: sequential compile, watchdog per sim, per-case independent checker, x3 latency build, negative control."
+    },
+    {
+      "stage": "5_report",
+      "status": "pending",
+      "note": "REPORT.md/result.json with rc/SHA/tested/unfinished, unique filelist, reproducible script; baseline comparison."
+    }
+  ],
+  "updated": "2026-10-30"
+}

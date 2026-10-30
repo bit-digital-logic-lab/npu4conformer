@@ -1,0 +1,10 @@
+EPI mode=0 dir=vectors/epi
+ld t0
+t0 ok
+t1 ok
+ld b0
+b0 ok 0 32
+beats: bank0=0..31 bank1=32..63 scalar=64..71
+WATCHDOG cyc=199996 err=0 a16=54 fp=57
+FATAL: /home/yang/Desktop/项目/v024_opt/ds_adversarial_review/tb/tb_epilogue.sv:155: watchdog
+       Time: 2000000000  Scope: tb_epilogue

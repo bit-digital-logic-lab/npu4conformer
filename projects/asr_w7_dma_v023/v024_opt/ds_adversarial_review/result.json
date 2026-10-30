@@ -1,0 +1,74 @@
+{
+  "task": "ds_adversarial_review",
+  "model": "opencode-go/deepseek-v4.1-flash",
+  "date": "2026-10-30",
+  "scope": "independent read-only adversarial review; local RTL logic simulation only",
+  "review_execution_rc": 0,
+  "module_gate_rc": 0,
+  "integration_accepted": false,
+  "integration_status": "NOT_ACCEPTED (fused path 512/512 matches ref; fallback/hold/drain and result.json not closed at deadline)",
+  "frozen_sha256": {
+    "fma_deep_fp32_fma_pipe": "b062284af692349ac0afe1de14ac0d10f0cbbab97a5b33f849b50a93caccac82",
+    "vector_engine": "dad7cac00ecbe5a722ed68f64c5650bd7dc77a07356280e9d550acb5a852f84c",
+    "epilogue_engine": "4fff5c3f21b3924c421e4a91a82db40550b1d782b18348cad6bff125c9fcb305",
+    "epilogue_lane": "c633576dd01da04ec2686096f9e90acdfc7ca4987925c8bb7d053df204cf3885",
+    "epilogue_i2f": "4c862453f53b26e18b832c5fd919da7f8f444b70f9a4affb060deb91a37f5a13",
+    "storage_v3": "0a25f951bb6fe817e4db5b6af886dbc2129866c2c37df910ed6846efff8094fa",
+    "fusion_dual": "ff13ca00b61d98a563460bf7db43ea3e49dd4770108102b4f8ec84b3a0feac57"
+  },
+  "accepted_items": [
+    "FMA 7-stage numeric 8734/8734 (project contract), II=1, reset, flush-epoch",
+    "vector op17 II=1 and op0/op15 tail matrix 1..17/127/255/256/257/1001",
+    "epilogue per-channel functional no-backpressure + scalar + abort new epoch",
+    "storage native coalescer 24 requests / 16 beats / 4KiB split / 6144B exact",
+    "matrix W reuse: rd_bytes 18432->15360, W read 6144->3072, numeric PASS",
+    "fusion dual done strictly after last B (n64 bextra=3000: 7855 < 7857)",
+    "graph prefetch exclusive-union accounting (1.83% non-engine) and epoch invalidation",
+    "repair FMA 3c1114bc fixes flush-handshake contract (AR-001)",
+    "repair epilogue f4857c19 fixes multi-phase A16-backpressure stall (AR-007)"
+  ],
+  "rejected_or_blocked_items": [
+    "AR-001 open on b062/v023, fixed by repair 3c1114bc (use repair SHA)",
+    "AR-006 epilogue simultaneous A16+FP32 backpressure deadlock (S1)",
+    "AR-008 storage generic 4KiB-crossing burst and back-to-back generic stall (S1/S2)",
+    "integration ds_unified_graph: fused 512/512 vs ref, but fallback no PASS (rc143 earlier), safety_normal timeout, no result.json",
+    "epilogue repair f4857c19 still fails simultaneous A16+FP32 backpressure (AR-006)"
+  ],
+  "negative_controls": [
+    "mutants/fma/fma_flush_broken.sv -> mode1 nonzero",
+    "mutants/fma/fma_sticky_broken.sv -> mode0 nonzero",
+    "mutants/fma/fma_tag_broken.sv -> mode0 nonzero",
+    "mutants/vector/ddr_vector_engine_naive_gate.sv -> op0 n=5..8 nonzero",
+    "mutants/fusion/fusion_a16_writer_early_done.sv -> bdelay=30 nonzero",
+    "v023 vector old: op0 totals 9..16 nonzero"
+  ],
+  "integration_evidence": {
+    "run_v024_fused": "latest clean run rc=0 seconds=145; independent parse of logs/v024_fused_out.hex at 0x04007800 matches fixtures/v024_ref.json fused_a16_words 512/512",
+    "fallback": "earlier v024_fallback rc=143 Terminated; repeated restarts; no fallback PASS / V024_CHECK PASS by deadline",
+    "safety_normal": "rc=124 timeout at 90s, WAIT cyc=20000 busy=1 rd=0 wr=0 b=0",
+    "result_json": "not produced by ds_unified_graph before review deadline"
+  },
+  "artifacts": {
+    "report": "REPORT.md",
+    "findings": "FINDINGS.md",
+    "filelist": "filelist.txt",
+    "rerun": "bash scripts/run_all.sh",
+    "logs": "logs/",
+    "frozen_shas": "reports/frozen_shas.json"
+  },
+  "unfinished": [
+    "re-run all gates after repair workers ds_repair_fmaflush / ds_repair_epilogue / ds_resume_vector freeze new SHAs",
+    "independent integration rerun when ds_unified_graph publishes result.json",
+    "no synthesis/STA/board/frequency/whole-model claim"
+  ],
+  "repair_verification": {
+    "fmaflush": {
+      "sha": "3c1114bc40078fd357bb968e8daecc53e68ad4da25a6ae586ce658b4d2a5e0c5",
+      "result": "AR-001 fixed; 8734/II/flush/reset/mode4 all PASS"
+    },
+    "epilogue": {
+      "sha": "f4857c19686948289f74de969806e8baff99114596d37a56506d9322d3872b84",
+      "result": "AR-007 fixed (multiphase 72/72); AR-006 still open (22 A16/25 FP32 of 32)"
+    }
+  }
+}

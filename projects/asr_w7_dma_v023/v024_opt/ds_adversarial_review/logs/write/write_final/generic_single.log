@@ -1,0 +1,4 @@
+STORAGE cbase=03000c00
+RESULT mode=2 cseg=1 nreq=1 nbeats=6 maxbeats=6 pagesplit=0 wrbytes=96 gen=1 errs=0
+PASS
+/home/yang/Desktop/项目/v024_opt/ds_adversarial_review/tb/tb_storage.sv:220: $finish called at 360000 (1ps)

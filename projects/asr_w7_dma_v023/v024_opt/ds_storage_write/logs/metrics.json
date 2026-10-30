@@ -1,0 +1,583 @@
+{
+  "commands": {
+    "build_cl_fast": 0,
+    "build_cl_lw": 0,
+    "build_eng_badpar": 0,
+    "build_eng_bp": 0,
+    "build_eng_edge": 0,
+    "build_eng_errrd": 0,
+    "build_eng_errwr": 0,
+    "build_eng_fast": 0,
+    "build_eng_k1": 0,
+    "build_eng_n64": 0,
+    "build_eng_nosame": 0,
+    "build_ref_cl_fast": 0,
+    "build_ref_cl_lw": 0,
+    "build_ref_cl_wr64": 0,
+    "build_ref_eng_bp": 0,
+    "build_ref_eng_fast": 0,
+    "build_storage_coalesce": 0,
+    "build_validator": 0,
+    "check_reference": 0,
+    "cmp_gold_c1": 0,
+    "cmp_gold_k1": 0,
+    "regen_c1": 0,
+    "regen_k1": 0,
+    "run_cl_fast": 0,
+    "run_cl_lw": 0,
+    "run_coal_abortm": 0,
+    "run_coal_bad": 0,
+    "run_coal_generic": 0,
+    "run_coal_native": 0,
+    "run_coal_split": 0,
+    "run_coal_tail": 0,
+    "run_eng_badpar": 0,
+    "run_eng_bp": 0,
+    "run_eng_edge": 0,
+    "run_eng_errrd": 0,
+    "run_eng_errwr": 0,
+    "run_eng_fast_c0": 0,
+    "run_eng_fast_c1": 0,
+    "run_eng_fast_seed1": 0,
+    "run_eng_fast_seed2": 0,
+    "run_eng_fast_seed3": 0,
+    "run_eng_k1": 0,
+    "run_eng_n64": 0,
+    "run_eng_nosame_c0": 0,
+    "run_eng_p12": 0,
+    "run_ref_cl_fast": 0,
+    "run_ref_cl_lw": 0,
+    "run_ref_cl_wr64": 0,
+    "run_ref_eng_bp": 0,
+    "run_ref_eng_fast": 0,
+    "run_validator": 0
+  },
+  "runs": {
+    "run_cl_fast": {
+      "name": "run_cl_fast",
+      "status": "PASS",
+      "values": {
+        "armax": 8,
+        "bfm_wbeats": 384,
+        "bmax": 1,
+        "ccyc": 260,
+        "cgrp": 256,
+        "coal": 64,
+        "code": 0,
+        "compute": 272,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 1365,
+        "flush": 24,
+        "gen": 0,
+        "maxb": 1,
+        "rv": 1,
+        "wr_bursts": 24,
+        "wr_bytes": 6144,
+        "wrbeat": 384,
+        "wrblk": 64,
+        "wrcmd": 24
+      }
+    },
+    "run_cl_lw": {
+      "name": "run_cl_lw",
+      "status": "PASS",
+      "values": {
+        "armax": 8,
+        "bfm_wbeats": 384,
+        "bmax": 1,
+        "ccyc": 260,
+        "cgrp": 256,
+        "coal": 64,
+        "code": 0,
+        "compute": 272,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 2616,
+        "flush": 24,
+        "gen": 0,
+        "maxb": 1,
+        "rv": 1,
+        "wr_bursts": 24,
+        "wr_bytes": 6144,
+        "wrbeat": 384,
+        "wrblk": 64,
+        "wrcmd": 24
+      }
+    },
+    "run_coal_abortm": {
+      "name": "run_coal_abortm",
+      "status": "PASS",
+      "values": {
+        "coal": 0,
+        "cseg": 1,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "flush": 0,
+        "gen": 1,
+        "maxb": 0,
+        "wrbeat": 0,
+        "wrcmd": 0
+      }
+    },
+    "run_coal_bad": {
+      "name": "run_coal_bad",
+      "status": "PASS",
+      "values": {
+        "coal": 0,
+        "cseg": 1,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "flush": 0,
+        "gen": 0,
+        "maxb": 0,
+        "wrbeat": 0,
+        "wrcmd": 0
+      }
+    },
+    "run_coal_generic": {
+      "name": "run_coal_generic",
+      "status": "PASS",
+      "values": {
+        "coal": 0,
+        "cseg": 8,
+        "csegstall": 0,
+        "cvalstall": 47,
+        "flush": 0,
+        "gen": 8,
+        "maxb": 2,
+        "wrbeat": 48,
+        "wrcmd": 8
+      }
+    },
+    "run_coal_native": {
+      "name": "run_coal_native",
+      "status": "PASS",
+      "values": {
+        "coal": 64,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "flush": 24,
+        "gen": 0,
+        "maxb": 2,
+        "wrbeat": 384,
+        "wrcmd": 24
+      }
+    },
+    "run_coal_split": {
+      "name": "run_coal_split",
+      "status": "PASS",
+      "values": {
+        "coal": 64,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "flush": 25,
+        "gen": 0,
+        "maxb": 2,
+        "wrbeat": 384,
+        "wrcmd": 25
+      }
+    },
+    "run_coal_tail": {
+      "name": "run_coal_tail",
+      "status": "PASS",
+      "values": {
+        "coal": 0,
+        "cseg": 1,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "flush": 0,
+        "gen": 1,
+        "maxb": 1,
+        "wrbeat": 2,
+        "wrcmd": 1
+      }
+    },
+    "run_eng_badpar": {
+      "name": "run_eng_badpar",
+      "status": "PASS_FAULT",
+      "values": {
+        "ccyc": 0,
+        "cgrp": 0,
+        "coal": 0,
+        "code": "09",
+        "compute": 0,
+        "cseg": 0,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cwr_pending": 0,
+        "cycles": 207,
+        "flush": 0,
+        "gen": 0,
+        "maxb": 0,
+        "wrbeat": 0,
+        "wrblk": 0,
+        "wrcmd": 0
+      }
+    },
+    "run_eng_bp": {
+      "name": "run_eng_bp",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1560,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 26470,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_edge": {
+      "name": "run_eng_edge",
+      "status": "PASS",
+      "values": {
+        "ccyc": 520,
+        "cgrp": 512,
+        "coal": 64,
+        "code": 0,
+        "compute": 394,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 5190,
+        "flush": 24,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 384,
+        "wrblk": 64,
+        "wrcmd": 24
+      }
+    },
+    "run_eng_errrd": {
+      "name": "run_eng_errrd",
+      "status": "PASS_FAULT",
+      "values": {
+        "ccyc": 0,
+        "cgrp": 0,
+        "coal": 0,
+        "code": "09",
+        "compute": 0,
+        "cseg": 0,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cwr_pending": 0,
+        "cycles": 141,
+        "flush": 0,
+        "gen": 0,
+        "maxb": 0,
+        "wrbeat": 0,
+        "wrblk": 0,
+        "wrcmd": 0
+      }
+    },
+    "run_eng_errwr": {
+      "name": "run_eng_errwr",
+      "status": "PASS_FAULT",
+      "values": {
+        "ccyc": 655,
+        "cgrp": 640,
+        "coal": 32,
+        "code": "0a",
+        "compute": 748,
+        "cseg": 32,
+        "csegstall": 5,
+        "cvalstall": 5,
+        "cwr_pending": 0,
+        "cycles": 1635,
+        "flush": 10,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 32,
+        "wrblk": 32,
+        "wrcmd": 2
+      }
+    },
+    "run_eng_fast_c0": {
+      "name": "run_eng_fast_c0",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1560,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4721,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_fast_c1": {
+      "name": "run_eng_fast_c1",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1560,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 5493,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_fast_seed1": {
+      "name": "run_eng_fast_seed1",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1560,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4720,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_fast_seed2": {
+      "name": "run_eng_fast_seed2",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1560,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4719,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_fast_seed3": {
+      "name": "run_eng_fast_seed3",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1560,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4718,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_k1": {
+      "name": "run_eng_k1",
+      "status": "PASS",
+      "values": {
+        "ccyc": 260,
+        "cgrp": 256,
+        "coal": 64,
+        "code": 0,
+        "compute": 272,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4102,
+        "flush": 24,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 384,
+        "wrblk": 64,
+        "wrcmd": 24
+      }
+    },
+    "run_eng_n64": {
+      "name": "run_eng_n64",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1040,
+        "cgrp": 1024,
+        "coal": 128,
+        "code": 0,
+        "compute": 1088,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 3630,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_nosame_c0": {
+      "name": "run_eng_nosame_c0",
+      "status": "PASS",
+      "values": {
+        "ccyc": 1688,
+        "cgrp": 1536,
+        "coal": 128,
+        "code": 0,
+        "compute": 1632,
+        "cseg": 128,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4785,
+        "flush": 48,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 768,
+        "wrblk": 128,
+        "wrcmd": 48
+      }
+    },
+    "run_eng_p12": {
+      "name": "run_eng_p12",
+      "status": "PASS",
+      "values": {
+        "ccyc": 260,
+        "cgrp": 256,
+        "coal": 64,
+        "code": 0,
+        "compute": 272,
+        "cseg": 64,
+        "csegstall": 0,
+        "cvalstall": 0,
+        "cycles": 4102,
+        "flush": 24,
+        "gen": 0,
+        "maxb": 1,
+        "wrbeat": 384,
+        "wrblk": 64,
+        "wrcmd": 24
+      }
+    },
+    "run_ref_cl_fast": {
+      "name": "run_ref_cl_fast",
+      "status": "PASS",
+      "values": {
+        "armax": 8,
+        "bfm_wbeats": 384,
+        "bmax": 2,
+        "ccyc": 891,
+        "cgrp": 256,
+        "code": 0,
+        "compute": 272,
+        "cycles": 1399,
+        "rv": 1,
+        "wr_bursts": 65,
+        "wr_bytes": 6144,
+        "wrblk": 64
+      }
+    },
+    "run_ref_cl_lw": {
+      "name": "run_ref_cl_lw",
+      "status": "PASS",
+      "values": {
+        "armax": 8,
+        "bfm_wbeats": 384,
+        "bmax": 2,
+        "ccyc": 3777,
+        "cgrp": 256,
+        "code": 0,
+        "compute": 272,
+        "cycles": 4428,
+        "rv": 1,
+        "wr_bursts": 65,
+        "wr_bytes": 6144,
+        "wrblk": 64
+      }
+    },
+    "run_ref_cl_wr64": {
+      "name": "run_ref_cl_wr64",
+      "status": "PASS",
+      "values": {
+        "armax": 8,
+        "bfm_wbeats": 384,
+        "bmax": 2,
+        "ccyc": 3777,
+        "cgrp": 256,
+        "code": 0,
+        "compute": 272,
+        "cycles": 4428,
+        "rv": 1,
+        "wr_bursts": 65,
+        "wr_bytes": 6144,
+        "wrblk": 64
+      }
+    },
+    "run_ref_eng_bp": {
+      "name": "run_ref_eng_bp",
+      "status": "PASS",
+      "values": {
+        "ccyc": 24453,
+        "cgrp": 1536,
+        "code": 0,
+        "compute": 1632,
+        "cycles": 26701,
+        "maxb": 1,
+        "wrblk": 128
+      }
+    },
+    "run_ref_eng_fast": {
+      "name": "run_ref_eng_fast",
+      "status": "PASS",
+      "values": {
+        "ccyc": 2448,
+        "cgrp": 1536,
+        "code": 0,
+        "compute": 1632,
+        "cycles": 4552,
+        "maxb": 1,
+        "wrblk": 128
+      }
+    },
+    "run_validator": {
+      "name": "run_validator",
+      "status": "PASS",
+      "values": {}
+    }
+  }
+}

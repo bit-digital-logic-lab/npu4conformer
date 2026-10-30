@@ -1,0 +1,81 @@
+gold_m32n32k32_c0_r0 rc=0
+gold_m32n64k32_c0_r1 rc=0
+gold_m32n32k32_c1_r0 rc=0
+gold_m64n32k96_c0_r1 rc=0
+gold_m64n32k96_c1_r1 rc=0
+gold_m64n64k96_c0_r1 rc=0
+gold_m96n32k96_c0_r1 rc=0
+gold_m96n64k64_c1_r1 rc=0
+gold_m64n32k1_c0_r1 rc=0
+gold_m64n32k32_c0_r1 rc=0
+gold_m64n32k33_c0_r1 rc=0
+gold_m64n32k65_c0_r1 rc=0
+gold_ovf_m64n32k32_c1_r1 rc=0
+gold_badpar_m64n32k96_c0_r1 rc=0
+### build_engine :: verilator --binary --timing -j 1 -Wno-fatal -Wno-WIDTH -Wno-UNOPTFLAT -Wno-PINCONNECTEMPTY -Wno-DECLFILENAME -Wno-UNUSED --top-module tb_reuse_engine /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/tests/tb_reuse_engine.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/tests/txn_dma_bfm.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/block_engine_reuse_v1.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/block_storage_stream_reuse_v1.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/operand_banks_dual_reuse.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/block_address_v020.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/array16_w7_c48_cfg.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/pe_w7_c48_cfg.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/c_cache_banked4_pipe.sv -Mdir /tmp/opencode/mxreuse_final/eng -o /tmp/opencode/mxreuse_final/tb_reuse
+build_engine rc=0
+### build_engine_bp :: verilator --binary --timing -j 1 -Wno-fatal -Wno-WIDTH -Wno-UNOPTFLAT -Wno-PINCONNECTEMPTY -Wno-DECLFILENAME -Wno-UNUSED -GWR_GAP=60 -GB_DELAY=40 -GRD_GAP=2 --top-module tb_reuse_engine /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/tests/tb_reuse_engine.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/tests/txn_dma_bfm.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/block_engine_reuse_v1.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/block_storage_stream_reuse_v1.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/operand_banks_dual_reuse.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/block_address_v020.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/array16_w7_c48_cfg.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/pe_w7_c48_cfg.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/c_cache_banked4_pipe.sv -Mdir /tmp/opencode/mxreuse_final/bp -o /tmp/opencode/mxreuse_final/tb_reuse_bp
+build_engine_bp rc=0
+### build_cluster :: verilator --binary --timing -j 1 -Wno-fatal -Wno-WIDTH -Wno-UNOPTFLAT -Wno-PINCONNECTEMPTY -Wno-DECLFILENAME -Wno-UNUSED --top-module tb_reuse_cluster_axi /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/tests/tb_reuse_cluster_axi.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/tests/axi128_ddr_bfm_v2.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/matrix_reuse_cluster_v1.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/block_engine_reuse_v1.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/block_storage_stream_reuse_v1.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/operand_banks_dual_reuse.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/block_address_v020.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/array16_w7_c48_cfg.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/pe_w7_c48_cfg.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/c_cache_banked4_pipe.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/axi_dma_v020_multi_v2.sv -Mdir /tmp/opencode/mxreuse_final/clu -o /tmp/opencode/mxreuse_final/tb_cluster
+build_cluster rc=0
+### build_cache_slots :: iverilog -g2012 -s tb_cache_slots -o /tmp/opencode/mxreuse_final/tb_cache_slots.vvp /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/tests/tb_cache_slots.sv /home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/candidate/rtl/c_cache_banked4_pipe.sv
+build_cache_slots rc=0
+### build_ref_v023 :: verilator --binary --timing -j 1 -Wno-fatal -Wno-WIDTH -Wno-UNOPTFLAT -Wno-PINCONNECTEMPTY -Wno-DECLFILENAME -Wno-UNUSED -GPIPE=4 -GM=64 -GN=32 -GK=96 -GMEM_WORDS=20480 -GA_BASE=50331648 -GB_BASE=50364416 -GC_BASE=50462720 -GRD_LAT=2 -GRD_GAP=1 -GWR_GAP=1 -GB_DELAY=4 --top-module tb_engine_p2 /home/yang/Desktop/项目/v023_repair/ds_matrix/tests/tb_engine_p2.sv /home/yang/Desktop/项目/v023_repair/ds_matrix/tests/txn_dma_bfm.sv /home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/block_engine_prefetch_v2.sv /home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/block_storage_stream_v2.sv /home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/operand_banks_dual_v2.sv /home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/block_address_v020.sv /home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/array16_w7_c48_cfg.sv /home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/pe_w7_c48_cfg.sv /home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/c_cache_banked4_pipe.sv -Mdir /tmp/opencode/mxreuse_final/ref -o /tmp/opencode/mxreuse_final/tb_ref
+build_ref_v023 rc=0
+### run_cache_slots :: vvp /tmp/opencode/mxreuse_final/tb_cache_slots.vvp
+run_cache_slots rc=0
+### run_m32n32k32_c0_r0 :: /tmp/opencode/mxreuse_final/tb_reuse +m=32 +n=32 +k=32 +cvalid=0 +reuse=0 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m32n32k32_c0_r0/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m32n32k32_c0_r0/exp_c.txt
+run_m32n32k32_c0_r0 rc=0
+### run_m32n32k32_c0_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=32 +n=32 +k=32 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m32n32k32_c0_r0/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m32n32k32_c0_r0/exp_c.txt
+run_m32n32k32_c0_r1 rc=0
+### run_m32n64k32_c0_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=32 +n=64 +k=32 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m32n64k32_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m32n64k32_c0_r1/exp_c.txt
+run_m32n64k32_c0_r1 rc=0
+### run_m32n32k32_c1_r0 :: /tmp/opencode/mxreuse_final/tb_reuse +m=32 +n=32 +k=32 +cvalid=1 +reuse=0 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m32n32k32_c1_r0/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m32n32k32_c1_r0/exp_c.txt
+run_m32n32k32_c1_r0 rc=0
+### run_m64n32k96_c0_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=64 +n=32 +k=96 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/exp_c.txt
+run_m64n32k96_c0_r1 rc=0
+### run_m64n32k96_c0_r0 :: /tmp/opencode/mxreuse_final/tb_reuse +m=64 +n=32 +k=96 +cvalid=0 +reuse=0 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/exp_c.txt
+run_m64n32k96_c0_r0 rc=0
+### run_m64n32k96_c1_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=64 +n=32 +k=96 +cvalid=1 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c1_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c1_r1/exp_c.txt
+run_m64n32k96_c1_r1 rc=0
+### run_m64n64k96_c0_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=64 +n=64 +k=96 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n64k96_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n64k96_c0_r1/exp_c.txt
+run_m64n64k96_c0_r1 rc=0
+### run_m96n32k96_c0_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=96 +n=32 +k=96 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m96n32k96_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m96n32k96_c0_r1/exp_c.txt
+run_m96n32k96_c0_r1 rc=0
+### run_m96n64k64_c1_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=96 +n=64 +k=64 +cvalid=1 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m96n64k64_c1_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m96n64k64_c1_r1/exp_c.txt
+run_m96n64k64_c1_r1 rc=0
+### run_m64n32k1_c0_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=64 +n=32 +k=1 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k1_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k1_c0_r1/exp_c.txt
+run_m64n32k1_c0_r1 rc=0
+### run_m64n32k32_c0_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=64 +n=32 +k=32 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k32_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k32_c0_r1/exp_c.txt
+run_m64n32k32_c0_r1 rc=0
+### run_m64n32k33_c0_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=64 +n=32 +k=33 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k33_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k33_c0_r1/exp_c.txt
+run_m64n32k33_c0_r1 rc=0
+### run_m64n32k65_c0_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=64 +n=32 +k=65 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k65_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k65_c0_r1/exp_c.txt
+run_m64n32k65_c0_r1 rc=0
+### run_ovf_m64n32k32_c1_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=64 +n=32 +k=32 +cvalid=1 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/ovf_m64n32k32_c1_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/ovf_m64n32k32_c1_r1/exp_c.txt +expect_code=8
+run_ovf_m64n32k32_c1_r1 rc=0
+### run_badpar_m64n32k96_c0_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=64 +n=32 +k=96 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/badpar_m64n32k96_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/badpar_m64n32k96_c0_r1/exp_c.txt +expect_code=9
+run_badpar_m64n32k96_c0_r1 rc=0
+### run_fault_rd_m64n32k96_c0_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=64 +n=32 +k=96 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/exp_c.txt +inject_rd=1 +expect_code=9
+run_fault_rd_m64n32k96_c0_r1 rc=0
+### run_fault_wr_m64n32k96_c0_r1 :: /tmp/opencode/mxreuse_final/tb_reuse +m=64 +n=32 +k=96 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/exp_c.txt +inject_wr=1 +expect_code=10
+run_fault_wr_m64n32k96_c0_r1 rc=0
+### run_bp_m64n32k96_c1_r1 :: /tmp/opencode/mxreuse_final/tb_reuse_bp +m=64 +n=32 +k=96 +cvalid=1 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c1_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c1_r1/exp_c.txt
+run_bp_m64n32k96_c1_r1 rc=0
+### run_ref_c0 :: /tmp/opencode/mxreuse_final/tb_ref +cvalid=0 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/exp_c.txt
+run_ref_c0 rc=0
+### run_ref_c1 :: /tmp/opencode/mxreuse_final/tb_ref +cvalid=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c1_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c1_r1/exp_c.txt
+run_ref_c1 rc=0
+### run_cluster_m64n32k96_c0_r1 :: /tmp/opencode/mxreuse_final/tb_cluster +m=64 +n=32 +k=96 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/exp_c.txt
+run_cluster_m64n32k96_c0_r1 rc=0
+### run_cluster_m64n32k96_c0_r0 :: /tmp/opencode/mxreuse_final/tb_cluster +m=64 +n=32 +k=96 +cvalid=0 +reuse=0 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c0_r1/exp_c.txt
+run_cluster_m64n32k96_c0_r0 rc=0
+### run_cluster_m64n32k96_c1_r1 :: /tmp/opencode/mxreuse_final/tb_cluster +m=64 +n=32 +k=96 +cvalid=1 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c1_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n32k96_c1_r1/exp_c.txt
+run_cluster_m64n32k96_c1_r1 rc=0
+### run_cluster_m64n64k96_c0_r1 :: /tmp/opencode/mxreuse_final/tb_cluster +m=64 +n=64 +k=96 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n64k96_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m64n64k96_c0_r1/exp_c.txt
+run_cluster_m64n64k96_c0_r1 rc=0
+### run_cluster_m96n32k96_c0_r1 :: /tmp/opencode/mxreuse_final/tb_cluster +m=96 +n=32 +k=96 +cvalid=0 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m96n32k96_c0_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m96n32k96_c0_r1/exp_c.txt
+run_cluster_m96n32k96_c0_r1 rc=0
+### run_cluster_m96n64k64_c1_r1 :: /tmp/opencode/mxreuse_final/tb_cluster +m=96 +n=64 +k=64 +cvalid=1 +reuse=1 +init=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m96n64k64_c1_r1/init.hex +exp=/home/yang/Desktop/项目/v024_opt/ds_matrix_reuse/fixtures/m96n64k64_c1_r1/exp_c.txt
+run_cluster_m96n64k64_c1_r1 rc=0
+ALL DONE

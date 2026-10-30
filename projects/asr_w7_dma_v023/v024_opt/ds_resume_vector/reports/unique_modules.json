@@ -1,0 +1,47 @@
+{
+  "filelists": {
+    "filelist_vector_fma.f": {
+      "filelist": "filelist_vector_fma.f",
+      "files": 39,
+      "modules": 39,
+      "duplicates": {},
+      "forbidden_stub_present": false,
+      "required_present_once": {
+        "vector_fma_lane": true,
+        "asr_fma_ip": true,
+        "fp32_fma_pipe": true,
+        "approx_div_sqrt": true,
+        "ddr_layout_engine": true,
+        "ddr_vector_engine_pipe": true,
+        "task_queue": true
+      },
+      "missing": [],
+      "pass": true,
+      "fp32_fma_pipe_source": [
+        "rtl/fp32_fma_pipe.sv"
+      ]
+    },
+    "filelist_vector_fma7.f": {
+      "filelist": "filelist_vector_fma7.f",
+      "files": 39,
+      "modules": 39,
+      "duplicates": {},
+      "forbidden_stub_present": false,
+      "required_present_once": {
+        "vector_fma_lane": true,
+        "asr_fma_ip": true,
+        "fp32_fma_pipe": true,
+        "approx_div_sqrt": true,
+        "ddr_layout_engine": true,
+        "ddr_vector_engine_pipe": true,
+        "task_queue": true
+      },
+      "missing": [],
+      "pass": true,
+      "fp32_fma_pipe_source": [
+        "fma7/fp32_fma_pipe.sv"
+      ]
+    }
+  },
+  "pass": true
+}

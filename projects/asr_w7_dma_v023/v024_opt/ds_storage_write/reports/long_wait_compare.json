@@ -1,0 +1,37 @@
+{
+  "cycle_reduction": 1812,
+  "degradation": {
+    "ref_fast_to_long_wait_cycles": 3029,
+    "ref_long_wait_over_fast": 3.1651,
+    "v3_fast_to_long_wait_cycles": 1251,
+    "v3_long_wait_over_fast": 1.9165
+  },
+  "fast": {
+    "ref_c_collect": 891,
+    "ref_cycles": 1399,
+    "v3_c_collect": 260,
+    "v3_cycles": 1365
+  },
+  "note": "K32 PIPE=4, same strict AXI128 BFM, LAT_MIN=LAT_MAX=48, same input/gold; cycles are start-to-done after the last B drains.",
+  "ref_over_v3": 1.6927,
+  "ref_v2": {
+    "c_collect": 3777,
+    "cycles": 4428,
+    "wr_bytes": 6144,
+    "write_bursts": 65
+  },
+  "ref_v2_wrout64": {
+    "c_collect": 3777,
+    "cycles": 4428,
+    "write_bursts": 65
+  },
+  "v3": {
+    "c_collect": 260,
+    "cseg": 64,
+    "cycles": 2616,
+    "max_b_credit": 1,
+    "wr_bytes": 6144,
+    "wr_cmds": 24,
+    "write_bursts": 24
+  }
+}

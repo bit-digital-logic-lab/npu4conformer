@@ -1,0 +1,62 @@
+{
+  "task": "ds_fma_deep",
+  "model": "opencode-go/deepseek-v4.1-flash",
+  "stage": "STAGE_FINAL_COMPLETE",
+  "status": "COMPLETED",
+  "timestamp": "2026-10-30T14:40:00+08:00",
+  "stage_history": [
+    {
+      "stage": "STAGE_1_BASELINE_READ_AND_INTERFACE",
+      "status": "COMPLETED",
+      "note": "Read REVIEW_DECISIONS/REVIEW_INPUT/README and gemini_fma_round2 REPORT+INTERFACE; confirmed trusted 4-stage 129-bit accumulator; published INTERFACE.md before RTL."
+    },
+    {
+      "stage": "STAGE_2_RETIME_7_STAGE",
+      "status": "COMPLETED",
+      "note": "Split multiply/select, align+sticky, 129-bit add, grouped/tree LZC, normalize, roundpack into 7 stages; II=1 kept."
+    },
+    {
+      "stage": "STAGE_3_DIRECTED_AND_VECTOR_REGRESSION",
+      "status": "COMPLETED",
+      "note": "8734 adversarial BP0/BP1, 20000 local random BP0/BP1, 20000 frozen random, wrapper, equivalence, flush, latency, LZC: all pass."
+    }
+  ],
+  "result": {
+    "overall_pass": true,
+    "process_exit_rc": 0,
+    "rerun": "./run_all_tests.sh",
+    "pipeline": {
+      "stages": 7,
+      "latency_cycles": 7,
+      "throughput_ii": 1,
+      "accumulator_bits": 129,
+      "lzc": "9x16 grouped + tree lzc16/lzc8 (no 129-bit linear priority)"
+    },
+    "candidate_fp32_fma_pipe_sha256": "b062284af692349ac0afe1de14ac0d10f0cbbab97a5b33f849b50a93caccac82",
+    "trusted_baseline_sha256": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12",
+    "independent_reference_sha256": "38eb7ed944f05d6ac45ff68b69fbaa4b0b5b895f0eef46fa33e138395ceb64e2",
+    "suites_passed": 13,
+    "suites_total": 13,
+    "mismatches_total": 0,
+    "flush_errors": 0,
+    "lzc_errors": 0,
+    "latency_errors": 0
+  },
+  "tested": [
+    "8734 independent adversarial vectors, BP=0 and BP=1",
+    "20000 fresh local random vectors, BP=0 and BP=1",
+    "20000 frozen gemini random vectors, BP=0",
+    "asr_fma_ip AXIS wrapper: 8734 + 20000",
+    "bit-exact equivalence to trusted 4-stage RTL: 8734 + 20000",
+    "epilogue mode0 bypass latency=7/II=1, in-flight flush, post-flush, stall freeze",
+    "latency-adapted epilogue lane/i48/fma/i16 flush",
+    "exhaustive grouped/tree LZC 574k patterns"
+  ],
+  "not_tested": [
+    "no synthesis/STA/Vivado; no ns or Fmax claim",
+    "no board/VNC/push",
+    "no whole-model ASR graph or WER",
+    "vector op17 integration / per-channel tables owned by other workers"
+  ],
+  "next_stage": "NONE — hand candidate/ + INTERFACE.md to main agent and consumers"
+}

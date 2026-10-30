@@ -1,0 +1,26 @@
+{
+  "name": "full8734",
+  "op": 17,
+  "total": 8734,
+  "out16": 0,
+  "outwords": 8734,
+  "plan_base": 268468224,
+  "d_addr": 67219456,
+  "gold_count": 8734,
+  "gold_sha256": "9c716b6cb924402fc721d9c886d747a3730c3545393ad8facdc90c3c5a691842",
+  "inputs_sha256": "92b35a1794059506d863f5aebe46c81c50d7720c8ee229419c2067594d0818fe",
+  "mem_sha256": "9d9b7125c819114fb0de096eb3d7a055c335c1c51bbb6a8efa90892783a096a6",
+  "desc": [
+    576079171,
+    17,
+    67108864,
+    67145728,
+    67182592,
+    67219456,
+    8734,
+    0
+  ],
+  "source": "v023 ds_numeric_adversarial fma.vec modes 0/1/2 mapped to op17",
+  "mode0": "scale=1,bias=0",
+  "mode2": "bias=0"
+}

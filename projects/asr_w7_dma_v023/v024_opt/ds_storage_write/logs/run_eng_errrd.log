@@ -1,0 +1,13 @@
+INFO init done mem=2048 words
+CFG m=64 n=32 k=96 ids=1/2/3 allowed=1 req=1 pos=3210 bases=03000000/03004000/03005000 slots=2
+FAULT code=09 cyc=4241 engstate=19 bk=0 q=0 col=0 cwr=0 csegr=0 cvalr=0
+INFO done fault=1 code=09 cycles=141 compute=0 rdblk=2 wrblk=0 hits=0 miss=1 prehit=0 prewait=136 ov_rd=0 ov_wr=0 cgrp=0 ccyc=0 craw=0 pdrain=5 adrain=20
+INFO bfm rdcmds=2 wrcmds=0 rdbeats=128 wrbeats=0 shared=0 maxb=0 rdstall=0 wrstall=0
+INFO storage cseg=0 wrcmd=0 wrbeat=0 coal=0 gen=0 flush=0 maxb=0 cvalstall=0 csegstall=0
+PASS_FAULT code=09 cycles=141 done=1 cwr_pending=0
+- /home/yang/Desktop/项目/v024_opt/ds_storage_write/tests/tb_engine_v3.sv:217: Verilog $finish
+PASS tb_engine_v3 M=64 N=32 K=96 C_VALID=0 PIPE=4 cycles=141 compute=0 ov_rd=0 ov_wr=0 prehit=0 prewait=136 cgrp=0 ccyc=0 pdrain=5 adrain=20
+- /home/yang/Desktop/项目/v024_opt/ds_storage_write/tests/tb_engine_v3.sv:245: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 43us; walltime 0.136 s; speed 312.005 us/s
+- Verilator: cpu 0.136 s on 1 threads; allocated 7 MB

@@ -1,0 +1,22 @@
+WAIT cyc=5000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+WAIT cyc=10000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+MATST t=83340 st=1 core_done=0 acc=0
+MATST t=83348 st=2 core_done=0 acc=0
+MATST t=83356 st=3 core_done=0 acc=0
+MATST t=83364 st=4 core_done=0 acc=0
+MATDONE t=98492 st=5 acc=1 core_done=1 cyc=1890
+MATST t=98492 st=5 core_done=1 acc=1
+MATST t=98500 st=0 core_done=1 acc=1
+CTRL_PAYLOAD_FAULT07 type=2 d0=22564543 d1=00000013 d2=04002000 d3=1000000c d4=00000000 d5=04004000 d6=00000400 d7=00000000
+SAFETY_CSR status=00000006 err=00000007 completed=4 last=3 cycles=12301 fetch=290 op=11983
+SAFETY_CSR vec_total=0 layout_total=10068 matrix_total=1890 vec_ops=0 layout_ops=2 matrix_ops=1
+SAFETY_CSR iso_status=00000000 rd_pending=0 wr_pending=0 b_pending=0 iso_blocked=0 lockout_rej=0
+SAFETY_SUM vec_done=0 vec_sum=0 lay_done=2 lay_sum=10068 mat_core_done=133
+SAFETY_MATRIX ops=1 acc=1 st=0 completed=1 index=0 err=00 cyc=1890 total=1890
+SAFETY_OVERLAP seq_lay=0 seq_vec=0 seq_mat=0 seq_direct=0
+SAFETY_DRAIN rd_pending=0 wr_pending=0 b_pending=0 quiesced=1 iso_blocked=0 held_r=0 held_b=0 returned_b=77
+SAFETY_END done=1 fault=1 error=07 iso=0 requires_reset=0 seq_dto=0 seq_ito=0 fetch_to=0 drain_timeout=0 cycles=12443
+SAFETY_AXI rburst=39 wburst=77 rbeats=524 wbeats=576 tag_err=0 bfm_rbeats=524 bfm_wbeats=576
+SAFETY_LU valid=0 hits=1 misses=2 fetches=1 aborts=1 epoch=4 has_seq=0
+SAFETY_RESULT PASS
+tb/tb_lookahead_safety.sv:385: $finish called at 99548000 (1ps)

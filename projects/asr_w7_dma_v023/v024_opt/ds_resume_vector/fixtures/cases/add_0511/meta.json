@@ -1,0 +1,23 @@
+{
+  "name": "add_0511",
+  "op": 0,
+  "total": 511,
+  "out16": 0,
+  "outwords": 511,
+  "plan_base": 268468224,
+  "d_addr": 67174400,
+  "gold_count": 511,
+  "gold_sha256": "beeb0a52fdaeef3b2fffd18f24b9f0c081fd84fe340bf4ca2755e3a2ae4a55e5",
+  "inputs_sha256": "46122b8b7b5117cc3494fa33dc02a466c1e6b8288e8eb8daf1205b334fce783d",
+  "mem_sha256": "449257a938b1d8e34e8c716984746effb65a308800a1f61d511164e12ec3275e",
+  "desc": [
+    576079171,
+    0,
+    67108864,
+    67112960,
+    67117056,
+    67174400,
+    511,
+    0
+  ]
+}

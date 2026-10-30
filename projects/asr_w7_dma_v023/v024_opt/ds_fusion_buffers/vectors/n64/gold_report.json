@@ -1,0 +1,16 @@
+{
+ "dir": "vectors/n64",
+ "M": 32,
+ "N": 64,
+ "K": 64,
+ "tiles": 2,
+ "values": 2048,
+ "scale": "0x3f000000",
+ "bias": "0x3f800000",
+ "fma_mode": 1,
+ "relu": 0,
+ "fma_vs_muladd_diff": 0,
+ "fma_zero_or_ff_count": 1,
+ "gold_a16": "vectors/n64/gold_a16.hex",
+ "gold_muladd_a16": "vectors/n64/gold_muladd_a16.hex"
+}

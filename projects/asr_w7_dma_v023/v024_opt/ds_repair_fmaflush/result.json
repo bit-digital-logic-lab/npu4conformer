@@ -1,0 +1,395 @@
+{
+ "task": "ds_repair_fmaflush",
+ "tag": "gate",
+ "started": "2026-10-30T15:37:55+08:00",
+ "finished": "2026-10-30T15:38:08+0800",
+ "top_rc": 0,
+ "compiles": [
+  {
+   "name": "compile_tb_fma",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_fma.log",
+   "markers": [],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "compile_tb_fma_latency",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_fma_latency.log",
+   "markers": [],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "compile_tb_flush",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_flush.log",
+   "markers": [],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "compile_tb_flush_contract",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_flush_contract.log",
+   "markers": [],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "compile_tb_wrap_lane_lat",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_wrap_lane_lat.log",
+   "markers": [],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "compile_tb_asr_fma_ip",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_asr_fma_ip.log",
+   "markers": [],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "compile_tb_fma_m0",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_fma_m0.log",
+   "markers": [],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "compile_tb_contract_m1",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_contract_m1.log",
+   "markers": [],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "compile_tb_contract_m2",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/compile_tb_contract_m2.log",
+   "markers": [],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  }
+ ],
+ "runs": [
+  {
+   "name": "make_mutants",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/make_mutants.log",
+   "markers": [
+    "mutants written"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "gold_check",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/gold_check.log",
+   "markers": [
+    "GOLD_CHECK=PASS"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "prepare_asr_vectors",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/prepare_asr_vectors.log",
+   "markers": [
+    "wrote 8734 asr rows"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "mode0_8734",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/mode0_8734.log",
+   "markers": [
+    "RESULT mode=0 n=8734 out=8734 errors=0",
+    "PASS"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "mode1_flush_8734",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/mode1_flush_8734.log",
+   "markers": [
+    "RESULT mode=1 n=8734 out=0 errors=0",
+    "PASS"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "mode2_reset_8734",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/mode2_reset_8734.log",
+   "markers": [
+    "RESULT mode=2 n=8734 out=8734 errors=0",
+    "PASS"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "mode3_ii_8734",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/mode3_ii_8734.log",
+   "markers": [
+    "II_ACCEPT span=8734 n=8734 max_gap=1 accepted=8734",
+    "PASS"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "mode4_flush_handshake",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/mode4_flush_handshake.log",
+   "markers": [
+    "FLUSH_HANDSHAKES=0",
+    "PASS"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "mode0_fresh2000",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/mode0_fresh2000.log",
+   "markers": [
+    "RESULT mode=0 n=2000 out=2000 errors=0",
+    "PASS"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "mode1_flush_fresh2000",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/mode1_flush_fresh2000.log",
+   "markers": [
+    "RESULT mode=1 n=2000 out=0 errors=0",
+    "PASS"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "mode2_reset_fresh2000",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/mode2_reset_fresh2000.log",
+   "markers": [
+    "RESULT mode=2 n=2000 out=2000 errors=0",
+    "PASS"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "mode3_ii_fresh2000",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/mode3_ii_fresh2000.log",
+   "markers": [
+    "max_gap=1",
+    "PASS"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "mode4_flush_handshake_fresh",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/mode4_flush_handshake_fresh.log",
+   "markers": [
+    "FLUSH_HANDSHAKES=0",
+    "PASS"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "latency_7_ii1_bypass",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/latency_7_ii1_bypass.log",
+   "markers": [
+    "latency=7, II=1",
+    "LATENCY_TEST_ERRORS=0"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "flush_contract",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/flush_contract.log",
+   "markers": [
+    "CONTRACT_ERRORS=0"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "flush_leaves",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/flush_leaves.log",
+   "markers": [
+    "FLUSH_ERRORS=0"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "wrap_lane_latency",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/wrap_lane_latency.log",
+   "markers": [
+    "wrapper latency=7",
+    "lane mode0 bypass latency=12",
+    "WRAP_LANE_ERRORS=0"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "asr_wrapper_8734",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/asr_wrapper_8734.log",
+   "markers": [
+    "DONE asr_fma_ip in=8734 out=8734"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "asr_numeric_compare",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/asr_numeric_compare.log",
+   "markers": [
+    "asr_numeric_mismatch=0"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "neg_m0_original_mode4",
+   "rc": 1,
+   "expect": "fail",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/neg_m0_original_mode4.log",
+   "markers": [
+    "FLUSH_HANDSHAKES=4",
+    "FAIL"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "neg_m0_original_mode1",
+   "rc": 0,
+   "expect": "pass",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/neg_m0_original_mode1.log",
+   "markers": [
+    "RESULT mode=1 n=8734 out=0 errors=0",
+    "PASS"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "neg_m1_inready_only",
+   "rc": 1,
+   "expect": "fail",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/neg_m1_inready_only.log",
+   "markers": [
+    "out_valid not cancelled combinationally",
+    "CONTRACT_ERRORS=2"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  },
+  {
+   "name": "neg_m2_no_reset_gate",
+   "rc": 1,
+   "expect": "fail",
+   "log": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_repair_fmaflush/logs/gate/neg_m2_no_reset_gate.log",
+   "markers": [
+    "in_ready=1 while rst_n=0",
+    "CONTRACT_ERRORS=3"
+   ],
+   "rc_consistent": true,
+   "marker_ok": true,
+   "ok": true
+  }
+ ],
+ "note": "Local Icarus logic simulation only; no synthesis/STA/board."
+}

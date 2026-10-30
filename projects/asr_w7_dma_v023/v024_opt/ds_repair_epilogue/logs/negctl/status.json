@@ -1,0 +1,33 @@
+{
+ "rejected": true,
+ "value_mismatch": true,
+ "failed_cases": [
+  "boundary_bp3_n129",
+  "boundary_bp3_n259",
+  "boundary_bp3_n33",
+  "boundary_bp3_n9",
+  "boundary_n1",
+  "boundary_n127",
+  "boundary_n17",
+  "boundary_n2",
+  "boundary_n255",
+  "boundary_n256",
+  "boundary_n257",
+  "boundary_n3",
+  "boundary_n31",
+  "boundary_n32",
+  "boundary_n5",
+  "boundary_n511",
+  "boundary_n512",
+  "cfg_pending_beat",
+  "multi_bp1_random",
+  "multi_bp2_long_stall",
+  "multi_bp3_a16_fp32",
+  "multi_bp4_packed",
+  "multi_odd_bp2",
+  "multi_odd_bp4",
+  "spill_bp1_random",
+  "spill_bp2_long_stall"
+ ],
+ "gate_rc": 1
+}

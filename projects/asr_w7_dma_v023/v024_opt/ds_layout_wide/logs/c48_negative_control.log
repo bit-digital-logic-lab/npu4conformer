@@ -1,0 +1,3 @@
+c48_negative_control: bad rc=1,1 good rc=0,0 ok=1
+KNOWN_BAD_FAILED
+FIXED_PASSED

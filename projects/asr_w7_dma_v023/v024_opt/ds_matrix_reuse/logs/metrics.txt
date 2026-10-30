@@ -1,0 +1,184 @@
+build_engine rc=0
+build_engine_bp rc=0
+build_cluster rc=0
+build_cache_slots rc=0
+build_ref_v023 rc=0
+run_cache_slots rc=0
+PASS tb_cache_slots slot_alias=0 cross_slot_bypass=0 same_group_bypass=1 masked_write=1
+run_m32n32k32_c0_r0 rc=0
+INFO done fault=0 code=00 cycles=1194 compute=272 rdblk=2 wrblk=64 hits=0 miss=1 prehit=0 prewait=198 ov_rd=0 ov_wr=714 cgrp=256 ccyc=704 craw=0 pdrain=5 adrain=20
+INFO reuse a=1 w=1 c=0 pairs=0 wsaved=0 pairmode=0 wblk=64
+INFO bfm rdcmds=2 wrcmds=64 rdbeats=192 wrbeats=384 shared=0 maxb=1 rdstall=0 wrstall=27 bout=0 wbusy=0
+INFO store rdblk=2 wrseg=64 rdbytes=3072 wrbytes=6144 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=32 N=32 K=32 CVALID=0 REUSE=0 PIPE=4 cycles=1194 rdbytes=3072 wrbytes=6144 Wbytes=1024
+run_m32n32k32_c0_r1 rc=0
+INFO done fault=0 code=00 cycles=1194 compute=272 rdblk=2 wrblk=64 hits=0 miss=1 prehit=0 prewait=198 ov_rd=0 ov_wr=714 cgrp=256 ccyc=704 craw=0 pdrain=5 adrain=20
+INFO reuse a=1 w=1 c=0 pairs=0 wsaved=0 pairmode=0 wblk=64
+INFO bfm rdcmds=2 wrcmds=64 rdbeats=192 wrbeats=384 shared=0 maxb=1 rdstall=0 wrstall=27 bout=0 wbusy=0
+INFO store rdblk=2 wrseg=64 rdbytes=3072 wrbytes=6144 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=32 N=32 K=32 CVALID=0 REUSE=1 PIPE=4 cycles=1194 rdbytes=3072 wrbytes=6144 Wbytes=1024
+run_m32n64k32_c0_r1 rc=0
+INFO done fault=0 code=00 cycles=2387 compute=544 rdblk=4 wrblk=128 hits=0 miss=2 prehit=0 prewait=397 ov_rd=0 ov_wr=1427 cgrp=512 ccyc=1408 craw=0 pdrain=5 adrain=20
+INFO reuse a=2 w=2 c=0 pairs=0 wsaved=0 pairmode=0 wblk=128
+INFO bfm rdcmds=4 wrcmds=128 rdbeats=384 wrbeats=768 shared=0 maxb=1 rdstall=1 wrstall=63 bout=0 wbusy=0
+INFO store rdblk=4 wrseg=128 rdbytes=6144 wrbytes=12288 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=32 N=64 K=32 CVALID=0 REUSE=1 PIPE=4 cycles=2387 rdbytes=6144 wrbytes=12288 Wbytes=2048
+run_m32n32k32_c1_r0 rc=0
+INFO done fault=0 code=00 cycles=1585 compute=272 rdblk=3 wrblk=64 hits=0 miss=1 prehit=0 prewait=199 ov_rd=0 ov_wr=709 cgrp=256 ccyc=704 craw=0 pdrain=5 adrain=20
+INFO reuse a=1 w=1 c=1 pairs=0 wsaved=0 pairmode=0 wblk=64
+INFO bfm rdcmds=3 wrcmds=64 rdbeats=576 wrbeats=384 shared=0 maxb=1 rdstall=1 wrstall=32 bout=0 wbusy=0
+INFO store rdblk=3 wrseg=64 rdbytes=9216 wrbytes=6144 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=32 N=32 K=32 CVALID=1 REUSE=0 PIPE=4 cycles=1585 rdbytes=9216 wrbytes=6144 Wbytes=1024
+run_m64n32k96_c0_r1 rc=0
+INFO done fault=0 code=00 cycles=4367 compute=1632 rdblk=9 wrblk=128 hits=0 miss=2 prehit=2 prewait=198 ov_rd=832 ov_wr=1442 cgrp=1536 ccyc=2466 craw=0 pdrain=5 adrain=20
+INFO reuse a=6 w=3 c=0 pairs=1 wsaved=3 pairmode=0 wblk=128
+INFO bfm rdcmds=9 wrcmds=128 rdbeats=960 wrbeats=768 shared=103 maxb=1 rdstall=3 wrstall=67 bout=0 wbusy=0
+INFO store rdblk=9 wrseg=128 rdbytes=15360 wrbytes=12288 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=64 N=32 K=96 CVALID=0 REUSE=1 PIPE=4 cycles=4367 rdbytes=15360 wrbytes=12288 Wbytes=3072
+run_m64n32k96_c0_r0 rc=0
+INFO done fault=0 code=00 cycles=4550 compute=1632 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=396 ov_rd=774 ov_wr=1421 cgrp=1536 ccyc=2448 craw=0 pdrain=5 adrain=20
+INFO reuse a=6 w=6 c=0 pairs=0 wsaved=0 pairmode=0 wblk=128
+INFO bfm rdcmds=12 wrcmds=128 rdbeats=1152 wrbeats=768 shared=0 maxb=1 rdstall=6 wrstall=62 bout=0 wbusy=0
+INFO store rdblk=12 wrseg=128 rdbytes=18432 wrbytes=12288 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=64 N=32 K=96 CVALID=0 REUSE=0 PIPE=4 cycles=4550 rdbytes=18432 wrbytes=12288 Wbytes=6144
+run_m64n32k96_c1_r1 rc=0
+INFO done fault=0 code=00 cycles=5154 compute=1632 rdblk=11 wrblk=128 hits=0 miss=2 prehit=2 prewait=199 ov_rd=841 ov_wr=1444 cgrp=1536 ccyc=2467 craw=0 pdrain=5 adrain=20
+INFO reuse a=6 w=3 c=2 pairs=1 wsaved=3 pairmode=0 wblk=128
+INFO bfm rdcmds=11 wrcmds=128 rdbeats=1728 wrbeats=768 shared=110 maxb=1 rdstall=9 wrstall=55 bout=0 wbusy=0
+INFO store rdblk=11 wrseg=128 rdbytes=27648 wrbytes=12288 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=64 N=32 K=96 CVALID=1 REUSE=1 PIPE=4 cycles=5154 rdbytes=27648 wrbytes=12288 Wbytes=3072
+run_m64n64k96_c0_r1 rc=0
+INFO done fault=0 code=00 cycles=8735 compute=3264 rdblk=18 wrblk=256 hits=0 miss=4 prehit=4 prewait=398 ov_rd=1669 ov_wr=2891 cgrp=3072 ccyc=4932 craw=0 pdrain=5 adrain=20
+INFO reuse a=12 w=6 c=0 pairs=2 wsaved=6 pairmode=0 wblk=256
+INFO bfm rdcmds=18 wrcmds=256 rdbeats=1920 wrbeats=1536 shared=207 maxb=1 rdstall=12 wrstall=137 bout=0 wbusy=0
+INFO store rdblk=18 wrseg=256 rdbytes=30720 wrbytes=24576 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=64 N=64 K=96 CVALID=0 REUSE=1 PIPE=4 cycles=8735 rdbytes=30720 wrbytes=24576 Wbytes=6144
+run_m96n32k96_c0_r1 rc=0
+INFO done fault=0 code=00 cycles=6645 compute=2448 rdblk=15 wrblk=192 hits=0 miss=3 prehit=4 prewait=398 ov_rd=1219 ov_wr=2152 cgrp=2304 ccyc=3690 craw=0 pdrain=5 adrain=20
+INFO reuse a=9 w=6 c=0 pairs=1 wsaved=3 pairmode=0 wblk=192
+INFO bfm rdcmds=15 wrcmds=192 rdbeats=1536 wrbeats=1152 shared=103 maxb=1 rdstall=8 wrstall=102 bout=0 wbusy=0
+INFO store rdblk=15 wrseg=192 rdbytes=24576 wrbytes=18432 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=96 N=32 K=96 CVALID=0 REUSE=1 PIPE=4 cycles=6645 rdbytes=24576 wrbytes=18432 Wbytes=6144
+run_m96n64k64_c1_r1 rc=0
+INFO done fault=0 code=00 cycles=12388 compute=3264 rdblk=26 wrblk=384 hits=0 miss=6 prehit=4 prewait=797 ov_rd=1407 ov_wr=4313 cgrp=3072 ccyc=5820 craw=0 pdrain=5 adrain=20
+INFO reuse a=12 w=8 c=6 pairs=2 wsaved=4 pairmode=0 wblk=384
+INFO bfm rdcmds=26 wrcmds=384 rdbeats=4352 wrbeats=2304 shared=205 maxb=1 rdstall=16 wrstall=185 bout=0 wbusy=0
+INFO store rdblk=26 wrseg=384 rdbytes=69632 wrbytes=36864 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=96 N=64 K=64 CVALID=1 REUSE=1 PIPE=4 cycles=12388 rdbytes=69632 wrbytes=36864 Wbytes=8192
+run_m64n32k1_c0_r1 rc=0
+INFO done fault=0 code=00 cycles=1964 compute=296 rdblk=3 wrblk=128 hits=0 miss=2 prehit=0 prewait=198 ov_rd=218 ov_wr=1450 cgrp=512 ccyc=1435 craw=0 pdrain=5 adrain=20
+INFO reuse a=2 w=1 c=0 pairs=1 wsaved=1 pairmode=0 wblk=128
+INFO bfm rdcmds=3 wrcmds=128 rdbeats=320 wrbeats=768 shared=158 maxb=1 rdstall=0 wrstall=62 bout=0 wbusy=0
+INFO store rdblk=3 wrseg=128 rdbytes=5120 wrbytes=12288 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=64 N=32 K=1 CVALID=0 REUSE=1 PIPE=4 cycles=1964 rdbytes=5120 wrbytes=12288 Wbytes=1024
+run_m64n32k32_c0_r1 rc=0
+INFO done fault=0 code=00 cycles=2202 compute=544 rdblk=3 wrblk=128 hits=0 miss=2 prehit=0 prewait=198 ov_rd=184 ov_wr=1440 cgrp=512 ccyc=1425 craw=0 pdrain=5 adrain=20
+INFO reuse a=2 w=1 c=0 pairs=1 wsaved=1 pairmode=0 wblk=128
+INFO bfm rdcmds=3 wrcmds=128 rdbeats=320 wrbeats=768 shared=99 maxb=1 rdstall=0 wrstall=64 bout=0 wbusy=0
+INFO store rdblk=3 wrseg=128 rdbytes=5120 wrbytes=12288 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=64 N=32 K=32 CVALID=0 REUSE=1 PIPE=4 cycles=2202 rdbytes=5120 wrbytes=12288 Wbytes=1024
+run_m64n32k33_c0_r1 rc=0
+INFO done fault=0 code=00 cycles=3047 compute=840 rdblk=6 wrblk=128 hits=0 miss=2 prehit=1 prewait=198 ov_rd=542 ov_wr=1453 cgrp=1024 ccyc=1956 craw=0 pdrain=5 adrain=20
+INFO reuse a=4 w=2 c=0 pairs=1 wsaved=2 pairmode=0 wblk=128
+INFO bfm rdcmds=6 wrcmds=128 rdbeats=640 wrbeats=768 shared=161 maxb=1 rdstall=1 wrstall=66 bout=0 wbusy=0
+INFO store rdblk=6 wrseg=128 rdbytes=10240 wrbytes=12288 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=64 N=32 K=33 CVALID=0 REUSE=1 PIPE=4 cycles=3047 rdbytes=10240 wrbytes=12288 Wbytes=2048
+run_m64n32k65_c0_r1 rc=0
+INFO done fault=0 code=00 cycles=4128 compute=1384 rdblk=9 wrblk=128 hits=0 miss=2 prehit=2 prewait=198 ov_rd=858 ov_wr=1451 cgrp=1536 ccyc=2475 craw=0 pdrain=5 adrain=20
+INFO reuse a=6 w=3 c=0 pairs=1 wsaved=3 pairmode=0 wblk=128
+INFO bfm rdcmds=9 wrcmds=128 rdbeats=960 wrbeats=768 shared=151 maxb=1 rdstall=3 wrstall=68 bout=0 wbusy=0
+INFO store rdblk=9 wrseg=128 rdbytes=15360 wrbytes=12288 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=64 N=32 K=65 CVALID=0 REUSE=1 PIPE=4 cycles=4128 rdbytes=15360 wrbytes=12288 Wbytes=3072
+run_ovf_m64n32k32_c1_r1 rc=0
+INFO done fault=1 code=08 cycles=1122 compute=68 rdblk=5 wrblk=0 hits=0 miss=2 prehit=0 prewait=199 ov_rd=69 ov_wr=0 cgrp=0 ccyc=1 craw=0 pdrain=5 adrain=20
+INFO reuse a=2 w=1 c=2 pairs=1 wsaved=0 pairmode=1 wblk=0
+INFO bfm rdcmds=5 wrcmds=0 rdbeats=1088 wrbeats=0 shared=0 maxb=0 rdstall=3 wrstall=0 bout=0 wbusy=0
+INFO store rdblk=5 wrseg=1 rdbytes=17408 wrbytes=0 errs=1 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS_FAULT code=08 cycles=1122 done=1 cwr_pending=0 bout=0 wbusy=0
+run_badpar_m64n32k96_c0_r1 rc=0
+INFO done fault=1 code=09 cycles=203 compute=0 rdblk=2 wrblk=0 hits=0 miss=2 prehit=0 prewait=199 ov_rd=0 ov_wr=0 cgrp=0 ccyc=0 craw=0 pdrain=5 adrain=20
+INFO reuse a=1 w=1 c=0 pairs=1 wsaved=0 pairmode=1 wblk=0
+INFO bfm rdcmds=2 wrcmds=0 rdbeats=192 wrbeats=0 shared=0 maxb=0 rdstall=0 wrstall=0 bout=0 wbusy=0
+INFO store rdblk=2 wrseg=0 rdbytes=3072 wrbytes=0 errs=3 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS_FAULT code=09 cycles=203 done=1 cwr_pending=0 bout=0 wbusy=0
+run_fault_rd_m64n32k96_c0_r1 rc=0
+INFO done fault=1 code=09 cycles=137 compute=0 rdblk=2 wrblk=0 hits=0 miss=2 prehit=0 prewait=132 ov_rd=0 ov_wr=0 cgrp=0 ccyc=0 craw=0 pdrain=5 adrain=20
+INFO reuse a=1 w=1 c=0 pairs=1 wsaved=0 pairmode=1 wblk=0
+INFO bfm rdcmds=2 wrcmds=0 rdbeats=128 wrbeats=0 shared=0 maxb=0 rdstall=0 wrstall=0 bout=0 wbusy=0
+INFO store rdblk=2 wrseg=0 rdbytes=2048 wrbytes=0 errs=2 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS_FAULT code=09 cycles=137 done=1 cwr_pending=0 bout=0 wbusy=0
+run_fault_wr_m64n32k96_c0_r1 rc=0
+INFO done fault=1 code=0a cycles=2514 compute=1156 rdblk=9 wrblk=2 hits=0 miss=2 prehit=2 prewait=198 ov_rd=745 ov_wr=30 cgrp=1030 ccyc=1073 craw=0 pdrain=5 adrain=20
+INFO reuse a=6 w=3 c=0 pairs=1 wsaved=2 pairmode=1 wblk=2
+INFO bfm rdcmds=9 wrcmds=2 rdbeats=960 wrbeats=12 shared=22 maxb=1 rdstall=3 wrstall=2 bout=0 wbusy=0
+INFO store rdblk=9 wrseg=2 rdbytes=15360 wrbytes=128 errs=3 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS_FAULT code=0a cycles=2514 done=1 cwr_pending=0 bout=0 wbusy=0
+run_bp_m64n32k96_c1_r1 rc=0
+INFO done fault=0 code=00 cycles=28142 compute=1632 rdblk=11 wrblk=128 hits=0 miss=2 prehit=2 prewait=299 ov_rd=1165 ov_wr=24117 cgrp=1536 ccyc=24789 craw=0 pdrain=5 adrain=20
+INFO reuse a=6 w=3 c=2 pairs=1 wsaved=3 pairmode=0 wblk=128
+INFO bfm rdcmds=11 wrcmds=128 rdbeats=1728 wrbeats=768 shared=3 maxb=1 rdstall=861 wrstall=23377 bout=0 wbusy=0
+INFO store rdblk=11 wrseg=128 rdbytes=27648 wrbytes=12288 errs=0 drain=1
+INFO hazard haz_a=0 haz_w=0
+PASS tb_reuse_engine M=64 N=32 K=96 CVALID=1 REUSE=1 PIPE=4 cycles=28142 rdbytes=27648 wrbytes=12288 Wbytes=3072
+run_ref_c0 rc=0
+INFO done fault=0 code=00 cycles=4552 compute=1632 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=396 ov_rd=774 ov_wr=1421 cgrp=1536 ccyc=2448 craw=0 pdrain=5 adrain=20
+INFO bfm rdcmds=12 wrcmds=128 rdbeats=1152 wrbeats=768 shared=0 maxb=1 rdstall=6 wrstall=62
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=0 PIPE=4 cycles=4552 compute=1632 ov_rd=774 ov_wr=1421 prehit=4 prewait=396 cgrp=1536 ccyc=2448 pdrain=5 adrain=20
+run_ref_c1 rc=0
+INFO done fault=0 code=00 cycles=5329 compute=1632 rdblk=14 wrblk=128 hits=0 miss=2 prehit=4 prewait=0 ov_rd=778 ov_wr=1427 cgrp=1536 ccyc=2448 craw=0 pdrain=5 adrain=20
+INFO bfm rdcmds=14 wrcmds=128 rdbeats=1920 wrbeats=768 shared=0 maxb=1 rdstall=9 wrstall=72
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=1 PIPE=4 cycles=5329 compute=1632 ov_rd=778 ov_wr=1427 prehit=4 prewait=0 cgrp=1536 ccyc=2448 pdrain=5 adrain=20
+run_cluster_m64n32k96_c0_r1 rc=0
+INFO cluster done fault=0 code=00 cycles=7236 rdblk=9 wrblk=128 cgrp=1536 a=6 w=3 c=0 pairs=1 wsaved=3
+INFO dma rd_bursts=60 rd_bytes=15360 armax=8 wr_bursts=130 wr_bytes=12288 bmax=2
+INFO axi  read_beats=960 read_bursts=60 write_beats=768 write_bursts=130 aw=130 w=768 b=130 strb_bytes=12288 maxrd=8 maxwr=2
+INFO drain aw_cnt=0 b_cnt=0 wr_active=0
+PASS tb_reuse_cluster_axi M=64 N=32 K=96 CVALID=0 REUSE=1 cycles=7236 AXI_W_bytes=12288 AXI_W_beats=768 AXI_W_bursts=130 rd_bytes=15360
+run_cluster_m64n32k96_c0_r0 rc=0
+INFO cluster done fault=0 code=00 cycles=7612 rdblk=12 wrblk=128 cgrp=1536 a=6 w=6 c=0 pairs=0 wsaved=0
+INFO dma rd_bursts=72 rd_bytes=18432 armax=8 wr_bursts=130 wr_bytes=12288 bmax=2
+INFO axi  read_beats=1152 read_bursts=72 write_beats=768 write_bursts=130 aw=130 w=768 b=130 strb_bytes=12288 maxrd=8 maxwr=2
+INFO drain aw_cnt=0 b_cnt=0 wr_active=0
+PASS tb_reuse_cluster_axi M=64 N=32 K=96 CVALID=0 REUSE=0 cycles=7612 AXI_W_bytes=12288 AXI_W_beats=768 AXI_W_bursts=130 rd_bytes=18432
+run_cluster_m64n32k96_c1_r1 rc=0
+INFO cluster done fault=0 code=00 cycles=8435 rdblk=11 wrblk=128 cgrp=1536 a=6 w=3 c=2 pairs=1 wsaved=3
+INFO dma rd_bursts=108 rd_bytes=27648 armax=8 wr_bursts=130 wr_bytes=12288 bmax=2
+INFO axi  read_beats=1728 read_bursts=108 write_beats=768 write_bursts=130 aw=130 w=768 b=130 strb_bytes=12288 maxrd=8 maxwr=2
+INFO drain aw_cnt=0 b_cnt=0 wr_active=0
+PASS tb_reuse_cluster_axi M=64 N=32 K=96 CVALID=1 REUSE=1 cycles=8435 AXI_W_bytes=12288 AXI_W_beats=768 AXI_W_bursts=130 rd_bytes=27648
+run_cluster_m64n64k96_c0_r1 rc=0
+INFO cluster done fault=0 code=00 cycles=14591 rdblk=18 wrblk=256 cgrp=3072 a=12 w=6 c=0 pairs=2 wsaved=6
+INFO dma rd_bursts=120 rd_bytes=30720 armax=8 wr_bursts=260 wr_bytes=24576 bmax=2
+INFO axi  read_beats=1920 read_bursts=120 write_beats=1536 write_bursts=260 aw=260 w=1536 b=260 strb_bytes=24576 maxrd=8 maxwr=2
+INFO drain aw_cnt=0 b_cnt=0 wr_active=0
+PASS tb_reuse_cluster_axi M=64 N=64 K=96 CVALID=0 REUSE=1 cycles=14591 AXI_W_bytes=24576 AXI_W_beats=1536 AXI_W_bursts=260 rd_bytes=30720
+run_cluster_m96n32k96_c0_r1 rc=0
+INFO cluster done fault=0 code=00 cycles=11083 rdblk=15 wrblk=192 cgrp=2304 a=9 w=6 c=0 pairs=1 wsaved=3
+INFO dma rd_bursts=96 rd_bytes=24576 armax=8 wr_bursts=195 wr_bytes=18432 bmax=2
+INFO axi  read_beats=1536 read_bursts=96 write_beats=1152 write_bursts=195 aw=195 w=1152 b=195 strb_bytes=18432 maxrd=8 maxwr=2
+INFO drain aw_cnt=0 b_cnt=0 wr_active=0
+PASS tb_reuse_cluster_axi M=96 N=32 K=96 CVALID=0 REUSE=1 cycles=11083 AXI_W_bytes=18432 AXI_W_beats=1152 AXI_W_bursts=195 rd_bytes=24576
+run_cluster_m96n64k64_c1_r1 rc=0
+INFO cluster done fault=0 code=00 cycles=22172 rdblk=26 wrblk=384 cgrp=3072 a=12 w=8 c=6 pairs=2 wsaved=4
+INFO dma rd_bursts=272 rd_bytes=69632 armax=8 wr_bursts=390 wr_bytes=36864 bmax=2
+INFO axi  read_beats=4352 read_bursts=272 write_beats=2304 write_bursts=390 aw=390 w=2304 b=390 strb_bytes=36864 maxrd=8 maxwr=2
+INFO drain aw_cnt=0 b_cnt=0 wr_active=0
+PASS tb_reuse_cluster_axi M=96 N=64 K=64 CVALID=1 REUSE=1 cycles=22172 AXI_W_bytes=36864 AXI_W_beats=2304 AXI_W_bursts=390 rd_bytes=69632

@@ -1,0 +1,100 @@
+{
+  "task": "v024_ds_graph_prefetch",
+  "scope": "logic simulation only; no synthesis/STA/board/VNC/push",
+  "checks_total": 18,
+  "checks_passed": 18,
+  "checks_failed": 0,
+  "all_required_pass": true,
+  "checks": [
+    {
+      "name": "reference_frozen_and_independent_gold",
+      "pass": true,
+      "detail": "{\n  \"reference_frozen\": true,\n  \"gold_words\": 512,\n  \"independent_gold_mismatches\": 0,\n  \"plan_sha256\": \"5c8afc4d8fe5b30317562e6474a8e79d56b03dd57617186f08dda05fdad16bec\"\n}"
+    },
+    {
+      "name": "graph_base_terminal_and_gold",
+      "pass": true,
+      "detail": "f_mism=0 c48_mism=0 end={'done': '1', 'fault': '0', 'error': '00', 'iso': '0', 'requires_reset': '0', 'cycles': '23774'} drain={'rd_pending': '0', 'wr_pending': '0', 'b_pending': '0', 'quiesced': '1', 'iso': '0'}"
+    },
+    {
+      "name": "graph_off_terminal_and_gold",
+      "pass": true,
+      "detail": "f_mism=0 c48_mism=0 end={'done': '1', 'fault': '0', 'error': '00', 'iso': '0', 'requires_reset': '0', 'cycles': '23774'} drain={'rd_pending': '0', 'wr_pending': '0', 'b_pending': '0', 'quiesced': '1', 'iso': '0'}"
+    },
+    {
+      "name": "graph_on_terminal_and_gold",
+      "pass": true,
+      "detail": "f_mism=0 c48_mism=0 end={'done': '1', 'fault': '0', 'error': '00', 'iso': '0', 'requires_reset': '0', 'cycles': '23660'} drain={'rd_pending': '0', 'wr_pending': '0', 'b_pending': '0', 'quiesced': '1', 'iso': '0'}"
+    },
+    {
+      "name": "exclusive_union_and_lookahead_ledger",
+      "pass": true,
+      "detail": "legacy_pct=59.805 saved=114 hits=6"
+    },
+    {
+      "name": "axi_multi_outstanding_stress",
+      "pass": true,
+      "detail": "tb/tb_axi_multi.sv:270: $finish called at 3476000 (1ps)"
+    },
+    {
+      "name": "lookahead_normal_gold_and_epoch",
+      "pass": true,
+      "detail": "f_mism=0 end={'done': '1', 'fault': '0', 'error': '00', 'iso': '0', 'requires_reset': '0', 'seq_dto': '0', 'seq_ito': '0', 'fetch_to': '0', 'drain_timeout': '0', 'cycles': '23805'} lu={'valid': '0', 'hits': '6', 'misses': '1', 'fetches': '6', 'aborts': '0', 'epoch': '2', 'has_seq': '0'}"
+    },
+    {
+      "name": "lookahead_multitask_gold",
+      "pass": true,
+      "detail": "ops=2 f_mism=0"
+    },
+    {
+      "name": "lookahead_lu_seq_lay_mutex_and_disabled",
+      "pass": true,
+      "detail": "end={'done': '1', 'fault': '0', 'error': '00', 'iso': '0', 'requires_reset': '0', 'seq_dto': '0', 'seq_ito': '0', 'fetch_to': '0', 'drain_timeout': '0', 'cycles': '7000'} ov={'seq_lay': '0', 'seq_vec': '0', 'seq_mat': '0', 'seq_direct': '0'} lu={'valid': '0', 'hits': '0', 'misses': '1', 'fetches': '0', 'aborts': '0', 'epoch': '2', 'has_seq': '1'}"
+    },
+    {
+      "name": "lookahead_lu_seq_seq_mutex_and_disabled",
+      "pass": true,
+      "detail": "end={'done': '1', 'fault': '0', 'error': '00', 'iso': '0', 'requires_reset': '0', 'seq_dto': '0', 'seq_ito': '0', 'fetch_to': '0', 'drain_timeout': '0', 'cycles': '7008'} ov={'seq_lay': '0', 'seq_vec': '0', 'seq_mat': '0', 'seq_direct': '0'} lu={'valid': '0', 'hits': '0', 'misses': '1', 'fetches': '0', 'aborts': '0', 'epoch': '2', 'has_seq': '1'}"
+    },
+    {
+      "name": "lookahead_lu_hang_wait_isolation",
+      "pass": true,
+      "detail": "end={'done': '1', 'fault': '1', 'error': '0e', 'iso': '1', 'requires_reset': '1', 'seq_dto': '1', 'seq_ito': '0', 'fetch_to': '0', 'drain_timeout': '0', 'cycles': '3214'} lu={'valid': '0', 'hits': '0', 'misses': '0', 'fetches': '0', 'aborts': '0', 'epoch': '3', 'has_seq': '1'}"
+    },
+    {
+      "name": "lookahead_lu_hang_run_isolation",
+      "pass": true,
+      "detail": "end={'done': '1', 'fault': '1', 'error': '0e', 'iso': '1', 'requires_reset': '1', 'seq_dto': '0', 'seq_ito': '1', 'fetch_to': '0', 'drain_timeout': '0', 'cycles': '3220'} lu={'valid': '0', 'hits': '0', 'misses': '0', 'fetches': '0', 'aborts': '0', 'epoch': '3', 'has_seq': '1'}"
+    },
+    {
+      "name": "lookahead_lu_bad_queue_fault",
+      "pass": true,
+      "detail": "end={'done': '1', 'fault': '1', 'error': '03', 'iso': '0', 'requires_reset': '0', 'seq_dto': '0', 'seq_ito': '0', 'fetch_to': '0', 'drain_timeout': '0', 'cycles': '10529'} drain={'rd_pending': '0', 'wr_pending': '0', 'b_pending': '0', 'quiesced': '1', 'iso_blocked': '0', 'held_r': '0', 'held_b': '0', 'returned_b': '12'}"
+    },
+    {
+      "name": "lookahead_lu_bad_vec_fault",
+      "pass": true,
+      "detail": "end={'done': '1', 'fault': '1', 'error': '07', 'iso': '0', 'requires_reset': '0', 'seq_dto': '0', 'seq_ito': '0', 'fetch_to': '0', 'drain_timeout': '0', 'cycles': '12443'} drain={'rd_pending': '0', 'wr_pending': '0', 'b_pending': '0', 'quiesced': '1', 'iso_blocked': '0', 'held_r': '0', 'held_b': '0', 'returned_b': '77'}"
+    },
+    {
+      "name": "lookahead_lu_bad_lay_fault",
+      "pass": true,
+      "detail": "end={'done': '1', 'fault': '1', 'error': '07', 'iso': '0', 'requires_reset': '0', 'seq_dto': '0', 'seq_ito': '0', 'fetch_to': '0', 'drain_timeout': '0', 'cycles': '433'} drain={'rd_pending': '0', 'wr_pending': '0', 'b_pending': '0', 'quiesced': '1', 'iso_blocked': '0', 'held_r': '0', 'held_b': '0', 'returned_b': '0'}"
+    },
+    {
+      "name": "lookahead_hold_r_drain_boundary",
+      "pass": true,
+      "detail": "end={'done': '1', 'fault': '1', 'error': '0e', 'iso': '1', 'requires_reset': '1', 'seq_dto': '0', 'seq_ito': '0', 'fetch_to': '0', 'drain_timeout': '0', 'cycles': '15431'} drain={'rd_pending': '1', 'wr_pending': '0', 'b_pending': '0', 'quiesced': '0', 'iso_blocked': '0', 'held_r': '1', 'held_b': '0', 'returned_b': '77'} lu={'valid': '0', 'hits': '2', 'misses': '1', 'fetches': '3', 'aborts': '0', 'epoch': '3', 'has_seq': '0'}"
+    },
+    {
+      "name": "lookahead_hold_b_drain_boundary",
+      "pass": true,
+      "detail": "end={'done': '1', 'fault': '1', 'error': '0e', 'iso': '1', 'requires_reset': '1', 'seq_dto': '0', 'seq_ito': '0', 'fetch_to': '0', 'drain_timeout': '0', 'cycles': '13536'} drain={'rd_pending': '0', 'wr_pending': '0', 'b_pending': '1', 'quiesced': '0', 'iso_blocked': '0', 'held_r': '0', 'held_b': '1', 'returned_b': '12'}"
+    },
+    {
+      "name": "lookahead_restart_lockout",
+      "pass": true,
+      "detail": "end={'done': '1', 'fault': '1', 'error': '0e', 'iso': '1', 'requires_reset': '1', 'seq_dto': '0', 'seq_ito': '0', 'fetch_to': '1', 'drain_timeout': '0', 'cycles': '3145'} restart={'bresp': '2', 'lockout_rej': '1', 'done_latched': '1', 'requires_reset': '1'}"
+    }
+  ]
+}

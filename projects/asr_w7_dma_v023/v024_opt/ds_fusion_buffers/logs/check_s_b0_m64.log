@@ -1,0 +1,2 @@
+CHECK s_b0_m64 dut=4096 gold=4096 mismatch=0
+CHECK_PASS

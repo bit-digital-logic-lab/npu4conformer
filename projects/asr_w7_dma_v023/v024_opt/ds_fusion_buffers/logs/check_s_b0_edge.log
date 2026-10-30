@@ -1,0 +1,2 @@
+CHECK s_b0_edge dut=1024 gold=1024 mismatch=0
+CHECK_PASS

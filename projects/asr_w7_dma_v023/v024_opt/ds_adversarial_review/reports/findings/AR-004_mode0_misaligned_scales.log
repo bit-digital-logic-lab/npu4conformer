@@ -1,0 +1,20 @@
+EPI mode=0 dir=vectors/epi
+ld t0
+t0 ok
+t1 ok
+ld b0
+b0 ok 0 32
+beats: bank0=0..31 bank1=32..63 scalar=64..71
+FAIL fp32 tag=0 lane=3 got=47759d00 exp=4711d49c
+FAIL fp32 tag=1000 lane=1 got=47d9358a exp=47c5e6d2
+FAIL fp32 tag=1000 lane=3 got=47a2d2be exp=4794f746
+FAIL fp32 tag=2000 lane=0 got=47a81c68 exp=46ed5300
+FAIL fp32 tag=2000 lane=1 got=479336ca exp=46cccf80
+FAIL fp32 tag=2000 lane=2 got=478cbe2c exp=46c10280
+FAIL a16 tag=2000 lane=0 got=7fff exp=76aa
+FAIL a16 tag=2000 lane=1 got=7fff exp=6668
+FAIL a16 tag=2000 lane=2 got=7fff exp=6081
+RESULT mode=0 a16=72 fp=72 errors=4 hits=256 misses=0 colerr=0 rej=4 cyc=279
+FAIL
+FATAL: /home/yang/Desktop/项目/v024_opt/ds_adversarial_review/tb/tb_epilogue.sv:365: mismatch
+       Time: 2835000  Scope: tb_epilogue

@@ -1,0 +1,7 @@
+CMD: /home/yang/Desktop/项目/v024_opt/ds_epilogue_channels/build/tb_epilogue_channels +CMD_FILE=vectors/scalar_bias_only.cmd +PAR_FILE=vectors/scalar_bias_only.par +OUT_FILE=logs/scalar_bias_only.out +BP=0 +MAX_CYCLES=2000000
+ABORT_CYCLE=-1
+STATS in=32 a16=32 pack=16 fp32=0 spill=0 c48stat=32 a16stat=32 fp32stat=0 spillstat=0
+TABLE hits=0 misses=0 align_err=0 rejects=0 saved=1536
+STABILITY_ERRORS=0
+PARAM_ERRORS=0
+DRAINED cycle=131

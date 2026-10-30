@@ -1,0 +1,101 @@
+{
+  "task": "ds_matrix_reuse",
+  "title": "Matrix 2x1 super-tile: two resident C tiles across K with optional W reuse",
+  "updated": "2026-10-30",
+  "status": "complete-logic-simulation",
+  "rc": 0,
+  "scope": "logic simulation only; no synthesis, Vivado, STA, board, VNC or push; no frequency or whole-model seconds claim",
+  "contract": {
+    "source_readonly": "/home/yang/Desktop/项目/v023_repair",
+    "only_write_here": true,
+    "compile_jobs": 1,
+    "sim_watchdog": true,
+    "normal_completion_must_drain_last_B": true,
+    "independent_gold": "scripts/gold_reuse.py integer model",
+    "reference_metadata_frozen": true
+  },
+  "phases": [
+    {
+      "id": "P0",
+      "name": "read v024 decisions/input, root README, v023 ds_matrix REPORT/INTERFACE/RTL",
+      "status": "done",
+      "evidence": ["USER_UPDATES.md", "REVIEW.md", "REFERENCE_FREEZE.json"]
+    },
+    {
+      "id": "P1",
+      "name": "audit the claimed 2x1 super-tile: C slots, W pinning, ports, release, RAW",
+      "status": "done",
+      "evidence": ["REVIEW.md", "INTERFACE.md", "tb_cache_slots"]
+    },
+    {
+      "id": "P2",
+      "name": "implement optional W-reuse schedule and decoupled A/W stage ports",
+      "status": "done",
+      "evidence": [
+        "candidate/rtl/block_engine_reuse_v1.sv",
+        "candidate/rtl/block_storage_stream_reuse_v1.sv",
+        "candidate/rtl/operand_banks_dual_reuse.sv",
+        "candidate/rtl/matrix_reuse_cluster_v1.sv"
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "independent gold, fixtures, real RTL regression M32/64/96 N32/64 K1/32/96/tail, old-C/overflow/parity/fault",
+      "status": "done",
+      "evidence": ["fixtures/", "logs/metrics.json", "logs/run_*.log", "REFERENCE_FREEZE.json"]
+    },
+    {
+      "id": "P4",
+      "name": "actual AXI W bytes, capacity inventory, writeback interface patch",
+      "status": "done",
+      "evidence": ["logs/capacity.json", "patches/writeback_interface_v1.patch", "WRITEBACK_INTERFACE.md"]
+    },
+    {
+      "id": "P5",
+      "name": "freeze reference metadata, SHA/filelist, REPORT/result",
+      "status": "done",
+      "evidence": ["REFERENCE_FREEZE.json", "SHA256SUMS.txt", "filelist.txt", "REPORT.md", "result.json"]
+    }
+  ],
+  "tests": {
+    "commands_total": 47,
+    "commands_nonzero": 0,
+    "engine_run_groups": 19,
+    "cluster_axi_runs": 6,
+    "reference_v023_runs": 2,
+    "directed_cache_runs": 1,
+    "fault_runs": {
+      "c48_overflow": "code 08, drained",
+      "bad_w_parity": "code 09, drained",
+      "injected_read_error": "code 09, drained",
+      "injected_write_error": "code 0a, drained"
+    },
+    "hazard_counters": "haz_a=0, haz_w=0 in all normal/backpressure/fault runs",
+    "raw_bypass_cycles": 0,
+    "normal_last_B_drained": true
+  },
+  "key_measurements": {
+    "M64N32K96_C0_reuse0_cycles": 4550,
+    "M64N32K96_C0_reuse1_cycles": 4367,
+    "M64N32K96_C0_v023_reference_cycles": 4552,
+    "M64N32K96_C1_reuse1_cycles": 5154,
+    "M64N32K96_C1_v023_reference_cycles": 5329,
+    "M64N32K96_C0_read_bytes_reuse0": 18432,
+    "M64N32K96_C0_read_bytes_reuse1": 15360,
+    "M64N32K96_C0_W_bytes_reuse0": 6144,
+    "M64N32K96_C0_W_bytes_reuse1": 3072,
+    "AXI_W_bytes_unchanged_by_reuse": true
+  },
+  "fixed_findings": [
+    "abort did not drop unposted cseg queue; overflow fault could hang WAITDRAIN",
+    "A/W read-stage coupling prevented W pinning with only a loop change",
+    "pair-wide stage release prevented refilling A while W stayed pinned"
+  ],
+  "known_limits": [
+    "no synthesis/STA/CDC/frequency/board/whole-model claim",
+    "v1 serializes result0 on cwr_idle before br1 final-K write stream",
+    "odd M96 tail tile uses single-tile path; no W reuse",
+    "one result payload; no simultaneous two-tile result",
+    "cache_hits=0 by design; each tile computed once per task"
+  ]
+}

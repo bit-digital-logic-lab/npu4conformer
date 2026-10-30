@@ -1,0 +1,100 @@
+{
+  "task": "ds_fusion_buffers",
+  "updated": "2026-10-30",
+  "scope": "local Icarus logic simulation only; no synthesis/Vivado/STA/board/VNC/push",
+  "current_phase": "P6_done",
+  "run_rc": 0,
+  "phases": [
+    {
+      "id": "P0",
+      "name": "Read v024 decisions/input/README and v023 fusion+stream reports; freeze upstream metadata; independently re-run upstream 23-case regression",
+      "status": "done",
+      "evidence": [
+        "reference_freeze_v023_fusion.json (50 upstream files)",
+        "upstream exit.json exit_code=1; worker.log has exactly one provider.transport ECONNRESET (line 216), session continued",
+        "upstream_repro/ds_closeout_fusion rerun: rc=0, 23/23 PASS, finalize 71 SHA files",
+        "upstream_repro/ds_closeout_fusion/rerun_rc.txt"
+      ]
+    },
+    {
+      "id": "P1",
+      "name": "Publish early interface for dual-bank A16 buffer, credit/tail contract, optional per-channel/FP32 interface",
+      "status": "done",
+      "evidence": ["INTERFACE.md (dual top, cost, credit, optional §4)"]
+    },
+    {
+      "id": "P2",
+      "name": "Implement ping-pong 2x2KiB A16 bank, dual-bank fused top with writeout/compute overlap, v5 BFM with explicit long-B delay",
+      "status": "done",
+      "evidence": [
+        "rtl/fusion_a16_blockbuf_dual.sv",
+        "rtl/matrix_stream_fusion_top_dual.sv",
+        "tb/axi128_ddr_bfm_v5.sv",
+        "n64 bextra=3000: dual cycles=7857, overlap=1522, bank_occ_max=2; single-ref cycles=9165"
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "Build independent fixtures for multiple tile M/N/K and edge, independent exact-rational gold, real unfused baseline",
+      "status": "done",
+      "evidence": [
+        "vectors/main, n64, n96, m64, edge",
+        "scripts/gold_fusion.py + gen_engine_vectors.py exp_c crosscheck 0 mismatch",
+        "39/39 cases PASS, 0 A16 mismatch"
+      ]
+    },
+    {
+      "id": "P4",
+      "name": "Add FIFO credit/non-pausable-source tail test and B-response drain assertions",
+      "status": "done",
+      "evidence": [
+        "tb/tb_fifo_credit.sv: 512 beats, max_occ=15, last_seen=1, overflow=0",
+        "tb/tb_fusion_dual.sv b_count/aw_count/last_b/dma_done/done assertions",
+        "tb/tb_unfused_baseline.sv B-count/done assertions",
+        "tb/tb_epilogue_contract.sv now $fatal on missing/0 vector cases; driver requires cases>=8"
+      ]
+    },
+    {
+      "id": "P5",
+      "name": "Full regression: fused dual across 5 shapes and 5 backpressure modes, long B, single-buffer control, unfused baseline, FIFO/odd-tail/contract",
+      "status": "done",
+      "evidence": [
+        "logs/run_all_console.log: TOTAL cases=39 passed=39 failed=0 status=PASS",
+        "logs/run_all_rc.txt: 0",
+        "result.json: status=PASS, verdict=PASS_DUAL_BANK_A16_OVERLAP",
+        "logs/regression.tsv (39 rows)"
+      ]
+    },
+    {
+      "id": "P6",
+      "name": "Finalize REPORT/result/SHA/unique filelists/reproducible scripts and limits",
+      "status": "done",
+      "evidence": [
+        "REPORT.md",
+        "result.json",
+        "SHA256SUMS.txt (90 files; sha256sum -c OK)",
+        "filelist_fused_dual.f (28 unique modules), filelist_fused_single.f (27), filelist_unfused.f (31), duplicates=[]",
+        "scripts/run_all.sh -> scripts/run_all.py -> finalize.py -> make_report.py -> finalize.py"
+      ]
+    }
+  ],
+  "verified": [
+    "upstream exit1 is a provider.transport ECONNRESET; independent rerun 23/23 PASS rc=0",
+    "39/39 local cases rc=0 and independent A16 gold 0 mismatch",
+    "multi-tile M/N: M32/N64, M32/N96, M64/N64 (4 tiles), edge M17/N19",
+    "long B: cfg_b_extra 120/400/3000; done after last B and dma_done in every case",
+    "dual-bank overlap: n64 b3000 bank_occ_max=2, overlap=1522",
+    "C48 DDR write/read = 0 on fused path; unfused real baseline 6144+6144 B per tile",
+    "2x2KiB banks: +2048 B on-chip, 0 added AXI ports, 0 extra DDR bytes",
+    "FIFO stale-credit/tail: 512 beats, max_occ=15, last once, overflow=0",
+    "FMA contract cases=8, mismatch=0, fma_vs_muladd_diff=8"
+  ],
+  "not_claimed": [
+    "whole-model WER/CER",
+    "per-channel scale/bias (interface only)",
+    "cfg_spill_fp32 (interface only)",
+    "synthesis/STA/CDC/board",
+    "300/600 MHz or whole-model seconds",
+    "unfused baseline with cfg_b_extra>1 (does not complete in this simulation environment)"
+  ]
+}

@@ -1,0 +1,12 @@
+compile rc=0
+mode0_nobp rc=0 RESULT mode=0 a16=72 fp=72 errors=0 hits=256 misses=0 colerr=0 rej=4 cyc=382
+mode1_abort_nobp rc=0 RESULT mode=1 a16=8 fp=8 errors=0 hits=24 misses=0 colerr=0 rej=0 cyc=201
+mode2_scalar_nobp rc=0 RESULT mode=2 a16=8 fp=8 errors=0 hits=0 misses=0 colerr=0 rej=0 cyc=108
+mode3_pc_nobp rc=0 RESULT mode=3 a16=32 fp=32 errors=0 hits=128 misses=0 colerr=0 rej=0 cyc=244
+mode4_stall rc=0 RESULT mode=4 a16=32 fp=32 errors=0 hits=128 misses=0 colerr=0 rej=0 cyc=283
+mode3_a16bp rc=0 RESULT mode=3 a16=32 fp=32 errors=0 hits=128 misses=0 colerr=0 rej=0 cyc=252
+mode3_fp32bp rc=0 RESULT mode=3 a16=32 fp=32 errors=0 hits=128 misses=0 colerr=0 rej=0 cyc=244
+probe_both_bp rc=1 (advisory; nonzero = AR-006 channel deadlock)
+probe_multiphase_a16bp rc=1 (advisory; nonzero = AR-007 multi-phase stall)
+EPI_GATE_PASS adv_old
+advisory_old_script_rc=0

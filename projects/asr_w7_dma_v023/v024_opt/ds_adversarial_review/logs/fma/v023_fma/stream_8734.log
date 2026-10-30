@@ -1,0 +1,4 @@
+MODE=0 N=8734
+RESULT mode=0 n=8734 out=8734 errors=0 cycles=12965
+PASS
+/home/yang/Desktop/项目/v024_opt/ds_adversarial_review/tb/tb_fma.sv:273: $finish called at 129695000 (1ps)

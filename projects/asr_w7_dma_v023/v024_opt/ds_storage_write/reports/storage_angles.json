@@ -1,0 +1,74 @@
+{
+  "abortm": {
+    "coal": 0,
+    "cseg": 1,
+    "csegstall": 0,
+    "cvalstall": 0,
+    "flush": 0,
+    "gen": 1,
+    "maxb": 0,
+    "status": "PASS",
+    "wrbeat": 0,
+    "wrcmd": 0
+  },
+  "bad": {
+    "coal": 0,
+    "cseg": 1,
+    "csegstall": 0,
+    "cvalstall": 0,
+    "flush": 0,
+    "gen": 0,
+    "maxb": 0,
+    "status": "PASS",
+    "wrbeat": 0,
+    "wrcmd": 0
+  },
+  "generic": {
+    "coal": 0,
+    "cseg": 8,
+    "csegstall": 0,
+    "cvalstall": 47,
+    "flush": 0,
+    "gen": 8,
+    "maxb": 2,
+    "status": "PASS",
+    "wrbeat": 48,
+    "wrcmd": 8
+  },
+  "native": {
+    "coal": 64,
+    "cseg": 64,
+    "csegstall": 0,
+    "cvalstall": 0,
+    "flush": 24,
+    "gen": 0,
+    "maxb": 2,
+    "status": "PASS",
+    "wrbeat": 384,
+    "wrcmd": 24
+  },
+  "split": {
+    "coal": 64,
+    "cseg": 64,
+    "csegstall": 0,
+    "cvalstall": 0,
+    "flush": 25,
+    "gen": 0,
+    "maxb": 2,
+    "status": "PASS",
+    "wrbeat": 384,
+    "wrcmd": 25
+  },
+  "tail": {
+    "coal": 0,
+    "cseg": 1,
+    "csegstall": 0,
+    "cvalstall": 0,
+    "flush": 0,
+    "gen": 1,
+    "maxb": 1,
+    "status": "PASS",
+    "wrbeat": 2,
+    "wrcmd": 1
+  }
+}

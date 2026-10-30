@@ -1,0 +1,857 @@
+{
+  "task": "ds_matrix_reuse",
+  "title": "Matrix 2x1 super-tile: two resident C tiles across K with optional W reuse",
+  "status": "complete-logic-simulation",
+  "date": "2026-10-30",
+  "scope": "logic simulation only; no synthesis, Vivado, STA, board, VNC or push; no frequency/whole-model claim",
+  "rc": 0,
+  "commands_total": 47,
+  "commands_nonzero": 0,
+  "engine_runs": {
+    "run_m32n32k32_c0_r0": {
+      "M": "32",
+      "N": "32",
+      "K": "32",
+      "c_valid": "0",
+      "reuse": "0",
+      "cycles": "1194",
+      "rd_bytes": "3072",
+      "wr_bytes": "6144",
+      "w_bytes": "1024",
+      "verdict": "PASS"
+    },
+    "run_m32n32k32_c0_r1": {
+      "M": "32",
+      "N": "32",
+      "K": "32",
+      "c_valid": "0",
+      "reuse": "1",
+      "cycles": "1194",
+      "rd_bytes": "3072",
+      "wr_bytes": "6144",
+      "w_bytes": "1024",
+      "verdict": "PASS"
+    },
+    "run_m32n64k32_c0_r1": {
+      "M": "32",
+      "N": "64",
+      "K": "32",
+      "c_valid": "0",
+      "reuse": "1",
+      "cycles": "2387",
+      "rd_bytes": "6144",
+      "wr_bytes": "12288",
+      "w_bytes": "2048",
+      "verdict": "PASS"
+    },
+    "run_m32n32k32_c1_r0": {
+      "M": "32",
+      "N": "32",
+      "K": "32",
+      "c_valid": "1",
+      "reuse": "0",
+      "cycles": "1585",
+      "rd_bytes": "9216",
+      "wr_bytes": "6144",
+      "w_bytes": "1024",
+      "verdict": "PASS"
+    },
+    "run_m64n32k96_c0_r1": {
+      "M": "64",
+      "N": "32",
+      "K": "96",
+      "c_valid": "0",
+      "reuse": "1",
+      "cycles": "4367",
+      "rd_bytes": "15360",
+      "wr_bytes": "12288",
+      "w_bytes": "3072",
+      "verdict": "PASS"
+    },
+    "run_m64n32k96_c0_r0": {
+      "M": "64",
+      "N": "32",
+      "K": "96",
+      "c_valid": "0",
+      "reuse": "0",
+      "cycles": "4550",
+      "rd_bytes": "18432",
+      "wr_bytes": "12288",
+      "w_bytes": "6144",
+      "verdict": "PASS"
+    },
+    "run_m64n32k96_c1_r1": {
+      "M": "64",
+      "N": "32",
+      "K": "96",
+      "c_valid": "1",
+      "reuse": "1",
+      "cycles": "5154",
+      "rd_bytes": "27648",
+      "wr_bytes": "12288",
+      "w_bytes": "3072",
+      "verdict": "PASS"
+    },
+    "run_m64n64k96_c0_r1": {
+      "M": "64",
+      "N": "64",
+      "K": "96",
+      "c_valid": "0",
+      "reuse": "1",
+      "cycles": "8735",
+      "rd_bytes": "30720",
+      "wr_bytes": "24576",
+      "w_bytes": "6144",
+      "verdict": "PASS"
+    },
+    "run_m96n32k96_c0_r1": {
+      "M": "96",
+      "N": "32",
+      "K": "96",
+      "c_valid": "0",
+      "reuse": "1",
+      "cycles": "6645",
+      "rd_bytes": "24576",
+      "wr_bytes": "18432",
+      "w_bytes": "6144",
+      "verdict": "PASS"
+    },
+    "run_m96n64k64_c1_r1": {
+      "M": "96",
+      "N": "64",
+      "K": "64",
+      "c_valid": "1",
+      "reuse": "1",
+      "cycles": "12388",
+      "rd_bytes": "69632",
+      "wr_bytes": "36864",
+      "w_bytes": "8192",
+      "verdict": "PASS"
+    },
+    "run_m64n32k1_c0_r1": {
+      "M": "64",
+      "N": "32",
+      "K": "1",
+      "c_valid": "0",
+      "reuse": "1",
+      "cycles": "1964",
+      "rd_bytes": "5120",
+      "wr_bytes": "12288",
+      "w_bytes": "1024",
+      "verdict": "PASS"
+    },
+    "run_m64n32k32_c0_r1": {
+      "M": "64",
+      "N": "32",
+      "K": "32",
+      "c_valid": "0",
+      "reuse": "1",
+      "cycles": "2202",
+      "rd_bytes": "5120",
+      "wr_bytes": "12288",
+      "w_bytes": "1024",
+      "verdict": "PASS"
+    },
+    "run_m64n32k33_c0_r1": {
+      "M": "64",
+      "N": "32",
+      "K": "33",
+      "c_valid": "0",
+      "reuse": "1",
+      "cycles": "3047",
+      "rd_bytes": "10240",
+      "wr_bytes": "12288",
+      "w_bytes": "2048",
+      "verdict": "PASS"
+    },
+    "run_m64n32k65_c0_r1": {
+      "M": "64",
+      "N": "32",
+      "K": "65",
+      "c_valid": "0",
+      "reuse": "1",
+      "cycles": "4128",
+      "rd_bytes": "15360",
+      "wr_bytes": "12288",
+      "w_bytes": "3072",
+      "verdict": "PASS"
+    },
+    "run_bp_m64n32k96_c1_r1": {
+      "M": "64",
+      "N": "32",
+      "K": "96",
+      "c_valid": "1",
+      "reuse": "1",
+      "cycles": "28142",
+      "rd_bytes": "27648",
+      "wr_bytes": "12288",
+      "w_bytes": "3072",
+      "verdict": "PASS"
+    }
+  },
+  "fault_runs": {
+    "run_ovf_m64n32k32_c1_r1": {
+      "rc": 0,
+      "done": "1",
+      "reuse": {
+        "a": "2",
+        "w": "1",
+        "c": "2",
+        "pairs": "1",
+        "wsaved": "0",
+        "pairmode": "1",
+        "wblk": "0"
+      },
+      "bfm": {
+        "rdcmds": "5",
+        "wrcmds": "0",
+        "rdbeats": "1088",
+        "wrbeats": "0",
+        "shared": "0",
+        "maxb": "0",
+        "rdstall": "3",
+        "wrstall": "0",
+        "bout": "0",
+        "wbusy": "0"
+      },
+      "store": {
+        "rdblk": "5",
+        "wrseg": "1",
+        "rdbytes": "17408",
+        "wrbytes": "0",
+        "errs": "1",
+        "drain": "1"
+      },
+      "hazard": {
+        "haz_a": "0",
+        "haz_w": "0"
+      },
+      "verdict": "PASS_FAULT",
+      "tb": "code=08",
+      "code": "08",
+      "cycles": "1122",
+      "cwr_pending": "0",
+      "bout": "0",
+      "wbusy": "0"
+    },
+    "run_badpar_m64n32k96_c0_r1": {
+      "rc": 0,
+      "done": "1",
+      "reuse": {
+        "a": "1",
+        "w": "1",
+        "c": "0",
+        "pairs": "1",
+        "wsaved": "0",
+        "pairmode": "1",
+        "wblk": "0"
+      },
+      "bfm": {
+        "rdcmds": "2",
+        "wrcmds": "0",
+        "rdbeats": "192",
+        "wrbeats": "0",
+        "shared": "0",
+        "maxb": "0",
+        "rdstall": "0",
+        "wrstall": "0",
+        "bout": "0",
+        "wbusy": "0"
+      },
+      "store": {
+        "rdblk": "2",
+        "wrseg": "0",
+        "rdbytes": "3072",
+        "wrbytes": "0",
+        "errs": "3",
+        "drain": "1"
+      },
+      "hazard": {
+        "haz_a": "0",
+        "haz_w": "0"
+      },
+      "verdict": "PASS_FAULT",
+      "tb": "code=09",
+      "code": "09",
+      "cycles": "203",
+      "cwr_pending": "0",
+      "bout": "0",
+      "wbusy": "0"
+    },
+    "run_fault_rd_m64n32k96_c0_r1": {
+      "rc": 0,
+      "done": "1",
+      "reuse": {
+        "a": "1",
+        "w": "1",
+        "c": "0",
+        "pairs": "1",
+        "wsaved": "0",
+        "pairmode": "1",
+        "wblk": "0"
+      },
+      "bfm": {
+        "rdcmds": "2",
+        "wrcmds": "0",
+        "rdbeats": "128",
+        "wrbeats": "0",
+        "shared": "0",
+        "maxb": "0",
+        "rdstall": "0",
+        "wrstall": "0",
+        "bout": "0",
+        "wbusy": "0"
+      },
+      "store": {
+        "rdblk": "2",
+        "wrseg": "0",
+        "rdbytes": "2048",
+        "wrbytes": "0",
+        "errs": "2",
+        "drain": "1"
+      },
+      "hazard": {
+        "haz_a": "0",
+        "haz_w": "0"
+      },
+      "verdict": "PASS_FAULT",
+      "tb": "code=09",
+      "code": "09",
+      "cycles": "137",
+      "cwr_pending": "0",
+      "bout": "0",
+      "wbusy": "0"
+    },
+    "run_fault_wr_m64n32k96_c0_r1": {
+      "rc": 0,
+      "done": "1",
+      "reuse": {
+        "a": "6",
+        "w": "3",
+        "c": "0",
+        "pairs": "1",
+        "wsaved": "2",
+        "pairmode": "1",
+        "wblk": "2"
+      },
+      "bfm": {
+        "rdcmds": "9",
+        "wrcmds": "2",
+        "rdbeats": "960",
+        "wrbeats": "12",
+        "shared": "22",
+        "maxb": "1",
+        "rdstall": "3",
+        "wrstall": "2",
+        "bout": "0",
+        "wbusy": "0"
+      },
+      "store": {
+        "rdblk": "9",
+        "wrseg": "2",
+        "rdbytes": "15360",
+        "wrbytes": "128",
+        "errs": "3",
+        "drain": "1"
+      },
+      "hazard": {
+        "haz_a": "0",
+        "haz_w": "0"
+      },
+      "verdict": "PASS_FAULT",
+      "tb": "code=0a",
+      "code": "0a",
+      "cycles": "2514",
+      "cwr_pending": "0",
+      "bout": "0",
+      "wbusy": "0"
+    }
+  },
+  "backpressure": {
+    "rc": 0,
+    "done": {
+      "fault": "0",
+      "code": "00",
+      "cycles": "28142",
+      "compute": "1632",
+      "rdblk": "11",
+      "wrblk": "128",
+      "hits": "0",
+      "miss": "2",
+      "prehit": "2",
+      "prewait": "299",
+      "ov_rd": "1165",
+      "ov_wr": "24117",
+      "cgrp": "1536",
+      "ccyc": "24789",
+      "craw": "0",
+      "pdrain": "5",
+      "adrain": "20"
+    },
+    "reuse": {
+      "a": "6",
+      "w": "3",
+      "c": "2",
+      "pairs": "1",
+      "wsaved": "3",
+      "pairmode": "0",
+      "wblk": "128"
+    },
+    "bfm": {
+      "rdcmds": "11",
+      "wrcmds": "128",
+      "rdbeats": "1728",
+      "wrbeats": "768",
+      "shared": "3",
+      "maxb": "1",
+      "rdstall": "861",
+      "wrstall": "23377",
+      "bout": "0",
+      "wbusy": "0"
+    },
+    "store": {
+      "rdblk": "11",
+      "wrseg": "128",
+      "rdbytes": "27648",
+      "wrbytes": "12288",
+      "errs": "0",
+      "drain": "1"
+    },
+    "hazard": {
+      "haz_a": "0",
+      "haz_w": "0"
+    },
+    "verdict": "PASS",
+    "tb": "tb_reuse_engine",
+    "M": "64",
+    "N": "32",
+    "K": "96",
+    "CVALID": "1",
+    "REUSE": "1",
+    "PIPE": "4",
+    "cycles": "28142",
+    "rdbytes": "27648",
+    "wrbytes": "12288",
+    "Wbytes": "3072"
+  },
+  "reference_v023": {
+    "run_ref_c0": {
+      "rc": 0,
+      "done": {
+        "fault": "0",
+        "code": "00",
+        "cycles": "4552",
+        "compute": "1632",
+        "rdblk": "12",
+        "wrblk": "128",
+        "hits": "0",
+        "miss": "2",
+        "prehit": "4",
+        "prewait": "396",
+        "ov_rd": "774",
+        "ov_wr": "1421",
+        "cgrp": "1536",
+        "ccyc": "2448",
+        "craw": "0",
+        "pdrain": "5",
+        "adrain": "20"
+      },
+      "bfm": {
+        "rdcmds": "12",
+        "wrcmds": "128",
+        "rdbeats": "1152",
+        "wrbeats": "768",
+        "shared": "0",
+        "maxb": "1",
+        "rdstall": "6",
+        "wrstall": "62"
+      },
+      "verdict": "PASS",
+      "tb": "tb_engine_p2",
+      "M": "64",
+      "N": "32",
+      "K": "96",
+      "C_VALID": "0",
+      "PIPE": "4",
+      "cycles": "4552",
+      "compute": "1632",
+      "ov_rd": "774",
+      "ov_wr": "1421",
+      "prehit": "4",
+      "prewait": "396",
+      "cgrp": "1536",
+      "ccyc": "2448",
+      "pdrain": "5",
+      "adrain": "20"
+    },
+    "run_ref_c1": {
+      "rc": 0,
+      "done": {
+        "fault": "0",
+        "code": "00",
+        "cycles": "5329",
+        "compute": "1632",
+        "rdblk": "14",
+        "wrblk": "128",
+        "hits": "0",
+        "miss": "2",
+        "prehit": "4",
+        "prewait": "0",
+        "ov_rd": "778",
+        "ov_wr": "1427",
+        "cgrp": "1536",
+        "ccyc": "2448",
+        "craw": "0",
+        "pdrain": "5",
+        "adrain": "20"
+      },
+      "bfm": {
+        "rdcmds": "14",
+        "wrcmds": "128",
+        "rdbeats": "1920",
+        "wrbeats": "768",
+        "shared": "0",
+        "maxb": "1",
+        "rdstall": "9",
+        "wrstall": "72"
+      },
+      "verdict": "PASS",
+      "tb": "tb_engine_p2",
+      "M": "64",
+      "N": "32",
+      "K": "96",
+      "C_VALID": "1",
+      "PIPE": "4",
+      "cycles": "5329",
+      "compute": "1632",
+      "ov_rd": "778",
+      "ov_wr": "1427",
+      "prehit": "4",
+      "prewait": "0",
+      "cgrp": "1536",
+      "ccyc": "2448",
+      "pdrain": "5",
+      "adrain": "20"
+    }
+  },
+  "cluster_runs": {
+    "run_cluster_m64n32k96_c0_r1": {
+      "cluster": {
+        "fault": "0",
+        "code": "00",
+        "cycles": "7236",
+        "rdblk": "9",
+        "wrblk": "128",
+        "cgrp": "1536",
+        "a": "6",
+        "w": "3",
+        "c": "0",
+        "pairs": "1",
+        "wsaved": "3"
+      },
+      "dma": {
+        "rd_bursts": "60",
+        "rd_bytes": "15360",
+        "armax": "8",
+        "wr_bursts": "130",
+        "wr_bytes": "12288",
+        "bmax": "2"
+      },
+      "axi": {
+        "read_beats": "960",
+        "read_bursts": "60",
+        "write_beats": "768",
+        "write_bursts": "130",
+        "aw": "130",
+        "w": "768",
+        "b": "130",
+        "strb_bytes": "12288",
+        "maxrd": "8",
+        "maxwr": "2"
+      },
+      "drain": {
+        "aw_cnt": "0",
+        "b_cnt": "0",
+        "wr_active": "0"
+      },
+      "verdict": "PASS"
+    },
+    "run_cluster_m64n32k96_c0_r0": {
+      "cluster": {
+        "fault": "0",
+        "code": "00",
+        "cycles": "7612",
+        "rdblk": "12",
+        "wrblk": "128",
+        "cgrp": "1536",
+        "a": "6",
+        "w": "6",
+        "c": "0",
+        "pairs": "0",
+        "wsaved": "0"
+      },
+      "dma": {
+        "rd_bursts": "72",
+        "rd_bytes": "18432",
+        "armax": "8",
+        "wr_bursts": "130",
+        "wr_bytes": "12288",
+        "bmax": "2"
+      },
+      "axi": {
+        "read_beats": "1152",
+        "read_bursts": "72",
+        "write_beats": "768",
+        "write_bursts": "130",
+        "aw": "130",
+        "w": "768",
+        "b": "130",
+        "strb_bytes": "12288",
+        "maxrd": "8",
+        "maxwr": "2"
+      },
+      "drain": {
+        "aw_cnt": "0",
+        "b_cnt": "0",
+        "wr_active": "0"
+      },
+      "verdict": "PASS"
+    },
+    "run_cluster_m64n32k96_c1_r1": {
+      "cluster": {
+        "fault": "0",
+        "code": "00",
+        "cycles": "8435",
+        "rdblk": "11",
+        "wrblk": "128",
+        "cgrp": "1536",
+        "a": "6",
+        "w": "3",
+        "c": "2",
+        "pairs": "1",
+        "wsaved": "3"
+      },
+      "dma": {
+        "rd_bursts": "108",
+        "rd_bytes": "27648",
+        "armax": "8",
+        "wr_bursts": "130",
+        "wr_bytes": "12288",
+        "bmax": "2"
+      },
+      "axi": {
+        "read_beats": "1728",
+        "read_bursts": "108",
+        "write_beats": "768",
+        "write_bursts": "130",
+        "aw": "130",
+        "w": "768",
+        "b": "130",
+        "strb_bytes": "12288",
+        "maxrd": "8",
+        "maxwr": "2"
+      },
+      "drain": {
+        "aw_cnt": "0",
+        "b_cnt": "0",
+        "wr_active": "0"
+      },
+      "verdict": "PASS"
+    },
+    "run_cluster_m64n64k96_c0_r1": {
+      "cluster": {
+        "fault": "0",
+        "code": "00",
+        "cycles": "14591",
+        "rdblk": "18",
+        "wrblk": "256",
+        "cgrp": "3072",
+        "a": "12",
+        "w": "6",
+        "c": "0",
+        "pairs": "2",
+        "wsaved": "6"
+      },
+      "dma": {
+        "rd_bursts": "120",
+        "rd_bytes": "30720",
+        "armax": "8",
+        "wr_bursts": "260",
+        "wr_bytes": "24576",
+        "bmax": "2"
+      },
+      "axi": {
+        "read_beats": "1920",
+        "read_bursts": "120",
+        "write_beats": "1536",
+        "write_bursts": "260",
+        "aw": "260",
+        "w": "1536",
+        "b": "260",
+        "strb_bytes": "24576",
+        "maxrd": "8",
+        "maxwr": "2"
+      },
+      "drain": {
+        "aw_cnt": "0",
+        "b_cnt": "0",
+        "wr_active": "0"
+      },
+      "verdict": "PASS"
+    },
+    "run_cluster_m96n32k96_c0_r1": {
+      "cluster": {
+        "fault": "0",
+        "code": "00",
+        "cycles": "11083",
+        "rdblk": "15",
+        "wrblk": "192",
+        "cgrp": "2304",
+        "a": "9",
+        "w": "6",
+        "c": "0",
+        "pairs": "1",
+        "wsaved": "3"
+      },
+      "dma": {
+        "rd_bursts": "96",
+        "rd_bytes": "24576",
+        "armax": "8",
+        "wr_bursts": "195",
+        "wr_bytes": "18432",
+        "bmax": "2"
+      },
+      "axi": {
+        "read_beats": "1536",
+        "read_bursts": "96",
+        "write_beats": "1152",
+        "write_bursts": "195",
+        "aw": "195",
+        "w": "1152",
+        "b": "195",
+        "strb_bytes": "18432",
+        "maxrd": "8",
+        "maxwr": "2"
+      },
+      "drain": {
+        "aw_cnt": "0",
+        "b_cnt": "0",
+        "wr_active": "0"
+      },
+      "verdict": "PASS"
+    },
+    "run_cluster_m96n64k64_c1_r1": {
+      "cluster": {
+        "fault": "0",
+        "code": "00",
+        "cycles": "22172",
+        "rdblk": "26",
+        "wrblk": "384",
+        "cgrp": "3072",
+        "a": "12",
+        "w": "8",
+        "c": "6",
+        "pairs": "2",
+        "wsaved": "4"
+      },
+      "dma": {
+        "rd_bursts": "272",
+        "rd_bytes": "69632",
+        "armax": "8",
+        "wr_bursts": "390",
+        "wr_bytes": "36864",
+        "bmax": "2"
+      },
+      "axi": {
+        "read_beats": "4352",
+        "read_bursts": "272",
+        "write_beats": "2304",
+        "write_bursts": "390",
+        "aw": "390",
+        "w": "2304",
+        "b": "390",
+        "strb_bytes": "36864",
+        "maxrd": "8",
+        "maxwr": "2"
+      },
+      "drain": {
+        "aw_cnt": "0",
+        "b_cnt": "0",
+        "wr_active": "0"
+      },
+      "verdict": "PASS"
+    }
+  },
+  "capacity": {
+    "memory_array_bits": 147456,
+    "memory_array_bytes": 18432,
+    "c_cache_two_slots_bytes": 12288,
+    "new_memory_arrays_vs_v023": 0,
+    "note": "No new BRAM/LUTRAM array.  Extra flops are control/telemetry only; this is not a zero extra FF/LUT claim and not an STA/synthesis result."
+  },
+  "measurements": {
+    "M64N32K96_C0_reuse0_cycles": 4550,
+    "M64N32K96_C0_reuse1_cycles": 4367,
+    "M64N32K96_C0_v023_reference_cycles": 4552,
+    "M64N32K96_C1_reuse1_cycles": 5154,
+    "M64N32K96_C1_v023_reference_cycles": 5329,
+    "M64N32K96_C0_read_bytes_reuse0": 18432,
+    "M64N32K96_C0_read_bytes_reuse1": 15360,
+    "M64N32K96_C0_W_bytes_reuse0": 6144,
+    "M64N32K96_C0_W_bytes_reuse1": 3072,
+    "AXI_W_bytes_unchanged_by_reuse": true,
+    "hazard_counters": "haz_a=0, haz_w=0 in all normal/backpressure/fault runs",
+    "raw_bypass_cycles": 0
+  },
+  "fixed_findings": [
+    "v023 abort did not drop unposted cseg queue; overflow fault could hang WAITDRAIN",
+    "A/W read-stage coupling prevented W pinning with only a loop change",
+    "pair-wide stage release prevented refilling A while W stayed pinned"
+  ],
+  "not_claimed": [
+    "zero extra FF/LUT/BRAM beyond the logical array inventory",
+    "frequency, Fmax, STA or CDC closure",
+    "board DDR/PHY or whole-model runtime",
+    "two simultaneous result payloads or interleaved per-tile writeback",
+    "W reuse for the odd M96 tail tile"
+  ],
+  "limits": [
+    "single-clock logic simulation; BFM is not a board DDR model",
+    "v1 serializes result0 on cwr_idle before br1 final-K write stream",
+    "cache_hits is 0 by design; each tile is computed once per task",
+    "odd tail (M=96 third row block) uses the single-tile path"
+  ],
+  "files": {
+    "candidate/rtl/block_engine_reuse_v1.sv": "de1d2fd48058ea84a4d8ad103070a78c6fdaa6363352bb90aa868f1ddccf0540",
+    "candidate/rtl/block_storage_stream_reuse_v1.sv": "bbeeb216ca5be10a2dc4b7c7cf6f5ee4aaeb6176d999c566af10355140f496e9",
+    "candidate/rtl/operand_banks_dual_reuse.sv": "f01eec2cf0b60283b5d4fda23cc7832d33cf779554d34137b3a90c664f778ce6",
+    "candidate/rtl/matrix_reuse_cluster_v1.sv": "a295ac680e6aee921c453515fced195cb97486e32a07c3f91476ce20b42c0a01",
+    "candidate/rtl/c_cache_banked4_pipe.sv": "e34b79c7c28df229e47a8247056a8a1e3988a7ae0385709fbf621f79b329d1fa",
+    "candidate/rtl/block_address_v020.sv": "9d2bba3f38965133122ca37da9d1ffe06de10807b45c6c6758f08fbe7a3ce63b",
+    "candidate/rtl/array16_w7_c48_cfg.sv": "c4203e0b7fc21b1b11e82579343236089342352d70b167b70791b8e69c03daae",
+    "candidate/rtl/pe_w7_c48_cfg.sv": "d8b5089073f4629f113b7735316593b77335ad99d8adf0c6757bd2d70269f179",
+    "candidate/rtl/axi_dma_v020_multi_v2.sv": "dda5aa9fa44f9a78e063b4f7ea4124c86b9252a89d0f720067f588d0592e163f",
+    "tests/tb_reuse_engine.sv": "24fed5a7b74e688c58f89f4bb8771ddb28b26ee938ed0a7e6eb48d52212c3926",
+    "tests/tb_reuse_cluster_axi.sv": "23aec9e4040a3d44544d4720ded8c514df8b0c181e172e2920000583cbf18317",
+    "tests/tb_cache_slots.sv": "3d519188237056ab96c760829a08d33fe6f724cd32213ff0f11e89fb5bb2de57",
+    "tests/txn_dma_bfm.sv": "43ef144346fd26eaa8b12fcccfb8b7a3f628e2548d12c6f92fac513db66648c5",
+    "tests/axi128_ddr_bfm_v2.sv": "590429432f52414891110bf9bd256d7c2b18cac9355b8ae052cdc9406c3a4331",
+    "scripts/gold_reuse.py": "60054d453ffaa2140a00f31801174861e9a0d40f5582a1059db252f1173a6c58",
+    "scripts/run_all.sh": "323bd8bdb99fbedbcaba4be7989b1789c0c69db4010fa33e1199f28994249bec",
+    "scripts/collect_metrics.py": "e6d0e15b461be05f69e2e6a3393bdff0a20c59c2b3b723ddfe6e0bcd2e2f193e",
+    "scripts/check_capacity.py": "63d771d050dc76d8cbf222bbf61953106976b37692c89c920b9939a12f86e40a",
+    "scripts/freeze_reference.py": "cf3c7501352361d5ebdd7d50347da7d601ee4dccb50617f956da71db2cf561cf",
+    "scripts/check_freeze.py": "05b200eb2fc617240dd03bda267a15830774a98ccf154a43b3433662075ca33f",
+    "patches/writeback_interface_v1.patch": "df9ac940d465de265e215fee0e7be8a82fe2e0e25800537dc98045e44317e598",
+    "INTERFACE.md": "608057afadff7dfac865f3fcb9d3a3a3fab724f7f24f45455fc4016abd41912c",
+    "REVIEW.md": "3d416dc9973e1cef4830f8fb92f38fcbf3d09f0d8ec634f463faaf78576303ec",
+    "WRITEBACK_INTERFACE.md": "4eda06bc65b54dd6d842d1b2043a74e847ee5486c71e0bd24ed77752faa3f116",
+    "REPORT.md": "b86635c11f5b838be7920b80e4dc99eb51efa64710b152af5c7cd39f7554cc2f",
+    "REFERENCE_FREEZE.json": "a39ec259512db599d13e1942fa17f140f88aaa1c00d1e13bac5b8b7343a743cf"
+  },
+  "sha256_manifest": "SHA256SUMS.txt",
+  "filelist": "filelist.txt",
+  "reference_freeze": "REFERENCE_FREEZE.json",
+  "repro": "bash scripts/run_all.sh; python3 scripts/collect_metrics.py; python3 scripts/check_capacity.py; python3 scripts/check_freeze.py",
+  "acceptance": "submitted for main-agent review; agent exit 0 is not acceptance"
+}

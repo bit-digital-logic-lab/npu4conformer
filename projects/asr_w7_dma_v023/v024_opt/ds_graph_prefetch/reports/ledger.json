@@ -1,0 +1,99 @@
+{
+  "scope": "same fixture/BFM/seed; logic simulation only",
+  "off": {
+    "cycles": 23774,
+    "busy_rows": 23774,
+    "trace_exclusive_sum": 23774,
+    "exclusive": {
+      "fetch_only": 383,
+      "idle": 44,
+      "dispatch_only": 8,
+      "engine_only": 23339
+    },
+    "rtl_exclusive": {
+      "fetch_only": 383,
+      "engine_only": 23339,
+      "dispatch_only": 8,
+      "fetch_engine": 0,
+      "dispatch_engine": 0,
+      "fetch_dispatch": 0,
+      "all": 0,
+      "idle": 44,
+      "fetch_hdr": 12,
+      "fetch_node": 256,
+      "fetch_payload": 115,
+      "fetch_lookahead": 0
+    },
+    "rtl_exclusive_sum": 23774,
+    "legacy_last_counters": {
+      "matrix": 1880,
+      "vector": 952,
+      "layout": 6724,
+      "sum": 9556,
+      "residual": 14218,
+      "residual_pct": 59.80482880457643
+    },
+    "per_op_csr_totals": {
+      "matrix": 1880,
+      "vector": 4643,
+      "layout": 16788,
+      "sum": 23311,
+      "residual": 463,
+      "residual_pct": 1.9475056784722806
+    },
+    "fetch_breakdown": {
+      "fetch_hdr": 12,
+      "fetch_node": 256,
+      "fetch_payload": 115,
+      "fetch_lookahead": 0
+    }
+  },
+  "on": {
+    "cycles": 23660,
+    "busy_rows": 23660,
+    "trace_exclusive_sum": 23660,
+    "exclusive": {
+      "fetch_only": 288,
+      "idle": 34,
+      "dispatch_only": 8,
+      "engine_only": 23087,
+      "fetch_engine": 243
+    },
+    "lookahead_hits": 6,
+    "lookahead_misses": 1,
+    "lookahead_fetches": 6,
+    "lookahead_aborts": 0,
+    "rtl_cycles": 23660,
+    "fetch_breakdown": {
+      "header": 12,
+      "node": 256,
+      "payload": 20,
+      "lookahead": 243
+    }
+  },
+  "comparison": {
+    "real_saved_cycles": 114,
+    "saved_pct": 0.4795154370320518,
+    "delta_fetch_only": -95,
+    "delta_engine_only": -252,
+    "delta_fetch_engine": 243,
+    "delta_idle": -10,
+    "payload_fetch_cycles_off": 115,
+    "payload_fetch_cycles_on": 20,
+    "lookahead_fetch_cycles_on": 243,
+    "header_prefetch_saved_cycles": 0,
+    "header_prefetch_note": "The 64-byte header and all 192-byte node descriptors must be fetched and FNV-validated after START and before any dispatch. There is no legal engine work to overlap at that point, so a \"header prefetch\" saves 0 cycles in this contract; the measured saving is payload lookahead."
+  },
+  "published_claim_check": {
+    "published": "ds_cycle_chain_compare: 21121 total, 12641 residual (59.8%) from 1329+659+6492",
+    "same_arithmetic_on_this_run": {
+      "total": 23774,
+      "last_counter_sum": 9556,
+      "residual": 14218,
+      "pct": 59.80482880457643
+    },
+    "verdict": "The 59.8% figure is an arithmetic artifact of using the last op telemetry as if it were the sum of all ops. It is not an exclusive control-overhead measurement."
+  },
+  "invariants_ok": true,
+  "failures": []
+}

@@ -1,0 +1,32 @@
+wrote scalar_bp0: beats=512 params=2
+wrote per_column_bp1: beats=512 params=129
+wrote cross_short_bp1: beats=266 params=192
+wrote config_wait_bp1: beats=384 params=128
+wrote abort_recover: beats=24 params=64
+wrote fp32_backpressure: beats=256 params=64
+wrote fp32_long_bp5: beats=64 params=64
+wrote partial_table_bp0: beats=32 params=50
+wrote scalar_bias_only: beats=32 params=2
+REFERENCE OK: 31 files match frozen metadata
+RUN scalar_bp0 ...
+  rc=0 pass=True errors=0
+RUN per_column_bp1 ...
+  rc=0 pass=True errors=0
+RUN cross_short_bp1 ...
+  rc=0 pass=True errors=0
+RUN config_wait_bp1 ...
+  rc=0 pass=True errors=0
+RUN abort_recover ...
+  rc=0 pass=True errors=0
+RUN fp32_backpressure ...
+  rc=0 pass=True errors=0
+RUN fp32_long_bp5 ...
+  rc=0 pass=True errors=0
+RUN partial_table_bp0 ...
+  rc=0 pass=True errors=0
+RUN scalar_bias_only ...
+  rc=0 pass=True errors=0
+OVERALL pass=True cases=9 failed=[]
+NEGATIVE CONTROL: rc=0 pass=False errors=60
+wrote /home/yang/Desktop/项目/v024_opt/ds_epilogue_channels/result.json: 52 files, 9 cases
+PASS: RUN_RESULT.json, NEGATIVE_CONTROL.json and result.json refreshed

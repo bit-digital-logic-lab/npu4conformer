@@ -1,0 +1,7 @@
+MODE=4 N=251
+FLUSH_HANDSHAKES=4
+FAIL in_ready accepted traffic while flush was asserted
+RESULT mode=4 n=251 out=0 errors=1 cycles=4
+FAIL
+FATAL: tb/tb_fma_mode4.sv:276: mismatch
+       Time: 85000  Scope: tb_fma

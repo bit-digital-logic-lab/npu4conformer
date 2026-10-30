@@ -1,0 +1,76 @@
+{
+  "created": 1793340972.2553563,
+  "workers": [
+    {
+      "task": "ds_layout_wide",
+      "supervisor_pid": 34479,
+      "wait_for": [],
+      "result": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_layout_wide/result.json"
+    },
+    {
+      "task": "ds_vector_fma",
+      "supervisor_pid": 34480,
+      "wait_for": [],
+      "result": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_vector_fma/result.json"
+    },
+    {
+      "task": "ds_fma_deep",
+      "supervisor_pid": 34481,
+      "wait_for": [],
+      "result": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_fma_deep/result.json"
+    },
+    {
+      "task": "ds_epilogue_channels",
+      "supervisor_pid": 34482,
+      "wait_for": [],
+      "result": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_epilogue_channels/result.json"
+    },
+    {
+      "task": "ds_matrix_reuse",
+      "supervisor_pid": 34483,
+      "wait_for": [],
+      "result": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_matrix_reuse/result.json"
+    },
+    {
+      "task": "ds_storage_write",
+      "supervisor_pid": 34484,
+      "wait_for": [],
+      "result": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_storage_write/result.json"
+    },
+    {
+      "task": "ds_fusion_buffers",
+      "supervisor_pid": 34485,
+      "wait_for": [],
+      "result": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_fusion_buffers/result.json"
+    },
+    {
+      "task": "ds_graph_prefetch",
+      "supervisor_pid": 34486,
+      "wait_for": [],
+      "result": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_graph_prefetch/result.json"
+    },
+    {
+      "task": "ds_unified_graph",
+      "supervisor_pid": 34487,
+      "wait_for": [],
+      "result": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_unified_graph/result.json"
+    },
+    {
+      "task": "ds_adversarial_review",
+      "supervisor_pid": 34488,
+      "wait_for": [],
+      "result": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_adversarial_review/result.json"
+    },
+    {
+      "task": "ds_final_organize",
+      "supervisor_pid": 34489,
+      "wait_for": [
+        "ds_unified_graph",
+        "ds_adversarial_review"
+      ],
+      "result": "/home/yang/Desktop/\u9879\u76ee/v024_opt/ds_final_organize/result.json"
+    }
+  ],
+  "timer_installed": false,
+  "source_readonly": "/home/yang/Desktop/\u9879\u76ee/v023_repair"
+}

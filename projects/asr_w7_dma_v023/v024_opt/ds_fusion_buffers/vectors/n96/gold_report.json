@@ -1,0 +1,16 @@
+{
+ "dir": "vectors/n96",
+ "M": 32,
+ "N": 96,
+ "K": 32,
+ "tiles": 3,
+ "values": 3072,
+ "scale": "0x3f800001",
+ "bias": "0xbf000000",
+ "fma_mode": 1,
+ "relu": 0,
+ "fma_vs_muladd_diff": 0,
+ "fma_zero_or_ff_count": 0,
+ "gold_a16": "vectors/n96/gold_a16.hex",
+ "gold_muladd_a16": "vectors/n96/gold_muladd_a16.hex"
+}

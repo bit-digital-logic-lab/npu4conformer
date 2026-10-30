@@ -1,0 +1,116 @@
+Ran check recent modifications and remaining files in work directory
+Analyzed README.md:L1-96
+Ran list files in v023_repair directory
+Analyzed USER_REPAIR_REQUEST.txt:L1-140
+Analyzed CLOSEOUT_PLAN.md:L1-8
+Analyzed CLOSEOUT_STATUS.json:L1-24
+Analyzed REPORT.md:L1-345
+Analyzed REPORT.md:L1-296
+Analyzed REPORT.md:L1-287
+Analyzed REPORT.md:L1-219
+Analyzed REPORT.md:L1-29
+Analyzed REPORT.md:L1-272
+Analyzed REPORT.md:L1-279
+Analyzed REPORT.md:L1-208
+Analyzed REPORT.md:L1-321
+Analyzed REPORT.md:L1-266
+Analyzed REPORT.md:L1-5
+
+结合最新更新的 [README.md](file:///home/yang/Desktop/项目/README.md) 与 [v023_repair/](file:///home/yang/Desktop/项目/v023_repair) 下的各子任务实现与验证报告，当前第一轮修复已经完成了 **Matrix 4-Bank C Cache + 双缓冲预取（2.60×）**、**Vector 4-Lane II=1 + 近似 DIV/SQRT（6.4~12.8×）**、**Layout 增量坐标步进 + 16-beat 写合并（1.69×）** 以及 **Epilogue 4-Lane 流式后处理核**。
+
+但深入审计 [v023_repair/](file:///home/yang/Desktop/项目/v023_repair) 的 RTL 代码、流量账本（Traffic Ledger）与周期拆分报告后，可以发现当前版本仍存在 **8 个极具潜力的深水区优化点**（涵盖数据流融合、访存气泡、算子微架构、图调度开销及新引入的时序长路径）：
+
+---
+
+### 一、 架构与数据流级优化（消除冗余 DDR 往返与重复访存）
+
+#### 1. 四分支合一 + 将片上融合（`MAT -> Epilogue -> A16`）真正接入 Graph Runner
+* **现状瓶颈**：目前 [integrated/](file:///home/yang/Desktop/项目/v023_repair/integrated/REPORT.md)、[ds_closeout_fusion/](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_fusion/REPORT.md)、[ds_closeout_numeric/](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_numeric/REPORT.md)、[ds_closeout_safety/](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_safety/REPORT.md) 仍是 4 棵独立的实验代码树。在 [ds_cycle_chain_compare/REPORT.md](file:///home/yang/Desktop/项目/v023_repair/ds_cycle_chain_compare/REPORT.md) 的 9 节点整链测试中，`MAT -> I48_F32 -> MUL -> ADD -> F32_I16` **依然走的未融合 DDR 路径**，仅 Vector 阶段就产生了 `29,248 B` 读 + `25,600 B` 写（共 54.8 KB 的中间张量 DDR 往返）。
+* **优化方案**：
+  1. 将 [matrix_stream_fusion_top.sv](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_fusion/rtl/matrix_stream_fusion_top.sv)、数值闭环的 [ddr_vector_engine_pipe.sv](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_numeric/rtl/ddr_vector_engine_pipe.sv) 与安全闭环的 [v023_integrated_top.sv](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_safety/rtl/v023_integrated_top.sv) 合并为统一顶层。
+  2. 在 [wc_graph_ctrl.sv](file:///home/yang/Desktop/项目/v023_repair/integrated/rtl/wc_graph_ctrl.sv) 中支持融合子图调度（识别 `MAT + 后继 Epilogue` 描述符或前瞻吞并后继节点），直接启用 `cfg_epilogue_en`，在全图层面彻底省去 `C48` 落盘与 4 次 Vector 往返。
+
+#### 2. 升级 [`epilogue_stream_engine_v023`](file:///home/yang/Desktop/项目/v023_repair/primary_stream_fix/candidate/epilogue_stream_engine_v023.sv)：支持 Per-Channel（按列）Scale/Bias 与 FP32/Residual 输出
+* **现状瓶颈**：当前 [epilogue_stream_engine_v023.sv](file:///home/yang/Desktop/项目/v023_repair/primary_stream_fix/candidate/epilogue_stream_engine_v023.sv#L88-L115) 仅实现了 **2 个标量广播寄存器**（`cfg_addr 0 = scale, 1 = bias`），且只支持 `A16` 量化输出；[ds_closeout_fusion/REPORT.md](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_fusion/REPORT.md) 也明确指出尚未实现 `cfg_spill_fp32`。而在真实 512 维 Conformer 模型中，Linear/Conv 的量化参数和偏置几乎全部是 **按输出通道（沿 $N$ 维 `btiled`/`bperiod`）独立配置的向量**，且部分层在进入 LayerNorm / 残差相加前需要保留 **FP32 输出**。
+* **优化方案**：
+  1. **32 元素乒乓参数表**：将标量 `scale_reg`/`bias_reg` 扩展为 `2 × 32 × 32-bit` 寄存器组（每个 $32\times 32$ 块列 `bc` 仅需预取 256 B 参数），在流式处理 `lane_base + g` 时按块内列号索引 `scale_lut[col_in_block]` 和 `bias_lut[col_in_block]`。
+  2. **增加 `cfg_spill_fp32` 旁路**：允许 `fp32_fma_pipe`（及可选 ReLU）后的 4×FP32（128-bit/拍）直接经重排写回 DDR，使需要接 LayerNorm/Residual 的矩阵层也能吃满片上融合红利。
+
+#### 3. 复用 [`c_cache_banked4_pipe`](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/c_cache_banked4_pipe.sv) 现有的 `SLOTS=2` 实现 Matrix 2×1 Super-Tile（零额外 BRAM 砍掉 50% 权重重复读）
+* **现状瓶颈**：[ds_matrix/REPORT.md](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/REPORT.md) 第 5 节的流量账本显示，在 `cluster_c1_k96`（$M=64, N=32, K=96$）中，权重 `W` 发生了 **3,072 B 的重复 DDR 读取（重复率 50%）**——因为输出块 `(br=0, bc=0)` 和 `(br=1, bc=0)` 各自从 DDR 把相同的 3 个 `W(bk, bc)` 块读了一遍。
+* **优化方案**：
+  * 注意到 [c_cache_banked4_pipe.sv](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/c_cache_banked4_pipe.sv#L5) 已经例化了 **`SLOTS=2`**（本身就具备同时驻留 2 个 $32\times 32$ `C48` 累加块的能力），且 [operand_banks_dual_v2.sv](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/operand_banks_dual_v2.sv) 具备双槽 `A/W` 缓冲。
+  * 只需修改 [block_engine_prefetch_v2.sv](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/block_engine_prefetch_v2.sv) 的块调度循环：当 $M \ge 64$（`m_blocks >= 2`）时，每加载一次 `W(bk, bc)`，连续加载 `A(br=0, bk)`（累加至 `C[slot=0]`）和 `A(br=1, bk)`（累加至 `C[slot=1]`），即可在 **不增加 1 bit BRAM** 的前提下，将权重 `W` 的 DDR 读流量直接砍半（对大模型 Linear 层尤为关键）。
+
+---
+
+### 二、 算子微架构深挖（消除长延迟退化与内部吞吐瓶颈）
+
+#### 4. 修复 Matrix 在长 DDR 延迟（`long_wait`）下的反向退化（`5,061` vs `4,888` 周期）与 `COLLECT` 气泡
+* **现状瓶颈**：在 [ds_cycle_chain_compare/REPORT.md](file:///home/yang/Desktop/项目/v023_repair/ds_cycle_chain_compare/REPORT.md) 的 `long_wait`（48 周期访存延迟）压力测试下，V0.23 Matrix 耗时 **5,061 周期，比 V0.22 基线（4,888 周期）反而慢了 3.5%**，其中 `c_collect_cycles` 从 1,663 暴增至 **3,753 周期**。根因有三处：
+  1. **64 次碎片化写命令耗尽 `B_OUT=8` 信用**：在非融合写回时，[block_storage_stream_v2.sv](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/block_storage_stream_v2.sv#L168-L176) 将一个 6,144 B 的 `C48` 块拆成 **64 个独立的 96B（6-beat）写命令（`cseg`）**。而 [axi_dma_v020_multi_v2.sv](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/axi_dma_v020_multi_v2.sv) 的未完成写上限 `B_OUT=8`；在 48 周期 DDR 延迟下，仅发完 8 个小分段（48 拍，768 B）就会因等待 `BVALID` 耗尽信用，反压 `cval_ready`。
+  2. **`cseg` 握手 1 周期气泡**：[block_storage_stream_v2.sv](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/block_storage_stream_v2.sv#L406-L413) 每处理 16 个 C 元素（4 拍 `cval`），都要先花 1 周期单独握手 `cseg`（导致 [ds_matrix/REPORT.md](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/REPORT.md) 实测 `COLLECT` 为 `1.59 cycles/group`，即 407 周期/块，而非理想 256 周期/块）。
+  3. **融合缓冲 [`fusion_a16_blockbuf`](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_fusion/rtl/fusion_a16_blockbuf.sv) 单缓冲阻塞多块流水**：在多块运行（如 `n64`）时，Tile 1 的 `COLLECT` 必须等 Tile 0 的 128 拍 DMA 写完全排空才能写入 `fusion_a16_blockbuf`。
+* **优化方案**：
+  * 在 `block_storage_stream_v2` 中允许 `cseg_valid` 与首拍 `cval_valid` 同拍接收，将 `COLLECT` 降至 **1.00 cycle/group（256 周期/块）**；
+  * 当 `C` 行连续（`c_row_stride_bytes == 192`）或通过 16-beat 写打包 FIFO 时，将 96B（6-beat）小段合并为 256B（16-beat）突发写命令，使单次 `B_OUT=8` 覆盖字节数提升 2.67×；
+  * 将 2 KiB 的 [fusion_a16_blockbuf.sv](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_fusion/rtl/fusion_a16_blockbuf.sv) 改为 **2×2 KiB 乒乓双缓冲**，让 Tile $t$ 的 DDR 写出与 Tile $t+1$ 的阵列计算/Epilogue 完全重叠。
+
+#### 5. Layout 引擎：从“每元素 4~9 周期标量拆包”升级为 128-bit 整拍向量化变换 + 模式感知预取
+* **现状瓶颈**：在 [ds_cycle_chain_compare/REPORT.md](file:///home/yang/Desktop/项目/v023_repair/ds_cycle_chain_compare/REPORT.md) 中，9 节点链的 Vector 已压缩到 `659` 周期，但 Layout 仍高达 **`6,492` 周期（是 Vector 耗时的 9.8 倍，占引擎总有效周期的 76.5%）**。
+  * 原因 1：虽然 [ddr_layout_engine_v023_burst.sv](file:///home/yang/Desktop/项目/v023_repair/ds_layout/rtl/ddr_layout_engine_v023_burst.sv) 合并了写突发，但其内部状态机（`LOOKUP -> CACHE_READ -> CACHE_CAPTURE -> VALUE -> PACK -> NEXT`）依然 **每次只搬运 1 个标量元素（2B/4B/6B），每个元素耗时 4~6 周期**。
+  * 原因 2：[ds_layout/REPORT.md](file:///home/yang/Desktop/项目/v023_repair/ds_layout/REPORT.md) 第 4.3 节证实，固定 `MAX_PREFETCH=16` 在 `mode==2`（`im2col`）下引发了直接相联 Cache 颠簸，导致 **DDR 读流量反而暴增 +14% ~ +38%**。
+* **优化方案**：
+  1. **128-bit 整行向量化快路径（8× 吞吐提升）**：对于 `mode==0`（连续拷贝）、`mode==1`（`row_to_tile` A16）和 `mode==3`（`tile_to_row` A16），由于 $32\times 32$ 分块的每一行内有 32 个连续的 A16 元素（64 B = 4 拍 128-bit），完全可以按 **每拍 8 个 A16 元素（16 B 整拍）** 直接从读 Cache 行对齐写出到 `wr_coal_buf`，将内部循环从 `4~6 周期/元素` 压缩到 **`0.5~1 周期/元素`（再快 4~8 倍）**。
+  2. **按模式门控预取长度**：一行代码 `wire [4:0] eff_prefetch = (mode == 16'd2) ? 5'd1 : MAX_PREFETCH;`，即可在不损失 `mode 0/1/3` 突发加速的前提下，100% 消除 `im2col` 的额外读流量膨胀。
+
+#### 6. Vector 引擎：`op17`（FMA）改为 II=1 满流水/4-Lane + 取消短块（`<=8` 元素）的慢速回退
+* **现状瓶颈**：
+  1. 如 [ds_closeout_numeric/REPORT.md](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_numeric/REPORT.md) 第 4.3 节所述，[ddr_vector_engine_pipe.sv](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_numeric/rtl/ddr_vector_engine_pipe.sv#L540-L578) 中的 `op17`（FP32 FMA）目前仍是 **单拍单未完成（single-outstanding）握手机制**——每发 1 个元素都要干等 `fp32_fma_pipe` 3 拍走完才发下一个元素，而 [fp32_fma_pipe.sv](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_numeric/rtl/fp32_fma_pipe.sv) 本身是支持 `II=1` 连续进数的流水线。
+  2. 在 [ddr_vector_engine_pipe.sv](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_numeric/rtl/ddr_vector_engine_pipe.sv#L276-L286) 中，`use_pipe4_mode` 要求 `bank_elems > 16'd8`；一旦遇到末尾不足 8 个元素的短尾块，硬件会退回 `alu_phase 0..3` 的旧标量慢路径。
+* **优化方案**：
+  * 将 Vector 的 `op17` 改为 `II=1` 连续灌入 [fp32_fma_pipe.sv](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_numeric/rtl/fp32_fma_pipe.sv)（或与 Epilogue 一致例化 4 条 FMA Lane），可使独立 Vector FMA 算子再提速 **3× ~ 12×**；
+  * 修复 4-Lane 尾拍掩码（`last_beat_lanes`），移除 `bank_elems > 8` 限制，使任意长度尾块均走 4-Lane 快路径。
+
+---
+
+### 三、 全图调度与片上互连优化（砍掉占总周期 59.8% 的非引擎开销）
+
+#### 7. 消除全图 59.8% 的控制/总线围栏开销（`21,121` 总周期中非计算开销高达 `12,641` 周期）
+* **现状瓶颈**：[ds_cycle_chain_compare/REPORT.md](file:///home/yang/Desktop/项目/v023_repair/ds_cycle_chain_compare/REPORT.md) 的周期拆分揭示了一个非常关键的系统现象：
+  * 9 节点链全图总耗时 **`21,121` 周期**，但三个引擎自计周期之和仅为 **`8,480` 周期**（`Matrix = 1,329`、`Vector = 659`、`Layout = 6,492`），**非引擎残差开销高达 `12,641` 周期（占 59.8%）**！
+  * 同时，顶层观测到的 `layout_busy` 包络被拉长到了 `16,232` 周期（是引擎自计 `6,492` 周期的 **2.5 倍**）。
+* **根因与优化方案**：
+  1. **[`wc_graph_ctrl`](file:///home/yang/Desktop/项目/v023_repair/integrated/rtl/wc_graph_ctrl.sv) 描述符前瞻预取（Descriptor Lookahead Prefetch）**：当前 `wc_graph_ctrl` 在节点 $i$ 执行完 `WAIT_OP` 后，才串行发起节点 $i+1$ 的 32B 节点头读取和 64B/128B 的 VEC/LAY payload 读取，期间所有计算引擎完全空转。改为在节点 $i$ 运行期间后台预取节点 $i+1$ 的描述符与 payload，可将节点间切换开销压至 1~2 周期。
+  2. **拆分 [`v023_axi_shared`](file:///home/yang/Desktop/项目/v023_repair/integrated/rtl/v023_axi_shared.sv) 单口串行仲裁**：当前 5 个读主设备（Matrix、Vector、Layout、Graph Header、Payload）和 3 个写主设备全部汇集到 [v023_axi_shared.sv](file:///home/yang/Desktop/项目/v023_repair/integrated/rtl/v023_axi_shared.sv) 的单一锁存通道（一次仅允许 1 个读事务和 1 个写事务在途），且 [layout_guard.sv](file:///home/yang/Desktop/项目/v023_repair/integrated/rtl/layout_guard.sv) / [vector_guard.sv](file:///home/yang/Desktop/项目/v023_repair/integrated/rtl/vector_guard.sv) 增加了额外的同步握手延迟。将互连拆分为多通道（对接 Zynq UltraScale+ 的 `HP0: Matrix+Epilogue`、`HP1: Vector`、`HP2: Layout`、`HP3/ACP: Graph Fetch`），不仅能消除总线队头阻塞，还能支持无依赖算子（如 `Matrix` 与下一层的 `Layout` 预排布）真正并行执行。
+
+---
+
+### 四、 主频（Fmax）与关键时序路径闭环（冲刺 250 ~ 300 MHz）
+
+如 [README.md](file:///home/yang/Desktop/项目/README.md#L91) 第 91 行所注，当前 V0.23 新模块中仍有两条决定最高主频上限的组合逻辑长锥尚未切开：
+
+#### 8. 切开 [`block_storage_stream_v2`](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/block_storage_stream_v2.sv) 地址校验与 [`fp32_fma_pipe`](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_numeric/rtl/fp32_fma_pipe.sv) 76-bit 宽移位加法锥
+1. **将 7 级流水地址校验合入 [`block_storage_stream_v2.sv`](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/block_storage_stream_v2.sv)**：
+   * 在 [block_storage_stream_v2.sv](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/block_storage_stream_v2.sv#L214-L225) 中，`ld_expected = a_addr + (ld_row * a_row_stride_bytes) + (ld_col * 2)` 以及 `ld_addr != ld_expected` 64-bit 比较 **仍然是未打拍的单周期组合逻辑**——这正是原始 Vivado STA 报告 [timing.rpt](file:///home/yang/Desktop/项目/work/timing.rpt) 中排名第一的 `7.745 ns` 关键路径（2 级 DSP 乘法 + 5 级 CARRY8）。
+   * 之前在 [block_storage_dma_wide4_pipe_v1.sv](file:///home/yang/Desktop/项目/tasks/ds_critical_control/candidate/rtl/block_storage_dma_wide4_pipe_v1.sv) 中已经验证过 `V1..V7` 7 级校验流水线方案，只需将其移植进 `block_storage_stream_v2.sv` 即可彻底拔除该时序瓶颈。
+2. **将 [`fp32_fma_pipe.sv`](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_numeric/rtl/fp32_fma_pipe.sv) 从 3 级流水拆分为 5 级流水（保持 `II=1`）**：
+   * 当前 [fp32_fma_pipe.sv](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_numeric/rtl/fp32_fma_pipe.sv#L169-L315) 仅有 3 级寄存器：
+     * **S2（第 169~224 行）** 在同一周期内串行执行了 **`76-bit 右移对齐桶形移位器 + Sticky 归约或门 + 76-bit 加减法器`**；
+     * **S3（第 229~315 行）** 在同一周期内串行执行了 **`76-bit 前导零计数（LZC76） + 76-bit 规格化左移 + RNE 舍入进位`**。
+   * 这两级在 7 Series / UltraScale+ 上均高达 25~30 级逻辑级数。将其拆分为 **5 级流水**（`S1: 24x24 乘法+指数差` $\rightarrow$ `S2a: 76b 对齐右移+Sticky` $\rightarrow$ `S2b: 76b 加减法` $\rightarrow$ `S3a: LZC76+规格化左移` $\rightarrow$ `S3b: RNE 舍入与打包`），不会影响 `II=1` 流式吞吐，仅增加 2 拍启动延迟，却能将 FMA 关键路径延迟直接减半，为全系统冲刺 **250~300 MHz** 扫清障碍。
+
+---
+
+### 总结：下一步优化收益与优先级建议
+
+| 优先级 | 优化项 | 定位模块 | 预期核心收益 |
+| :--- | :--- | :--- | :--- |
+| **P0-1** | **四分支合一 + 全图接入 `MAT->Epilogue` 融合 + Per-Channel 参数表** | [`v023_integrated_top`](file:///home/yang/Desktop/项目/v023_repair/integrated/rtl/v023_integrated_top.sv) / [`epilogue_stream_engine_v023`](file:///home/yang/Desktop/项目/v023_repair/primary_stream_fix/candidate/epilogue_stream_engine_v023.sv) | 彻底消除真实模型层 `C48` 读写与 4 道 Vector DDR 往返（单链省 54.8 KB DDR 流量） |
+| **P0-2** | **Layout 128-bit 整行向量化快路径 + `mode==2` 预取门控** | [`ddr_layout_engine_v023_burst`](file:///home/yang/Desktop/项目/v023_repair/ds_layout/rtl/ddr_layout_engine_v023_burst.sv) | Layout 引擎内核提速 **4~8×**（消除 9 节点链中占比 76% 的最大算子瓶颈），消除 `im2col` +38% 额外读流量 |
+| **P1-1** | **修复 Matrix `long_wait` 退化：16-beat 写合并 + `cseg` 零气泡 + 双缓冲 `blockbuf`** | [`block_storage_stream_v2`](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/block_storage_stream_v2.sv) / [`fusion_a16_blockbuf`](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_fusion/rtl/fusion_a16_blockbuf.sv) | `COLLECT` 降至 256 周期/块，消除 48 周期长延迟下的 B 通道信用饥饿与多块写阻塞 |
+| **P1-2** | **图控制器描述符预取 + 多通道 AXI 互连拆分** | [`wc_graph_ctrl`](file:///home/yang/Desktop/项目/v023_repair/integrated/rtl/wc_graph_ctrl.sv) / [`v023_axi_shared`](file:///home/yang/Desktop/项目/v023_repair/integrated/rtl/v023_axi_shared.sv) | 大幅压缩全图 **59.8%（12,641 周期）** 的非计算等待与总线阻塞开销 |
+| **P1-3** | **Matrix `SLOTS=2` 2×1 Super-Tile 跨行块权重复用 + Vector `op17` II=1 流式化** | [`block_engine_prefetch_v2`](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/block_engine_prefetch_v2.sv) / [`ddr_vector_engine_pipe`](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_numeric/rtl/ddr_vector_engine_pipe.sv) | 零 BRAM 成本砍掉 50% 权重重复 DDR 读取；独立 Vector FMA 提速 3~12× |
+| **P2** | **`block_storage_stream_v2` V1..V7 校验流水 + `fp32_fma_pipe` 3→5 级重定时** | [`block_storage_stream_v2`](file:///home/yang/Desktop/项目/v023_repair/ds_matrix/candidate/rtl/block_storage_stream_v2.sv) / [`fp32_fma_pipe`](file:///home/yang/Desktop/项目/v023_repair/ds_closeout_numeric/rtl/fp32_fma_pipe.sv) | 拔除 7.745 ns 地址乘法比较路径与 76-bit 宽移位加长路径，支撑 **250~300 MHz** 时序收敛 |
+
+如果您希望直接推进代码落地，我们可以先从收益最大的 **P0（四分支合一 + 真实 Per-Channel 融合 + Layout 128-bit 向量化快路径）** 或 **P1（消除 Matrix `long_wait` 退化与 Graph 59.8% 调度开销）** 开始实施并跑通 `verilator` / `iverilog` 周期与比特精确回归。

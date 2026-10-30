@@ -1,0 +1,16 @@
+progress phase 1: generating independent gold / edge / official fixture set
+generated 32 golden fixtures in /home/yang/Desktop/项目/v024_opt/ds_layout_wide/fixtures/gold
+generated 53 edge fixtures in /home/yang/Desktop/项目/v024_opt/ds_layout_wide/fixtures/edge
+progress phase 2: compiling baseline + candidate + scalar variants (-j1)
+progress phase 3: running official 8 normal + 12 error/ACL/lifecycle modes
+progress phase 4: running 32 independent gold + 53 new edge fixtures
+progress phase 5: running 100 preserved random + 52 new random/short-tail, independent gold
+progress phase 6: running 57 descriptor fuzz + scalar fallback equivalence
+progress phase 7: running mode-2 prefetch gate A/B measurement
+progress phase 8: running C48 6B cross-line negative control
+c48_negative_control: bad rc=1,1 good rc=0,0 ok=1
+KNOWN_BAD_FAILED
+FIXED_PASSED
+progress phase 9: lint verilator lint + merge summary + hashes
+progress phase 10: complete all suites finished; see logs/summary.json and REPORT.md
+ALL DONE rc=0

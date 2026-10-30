@@ -1,0 +1,5 @@
+{
+  "plan_fused_sha256": "94b7c1e1d600d585b1acb16230037a8e683237068561f7570fe3fed2e7e08c69",
+  "plan_fallback_sha256": "68e508353b303c8cfb8681a853f08ee318003704b21696c1538fc338973a6eec",
+  "fused_fma_vs_muladd_mismatch": 0
+}
