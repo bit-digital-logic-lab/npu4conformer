@@ -1,0 +1,50 @@
+===================================================================
+  Approximate DIV / SQRT / RSQRT Comprehensive Verification Suite  
+===================================================================
+Total test vectors generated: 4131
+Icarus Verilog compilation: SUCCESS
+
+--- Running Simulation Run 1 (Full Speed, out_ready=1) ---
+Simulation Run 1: completed 4131 vectors.
+
+--- Running Simulation Run 2 (Random Backpressure, 25% stall) ---
+Simulation Run 2 (Backpressure): completed 4131 vectors.
+
+--- Numerical Evaluation & Error Metric Extraction ---
+
+===================================================================
+                    FINAL VERIFICATION SUMMARY                     
+===================================================================
+Total Vectors:                    4131
+Backpressure Consistency:         4131 / 4131 (100.0%)
+Tag Integrity (tag_out == tag):   4131 / 4131 (100.0%)
+Special / Corner Cases Handled:   31 passed
+RTL vs Golden Bit Match Count:    556 / 4131 (13.46%)
+
+--- Error Distributions vs Exact FP32 Baseline ---
+DIV (a / b):
+  Max Relative Error:             0.1080% (1.08e-03)
+  Mean Relative Error:            0.02236% (2.24e-04)
+  Median ULP Distance:            941.5
+SQRT (sqrt(a)):
+  Max Relative Error:             0.0006% (5.72e-06)
+  Mean Relative Error:            0.00012% (1.22e-06)
+  Median ULP Distance:            10.0
+RSQRT (1 / sqrt(a)):
+  Max Relative Error:             0.0006% (5.72e-06)
+  Mean Relative Error:            0.00012% (1.18e-06)
+  Median ULP Distance:            10.0
+
+--- Downstream Quantized Code Impact ---
+LayerNorm (INT16 Q12 format):
+  Max Code Difference:            1 LSB
+  Mean Code Difference:           0.008 LSB
+  Fraction Exact Code Match:      99.2%
+Softmax (UINT16 format, 1.0=65535):
+  Max Code Difference:            14 LSB
+  Mean Code Difference:           0.452 LSB
+  Fraction Exact Code Match:      74.3%
+
+===================================================================
+  ALL VERIFICATION CHECKS PASSED (RC=0)                            
+===================================================================

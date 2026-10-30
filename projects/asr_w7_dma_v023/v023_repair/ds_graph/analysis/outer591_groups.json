@@ -1,0 +1,763 @@
+{
+  "total": 591,
+  "groups": [
+    {
+      "owner": "encoder//encoder/embed",
+      "first": 0,
+      "last": 0,
+      "count": 1,
+      "labelled": 1,
+      "unique_shapes": [
+        [
+          31,
+          9728,
+          512
+        ]
+      ],
+      "task_indices": [
+        0,
+        0
+      ]
+    },
+    {
+      "owner": "encoder//encoder/encoders.0",
+      "first": 1,
+      "last": 40,
+      "count": 29,
+      "labelled": 5,
+      "unique_shapes": [
+        [
+          31,
+          124,
+          64
+        ],
+        [
+          31,
+          256,
+          31
+        ],
+        [
+          31,
+          256,
+          61
+        ],
+        [
+          31,
+          512,
+          512
+        ],
+        [
+          61,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        1,
+        40
+      ]
+    },
+    {
+      "owner": "encoder//encoder/encoders.1",
+      "first": 2,
+      "last": 68,
+      "count": 29,
+      "labelled": 5,
+      "unique_shapes": [
+        [
+          31,
+          124,
+          64
+        ],
+        [
+          31,
+          256,
+          31
+        ],
+        [
+          31,
+          256,
+          61
+        ],
+        [
+          31,
+          512,
+          512
+        ],
+        [
+          61,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        2,
+        68
+      ]
+    },
+    {
+      "owner": "encoder//encoder/encoders.2",
+      "first": 3,
+      "last": 96,
+      "count": 29,
+      "labelled": 5,
+      "unique_shapes": [
+        [
+          31,
+          124,
+          64
+        ],
+        [
+          31,
+          256,
+          31
+        ],
+        [
+          31,
+          256,
+          61
+        ],
+        [
+          31,
+          512,
+          512
+        ],
+        [
+          61,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        3,
+        96
+      ]
+    },
+    {
+      "owner": "encoder//encoder/encoders.3",
+      "first": 4,
+      "last": 124,
+      "count": 29,
+      "labelled": 5,
+      "unique_shapes": [
+        [
+          31,
+          124,
+          64
+        ],
+        [
+          31,
+          256,
+          31
+        ],
+        [
+          31,
+          256,
+          61
+        ],
+        [
+          31,
+          512,
+          512
+        ],
+        [
+          61,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        4,
+        124
+      ]
+    },
+    {
+      "owner": "encoder//encoder/encoders.4",
+      "first": 5,
+      "last": 152,
+      "count": 29,
+      "labelled": 5,
+      "unique_shapes": [
+        [
+          31,
+          124,
+          64
+        ],
+        [
+          31,
+          256,
+          31
+        ],
+        [
+          31,
+          256,
+          61
+        ],
+        [
+          31,
+          512,
+          512
+        ],
+        [
+          61,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        5,
+        152
+      ]
+    },
+    {
+      "owner": "encoder//encoder/encoders.5",
+      "first": 6,
+      "last": 180,
+      "count": 29,
+      "labelled": 5,
+      "unique_shapes": [
+        [
+          31,
+          124,
+          64
+        ],
+        [
+          31,
+          256,
+          31
+        ],
+        [
+          31,
+          256,
+          61
+        ],
+        [
+          31,
+          512,
+          512
+        ],
+        [
+          61,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        6,
+        180
+      ]
+    },
+    {
+      "owner": "encoder//encoder/encoders.6",
+      "first": 7,
+      "last": 208,
+      "count": 29,
+      "labelled": 5,
+      "unique_shapes": [
+        [
+          31,
+          124,
+          64
+        ],
+        [
+          31,
+          256,
+          31
+        ],
+        [
+          31,
+          256,
+          61
+        ],
+        [
+          31,
+          512,
+          512
+        ],
+        [
+          61,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        7,
+        208
+      ]
+    },
+    {
+      "owner": "encoder//encoder/encoders.7",
+      "first": 8,
+      "last": 236,
+      "count": 29,
+      "labelled": 5,
+      "unique_shapes": [
+        [
+          31,
+          124,
+          64
+        ],
+        [
+          31,
+          256,
+          31
+        ],
+        [
+          31,
+          256,
+          61
+        ],
+        [
+          31,
+          512,
+          512
+        ],
+        [
+          61,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        8,
+        236
+      ]
+    },
+    {
+      "owner": "encoder//encoder/encoders.8",
+      "first": 9,
+      "last": 264,
+      "count": 29,
+      "labelled": 5,
+      "unique_shapes": [
+        [
+          31,
+          124,
+          64
+        ],
+        [
+          31,
+          256,
+          31
+        ],
+        [
+          31,
+          256,
+          61
+        ],
+        [
+          31,
+          512,
+          512
+        ],
+        [
+          61,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        9,
+        264
+      ]
+    },
+    {
+      "owner": "encoder//encoder/encoders.9",
+      "first": 10,
+      "last": 292,
+      "count": 29,
+      "labelled": 5,
+      "unique_shapes": [
+        [
+          31,
+          124,
+          64
+        ],
+        [
+          31,
+          256,
+          31
+        ],
+        [
+          31,
+          256,
+          61
+        ],
+        [
+          31,
+          512,
+          512
+        ],
+        [
+          61,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        10,
+        292
+      ]
+    },
+    {
+      "owner": "encoder//encoder/encoders.10",
+      "first": 11,
+      "last": 320,
+      "count": 29,
+      "labelled": 5,
+      "unique_shapes": [
+        [
+          31,
+          124,
+          64
+        ],
+        [
+          31,
+          256,
+          31
+        ],
+        [
+          31,
+          256,
+          61
+        ],
+        [
+          31,
+          512,
+          512
+        ],
+        [
+          61,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        11,
+        320
+      ]
+    },
+    {
+      "owner": "encoder//encoder/encoders.11",
+      "first": 12,
+      "last": 348,
+      "count": 29,
+      "labelled": 5,
+      "unique_shapes": [
+        [
+          31,
+          124,
+          64
+        ],
+        [
+          31,
+          256,
+          31
+        ],
+        [
+          31,
+          256,
+          61
+        ],
+        [
+          31,
+          512,
+          512
+        ],
+        [
+          61,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        12,
+        348
+      ]
+    },
+    {
+      "owner": "decoder//decoders.0",
+      "first": 349,
+      "last": 398,
+      "count": 40,
+      "labelled": 8,
+      "unique_shapes": [
+        [
+          16,
+          64,
+          64
+        ],
+        [
+          16,
+          124,
+          64
+        ],
+        [
+          16,
+          256,
+          16
+        ],
+        [
+          16,
+          256,
+          31
+        ],
+        [
+          16,
+          512,
+          512
+        ],
+        [
+          31,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        349,
+        398
+      ]
+    },
+    {
+      "owner": "decoder//decoders.1",
+      "first": 351,
+      "last": 436,
+      "count": 40,
+      "labelled": 8,
+      "unique_shapes": [
+        [
+          16,
+          64,
+          64
+        ],
+        [
+          16,
+          124,
+          64
+        ],
+        [
+          16,
+          256,
+          16
+        ],
+        [
+          16,
+          256,
+          31
+        ],
+        [
+          16,
+          512,
+          512
+        ],
+        [
+          31,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        351,
+        436
+      ]
+    },
+    {
+      "owner": "decoder//decoders.2",
+      "first": 353,
+      "last": 474,
+      "count": 40,
+      "labelled": 8,
+      "unique_shapes": [
+        [
+          16,
+          64,
+          64
+        ],
+        [
+          16,
+          124,
+          64
+        ],
+        [
+          16,
+          256,
+          16
+        ],
+        [
+          16,
+          256,
+          31
+        ],
+        [
+          16,
+          512,
+          512
+        ],
+        [
+          31,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        353,
+        474
+      ]
+    },
+    {
+      "owner": "decoder//decoders.3",
+      "first": 355,
+      "last": 512,
+      "count": 40,
+      "labelled": 8,
+      "unique_shapes": [
+        [
+          16,
+          64,
+          64
+        ],
+        [
+          16,
+          124,
+          64
+        ],
+        [
+          16,
+          256,
+          16
+        ],
+        [
+          16,
+          256,
+          31
+        ],
+        [
+          16,
+          512,
+          512
+        ],
+        [
+          31,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        355,
+        512
+      ]
+    },
+    {
+      "owner": "decoder//decoders.4",
+      "first": 357,
+      "last": 550,
+      "count": 40,
+      "labelled": 8,
+      "unique_shapes": [
+        [
+          16,
+          64,
+          64
+        ],
+        [
+          16,
+          124,
+          64
+        ],
+        [
+          16,
+          256,
+          16
+        ],
+        [
+          16,
+          256,
+          31
+        ],
+        [
+          16,
+          512,
+          512
+        ],
+        [
+          31,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        357,
+        550
+      ]
+    },
+    {
+      "owner": "decoder//decoders.5",
+      "first": 359,
+      "last": 588,
+      "count": 40,
+      "labelled": 8,
+      "unique_shapes": [
+        [
+          16,
+          64,
+          64
+        ],
+        [
+          16,
+          124,
+          64
+        ],
+        [
+          16,
+          256,
+          16
+        ],
+        [
+          16,
+          256,
+          31
+        ],
+        [
+          16,
+          512,
+          512
+        ],
+        [
+          31,
+          512,
+          512
+        ]
+      ],
+      "task_indices": [
+        359,
+        588
+      ]
+    },
+    {
+      "owner": "decoder//decoder/output_layer",
+      "first": 589,
+      "last": 590,
+      "count": 2,
+      "labelled": 2,
+      "unique_shapes": [
+        [
+          1,
+          512,
+          904
+        ],
+        [
+          1,
+          512,
+          4096
+        ]
+      ],
+      "task_indices": [
+        589,
+        590
+      ]
+    }
+  ],
+  "group_dependency_note": "Owner order is the recorded host order. Encoder embed -> encoders.0..11, decoder decoders.0..5 -> output layer is a structural label; it is not a recovered tensor DAG.",
+  "per_encoder_tasks": 29,
+  "per_decoder_tasks": 40
+}

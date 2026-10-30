@@ -1,0 +1,18 @@
+{
+  "matrix_c48_vs_integer_golden_mismatches": 0,
+  "i48_to_f32_mismatches": 0,
+  "mul_scale_mismatches": 0,
+  "add_bias_mismatches": 0,
+  "f32_to_i16_mismatches": 0,
+  "words": 1024,
+  "parameters": {
+    "scale": 0.0009765625,
+    "bias": 0.5,
+    "rounding": "RNE",
+    "clip": [
+      -32768,
+      32767
+    ]
+  },
+  "pass": true
+}

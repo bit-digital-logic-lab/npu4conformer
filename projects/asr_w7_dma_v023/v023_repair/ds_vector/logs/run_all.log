@@ -1,0 +1,109 @@
+V023_VECTOR_FIXTURES_CREATED 62
+PASS add_1001 cyc 8414->1309 match=True
+PASS sub_1001 cyc 8414->1309 match=True
+PASS mul_1001 cyc 8414->1309 match=True
+PASS add_tail1 cyc 34->34 match=True
+PASS add_tail2 cyc 46->41 match=True
+PASS add_tail3 cyc 56->48 match=True
+PASS add_tail5 cyc 84->68 match=True
+PASS add_tail7 cyc 105->82 match=True
+PASS add_tail127 cyc 1603->239 match=True
+PASS add_tail255 cyc 3206->453 match=True
+PASS add_tail257 cyc 3222->460 match=True
+PASS mul_tail3 cyc 56->48 match=True
+PASS a16_to_f32_1001 cyc 4778->533 match=True
+PASS a16_tail3 cyc 36->32 match=True
+PASS a48_to_f32_1001 cyc 4858->1194 match=True
+PASS a48_tail1 cyc 25->25 match=True
+PASS a48_tail3 cyc 37->35 match=True
+PASS f32_to_i16_1001 cyc 4769->695 match=True
+PASS f32_to_i16_tail1 cyc 26->25 match=True
+PASS f32_to_i16_tail7 cyc 63->51 match=True
+PASS f32_to_i16_tail255 cyc 1790->267 match=True
+PASS add_ascalar_1001 cyc 7830->754 match=True
+PASS add_bscalar_1001 cyc 7826->754 match=True
+PASS add_bothscalar_1001 cyc 7238->407 match=True
+PASS bperiod_1 cyc 7826->754 match=True
+PASS bperiod_2 cyc 7830->754 match=True
+PASS bperiod_4 cyc 7833->754 match=True
+PASS bperiod_8 cyc 7844->762 match=True
+PASS bperiod_16 cyc 7861->779 match=True
+PASS bperiod_32 cyc 7896->816 match=True
+PASS bperiod_64 cyc 7970->887 match=True
+PASS bperiod_128 cyc 8120->1033 match=True
+PASS bperiod_256 cyc 8414->1309 match=True
+PASS btiled_1024 cyc 8075->838 match=True
+PASS btiled_2048 cyc 15246->1518 match=True
+PASS div_1001 cyc 32438->31411 match=True
+PASS div_tail7 cyc 273->250 match=True
+PASS sqrt_1001 cyc 31843->31263 match=True
+PASS sqrt_tail7 cyc 253->242 match=True
+PASS exp_1001 cyc 82894->82314 match=True
+PASS log_1001 cyc 116928->116348 match=True
+PASS err_div_zero cyc 27->24 match=None
+PASS err_div_0_0 cyc 22->24 match=None
+PASS err_sqrt_neg cyc 15->17 match=None
+PASS err_div_inf_inf cyc 22->24 match=None
+PASS err_magic cyc 1->5 match=None
+PASS err_reserved_low cyc 1->5 match=None
+PASS err_reserved_high cyc 1->5 match=None
+PASS err_count0 cyc 1->5 match=None
+PASS err_count_huge cyc 1->5 match=None
+PASS err_op19 cyc 1->5 match=None
+PASS err_dest_low cyc 1->5 match=None
+PASS err_dest_unaligned cyc 1->5 match=None
+PASS err_a_overlap_dest cyc 1->5 match=None
+PASS err_a_unaligned cyc 1->5 match=None
+PASS err_a16_a48 cyc 1->5 match=None
+PASS err_a48_ascalar cyc 1->5 match=None
+PASS err_out16_op cyc 1->5 match=None
+PASS err_period_nonpow2 cyc 1->5 match=None
+PASS err_period_bscalar cyc 1->5 match=None
+PASS err_btiled_period0 cyc 1->5 match=None
+PASS err_btiled_count cyc 1->5 match=None
+PASS work_add_scalar 7826 754 gold True
+PASS work_mul_vector 8414 1309 gold True
+PASS work_i16_to_float 4778 533 gold True
+PASS work_round_i16 4769 695 gold True
+PASS work_i48_to_float 4858 1194 gold True
+STRESS 0 PASS 7826 754
+STRESS 9 PASS 7826 754
+STRESS 10 PASS 7826 754
+STRESS 11 PASS 7816 714
+STRESS 12 PASS 7808 747
+STRESS 13 PASS 7795 701
+STRESS 14 PASS 7906 992
+V023_VECTOR_REGRESSION PASS 67 cases
+MODE 0 PASS 7882 995 match True overlap (204, 0)
+MODE 1 PASS 1 5 match None overlap (0, 0)
+MODE 2 PASS 1 5 match None overlap (0, 0)
+MODE 3 PASS 1 5 match None overlap (0, 0)
+MODE 4 PASS 1 5 match None overlap (0, 0)
+MODE 5 PASS 1 5 match None overlap (0, 0)
+MODE 6 PASS 1 5 match None overlap (0, 0)
+MODE 7 PASS 39 43 match None overlap (0, 0)
+MODE 8 PASS 2518 356 match None overlap (68, 0)
+MODE 9 PASS 7882 995 match None overlap (204, 0)
+FIXTURE mul_vector PASS 8528 1763
+FIXTURE i16_to_float PASS 4805 658
+FIXTURE round_i16 PASS 4820 923
+FIXTURE i48_to_float PASS 4942 1543
+V023_VECTOR_AXI_REGRESSION PASS
+PASS div_1001 {'max_rel_error': 0.0010995431177979766, 'mean_rel_error': 0.00026905343024739235, 'max_ulp': 17742, 'median_ulp': 1456, 'exact_match_rate': 0.007928642220019821}
+PASS sqrt_1001 {'max_rel_error': 5.244722944530499e-06, 'mean_rel_error': 1.1016659758742059e-06, 'max_ulp': 63, 'median_ulp': 10, 'exact_match_rate': 0.009910802775024777}
+PASS div_tail7 {'max_rel_error': 0.0005540601597875133, 'mean_rel_error': 1.3578911750182656e-06, 'max_ulp': 7029, 'median_ulp': 0, 'exact_match_rate': 0.9930624380574826}
+PASS sqrt_tail7 {'max_rel_error': 2.9486176417141445e-06, 'mean_rel_error': 8.873588040327287e-09, 'max_ulp': 35, 'median_ulp': 0, 'exact_match_rate': 0.9930624380574826}
+SPECIAL err_div_zero PASS V023_VECTOR_PASS mode=          0 cycles=                  26 rcov=                   0 wcov=                   0 rreq=          2 wreq=          0 count=         0 fault=1 err=04 flags=02 rejected=         0
+SPECIAL err_div_0_0 PASS V023_VECTOR_PASS mode=          0 cycles=                  26 rcov=                   0 wcov=                   0 rreq=          2 wreq=          0 count=         0 fault=1 err=04 flags=01 rejected=         0
+SPECIAL err_sqrt_neg PASS V023_VECTOR_PASS mode=          0 cycles=                  19 rcov=                   0 wcov=                   0 rreq=          1 wreq=          0 count=         0 fault=1 err=04 flags=01 rejected=         0
+SPECIAL err_div_inf_inf PASS V023_VECTOR_PASS mode=          0 cycles=                  26 rcov=                   0 wcov=                   0 rreq=          2 wreq=          0 count=         0 fault=1 err=04 flags=01 rejected=         0
+BP div_1001 11 PASS 2612
+BP div_1001 12 PASS 2631
+BP div_1001 13 PASS 2606
+BP div_1001 14 PASS 2780
+BP sqrt_1001 11 PASS 2477
+BP sqrt_1001 12 PASS 2483
+BP sqrt_1001 13 PASS 2470
+BP sqrt_1001 14 PASS 2584
+V023_APPROX_INTEGRATION PASS
+V023_FINAL_RESULT completed {'exact_regression_cases': 67, 'exact_stress_cases': 7, 'exact_passed': 74, 'axi_cases': 14, 'approx_normal': 4, 'approx_special': 4, 'approx_backpressure': 8}

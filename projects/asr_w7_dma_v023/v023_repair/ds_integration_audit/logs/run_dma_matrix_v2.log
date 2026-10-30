@@ -1,0 +1,27 @@
+ok   T1 done
+ok   T1 error=0
+ok   T1 read_bytes=640
+ok   T1 read_index=40
+ok   T1 3 ARs
+ok   T1 lens
+ok   T1 no overflow
+ok   T2 done
+ok   T2 error=0
+ok   T2 two bursts
+ok   T2 addr0
+ok   T2 addr1
+ok   T2 bytes=32
+ok   T3 done
+ok   T3 error=0
+ok   T3 write_bytes=51
+ok   T3 one AW
+ok   T4 done
+ok   T4 error=0
+ok   T4 two AW
+ok   T4 addr0
+ok   T4 addr1
+ok   T5 done
+ok   T5 error
+DMA_AUDIT_RESULT errors=0
+DMA_AUDIT_PASS
+scripts/tb_dma_audit.sv:301: $finish called at 1436000 (1ps)

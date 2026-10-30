@@ -1,0 +1,958 @@
+{
+  "task": "v023_closeout_safety",
+  "date": "2026-10-30",
+  "scope": "logic simulation only; no synthesis/Vivado/board/VNC/push",
+  "verdict": "SAFETY_CLOSEOUT_LOCAL_ONLY",
+  "full_model_accepted": false,
+  "tests_total": 26,
+  "tests_passed": 26,
+  "tests_failed": 0,
+  "all_required_pass": true,
+  "tests": [
+    {
+      "name": "normal_exact_path",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 0,
+          "error": 0,
+          "iso": 0,
+          "requires_reset": 0,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0,
+          "drain_timeout": 0,
+          "cycles": 23919
+        },
+        "drain": {
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 1,
+          "iso_blocked": 0,
+          "held_r": 0,
+          "held_b": 0,
+          "returned_b": 141
+        },
+        "quiesce": {},
+        "csr": {
+          "vec_total": 4643,
+          "layout_total": 16788,
+          "matrix_total": 1880,
+          "vec_ops": 4,
+          "layout_ops": 3,
+          "matrix_ops": 1
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "matrix_multitask_totals",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 0,
+          "error": 0,
+          "iso": 0,
+          "requires_reset": 0,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0,
+          "drain_timeout": 0,
+          "cycles": 25806
+        },
+        "drain": {
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 1,
+          "iso_blocked": 0,
+          "held_r": 0,
+          "held_b": 0,
+          "returned_b": 206
+        },
+        "quiesce": {},
+        "csr": {
+          "vec_total": 4649,
+          "layout_total": 16765,
+          "matrix_total": 3770,
+          "vec_ops": 4,
+          "layout_ops": 3,
+          "matrix_ops": 2
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "seq_mutex_lay_patched",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 0,
+          "error": 0,
+          "busy": 0,
+          "seq_active": 0,
+          "ov_seq_lay": 0,
+          "ov_seq_vec": 0,
+          "ov_seq_mat": 0,
+          "ov_seq_direct": 0,
+          "seq_start": 450,
+          "lay_start": 140,
+          "cyc": 760
+        },
+        "iso": {
+          "iso": 0,
+          "requires_reset": 0,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0
+        }
+      }
+    },
+    {
+      "name": "seq_mutex_lay_baseline_negative",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "done": 1,
+        "fault": 0,
+        "error": 0,
+        "busy": 0,
+        "seq_active": 0,
+        "ov_seq_lay": 296,
+        "ov_seq_vec": 0,
+        "ov_seq_mat": 0,
+        "ov_seq_direct": 296,
+        "seq_start": 146,
+        "lay_start": 140,
+        "cyc": 456
+      }
+    },
+    {
+      "name": "seq_mutex_seq_patched",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 0,
+          "error": 0,
+          "busy": 0,
+          "seq_active": 0,
+          "ov_seq_lay": 0,
+          "ov_seq_vec": 0,
+          "ov_seq_mat": 0,
+          "ov_seq_direct": 0,
+          "seq_start": 117,
+          "lay_start": 444,
+          "cyc": 754
+        },
+        "iso": {
+          "iso": 0,
+          "requires_reset": 0,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0
+        }
+      }
+    },
+    {
+      "name": "seq_mutex_seq_baseline_negative",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "done": 1,
+        "fault": 0,
+        "error": 0,
+        "busy": 0,
+        "seq_active": 0,
+        "ov_seq_lay": 279,
+        "ov_seq_vec": 0,
+        "ov_seq_mat": 0,
+        "ov_seq_direct": 279,
+        "seq_start": 117,
+        "lay_start": 140,
+        "cyc": 450
+      }
+    },
+    {
+      "name": "seq_mutex_healthy_patched",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 0,
+          "error": 0,
+          "busy": 0,
+          "seq_active": 0,
+          "ov_seq_lay": 0,
+          "ov_seq_vec": 0,
+          "ov_seq_mat": 0,
+          "ov_seq_direct": 0,
+          "seq_start": 117,
+          "lay_start": 164,
+          "cyc": 214
+        },
+        "iso": {
+          "iso": 0,
+          "requires_reset": 0,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0
+        }
+      }
+    },
+    {
+      "name": "seq_hang_wait_patched",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 14,
+          "busy": 0,
+          "seq_active": 0,
+          "ov_seq_lay": 0,
+          "ov_seq_vec": 0,
+          "ov_seq_mat": 0,
+          "ov_seq_direct": 0,
+          "cyc": 3091
+        },
+        "iso": {
+          "iso": 1,
+          "requires_reset": 1,
+          "seq_dto": 1,
+          "seq_ito": 0,
+          "fetch_to": 0
+        }
+      }
+    },
+    {
+      "name": "seq_hang_wait_baseline_negative",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "done": 0,
+        "fault": 0,
+        "error": 0,
+        "busy": 1,
+        "seq_active": 0,
+        "ov_seq_lay": 0,
+        "ov_seq_vec": 0,
+        "ov_seq_mat": 0,
+        "ov_seq_direct": 0,
+        "cyc": 5005
+      }
+    },
+    {
+      "name": "seq_hang_run_patched",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 14,
+          "busy": 0,
+          "seq_active": 0,
+          "ov_seq_lay": 0,
+          "ov_seq_vec": 0,
+          "ov_seq_mat": 0,
+          "ov_seq_direct": 0,
+          "seq_start": 89,
+          "cyc": 3095
+        },
+        "iso": {
+          "iso": 1,
+          "requires_reset": 1,
+          "seq_dto": 0,
+          "seq_ito": 1,
+          "fetch_to": 0
+        }
+      }
+    },
+    {
+      "name": "seq_hang_run_baseline_negative",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "done": 0,
+        "fault": 0,
+        "error": 0,
+        "busy": 1,
+        "seq_active": 1,
+        "ov_seq_lay": 0,
+        "ov_seq_vec": 0,
+        "ov_seq_mat": 0,
+        "ov_seq_direct": 0,
+        "seq_start": 89,
+        "cyc": 5005
+      }
+    },
+    {
+      "name": "negative_bad_queue_magic",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 3,
+          "iso": 0,
+          "requires_reset": 0,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0,
+          "drain_timeout": 0,
+          "cycles": 10547
+        },
+        "drain": {
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 1,
+          "iso_blocked": 0,
+          "held_r": 0,
+          "held_b": 0,
+          "returned_b": 12
+        },
+        "quiesce": {},
+        "csr": {
+          "vec_total": 0,
+          "layout_total": 10064,
+          "matrix_total": 0,
+          "vec_ops": 0,
+          "layout_ops": 2,
+          "matrix_ops": 0
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "negative_bad_queue_backend",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 3,
+          "iso": 0,
+          "requires_reset": 0,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0,
+          "drain_timeout": 0,
+          "cycles": 10547
+        },
+        "drain": {
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 1,
+          "iso_blocked": 0,
+          "held_r": 0,
+          "held_b": 0,
+          "returned_b": 12
+        },
+        "quiesce": {},
+        "csr": {
+          "vec_total": 0,
+          "layout_total": 10064,
+          "matrix_total": 0,
+          "vec_ops": 0,
+          "layout_ops": 2,
+          "matrix_ops": 0
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "negative_bad_queue_pred",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 4,
+          "iso": 0,
+          "requires_reset": 0,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0,
+          "drain_timeout": 0,
+          "cycles": 10547
+        },
+        "drain": {
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 1,
+          "iso_blocked": 0,
+          "held_r": 0,
+          "held_b": 0,
+          "returned_b": 12
+        },
+        "quiesce": {},
+        "csr": {
+          "vec_total": 0,
+          "layout_total": 10064,
+          "matrix_total": 0,
+          "vec_ops": 0,
+          "layout_ops": 2,
+          "matrix_ops": 0
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "negative_bad_queue_overlap",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 129,
+          "iso": 0,
+          "requires_reset": 0,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0,
+          "drain_timeout": 0,
+          "cycles": 10551
+        },
+        "drain": {
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 1,
+          "iso_blocked": 0,
+          "held_r": 0,
+          "held_b": 0,
+          "returned_b": 12
+        },
+        "quiesce": {},
+        "csr": {
+          "vec_total": 0,
+          "layout_total": 10064,
+          "matrix_total": 0,
+          "vec_ops": 0,
+          "layout_ops": 2,
+          "matrix_ops": 0
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "negative_bad_mat_op",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 129,
+          "iso": 0,
+          "requires_reset": 0,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0,
+          "drain_timeout": 0,
+          "cycles": 10551
+        },
+        "drain": {
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 1,
+          "iso_blocked": 0,
+          "held_r": 0,
+          "held_b": 0,
+          "returned_b": 12
+        },
+        "quiesce": {},
+        "csr": {
+          "vec_total": 0,
+          "layout_total": 10064,
+          "matrix_total": 0,
+          "vec_ops": 0,
+          "layout_ops": 2,
+          "matrix_ops": 0
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "negative_bad_vec_op",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 7,
+          "iso": 0,
+          "requires_reset": 0,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0,
+          "drain_timeout": 0,
+          "cycles": 12447
+        },
+        "drain": {
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 1,
+          "iso_blocked": 0,
+          "held_r": 0,
+          "held_b": 0,
+          "returned_b": 77
+        },
+        "quiesce": {},
+        "csr": {
+          "vec_total": 0,
+          "layout_total": 10064,
+          "matrix_total": 1880,
+          "vec_ops": 0,
+          "layout_ops": 2,
+          "matrix_ops": 1
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "negative_bad_lay_mode",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 7,
+          "iso": 0,
+          "requires_reset": 0,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0,
+          "drain_timeout": 0,
+          "cycles": 433
+        },
+        "drain": {
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 1,
+          "iso_blocked": 0,
+          "held_r": 0,
+          "held_b": 0,
+          "returned_b": 0
+        },
+        "quiesce": {},
+        "csr": {
+          "vec_total": 0,
+          "layout_total": 0,
+          "matrix_total": 0,
+          "vec_ops": 0,
+          "layout_ops": 0,
+          "matrix_ops": 0
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "axi_hold_r_plan",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 14,
+          "iso": 1,
+          "requires_reset": 1,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 1,
+          "drain_timeout": 0,
+          "cycles": 3145
+        },
+        "drain": {
+          "rd_pending": 1,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 0,
+          "iso_blocked": 0,
+          "held_r": 1,
+          "held_b": 0,
+          "returned_b": 0
+        },
+        "quiesce": {
+          "post_iso_req": 0,
+          "rd_pending": 1,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 0
+        },
+        "csr": {
+          "vec_total": 0,
+          "layout_total": 0,
+          "matrix_total": 0,
+          "vec_ops": 0,
+          "layout_ops": 0,
+          "matrix_ops": 0
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "axi_hold_r_data",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 14,
+          "iso": 1,
+          "requires_reset": 1,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0,
+          "drain_timeout": 0,
+          "cycles": 15449
+        },
+        "drain": {
+          "rd_pending": 1,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 0,
+          "iso_blocked": 0,
+          "held_r": 1,
+          "held_b": 0,
+          "returned_b": 77
+        },
+        "quiesce": {
+          "post_iso_req": 0,
+          "rd_pending": 1,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 0
+        },
+        "csr": {
+          "vec_total": 3000,
+          "layout_total": 10064,
+          "matrix_total": 1880,
+          "vec_ops": 1,
+          "layout_ops": 2,
+          "matrix_ops": 1
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "axi_hold_b_matrix",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 14,
+          "iso": 1,
+          "requires_reset": 1,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0,
+          "drain_timeout": 0,
+          "cycles": 13554
+        },
+        "drain": {
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 1,
+          "quiesced": 0,
+          "iso_blocked": 0,
+          "held_r": 0,
+          "held_b": 1,
+          "returned_b": 12
+        },
+        "quiesce": {
+          "post_iso_req": 0,
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 1,
+          "quiesced": 0
+        },
+        "csr": {
+          "vec_total": 0,
+          "layout_total": 10064,
+          "matrix_total": 0,
+          "vec_ops": 0,
+          "layout_ops": 2,
+          "matrix_ops": 0
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "axi_hold_b_vector",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 14,
+          "iso": 1,
+          "requires_reset": 1,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0,
+          "drain_timeout": 0,
+          "cycles": 15449
+        },
+        "drain": {
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 1,
+          "quiesced": 0,
+          "iso_blocked": 0,
+          "held_r": 0,
+          "held_b": 1,
+          "returned_b": 77
+        },
+        "quiesce": {
+          "post_iso_req": 0,
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 1,
+          "quiesced": 0
+        },
+        "csr": {
+          "vec_total": 3000,
+          "layout_total": 10064,
+          "matrix_total": 1880,
+          "vec_ops": 1,
+          "layout_ops": 2,
+          "matrix_ops": 1
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "axi_delayed_drain_quiesced",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 14,
+          "iso": 1,
+          "requires_reset": 1,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 0,
+          "drain_timeout": 0,
+          "cycles": 15449
+        },
+        "drain": {
+          "rd_pending": 1,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 0,
+          "iso_blocked": 0,
+          "held_r": 1,
+          "held_b": 0,
+          "returned_b": 77
+        },
+        "quiesce": {
+          "post_iso_req": 0,
+          "rd_pending": 0,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 1
+        },
+        "csr": {
+          "vec_total": 3000,
+          "layout_total": 10064,
+          "matrix_total": 1880,
+          "vec_ops": 1,
+          "layout_ops": 2,
+          "matrix_ops": 1
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {}
+      }
+    },
+    {
+      "name": "restart_refused_after_isolation",
+      "pass": true,
+      "reasons": [],
+      "evidence": {
+        "end": {
+          "done": 1,
+          "fault": 1,
+          "error": 14,
+          "iso": 1,
+          "requires_reset": 1,
+          "seq_dto": 0,
+          "seq_ito": 0,
+          "fetch_to": 1,
+          "drain_timeout": 0,
+          "cycles": 3145
+        },
+        "drain": {
+          "rd_pending": 1,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 0,
+          "iso_blocked": 0,
+          "held_r": 1,
+          "held_b": 0,
+          "returned_b": 0
+        },
+        "quiesce": {
+          "post_iso_req": 0,
+          "rd_pending": 1,
+          "wr_pending": 0,
+          "b_pending": 0,
+          "quiesced": 0
+        },
+        "csr": {
+          "vec_total": 0,
+          "layout_total": 0,
+          "matrix_total": 0,
+          "vec_ops": 0,
+          "layout_ops": 0,
+          "matrix_ops": 0
+        },
+        "overlap": {
+          "seq_lay": 0,
+          "seq_vec": 0,
+          "seq_mat": 0,
+          "seq_direct": 0
+        },
+        "restart": {
+          "bresp": 2,
+          "lockout_rej": 1,
+          "done_latched": 1,
+          "requires_reset": 1
+        }
+      }
+    },
+    {
+      "name": "axi_reset_reuse_hazard",
+      "pass": true,
+      "reasons": [],
+      "evidence": {}
+    },
+    {
+      "name": "sealed_baseline_chain",
+      "pass": true,
+      "reasons": [],
+      "evidence": {}
+    }
+  ],
+  "gate_context": {
+    "old_gate_stale": true,
+    "round2_fma": "primary_acceptance/round2/result_primary_fma.json: 8734 vectors, 0 mismatches (independently rerun by main agent)",
+    "round2_approx": "primary_acceptance/round2/result_primary_approx.json: 15168 pass (DIV max 0.1114666%, SQRT 5.78e-6, RSQRT 5.72e-6, 5-cycle II1)",
+    "stream": "primary_stream_fix/REPORT.md: 65-item regression pass; stream_param_port 113-mismatch was a test-driver omission, fixed by main agent",
+    "note": "This task does not re-run FMA/approx/stream and does not claim full-model WER/CER or board timing."
+  }
+}

@@ -1,0 +1,62 @@
+%Warning-WIDTHEXPAND: candidate/rtl/ready_scan_banked_v1.sv:103:31: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'local_i' generates 7 bits.
+                                                                  : ... note: In instance 'ready_scan_banked_v1'
+  103 |      cand_i[b]<=(b*BANK_NODES)+local_i;
+      |                               ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.047
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: candidate/rtl/ready_scan_banked_v1.sv:103:15: Operator ASSIGNDLY expects 7 bits on the Assign RHS, but Assign RHS's ADD generates 32 bits.
+                                                                 : ... note: In instance 'ready_scan_banked_v1'
+  103 |      cand_i[b]<=(b*BANK_NODES)+local_i;
+      |               ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.047
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-BLKSEQ: candidate/rtl/ready_scan_banked_v1.sv:94:11: Blocking assignment '=' in sequential logic process
+                                                            : ... note: In instance 'ready_scan_banked_v1'
+                                                            : ... Suggest using delayed assignment '<='
+   94 |      found=0;local_i=0;
+      |           ^
+                 ... For warning description see https://verilator.org/warn/BLKSEQ?v=5.047
+                 ... Use "/* verilator lint_off BLKSEQ */" and lint_on around source to disable this message.
+%Warning-BLKSEQ: candidate/rtl/ready_scan_banked_v1.sv:94:21: Blocking assignment '=' in sequential logic process
+                                                            : ... note: In instance 'ready_scan_banked_v1'
+                                                            : ... Suggest using delayed assignment '<='
+   94 |      found=0;local_i=0;
+      |                     ^
+%Warning-BLKSEQ: candidate/rtl/ready_scan_banked_v1.sv:96:11: Blocking assignment '=' in sequential logic process
+                                                            : ... note: In instance 'ready_scan_banked_v1'
+                                                            : ... Suggest using delayed assignment '<='
+   96 |       base=b*BANK_NODES;
+      |           ^
+%Warning-BLKSEQ: candidate/rtl/ready_scan_banked_v1.sv:99:13: Blocking assignment '=' in sequential logic process
+                                                            : ... note: In instance 'ready_scan_banked_v1'
+                                                            : ... Suggest using delayed assignment '<='
+   99 |        found=1;local_i=n[6:0];
+      |             ^
+%Warning-BLKSEQ: candidate/rtl/ready_scan_banked_v1.sv:99:23: Blocking assignment '=' in sequential logic process
+                                                            : ... note: In instance 'ready_scan_banked_v1'
+                                                            : ... Suggest using delayed assignment '<='
+   99 |        found=1;local_i=n[6:0];
+      |                       ^
+%Warning-BLKSEQ: candidate/rtl/ready_scan_banked_v1.sv:107:12: Blocking assignment '=' in sequential logic process
+                                                             : ... note: In instance 'ready_scan_banked_v1'
+                                                             : ... Suggest using delayed assignment '<='
+  107 |      picked=0;pick_bank=0;
+      |            ^
+%Warning-BLKSEQ: candidate/rtl/ready_scan_banked_v1.sv:107:24: Blocking assignment '=' in sequential logic process
+                                                             : ... note: In instance 'ready_scan_banked_v1'
+                                                             : ... Suggest using delayed assignment '<='
+  107 |      picked=0;pick_bank=0;
+      |                        ^
+%Warning-BLKSEQ: candidate/rtl/ready_scan_banked_v1.sv:109:41: Blocking assignment '=' in sequential logic process
+                                                             : ... note: In instance 'ready_scan_banked_v1'
+                                                             : ... Suggest using delayed assignment '<='
+  109 |       if(!picked&&cand_v[b])begin picked=1;pick_bank=b[1:0];end
+      |                                         ^
+%Warning-BLKSEQ: candidate/rtl/ready_scan_banked_v1.sv:109:53: Blocking assignment '=' in sequential logic process
+                                                             : ... note: In instance 'ready_scan_banked_v1'
+                                                             : ... Suggest using delayed assignment '<='
+  109 |       if(!picked&&cand_v[b])begin picked=1;pick_bank=b[1:0];end
+      |                                                     ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)
+- Verilator: Built from 0.036 MB sources in 2 modules, into 0.151 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.025 s (elab=0.001, cvt=0.018, bld=0.000); cpu 0.025 s on 1 threads; allocated 22.359 MB

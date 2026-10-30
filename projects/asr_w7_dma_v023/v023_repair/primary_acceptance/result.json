@@ -1,0 +1,8 @@
+{
+  "verdict": "NOT_ACCEPTED_SYSTEM",
+  "control_rerun": "PASS",
+  "fma_probe": "FAIL",
+  "approx_suite_rc": 0,
+  "full_model": false,
+  "integration": "waiting_modules"
+}

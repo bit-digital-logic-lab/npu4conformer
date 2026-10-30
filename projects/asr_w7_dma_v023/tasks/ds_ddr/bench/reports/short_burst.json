@@ -1,0 +1,202 @@
+{
+  "scope": "Icarus RTL + \u5171\u4eab AXI128 BFM\uff1bL=32\uff0c\u77ed\u8bf7\u6c42 1..64 beat\uff1b\u53ea\u6539\u8bf7\u6c42\u957f\u5ea6\u3002",
+  "results": [
+    {
+      "dut": "base",
+      "beats": 1,
+      "mode": "read",
+      "cycles": 38,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 1,
+      "mode": "write",
+      "cycles": 14,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 4,
+      "mode": "read",
+      "cycles": 41,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 4,
+      "mode": "write",
+      "cycles": 17,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 7,
+      "mode": "read",
+      "cycles": 44,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 7,
+      "mode": "write",
+      "cycles": 20,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 13,
+      "mode": "read",
+      "cycles": 50,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 13,
+      "mode": "write",
+      "cycles": 26,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 16,
+      "mode": "read",
+      "cycles": 53,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 16,
+      "mode": "write",
+      "cycles": 29,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 32,
+      "mode": "read",
+      "cycles": 102,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 32,
+      "mode": "write",
+      "cycles": 63,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 64,
+      "mode": "read",
+      "cycles": 200,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 64,
+      "mode": "write",
+      "cycles": 123,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 1,
+      "mode": "read",
+      "cycles": 40,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 1,
+      "mode": "write",
+      "cycles": 14,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 4,
+      "mode": "read",
+      "cycles": 43,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 4,
+      "mode": "write",
+      "cycles": 17,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 7,
+      "mode": "read",
+      "cycles": 46,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 7,
+      "mode": "write",
+      "cycles": 20,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 13,
+      "mode": "read",
+      "cycles": 52,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 13,
+      "mode": "write",
+      "cycles": 26,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 16,
+      "mode": "read",
+      "cycles": 55,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 16,
+      "mode": "write",
+      "cycles": 29,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 32,
+      "mode": "read",
+      "cycles": 71,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 32,
+      "mode": "write",
+      "cycles": 55,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 64,
+      "mode": "read",
+      "cycles": 103,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 64,
+      "mode": "write",
+      "cycles": 93,
+      "pass_": 1
+    }
+  ],
+  "note": "\u5355/\u77ed\u7a81\u53d1\u4e0b v020 \u7684 FIFO/\u63e1\u624b\u5f00\u9500\u53ef\u89c1\uff1b\u957f\u7a81\u53d1\u624d\u6709\u591a\u5728\u9014\u6536\u76ca\u3002"
+}

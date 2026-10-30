@@ -1,0 +1,104 @@
+image 173715968 sha fc36806a0070407a
+{
+  "image": {
+    "path": "/home/yang/Desktop/\u9879\u76ee/work/assets/parameters002/parameters.bin",
+    "bytes": 173715968,
+    "sha256": "fc36806a0070407ae33adbe56f80810e5e57e73d4016f049eed2c4486ed18767"
+  },
+  "manifest_sha256": "5544fb82a416a994784cbe3da2d2524b5b4d28bef516d35018a2030e52a7ed1a",
+  "programs": 68,
+  "members": 636,
+  "instructions": 45055,
+  "matrix_descriptors": 6231,
+  "cycle_nodes": [],
+  "max_deps": 0,
+  "hazard_pairs": 2278,
+  "hazard_kinds": {
+    "RAW": 2278,
+    "WAR": 2278,
+    "WAW": 2278
+  },
+  "temp_overlap_pairs": 994,
+  "temp_overlap_bytes": 709431296,
+  "output_alias": [
+    [
+      "encoder|/encoder/encoders.0/feed_forward_macaron",
+      "encoder|/encoder/encoders.0/feed_forward",
+      "encoder|/encoder/encoders.1/feed_forward_macaron",
+      "encoder|/encoder/encoders.1/feed_forward",
+      "encoder|/encoder/encoders.2/feed_forward_macaron",
+      "encoder|/encoder/encoders.2/feed_forward",
+      "encoder|/encoder/encoders.3/feed_forward_macaron",
+      "encoder|/encoder/encoders.3/feed_forward",
+      "encoder|/encoder/encoders.4/feed_forward_macaron",
+      "encoder|/encoder/encoders.4/feed_forward",
+      "encoder|/encoder/encoders.5/feed_forward_macaron",
+      "encoder|/encoder/encoders.5/feed_forward",
+      "encoder|/encoder/encoders.6/feed_forward_macaron",
+      "encoder|/encoder/encoders.6/feed_forward",
+      "encoder|/encoder/encoders.7/feed_forward_macaron",
+      "encoder|/encoder/encoders.7/feed_forward",
+      "encoder|/encoder/encoders.8/feed_forward_macaron",
+      "encoder|/encoder/encoders.8/feed_forward",
+      "encoder|/encoder/encoders.9/feed_forward_macaron",
+      "encoder|/encoder/encoders.9/feed_forward",
+      "encoder|/encoder/encoders.10/feed_forward_macaron",
+      "encoder|/encoder/encoders.10/feed_forward",
+      "encoder|/encoder/encoders.11/feed_forward_macaron",
+      "encoder|/encoder/encoders.11/feed_forward"
+    ],
+    [
+      "encoder|/encoder/encoders.0/conv_module/pointwise_conv1/Conv",
+      "encoder|/encoder/encoders.1/conv_module/pointwise_conv1/Conv",
+      "encoder|/encoder/encoders.2/conv_module/pointwise_conv1/Conv",
+      "encoder|/encoder/encoders.3/conv_module/pointwise_conv1/Conv",
+      "encoder|/encoder/encoders.4/conv_module/pointwise_conv1/Conv",
+      "encoder|/encoder/encoders.5/conv_module/pointwise_conv1/Conv",
+      "encoder|/encoder/encoders.6/conv_module/pointwise_conv1/Conv",
+      "encoder|/encoder/encoders.7/conv_module/pointwise_conv1/Conv",
+      "encoder|/encoder/encoders.8/conv_module/pointwise_conv1/Conv",
+      "encoder|/encoder/encoders.9/conv_module/pointwise_conv1/Conv",
+      "encoder|/encoder/encoders.10/conv_module/pointwise_conv1/Conv",
+      "encoder|/encoder/encoders.11/conv_module/pointwise_conv1/Conv"
+    ],
+    [
+      "encoder|/encoder/encoders.0/conv_module/depthwise_conv/Conv",
+      "encoder|/encoder/encoders.0/conv_module/pointwise_conv2/Conv",
+      "encoder|/encoder/encoders.1/conv_module/depthwise_conv/Conv",
+      "encoder|/encoder/encoders.1/conv_module/pointwise_conv2/Conv",
+      "encoder|/encoder/encoders.2/conv_module/depthwise_conv/Conv",
+      "encoder|/encoder/encoders.2/conv_module/pointwise_conv2/Conv",
+      "encoder|/encoder/encoders.3/conv_module/depthwise_conv/Conv",
+      "encoder|/encoder/encoders.3/conv_module/pointwise_conv2/Conv",
+      "encoder|/encoder/encoders.4/conv_module/depthwise_conv/Conv",
+      "encoder|/encoder/encoders.4/conv_module/pointwise_conv2/Conv",
+      "encoder|/encoder/encoders.5/conv_module/depthwise_conv/Conv",
+      "encoder|/encoder/encoders.5/conv_module/pointwise_conv2/Conv",
+      "encoder|/encoder/encoders.6/conv_module/depthwise_conv/Conv",
+      "encoder|/encoder/encoders.6/conv_module/pointwise_conv2/Conv",
+      "encoder|/encoder/encoders.7/conv_module/depthwise_conv/Conv",
+      "encoder|/encoder/encoders.7/conv_module/pointwise_conv2/Conv",
+      "encoder|/encoder/encoders.8/conv_module/depthwise_conv/Conv",
+      "encoder|/encoder/encoders.8/conv_module/pointwise_conv2/Conv",
+      "encoder|/encoder/encoders.9/conv_module/depthwise_conv/Conv",
+      "encoder|/encoder/encoders.9/conv_module/pointwise_conv2/Conv",
+      "encoder|/encoder/encoders.10/conv_module/depthwise_conv/Conv",
+      "encoder|/encoder/encoders.10/conv_module/pointwise_conv2/Conv",
+      "encoder|/encoder/encoders.11/conv_module/depthwise_conv/Conv",
+      "encoder|/encoder/encoders.11/conv_module/pointwise_conv2/Conv"
+    ],
+    [
+      "decoder|/decoders.0/feed_forward",
+      "decoder|/decoders.1/feed_forward",
+      "decoder|/decoders.2/feed_forward",
+      "decoder|/decoders.3/feed_forward",
+      "decoder|/decoders.4/feed_forward",
+      "decoder|/decoders.5/feed_forward"
+    ]
+  ],
+  "total_read_bytes": 326108484,
+  "total_write_bytes": 239948512
+}
+topo head ['decoder|/decoders.0/feed_forward', 'decoder|/decoders.1/feed_forward', 'decoder|/decoders.2/feed_forward', 'decoder|/decoders.3/feed_forward', 'decoder|/decoders.4/feed_forward']
+cycle []
+max deps 0

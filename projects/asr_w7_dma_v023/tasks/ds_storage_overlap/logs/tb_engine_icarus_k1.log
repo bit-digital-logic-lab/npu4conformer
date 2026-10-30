@@ -1,0 +1,7 @@
+INFO init done mem=576 words
+CFG m=32 n=32 k=32 ids=1/2/3 allowed=1 req=1 pos=3210 bases=03000000/03000800/03000c00 slots=2
+INFO done fault=0 code=00 cycles=1373 compute=264 rdblk=2 wrblk=64 hits=0 miss=1 prehit=0 prewait=198 ov_rd=0 ov_wr=641
+INFO bfm rdcmds=2 wrcmds=64 rdbeats=192 wrbeats=384 shared=0 maxb=1 rdstall=0 wrstall=27
+FAIL no read/compute overlap
+FATAL: tests/tb_engine_overlap.sv:218: tb_engine_overlap errs=1
+       Time: 25410000  Scope: tb_engine_overlap

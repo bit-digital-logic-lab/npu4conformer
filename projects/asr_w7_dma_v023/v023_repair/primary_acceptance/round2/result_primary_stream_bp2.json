@@ -1,0 +1,542 @@
+{
+  "label": "primary_stream_bp2",
+  "bp": 2,
+  "source_sha256": {
+    "i48": "637a7b327d35760bc5d741128d04f77bcddde87cc40886dcf24aff09cebd29bf",
+    "fma": "34b55dc340b33ee570c540453662404579a77b2f8e2b166dbb2563ab3740c00b",
+    "f32i16": "c51d3327a7fcfbe7e584f1efa275413644147669c9d216ea7f5fbf31b864af6b",
+    "relu": "0e008b394489fcdd2f453aeebee5288f1b812d715c5e8840d47f19bcb3142c4d",
+    "lane": "d00b4d57776a605cbed790d19e9a7be7bb4b0f1751d4f6b617a9ca35489435f7",
+    "stream": "5a2a111c35f3e688574cb4ae8df5e03edd1f09793272d182cea60829ace25ffd",
+    "approx": "e360e7e455261ead4ee32ecacc93bed77f4de09458d3d689ae3eb3e948495ec1",
+    "recip": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+    "rsqrt": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153",
+    "fma_pipe": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12"
+  },
+  "sources": {
+    "i48": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_round2/candidate/epilogue_i48_to_f32.sv",
+    "fma": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_round2/candidate/epilogue_fma_stage.sv",
+    "f32i16": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_round2/candidate/epilogue_f32_to_i16.sv",
+    "relu": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_round2/candidate/epilogue_relu.sv",
+    "lane": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_round2/candidate/epilogue_lane.sv",
+    "stream": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_stream_round2/candidate/epilogue_stream_engine_v023.sv",
+    "approx": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_approx/rtl/approx_div_sqrt.sv",
+    "recip": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_approx/rtl/approx_recip_lut.sv",
+    "rsqrt": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_approx/rtl/approx_rsqrt_lut.sv",
+    "fma_pipe": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_round2/candidate/fp32_fma_pipe.sv",
+    "asr_fma": null
+  },
+  "tests": {
+    "stream_conv": {
+      "rc": 0,
+      "mode": 0,
+      "relu": 0,
+      "spill": 0,
+      "bp": 2,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 0,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [],
+      "examples": [],
+      "pass": true
+    },
+    "stream_conv_relu": {
+      "rc": 0,
+      "mode": 0,
+      "relu": 1,
+      "spill": 0,
+      "bp": 2,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 0,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [],
+      "examples": [],
+      "pass": true
+    },
+    "stream_fma": {
+      "rc": 0,
+      "mode": 1,
+      "relu": 0,
+      "spill": 0,
+      "bp": 2,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 0,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [],
+      "examples": [],
+      "pass": true
+    },
+    "stream_fma_relu": {
+      "rc": 0,
+      "mode": 1,
+      "relu": 1,
+      "spill": 0,
+      "bp": 2,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 0,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [],
+      "examples": [],
+      "pass": true
+    },
+    "stream_fma_real": {
+      "rc": 0,
+      "mode": 1,
+      "relu": 0,
+      "spill": 0,
+      "bp": 2,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 0,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [],
+      "examples": [],
+      "pass": true
+    },
+    "stream_scale_only": {
+      "rc": 0,
+      "mode": 2,
+      "relu": 0,
+      "spill": 0,
+      "bp": 2,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 0,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [],
+      "examples": [],
+      "pass": true
+    },
+    "stream_spill": {
+      "rc": 0,
+      "mode": 0,
+      "relu": 0,
+      "spill": 1,
+      "bp": 2,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 256,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 0,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [],
+      "examples": [],
+      "pass": true
+    },
+    "stream_abort": {
+      "rc": 0,
+      "mode": 0,
+      "relu": 0,
+      "spill": 0,
+      "bp": 2,
+      "abort_at": 100,
+      "a16_beats": 91,
+      "packed_beats": 45,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 0,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": null,
+      "packed_count_mismatch": null,
+      "abort_cycle": 196,
+      "tag_examples": [],
+      "examples": [],
+      "pass": true
+    },
+    "stream_param_port": {
+      "rc": 0,
+      "mode": 2,
+      "relu": 0,
+      "spill": 0,
+      "bp": 2,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 113,
+      "packed_mismatch": 91,
+      "spill_mismatch": 0,
+      "tag_mismatch": 0,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [],
+      "examples": [
+        {
+          "i": 1,
+          "got": [
+            "fffe",
+            "0003",
+            "fffd",
+            "0007"
+          ],
+          "exp": [
+            "ffff",
+            "0002",
+            "fffe",
+            "0004"
+          ]
+        },
+        {
+          "i": 2,
+          "got": [
+            "fff9",
+            "00ff",
+            "ff01",
+            "0fff"
+          ],
+          "exp": [
+            "fffc",
+            "0080",
+            "ff80",
+            "0800"
+          ]
+        },
+        {
+          "i": 7,
+          "got": [
+            "0003",
+            "fffd",
+            "0007",
+            "fff9"
+          ],
+          "exp": [
+            "0002",
+            "fffe",
+            "0004",
+            "fffc"
+          ]
+        },
+        {
+          "i": 8,
+          "got": [
+            "00ff",
+            "ff01",
+            "0fff",
+            "f001"
+          ],
+          "exp": [
+            "0080",
+            "ff80",
+            "0800",
+            "f800"
+          ]
+        },
+        {
+          "i": 11,
+          "got": [
+            "7fff",
+            "8000",
+            "0000",
+            "0001"
+          ],
+          "exp": [
+            "7fff",
+            "8000",
+            "0000",
+            "0000"
+          ]
+        },
+        {
+          "i": 13,
+          "got": [
+            "fffd",
+            "0007",
+            "fff9",
+            "00ff"
+          ],
+          "exp": [
+            "fffe",
+            "0004",
+            "fffc",
+            "0080"
+          ]
+        },
+        {
+          "i": 14,
+          "got": [
+            "ff01",
+            "0fff",
+            "f001",
+            "7fff"
+          ],
+          "exp": [
+            "ff80",
+            "0800",
+            "f800",
+            "7fff"
+          ]
+        },
+        {
+          "i": 17,
+          "got": [
+            "8000",
+            "0000",
+            "0001",
+            "ffff"
+          ],
+          "exp": [
+            "8000",
+            "0000",
+            "0000",
+            "0000"
+          ]
+        },
+        {
+          "i": 19,
+          "got": [
+            "0007",
+            "fff9",
+            "00ff",
+            "ff01"
+          ],
+          "exp": [
+            "0004",
+            "fffc",
+            "0080",
+            "ff80"
+          ]
+        },
+        {
+          "i": 20,
+          "got": [
+            "0fff",
+            "f001",
+            "7fff",
+            "7fff"
+          ],
+          "exp": [
+            "0800",
+            "f800",
+            "7fff",
+            "7fff"
+          ]
+        },
+        {
+          "i": 23,
+          "got": [
+            "0000",
+            "0001",
+            "ffff",
+            "0002"
+          ],
+          "exp": [
+            "0000",
+            "0000",
+            "0000",
+            "0001"
+          ]
+        },
+        {
+          "i": 25,
+          "got": [
+            "fff9",
+            "00ff",
+            "ff01",
+            "0fff"
+          ],
+          "exp": [
+            "fffc",
+            "0080",
+            "ff80",
+            "0800"
+          ]
+        },
+        {
+          "i": 26,
+          "got": [
+            "f001",
+            "7fff",
+            "7fff",
+            "7fff"
+          ],
+          "exp": [
+            "f800",
+            "7fff",
+            "7fff",
+            "7fff"
+          ]
+        },
+        {
+          "i": 29,
+          "got": [
+            "0001",
+            "ffff",
+            "0002",
+            "fffe"
+          ],
+          "exp": [
+            "0000",
+            "0000",
+            "0001",
+            "ffff"
+          ]
+        },
+        {
+          "i": 31,
+          "got": [
+            "00ff",
+            "ff01",
+            "0fff",
+            "f001"
+          ],
+          "exp": [
+            "0080",
+            "ff80",
+            "0800",
+            "f800"
+          ]
+        },
+        {
+          "i": 34,
+          "got": [
+            "7fff",
+            "8000",
+            "0000",
+            "0001"
+          ],
+          "exp": [
+            "7fff",
+            "8000",
+            "0000",
+            "0000"
+          ]
+        },
+        {
+          "i": 35,
+          "got": [
+            "ffff",
+            "0002",
+            "fffe",
+            "0003"
+          ],
+          "exp": [
+            "0000",
+            "0001",
+            "ffff",
+            "0002"
+          ]
+        },
+        {
+          "i": 37,
+          "got": [
+            "ff01",
+            "0fff",
+            "f001",
+            "7fff"
+          ],
+          "exp": [
+            "ff80",
+            "0800",
+            "f800",
+            "7fff"
+          ]
+        },
+        {
+          "i": 40,
+          "got": [
+            "8000",
+            "0000",
+            "0001",
+            "ffff"
+          ],
+          "exp": [
+            "8000",
+            "0000",
+            "0000",
+            "0000"
+          ]
+        },
+        {
+          "i": 41,
+          "got": [
+            "0002",
+            "fffe",
+            "0003",
+            "fffd"
+          ],
+          "exp": [
+            "0001",
+            "ffff",
+            "0002",
+            "fffe"
+          ]
+        }
+      ],
+      "pass": false
+    },
+    "stream_reconfig": {
+      "rc": 0,
+      "a16": [
+        "0001000100010001",
+        "0002000200020002"
+      ],
+      "in_flight_corrupted": false,
+      "pass": true
+    }
+  },
+  "started": 1793285162.7901328,
+  "elapsed_s": 3.14,
+  "pass": false
+}

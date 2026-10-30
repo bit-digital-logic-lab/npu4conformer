@@ -1,0 +1,232 @@
+PASS copy_0
+  orig rc=0 FUZZ fault=0 err=00 processed=1 hits=0 misses=1 rb=1 wb=1 rbeat=1 wbeat=1 cycles=28 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=0 err=00 processed=1 hits=0 misses=1 rb=1 wb=1 rbeat=1 wbeat=1 cycles=28 memhash=3fde62dcc7a1e000
+PASS copy_1
+  orig rc=0 FUZZ fault=0 err=00 processed=1001 hits=875 misses=126 rb=126 wb=126 rbeat=126 wbeat=126 cycles=10152 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=0 err=00 processed=1001 hits=993 misses=8 rb=8 wb=8 rbeat=126 wbeat=126 cycles=6538 memhash=3fde62dcc7a1e000
+PASS copy_2
+  orig rc=0 FUZZ fault=0 err=00 processed=64 hits=48 misses=16 rb=16 wb=16 rbeat=16 wbeat=16 cycles=787 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=0 err=00 processed=64 hits=63 misses=1 rb=1 wb=1 rbeat=16 wbeat=16 cycles=455 memhash=3fde62dcc7a1e000
+PASS copy_3
+  orig rc=0 FUZZ fault=0 err=00 processed=37 hits=32 misses=14 rb=14 wb=14 rbeat=14 wbeat=14 cycles=563 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=0 err=00 processed=37 hits=45 misses=1 rb=1 wb=1 rbeat=14 wbeat=14 cycles=323 memhash=3fde62dcc7a1e000
+PASS copy_4
+  orig rc=0 FUZZ fault=0 err=00 processed=2048 hits=1792 misses=768 rb=768 wb=768 rbeat=768 wbeat=768 cycles=31220 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=0 err=00 processed=2048 hits=2512 misses=48 rb=48 wb=48 rbeat=768 wbeat=768 cycles=17539 memhash=3fde62dcc7a1e000
+PASS pack_0
+  orig rc=0 FUZZ fault=0 err=00 processed=4096 hits=989 misses=166 rb=166 wb=512 rbeat=166 wbeat=512 cycles=27343 memhash=e773bc40c05d50b4
+  cand rc=0 FUZZ fault=0 err=00 processed=4096 hits=1104 misses=51 rb=51 wb=32 rbeat=166 wbeat=512 cycles=17313 memhash=e773bc40c05d50b4
+PASS pack_1
+  orig rc=0 FUZZ fault=0 err=00 processed=2048 hits=1792 misses=256 rb=256 wb=256 rbeat=256 wbeat=256 cycles=20738 memhash=75c48c98a83aaa18
+  cand rc=0 FUZZ fault=0 err=00 processed=2048 hits=1983 misses=65 rb=65 wb=16 rbeat=256 wbeat=256 cycles=13662 memhash=75c48c98a83aaa18
+PASS pack_2
+  orig rc=0 FUZZ fault=0 err=00 processed=2048 hits=1792 misses=256 rb=256 wb=256 rbeat=256 wbeat=256 cycles=20738 memhash=03596fba51572000
+  cand rc=0 FUZZ fault=0 err=00 processed=2048 hits=1984 misses=64 rb=64 wb=16 rbeat=256 wbeat=256 cycles=13650 memhash=03596fba51572000
+PASS conv_0
+  orig rc=0 FUZZ fault=0 err=00 processed=7168 hits=1651 misses=30 rb=30 wb=896 rbeat=30 wbeat=896 cycles=49370 memhash=a41c2de2b76deaa0
+  cand rc=0 FUZZ fault=0 err=00 processed=7168 hits=1651 misses=30 rb=30 wb=56 rbeat=30 wbeat=896 cycles=28443 memhash=a41c2de2b76deaa0
+PASS conv_1
+  orig rc=0 FUZZ fault=0 err=00 processed=2048 hits=852 misses=348 rb=348 wb=256 rbeat=348 wbeat=256 cycles=19097 memhash=59ae4f4d235bf898
+  cand rc=0 FUZZ fault=0 err=00 processed=2048 hits=892 misses=308 rb=308 wb=16 rbeat=348 wbeat=256 cycles=12614 memhash=59ae4f4d235bf898
+PASS conv_2
+  orig rc=0 FUZZ fault=0 err=00 processed=12288 hits=4014 misses=1926 rb=1926 wb=1536 rbeat=1926 wbeat=1536 cycles=108372 memhash=0fffad2f2abb84dd
+  cand rc=0 FUZZ fault=0 err=00 processed=12288 hits=4233 misses=1707 rb=1707 wb=96 rbeat=2007 wbeat=1536 cycles=70960 memhash=0fffad2f2abb84dd
+PASS conv_3
+  orig rc=0 FUZZ fault=0 err=00 processed=2048 hits=112 misses=16 rb=16 wb=256 rbeat=16 wbeat=256 cycles=12662 memhash=416b9838246ea880
+  cand rc=0 FUZZ fault=0 err=00 processed=2048 hits=112 misses=16 rb=16 wb=16 rbeat=16 wbeat=256 cycles=7155 memhash=416b9838246ea880
+PASS conv_4
+  orig rc=0 FUZZ fault=0 err=00 processed=3072 hits=1408 misses=50 rb=50 wb=384 rbeat=50 wbeat=384 cycles=24247 memhash=a5bf688ce789f3b7
+  cand rc=0 FUZZ fault=0 err=00 processed=3072 hits=1418 misses=40 rb=40 wb=24 rbeat=50 wbeat=384 cycles=14660 memhash=a5bf688ce789f3b7
+PASS conv_5
+  orig rc=0 FUZZ fault=0 err=00 processed=4096 hits=688 misses=26 rb=26 wb=512 rbeat=26 wbeat=512 cycles=27208 memhash=11fac8f818772670
+  cand rc=0 FUZZ fault=0 err=00 processed=4096 hits=688 misses=26 rb=26 wb=32 rbeat=26 wbeat=512 cycles=15595 memhash=11fac8f818772670
+PASS unpack_3_0
+  orig rc=0 FUZZ fault=0 err=00 processed=1155 hits=858 misses=297 rb=297 wb=297 rbeat=297 wbeat=297 cycles=14260 memhash=ac3f93d16fee27b4
+  cand rc=0 FUZZ fault=0 err=00 processed=1155 hits=1089 misses=66 rb=66 wb=34 rbeat=297 wbeat=297 cycles=8590 memhash=ac3f93d16fee27b4
+PASS unpack_3_1
+  orig rc=0 FUZZ fault=0 err=00 processed=2048 hits=1792 misses=768 rb=768 wb=768 rbeat=768 wbeat=768 cycles=31220 memhash=ab71427511f01200
+  cand rc=0 FUZZ fault=0 err=00 processed=2048 hits=2494 misses=66 rb=66 wb=66 rbeat=768 wbeat=768 cycles=17802 memhash=ab71427511f01200
+PASS unpack_3_2
+  orig rc=0 FUZZ fault=0 err=00 processed=961 hits=837 misses=124 rb=124 wb=121 rbeat=124 wbeat=121 cycles=9747 memhash=b5f54e901a18b524
+  cand rc=0 FUZZ fault=0 err=00 processed=961 hits=930 misses=31 rb=31 wb=8 rbeat=124 wbeat=121 cycles=6423 memhash=b5f54e901a18b524
+PASS unpack_4_3
+  orig rc=0 FUZZ fault=0 err=00 processed=1155 hits=858 misses=297 rb=297 wb=289 rbeat=297 wbeat=289 cycles=15313 memhash=e569dfbc8c57f986
+  cand rc=0 FUZZ fault=0 err=00 processed=1155 hits=858 misses=297 rb=297 wb=19 rbeat=297 wbeat=289 cycles=10702 memhash=e569dfbc8c57f986
+PASS unpack_4_4
+  orig rc=0 FUZZ fault=0 err=00 processed=2048 hits=1792 misses=768 rb=768 wb=768 rbeat=768 wbeat=768 cycles=33965 memhash=34312a06e74c2280
+  cand rc=0 FUZZ fault=0 err=00 processed=2048 hits=1792 misses=768 rb=768 wb=48 rbeat=768 wbeat=768 cycles=23958 memhash=34312a06e74c2280
+PASS unpack_3_5
+  orig rc=0 FUZZ fault=0 err=00 processed=1056 hits=896 misses=416 rb=416 wb=420 rbeat=416 wbeat=420 cycles=16442 memhash=6e53683edcbf1f97
+  cand rc=0 FUZZ fault=0 err=00 processed=1056 hits=1247 misses=65 rb=65 wb=27 rbeat=416 wbeat=420 cycles=9340 memhash=6e53683edcbf1f97
+PASS unpack_4_6
+  orig rc=0 FUZZ fault=0 err=00 processed=1155 hits=980 misses=175 rb=175 wb=145 rbeat=175 wbeat=145 cycles=13097 memhash=00e9eb360653f390
+  cand rc=0 FUZZ fault=0 err=00 processed=1155 hits=980 misses=175 rb=175 wb=10 rbeat=175 wbeat=145 cycles=9588 memhash=00e9eb360653f390
+PASS unpack_3_7
+  orig rc=0 FUZZ fault=0 err=00 processed=1155 hits=980 misses=455 rb=455 wb=490 rbeat=455 wbeat=490 cycles=18380 memhash=bde4d838de116fb8
+  cand rc=0 FUZZ fault=0 err=00 processed=1155 hits=1364 misses=71 rb=71 wb=36 rbeat=455 wbeat=490 cycles=10313 memhash=bde4d838de116fb8
+PASS unpack_4_8
+  orig rc=0 FUZZ fault=0 err=00 processed=1155 hits=990 misses=165 rb=165 wb=145 rbeat=165 wbeat=145 cycles=13025 memhash=a9e8e28f6105dc8f
+  cand rc=0 FUZZ fault=0 err=00 processed=1155 hits=990 misses=165 rb=165 wb=10 rbeat=165 wbeat=145 cycles=9518 memhash=a9e8e28f6105dc8f
+PASS param_B
+  orig rc=0 FUZZ fault=0 err=00 processed=4096 hits=3584 misses=512 rb=512 wb=512 rbeat=512 wbeat=512 cycles=41474 memhash=36d98c3b772b6000
+  cand rc=0 FUZZ fault=0 err=00 processed=4096 hits=3968 misses=128 rb=128 wb=32 rbeat=512 wbeat=512 cycles=27300 memhash=36d98c3b772b6000
+PASS bad_magic
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_mode
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_total0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_total_big
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_bytes3
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_src_align
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_dst_align
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_m0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_m_big
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_n0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_n_big
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_full0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_full_big
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_koff
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_ch0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_ch_big
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_ih0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_iw0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_kh0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_kw32
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_oh0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_ow0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_sh0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_sw0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_dh0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_dw0
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_ph
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+PASS bad_total_mismatch
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=4 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=4 memhash=3fde62dcc7a1e000
+PASS bad_src_overflow
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=4 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=4 memhash=3fde62dcc7a1e000
+PASS bad_dst_overflow
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=4 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=4 memhash=3fde62dcc7a1e000
+PASS bad_overlap
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=4 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=4 memhash=3fde62dcc7a1e000
+PASS bad_param_end
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=4 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=4 memhash=3fde62dcc7a1e000
+PASS bad_param_mode2
+  orig rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+  cand rc=0 FUZZ fault=1 err=01 processed=0 hits=0 misses=0 rb=0 wb=0 rbeat=0 wbeat=0 cycles=2 memhash=3fde62dcc7a1e000
+
+name ok cyc_orig cyc_cand ratio rbeat_o rbeat_c wbeat_o wbeat_c rb_o rb_c wb_o wb_c
+copy_0 1 28 28 1.000 1 1 1 1 1 1 1 1
+copy_1 1 10152 6538 0.644 126 126 126 126 126 8 126 8
+copy_2 1 787 455 0.578 16 16 16 16 16 1 16 1
+copy_3 1 563 323 0.574 14 14 14 14 14 1 14 1
+copy_4 1 31220 17539 0.562 768 768 768 768 768 48 768 48
+pack_0 1 27343 17313 0.633 166 166 512 512 166 51 512 32
+pack_1 1 20738 13662 0.659 256 256 256 256 256 65 256 16
+pack_2 1 20738 13650 0.658 256 256 256 256 256 64 256 16
+conv_0 1 49370 28443 0.576 30 30 896 896 30 30 896 56
+conv_1 1 19097 12614 0.661 348 348 256 256 348 308 256 16
+conv_2 1 108372 70960 0.655 1926 2007 1536 1536 1926 1707 1536 96
+conv_3 1 12662 7155 0.565 16 16 256 256 16 16 256 16
+conv_4 1 24247 14660 0.605 50 50 384 384 50 40 384 24
+conv_5 1 27208 15595 0.573 26 26 512 512 26 26 512 32
+unpack_3_0 1 14260 8590 0.602 297 297 297 297 297 66 297 34
+unpack_3_1 1 31220 17802 0.570 768 768 768 768 768 66 768 66
+unpack_3_2 1 9747 6423 0.659 124 124 121 121 124 31 121 8
+unpack_4_3 1 15313 10702 0.699 297 297 289 289 297 297 289 19
+unpack_4_4 1 33965 23958 0.705 768 768 768 768 768 768 768 48
+unpack_3_5 1 16442 9340 0.568 416 416 420 420 416 65 420 27
+unpack_4_6 1 13097 9588 0.732 175 175 145 145 175 175 145 10
+unpack_3_7 1 18380 10313 0.561 455 455 490 490 455 71 490 36
+unpack_4_8 1 13025 9518 0.731 165 165 145 145 165 165 145 10
+param_B 1 41474 27300 0.658 512 512 512 512 512 128 512 32
+bad_magic 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_mode 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_total0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_total_big 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_bytes3 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_src_align 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_dst_align 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_m0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_m_big 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_n0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_n_big 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_full0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_full_big 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_koff 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_ch0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_ch_big 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_ih0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_iw0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_kh0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_kw32 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_oh0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_ow0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_sh0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_sw0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_dh0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_dw0 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_ph 1 2 2 1.000 0 0 0 0 0 0 0 0
+bad_total_mismatch 1 4 4 1.000 0 0 0 0 0 0 0 0
+bad_src_overflow 1 4 4 1.000 0 0 0 0 0 0 0 0
+bad_dst_overflow 1 4 4 1.000 0 0 0 0 0 0 0 0
+bad_overlap 1 4 4 1.000 0 0 0 0 0 0 0 0
+bad_param_end 1 4 4 1.000 0 0 0 0 0 0 0 0
+bad_param_mode2 1 2 2 1.000 0 0 0 0 0 0 0 0
+CYCLES_TOTAL orig=559524 cand=352545 ratio=0.630
+SUMMARY cases=57 fails=0

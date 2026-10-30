@@ -1,0 +1,4 @@
+$ iverilog -g2012 -D DUT_AXI=ddr_vector_axi_pipe -o /tmp/v023_axi_pipe.vvp -s tb_vector_axi_generic /home/yang/Desktop/项目/v023_repair/ds_vector/tb/tb_vector_axi_generic.sv /home/yang/Desktop/项目/v023_repair/ds_vector/baseline/tb/axi128_memory_bfm.sv /home/yang/Desktop/项目/v023_repair/ds_vector/baseline/tb/fma_forbidden_stub.sv /home/yang/Desktop/项目/v023_repair/ds_vector/candidate/rtl/ddr_vector_axi_pipe.sv /home/yang/Desktop/项目/v023_repair/ds_vector/candidate/rtl/ddr_vector_engine_pipe.sv /home/yang/Desktop/项目/v023_repair/ds_vector/candidate/rtl/asr_fp32_lane_fixed.sv /home/yang/Desktop/项目/v023_repair/ds_vector/candidate/rtl/vector_desc_check_pipe.sv /home/yang/Desktop/项目/v023_repair/ds_vector/baseline/rtl/asr_fp32_alu.sv /home/yang/Desktop/项目/v023_repair/ds_vector/baseline/rtl/axi_dma_v019.sv
+rc=0
+
+

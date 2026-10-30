@@ -1,0 +1,45 @@
+{
+  "task": "gemini_board_budget",
+  "status": "PASS",
+  "timestamp": 1793275700,
+  "sources_sha256": {
+    "budget.py": "1227c265f0815618057f0b35f5377454a0a72848ce6431d25c6a114866bc1cff",
+    "test_budget.py": "9bae28447a8421284d1aec4fe4df99f7158d1e5b0a60440e5c32912faa0883b3",
+    "INTERFACE.md": "3e86136ee15804e33ed1c2212690a6326a264cadb145ad582de70b5dcd3aedd1",
+    "REPORT.md": "9b72084af88cefe64d666b68e4b9b58d4a322da129b5ba9df7af8b2f0c858f13",
+    "FINDINGS.md": "52ab47296aaa23bd990580952628d6c763068f8dd25324242dc33bab86be92cf",
+    "FINDINGS.jsonl": "38dbbd7536554b22b632856eeeb0844c44877e9153f4d919db5be82404a6c68e",
+    "budget.json": "6cbcaddbc16e4344d70ecbfa3721c5831c58a16ca453af8227881d0a63f73225",
+    "progress.json": "637bd3f722bcf4be97ffc76695a39ca2f25ebdbf298c7a295377f41de49aac5c"
+  },
+  "metrics": {
+    "device": "XCZU15EG-2FFVB1156I",
+    "candidate_board": "ALINX AXU15EG / ACU15EG",
+    "ps_ddr4_configured": "64-bit @ 800MHz (1600 MT/s, 12.8 GB/s physical peak, 4GB)",
+    "pl_interface_baseline": "Single 128-bit HP0 @ 125MHz (2.0 GB/s peak)",
+    "useful_macs": 3461011968,
+    "padded_macs": 3991404544,
+    "total_3d_tiles": 121808,
+    "measured_68plan_bytes": 933028896,
+    "read_bytes": 577473808,
+    "write_bytes": 355555088,
+    "compulsory_onchip_lb_bytes": 102055936,
+    "all_intermediate_ddr_coarse_lb_bytes": 127240192,
+    "traffic_amplification": 9.14,
+    "vector_layout_traffic_amplification": 64.2,
+    "useful_matrix_time_300mhz_s": 0.045065,
+    "padded_matrix_time_300mhz_s": 0.051971,
+    "useful_matrix_time_600mhz_s": 0.022533,
+    "padded_matrix_time_600mhz_s": 0.025986,
+    "shared_serial_time_hp0_125_s": 0.466514,
+    "concurrent_rw_time_hp0_125_s": 0.288737,
+    "bandwidth_supported_p_equiv_32cube_300mhz_2gbs": 23.7,
+    "bandwidth_supported_p_equiv_64x128x256_300mhz_2gbs": 121.9
+  },
+  "tests": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0,
+    "log_file": "tasks/gemini_board_budget/test.log"
+  }
+}

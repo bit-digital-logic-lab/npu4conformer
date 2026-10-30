@@ -1,0 +1,127 @@
+{
+  "task": "ds_pl_autonomy",
+  "updated_utc": "2026-10-29T11:04:52Z",
+  "status": "COMPLETE_CANDIDATE_NOT_WHOLECASE",
+  "user_updates": "read at start and again after the new note: no additional instructions for this task; new ds_pe_pipeline/gemini_pipeline_control and gemini_sta_paths exist in other task dirs and are not touched. 300/600MHz is a structural target; control scan is not timing-closed.",
+  "phases": [
+    {
+      "id": 1,
+      "name": "read contracts + audit host/PS/PL sources",
+      "status": "done",
+      "evidence": [
+        "EXECUTION_CONTRACT.md",
+        "work/DESIGN_CONTRACT_zh.txt",
+        "work/CURRENT_WORK.txt",
+        "IC_GIT_REFERENCES.txt",
+        "analysis/host_actions.json"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "analyze sealed 68-program image: DAG, hazards, temp alias",
+      "status": "done",
+      "evidence": [
+        "analysis/analysis.json",
+        "analysis/deps.json",
+        "analysis/programs.json"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "compile WCPL whole-plan format + serial/roots candidates",
+      "status": "done",
+      "evidence": [
+        "scripts/wc_compile.py",
+        "analysis/whole68_serial.bin",
+        "analysis/whole68_roots.bin",
+        "analysis/whole68.json"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "implement superplan controller + CSR",
+      "status": "done",
+      "evidence": [
+        "rtl/wc_superplan_ctrl.sv",
+        "rtl/wc_plan_csr.sv",
+        "INTERFACE.md"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "control tests: diamond/fault/generation/hash/ACL/replay/68 nodes",
+      "status": "done",
+      "evidence": [
+        "tb/tb_wc_ctrl.sv",
+        "reports/run_all/ctrl_mode*.log"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "real top: layout/vector/SEQ data chains + shared engines",
+      "status": "done",
+      "evidence": [
+        "rtl/wc_plan_top_v023.sv",
+        "tb/tb_wc_top.sv",
+        "reports/run_all/top_mode*.log"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "before/after, random BFM, Verilator, compiler fuzz",
+      "status": "done",
+      "evidence": [
+        "tb/tb_wc_before.sv",
+        "tb/tb_wc_ctrl68_before.sv",
+        "scripts/test_compiler_random.py",
+        "reports/run_all/run_all.json"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "host clearance + interface + report/result/findings",
+      "status": "done",
+      "evidence": [
+        "HOST_CLEARANCE.md",
+        "INTERFACE.md",
+        "REPORT.md",
+        "result.json",
+        "FINDINGS.jsonl"
+      ]
+    }
+  ],
+  "tests": {
+    "static": 18,
+    "sim": 24,
+    "sim_passed": 24,
+    "random_dags": 200,
+    "csr_checks": 39
+  },
+  "key_metrics": {
+    "ctrl68_one_start_cycles": 1372,
+    "ctrl68_before_cycles": 2505,
+    "top4_real_cycles": 3842,
+    "before4_real_cycles": 717,
+    "engine_vec_cycles_top": 688,
+    "engine_vec_cycles_before": 685,
+    "engine_lay_cycles_top": 791,
+    "engine_lay_cycles_before": 781
+  },
+  "coverage": {
+    "closed_programs": 68,
+    "outside_queues_quoted": 591,
+    "whole_case": false,
+    "matrix_numeric": false,
+    "fma": false,
+    "board": false,
+    "sta": false
+  },
+  "next": [
+    "Recover upstream FusionExecutor/ONNX/outside-DAG source.",
+    "Lower outside 591 queues to PL nodes and build global liveness/relocation.",
+    "Bind production generation/weights/tensors; remove all host per-program I/O.",
+    "Add sixth AXI master or fetch arbiter; run full STA/DRC/board in an authorized task.",
+    "Bank/register the 128-node ready-mask scan before any 300/600 MHz STA claim."
+  ],
+  "timing_note": "SCAN is combinational over <=128 nodes; not registered/pipelined; no STA; 300/600MHz not claimed. F26."
+}

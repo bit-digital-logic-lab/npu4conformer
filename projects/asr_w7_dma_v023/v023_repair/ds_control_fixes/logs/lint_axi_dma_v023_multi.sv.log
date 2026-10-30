@@ -1,0 +1,120 @@
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:60:34: Operator SUB expects 32 bits on the RHS, but RHS's VARREF 'fifo_cnt' generates 8 bits.
+                                                               : ... note: In instance 'axi_dma_v023_multi'
+   60 |  wire [FW:0] fifo_free=FIFO_BEATS-fifo_cnt;
+      |                                  ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.047
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: candidate/rtl/axi_dma_v023_multi.sv:60:23: Operator ASSIGNW expects 8 bits on the Assign RHS, but Assign RHS's SUB generates 32 bits.
+                                                              : ... note: In instance 'axi_dma_v023_multi'
+   60 |  wire [FW:0] fifo_free=FIFO_BEATS-fifo_cnt;
+      |                       ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.047
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: candidate/rtl/axi_dma_v023_multi.sv:67:23: Operator ASSIGNW expects 9 bits on the Assign RHS, but Assign RHS's SHIFTR generates 13 bits.
+                                                              : ... note: In instance 'axi_dma_v023_multi'
+   67 |  wire [8:0] page_beats=(13'd4096-{1'b0,next_addr[11:0]})>>4;
+      |                       ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:68:29: Operator GT expects 32 bits on the LHS, but LHS's VARREF 'remaining' generates 16 bits.
+                                                               : ... note: In instance 'axi_dma_v023_multi'
+   68 |  wire [15:0] limit=remaining>MAX_BURST?MAX_BURST[15:0]:remaining;
+      |                             ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:69:31: Operator LT expects 16 bits on the LHS, but LHS's VARREF 'page_beats' generates 9 bits.
+                                                               : ... note: In instance 'axi_dma_v023_multi'
+   69 |  wire [15:0] chosen=page_beats<limit?{7'd0,page_beats[8:0]}:limit;
+      |                               ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:71:76: Operator LT expects 32 bits on the LHS, but LHS's VARREF 'tag_cnt' generates 4 bits.
+                                                               : ... note: In instance 'axi_dma_v023_multi'
+   71 |  wire can_ar=(state==S_RUN)&&!is_write&&rd_active&&(remaining!=0)&&(tag_cnt<MAX_OUT)&&
+      |                                                                            ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:72:24: Operator GTE expects 16 bits on the LHS, but LHS's VARREF 'fifo_free' generates 8 bits.
+                                                               : ... note: In instance 'axi_dma_v023_multi'
+   72 |              (fifo_free>=chosen)&&!err_sticky&&!abort;
+      |                        ^~
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:81:72: Operator NEQ expects 32 bits on the LHS, but LHS's VARREF 'fifo_cnt' generates 8 bits.
+                                                               : ... note: In instance 'axi_dma_v023_multi'
+   81 |  assign m_axi_rready=(state==S_RUN)&&!is_write&&(tag_cnt!=0)&&(fifo_cnt!=FIFO_BEATS);
+      |                                                                        ^~
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:105:41: Operator COND expects 4 bits on the Conditional True, but Conditional True's CONST '1'h1' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  105 |  wire [TW:0] tag_cnt_next=tag_cnt+(ar_hs?1'b1:1'b0)-((r_hs&&m_axi_rlast)?1'b1:1'b0);
+      |                                         ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:105:41: Operator COND expects 4 bits on the Conditional False, but Conditional False's CONST '1'h0' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  105 |  wire [TW:0] tag_cnt_next=tag_cnt+(ar_hs?1'b1:1'b0)-((r_hs&&m_axi_rlast)?1'b1:1'b0);
+      |                                         ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:105:73: Operator COND expects 4 bits on the Conditional True, but Conditional True's CONST '1'h1' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  105 |  wire [TW:0] tag_cnt_next=tag_cnt+(ar_hs?1'b1:1'b0)-((r_hs&&m_axi_rlast)?1'b1:1'b0);
+      |                                                                         ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:105:73: Operator COND expects 4 bits on the Conditional False, but Conditional False's CONST '1'h0' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  105 |  wire [TW:0] tag_cnt_next=tag_cnt+(ar_hs?1'b1:1'b0)-((r_hs&&m_axi_rlast)?1'b1:1'b0);
+      |                                                                         ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:106:39: Operator COND expects 32 bits on the Conditional True, but Conditional True's CONST '1'h1' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  106 |  wire [31:0] ar_out_next=ar_out+(ar_hs?1'b1:1'b0)-((r_hs&&m_axi_rlast)?1'b1:1'b0);
+      |                                       ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:106:39: Operator COND expects 32 bits on the Conditional False, but Conditional False's CONST '1'h0' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  106 |  wire [31:0] ar_out_next=ar_out+(ar_hs?1'b1:1'b0)-((r_hs&&m_axi_rlast)?1'b1:1'b0);
+      |                                       ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:106:71: Operator COND expects 32 bits on the Conditional True, but Conditional True's CONST '1'h1' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  106 |  wire [31:0] ar_out_next=ar_out+(ar_hs?1'b1:1'b0)-((r_hs&&m_axi_rlast)?1'b1:1'b0);
+      |                                                                       ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:106:71: Operator COND expects 32 bits on the Conditional False, but Conditional False's CONST '1'h0' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  106 |  wire [31:0] ar_out_next=ar_out+(ar_hs?1'b1:1'b0)-((r_hs&&m_axi_rlast)?1'b1:1'b0);
+      |                                                                       ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:107:37: Operator COND expects 32 bits on the Conditional True, but Conditional True's CONST '1'h1' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  107 |  wire [31:0] b_out_plus=b_out+(aw_hs?1'b1:1'b0);
+      |                                     ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:107:37: Operator COND expects 32 bits on the Conditional False, but Conditional False's CONST '1'h0' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  107 |  wire [31:0] b_out_plus=b_out+(aw_hs?1'b1:1'b0);
+      |                                     ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:109:43: Operator COND expects 32 bits on the Conditional True, but Conditional True's CONST '1'h1' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  109 |  wire [31:0] b_out_next=b_out_plus-(b_drop?1'b1:1'b0);
+      |                                           ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:109:43: Operator COND expects 32 bits on the Conditional False, but Conditional False's CONST '1'h0' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  109 |  wire [31:0] b_out_next=b_out_plus-(b_drop?1'b1:1'b0);
+      |                                           ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:165:59: Operator ADD expects 64 bits on the LHS, but LHS's VARREF 'fifo_cnt' generates 8 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  165 |      if(fifo_cnt+1>read_fifo_high)read_fifo_high<=fifo_cnt+1;
+      |                                                           ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:165:17: Operator ADD expects 64 bits on the LHS, but LHS's VARREF 'fifo_cnt' generates 8 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  165 |      if(fifo_cnt+1>read_fifo_high)read_fifo_high<=fifo_cnt+1;
+      |                 ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:180:33: Operator COND expects 8 bits on the Conditional True, but Conditional True's CONST '1'h1' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  180 |      fifo_cnt<=fifo_cnt+(rd_push?1'b1:1'b0)-(rd_pop?1'b1:1'b0);
+      |                                 ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:180:33: Operator COND expects 8 bits on the Conditional False, but Conditional False's CONST '1'h0' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  180 |      fifo_cnt<=fifo_cnt+(rd_push?1'b1:1'b0)-(rd_pop?1'b1:1'b0);
+      |                                 ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:180:52: Operator COND expects 8 bits on the Conditional True, but Conditional True's CONST '1'h1' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  180 |      fifo_cnt<=fifo_cnt+(rd_push?1'b1:1'b0)-(rd_pop?1'b1:1'b0);
+      |                                                    ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:180:52: Operator COND expects 8 bits on the Conditional False, but Conditional False's CONST '1'h0' generates 1 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  180 |      fifo_cnt<=fifo_cnt+(rd_push?1'b1:1'b0)-(rd_pop?1'b1:1'b0);
+      |                                                    ^
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_multi.sv:193:30: Operator ADD expects 32 bits on the RHS, but RHS's FUNCREF 'pop16' generates 5 bits.
+                                                                : ... note: In instance 'axi_dma_v023_multi'
+  193 |      write_bytes<=write_bytes+pop16(write_strobe);write_index<=write_index+1;index<=index+1;
+      |                              ^
+%Warning-SYMRSVDWORD: candidate/rtl/axi_dma_v023_multi.sv:29:13: Symbol matches C++ common word: 'abort'
+   29 |  input wire abort,
+      |             ^~~~~
+                      ... For warning description see https://verilator.org/warn/SYMRSVDWORD?v=5.047
+                      ... Use "/* verilator lint_off SYMRSVDWORD */" and lint_on around source to disable this message.
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)
+- Verilator: Built from 0.041 MB sources in 2 modules, into 0.063 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.017 s (elab=0.003, cvt=0.010, bld=0.000); cpu 0.017 s on 1 threads; allocated 21.047 MB

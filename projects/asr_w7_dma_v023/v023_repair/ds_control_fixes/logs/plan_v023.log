@@ -1,0 +1,16 @@
+P_NORMAL done=1 fault=0 err=00 completed=1 drained=1 iso=0 cyc=17
+P_DEAD_READ drain state=9 dma_abort=1 child_abort=0 cyc=68
+P_DEAD_READ_RESULT done=1 fault=1 err=0a drained=0 iso=1 timeout=1 cyc=162
+P_ISOLATION_START busy=0 rejected=1
+P_RECOVER done=1 fault=0 completed=1 drained=1 iso=0
+P_LATE_R done=1 fault=1 err=09 drained=1 iso=0 saw_abort=1 cyc=122
+P_DEAD_CHILD drain state=9 child_abort=1 cyc=77
+P_DEAD_CHILD_RESULT done=1 fault=1 err=0a drained=0 iso=1 timeout=1
+P_LATE_DRAIN done=1 fault=1 err=09 drained=1 iso=0 cyc=125
+P_CHILD_FAULT done=1 fault=1 err=05 drained=1 iso=0
+P_CFG_CHANGE drain state=9 child_abort=1 err=02
+P_CFG_CHANGE_RESULT done=1 fault=1 err=02 drained=1 iso=0
+P_REQ_TIMEOUT done=1 fault=1 err=0b drained=1 iso=0 dma_busy=0
+PA002_TEST_END errors=0
+PA002_PASS
+tb/tb_plan_pa002.sv:255: $finish called at 7756000 (1ps)

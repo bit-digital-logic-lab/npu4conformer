@@ -1,0 +1,500 @@
+{
+  "run_all_ok": true,
+  "total": 26,
+  "passed": 26,
+  "failed": [],
+  "rows": [
+    {
+      "name": "explore_sources",
+      "cmd": [
+        "python3",
+        "scripts/explore_sources.py"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 2.225,
+      "tail": "    \"onnx_executor.py\": 8\n  },\n  \"onnx_outside_venv\": 1,\n  \"manifest_sha256\": \"5544fb82a416a994784cbe3da2d2524b5b4d28bef516d35018a2030e52a7ed1a\",\n  \"result_sha256\": \"44a76dfab40d0f30c38f4f6c938f5e815b9b8199890f62bf696cf4a9eff05808\"\n}"
+    },
+    {
+      "name": "allocator",
+      "cmd": [
+        "python3",
+        "scripts/allocator.py"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.414,
+      "tail": "      68\n    ],\n    \"base\": 141786112,\n    \"bytes\": 1206272\n  }\n}"
+    },
+    {
+      "name": "compile_graph",
+      "cmd": [
+        "python3",
+        "scripts/compile_graph.py"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 2.204,
+      "tail": "  \"small_real\": {\n    \"bytes\": 832,\n    \"node_count\": 4,\n    \"sha256\": \"3905b0fbdd08a5bf236e05fbd08faf90cc34f0513f366952770b8edaf79fe221\"\n  }\n}"
+    },
+    {
+      "name": "make_fixtures",
+      "cmd": [
+        "python3",
+        "scripts/make_fixtures.py"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.259,
+      "tail": "    \"one\": 268435456,\n    \"two\": 268435460\n  },\n  \"gold_words\": 64,\n  \"gold_sha256\": \"b952a3ace72b8b84641b50d17d8a85786d8575dbd43f89f21b54fa8243ae246a\"\n}"
+    },
+    {
+      "name": "check_alloc",
+      "cmd": [
+        "python3",
+        "scripts/check_alloc.py"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.192,
+      "tail": "  ],\n  \"old_same_base_pairs\": 225310,\n  \"old_same_base_pairs_live_simultaneously\": 2413,\n  \"arena_used\": 56570880,\n  \"external_used\": 15545344\n}"
+    },
+    {
+      "name": "verify_whole68",
+      "cmd": [
+        "python3",
+        "scripts/verify_graph.py",
+        "--plan",
+        "analysis/whole68_global.bin",
+        "--alloc",
+        "analysis/global_alloc.json",
+        "--tag",
+        "whole68_global"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.039,
+      "tail": "    \"4\": 68\n  },\n  \"hash\": 1530438426,\n  \"plan_bytes\": 26176,\n  \"tag\": \"whole68_global\"\n}"
+    },
+    {
+      "name": "verify_ledger591",
+      "cmd": [
+        "python3",
+        "scripts/verify_graph.py",
+        "--plan",
+        "analysis/ledger591.bin",
+        "--alloc",
+        "analysis/global_alloc.json",
+        "--tag",
+        "ledger591"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.045,
+      "tail": "    \"1\": 591\n  },\n  \"hash\": 722287100,\n  \"plan_bytes\": 113536,\n  \"tag\": \"ledger591\"\n}"
+    },
+    {
+      "name": "verify_small_real",
+      "cmd": [
+        "python3",
+        "scripts/verify_graph.py",
+        "--plan",
+        "analysis/small_real.bin",
+        "--tag",
+        "small_real"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.033,
+      "tail": "    \"2\": 2\n  },\n  \"hash\": 2345830183,\n  \"plan_bytes\": 832,\n  \"tag\": \"small_real\"\n}"
+    },
+    {
+      "name": "reject_bad_root",
+      "cmd": [
+        "python3",
+        "scripts/verify_graph.py",
+        "--plan",
+        "analysis/bad_root.bin",
+        "--tag",
+        "bad_root",
+        "--expect-reject"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.033,
+      "tail": "    \"2\": 2\n  },\n  \"hash\": 3713341223,\n  \"plan_bytes\": 832,\n  \"tag\": \"bad_root\"\n}"
+    },
+    {
+      "name": "reject_no_output",
+      "cmd": [
+        "python3",
+        "scripts/verify_graph.py",
+        "--plan",
+        "analysis/no_output.bin",
+        "--tag",
+        "no_output",
+        "--expect-reject"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.033,
+      "tail": "    \"2\": 2\n  },\n  \"hash\": 1265582921,\n  \"plan_bytes\": 832,\n  \"tag\": \"no_output\"\n}"
+    },
+    {
+      "name": "reject_bad_hash",
+      "cmd": [
+        "python3",
+        "scripts/verify_graph.py",
+        "--plan",
+        "analysis/bad_hash.bin",
+        "--tag",
+        "bad_hash",
+        "--expect-reject"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.033,
+      "tail": "    \"2\": 2\n  },\n  \"hash\": 2345830182,\n  \"plan_bytes\": 832,\n  \"tag\": \"bad_hash\"\n}"
+    },
+    {
+      "name": "reject_forward_dep",
+      "cmd": [
+        "python3",
+        "scripts/verify_graph.py",
+        "--plan",
+        "analysis/forward_dep.bin",
+        "--tag",
+        "forward_dep",
+        "--expect-reject"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.034,
+      "tail": "    \"2\": 2\n  },\n  \"hash\": 1663167245,\n  \"plan_bytes\": 832,\n  \"tag\": \"forward_dep\"\n}"
+    },
+    {
+      "name": "iverilog_ctrl",
+      "cmd": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "tb_wc_graph_ctrl",
+        "-o",
+        "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_graph/reports/run_all/ctrl.vvp",
+        "rtl/wc_graph_ctrl.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/axi_dma_v019.sv",
+        "tb/wc_graph_bfm.sv",
+        "tb/tb_wc_graph_ctrl.sv"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.029,
+      "tail": ""
+    },
+    {
+      "name": "iverilog_real",
+      "cmd": [
+        "iverilog",
+        "-g2012",
+        "-s",
+        "tb_wc_graph_real",
+        "-o",
+        "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_graph/reports/run_all/real.vvp",
+        "rtl/wc_graph_top.sv",
+        "rtl/wc_graph_ctrl.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_vector_axi.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_vector_engine.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_layout_axi.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_layout_engine.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/asr_fp32_alu.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/u16_divmod.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/axi_dma_v019.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/tests/fma_forbidden_stub.sv",
+        "tb/wc_graph_bfm.sv",
+        "tb/tb_wc_graph_real.sv"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.085,
+      "tail": ""
+    },
+    {
+      "name": "run_ctrl_mode0",
+      "cmd": [
+        "vvp",
+        "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_graph/reports/run_all/ctrl.vvp",
+        "+mode=0",
+        "+memfile=tests/fixtures/mem_graph.hex",
+        "+seed=7"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.12,
+      "tail": "WC_GRAPH_CTRL_PASS mode=          0 plan=10008000 cycles=                 193 completed=         4 nodes=         4 err=00 fetch=                 160 drain=                   0 rb=         8 rbeats=        68 out_ret=1 out_count=         1 last_out=04002000/       256\ntb/tb_wc_graph_ctrl.sv:177: $finish called at 1616000 (1ps)",
+      "metrics": [
+        "WC_GRAPH_CTRL_PASS mode=          0 plan=10008000 cycles=                 193 completed=         4 nodes=         4 err=00 fetch=                 160 drain=                   0 rb=         8 rbeats=        68 out_ret=1 out_count=         1 last_out=04002000/       256"
+      ]
+    },
+    {
+      "name": "run_ctrl_mode1",
+      "cmd": [
+        "vvp",
+        "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_graph/reports/run_all/ctrl.vvp",
+        "+mode=1",
+        "+memfile=tests/fixtures/mem_graph.hex",
+        "+seed=7"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.278,
+      "tail": "WC_GRAPH_CTRL_PASS mode=          1 plan=10010000 cycles=                4556 completed=       136 nodes=       136 err=00 fetch=                3731 drain=                   0 rb=       141 rbeats=      1636 out_ret=1 out_count=        68 last_out=08ecb400/     32768\ntb/tb_wc_graph_ctrl.sv:177: $finish called at 36520000 (1ps)",
+      "metrics": [
+        "WC_GRAPH_CTRL_PASS mode=          1 plan=10010000 cycles=                4556 completed=       136 nodes=       136 err=00 fetch=                3731 drain=                   0 rb=       141 rbeats=      1636 out_ret=1 out_count=        68 last_out=08ecb400/     32768"
+      ]
+    },
+    {
+      "name": "run_ctrl_mode2",
+      "cmd": [
+        "vvp",
+        "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_graph/reports/run_all/ctrl.vvp",
+        "+mode=2",
+        "+memfile=tests/fixtures/mem_graph.hex",
+        "+seed=7"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 9.841,
+      "tail": "WC_GRAPH_CTRL_PASS mode=          2 plan=10020000 cycles=              367846 completed=       591 nodes=       591 err=00 fetch=               16196 drain=                   0 rb=       610 rbeats=      7096 out_ret=1 out_count=         1 last_out=048e7c00/    178176\ntb/tb_wc_graph_ctrl.sv:177: $finish called at 2942840000 (1ps)",
+      "metrics": [
+        "WC_GRAPH_CTRL_PASS mode=          2 plan=10020000 cycles=              367846 completed=       591 nodes=       591 err=00 fetch=               16196 drain=                   0 rb=       610 rbeats=      7096 out_ret=1 out_count=         1 last_out=048e7c00/    178176"
+      ]
+    },
+    {
+      "name": "run_ctrl_mode3",
+      "cmd": [
+        "vvp",
+        "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_graph/reports/run_all/ctrl.vvp",
+        "+mode=3",
+        "+memfile=tests/fixtures/mem_graph.hex",
+        "+seed=7"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.108,
+      "tail": "WC_GRAPH_CTRL_PASS mode=          3 plan=1000a000 cycles=                  41 completed=         0 nodes=         4 err=08 fetch=                  38 drain=                   1 rb=         2 rbeats=        16 out_ret=0 out_count=         0 last_out=00000000/         0\ntb/tb_wc_graph_ctrl.sv:177: $finish called at 400000 (1ps)",
+      "metrics": [
+        "WC_GRAPH_CTRL_PASS mode=          3 plan=1000a000 cycles=                  41 completed=         0 nodes=         4 err=08 fetch=                  38 drain=                   1 rb=         2 rbeats=        16 out_ret=0 out_count=         0 last_out=00000000/         0"
+      ]
+    },
+    {
+      "name": "run_ctrl_mode4",
+      "cmd": [
+        "vvp",
+        "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_graph/reports/run_all/ctrl.vvp",
+        "+mode=4",
+        "+memfile=tests/fixtures/mem_graph.hex",
+        "+seed=7"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.114,
+      "tail": "WC_GRAPH_CTRL_PASS mode=          4 plan=1000b000 cycles=                 193 completed=         4 nodes=         4 err=0a fetch=                 160 drain=                   1 rb=         8 rbeats=        68 out_ret=0 out_count=         0 last_out=00000000/         0\ntb/tb_wc_graph_ctrl.sv:177: $finish called at 1616000 (1ps)",
+      "metrics": [
+        "WC_GRAPH_CTRL_PASS mode=          4 plan=1000b000 cycles=                 193 completed=         4 nodes=         4 err=0a fetch=                 160 drain=                   1 rb=         8 rbeats=        68 out_ret=0 out_count=         0 last_out=00000000/         0"
+      ]
+    },
+    {
+      "name": "run_ctrl_mode5",
+      "cmd": [
+        "vvp",
+        "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_graph/reports/run_all/ctrl.vvp",
+        "+mode=5",
+        "+memfile=tests/fixtures/mem_graph.hex",
+        "+seed=7"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.112,
+      "tail": "WC_GRAPH_CTRL_PASS mode=          5 plan=1000c000 cycles=                 125 completed=         0 nodes=         4 err=04 fetch=                 119 drain=                   1 rb=         5 rbeats=        52 out_ret=0 out_count=         1 last_out=00000000/         0\ntb/tb_wc_graph_ctrl.sv:177: $finish called at 1072000 (1ps)",
+      "metrics": [
+        "WC_GRAPH_CTRL_PASS mode=          5 plan=1000c000 cycles=                 125 completed=         0 nodes=         4 err=04 fetch=                 119 drain=                   1 rb=         5 rbeats=        52 out_ret=0 out_count=         1 last_out=00000000/         0"
+      ]
+    },
+    {
+      "name": "run_ctrl_mode6",
+      "cmd": [
+        "vvp",
+        "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_graph/reports/run_all/ctrl.vvp",
+        "+mode=6",
+        "+memfile=tests/fixtures/mem_graph.hex",
+        "+seed=7"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.11,
+      "tail": "WC_GRAPH_CTRL_PASS mode=          6 plan=1000d000 cycles=                  41 completed=         0 nodes=         4 err=04 fetch=                  38 drain=                   1 rb=         2 rbeats=        16 out_ret=0 out_count=         0 last_out=00000000/         0\ntb/tb_wc_graph_ctrl.sv:177: $finish called at 400000 (1ps)",
+      "metrics": [
+        "WC_GRAPH_CTRL_PASS mode=          6 plan=1000d000 cycles=                  41 completed=         0 nodes=         4 err=04 fetch=                  38 drain=                   1 rb=         2 rbeats=        16 out_ret=0 out_count=         0 last_out=00000000/         0"
+      ]
+    },
+    {
+      "name": "run_ctrl_mode7",
+      "cmd": [
+        "vvp",
+        "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_graph/reports/run_all/ctrl.vvp",
+        "+mode=7",
+        "+memfile=tests/fixtures/mem_graph.hex",
+        "+seed=7"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.114,
+      "tail": "WC_GRAPH_CTRL_PASS mode=          7 plan=10008000 cycles=                 193 completed=         4 nodes=         4 err=00 fetch=                 160 drain=                   0 rb=         8 rbeats=        68 out_ret=1 out_count=         1 last_out=04002000/       256\ntb/tb_wc_graph_ctrl.sv:177: $finish called at 1616000 (1ps)",
+      "metrics": [
+        "WC_GRAPH_CTRL_PASS mode=          7 plan=10008000 cycles=                 193 completed=         4 nodes=         4 err=00 fetch=                 160 drain=                   0 rb=         8 rbeats=        68 out_ret=1 out_count=         1 last_out=04002000/       256"
+      ]
+    },
+    {
+      "name": "run_ctrl_mode8",
+      "cmd": [
+        "vvp",
+        "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_graph/reports/run_all/ctrl.vvp",
+        "+mode=8",
+        "+memfile=tests/fixtures/mem_graph.hex",
+        "+seed=7"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.115,
+      "tail": "WC_GRAPH_CTRL_PASS mode=          8 plan=10008000 cycles=                 153 completed=         1 nodes=         4 err=55 fetch=                 138 drain=                   2 rb=         6 rbeats=        60 out_ret=0 out_count=         1 last_out=00000000/         0\ntb/tb_wc_graph_ctrl.sv:177: $finish called at 1296000 (1ps)",
+      "metrics": [
+        "WC_GRAPH_CTRL_PASS mode=          8 plan=10008000 cycles=                 153 completed=         1 nodes=         4 err=55 fetch=                 138 drain=                   2 rb=         6 rbeats=        60 out_ret=0 out_count=         1 last_out=00000000/         0"
+      ]
+    },
+    {
+      "name": "run_real_mode10",
+      "cmd": [
+        "vvp",
+        "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_graph/reports/run_all/real.vvp",
+        "+mode=10",
+        "+memfile=tests/fixtures/mem_graph.hex",
+        "+seed=7"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.36,
+      "tail": "TRACE c=160 cst=7 st=15 start=0 ready=0 busy=1 rdr=0 wrr=1\nDONE c=160 laydone=0 layfault=0 err=00 eact=1000\nDISPATCH c=955 layv=0 layr=1 vecv=1 vecr=1 tgt=2 type=2\nDISPATCH c=1661 layv=0 layr=1 vecv=1 vecr=1 tgt=3 type=2\nWC_GRAPH_REAL_PASS mode=         10 cycles=                2357 completed=         4 err=00 fetch=                 162 rb=        28 wb=        18 rbeats=       118 wbeats=        48 vec_cyc=       1381 lay_cyc=        790 out=04002000/       256\ntb/tb_wc_graph_real.sv:230: $finish called at 18928000 (1ps)",
+      "metrics": [
+        "WC_GRAPH_REAL_PASS mode=         10 cycles=                2357 completed=         4 err=00 fetch=                 162 rb=        28 wb=        18 rbeats=       118 wbeats=        48 vec_cyc=       1381 lay_cyc=        790 out=04002000/       256"
+      ]
+    },
+    {
+      "name": "verilator_lint_ctrl",
+      "cmd": [
+        "verilator",
+        "--lint-only",
+        "-j",
+        "1",
+        "--timing",
+        "-Wno-fatal",
+        "-Wno-WIDTH",
+        "-Wno-UNOPTFLAT",
+        "-Wno-CASEINCOMPLETE",
+        "-Wno-LATCH",
+        "-Wno-COMBDLY",
+        "--top-module",
+        "wc_graph_ctrl",
+        "rtl/wc_graph_ctrl.sv"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.116,
+      "tail": "- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)\n- Verilator: Built from 0.051 MB sources in 2 modules, into 0.255 MB in 3 C++ files needing 0.000 MB\n- Verilator: Walltime 0.057 s (elab=0.005, cvt=0.043, bld=0.000); cpu 0.057 s on 1 threads; allocated 29.621 MB"
+    },
+    {
+      "name": "verilator_lint_top",
+      "cmd": [
+        "verilator",
+        "--lint-only",
+        "-j",
+        "1",
+        "--timing",
+        "-Wno-fatal",
+        "-Wno-WIDTH",
+        "-Wno-UNOPTFLAT",
+        "-Wno-CASEINCOMPLETE",
+        "-Wno-LATCH",
+        "-Wno-COMBDLY",
+        "--top-module",
+        "wc_graph_top",
+        "rtl/wc_graph_top.sv",
+        "rtl/wc_graph_ctrl.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_vector_axi.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_vector_engine.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_layout_axi.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_layout_engine.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/asr_fp32_alu.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/u16_divmod.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/rtl/axi_dma_v019.sv",
+        "/home/yang/Desktop/\u9879\u76ee/work/tests/fma_forbidden_stub.sv"
+      ],
+      "rc": 0,
+      "expect_rc": 0,
+      "ok": true,
+      "seconds": 0.333,
+      "tail": "- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)\n- Verilator: Built from 0.855 MB sources in 11 modules, into 1.386 MB in 4 C++ files needing 0.000 MB\n- Verilator: Walltime 0.272 s (elab=0.024, cvt=0.206, bld=0.000); cpu 0.272 s on 1 threads; allocated 44.922 MB"
+    }
+  ],
+  "artifacts": {
+    "analysis/alloc_check.json": "6811c28a3daa6d246933ae04a6193d93a94bc704915b613ec5dc4e2657b06149",
+    "analysis/bad_hash.bin": "818edecbb51b6883b28474832029f110a9ea93abbfc54445eaf538bb8bfb744f",
+    "analysis/bad_root.bin": "7925ad96787df72ca5d4171a590717e855d930de31238ad6c2e69aff0b7e5660",
+    "analysis/closed68.json": "209c6e29854508067c76326596c9b0d28138ce268c672d6316e9405c1a6cddc2",
+    "analysis/closed68_values.json": "9f912dca10b1fac4b8b1e4c2dfb108d4e60e3fa51831a3c79d0f53440b2f9d2d",
+    "analysis/descriptor_map.json": "ca3c657286885a217b242c33568af7e42641463351a8dbca6b43b5b45d69654e",
+    "analysis/forward_dep.bin": "f53d9c5ed004cfbbe8086ae72152364e2bb5179b254b32e2c046aeab5b0d5746",
+    "analysis/global_alloc.json": "5985b364100eab8dd70c269db8df9ab0f9697480ba24439f25a70f084932f1e9",
+    "analysis/graph_manifest.json": "d8d05728747d53cc2d0afb831b90015bd9f569c205a34be5e8a8139aa0b87113",
+    "analysis/ledger591.bin": "8da1513a5a51698114625b828d85d1c5d42601554a6616ad133daa283deeacbf",
+    "analysis/no_output.bin": "43d33121843abea6a6b603b96abc808d228326bd83294db8162f22ad58929607",
+    "analysis/nonmatrix_ops.json": "60acebc508ad34722b8a5c646031a8df78669d569472f152b1b5af9272d7276b",
+    "analysis/nonmatrix_tensor_names.json": "50bb15667f378923eb0ef2991457ab5b3fca0a6bb99c7a5c368a6399528ffc2e",
+    "analysis/outer591_groups.json": "1f7620d0084cd3b1eeee36562953071121d23f5dc6edbd429131d6b367151475",
+    "analysis/outer591_ledger.json": "ad8ae8fe5c63dcd27d2ac19198f60ec01254c7513efdb5ddae1b5c14793f5166",
+    "analysis/relocation_map.json": "19bd25a0262fb99e538d90fb2ab2678d6a2981fb9689a4a32ad1159a0c055ea3",
+    "analysis/small_real.bin": "3905b0fbdd08a5bf236e05fbd08faf90cc34f0513f366952770b8edaf79fe221",
+    "analysis/small_real_payloads.bin": "8f448b701b9d9bead48a89ce9046e894b6a7097142e8c1ea9a18a88af202d2a5",
+    "analysis/source_ledger.json": "8a955fccf1a45ef90e36093a7f08c8bb308281c897eb8c83214f7698abdf28fd",
+    "analysis/tensor_map.json": "f8763bfe56442c2e1f2d7ab06455b96d78b594a93cdd9871caa5ba116080e3b5",
+    "analysis/whole68_global.bin": "0115aaeef2f7a97eece12371564a1ae449e4dc71c86aa272d320fc3afb413320",
+    "tests/fixtures/mem_graph.hex": "1498201e0f47105e644dfb83a31f7fc84984545728f2aa8ecde721a5e677347c",
+    "tests/fixtures/gold_small.hex": "b952a3ace72b8b84641b50d17d8a85786d8575dbd43f89f21b54fa8243ae246a"
+  },
+  "core_hz": "logic only; no frequency claim",
+  "generated_utc": "2026-10-29T13:11:42Z"
+}

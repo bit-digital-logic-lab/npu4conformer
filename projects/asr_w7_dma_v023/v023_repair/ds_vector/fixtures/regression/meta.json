@@ -1,0 +1,498 @@
+[
+  {
+    "name": "add_1001",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "sub_1001",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "mul_1001",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "add_tail1",
+    "output_bytes": 4,
+    "count": 1,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "add_tail2",
+    "output_bytes": 8,
+    "count": 2,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "add_tail3",
+    "output_bytes": 12,
+    "count": 3,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "add_tail5",
+    "output_bytes": 20,
+    "count": 5,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "add_tail7",
+    "output_bytes": 28,
+    "count": 7,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "add_tail127",
+    "output_bytes": 508,
+    "count": 127,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "add_tail255",
+    "output_bytes": 1020,
+    "count": 255,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "add_tail257",
+    "output_bytes": 1028,
+    "count": 257,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "mul_tail3",
+    "output_bytes": 12,
+    "count": 3,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "a16_to_f32_1001",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "a16_tail3",
+    "output_bytes": 12,
+    "count": 3,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "a48_to_f32_1001",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "a48_tail1",
+    "output_bytes": 4,
+    "count": 1,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "a48_tail3",
+    "output_bytes": 12,
+    "count": 3,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "f32_to_i16_1001",
+    "output_bytes": 2002,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "f32_to_i16_tail1",
+    "output_bytes": 2,
+    "count": 1,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "f32_to_i16_tail7",
+    "output_bytes": 14,
+    "count": 7,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "f32_to_i16_tail255",
+    "output_bytes": 510,
+    "count": 255,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "add_ascalar_1001",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "add_bscalar_1001",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "add_bothscalar_1001",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "bperiod_1",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "bperiod_2",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "bperiod_4",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "bperiod_8",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "bperiod_16",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "bperiod_32",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "bperiod_64",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "bperiod_128",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "bperiod_256",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "btiled_1024",
+    "output_bytes": 4096,
+    "count": 1024,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "btiled_2048",
+    "output_bytes": 8192,
+    "count": 2048,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "div_1001",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "div_tail7",
+    "output_bytes": 28,
+    "count": 7,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "sqrt_1001",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "sqrt_tail7",
+    "output_bytes": 28,
+    "count": 7,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "exp_1001",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "log_1001",
+    "output_bytes": 4004,
+    "count": 1001,
+    "kind": "normal",
+    "expect_fault": 0,
+    "no_dma": 0
+  },
+  {
+    "name": "err_div_zero",
+    "output_bytes": 8,
+    "count": 2,
+    "kind": "special",
+    "expect_fault": 1,
+    "no_dma": 0
+  },
+  {
+    "name": "err_div_0_0",
+    "output_bytes": 4,
+    "count": 1,
+    "kind": "special",
+    "expect_fault": 1,
+    "no_dma": 0
+  },
+  {
+    "name": "err_sqrt_neg",
+    "output_bytes": 4,
+    "count": 1,
+    "kind": "special",
+    "expect_fault": 1,
+    "no_dma": 0
+  },
+  {
+    "name": "err_div_inf_inf",
+    "output_bytes": 4,
+    "count": 1,
+    "kind": "special",
+    "expect_fault": 1,
+    "no_dma": 0
+  },
+  {
+    "name": "err_magic",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_reserved_low",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_reserved_high",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_count0",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_count_huge",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_op19",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_dest_low",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_dest_unaligned",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_a_overlap_dest",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_a_unaligned",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_a16_a48",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_a48_ascalar",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_out16_op",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_period_nonpow2",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_period_bscalar",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_btiled_period0",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  },
+  {
+    "name": "err_btiled_count",
+    "output_bytes": 148,
+    "count": 37,
+    "kind": "acl",
+    "expect_fault": 1,
+    "no_dma": 1
+  }
+]

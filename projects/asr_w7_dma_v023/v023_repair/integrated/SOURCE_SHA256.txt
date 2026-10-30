@@ -1,0 +1,11 @@
+# worker/source baseline hashes (read-only inputs)
+e0fd6a9100ea281bf3eb518e2ff6f7498aea0e89cb8d3a9c6f714952373680d8  ../primary_acceptance/REPORT.md
+86e38fbb27f88d22e70a94f3ea4fd12c2c8411c8d6e3e5203d5266283a288e22  ../ds_vector/result.json
+6bedd02a20563d5217481cd479a4f11d32f82e157fe4c6e1e76fc00b62b7c689  ../ds_layout/result.json
+9992f51d239035ece55e82286c3ed241802f6bfcd7ae194a966bf2be7dd26325  ../ds_matrix/result.json
+da98cc0cccb0f62e4dd3a32de01a95714cc469a60b453e7725a0e88ad254e135  ../ds_graph/result.json
+7fab5c65932ada9645c2afcfd126abf259ce7674e8002ba9e89ded46149fca2e  ../ds_control_fixes/result.json
+ceca1ac182f458a6e6f7914762f36b98fa87ed4f87713d307d414366b853ac06  ../gemini_fma_repair/result.json
+563d17fcc48562022c90acca62e9ebcd646338f98874be6a3cdd7b1e5f3ba79a  ../gemini_approx_repair/result.json
+2ee4e79d2146d6e2c636f3f5a8bb8ee2b93028c027f49c53698805639b09379c  ../ds_numeric_adversarial/result.json
+d0701190c286d376f7d8ea323ec7e87e43c8ea7ba3646cb00018475e8784f86d  ../ds_integration_audit/result.json

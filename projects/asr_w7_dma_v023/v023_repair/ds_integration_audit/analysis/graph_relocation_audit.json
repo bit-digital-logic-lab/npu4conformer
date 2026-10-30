@@ -1,0 +1,311 @@
+{
+  "inputs": {
+    "manifest_sha256": "c17a82c03dc68593b6efbc80e2abe258b3e98d2c97875ffd5abbbc706960e48b",
+    "parameters_bytes": 173715968,
+    "parameters_sha256": "fc36806a0070407ae33adbe56f80810e5e57e73d4016f049eed2c4486ed18767",
+    "tensor_count": 1318
+  },
+  "liveness": {
+    "claimed_live_conflicts": 0,
+    "independent_live_conflicts": 0,
+    "conflict_examples": [],
+    "sealed_scratch_range": [
+      "0x3000000",
+      "0x4000000"
+    ],
+    "tensors_overlapping_sealed_scratch": 698,
+    "bytes_overlapping_sealed_scratch": 16771840,
+    "alias_examples": [
+      {
+        "name": "ledger000::A",
+        "base": "0x3000000",
+        "bytes": 603136,
+        "live": [
+          0,
+          1
+        ]
+      },
+      {
+        "name": "ledger000::C48",
+        "base": "0x3093400",
+        "bytes": 98304,
+        "live": [
+          1,
+          2
+        ]
+      },
+      {
+        "name": "ledger001::A",
+        "base": "0x30ab400",
+        "bytes": 62464,
+        "live": [
+          1,
+          2
+        ]
+      },
+      {
+        "name": "ledger001::C48",
+        "base": "0x30ba800",
+        "bytes": 196608,
+        "live": [
+          2,
+          3
+        ]
+      },
+      {
+        "name": "ledger002::A",
+        "base": "0x30ea800",
+        "bytes": 62464,
+        "live": [
+          2,
+          3
+        ]
+      }
+    ],
+    "shared_temp": {
+      "base": 76677120,
+      "bytes": 30277632,
+      "policy": "single SEQ engine owns the shared temp extent; two concurrent 30.3MB extents do not fit the 80MiB arena (sum of all 68 extents ~126.4MB)",
+      "peak_parallel_temp_extents": 1,
+      "max_parallel_if_2x_temp": "infeasible: 2*max_temp + A/C exceeds the 80MiB arena"
+    }
+  },
+  "relocation": {
+    "closed68_entries": 68,
+    "unique_old_inputs": 4,
+    "unique_old_outputs": 6,
+    "unique_new_inputs": 68,
+    "unique_new_outputs": 68,
+    "unaligned_new_tensors": 0,
+    "unaligned_examples": [],
+    "out_of_region_tensors": 0,
+    "out_of_region_examples": [],
+    "relocation_note_present": true
+  },
+  "sealed_payload": {
+    "programs": 68,
+    "instructions": 45055,
+    "matrix_instructions": 98,
+    "queue_descriptors": 6231,
+    "queue_field_refs_old": 12462,
+    "queue_field_refs_old_mappable": 0,
+    "queue_field_refs_new": 96,
+    "vec_descriptors": 26254,
+    "lay_descriptors": 18703,
+    "vec_lay_old_refs": 76656,
+    "vec_lay_old_mappable": 64097,
+    "vec_lay_new_refs": 242,
+    "moves_to_sealed_scratch": 98,
+    "queue_source_bytes": 398784,
+    "old_refs_total": 89118,
+    "old_refs_mappable": 64097,
+    "new_refs_total": 338,
+    "mapping_missing_examples": [
+      [
+        "encoder|/encoder/embed/conv/conv.0/Conv",
+        0,
+        null,
+        "dst",
+        "0x3000040",
+        "sealed_scratch"
+      ],
+      [
+        "encoder|/encoder/embed/conv/conv.0/Conv",
+        1,
+        null,
+        "dst",
+        "0x3000000",
+        "sealed_scratch"
+      ],
+      [
+        "encoder|/encoder/embed/conv/conv.0/Conv",
+        2,
+        0,
+        "A",
+        "0x3000040",
+        "sealed_scratch"
+      ],
+      [
+        "encoder|/encoder/embed/conv/conv.0/Conv",
+        2,
+        0,
+        "C",
+        "0x3026840",
+        "sealed_scratch"
+      ],
+      [
+        "encoder|/encoder/embed/conv/conv.0/Conv",
+        4,
+        null,
+        "A",
+        "0x3026840",
+        "sealed_scratch"
+      ],
+      [
+        "encoder|/encoder/embed/conv/conv.2/Conv",
+        0,
+        null,
+        "dst",
+        "0x3000080",
+        "sealed_scratch"
+      ],
+      [
+        "encoder|/encoder/embed/conv/conv.2/Conv",
+        1,
+        null,
+        "dst",
+        "0x34c0080",
+        "sealed_scratch"
+      ],
+      [
+        "encoder|/encoder/embed/conv/conv.2/Conv",
+        2,
+        null,
+        "dst",
+        "0x3000000",
+        "sealed_scratch"
+      ],
+      [
+        "encoder|/encoder/embed/conv/conv.2/Conv",
+        3,
+        0,
+        "A",
+        "0x3000080",
+        "sealed_scratch"
+      ],
+      [
+        "encoder|/encoder/embed/conv/conv.2/Conv",
+        3,
+        0,
+        "C",
+        "0x3558080",
+        "sealed_scratch"
+      ]
+    ],
+    "mapping_missing_count": 25021,
+    "reference_examples": [
+      {
+        "kind": "lay",
+        "prog": "encoder|/encoder/embed/conv/conv.0/Conv",
+        "field": "src",
+        "old": "0x400a000",
+        "class": "input",
+        "map": "0x8000000"
+      },
+      {
+        "kind": "lay",
+        "prog": "encoder|/encoder/embed/conv/conv.0/Conv",
+        "field": "dst",
+        "old": "0x3000040",
+        "class": "sealed_scratch",
+        "map": null
+      },
+      {
+        "kind": "lay",
+        "prog": "encoder|/encoder/embed/conv/conv.0/Conv",
+        "field": "dst",
+        "old": "0x3000000",
+        "class": "sealed_scratch",
+        "map": null
+      },
+      {
+        "kind": "queue",
+        "prog": "encoder|/encoder/embed/conv/conv.0/Conv",
+        "field": "A",
+        "old": "0x3000040",
+        "class": "sealed_scratch",
+        "map": null
+      },
+      {
+        "kind": "queue",
+        "prog": "encoder|/encoder/embed/conv/conv.0/Conv",
+        "field": "C",
+        "old": "0x3026840",
+        "class": "sealed_scratch",
+        "map": null
+      },
+      {
+        "kind": "vec",
+        "prog": "encoder|/encoder/embed/conv/conv.0/Conv",
+        "field": "D",
+        "old": "0x50df000",
+        "class": "temp",
+        "map": "0x4df0000"
+      },
+      {
+        "kind": "vec",
+        "prog": "encoder|/encoder/embed/conv/conv.0/Conv",
+        "field": "A",
+        "old": "0x3026840",
+        "class": "sealed_scratch",
+        "map": null
+      },
+      {
+        "kind": "vec",
+        "prog": "encoder|/encoder/embed/conv/conv.0/Conv",
+        "field": "D",
+        "old": "0x4c0f000",
+        "class": "temp",
+        "map": "0x4920000"
+      },
+      {
+        "kind": "vec",
+        "prog": "encoder|/encoder/embed/conv/conv.0/Conv",
+        "field": "A",
+        "old": "0x4c0f000",
+        "class": "temp",
+        "map": "0x4920000"
+      },
+      {
+        "kind": "vec",
+        "prog": "encoder|/encoder/embed/conv/conv.0/Conv",
+        "field": "B",
+        "old": "0x50df000",
+        "class": "temp",
+        "map": "0x4df0000"
+      }
+    ]
+  },
+  "blockers": [
+    "698 allocated tensors (16771840 B) alias the sealed V022 matrix queue scratch 0x03000000..0x04000000; direct SEQ execution would corrupt them",
+    "sealed V022 payload still contains 89118 old boundary/temp references and 98 move(s) to 0x03000000; 338 new-address references found. Direct execution under global_alloc addresses is not safe; re-lowering was not performed",
+    "wc_graph_top SEQ handshake has no abort/drained; plan_v023 child_abort/child_drained cannot be connected. Vector/layout engines and matrix cluster expose no abort/drained",
+    "WCPG treats SEQ/MAT/VEC/LAY as independent engines, but a V022 SEQ program drives the same matrix/vector/layout hardware. A mixed plan can dispatch MAT/VEC/LAY while SEQ is running; no arbiter/exclusive gate exists"
+  ],
+  "warnings": [],
+  "pass": {
+    "allocator_zero_live_conflicts_independent": true,
+    "sealed_scratch_not_aliased": false,
+    "direct_seq_payload_is_re_lowered": false,
+    "new_addresses_aligned_64": true,
+    "new_addresses_in_declared_regions": true,
+    "relocation_map_is_explicit_about_no_relowering": true,
+    "seq_abort_contract_wired": false,
+    "overall_integration_ready": false
+  },
+  "structural": {
+    "wc_graph_top_seq_ports": [
+      "seq_valid",
+      "seq_ready",
+      "seq_base",
+      "seq_count",
+      "seq_done",
+      "seq_fault",
+      "seq_error"
+    ],
+    "wc_graph_top_seq_has_abort_drained": false,
+    "plan_v023_requires": [
+      "child_abort",
+      "child_drained",
+      "dma_abort",
+      "drain_timeout",
+      "isolation_req",
+      "drained"
+    ],
+    "vector_engine_has_abort": false,
+    "layout_engine_has_abort": false,
+    "matrix_cluster_has_abort_drained": false,
+    "note": "SEQ occupies matrix+vector+layout internally. WCPG only prevents a new SEQ when direct engines are active; a MAT/VEC/LAY node can start while SEQ is active, so a mixed plan needs an explicit SEQ-exclusive gate or re-lowering."
+  },
+  "verdict": "blocked"
+}

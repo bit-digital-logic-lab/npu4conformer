@@ -1,0 +1,14 @@
+candidate/rtl/vector_desc_check_pipe.sv:56: error: All but the final index in a chain of indices must be a single value, not a range.
+candidate/rtl/vector_desc_check_pipe.sv:75: error: All but the final index in a chain of indices must be a single value, not a range.
+candidate/rtl/vector_desc_check_pipe.sv:76: error: All but the final index in a chain of indices must be a single value, not a range.
+candidate/rtl/ddr_vector_engine_pipe.sv:234: error: 'lane_in_valid' is not a valid l-value for a procedural assignment.
+candidate/rtl/ddr_vector_engine_pipe.sv:110:      : 'lane_in_valid' is declared here as a wire.
+candidate/rtl/ddr_vector_engine_pipe.sv:246: error: 'lane_in_valid' is not a valid l-value for a procedural assignment.
+candidate/rtl/ddr_vector_engine_pipe.sv:110:      : 'lane_in_valid' is declared here as a wire.
+candidate/rtl/ddr_vector_engine_pipe.sv:262: error: 'lane_in_valid' is not a valid l-value for a procedural assignment.
+candidate/rtl/ddr_vector_engine_pipe.sv:110:      : 'lane_in_valid' is declared here as a wire.
+candidate/rtl/ddr_vector_engine_pipe.sv:317: error: 'lane_in_valid' is not a valid l-value for a procedural assignment.
+candidate/rtl/ddr_vector_engine_pipe.sv:110:      : 'lane_in_valid' is declared here as a wire.
+candidate/rtl/ddr_vector_engine_pipe.sv:331: error: 'lane_in_valid' is not a valid l-value for a procedural assignment.
+candidate/rtl/ddr_vector_engine_pipe.sv:110:      : 'lane_in_valid' is declared here as a wire.
+8 error(s) during elaboration.

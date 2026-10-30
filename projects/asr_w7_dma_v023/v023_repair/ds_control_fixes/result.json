@@ -1,0 +1,78 @@
+{
+  "task": "ds_control_fixes",
+  "scope": "logic simulation only; no synthesis, Vivado, STA, board, VNC, or push",
+  "status": "complete",
+  "run_all": {
+    "command": "bash scripts/run_all.sh",
+    "rc": 0,
+    "summary": "RUN_ALL_PASS",
+    "log": "reports/RUN_SUMMARY.txt"
+  },
+  "candidates": [
+    "candidate/rtl/plan_submit_csr_v023.sv",
+    "candidate/rtl/pl_execution_plan_v023.sv",
+    "candidate/rtl/axi_dma_v023_bounded.sv",
+    "candidate/rtl/axi_dma_v023_multi.sv",
+    "candidate/rtl/ready_scan_banked_v1.sv",
+    "candidate/rtl/block_address_v023.sv",
+    "candidate/rtl/block_storage_dma_wide4_v023.sv"
+  ],
+  "findings": {
+    "PA001_before_failing_checks": 9,
+    "PA001_fixed": true,
+    "PA002_before_unbounded_confirmations": 2,
+    "PA002_fixed": true,
+    "PA003_wrap_before_confirmed": true,
+    "PA003_fixed_in_both_v023_dmas": true,
+    "PA004_wstrb_before_confirmed": true,
+    "PA004_fixed_in_both_v023_dmas": true,
+    "ready_scan_structural_fixed": true,
+    "block_address_pipeline_equivalent": true,
+    "storage_handshake_contract_tested": true
+  },
+  "tests": {
+    "pa002_v023_phases": 10,
+    "pa003_pa004_v023_multi_cases": 7,
+    "pa003_pa004_v023_bounded_cases": 2,
+    "ready_scan_scenarios": 405,
+    "block_address_vectors": 3000,
+    "storage_handshake_cases": 4,
+    "lint_modules": 7
+  },
+  "contracts": {
+    "W7_A16_C48_positions_clip_QDQ": "unchanged",
+    "host_once_preload_PL_autonomy": "unchanged; no runtime host control added",
+    "AXI_accepted_transaction_cancel": "none; drain evidence required",
+    "unsafe_terminal_state": "fault + isolation_req + drained=0; never a safe-drain claim",
+    "division_root_approximation": "not in this task; no numeric contract changed"
+  },
+  "limitations": [
+    "no synthesis/STA/Fmax/board/full-model claim",
+    "ready-scan and address changes are structural, not timing signoff",
+    "storage 71-case regression referenced from ds_critical_control, not re-run here",
+    "BFMs are protocol models, not DDR timing/bandwidth",
+    "no full-model quantization/accuracy evaluation in this task"
+  ],
+  "artifacts": [
+    "REPORT.md",
+    "FINDINGS.md",
+    "INTERFACE.md",
+    "progress.json",
+    "result.json",
+    "candidate/rtl/",
+    "tb/",
+    "scripts/run_all.sh",
+    "logs/",
+    "reports/SOURCE_SHA256.txt",
+    "reports/TEST_SHA256.txt",
+    "reports/RUN_SUMMARY.txt"
+  ],
+  "unfinished": [
+    "graph owner must integrate ready_scan_banked_v1 into wc_superplan_ctrl and rerun controller tests",
+    "matrix owner must integrate block_address_v023/storage handshake and v023 multi DMA, then rerun matrix queue tests",
+    "no full top-level/CASE0000 same-load before/after simulation",
+    "storage 71-case equivalence referenced, not rerun here",
+    "PS firmware not modified; low-then-high CSR pair protocol must be adopted",
+    "no synthesis/STA/CDC/board/full-model accuracy claim"
+  ]
+}

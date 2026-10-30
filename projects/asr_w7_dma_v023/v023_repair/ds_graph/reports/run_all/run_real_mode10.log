@@ -1,0 +1,38 @@
+TRACE c=140 cst=6 st=0 start=0 ready=1 busy=0 rdr=1 wrr=1
+TRACE c=141 cst=6 st=0 start=0 ready=1 busy=0 rdr=1 wrr=1
+TRACE c=142 cst=6 st=0 start=0 ready=1 busy=0 rdr=1 wrr=1
+TRACE c=143 cst=6 st=0 start=0 ready=1 busy=0 rdr=1 wrr=1
+TRACE c=144 cst=6 st=0 start=0 ready=1 busy=0 rdr=1 wrr=1
+TRACE c=145 cst=6 st=0 start=0 ready=1 busy=0 rdr=1 wrr=1
+TRACE c=146 cst=6 st=0 start=0 ready=1 busy=0 rdr=1 wrr=1
+TRACE c=147 cst=6 st=0 start=0 ready=1 busy=0 rdr=1 wrr=1
+TRACE c=148 cst=6 st=0 start=0 ready=1 busy=0 rdr=1 wrr=1
+DISPATCH c=149 layv=1 layr=1 vecv=0 vecr=1 tgt=1 type=3
+TRACE c=149 cst=8 st=0 start=1 ready=1 busy=0 rdr=1 wrr=1
+LAYSTART laystart=1 arithstart=1 arithstate=0 layready=1 laybusy=0 desc0=224c4159
+TRACE c=150 cst=7 st=1 start=0 ready=0 busy=1 rdr=1 wrr=1
+DONE c=150 laydone=0 layfault=0 err=00 eact=1000
+TRACE c=151 cst=7 st=2 start=0 ready=0 busy=1 rdr=1 wrr=1
+DONE c=151 laydone=0 layfault=0 err=00 eact=1000
+TRACE c=152 cst=7 st=3 start=0 ready=0 busy=1 rdr=1 wrr=1
+DONE c=152 laydone=0 layfault=0 err=00 eact=1000
+TRACE c=153 cst=7 st=4 start=0 ready=0 busy=1 rdr=1 wrr=1
+DONE c=153 laydone=0 layfault=0 err=00 eact=1000
+TRACE c=154 cst=7 st=11 start=0 ready=0 busy=1 rdr=1 wrr=1
+DONE c=154 laydone=0 layfault=0 err=00 eact=1000
+TRACE c=155 cst=7 st=12 start=0 ready=0 busy=1 rdr=1 wrr=1
+DONE c=155 laydone=0 layfault=0 err=00 eact=1000
+TRACE c=156 cst=7 st=13 start=0 ready=0 busy=1 rdr=1 wrr=1
+DONE c=156 laydone=0 layfault=0 err=00 eact=1000
+TRACE c=157 cst=7 st=14 start=0 ready=0 busy=1 rdr=1 wrr=1
+DONE c=157 laydone=0 layfault=0 err=00 eact=1000
+TRACE c=158 cst=7 st=15 start=0 ready=0 busy=1 rdr=0 wrr=1
+DONE c=158 laydone=0 layfault=0 err=00 eact=1000
+TRACE c=159 cst=7 st=15 start=0 ready=0 busy=1 rdr=0 wrr=1
+DONE c=159 laydone=0 layfault=0 err=00 eact=1000
+TRACE c=160 cst=7 st=15 start=0 ready=0 busy=1 rdr=0 wrr=1
+DONE c=160 laydone=0 layfault=0 err=00 eact=1000
+DISPATCH c=955 layv=0 layr=1 vecv=1 vecr=1 tgt=2 type=2
+DISPATCH c=1661 layv=0 layr=1 vecv=1 vecr=1 tgt=3 type=2
+WC_GRAPH_REAL_PASS mode=         10 cycles=                2357 completed=         4 err=00 fetch=                 162 rb=        28 wb=        18 rbeats=       118 wbeats=        48 vec_cyc=       1381 lay_cyc=        790 out=04002000/       256
+tb/tb_wc_graph_real.sv:230: $finish called at 18928000 (1ps)

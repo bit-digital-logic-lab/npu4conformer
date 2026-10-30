@@ -1,0 +1,5 @@
+﻿tensor,version,format,src,dst,transfers,valid_bytes,bus_bytes,comparable_logical_bytes,unique_logical_bytes,repeat_candidate_bytes,unclassified_transfers,reasons
+A,epoch3,A16,DDR,Abank,6,12288,12288,12288,12288,0,0,"{""block_load"": 12288}"
+W,epoch3,W7p8,DDR,Wbank,6,6144,6144,6144,3072,3072,0,"{""block_load"": 6144}"
+Cpartial,epoch3,C48,DDR,Ccache,2,12288,12288,12288,12288,0,0,"{""block_load"": 12288}"
+C,epoch3,C48,Ccache,DDR,128,12288,12288,12288,12288,0,0,"{""result_stream"": 12288}"

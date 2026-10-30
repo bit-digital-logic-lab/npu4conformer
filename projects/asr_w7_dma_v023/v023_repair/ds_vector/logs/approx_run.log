@@ -1,0 +1,17 @@
+PASS div_1001 {'max_rel_error': 0.0010995431177979766, 'mean_rel_error': 0.00026905343024739235, 'max_ulp': 17742, 'median_ulp': 1456, 'exact_match_rate': 0.007928642220019821}
+PASS sqrt_1001 {'max_rel_error': 5.244722944530499e-06, 'mean_rel_error': 1.1016659758742059e-06, 'max_ulp': 63, 'median_ulp': 10, 'exact_match_rate': 0.009910802775024777}
+PASS div_tail7 {'max_rel_error': 0.0005540601597875133, 'mean_rel_error': 1.3578911750182656e-06, 'max_ulp': 7029, 'median_ulp': 0, 'exact_match_rate': 0.9930624380574826}
+PASS sqrt_tail7 {'max_rel_error': 2.9486176417141445e-06, 'mean_rel_error': 8.873588040327287e-09, 'max_ulp': 35, 'median_ulp': 0, 'exact_match_rate': 0.9930624380574826}
+SPECIAL err_div_zero PASS V023_VECTOR_PASS mode=          0 cycles=                  26 rcov=                   0 wcov=                   0 rreq=          2 wreq=          0 count=         0 fault=1 err=04 flags=02 rejected=         0
+SPECIAL err_div_0_0 PASS V023_VECTOR_PASS mode=          0 cycles=                  26 rcov=                   0 wcov=                   0 rreq=          2 wreq=          0 count=         0 fault=1 err=04 flags=01 rejected=         0
+SPECIAL err_sqrt_neg PASS V023_VECTOR_PASS mode=          0 cycles=                  19 rcov=                   0 wcov=                   0 rreq=          1 wreq=          0 count=         0 fault=1 err=04 flags=01 rejected=         0
+SPECIAL err_div_inf_inf PASS V023_VECTOR_PASS mode=          0 cycles=                  26 rcov=                   0 wcov=                   0 rreq=          2 wreq=          0 count=         0 fault=1 err=04 flags=01 rejected=         0
+BP div_1001 11 PASS 2612
+BP div_1001 12 PASS 2631
+BP div_1001 13 PASS 2606
+BP div_1001 14 PASS 2780
+BP sqrt_1001 11 PASS 2477
+BP sqrt_1001 12 PASS 2483
+BP sqrt_1001 13 PASS 2470
+BP sqrt_1001 14 PASS 2584
+V023_APPROX_INTEGRATION PASS

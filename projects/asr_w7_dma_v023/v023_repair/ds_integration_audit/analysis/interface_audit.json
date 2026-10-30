@@ -1,0 +1,313 @@
+{
+  "verdict": "blocked",
+  "files": {
+    "wc_graph_ctrl": {
+      "path": "v023_repair/ds_graph/rtl/wc_graph_ctrl.sv",
+      "exists": true,
+      "sha256": "046975145875d1086c22b11f3a82152da3a63d675bbe78acae01eacfd707265e",
+      "modules": [
+        "wc_graph_ctrl"
+      ]
+    },
+    "wc_graph_top": {
+      "path": "v023_repair/ds_graph/rtl/wc_graph_top.sv",
+      "exists": true,
+      "sha256": "ed55cbb62113f06e57e31d623d7d8f6954469d56afb3dfceb82ec68e47d1a3a5",
+      "modules": [
+        "wc_graph_top"
+      ]
+    },
+    "vec_engine_pipe": {
+      "path": "v023_repair/ds_vector/candidate/rtl/ddr_vector_engine_pipe.sv",
+      "exists": true,
+      "sha256": "d486711cefc89f943ec8bcc85059385216752f4079bc416cee48372acabd257a",
+      "modules": [
+        "ddr_vector_engine_pipe"
+      ]
+    },
+    "vec_axi_pipe": {
+      "path": "v023_repair/ds_vector/candidate/rtl/ddr_vector_axi_pipe.sv",
+      "exists": true,
+      "sha256": "7c492af8737f5ebfe1fa68b8cf9c4f2d9b229593ba53b15a45d404708ae66226",
+      "modules": [
+        "ddr_vector_axi_pipe"
+      ]
+    },
+    "vec_lane": {
+      "path": "v023_repair/ds_vector/candidate/rtl/asr_fp32_lane_fixed.sv",
+      "exists": true,
+      "sha256": "540e06db258dfa1761076e061ee4f297b9089626e225e9c68a6faf30f5117217",
+      "modules": [
+        "asr_fp32_lane_fixed"
+      ]
+    },
+    "vec_desc": {
+      "path": "v023_repair/ds_vector/candidate/rtl/vector_desc_check_pipe.sv",
+      "exists": true,
+      "sha256": "c02cbe1ebf7c4ea694197ed215dbaa5cc76971a5f81a8389e314a80a2e9369fd",
+      "modules": [
+        "vector_desc_check_pipe"
+      ]
+    },
+    "vec_engine_approx": {
+      "path": "v023_repair/ds_vector/candidate/rtl/ddr_vector_engine_approx.sv",
+      "exists": true,
+      "sha256": "9bd1316ae41167106d6c2a154694793a30e5d17f4ee3e82644c36573b8279907",
+      "modules": [
+        "ddr_vector_engine_approx"
+      ]
+    },
+    "lay_step": {
+      "path": "v023_repair/ds_layout/rtl/ddr_layout_engine_v023.sv",
+      "exists": true,
+      "sha256": "dbfd68df4aa2ecbc77582c29ce4d18bc0f49a33b5b42cb904a87c4ebbb823d0e",
+      "modules": [
+        "ddr_layout_engine"
+      ]
+    },
+    "lay_burst": {
+      "path": "v023_repair/ds_layout/rtl/ddr_layout_engine_v023_burst.sv",
+      "exists": true,
+      "sha256": "4e45a39dcb07daeefc190d383ede885e57718f9a60c9d23eda61c4dae11eb893",
+      "modules": [
+        "ddr_layout_engine"
+      ]
+    },
+    "lay_axi": {
+      "path": "work/rtl/ddr_layout_axi.sv",
+      "exists": true,
+      "sha256": "a4728ffac826ef48776171598ebde6f58c8726f903d8b6af10cedb504c47a4c2",
+      "modules": [
+        "ddr_layout_axi"
+      ]
+    },
+    "mx_cluster": {
+      "path": "v023_repair/ds_matrix/candidate/rtl/matrix_p2_cluster_v2.sv",
+      "exists": true,
+      "sha256": "0cfcfda99212ac443c4384d9000a121b577baceb60e13385ad849562e423a866",
+      "modules": [
+        "matrix_p2_cluster_v2"
+      ]
+    },
+    "mx_engine": {
+      "path": "v023_repair/ds_matrix/candidate/rtl/block_engine_prefetch_v2.sv",
+      "exists": true,
+      "sha256": "c15d23c5eda9d111a3fff56ad419d07a3bb64be9c8222bbbaa1212511c4bc749",
+      "modules": [
+        "block_engine_prefetch_v2"
+      ]
+    },
+    "mx_storage": {
+      "path": "v023_repair/ds_matrix/candidate/rtl/block_storage_stream_v2.sv",
+      "exists": true,
+      "sha256": "da18bfd22a327b7bae36d937f6c877bda4211413781a9dd7c390dea4ef11e538",
+      "modules": [
+        "block_storage_stream_v2"
+      ]
+    },
+    "mx_dma": {
+      "path": "v023_repair/ds_matrix/candidate/rtl/axi_dma_v020_multi_v2.sv",
+      "exists": true,
+      "sha256": "dda5aa9fa44f9a78e063b4f7ea4124c86b9252a89d0f720067f588d0592e163f",
+      "modules": [
+        "axi_dma_v020_multi_v2"
+      ]
+    },
+    "ctl_plan": {
+      "path": "v023_repair/ds_control_fixes/candidate/rtl/pl_execution_plan_v023.sv",
+      "exists": true,
+      "sha256": "93ea2e0b12a3163fee83b8210616d4d21af43ae89c4ab2162097fc5cb638aaa5",
+      "modules": [
+        "pl_execution_plan_v023"
+      ]
+    },
+    "ctl_csr": {
+      "path": "v023_repair/ds_control_fixes/candidate/rtl/plan_submit_csr_v023.sv",
+      "exists": true,
+      "sha256": "35fbe0f392c671a2c63e469a390c87d9c6173a403153d76d14c6316de80c8a98",
+      "modules": [
+        "plan_submit_csr_v023"
+      ]
+    },
+    "ctl_scan": {
+      "path": "v023_repair/ds_control_fixes/candidate/rtl/ready_scan_banked_v1.sv",
+      "exists": true,
+      "sha256": "bae88644824255b9472b6dc8a5b0c111390da711c7b352c5774958d424c7242f",
+      "modules": [
+        "ready_scan_banked_v1"
+      ]
+    },
+    "ctl_addr": {
+      "path": "v023_repair/ds_control_fixes/candidate/rtl/block_address_v023.sv",
+      "exists": true,
+      "sha256": "ca0d68730277b434fe04bac84b470aa0675a38b4c74c6585742dc0c23e359578",
+      "modules": [
+        "block_address_v023"
+      ]
+    },
+    "ctl_dma_multi": {
+      "path": "v023_repair/ds_control_fixes/candidate/rtl/axi_dma_v023_multi.sv",
+      "exists": true,
+      "sha256": "26e5f1f1b0e6bc26699281bab9c566d51921b1eca93bdfb0258965b1ec5e3d6f",
+      "modules": [
+        "axi_dma_v023_multi"
+      ]
+    },
+    "ctl_dma_bounded": {
+      "path": "v023_repair/ds_control_fixes/candidate/rtl/axi_dma_v023_bounded.sv",
+      "exists": true,
+      "sha256": "abbf6e8595a3c3d46e007bd02f48c7ee102f2ef7b738ca29298298e69b0b2990",
+      "modules": [
+        "axi_dma_v023_bounded"
+      ]
+    },
+    "sealed_dma19": {
+      "path": "work/rtl/axi_dma_v019.sv",
+      "exists": true,
+      "sha256": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531",
+      "modules": [
+        "axi_dma_v019"
+      ]
+    },
+    "sealed_alu": {
+      "path": "work/rtl/asr_fp32_alu.sv",
+      "exists": true,
+      "sha256": "4f83fc66bb2443695e1e45b29cdd9f90e890ac44b76975fc2f66e00a8ba9c602",
+      "modules": [
+        "asr_fp32_alu"
+      ]
+    },
+    "sealed_div": {
+      "path": "work/rtl/u16_divmod.sv",
+      "exists": true,
+      "sha256": "5ed69ab1748a321dc65b5e04ef32241b0e9568449707495ce19d6f6358e2f162",
+      "modules": [
+        "u16_divmod"
+      ]
+    },
+    "sealed_fma_stub": {
+      "path": "work/tests/fma_forbidden_stub.sv",
+      "exists": true,
+      "sha256": "9a2e615daf60712370da43b6bae9d3c94ee121a702c3a10f2c22a50dd4e8bbee",
+      "modules": [
+        "asr_fma_ip"
+      ]
+    }
+  },
+  "duplicate_modules": {
+    "ddr_layout_engine": [
+      "lay_step",
+      "lay_burst"
+    ]
+  },
+  "checks": {
+    "plan_v023_drain_ports": {
+      "child_abort": true,
+      "child_drained": true,
+      "dma_abort": true,
+      "drained": true,
+      "drain_timeout": true,
+      "isolation_req": true
+    },
+    "graph_top_seq": {
+      "has_seq_valid": true,
+      "has_seq_ready": true,
+      "has_seq_done": true,
+      "has_seq_abort": false,
+      "has_seq_drained": false
+    },
+    "vec_engine_pipe_abort": {
+      "abort": false,
+      "aborted": false,
+      "drained": false
+    },
+    "vec_axi_pipe_abort": {
+      "abort": false,
+      "aborted": false,
+      "drained": false
+    },
+    "lay_burst_abort": {
+      "abort": false,
+      "aborted": false,
+      "drained": false
+    },
+    "mx_cluster_abort": {
+      "abort": false,
+      "aborted": false,
+      "drained": false
+    },
+    "mx_dma_abort": {
+      "abort": false,
+      "aborted": false,
+      "drained": false
+    },
+    "ctl_dma_multi_dma": {
+      "addr_40bit": true,
+      "abort_port": true,
+      "drained_port": true,
+      "wstrb_popcount": true
+    },
+    "ctl_dma_bounded_dma": {
+      "addr_40bit": true,
+      "abort_port": true,
+      "drained_port": true,
+      "wstrb_popcount": true
+    },
+    "sealed_dma19_dma": {
+      "addr_40bit": true,
+      "abort_port": false,
+      "drained_port": false,
+      "wstrb_popcount": true
+    },
+    "mx_dma_dma": {
+      "addr_40bit": true,
+      "abort_port": false,
+      "drained_port": false,
+      "wstrb_popcount": true
+    },
+    "ready_scan": {
+      "type_3bit_flat": true,
+      "cand_id_7bit": true
+    },
+    "block_address_v023": {
+      "in_valid": true,
+      "out_valid": true,
+      "extent_40bit": true
+    },
+    "graph_top_instances": {
+      "ddr_vector_axi": true,
+      "ddr_vector_axi_pipe": false,
+      "ddr_layout_axi": true
+    },
+    "layout_candidate_module_name": {
+      "step_module": [
+        "ddr_layout_engine"
+      ],
+      "burst_module": [
+        "ddr_layout_engine"
+      ]
+    }
+  },
+  "blockers": [
+    "duplicate module definitions in candidate union: ddr_layout_engine:['lay_step', 'lay_burst']",
+    "wc_graph_top cannot carry plan_v023 child_abort/child_drained",
+    "vec_engine_pipe has no abort/aborted/drained contract",
+    "vec_axi_pipe has no abort/aborted/drained contract",
+    "lay_burst has no abort/aborted/drained contract",
+    "mx_cluster has no abort/aborted/drained contract",
+    "mx_dma has no abort/aborted/drained contract",
+    "matrix DMA (axi_dma_v020_multi_v2) has no abort/drained; matrix cluster cannot satisfy plan_v023 child contract"
+  ],
+  "warnings": [
+    "matrix engine still instantiates the combinational block_address_v020; control block_address_v023 is not integrated",
+    "vector candidate wrapper still uses single-outstanding axi_dma_v019; multi-outstanding v023 DMA is not wired",
+    "graph fetch uses single-outstanding axi_dma_v019"
+  ],
+  "filelist_recommendation": {
+    "note": "one choice per duplicate module; see filelist_integrated.f",
+    "layout_choice": "ds_layout/rtl/ddr_layout_engine_v023_burst.sv (final candidate; step version is diagnostic)",
+    "vector_choice": "ds_vector candidate wrapper + engine; use a shim or the audit top because its module is ddr_vector_axi_pipe, not ddr_vector_axi",
+    "matrix_choice": "matrix_p2_cluster_v2 is NOT a drop-in for the graph MAT queue handshake; adapter or re-lowering missing",
+    "shared_dma": "work/rtl/axi_dma_v019.sv is still used by vector/layout wrappers; the v023 multi/bounded modules are separate tops"
+  }
+}

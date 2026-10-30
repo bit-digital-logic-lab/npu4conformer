@@ -1,0 +1,76 @@
+%Warning-PINCONNECTEMPTY: candidate/epilogue_stream_engine_v023.sv:225:18: Instance pin connected by name with empty reference: 'fp32_valid'
+  225 |                 .fp32_valid   (),
+      |                  ^~~~~~~~~~
+                          ... For warning description see https://verilator.org/warn/PINCONNECTEMPTY?v=5.047
+                          ... Use "/* verilator lint_off PINCONNECTEMPTY */" and lint_on around source to disable this message.
+%Warning-PINCONNECTEMPTY: candidate/epilogue_stream_engine_v023.sv:226:18: Instance pin connected by name with empty reference: 'fp32_data'
+  226 |                 .fp32_data    ()
+      |                  ^~~~~~~~~
+%Warning-WIDTHEXPAND: candidate/fp32_fma_pipe.sv:323:67: Operator AND expects 129 bits on the RHS, but RHS's CONST '24'hffffff' generates 24 bits.
+                                                       : ... note: In instance 'epilogue_stream_engine_v023.gen_lanes[3].u_lane.u_fma_stage.u_fma_pipe'
+  323 |             comb_mant24       = (s2_sum_acc >> (msb_pos - 8'd23)) & 24'hffffff;
+      |                                                                   ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.047
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: candidate/fp32_fma_pipe.sv:323:31: Operator ASSIGN expects 24 bits on the Assign RHS, but Assign RHS's AND generates 129 bits.
+                                                      : ... note: In instance 'epilogue_stream_engine_v023.gen_lanes[3].u_lane.u_fma_stage.u_fma_pipe'
+  323 |             comb_mant24       = (s2_sum_acc >> (msb_pos - 8'd23)) & 24'hffffff;
+      |                               ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.047
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: candidate/fp32_fma_pipe.sv:327:67: Operator AND expects 129 bits on the RHS, but RHS's CONST '24'hffffff' generates 24 bits.
+                                                       : ... note: In instance 'epilogue_stream_engine_v023.gen_lanes[3].u_lane.u_fma_stage.u_fma_pipe'
+  327 |             comb_mant24       = (s2_sum_acc << (8'd23 - msb_pos)) & 24'hffffff;
+      |                                                                   ^
+%Warning-WIDTHTRUNC: candidate/fp32_fma_pipe.sv:327:31: Operator ASSIGN expects 24 bits on the Assign RHS, but Assign RHS's AND generates 129 bits.
+                                                      : ... note: In instance 'epilogue_stream_engine_v023.gen_lanes[3].u_lane.u_fma_stage.u_fma_pipe'
+  327 |             comb_mant24       = (s2_sum_acc << (8'd23 - msb_pos)) & 24'hffffff;
+      |                               ^
+%Warning-WIDTHTRUNC: candidate/epilogue_i48_to_f32.sv:115:25: Operator ASSIGN expects 27 bits on the Assign RHS, but Assign RHS's SHIFTR generates 48 bits.
+                                                            : ... note: In instance 'epilogue_stream_engine_v023.gen_lanes[3].u_lane.u_i48_to_f32'
+  115 |                     sig = mag >> sh;
+      |                         ^
+%Warning-WIDTHTRUNC: candidate/epilogue_i48_to_f32.sv:121:25: Operator ASSIGN expects 27 bits on the Assign RHS, but Assign RHS's SHIFTL generates 48 bits.
+                                                            : ... note: In instance 'epilogue_stream_engine_v023.gen_lanes[3].u_lane.u_i48_to_f32'
+  121 |                     sig = mag << (6'd26 - top);
+      |                         ^
+%Warning-UNUSEDSIGNAL: candidate/epilogue_stream_engine_v023.sv:110:25: Signal is not used: 'active_spill_fp32'
+                                                                      : ... note: In instance 'epilogue_stream_engine_v023'
+  110 |     reg                 active_spill_fp32;
+      |                         ^~~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: candidate/epilogue_stream_engine_v023.sv:113:25: Signal is not used: 'active_tag'
+                                                                      : ... note: In instance 'epilogue_stream_engine_v023'
+  113 |     reg [TAG_WIDTH-1:0] active_tag;
+      |                         ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/epilogue_stream_engine_v023.sv:198:16: Bits of signal are not used: 'lane_out_last'[3:1]
+                                                                      : ... note: In instance 'epilogue_stream_engine_v023'
+  198 |     wire [3:0] lane_out_last;
+      |                ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/epilogue_stream_engine_v023.sv:236:26: Signal is not used: 'pack_last_reg'
+                                                                      : ... note: In instance 'epilogue_stream_engine_v023'
+  236 |     reg                  pack_last_reg;
+      |                          ^~~~~~~~~~~~~
+%Warning-UNUSEDPARAM: candidate/epilogue_fma_stage.sv:48:22: Parameter is not used: 'MODE_SCALE_ONLY'
+                                                           : ... note: In instance 'epilogue_stream_engine_v023.gen_lanes[3].u_lane.u_fma_stage'
+   48 |     localparam [1:0] MODE_SCALE_ONLY = 2'd2;
+      |                      ^~~~~~~~~~~~~~~
+                      ... For warning description see https://verilator.org/warn/UNUSEDPARAM?v=5.047
+                      ... Use "/* verilator lint_off UNUSEDPARAM */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: candidate/epilogue_i48_to_f32.sv:56:10: Signal is not used: 's1_fire'
+                                                             : ... note: In instance 'epilogue_stream_engine_v023.gen_lanes[3].u_lane.u_i48_to_f32'
+   56 |     wire s1_fire = in_valid && in_ready;
+      |          ^~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/epilogue_i48_to_f32.sv:100:20: Bits of function variable are not used: 'sig'[26]
+                                                              : ... note: In instance 'epilogue_stream_engine_v023.gen_lanes[3].u_lane.u_i48_to_f32'
+  100 |         reg [26:0] sig;
+      |                    ^~~
+%Warning-SYMRSVDWORD: candidate/epilogue_stream_engine_v023.sv:21:35: Symbol matches C++ common word: 'abort'
+   21 |     input  wire                   abort,         
+      |                                   ^~~~~
+                      ... For warning description see https://verilator.org/warn/SYMRSVDWORD?v=5.047
+                      ... Use "/* verilator lint_off SYMRSVDWORD */" and lint_on around source to disable this message.
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)
+- Verilator: Built from 0.352 MB sources in 8 modules, into 0.552 MB in 6 C++ files needing 0.000 MB
+- Verilator: Walltime 0.105 s (elab=0.008, cvt=0.077, bld=0.000); cpu 0.105 s on 1 threads; allocated 27.766 MB

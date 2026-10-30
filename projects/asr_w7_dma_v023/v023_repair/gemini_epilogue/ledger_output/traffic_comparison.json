@@ -1,0 +1,28 @@
+{
+  "metric": "32x32 Block (1024 elements) C48 to A16 Epilogue",
+  "pre_fusion": {
+    "window_cycles": 3500,
+    "read_bytes": 18432,
+    "write_bytes": 20480,
+    "total_ddr_bytes": 38912,
+    "read_effective_MB_s": 658.2857142857142,
+    "write_effective_MB_s": 731.4285714285714
+  },
+  "post_fusion": {
+    "window_cycles": 600,
+    "read_bytes": 0,
+    "write_bytes": 2048,
+    "total_ddr_bytes": 2048,
+    "read_effective_MB_s": 0,
+    "write_effective_MB_s": 426.6666666666667
+  },
+  "reduction_bytes": 36864,
+  "reduction_percentage": 94.73684210526315,
+  "cycle_speedup": 5.833333333333333,
+  "full_model_projection": {
+    "total_epilogue_elements": 82953300,
+    "pre_fusion_intermediate_ddr_MB": 2689.7546768188477,
+    "post_fusion_intermediate_ddr_MB": 158.22086334228516,
+    "full_model_ddr_MB_eliminated": 2531.5338134765625
+  }
+}

@@ -1,0 +1,1 @@
+CMD: iverilog -g2012 -o /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/build/old_fma2_fma /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/tb/tb_fma.sv /home/yang/Desktop/项目/v023_repair/gemini_epilogue/epilogue_fma_stage.sv

@@ -1,0 +1,52 @@
+== 1. independent input/gold verification ==
+== 2. compile candidate (frozen integrated snapshot RTL) ==
+== 3. compile host-sequenced sealed baseline ==
+== 4. three identical scenarios (seed=1) ==
+default candidate rc=0
+default baseline rc=0
+rand_bp candidate rc=0
+rand_bp baseline rc=0
+long_wait candidate rc=0
+long_wait baseline rc=0
+== 4b. watchdog self-test (deliberately tiny watchdog; must fire) ==
+watchdog self-test rc=1 (expected nonzero) and diagnostic present
+== 5. output, C48 and interval checks ==
+== 6. source/input/log SHA manifest ==
+== summary ==
+{
+  "all_outputs_and_c48_match_gold": true,
+  "status": "small_chain_logic_pass_full_system_pending",
+  "scenarios": {
+    "default": {
+      "total_cycles_baseline": 53015,
+      "total_cycles_candidate": 21121,
+      "candidate_minus_baseline": -31894,
+      "baseline_over_candidate": 2.5101,
+      "baseline_engine_sum": 52997,
+      "candidate_engine_sum": 8480,
+      "baseline_residual_non_engine": 18,
+      "candidate_residual_non_engine": 12641
+    },
+    "rand_bp": {
+      "total_cycles_baseline": 55014,
+      "total_cycles_candidate": 23744,
+      "candidate_minus_baseline": -31270,
+      "baseline_over_candidate": 2.317,
+      "baseline_engine_sum": 54996,
+      "candidate_engine_sum": 9460,
+      "baseline_residual_non_engine": 18,
+      "candidate_residual_non_engine": 14284
+    },
+    "long_wait": {
+      "total_cycles_baseline": 87973,
+      "total_cycles_candidate": 33660,
+      "candidate_minus_baseline": -54313,
+      "baseline_over_candidate": 2.6136,
+      "baseline_engine_sum": 87955,
+      "candidate_engine_sum": 14204,
+      "baseline_residual_non_engine": 18,
+      "candidate_residual_non_engine": 19456
+    }
+  }
+}
+RUN_ALL_DONE (small chain only; full system remains PENDING)

@@ -1,0 +1,171 @@
+{
+  "status_counts": {
+    "NOT_IMPLEMENTED": 3,
+    "CANDIDATE_COVERED": 3,
+    "MUST_MOVE": 10,
+    "OFFLINE_ONLY": 4
+  },
+  "rows": [
+    {
+      "id": "H01",
+      "action": "host ONNX DAG execution / per-node Python dispatch",
+      "source": "scripts/run_case0000.py:62-67",
+      "status": "NOT_IMPLEMENTED",
+      "why": "FusionExecutor/profiled_backend and the packed ONNX model are absent from the supplied read-only tree; cannot be migrated or run here.",
+      "next": "obtain the upstream executor/model, lower all nodes, then remove the host loop"
+    },
+    {
+      "id": "H02",
+      "action": "one START + poll + output read per fused program",
+      "source": "host/fusion_backend.py:28-52",
+      "status": "CANDIDATE_COVERED",
+      "why": "W023 one-START/one-DONE plan; 68-node control test and real mixed chain pass.",
+      "next": "bind the real 68 programs and the missing outside nodes to one plan; host read only final outputs"
+    },
+    {
+      "id": "H03",
+      "action": "per-program input tensor upload to DDR",
+      "source": "host/fusion_backend.py:23-24",
+      "status": "MUST_MOVE",
+      "why": "Host packs and uploads every fused input at runtime.",
+      "next": "preload once before START; compiler must bind each node input to a preloaded DDR tensor"
+    },
+    {
+      "id": "H04",
+      "action": "per-program float/Q output download",
+      "source": "host/fusion_backend.py:48-51",
+      "status": "MUST_MOVE",
+      "why": "Host reads each program output and reloads it through the next upload.",
+      "next": "keep intermediates in DDR; host reads only final CASE outputs"
+    },
+    {
+      "id": "H05",
+      "action": "per-matrix row/column window choice",
+      "source": "host/base_v021.py:24-48, 191-197",
+      "status": "OFFLINE_ONLY",
+      "why": "choose_row_step/column_step decide M/N windows at runtime from DDR capacity.",
+      "next": "freeze windows in the static compiler; no runtime capacity probing"
+    },
+    {
+      "id": "H06",
+      "action": "A16/W7 packing and matrix queue descriptor emission",
+      "source": "host/base_v021.py:62-105; host/backend_v021.py:9-33",
+      "status": "OFFLINE_ONLY",
+      "why": "Host produces tile bytes and 64-B queue descriptors for each call.",
+      "next": "compile descriptors offline (existing compile_pl_plans path) and bind concrete B addresses"
+    },
+    {
+      "id": "H07",
+      "action": "C48->INT64 output conversion",
+      "source": "host/base_v021.py:107-113, 178-180",
+      "status": "MUST_MOVE",
+      "why": "unpack_c runs on host after each matrix read.",
+      "next": "PL layout/vector conversion, or bind C to a PL epilogue; do not change C48 semantics"
+    },
+    {
+      "id": "H08",
+      "action": "unfused INT16 matmul and dynamic W7 encoding",
+      "source": "host/base_v021.py:181-209",
+      "status": "NOT_IMPLEMENTED",
+      "why": "Outside the 68 closed programs, host still decomposes INT16 and calls _encode.",
+      "next": "enumerate outside MatMul/Gemm nodes; lower to PL matrix + QDQ nodes"
+    },
+    {
+      "id": "H09",
+      "action": "nonmatrix operand write_words / scalar parameter copies",
+      "source": "host/backend_v021.py:71-82",
+      "status": "MUST_MOVE",
+      "why": "Host writes nonmatrix operands and uses a host-side FP32 dedup table.",
+      "next": "describe copies as PL layout/move nodes; remove host SHA/dedup state"
+    },
+    {
+      "id": "H10",
+      "action": "resident matrix context/view round-robin",
+      "source": "host/backend_v021.py:40-70",
+      "status": "MUST_MOVE",
+      "why": "matrix_index21/context21 select weights by Python state; not in the plan.",
+      "next": "bind a concrete weight id/address to every matrix node at compile time"
+    },
+    {
+      "id": "H11",
+      "action": "host cookie/epoch allocation and stale-completion checks",
+      "source": "host/base_v021.py:126,153-168; host/fusion_backend.py:46-47",
+      "status": "MUST_MOVE",
+      "why": "cookie21 is host implicit state; V022 queue epochs depend on it.",
+      "next": "PL generation/epoch in the superplan header and per-node epoch; retire host cookie"
+    },
+    {
+      "id": "H12",
+      "action": "host parameter-generation re-check between calls",
+      "source": "host/backend_v021.py:46-49",
+      "status": "CANDIDATE_COVERED",
+      "why": "W023 latches generation at START and checks it during fetch/dispatch/drain.",
+      "next": "bind the production generation (compiler currently emits 0=ignore)"
+    },
+    {
+      "id": "H13",
+      "action": "PS starts one program and polls per program",
+      "source": "ps/vm_pl.c:16-39; ps/async_dispatch.inc.c:16-24",
+      "status": "CANDIDATE_COVERED",
+      "why": "W023 replaces per-program PS starts with one PL plan; PS only start/observe.",
+      "next": "wire the whole-case plan and IRQ; keep PS free of numerical control flow"
+    },
+    {
+      "id": "H14",
+      "action": "legacy 591 queues / 593 descriptors outside the 68 plans",
+      "source": "work/CURRENT_WORK.txt:23; work/ps/plan_index.h:8-76",
+      "status": "NOT_IMPLEMENTED",
+      "why": "The outside DAG is not in the image and its exact node list is absent.",
+      "next": "recover upstream model/executor, lower outside ops, re-run coverage"
+    },
+    {
+      "id": "H15",
+      "action": "per-program matrix index lookup in PS",
+      "source": "ps/vm_pl.c:17-19; work/ps/plan_index.h",
+      "status": "MUST_MOVE",
+      "why": "PS scans 68 entries per start; no inter-program dependency is represented.",
+      "next": "remove per-program lookup; one superplan fetch covers all nodes"
+    },
+    {
+      "id": "H16",
+      "action": "offline plan compilation (allowed startup work)",
+      "source": "scripts/compile_pl_plans.py:1-139",
+      "status": "OFFLINE_ONLY",
+      "why": "This is desired: host compiles before parameter load, not during inference.",
+      "next": "extend to whole CASE and liveness-safe arenas; keep numerical steps unchanged"
+    },
+    {
+      "id": "H17",
+      "action": "per-program temporary arena base",
+      "source": "scripts/compile_pl_plans.py:32-34",
+      "status": "MUST_MOVE",
+      "why": "temp_base=0x04000000+extent_bytes is per-program, not liveness-global; 36 ranges overlap at peak.",
+      "next": "global liveness allocator/relocator; reject unresolved overlaps"
+    },
+    {
+      "id": "H18",
+      "action": "per-program output/scratch address reuse",
+      "source": "scripts/compile_pl_plans.py:59-71; analysis/analysis.json",
+      "status": "MUST_MOVE",
+      "why": "15 shared write spans, 4 output-address groups with 6/12/24 writers; only safe under host serialization.",
+      "next": "either keep a proven total order or relocate to disjoint arenas before parallel dispatch"
+    },
+    {
+      "id": "H19",
+      "action": "matrix queue copy from parameter to scratch by layout move",
+      "source": "scripts/compile_pl_plans.py:72-75",
+      "status": "OFFLINE_ONLY",
+      "why": "The queue is emitted in the image then copied to 0x03000000 by a PL move; top sees only base/count.",
+      "next": "keep the PL move or emit the queue directly into a preloaded scratch region; do not let the host copy per program"
+    },
+    {
+      "id": "H20",
+      "action": "host scale/metadata reinterpretation after completion",
+      "source": "host/fusion_backend.py:50-51",
+      "status": "MUST_MOVE",
+      "why": "Host reloads scale from the parameter image and rebuilds Tensor objects.",
+      "next": "bind scale ids in the plan; host only reads final outputs for comparison"
+    }
+  ],
+  "note": "CANDIDATE_COVERED means the W023 candidate logic covers the control action, not that whole CASE is runnable. NOT_IMPLEMENTED means the upstream source/model is absent or the outside DAG is not lowered."
+}

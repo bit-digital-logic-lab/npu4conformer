@@ -1,0 +1,10 @@
+{
+  "fma": true,
+  "approx": true,
+  "snapshot": [
+    "integrated/rtl vs snapshot/integrated/rtl: identical (diff -qr)",
+    "integrated tb vs snapshot: identical",
+    "primary_stream_fix: read-only, not modified",
+    "work/ and ZIP: read-only, not modified"
+  ]
+}

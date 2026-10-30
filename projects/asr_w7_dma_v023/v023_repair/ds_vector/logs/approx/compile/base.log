@@ -1,0 +1,4 @@
+$ iverilog -g2012 -D DUT_MODULE=ddr_vector_engine -o /tmp/v023_approx_base.vvp -s tb_vector_generic /home/yang/Desktop/项目/v023_repair/ds_vector/tb/tb_vector_generic.sv /home/yang/Desktop/项目/v023_repair/ds_vector/baseline/rtl/ddr_vector_engine.sv /home/yang/Desktop/项目/v023_repair/ds_vector/baseline/rtl/asr_fp32_alu.sv /home/yang/Desktop/项目/v023_repair/ds_vector/baseline/tb/fma_forbidden_stub.sv
+rc=0
+
+

@@ -1,0 +1,2 @@
+FATAL: tb/tb_wc_ctrl.sv:113: timeout state=4 busy=1 active=0000
+       Time: 3200056000  Scope: tb_wc_ctrl

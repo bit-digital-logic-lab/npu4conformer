@@ -1,0 +1,1 @@
+CMD: iverilog -g2012 -o /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/build/fma_repair_asr_fma_ip /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/tb/tb_asr_fma_ip.sv /home/yang/Desktop/项目/v023_repair/gemini_fma_repair/candidate/asr_fma_ip.sv /home/yang/Desktop/项目/v023_repair/gemini_fma_repair/candidate/fp32_fma_pipe.sv

@@ -1,0 +1,13 @@
+HOST write plan_base=10008000
+HOST START write begins at cycle 26
+HOST START accepted at cycle 31 (monitor t_start=30)
+WATCHDOG_FIRED at=waiting_done cycle=100 t_start=30 t_done=-1 t_drain=-1
+WATCHDOG_STATE rst_n=1 busy=1 done=0 done_latch=0 fault=0 err=00
+WATCHDOG_GRAPH seq=0 mat=0 vec=0 lay=0 mst=0 mcore=0 mdone=0 merr=00
+WATCHDOG_XBAR ar_count=1 ar_owner=0 ar_left=1 aw_count=0 aw_owner=0 aw_left=0 b_count=0 b_owner=0
+WATCHDOG_AXI arv=0 arr=0 rv=1 rr=1 rlast=1 awv=0 awr=1 wv=0 wr=0 wlast=0 bv=0 br=0 br_ready=1
+WATCHDOG_BFM rbusy=1 wbusy=0 bpend=0 idle=0 rb=5 wb=0
+WATCHDOG_MATRIX qcyc=0 fcyc=0 ewait=0 rwait=0 comp=0 rblk=0 wblk=0
+CAND_RESULT FAIL watchdog
+FATAL: tb/tb_chain_integrated.sv:189: candidate watchdog at waiting_done cycle 100
+       Time: 804000  Scope: tb_chain_integrated.diag

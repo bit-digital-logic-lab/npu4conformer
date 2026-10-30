@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "errors": [
+    "node 0 root input provenance 2000000/256",
+    "node 0 IN provenance"
+  ],
+  "node_count": 4,
+  "roots": 1,
+  "outputs": 1,
+  "edges": 3,
+  "type_count": {
+    "5": 1,
+    "3": 1,
+    "2": 2
+  },
+  "hash": 3713341223,
+  "plan_bytes": 832,
+  "tag": "bad_root"
+}

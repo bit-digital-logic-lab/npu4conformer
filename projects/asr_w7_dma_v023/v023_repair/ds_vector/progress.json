@@ -1,0 +1,54 @@
+{
+  "task": "ds_vector",
+  "status": "completed",
+  "current_stage": "reporting",
+  "completed_stages": [
+    "read_contracts_baseline_and_interfaces",
+    "publish_approx_interface_for_gemini_approx",
+    "copy_frozen_baseline_and_sha",
+    "candidate_fixed_latency_lane_and_128bit_engine",
+    "staged_descriptor_validation",
+    "exact_baseline_vs_candidate_random_tail_error_backpressure_regression",
+    "axi_wrapper_same_load_regression",
+    "gemini_approx_tier1_integration_and_error_measurement",
+    "fma_not_covered_evidence",
+    "report_and_manifest",
+    "primary_acceptance_recheck"
+  ],
+  "stages": {
+    "read_contracts_baseline_and_interfaces": "completed",
+    "publish_approx_interface_for_gemini_approx": "completed",
+    "copy_frozen_baseline_and_sha": "completed",
+    "candidate_fixed_latency_lane_and_128bit_engine": "completed",
+    "staged_descriptor_validation": "completed",
+    "exact_baseline_vs_candidate_random_tail_error_backpressure_regression": "completed",
+    "axi_wrapper_same_load_regression": "completed",
+    "gemini_approx_tier1_integration_and_error_measurement": "completed",
+    "fma_not_covered_evidence": "completed",
+    "report_and_manifest": "completed",
+    "primary_acceptance_recheck": "completed"
+  },
+  "tests": {
+    "exact_regression_cases": 67,
+    "exact_stress_cases": 7,
+    "axi_modes": 14,
+    "approx_normal_cases": 4,
+    "approx_special_cases": 4,
+    "approx_backpressure_cases": 8,
+    "all_passed": true
+  },
+  "known_uncompleted": [
+    "FMA arithmetic not simulated: vendor asr_fma_ip model absent; forbidden stub aborts, no substitute",
+    "No whole-model accuracy or latency claim; vector-level logic simulation only",
+    "No synthesis/STA/Vivado/board; no 600 MHz claim",
+    "Wide-lane tag tokens are carried/echoed but not used as an ordering gate (in-order lanes); approx tag is checked",
+    "Candidate AXI run shows read/compute overlap but zero write/compute overlap on add_scalar",
+    "Generated independent gold differs for exp/log because baseline itself is a polynomial approximation"
+  ],
+  "timestamp": "2026-10-29",
+  "notes": [
+    "tail cases fixed by exact-core routing for banks <=8",
+    "FMA blocker outside ds_vector remains open",
+    "approx three-tier claim withdrawn"
+  ]
+}

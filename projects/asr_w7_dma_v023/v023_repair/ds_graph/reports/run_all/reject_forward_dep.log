@@ -1,0 +1,19 @@
+{
+  "ok": false,
+  "errors": [
+    "node 0 forward dependency",
+    "node 0 root with predecessors"
+  ],
+  "node_count": 4,
+  "roots": 1,
+  "outputs": 1,
+  "edges": 4,
+  "type_count": {
+    "5": 1,
+    "3": 1,
+    "2": 2
+  },
+  "hash": 1663167245,
+  "plan_bytes": 832,
+  "tag": "forward_dep"
+}

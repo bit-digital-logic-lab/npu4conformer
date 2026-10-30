@@ -1,0 +1,11 @@
+﻿type,resource,start,end,state,bytes,transfer_id,reason,blocked_by,evidence,wire_bytes
+interval,axi_r,0,2,wait_memory,0,r0,wait_memory,DDR,synthetic fixture,
+interval,axi_r,2,4,payload,8,r0,payload,,synthetic fixture,
+interval,axi_r,4,6,backpressure,0,r1,backpressure,consumer,synthetic fixture,
+interval,axi_r,6,8,payload,8,r1,payload,,synthetic fixture,
+interval,axi_r,8,10,wait_memory,0,r2,wait_memory,DDR,synthetic fixture,
+interval,axi_r,10,12,payload,8,r2,payload,,synthetic fixture,
+interval,axi_r,12,20,idle_no_work,0,,idle_no_work,,synthetic fixture,
+,axi_w,0,2,unknown,,,missing_coverage,,,
+interval,axi_w,2,4,payload,6,w0,result,,synthetic WSTRB,8
+,axi_w,4,20,unknown,,,missing_coverage,,,

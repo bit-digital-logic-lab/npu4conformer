@@ -1,0 +1,93 @@
+{
+  "task": "ds_cycle_chain_compare",
+  "scope": "small matrix->I48/F32->vector->layout chain, logic simulation only",
+  "updated": "2026-10-29T23:40:17+08:00",
+  "status": "complete_small_chain_full_system_pending",
+  "stages": [
+    {
+      "stage": "0_snapshot_and_readonly_check",
+      "status": "done",
+      "evidence": [
+        "snapshot/integrated_20261029T2302/ (copied from integrated while ds_integration PID 80333 was still active)",
+        "logs/readonly_check.txt",
+        "SOURCE_SHA256.json"
+      ],
+      "notes": "Only read from integrated/, work/rtl/, primary_stream_fix/, ds_matrix/tests/. No file outside this task directory was modified."
+    },
+    {
+      "stage": "1_input_and_gold_verification",
+      "status": "done",
+      "evidence": [
+        "reports/input_check.json",
+        "logs/verify_inputs.log"
+      ],
+      "notes": "mat32 exp_c SHA, init SHA, plan SHA and independently recomputed float32 i16 gold all match."
+    },
+    {
+      "stage": "2_harness_compile",
+      "status": "done",
+      "evidence": [
+        "logs/compile_candidate.log",
+        "logs/compile_baseline.log",
+        "build/tb_candidate.vvp",
+        "build/tb_baseline.vvp"
+      ],
+      "notes": "iverilog single-job. Baseline local copy only moves three declaration groups earlier for Icarus elaborability; logs/baseline_compat.diff shows no logic edit."
+    },
+    {
+      "stage": "3_default_scenario",
+      "status": "done",
+      "evidence": [
+        "runs/default/candidate/run.log",
+        "runs/default/baseline/run.log",
+        "runs/*/default/*/out.hex"
+      ],
+      "metrics": {
+        "baseline_total": 53015,
+        "candidate_total": 21121
+      }
+    },
+    {
+      "stage": "4_random_backpressure_scenario",
+      "status": "done",
+      "evidence": [
+        "runs/rand_bp/candidate/run.log",
+        "runs/rand_bp/baseline/run.log"
+      ],
+      "metrics": {
+        "baseline_total": 55014,
+        "candidate_total": 23744
+      }
+    },
+    {
+      "stage": "5_long_storage_wait_scenario",
+      "status": "done",
+      "evidence": [
+        "runs/long_wait/candidate/run.log",
+        "runs/long_wait/baseline/run.log"
+      ],
+      "metrics": {
+        "baseline_total": 87973,
+        "candidate_total": 33660
+      }
+    },
+    {
+      "stage": "6_output_gold_and_report",
+      "status": "done",
+      "evidence": [
+        "result.json",
+        "REPORT.md",
+        "reports/check_results.log",
+        "SOURCE_SHA256.json",
+        "runs/watchdog_selftest/candidate/run.log"
+      ],
+      "notes": "All six runs: final i16 512/512 words match independent gold; matrix C48 1024/1024 match exp_c; no watchdog fired in the six PASS runs. A separate +watchdog=100 self-test fires and prints state (expected nonzero exit)."
+    }
+  ],
+  "limits": [
+    "small chain only; not CASE0000, not full model, not board",
+    "baseline and candidate have different control/interface boundaries; only comparable interval deltas are reported",
+    "primary_stream_fix epilogue fusion is not connected in the frozen integrated filelist and is not counted",
+    "no synthesis/STA/Vivado/board/VNC/push"
+  ]
+}

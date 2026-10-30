@@ -1,0 +1,189 @@
+{
+  "task": "ds_layout",
+  "status": "module_level_logic_complete",
+  "module_level_byte_correct": true,
+  "global_acceptance": {
+    "status": "NOT_PASS",
+    "source": "../primary_acceptance/REPORT.md",
+    "date": "2026-10-29",
+    "note": "This directory is module-level Layout evidence only; it does not claim whole-project or full-model acceptance and does not reuse earlier PASS claims. FMA, approx-tier, vector-tail, graph and integration items are outside Layout."
+  },
+  "batch": "v023_repair",
+  "date": "2026-10-29",
+  "mode": "logic_simulation_only",
+  "no_synthesis": true,
+  "no_vivado": true,
+  "no_board": true,
+  "no_push": true,
+  "source_baseline": {
+    "work/rtl/ddr_layout_engine.sv": "1ebcaaa58a61f23ab298ab901f184894eb230d6225b26779b8dbf97f54722c52",
+    "work/rtl/u16_divmod.sv": "5ed69ab1748a321dc65b5e04ef32241b0e9568449707495ce19d6f6358e2f162",
+    "work/rtl/axi_dma_v019.sv": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531",
+    "work/rtl/ddr_layout_axi.sv": "a4728ffac826ef48776171598ebde6f58c8726f903d8b6af10cedb504c47a4c2",
+    "tasks/ds_critical_control/candidate/rtl/ddr_layout_engine_pipe_v1.sv": "71d125860c030a30bb4df8bef9996c0622b0800c3f82c9869e7e135aef5764a1"
+  },
+  "candidates": {
+    "stage_a": {
+      "file": "rtl/ddr_layout_engine_v023.sv",
+      "module": "ddr_layout_engine",
+      "purpose": "incremental stepping, no runtime u16_divmod, no per-element index*bytes; 1-beat I/O",
+      "sha256": "dbfd68df4aa2ecbc77582c29ce4d18bc0f49a33b5b42cb904a87c4ebbb823d0e"
+    },
+    "stage_b": {
+      "file": "rtl/ddr_layout_engine_v023_burst.sv",
+      "module": "ddr_layout_engine",
+      "purpose": "stage A + 16-beat posted write burst + bounded sequential read prefetch",
+      "parameter": {
+        "MAX_PREFETCH": 16,
+        "note": "1 disables multi-line prefetch; module/ports otherwise unchanged"
+      },
+      "sha256": "4e45a39dcb07daeefc190d383ede885e57718f9a60c9d23eda61c4dae11eb893"
+    }
+  },
+  "tests": {
+    "official_normal_fixtures": {
+      "cases": 8,
+      "passed": 8,
+      "reference": "fixture gold.hex, byte-exact",
+      "cycles_orig": 671563,
+      "cycles_stage_a": 501666,
+      "cycles_stage_b": 397315,
+      "ratio_stage_a": 0.747,
+      "ratio_stage_b": 0.592,
+      "read_requests_orig": 2638,
+      "read_requests_stage_b": 1778,
+      "write_requests_orig": 11890,
+      "write_requests_stage_b": 746,
+      "read_beats_orig": 2638,
+      "read_beats_stage_b": 2638,
+      "write_beats_orig": 11890,
+      "write_beats_stage_b": 11890,
+      "read_bytes_orig": 42208,
+      "read_bytes_stage_b": 42208,
+      "write_bytes_orig": 190204,
+      "write_bytes_stage_b": 190204,
+      "log": "logs/official_table.log"
+    },
+    "official_error_acl_lifecycle_modes": {
+      "cases": 12,
+      "passed": 12,
+      "reference": "same rc/fault/no-side-effect as original",
+      "log": "logs/official_table.log"
+    },
+    "descriptor_fuzz": {
+      "cases": 57,
+      "passed": 57,
+      "comparison_fields": [
+        "fault",
+        "error_code",
+        "processed_elements",
+        "256KiB_memhash"
+      ],
+      "cycles_orig": 559524,
+      "cycles_stage_b": 352545,
+      "ratio": 0.63,
+      "log": "logs/layout_fuzz.log"
+    },
+    "independent_golden": {
+      "cases": 32,
+      "passed": 32,
+      "reference": "scripts/layout_model.py",
+      "cycles_orig": 824648,
+      "cycles_stage_a": 651191,
+      "cycles_stage_b": 515789,
+      "ratio_stage_a": 0.79,
+      "ratio_stage_b": 0.625,
+      "read_overfetch_cases": 1,
+      "read_overfetch_extra_beats": 81,
+      "write_beats_equal": true,
+      "log": "logs/gold_table.log"
+    },
+    "random_legal_shapes": {
+      "cases": 100,
+      "passed": 100,
+      "reference": "scripts/layout_model.py",
+      "cycles_orig": 3149865,
+      "cycles_stage_b": 1913759,
+      "ratio": 0.608,
+      "read_overfetch_cases": 9,
+      "read_overfetch_extra_beats": 234,
+      "read_overfetch_max_beats_per_case": 168,
+      "write_beats_equal": true,
+      "log": "logs/random_fuzz.log"
+    },
+    "prefetch_policy": {
+      "cases": 11,
+      "passed": 11,
+      "max_prefetch_16_cycles": 476048,
+      "max_prefetch_1_cycles": 482271,
+      "orig_cycles": 800079,
+      "ratio_pf16": 0.595,
+      "ratio_pf1": 0.603,
+      "read_beats_equal_to_orig_with_pf1": true,
+      "log": "logs/prefetch_policy.log"
+    },
+    "lint": {
+      "tool": "verilator --lint-only -Wall -Wno-fatal",
+      "stage_a": "pass (warnings only)",
+      "stage_b": "pass (warnings only)",
+      "fatal_latch_undriven_errors": 0,
+      "logs": [
+        "logs/verilator_v1_lint.log",
+        "logs/verilator_burst_lint.log"
+      ]
+    }
+  },
+  "features_covered": {
+    "im2col_padding": true,
+    "im2col_stride": true,
+    "im2col_dilation_including_dw_bytes_gt_16_fallback": true,
+    "transpose_mode3_mode4": true,
+    "compact_c48_bytes6": true,
+    "slice_k_offset": true,
+    "slice_col_start": true,
+    "tail_partial_line_and_partial_burst": true,
+    "cross_4KiB_source_and_destination": true,
+    "non_contiguous_destination_rows_mode3_full_n_gt_n": true,
+    "error_and_acl_counterexamples": true
+  },
+  "claims": {
+    "cycles_measured_on_same_load": true,
+    "write_request_reduction_measured": true,
+    "read_beats_unchanged_on_official_set": true,
+    "read_prefetch_can_add_read_beats_reported": true,
+    "fmax_claimed": false,
+    "cdc_implemented_or_verified": false,
+    "shared_dma_arbiter_implemented": false,
+    "full_model_end_to_end_run": false,
+    "module_level_only": true,
+    "global_acceptance_claimed": false,
+    "c48_cross_line_fixed_and_tested": true
+  },
+  "not_done": [
+    "shared-DMA arbitration hardware and integration test",
+    "reset in the middle of an in-flight burst",
+    "runtime CSR for prefetch policy",
+    "full CASE0000 / whole-model run",
+    "synthesis, STA, implementation, board, VNC, push",
+    "CDC / async FIFO if layout is placed in a separate high-frequency domain",
+    "global integration / whole-model acceptance (NOT PASS per primary_acceptance)"
+  ],
+  "reproduce": "cd v023_repair/ds_layout && ./scripts/run_all.sh",
+  "layout_primary_acceptance_item": {
+    "item": "C48 crossing 16-byte cache lines",
+    "status": "fixed_and_tested",
+    "root_cause": "after removing the ADDRESS state, source_part/value_hi were not cleared at each new element",
+    "fix": "clear source_part/value_hi in NEXT (and at descriptor start)",
+    "negative_control_fails": [
+      "unpack_c48_compact byte 18",
+      "copy_tail_6b byte 18"
+    ],
+    "fixed_result": "both PASS, plus 32 golden (bytes=2/4/6) and 100 random cases",
+    "logs": [
+      "logs/c48_known_bad_unpack_c48_compact.log",
+      "logs/c48_known_bad_copy_tail_6b.log",
+      "logs/c48_fixed_unpack_c48_compact.log",
+      "logs/c48_fixed_copy_tail_6b.log"
+    ]
+  }
+}

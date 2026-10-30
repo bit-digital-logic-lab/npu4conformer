@@ -1,0 +1,9 @@
+{
+  "project": "/home/yang/Desktop/\u9879\u76ee",
+  "timer_coverage": false,
+  "tasks": [
+    "ds_ddr",
+    "gemini_compute"
+  ],
+  "scope": "logic validation only, no synthesis, no board access"
+}

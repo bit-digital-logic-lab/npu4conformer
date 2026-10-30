@@ -1,0 +1,1 @@
+timeout 90 /home/yang/yosys-sta/oss-cad-suite/bin/vvp /home/yang/Desktop/项目/tasks/ds_protocol_audit/reports/compile/multi.vvp

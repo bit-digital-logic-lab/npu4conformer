@@ -1,0 +1,14 @@
+{
+  "pass": true,
+  "fails": [],
+  "exact_fma_mism": 0,
+  "exact_div_mism": 0,
+  "exact_sqrt_mism": 0,
+  "approx_fma_mism": 0,
+  "div_max_rel": 0.0011093994158386522,
+  "sqrt_max_rel": 5.622923815982944e-06,
+  "cycles_exact": 45785,
+  "vcyc_exact": 16205,
+  "cycles_approx": 16589,
+  "vcyc_approx": 1603
+}

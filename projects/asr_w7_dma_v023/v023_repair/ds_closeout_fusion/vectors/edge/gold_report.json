@@ -1,0 +1,16 @@
+{
+ "dir": "vectors/edge",
+ "M": 17,
+ "N": 19,
+ "K": 33,
+ "tiles": 1,
+ "values": 1024,
+ "scale": "0x3f800001",
+ "bias": "0xbf000000",
+ "fma_mode": 1,
+ "relu": 0,
+ "fma_vs_muladd_diff": 0,
+ "fma_zero_or_ff_count": 701,
+ "gold_a16": "vectors/edge/gold_a16.hex",
+ "gold_muladd_a16": "vectors/edge/gold_muladd_a16.hex"
+}

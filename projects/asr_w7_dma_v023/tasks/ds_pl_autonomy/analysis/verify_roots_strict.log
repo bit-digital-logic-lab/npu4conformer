@@ -1,0 +1,14 @@
+{
+  "tag": "roots_strict",
+  "plan": "analysis/whole68_roots.bin",
+  "sha256": "aa15b17fa8902434594cb8283d3b87bbb6140793edd1d6edc138f342424fb667",
+  "status": "FAIL",
+  "node_count": 68,
+  "plan_bytes": 4416,
+  "hash_ok": true,
+  "checks": [],
+  "unordered_conflicts": 2278,
+  "dependency_edges": 0,
+  "max_predecessors": 0,
+  "notes": "Conflicts are expected for whole68_roots.bin and reject parallel execution; whole68_serial.bin must have zero."
+}

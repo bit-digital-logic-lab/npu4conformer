@@ -1,0 +1,2 @@
+WC_CTRL_PASS mode=          2 cycles=                 125 completed=         1 err=02 done_pulses=          1 fetches=          0/          0/          1/          0 irq=1
+tb/tb_wc_ctrl.sv:142: $finish called at 1072000 (1ps)

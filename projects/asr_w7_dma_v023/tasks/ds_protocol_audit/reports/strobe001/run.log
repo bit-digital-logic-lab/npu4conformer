@@ -1,0 +1,2 @@
+STROBE mem=00 01 02 00 write_bytes=16 err=0
+/home/yang/Desktop/项目/tasks/ds_protocol_audit/tb/tb_strobe.sv:37: $finish called at 104000 (1ps)

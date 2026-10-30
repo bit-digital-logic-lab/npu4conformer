@@ -1,0 +1,20 @@
+
+========================================================
+[TB] REAL Hardware Array Integration Test Starting...
+[TB] Workload: M=32, N=32, K=64 (2 Output Blocks x 2 K-chunks)
+[TB] Baseline:  array16_direct_v020 (Real W7 decoder/array)
+[TB] Candidate: array16_w7_c48_cfg (Real 4-stage pipeline array)
+========================================================
+
+========================================================
+[TB] Real Array Integration Simulation Completed!
+========================================================
+Baseline Array : task_cycles=3629, compute_cycles=528, cache_hits=1, cache_misses=1, fault=0
+Candidate Array: task_cycles=3637, compute_cycles=536, cache_hits=1, cache_misses=1, fault=0
+[SUCCESS] Cross-K cache hits verified: 1 hits (bk=1 accumulated in-place in BRAM).
+[TB] Comparing 1024 INT48 outputs between Baseline Array and Candidate Array...
+[SUCCESS] 1024 / 1024 output elements MATCH BIT-FOR-BIT between Real Baseline and Real Candidate!
+[SUCCESS] Verified all 4 quadrants and multi-K (K=64) accumulation in real PE array!
+[TB] Written 1024 words to bench/sim_real_array_output.hex
+[SUCCESS] All 1024 elements (M=32, N=32, K=64) MATCH GOLDEN MODEL BIT-FOR-BIT!
+[SUCCESS] Verified multi-K (cross-K) accumulation and real array saturation clipping!

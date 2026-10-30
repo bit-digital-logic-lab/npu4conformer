@@ -1,0 +1,8 @@
+﻿resource,unit,evidence,window,observed_ticks,known_ticks,known_coverage,states,valid_bytes,wire_bytes,payload_fraction,bytes_per_tick,seconds,effective_B_per_s,payload_B_per_tick,capacity_bytes_per_tick,ledger_valid_bytes,ledger_wire_bytes,ledger_minus_interval_valid_bytes,ledger_minus_interval_wire_bytes
+axi_r,cycle,RVALID&&RREADY / ARVALID&&ARREADY,2708,2708,2708,1.0,"{""idle_no_work"": 2403, ""command"": 2, ""wait_memory"": 111, ""payload"": 192}",3072,3072,0.07090103397341212,1.1344165435745939,,,16.0,16,3072,3072,0,0
+axi_w,cycle,WVALID&&WREADY / AWVALID&&AWREADY / BVALID&&BREADY,2708,2708,2708,1.0,"{""idle_no_work"": 533, ""wait_memory"": 1596, ""command"": 65, ""backpressure"": 65, ""payload"": 384, ""response"": 65}",6144,6144,0.14180206794682423,2.2688330871491877,,,16.0,16,6144,6144,0,0
+ddr_bfm,cycle,AXI128 BFM shared data channel; logic model only,2708,2708,2708,1.0,"{""idle_no_work"": 2065, ""command"": 67, ""payload"": 576}",9216,9216,0.21270310192023634,3.4032496307237814,,,16.0,16,0,0,-9216,-9216
+compute,cycle,engine FSM state and array drain,2708,2708,2708,1.0,"{""idle_no_work"": 3, ""control"": 23, ""wait_operand"": 309, ""compute"": 272, ""c_collect"": 2101}",0,0,0.0,0.0,,,,,0,0,0,0
+c_cache_rd,cycle,c_cache_banked4_pipe read port issue,2708,2708,2708,1.0,"{""idle_no_work"": 2452, ""payload"": 256}",0,0,0.09453471196454949,0.0,,,0.0,,0,0,0,0
+c_cache_wr,cycle,c_cache_banked4_pipe write port issue,2708,2708,2708,1.0,"{""idle_no_work"": 2452, ""payload"": 256}",0,0,0.09453471196454949,0.0,,,0.0,,0,0,0,0
+packer,cycle,C48 cseg/cval packer handshake,2708,2708,2708,1.0,"{""idle_no_work"": 611, ""command"": 64, ""backpressure"": 1777, ""payload"": 256}",0,0,0.09453471196454949,0.0,,,0.0,,0,0,0,0

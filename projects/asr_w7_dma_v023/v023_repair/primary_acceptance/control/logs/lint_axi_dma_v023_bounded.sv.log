@@ -1,0 +1,24 @@
+%Warning-WIDTHTRUNC: candidate/rtl/axi_dma_v023_bounded.sv:43:23: Operator ASSIGNW expects 9 bits on the Assign RHS, but Assign RHS's SHIFTR generates 13 bits.
+                                                                : ... note: In instance 'axi_dma_v023_bounded'
+   43 |  wire [8:0] page_beats=(13'd4096-{1'b0,address[11:0]})>>4;
+      |                       ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.047
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_bounded.sv:45:31: Operator LT expects 16 bits on the LHS, but LHS's VARREF 'page_beats' generates 9 bits.
+                                                                 : ... note: In instance 'axi_dma_v023_bounded'
+   45 |  wire [15:0] chosen=page_beats<limit?{7'd0,page_beats[8:0]}:limit;
+      |                               ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.047
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: candidate/rtl/axi_dma_v023_bounded.sv:96:57: Operator ADD expects 32 bits on the RHS, but RHS's FUNCREF 'pop16' generates 5 bits.
+                                                                 : ... note: In instance 'axi_dma_v023_bounded'
+   96 |      write_index<=write_index+1;write_bytes<=write_bytes+pop16(write_strobe);index<=index+1;
+      |                                                         ^
+%Warning-SYMRSVDWORD: candidate/rtl/axi_dma_v023_bounded.sv:24:13: Symbol matches C++ common word: 'abort'
+   24 |  input wire abort,
+      |             ^~~~~
+                      ... For warning description see https://verilator.org/warn/SYMRSVDWORD?v=5.047
+                      ... Use "/* verilator lint_off SYMRSVDWORD */" and lint_on around source to disable this message.
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)
+- Verilator: Built from 0.037 MB sources in 2 modules, into 0.042 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.013 s (elab=0.002, cvt=0.007, bld=0.000); cpu 0.013 s on 1 threads; allocated 20.730 MB

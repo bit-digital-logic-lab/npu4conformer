@@ -1,0 +1,5 @@
+SCAN_ALL_READY id=0 type=1 cycles=6
+SCAN_NODE127 id=127 cycles=6
+READY_SCAN_TEST_END errors=0
+READY_SCAN_PASS
+tb/tb_ready_scan.sv:129: $finish called at 32452000 (1ps)

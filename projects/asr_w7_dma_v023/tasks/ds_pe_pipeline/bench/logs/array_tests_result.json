@@ -1,0 +1,409 @@
+{
+  "task": "ds_pe_pipeline",
+  "unit": "array16",
+  "vectors": 840,
+  "cycles": 840,
+  "tiles": [
+    "random_dense_p1",
+    "minus32768_clip_p12_max",
+    "mixed_sign_clip_p12",
+    "positions_ba98_clip1",
+    "valid_bubbles_holes",
+    "minus32768_clip_off_p12",
+    "post_flush_preserves",
+    "post_clear_zeros",
+    "post_reset_zeros"
+  ],
+  "dumps": 9,
+  "drain_constants": {
+    "1": [
+      4,
+      19
+    ],
+    "2": [
+      5,
+      20
+    ],
+    "3": [
+      6,
+      21
+    ],
+    "4": [
+      7,
+      22
+    ],
+    "5": [
+      6,
+      21
+    ]
+  },
+  "drain_done_checks": [
+    {
+      "tile": "random_dense_p1",
+      "array": 1,
+      "last_input": 54,
+      "expected_done_cycle": 73,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "random_dense_p1",
+      "array": 2,
+      "last_input": 54,
+      "expected_done_cycle": 74,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "random_dense_p1",
+      "array": 3,
+      "last_input": 54,
+      "expected_done_cycle": 75,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "random_dense_p1",
+      "array": 4,
+      "last_input": 54,
+      "expected_done_cycle": 76,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "random_dense_p1",
+      "array": 5,
+      "last_input": 54,
+      "expected_done_cycle": 75,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "minus32768_clip_p12_max",
+      "array": 1,
+      "last_input": 139,
+      "expected_done_cycle": 158,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "minus32768_clip_p12_max",
+      "array": 2,
+      "last_input": 139,
+      "expected_done_cycle": 159,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "minus32768_clip_p12_max",
+      "array": 3,
+      "last_input": 139,
+      "expected_done_cycle": 160,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "minus32768_clip_p12_max",
+      "array": 4,
+      "last_input": 139,
+      "expected_done_cycle": 161,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "minus32768_clip_p12_max",
+      "array": 5,
+      "last_input": 139,
+      "expected_done_cycle": 160,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "mixed_sign_clip_p12",
+      "array": 1,
+      "last_input": 224,
+      "expected_done_cycle": 243,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "mixed_sign_clip_p12",
+      "array": 2,
+      "last_input": 224,
+      "expected_done_cycle": 244,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "mixed_sign_clip_p12",
+      "array": 3,
+      "last_input": 224,
+      "expected_done_cycle": 245,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "mixed_sign_clip_p12",
+      "array": 4,
+      "last_input": 224,
+      "expected_done_cycle": 246,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "mixed_sign_clip_p12",
+      "array": 5,
+      "last_input": 224,
+      "expected_done_cycle": 245,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "positions_ba98_clip1",
+      "array": 1,
+      "last_input": 309,
+      "expected_done_cycle": 328,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "positions_ba98_clip1",
+      "array": 2,
+      "last_input": 309,
+      "expected_done_cycle": 329,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "positions_ba98_clip1",
+      "array": 3,
+      "last_input": 309,
+      "expected_done_cycle": 330,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "positions_ba98_clip1",
+      "array": 4,
+      "last_input": 309,
+      "expected_done_cycle": 331,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "positions_ba98_clip1",
+      "array": 5,
+      "last_input": 309,
+      "expected_done_cycle": 330,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "valid_bubbles_holes",
+      "array": 1,
+      "last_input": 394,
+      "expected_done_cycle": 413,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "valid_bubbles_holes",
+      "array": 2,
+      "last_input": 394,
+      "expected_done_cycle": 414,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "valid_bubbles_holes",
+      "array": 3,
+      "last_input": 394,
+      "expected_done_cycle": 415,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "valid_bubbles_holes",
+      "array": 4,
+      "last_input": 394,
+      "expected_done_cycle": 416,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "valid_bubbles_holes",
+      "array": 5,
+      "last_input": 394,
+      "expected_done_cycle": 415,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "minus32768_clip_off_p12",
+      "array": 1,
+      "last_input": 479,
+      "expected_done_cycle": 498,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "minus32768_clip_off_p12",
+      "array": 2,
+      "last_input": 479,
+      "expected_done_cycle": 499,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "minus32768_clip_off_p12",
+      "array": 3,
+      "last_input": 479,
+      "expected_done_cycle": 500,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "minus32768_clip_off_p12",
+      "array": 4,
+      "last_input": 479,
+      "expected_done_cycle": 501,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "minus32768_clip_off_p12",
+      "array": 5,
+      "last_input": 479,
+      "expected_done_cycle": 500,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_flush_preserves",
+      "array": 1,
+      "last_input": 564,
+      "expected_done_cycle": 583,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_flush_preserves",
+      "array": 2,
+      "last_input": 564,
+      "expected_done_cycle": 584,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_flush_preserves",
+      "array": 3,
+      "last_input": 564,
+      "expected_done_cycle": 585,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_flush_preserves",
+      "array": 4,
+      "last_input": 564,
+      "expected_done_cycle": 586,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_flush_preserves",
+      "array": 5,
+      "last_input": 564,
+      "expected_done_cycle": 585,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_clear_zeros",
+      "array": 1,
+      "last_input": 674,
+      "expected_done_cycle": 693,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_clear_zeros",
+      "array": 2,
+      "last_input": 674,
+      "expected_done_cycle": 694,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_clear_zeros",
+      "array": 3,
+      "last_input": 674,
+      "expected_done_cycle": 695,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_clear_zeros",
+      "array": 4,
+      "last_input": 674,
+      "expected_done_cycle": 696,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_clear_zeros",
+      "array": 5,
+      "last_input": 674,
+      "expected_done_cycle": 695,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_reset_zeros",
+      "array": 1,
+      "last_input": 784,
+      "expected_done_cycle": 803,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_reset_zeros",
+      "array": 2,
+      "last_input": 784,
+      "expected_done_cycle": 804,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_reset_zeros",
+      "array": 3,
+      "last_input": 784,
+      "expected_done_cycle": 805,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_reset_zeros",
+      "array": 4,
+      "last_input": 784,
+      "expected_done_cycle": 806,
+      "before": 0,
+      "at": 1
+    },
+    {
+      "tile": "post_reset_zeros",
+      "array": 5,
+      "last_input": 784,
+      "expected_done_cycle": 805,
+      "before": 0,
+      "at": 1
+    }
+  ],
+  "failures": [],
+  "pass": true,
+  "stdout": [
+    "ARRAY_DRAIN s3=19 s4=20 s5=21 s6=22 csa=21",
+    "ARRAY_CFG_DONE cycles=840",
+    "bench/tb_array_cfg_compare.sv:171: $finish called at 8426000 (1ps)"
+  ]
+}

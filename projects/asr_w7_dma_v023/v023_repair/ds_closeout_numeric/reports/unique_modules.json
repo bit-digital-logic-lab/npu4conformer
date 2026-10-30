@@ -1,0 +1,17 @@
+{
+  "filelist": "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_closeout_numeric/filelist_closeout_numeric.f",
+  "files": 38,
+  "modules": 38,
+  "duplicates": {},
+  "forbidden_stub_present": false,
+  "required_present_once": {
+    "asr_fma_ip": true,
+    "fp32_fma_pipe": true,
+    "approx_div_sqrt": true,
+    "ddr_layout_engine": true,
+    "ddr_vector_engine_pipe": true,
+    "task_queue": true
+  },
+  "missing": [],
+  "pass": true
+}

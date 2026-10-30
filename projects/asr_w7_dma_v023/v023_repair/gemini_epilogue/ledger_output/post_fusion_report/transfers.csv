@@ -1,0 +1,2 @@
+﻿type,id,resource,start,end,tensor,version,format,src,dst,op,phase,reason,logical_offset,logical_bytes,valid_bytes,bus_bytes
+transfer,t0_fused_a16_wr,axi_w,16,144,A16_out,v1,A16,Epilogue_Engine,DDR,epilogue_fused,writeback,fused_output_stream,0,2048,2048,2048

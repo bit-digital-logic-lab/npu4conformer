@@ -1,0 +1,31 @@
+{
+  "note": "单端口 AXI128 BFM；64beat 写，8 种部分 WSTRB 循环，每 8beat 共 53 字节。V019/V020 的 write_bytes 都必须按 popcount 累计。",
+  "nbeats": 64,
+  "bytes_per_8beats": 53,
+  "expected_bytes": 424,
+  "results": [
+    {
+      "dut": "base",
+      "expected_bytes": 424,
+      "write_bytes": 424,
+      "dma_error": 0,
+      "cycles": 9,
+      "dma_write_beats": 4,
+      "bfm_write_beats": 64,
+      "pass_": true,
+      "log": "/home/yang/Desktop/项目/tasks/ds_ddr/bench/logs/strobe/base.run.log"
+    },
+    {
+      "dut": "cand",
+      "expected_bytes": 424,
+      "write_bytes": 424,
+      "dma_error": 0,
+      "cycles": 9,
+      "dma_write_beats": 4,
+      "bfm_write_beats": 64,
+      "pass_": true,
+      "log": "/home/yang/Desktop/项目/tasks/ds_ddr/bench/logs/strobe/cand.run.log"
+    }
+  ],
+  "pass_": true
+}

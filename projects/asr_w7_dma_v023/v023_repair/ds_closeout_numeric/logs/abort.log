@@ -1,0 +1,14 @@
+HOST plan1-abort plan_base=10008000
+HOST plan1-abort START cycle=31
+HOST abort asserted cycle=2500 vector_busy=1
+HOST abort-drain done=1 abort_done=1 fault=0 err=00 cycle=2556 done_cycle=2548
+HOST abort-quiescent aw=0 b=0 done_cycle=2548 last_b=2400
+HOST plan2-new-epoch plan_base=10010000
+HOST plan2-new-epoch START cycle=2603
+HOST plan2 done=1 abort_done=0 fault=0 err=00 cycle=3813 done_cycle=3805
+CLOSEOUT_STATUS busy=0 done=1 fault=0 aborted=0 err=00 cycles=1201 completed=1 last=0
+CLOSEOUT_VEC vcyc=1141 lcyc=0 vrb=8704 vwb=1536
+CLOSEOUT_AXI rburst=42 wburst=6 rbeats=608 wbeats=96 rdpeak=1 wrpeak=1 rdstall=11 wrstall=39 tag_err=0 bfm_rbeats=608 bfm_wbeats=96
+CLOSEOUT_BOUNDARY done_cycle=3805 last_b_cycle=3797 b_count_at_done=0 b_after_done=0 aw_after_done=0
+CLOSEOUT_RESULT PASS
+tb/tb_closeout_numeric.sv:319: $finish called at 30540000 (1ps)

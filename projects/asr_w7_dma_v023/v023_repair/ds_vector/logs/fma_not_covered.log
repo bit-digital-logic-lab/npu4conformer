@@ -1,0 +1,3 @@
+WARNING: /home/yang/Desktop/项目/v023_repair/ds_vector/tb/tb_vector_generic.sv:73: $readmemh(/tmp/opencode/ds_vector/fixtures/fma_not_covered/descriptor.hex): Too many words in the file for the requested range [0:15].
+FATAL: /home/yang/Desktop/项目/v023_repair/ds_vector/baseline/tb/fma_forbidden_stub.sv:7: FMA not covered by forbidden-stub tests
+       Time: 276000  Scope: tb_vector_generic.dut.fused

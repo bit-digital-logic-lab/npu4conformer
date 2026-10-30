@@ -1,0 +1,5 @@
+V022_PHASE1_GATEWAY_STARTED
+USR_ACCESS=A51A2201
+ELF_SHA256=36f784ec8c06f821cb2a6623461bb43bb0b4781ff9a22d5cba0fdbba7751de7d
+CORE_HZ=125000000
+Humanreleasedboard; ownsignedoffbit; noPSreset/DDRinit/mediawrites.

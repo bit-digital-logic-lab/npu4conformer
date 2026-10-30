@@ -1,0 +1,2 @@
+V022_PLAN_CLUSTER_PASS mode=         11 cycles=                  32 completed=         0 error=05 matrix_calls=          0
+/home/yang/Desktop/项目/work/tests/tb_plan_cluster.sv:283: $finish called at 320000 (1ps)

@@ -1,0 +1,14 @@
+CFG 32 32 32
+BLOCK_DONE m=32 n=32 k=32 fault=0 err=00 c_hash=fefd48c480f5f324
+tests/tb_block_integration.sv:170: $finish called at 23416000 (1ps)
+BLOCK_DONE m=32 n=32 k=32 fault=0 err=00 c_hash=fefd48c480f5f324
+tests/tb_block_integration.sv:170: $finish called at 23616000 (1ps)
+BLOCK m=32 n=32 k=32 done=1 fault=0 err=00 result_count=1 read=3 write=1 hit=0 miss=1 st_err=0 c_hash=fefd48c480f5f324
+BLOCK m=32 n=32 k=32 done=1 fault=0 err=00 result_count=1 read=3 write=1 hit=0 miss=1 st_err=0 c_hash=fefd48c480f5f324
+CFG 64 32 64
+BLOCK_DONE m=64 n=32 k=64 fault=0 err=00 c_hash=ee7e0905446bd2e8
+tests/tb_block_integration.sv:170: $finish called at 70696000 (1ps)
+BLOCK_DONE m=64 n=32 k=64 fault=0 err=00 c_hash=ee7e0905446bd2e8
+tests/tb_block_integration.sv:170: $finish called at 71352000 (1ps)
+BLOCK m=64 n=32 k=64 done=1 fault=0 err=00 result_count=2 read=10 write=2 hit=2 miss=2 st_err=0 c_hash=ee7e0905446bd2e8
+BLOCK m=64 n=32 k=64 done=1 fault=0 err=00 result_count=2 read=10 write=2 hit=2 miss=2 st_err=0 c_hash=ee7e0905446bd2e8

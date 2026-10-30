@@ -1,0 +1,24 @@
+{
+  "verdict": "blocked",
+  "duplicate_modules": {
+    "ddr_layout_engine": [
+      "lay_step",
+      "lay_burst"
+    ]
+  },
+  "blockers": [
+    "duplicate module definitions in candidate union: ddr_layout_engine:['lay_step', 'lay_burst']",
+    "wc_graph_top cannot carry plan_v023 child_abort/child_drained",
+    "vec_engine_pipe has no abort/aborted/drained contract",
+    "vec_axi_pipe has no abort/aborted/drained contract",
+    "lay_burst has no abort/aborted/drained contract",
+    "mx_cluster has no abort/aborted/drained contract",
+    "mx_dma has no abort/aborted/drained contract",
+    "matrix DMA (axi_dma_v020_multi_v2) has no abort/drained; matrix cluster cannot satisfy plan_v023 child contract"
+  ],
+  "warnings": [
+    "matrix engine still instantiates the combinational block_address_v020; control block_address_v023 is not integrated",
+    "vector candidate wrapper still uses single-outstanding axi_dma_v019; multi-outstanding v023 DMA is not wired",
+    "graph fetch uses single-outstanding axi_dma_v019"
+  ]
+}

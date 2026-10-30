@@ -1,0 +1,310 @@
+%Warning-PINCONNECTEMPTY: candidate/rtl/block_engine_prefetch_v1.sv:142:74: Instance pin connected by name with empty reference: 'a_ready'
+  142 |  c_cache_banked4 cache(.clk(clk),.rst_n(!reset),.a_valid(cache_a_valid),.a_ready(),.a_group(cache_a_group),
+      |                                                                          ^~~~~~~
+                          ... For warning description see https://verilator.org/warn/PINCONNECTEMPTY?v=5.047
+                          ... Use "/* verilator lint_off PINCONNECTEMPTY */" and lint_on around source to disable this message.
+%Warning-PINCONNECTEMPTY: candidate/rtl/block_engine_prefetch_v1.sv:143:61: Instance pin connected by name with empty reference: 'a_response_valid'
+  143 |   .a_write_mask(cache_a_mask),.a_write_data(cache_a_wdata),.a_response_valid(),.a_response_ready(1'b1),
+      |                                                             ^~~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: candidate/rtl/block_engine_prefetch_v1.sv:144:47: Instance pin connected by name with empty reference: 'b_ready'
+  144 |   .a_read_data(cache_a_rdata),.b_valid(1'b0),.b_ready(),.b_word(11'd0),.b_response_valid(),
+      |                                               ^~~~~~~
+%Warning-PINCONNECTEMPTY: candidate/rtl/block_engine_prefetch_v1.sv:144:73: Instance pin connected by name with empty reference: 'b_response_valid'
+  144 |   .a_read_data(cache_a_rdata),.b_valid(1'b0),.b_ready(),.b_word(11'd0),.b_response_valid(),
+      |                                                                         ^~~~~~~~~~~~~~~~
+%Warning-PINCONNECTEMPTY: candidate/rtl/block_engine_prefetch_v1.sv:145:28: Instance pin connected by name with empty reference: 'b_read_data'
+  145 |   .b_response_ready(1'b1),.b_read_data());
+      |                            ^~~~~~~~~~~
+%Warning-WIDTHEXPAND: candidate/rtl/block_address_v020.sv:16:35: Operator ADD expects 40 bits on the RHS, but RHS's VARREF 'block_col' generates 16 bits.
+                                                               : ... note: In instance 'block_engine_prefetch_v1.mbn'
+   16 |  wire [39:0] offset=(block_row*ncb+block_col)*block_bytes;
+      |                                   ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.047
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: candidate/rtl/block_address_v020.sv:22:55: Operator LT expects 32 bits on the LHS, but LHS's VARREF 'block_row' generates 16 bits.
+                                                               : ... note: In instance 'block_engine_prefetch_v1.mbn'
+   22 |  assign valid=rows!=0&&cols!=0&&encoding!=3&&block_row<nrb&&block_col<ncb&&full[40:32]==0;
+      |                                                       ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_address_v020.sv:22:70: Operator LT expects 32 bits on the LHS, but LHS's VARREF 'block_col' generates 16 bits.
+                                                               : ... note: In instance 'block_engine_prefetch_v1.mbn'
+   22 |  assign valid=rows!=0&&cols!=0&&encoding!=3&&block_row<nrb&&block_col<ncb&&full[40:32]==0;
+      |                                                                      ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:126:40: Operator ADD expects 10 bits on the RHS, but RHS's SEL generates 4 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  126 |  wire [9:0] seg_idx=(quadrant[1]*10'd16+collect[7:4])*10'd32+quadrant[0]*10'd16;
+      |                                        ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:155:29: Operator ADD expects 32 or 10 bits on the RHS, but RHS's SEL generates 4 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  155 |   collect_ci=(quadrant[1]*16+collect[7:4])*32+quadrant[0]*16+collect[3:0];
+      |                             ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:155:61: Operator ADD expects 32 or 10 bits on the RHS, but RHS's SEL generates 4 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  155 |   collect_ci=(quadrant[1]*16+collect[7:4])*32+quadrant[0]*16+collect[3:0];
+      |                                                             ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:159:38: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'collect' generates 8 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  159 |    c_add=c_old+$signed({sums[(collect+lane)*48+47],sums[(collect+lane)*48+:48]});
+      |                                      ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:159:65: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'collect' generates 8 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  159 |    c_add=c_old+$signed({sums[(collect+lane)*48+47],sums[(collect+lane)*48+:48]});
+      |                                                                 ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_engine_prefetch_v1.sv:173:33: Operator ASSIGN expects 9 bits on the Assign RHS, but Assign RHS's ADD generates 32 or 10 bits.
+                                                                     : ... note: In instance 'block_engine_prefetch_v1'
+  173 |    cache_a_valid=1;cache_a_group=slot[0]*256+(collect_ci>>2);
+      |                                 ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.047
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: candidate/rtl/block_engine_prefetch_v1.sv:175:33: Operator ASSIGN expects 9 bits on the Assign RHS, but Assign RHS's ADD generates 32 or 10 bits.
+                                                                     : ... note: In instance 'block_engine_prefetch_v1'
+  175 |    cache_a_valid=1;cache_a_group=slot[0]*256+(collect_ci>>2);
+      |                                 ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:188:30: Operator SUB expects 32 bits on the LHS, but LHS's VARREF 'run_cycle' generates 7 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  188 |      a_k[rr_i*5+:5]=run_cycle-rr_i;
+      |                              ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_engine_prefetch_v1.sv:188:20: Operator ASSIGN expects 5 bits on the Assign RHS, but Assign RHS's SUB generates 32 bits.
+                                                                     : ... note: In instance 'block_engine_prefetch_v1'
+  188 |      a_k[rr_i*5+:5]=run_cycle-rr_i;
+      |                    ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:189:46: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'run_cycle' generates 7 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  189 |      if((br*32+quadrant[1]*16+rr_i)<m&&(bk*32+run_cycle-rr_i)<k)
+      |                                              ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:187:17: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'run_cycle' generates 7 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  187 |     if(run_cycle>=rr_i&&(run_cycle-rr_i)<32)begin
+      |                 ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:187:35: Operator SUB expects 32 bits on the LHS, but LHS's VARREF 'run_cycle' generates 7 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  187 |     if(run_cycle>=rr_i&&(run_cycle-rr_i)<32)begin
+      |                                   ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:193:30: Operator SUB expects 32 bits on the LHS, but LHS's VARREF 'run_cycle' generates 7 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  193 |      w_k[rr_i*5+:5]=run_cycle-rr_i;
+      |                              ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_engine_prefetch_v1.sv:193:20: Operator ASSIGN expects 5 bits on the Assign RHS, but Assign RHS's SUB generates 32 bits.
+                                                                     : ... note: In instance 'block_engine_prefetch_v1'
+  193 |      w_k[rr_i*5+:5]=run_cycle-rr_i;
+      |                    ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:194:46: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'run_cycle' generates 7 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  194 |      if((bc*32+quadrant[0]*16+rr_i)<n&&(bk*32+run_cycle-rr_i)<k)
+      |                                              ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:192:17: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'run_cycle' generates 7 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  192 |     if(run_cycle>=rr_i&&(run_cycle-rr_i)<32)begin
+      |                 ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:192:35: Operator SUB expects 32 bits on the LHS, but LHS's VARREF 'run_cycle' generates 7 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  192 |     if(run_cycle>=rr_i&&(run_cycle-rr_i)<32)begin
+      |                                   ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:264:43: Operator GT expects 32 bits on the LHS, but LHS's VARREF 'cfg_m' generates 16 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  264 |     if(cfg_m==0||cfg_n==0||cfg_k==0||cfg_m>MAX_DIM||cfg_n>MAX_DIM||cfg_k>MAX_DIM||MAX_DIM<1||MAX_DIM>4096||
+      |                                           ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:264:58: Operator GT expects 32 bits on the LHS, but LHS's VARREF 'cfg_n' generates 16 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  264 |     if(cfg_m==0||cfg_n==0||cfg_k==0||cfg_m>MAX_DIM||cfg_n>MAX_DIM||cfg_k>MAX_DIM||MAX_DIM<1||MAX_DIM>4096||
+      |                                                          ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:264:73: Operator GT expects 32 bits on the LHS, but LHS's VARREF 'cfg_k' generates 16 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  264 |     if(cfg_m==0||cfg_n==0||cfg_k==0||cfg_m>MAX_DIM||cfg_n>MAX_DIM||cfg_k>MAX_DIM||MAX_DIM<1||MAX_DIM>4096||
+      |                                                                         ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:293:11: Operator ASSIGNDLY expects 32 bits on the Assign RHS, but Assign RHS's VARREF 'rr' generates 1 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  293 |       slot<=rr;install_tag(rr);rr<=rr^1'b1;cache_misses<=cache_misses+1;
+      |           ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:293:16: Operator TASKREF 'install_tag' expects 32 bits on the Function Argument, but Function Argument's VARREF 'rr' generates 1 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  293 |       slot<=rr;install_tag(rr);rr<=rr^1'b1;cache_misses<=cache_misses+1;
+      |                ^~~~~~~~~~~
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:284:28: Operator LTE expects 40 bits on the RHS, but RHS's VARREF 'bbase' generates 32 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  284 |        !(({8'd0,abase}+aext<=bbase)||({8'd0,bbase}+bext<=abase))||
+      |                            ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:284:56: Operator LTE expects 40 bits on the RHS, but RHS's VARREF 'abase' generates 32 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  284 |        !(({8'd0,abase}+aext<=bbase)||({8'd0,bbase}+bext<=abase))||
+      |                                                        ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:285:28: Operator LTE expects 40 bits on the RHS, but RHS's VARREF 'cbase' generates 32 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  285 |        !(({8'd0,abase}+aext<=cbase)||({8'd0,cbase}+cext<=abase))||
+      |                            ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:285:56: Operator LTE expects 40 bits on the RHS, but RHS's VARREF 'abase' generates 32 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  285 |        !(({8'd0,abase}+aext<=cbase)||({8'd0,cbase}+cext<=abase))||
+      |                                                        ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:286:28: Operator LTE expects 40 bits on the RHS, but RHS's VARREF 'cbase' generates 32 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  286 |        !(({8'd0,bbase}+bext<=cbase)||({8'd0,cbase}+cext<=bbase)))fail(1);
+      |                            ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:286:56: Operator LTE expects 40 bits on the RHS, but RHS's VARREF 'bbase' generates 32 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  286 |        !(({8'd0,bbase}+bext<=cbase)||({8'd0,cbase}+cext<=bbase)))fail(1);
+      |                                                        ^~
+%Warning-WIDTHTRUNC: candidate/rtl/block_engine_prefetch_v1.sv:348:37: Operator ASSIGNDLY expects 5 bits on the Assign RHS, but Assign RHS's SUB generates 32 or 6 bits.
+                                                                     : ... note: In instance 'block_engine_prefetch_v1'
+  348 |        ld_buf<=ld_comb>>192;ld_bytes<=ld_total-24;ld_groups<=ld_groups+1;
+      |                                     ^~
+%Warning-WIDTHTRUNC: candidate/rtl/block_engine_prefetch_v1.sv:350:32: Operator ASSIGNDLY expects 5 bits on the Assign RHS, but Assign RHS's VARREF 'ld_total' generates 6 bits.
+                                                                     : ... note: In instance 'block_engine_prefetch_v1'
+  350 |        ld_buf<=ld_comb;ld_bytes<=ld_total;
+      |                                ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:340:19: Operator NEQ expects 16 bits on the RHS, but RHS's VARREF 'ld_beat' generates 9 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  340 |      if(c_ld_index!=ld_beat)begin
+      |                   ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_engine_prefetch_v1.sv:360:20: Operator COND expects 32 or 6 bits on the Conditional False, but Conditional False's VARREF 'ld_bytes' generates 5 bits.
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  360 |         (c_ld_valid?(ld_total>=24?(ld_total-24):ld_total):ld_bytes)!=0)fail(5);
+      |                    ^
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:50:39: Signal is not used: 'c_hdr_inop'
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   50 |  input wire c_hdr_exists,c_hdr_bvalid,c_hdr_inop,c_hdr_error,input wire [7:0] c_hdr_code,
+      |                                       ^~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:50:79: Signal is not used: 'c_hdr_code'
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   50 |  input wire c_hdr_exists,c_hdr_bvalid,c_hdr_inop,c_hdr_error,input wire [7:0] c_hdr_code,
+      |                                                                               ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:51:20: Bits of signal are not used: 'c_hdr_epoch'[63:32]
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   51 |  input wire [63:0] c_hdr_epoch,
+      |                    ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:52:20: Bits of signal are not used: 'c_hdr_layer'[31:16]
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   52 |  input wire [31:0] c_hdr_layer,c_hdr_matrix,c_hdr_row,c_hdr_col,c_hdr_allowed,c_hdr_completed,
+      |                    ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:52:32: Bits of signal are not used: 'c_hdr_matrix'[31:16]
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   52 |  input wire [31:0] c_hdr_layer,c_hdr_matrix,c_hdr_row,c_hdr_col,c_hdr_allowed,c_hdr_completed,
+      |                                ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:52:45: Bits of signal are not used: 'c_hdr_row'[31:16]
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   52 |  input wire [31:0] c_hdr_layer,c_hdr_matrix,c_hdr_row,c_hdr_col,c_hdr_allowed,c_hdr_completed,
+      |                                             ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:52:55: Bits of signal are not used: 'c_hdr_col'[31:16]
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   52 |  input wire [31:0] c_hdr_layer,c_hdr_matrix,c_hdr_row,c_hdr_col,c_hdr_allowed,c_hdr_completed,
+      |                                                       ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:52:65: Bits of signal are not used: 'c_hdr_allowed'[31:16]
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   52 |  input wire [31:0] c_hdr_layer,c_hdr_matrix,c_hdr_row,c_hdr_col,c_hdr_allowed,c_hdr_completed,
+      |                                                                 ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:52:79: Bits of signal are not used: 'c_hdr_completed'[31:16]
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   52 |  input wire [31:0] c_hdr_layer,c_hdr_matrix,c_hdr_row,c_hdr_col,c_hdr_allowed,c_hdr_completed,
+      |                                                                               ^~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:53:19: Bits of signal are not used: 'c_hdr_encoding'[3:2]
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   53 |  input wire [3:0] c_hdr_encoding,
+      |                   ^~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:55:42: Signal is not used: 'c_ld_last'
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   55 |  input wire [15:0] c_ld_index,input wire c_ld_last,
+      |                                          ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:62:19: Signal is not used: 'cwr_pending'
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   62 |  input wire [7:0] cwr_pending,input wire cwr_idle,cwr_done,cwr_error,input wire [7:0] cwr_code,
+      |                   ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:62:51: Signal is not used: 'cwr_done'
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   62 |  input wire [7:0] cwr_pending,input wire cwr_idle,cwr_done,cwr_error,input wire [7:0] cwr_code,
+      |                                                   ^~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:83:13: Signal is not used: 'c_completed'
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   83 |  reg [15:0] c_completed;
+      |             ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:90:13: Bits of signal are not used: 'slot'[31:1]
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   90 |  reg [31:0] slot;
+      |             ^~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:91:13: Signal is not driven, nor used: 'caddr_cur'
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+   91 |  reg [31:0] caddr_cur;
+      |             ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:112:13: Signal is not driven, nor used: 'tmp64'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  112 |  reg [63:0] tmp64;
+      |             ^~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:116:14: Signal is not used: 'arm'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  116 |  wire [15:0] arm,acm,brm,bcm,crm,ccm,anrm,ancm,bnrm,bncm;
+      |              ^~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:116:18: Signal is not used: 'acm'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  116 |  wire [15:0] arm,acm,brm,bcm,crm,ccm,anrm,ancm,bnrm,bncm;
+      |                  ^~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:116:22: Signal is not used: 'brm'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  116 |  wire [15:0] arm,acm,brm,bcm,crm,ccm,anrm,ancm,bnrm,bncm;
+      |                      ^~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:116:26: Signal is not used: 'bcm'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  116 |  wire [15:0] arm,acm,brm,bcm,crm,ccm,anrm,ancm,bnrm,bncm;
+      |                          ^~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:116:30: Signal is not used: 'crm'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  116 |  wire [15:0] arm,acm,brm,bcm,crm,ccm,anrm,ancm,bnrm,bncm;
+      |                              ^~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:116:34: Signal is not used: 'ccm'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  116 |  wire [15:0] arm,acm,brm,bcm,crm,ccm,anrm,ancm,bnrm,bncm;
+      |                                  ^~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:116:38: Signal is not used: 'anrm'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  116 |  wire [15:0] arm,acm,brm,bcm,crm,ccm,anrm,ancm,bnrm,bncm;
+      |                                      ^~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:116:43: Signal is not used: 'ancm'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  116 |  wire [15:0] arm,acm,brm,bcm,crm,ccm,anrm,ancm,bnrm,bncm;
+      |                                           ^~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:116:48: Signal is not used: 'bnrm'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  116 |  wire [15:0] arm,acm,brm,bcm,crm,ccm,anrm,ancm,bnrm,bncm;
+      |                                                ^~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:116:53: Signal is not used: 'bncm'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  116 |  wire [15:0] arm,acm,brm,bcm,crm,ccm,anrm,ancm,bnrm,bncm;
+      |                                                     ^~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:117:29: Signal is not used: 'anext'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  117 |  wire [39:0] aext,bext,cext,anext,bnext;
+      |                             ^~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:117:35: Signal is not used: 'bnext'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  117 |  wire [39:0] aext,bext,cext,anext,bnext;
+      |                                   ^~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:118:22: Signal is not used: 'anmap'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  118 |  wire amap,bmap,cmap,anmap,bnmap;
+      |                      ^~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:118:28: Signal is not used: 'bnmap'
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  118 |  wire amap,bmap,cmap,anmap,bnmap;
+      |                            ^~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:128:14: Bits of signal are not used: 'seg_addr64'[63:32]
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  128 |  wire [63:0] seg_addr64={32'd0,c_addr}+seg_off64;
+      |              ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:137:7: Signal is not used: 'cache_rd_cycle'
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  137 |  wire cache_rd_cycle=(state==CREAD);
+      |       ^~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:138:7: Signal is not used: 'cache_wr_cycle'
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  138 |  wire cache_wr_cycle=(state==COLLECT)&&commit;
+      |       ^~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:139:7: Signal is not used: 'final_stream'
+                                                                      : ... note: In instance 'block_engine_prefetch_v1'
+  139 |  wire final_stream=is_final_k&&(state==COLLECT);
+      |       ^~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_engine_prefetch_v1.sv:220:33: Bits of function variable are not used: 'sl'[31:1]
+                                                                       : ... note: In instance 'block_engine_prefetch_v1'
+  220 |  task install_tag(input integer sl);begin
+      |                                 ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)
+- Verilator: Built from 0.391 MB sources in 8 modules, into 5.009 MB in 9 C++ files needing 0.000 MB
+- Verilator: Walltime 1.070 s (elab=0.037, cvt=0.925, bld=0.000); cpu 1.069 s on 1 threads; allocated 83.016 MB

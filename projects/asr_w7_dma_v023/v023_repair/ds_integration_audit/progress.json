@@ -1,0 +1,97 @@
+{
+  "task": "ds_integration_audit",
+  "started": "2026-10-29",
+  "stages": [
+    {
+      "id": "S0",
+      "name": "read contract, acceptance report, worker updates, prompts",
+      "status": "done",
+      "evidence": [
+        "EXECUTION_CONTRACT.md",
+        "primary_acceptance/REPORT.md",
+        "*/USER_UPDATES.md"
+      ]
+    },
+    {
+      "id": "S1",
+      "name": "module/interface inventory and integration filelist",
+      "status": "done",
+      "evidence": [
+        "analysis/interface_audit.json",
+        "analysis/filelist_integrated.f"
+      ]
+    },
+    {
+      "id": "S2",
+      "name": "independent DMA multi-outstanding/tag/abort/drain/tail audit",
+      "status": "done",
+      "evidence": [
+        "logs/run_dma_v023_multi.log",
+        "logs/run_dma_v023_bounded.log",
+        "logs/run_dma_matrix_v2.log"
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "graph relocation/liveness/sealed-payload audit",
+      "status": "done",
+      "evidence": [
+        "analysis/graph_relocation_audit.json"
+      ]
+    },
+    {
+      "id": "S4",
+      "name": "bounded search for missing ONNX/executor dependencies",
+      "status": "done",
+      "evidence": [
+        "analysis/dependency_search.json"
+      ]
+    },
+    {
+      "id": "S5",
+      "name": "wait for vector/layout/matrix final deliverables; pin SHA and rerun",
+      "status": "done",
+      "evidence": [
+        "PINNED_SHA256.txt",
+        "logs/vector_regression_copy.log",
+        "logs/layout_run_all_copy_rc.log"
+      ]
+    },
+    {
+      "id": "S6",
+      "name": "real small-chain co-simulation with pinned SHAs (no stub arithmetic)",
+      "status": "done",
+      "evidence": [
+        "logs/run_graph_real_candidate.log",
+        "analysis/graph_chain_verify.json",
+        "logs/run_mx_cluster_k1.log"
+      ]
+    },
+    {
+      "id": "S7",
+      "name": "write REPORT/result/INTERFACE + smoke script + blockers",
+      "status": "done",
+      "evidence": [
+        "REPORT.md",
+        "result.json",
+        "INTERFACE.md",
+        "logs/EXIT_CODES.txt"
+      ]
+    }
+  ],
+  "notes": "Completed. Smoke pass for covered module-level tests; system verdict blocked by relocation/scratch alias, missing matrix queue adapter, missing child abort/drain, SEQ/direct engine conflict, no hung-child watchdog, and missing full-model dependencies.",
+  "deliverables": [
+    "REPORT.md",
+    "result.json",
+    "INTERFACE.md",
+    "PINNED_SHA256.txt",
+    "scripts/run_smoke.sh",
+    "analysis/interface_audit.json",
+    "analysis/graph_relocation_audit.json",
+    "analysis/dependency_search.json",
+    "analysis/graph_chain_verify.json",
+    "analysis/filelist_integrated.f",
+    "logs/smoke_results.csv"
+  ],
+  "last_updated": "2026-10-29T22:01:48"
+}

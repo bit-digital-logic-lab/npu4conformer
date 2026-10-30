@@ -1,0 +1,5 @@
+﻿type,resource,start,end,state,bytes,transfer_id,reason,evidence,wire_bytes
+interval,axi_w,0,16,idle_no_work,0,,pipeline_fill,sim,
+interval,axi_w,16,144,payload,2048,t0_fused_a16_wr,stream_a16_write,sim,2048
+interval,axi_w,144,600,idle_no_work,0,,done,sim,
+interval,axi_r,0,600,idle_no_work,0,,on_chip_epilogue_zero_read,sim,

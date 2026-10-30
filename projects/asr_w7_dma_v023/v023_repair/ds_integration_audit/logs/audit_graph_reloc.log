@@ -1,0 +1,20 @@
+{
+  "verdict": "blocked",
+  "pass": {
+    "allocator_zero_live_conflicts_independent": true,
+    "sealed_scratch_not_aliased": false,
+    "direct_seq_payload_is_re_lowered": false,
+    "new_addresses_aligned_64": true,
+    "new_addresses_in_declared_regions": true,
+    "relocation_map_is_explicit_about_no_relowering": true,
+    "seq_abort_contract_wired": false,
+    "overall_integration_ready": false
+  },
+  "blockers": [
+    "698 allocated tensors (16771840 B) alias the sealed V022 matrix queue scratch 0x03000000..0x04000000; direct SEQ execution would corrupt them",
+    "sealed V022 payload still contains 89118 old boundary/temp references and 98 move(s) to 0x03000000; 338 new-address references found. Direct execution under global_alloc addresses is not safe; re-lowering was not performed",
+    "wc_graph_top SEQ handshake has no abort/drained; plan_v023 child_abort/child_drained cannot be connected. Vector/layout engines and matrix cluster expose no abort/drained",
+    "WCPG treats SEQ/MAT/VEC/LAY as independent engines, but a V022 SEQ program drives the same matrix/vector/layout hardware. A mixed plan can dispatch MAT/VEC/LAY while SEQ is running; no arbiter/exclusive gate exists"
+  ]
+}
+wrote /home/yang/Desktop/项目/v023_repair/ds_integration_audit/analysis/graph_relocation_audit.json

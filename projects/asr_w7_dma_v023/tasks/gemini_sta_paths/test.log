@@ -1,0 +1,11 @@
+Successfully wrote 601 paths to /home/yang/Desktop/项目/tasks/gemini_sta_paths/PATHS.csv
+=== STA TIMING REPRODUCIBLE TEST SUITE ===
+[PASS] parse_sta_timing.py executed successfully.
+[PASS] PATHS.csv verified with exactly 601 paths.
+[PASS] Worst setup slack verified: 0.055 ns (Path ID 61).
+[PASS] Worst hold slack verified: 0.010 ns (Path ID 91).
+[PASS] Categories breakdown verified (carries=36, dsps=49, resets=222, ces=37, fmas=50).
+[PASS] Independent audit of pe_pipeline_cc_v023: confirmed Stage 2A couples barrel shift and sat subtraction.
+[PASS] Independent audit of pe_pipeline_csa_v023: confirmed CPA 'assign sum = $signed(sum_s + sum_c);' is unclocked and continuous.
+
+ALL TEST CHECKS PASSED SUCCESSFULLY (100% PASS RATE).

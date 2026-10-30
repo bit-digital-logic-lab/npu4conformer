@@ -1,0 +1,85 @@
+{
+  "model_summary": {
+    "total_useful_macs": 4560636416,
+    "total_padded_macs": 5384437760,
+    "padding_efficiency_percent": 84.7,
+    "equivalent_gflops": 9.12,
+    "closed_plans": {
+      "count": 68,
+      "conv_count": 38,
+      "ffn_count": 30,
+      "matrix_queues": 6230,
+      "matrix_descriptors": 6231,
+      "useful_macs": 3461011968,
+      "padded_macs": 3991404544,
+      "padding_efficiency_percent": 86.71,
+      "conv_macs": 1699404288,
+      "pointwise_conv_macs": 1693499904,
+      "depthwise_conv_macs": 5904384,
+      "ffn_macs": 1761607680,
+      "pl_instructions": 45055,
+      "vector_elements": 82953300,
+      "layout_elements": 16784752
+    },
+    "unfused_dag": {
+      "native_matrix_tasks": 591,
+      "useful_macs": 1099624448,
+      "padded_macs": 1393033216,
+      "padding_efficiency_percent": 78.94,
+      "compute_cycles": 11223168,
+      "queue_cycles": 95245736,
+      "dma_read_bytes": 130831424,
+      "dma_write_bytes": 17774592
+    }
+  },
+  "ddr_traffic_hierarchies": {
+    "regime_1_ideal_whole_graph": {
+      "description": "Compulsory input features, static weights (read once), final outputs. All intermediates on-chip.",
+      "total_ddr_bytes": 227617344,
+      "total_ddr_mb": 217.07,
+      "operational_intensity_mac_per_byte": 20.036
+    },
+    "regime_2_inter_layer_block_resident": {
+      "description": "Layer boundary activations transferred to DDR; layer-internal activations cached in PL SRAM/BRAM.",
+      "total_ddr_bytes": 248665664,
+      "total_ddr_mb": 237.15,
+      "operational_intensity_mac_per_byte": 18.34
+    },
+    "regime_3_per_operator_phase1": {
+      "description": "Measured Phase 1: operators read inputs from DDR and write outputs to DDR.",
+      "total_ddr_bytes": 1068787002,
+      "total_ddr_mb": 1019.27,
+      "operational_intensity_mac_per_byte": 4.267
+    },
+    "regime_4_naive_tile_per_k_slice": {
+      "description": "No reuse across M/N tiles; C partial sums evicted and re-read per K slice from DDR.",
+      "total_ddr_bytes": 1471544154,
+      "total_ddr_mb": 1403.37,
+      "operational_intensity_mac_per_byte": 3.099
+    }
+  },
+  "c_accumulation_and_padding": {
+    "depthwise_padding_elements_avoided": 6100992,
+    "c48_ddr_bytes_saved": 36605952,
+    "c48_ddr_mb_saved": 34.91,
+    "c_container_widths": {
+      "c48_raw_bytes_per_elem": 6,
+      "c32_truncated_bytes_per_elem": 4,
+      "c16_requantized_bytes_per_elem": 2
+    }
+  },
+  "measured_board_bottlenecks": {
+    "total_case0000_wall_seconds": 154.82378120000067,
+    "closed_pl_plans_seconds": 12.486580752,
+    "closed_pl_fraction_percent": 8.07,
+    "host_and_unfused_seconds": 142.33720044800066,
+    "host_and_unfused_fraction_percent": 91.93,
+    "matrix_pe_seconds_total": 0.34704384,
+    "matrix_queue_seconds_total": 3.03537044,
+    "matrix_queue_non_pe_residual_seconds": 2.6883266,
+    "matrix_queue_non_pe_fraction_percent": 88.57,
+    "vector_seconds": 6.815515072,
+    "layout_seconds": 3.353493344,
+    "plan_fetch_seconds": 0.042005384
+  }
+}

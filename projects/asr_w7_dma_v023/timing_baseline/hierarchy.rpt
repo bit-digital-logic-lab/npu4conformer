@@ -1,0 +1,60 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Tue Oct 13 19:33:59 2026
+| Host         : ZYF running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 3 -file D:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22/soc_full/build/full002/hierarchy.rpt
+| Design       : v10_full_top
+| Device       : xczu15eg-ffvb1156-2-i
+| Speed File   : -2
+| Design State : Routed
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------------+-----------------------------------------+------------+------------+---------+------+--------+--------+--------+------+------------+
+|           Instance          |                  Module                 | Total LUTs | Logic LUTs | LUTRAMs | SRLs |   FFs  | RAMB36 | RAMB18 | URAM | DSP Blocks |
++-----------------------------+-----------------------------------------+------------+------------+---------+------+--------+--------+--------+------+------------+
+| v10_full_top                |                                   (top) |     136676 |     133210 |    3096 |  370 | 101210 |    516 |     17 |   64 |        217 |
+|   (v10_full_top)            |                                   (top) |          0 |          0 |       0 |    0 |      0 |      0 |      0 |    0 |          0 |
+|   board                     |                      asr_eth_board_zu15 |       1946 |       1832 |     114 |    0 |   3034 |      3 |      2 |    0 |          0 |
+|     udp                     |                            udp_complete |       1404 |       1290 |     114 |    0 |   2286 |      1 |      0 |    0 |          0 |
+|       udp_inst              |                                     udp |        522 |        458 |      64 |    0 |    678 |      1 |      0 |    0 |          0 |
+|       ip_arb_mux_inst       |                              ip_arb_mux |         30 |         30 |       0 |    0 |    102 |      0 |      0 |    0 |          0 |
+|       ip_complete_inst      |                             ip_complete |        853 |        803 |      50 |    0 |   1504 |      0 |      0 |    0 |          0 |
+|     eth_rx                  |                             eth_axis_rx |         50 |         50 |       0 |    0 |    143 |      0 |      0 |    0 |          0 |
+|     eth_tx                  |                             eth_axis_tx |         63 |         63 |       0 |    0 |     81 |      0 |      0 |    0 |          0 |
+|     mac                     |                   eth_mac_1g_rgmii_fifo |        425 |        425 |       0 |    0 |    482 |      2 |      2 |    0 |          0 |
+|       eth_mac_1g_rgmii_inst |                        eth_mac_1g_rgmii |        209 |        209 |       0 |    0 |    212 |      0 |      0 |    0 |          0 |
+|       rx_fifo               | axis_async_fifo_adapter__parameterized0 |        108 |        108 |       0 |    0 |    135 |      1 |      1 |    0 |          0 |
+|       tx_fifo               |                 axis_async_fifo_adapter |        111 |        111 |       0 |    0 |    135 |      1 |      1 |    0 |          0 |
+|   bridge                    |                  asr_udp_command_bridge |       1084 |       1084 |       0 |    0 |    692 |      0 |      3 |    0 |          0 |
+|   engine                    |                       v9_command_router |      22710 |      22165 |     324 |  221 |  21985 |    496 |      1 |    0 |        112 |
+|     (engine)                |                       v9_command_router |        102 |        102 |       0 |    0 |    107 |      0 |      1 |    0 |          0 |
+|     legacy                  |             asr_command_engine_parallel |      22415 |      21870 |     324 |  221 |  21728 |    496 |      0 |    0 |        112 |
+|       (legacy)              |             asr_command_engine_parallel |       2437 |       2117 |     320 |    0 |   1252 |     32 |      0 |    0 |          3 |
+|       fused                 |                       asr_fma_ip_HD3377 |        588 |        575 |       0 |   13 |    834 |      0 |      0 |    0 |          4 |
+|       mac                   |                             asr_i16_mac |        839 |        839 |       0 |    0 |     98 |      0 |      0 |    0 |          0 |
+|       parallel_gemm         |                    interleaved_fma_gemm |      14119 |      13907 |       4 |  208 |  18534 |    464 |      0 |    0 |        103 |
+|       requant               |                             asr_requant |        513 |        513 |       0 |    0 |    229 |      0 |      0 |    0 |          0 |
+|       scalar                |                            asr_fp32_alu |       3927 |       3927 |       0 |    0 |    781 |      0 |      0 |    0 |          2 |
+|     lowbit                  |                    lowbit_cached_engine |        194 |        194 |       0 |    0 |    150 |      0 |      0 |    0 |          0 |
+|   ps_system                 |                      ps_gateway_wrapper |     110949 |     108142 |    2658 |  149 |  75499 |     17 |     11 |   64 |        105 |
+|     ps_gateway_i            |                              ps_gateway |     110917 |     108110 |    2658 |  149 |  75499 |     17 |     11 |   64 |        105 |
+|       resident              |                   ps_gateway_resident_0 |       1339 |       1339 |       0 |    0 |    636 |      0 |      0 |   64 |          0 |
+|       accelerator           |                ps_gateway_accelerator_0 |      81231 |      80463 |     768 |    0 |  48698 |      8 |      4 |    0 |         28 |
+|       control_connect       |            ps_gateway_control_connect_0 |       1004 |       1003 |       0 |    1 |   1147 |      0 |      0 |    0 |          0 |
+|       ddr_connect           |                ps_gateway_ddr_connect_0 |      10776 |       8751 |    1890 |  135 |  14429 |      0 |      0 |    0 |          0 |
+|       mailbox               |                    ps_gateway_mailbox_0 |        670 |        670 |       0 |    0 |    617 |      4 |      0 |    0 |          0 |
+|       plans                 |                      ps_gateway_plans_0 |      15909 |      15896 |       0 |   13 |   9972 |      5 |      7 |    0 |         77 |
++-----------------------------+-----------------------------------------+------------+------------+---------+------+--------+--------+--------+------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

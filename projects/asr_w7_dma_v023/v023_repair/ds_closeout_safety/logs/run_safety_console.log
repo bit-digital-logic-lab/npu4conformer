@@ -1,0 +1,44 @@
+== 0. fixtures (independent generator; no RTL output used) ==
+== 1. unique safety build (single-threaded) ==
+== 2. normal exact path + per-op counters ==
+safety_normal rc=0 seconds=76
+safety_multitask rc=0 seconds=106
+== 3. SEQ-exclusive ownership: patched vs delivered negative control ==
+mutex_lay_patched rc=0 seconds=1
+mutex_lay_baseline rc=0 seconds=1
+mutex_seq_patched rc=0 seconds=1
+mutex_seq_baseline rc=0 seconds=1
+mutex_healthy_patched rc=0 seconds=1
+== 4. real hung SEQ child ==
+mutex_hang_wait_patched rc=0 seconds=1
+mutex_hang_wait_baseline rc=0 seconds=1
+mutex_hang_run_patched rc=0 seconds=1
+mutex_hang_run_baseline rc=0 seconds=1
+== 5. bad queue / illegal operator ==
+bad_queue_magic rc=0 seconds=59
+bad_queue_backend rc=0 seconds=50
+bad_queue_pred rc=0 seconds=37
+bad_queue_overlap rc=0 seconds=60
+bad_mat_op rc=0 seconds=38
+bad_vec_op rc=0 seconds=66
+bad_lay_mode rc=0 seconds=1
+== 6. AXI permanent-response wait and drain boundary ==
+safety_hold_r_plan rc=0 seconds=9
+safety_hold_r_c rc=0 seconds=45
+safety_hold_b_c rc=0 seconds=44
+safety_hold_b_d0 rc=0 seconds=45
+safety_hold_r_c_delayed rc=0 seconds=37
+safety_restart rc=0 seconds=10
+== 7. AXI reset-reuse hazard proof ==
+axi_reset_hazard rc=0 seconds=0
+== 8. sealed same-load baseline (read-only RTL) ==
+baseline_chain_local rc=0 seconds=2
+== 9. evaluate ==
+{
+  "tests_total": 26,
+  "tests_passed": 26,
+  "tests_failed": 0,
+  "all_required_pass": true
+}
+== 10. SHA ==
+RUN_SAFETY_PASS (safety closeout only; full model is not accepted)

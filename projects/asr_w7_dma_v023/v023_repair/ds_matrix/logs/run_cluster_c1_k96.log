@@ -1,0 +1,7 @@
+INFO cluster done fault=0 code=00 cycles=8707 compute=1632 rdblk=14 wrblk=128 cgrp=1536 ccyc=5242 craw=0
+INFO dma rd_bursts=120 rd_bytes=30720 armax=8 fifohi=2 wr_bursts=130 wr_bytes=12288 bmax=2 bfm_rbeats=1920 bfm_wbeats=768 maxrd=8 maxwr=2
+PASS tb_p2_cluster_axi M=64 N=32 K=96 PIPE=4 cycles=8707 rv=2 wr_bytes=12288
+- /home/yang/Desktop/项目/v023_repair/ds_matrix/tests/tb_p2_cluster_axi.sv:186: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 87us; walltime 0.311 s; speed 280.388 us/s
+- Verilator: cpu 0.311 s on 1 threads; allocated 8 MB

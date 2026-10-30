@@ -1,0 +1,75 @@
+=== Compilation Log ===
+
+
+
+=== Simulation Log ===
+[5000] RD STATE CHANGED: 7 -> 0 (tile=0)
+[BFM] Starting TEST 1: Serial Mode (Before)...
+[165000] RD STATE CHANGED: 0 -> 1 (tile=0)
+[185000] RD STATE CHANGED: 1 -> 2 (tile=0)
+[905000] RD STATE CHANGED: 2 -> 3 (tile=0)
+[925000] RD STATE CHANGED: 3 -> 4 (tile=0)
+[1325000] RD STATE CHANGED: 4 -> 0 (tile=1)
+[1335000] CORE START: tile=0 page=0
+[2625000] CORE DONE:  tile=0 page=0 (rd_tile=1 state=2 wr_busy=0)
+[3315000] RD STATE CHANGED: 0 -> 1 (tile=1)
+[3335000] RD STATE CHANGED: 1 -> 2 (tile=1)
+[4055000] RD STATE CHANGED: 2 -> 3 (tile=1)
+[4075000] RD STATE CHANGED: 3 -> 4 (tile=1)
+[4475000] RD STATE CHANGED: 4 -> 0 (tile=2)
+[4485000] CORE START: tile=1 page=0
+[5775000] CORE DONE:  tile=1 page=0 (rd_tile=2 state=2 wr_busy=0)
+[6465000] RD STATE CHANGED: 0 -> 1 (tile=2)
+[6485000] RD STATE CHANGED: 1 -> 2 (tile=2)
+[7205000] RD STATE CHANGED: 2 -> 3 (tile=2)
+[7225000] RD STATE CHANGED: 3 -> 4 (tile=2)
+[7625000] RD STATE CHANGED: 4 -> 0 (tile=3)
+[7635000] CORE START: tile=2 page=0
+[8925000] CORE DONE:  tile=2 page=0 (rd_tile=3 state=2 wr_busy=0)
+[9615000] RD STATE CHANGED: 0 -> 1 (tile=3)
+[9635000] RD STATE CHANGED: 1 -> 2 (tile=3)
+[10355000] RD STATE CHANGED: 2 -> 3 (tile=3)
+[10375000] RD STATE CHANGED: 3 -> 4 (tile=3)
+[10775000] RD STATE CHANGED: 4 -> 0 (tile=4)
+[10785000] CORE START: tile=3 page=0
+[12075000] CORE DONE:  tile=3 page=0 (rd_tile=4 state=2 wr_busy=0)
+[BFM] Serial Mode Completed: 1261 cycles (DMA wait: 464 cycles)
+[BFM] Starting TEST 2: Overlapped Prefetch Mode (After)...
+[12985000] RD STATE CHANGED: 0 -> 1 (tile=0)
+[13005000] RD STATE CHANGED: 1 -> 2 (tile=0)
+[13725000] RD STATE CHANGED: 2 -> 3 (tile=0)
+[13745000] RD STATE CHANGED: 3 -> 4 (tile=0)
+[14145000] RD STATE CHANGED: 4 -> 0 (tile=1)
+[14155000] CORE START: tile=1 page=0
+[14165000] RD STATE CHANGED: 0 -> 1 (tile=1)
+[14185000] RD STATE CHANGED: 1 -> 2 (tile=1)
+[14905000] RD STATE CHANGED: 2 -> 3 (tile=1)
+[14925000] RD STATE CHANGED: 3 -> 4 (tile=1)
+[15325000] RD STATE CHANGED: 4 -> 0 (tile=2)
+[15445000] CORE DONE:  tile=1 page=0 (rd_tile=2 state=2 wr_busy=0)
+[15455000] CORE START: tile=2 page=1
+[15465000] RD STATE CHANGED: 0 -> 1 (tile=2)
+[15485000] RD STATE CHANGED: 1 -> 2 (tile=2)
+[16205000] RD STATE CHANGED: 2 -> 3 (tile=2)
+[16225000] RD STATE CHANGED: 3 -> 4 (tile=2)
+[16625000] RD STATE CHANGED: 4 -> 0 (tile=3)
+[16745000] CORE DONE:  tile=2 page=1 (rd_tile=3 state=2 wr_busy=0)
+[16755000] CORE START: tile=3 page=0
+[16765000] RD STATE CHANGED: 0 -> 1 (tile=3)
+[16785000] RD STATE CHANGED: 1 -> 2 (tile=3)
+[17505000] RD STATE CHANGED: 2 -> 3 (tile=3)
+[17525000] RD STATE CHANGED: 3 -> 4 (tile=3)
+[17925000] RD STATE CHANGED: 4 -> 0 (tile=4)
+[18045000] CORE DONE:  tile=3 page=0 (rd_tile=4 state=2 wr_busy=0)
+[18055000] CORE START: tile=4 page=1
+[19345000] CORE DONE:  tile=4 page=1 (rd_tile=4 state=2 wr_busy=0)
+[BFM] Overlapped Mode Completed: 706 cycles (DMA wait: 116 cycles)
+=================================================
+BFM PERFORMANCE COMPARISON (Same Workload & DDR):
+  Serial Cycles (Before)    : 1261 cycles
+  Overlapped Cycles (After) : 706 cycles
+  DMA Wait Reduction        : 464 -> 116 cycles (-75.0%)
+  Effective Speedup         : 1.79x
+=================================================
+[BFM-PASS] Numerical Golden Check: Output bit-exact! C[0] = 21
+

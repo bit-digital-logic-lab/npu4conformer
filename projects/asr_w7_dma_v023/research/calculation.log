@@ -1,0 +1,73 @@
+{
+  "scope": "68 closed plans only; not whole model; traffic is existing measured 68plan traffic, not mathematically minimum",
+  "useful_MAC": 3461011968,
+  "padded_MAC": 3991404544,
+  "traffic_bytes": 929293344,
+  "compute": [
+    {
+      "compute_MHz": 125,
+      "MACs_per_cycle": 256,
+      "useful_compute_lb_s": 0.108156624,
+      "padded_compute_lb_s": 0.124731392
+    },
+    {
+      "compute_MHz": 150,
+      "MACs_per_cycle": 256,
+      "useful_compute_lb_s": 0.09013052,
+      "padded_compute_lb_s": 0.10394282666666667
+    },
+    {
+      "compute_MHz": 300,
+      "MACs_per_cycle": 256,
+      "useful_compute_lb_s": 0.04506526,
+      "padded_compute_lb_s": 0.051971413333333334
+    },
+    {
+      "compute_MHz": 600,
+      "MACs_per_cycle": 256,
+      "useful_compute_lb_s": 0.02253263,
+      "padded_compute_lb_s": 0.025985706666666667
+    }
+  ],
+  "memory": [
+    {
+      "AXI_MHz": 125,
+      "bytes_per_cycle": 16,
+      "ideal_GB_s": 2.0,
+      "serialized_shared_data_scenario_s": 0.464646672
+    },
+    {
+      "AXI_MHz": 200,
+      "bytes_per_cycle": 16,
+      "ideal_GB_s": 3.2,
+      "serialized_shared_data_scenario_s": 0.29040417
+    },
+    {
+      "AXI_MHz": 250,
+      "bytes_per_cycle": 16,
+      "ideal_GB_s": 4.0,
+      "serialized_shared_data_scenario_s": 0.232323336
+    },
+    {
+      "AXI_MHz": 300,
+      "bytes_per_cycle": 16,
+      "ideal_GB_s": 4.8,
+      "serialized_shared_data_scenario_s": 0.19360278
+    },
+    {
+      "AXI_MHz": 333,
+      "bytes_per_cycle": 16,
+      "ideal_GB_s": 5.328,
+      "serialized_shared_data_scenario_s": 0.17441691891891892
+    }
+  ],
+  "DDR_config_800MHz_64bit_peak_GB_s": 12.8,
+  "notes": [
+    "DDR 800MHz clock implies1600MT/s only if active configured clock is honored; project config not board measurement",
+    "One HP128 interface limits effective bandwidth independently of physical DDR peak",
+    "Cannot sum arbitrary read/write port peaks or use600MHz atPS interface",
+    "DAG-dependent stages require segmented schedule, not blanket max(compute,memory)",
+    "Memory sum R+W / single bandwidth is an assumed shared serialized channel scenario; separate AXI R/W and DDR read-write arbitration must be modeled before calling it universal lower bound",
+    "Vector/layout, transfer overhead, host outside graph not included in MAC lower bound"
+  ]
+}

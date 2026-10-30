@@ -1,0 +1,16 @@
+{
+  "gold_words": 512,
+  "candidate_words": 512,
+  "baseline_words": 512,
+  "candidate_vs_gold_mismatches": 0,
+  "baseline_vs_gold_mismatches": 0,
+  "baseline_vs_candidate_mismatches": 0,
+  "candidate_pass": true,
+  "baseline_pass": true,
+  "integrated_log": "/home/yang/Desktop/\u9879\u76ee/v023_repair/integrated/logs/integrated_run.log",
+  "baseline_log": "/home/yang/Desktop/\u9879\u76ee/v023_repair/integrated/logs/baseline_chain.log",
+  "matrix_baseline_log": "/home/yang/Desktop/\u9879\u76ee/v023_repair/integrated/logs/base_mx_m32.log",
+  "integrated_cycles": 23819,
+  "baseline_matrix_cycles": 2921,
+  "candidate_matrix_cycles": 1880
+}

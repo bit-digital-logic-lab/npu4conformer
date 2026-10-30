@@ -1,0 +1,79 @@
+### run_badpar
+INFO done fault=1 code=09 cycles=203 compute=0 rdblk=2 wrblk=0 hits=0 miss=1 prehit=0 prewait=199 ov_rd=0 ov_wr=0 cgrp=0 ccyc=0 craw=0 pdrain=5 adrain=20
+PASS_FAULT code=09 cycles=203 done=1 cwr_pending=0
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=0 PIPE=4 cycles=203 compute=0 ov_rd=0 ov_wr=0 prehit=0 prewait=199 cgrp=0 ccyc=0 pdrain=5 adrain=20
+### run_base_bp
+PASS tb_engine_baseline cycles=34620 compute=1584
+### run_base_c1
+PASS tb_engine_baseline cycles=13132 compute=1584
+### run_base_fast
+PASS tb_engine_baseline cycles=11839 compute=1584
+### run_bp
+INFO done fault=0 code=00 cycles=26701 compute=1632 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=396 ov_rd=774 ov_wr=23730 cgrp=1536 ccyc=24453 craw=0 pdrain=5 adrain=20
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=0 PIPE=4 cycles=26701 compute=1632 ov_rd=774 ov_wr=23730 prehit=4 prewait=396 cgrp=1536 ccyc=24453 pdrain=5 adrain=20
+### run_cache_pipe
+PASS tb_cache_pipe
+### run_cluster_c1_k96
+INFO cluster done fault=0 code=00 cycles=8707 compute=1632 rdblk=14 wrblk=128 cgrp=1536 ccyc=5242 craw=0
+INFO dma rd_bursts=120 rd_bytes=30720 armax=8 fifohi=2 wr_bursts=130 wr_bytes=12288 bmax=2 bfm_rbeats=1920 bfm_wbeats=768 maxrd=8 maxwr=2
+PASS tb_p2_cluster_axi M=64 N=32 K=96 PIPE=4 cycles=8707 rv=2 wr_bytes=12288
+### run_cluster_k1
+INFO cluster done fault=0 code=00 cycles=2704 compute=272 rdblk=2 wrblk=64 cgrp=256 ccyc=2101 craw=0
+INFO dma rd_bursts=12 rd_bytes=3072 armax=8 fifohi=2 wr_bursts=65 wr_bytes=6144 bmax=2 bfm_rbeats=192 bfm_wbeats=384 maxrd=8 maxwr=2
+PASS tb_p2_cluster_axi M=32 N=32 K=32 PIPE=4 cycles=2704 rv=1 wr_bytes=6144
+### run_dma_multi
+MULTI_TEST_END errors=0
+### run_edge
+INFO done fault=0 code=00 cycles=5236 compute=394 rdblk=4 wrblk=64 hits=0 miss=1 prehit=0 prewait=2011 ov_rd=515 ov_wr=2561 cgrp=512 ccyc=2781 craw=0 pdrain=5 adrain=20
+PASS tb_engine_p2 M=17 N=19 K=33 C_VALID=0 PIPE=4 cycles=5236 compute=394 ov_rd=515 ov_wr=2561 prehit=0 prewait=2011 cgrp=512 ccyc=2781 pdrain=5 adrain=20
+### run_errrd
+INFO done fault=1 code=09 cycles=137 compute=0 rdblk=2 wrblk=0 hits=0 miss=1 prehit=0 prewait=132 ov_rd=0 ov_wr=0 cgrp=0 ccyc=0 craw=0 pdrain=5 adrain=20
+PASS_FAULT code=09 cycles=137 done=1 cwr_pending=0
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=0 PIPE=4 cycles=137 compute=0 ov_rd=0 ov_wr=0 prehit=0 prewait=132 cgrp=0 ccyc=0 pdrain=5 adrain=20
+### run_errwr
+INFO done fault=1 code=0a cycles=1384 compute=612 rdblk=6 wrblk=2 hits=0 miss=1 prehit=2 prewait=198 ov_rd=386 ov_wr=23 cgrp=517 ccyc=546 craw=0 pdrain=5 adrain=20
+PASS_FAULT code=0a cycles=1384 done=1 cwr_pending=0
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=0 PIPE=4 cycles=1384 compute=612 ov_rd=386 ov_wr=23 prehit=2 prewait=198 cgrp=517 ccyc=546 pdrain=5 adrain=20
+### run_icarus_k1
+INFO done fault=0 code=00 cycles=4147 compute=272 rdblk=2 wrblk=64 hits=0 miss=1 prehit=0 prewait=1256 ov_rd=0 ov_wr=2650 cgrp=256 ccyc=2599 craw=0 pdrain=5 adrain=20
+PASS tb_engine_p2 M=32 N=32 K=32 C_VALID=0 PIPE=4 cycles=4147 compute=272 ov_rd=0 ov_wr=2650 prehit=0 prewait=1256 cgrp=256 ccyc=2599 pdrain=5 adrain=20
+### run_k1
+INFO done fault=0 code=00 cycles=4147 compute=272 rdblk=2 wrblk=64 hits=0 miss=1 prehit=0 prewait=1256 ov_rd=0 ov_wr=2650 cgrp=256 ccyc=2599 craw=0 pdrain=5 adrain=20
+PASS tb_engine_p2 M=32 N=32 K=32 C_VALID=0 PIPE=4 cycles=4147 compute=272 ov_rd=0 ov_wr=2650 prehit=0 prewait=1256 cgrp=256 ccyc=2599 pdrain=5 adrain=20
+### run_n64
+INFO done fault=0 code=00 cycles=3468 compute=1088 rdblk=8 wrblk=128 hits=0 miss=2 prehit=2 prewait=398 ov_rd=385 ov_wr=1425 cgrp=1024 ccyc=1928 craw=0 pdrain=5 adrain=20
+PASS tb_engine_p2 M=32 N=64 K=64 C_VALID=0 PIPE=4 cycles=3468 compute=1088 ov_rd=385 ov_wr=1425 prehit=2 prewait=398 cgrp=1024 ccyc=1928 pdrain=5 adrain=20
+### run_p12
+INFO done fault=0 code=00 cycles=4147 compute=272 rdblk=2 wrblk=64 hits=0 miss=1 prehit=0 prewait=1256 ov_rd=0 ov_wr=2650 cgrp=256 ccyc=2599 craw=0 pdrain=5 adrain=20
+PASS tb_engine_p2 M=32 N=32 K=32 C_VALID=0 PIPE=4 cycles=4147 compute=272 ov_rd=0 ov_wr=2650 prehit=0 prewait=1256 cgrp=256 ccyc=2599 pdrain=5 adrain=20
+### run_pipe3_c0
+INFO done fault=0 code=00 cycles=4528 compute=1608 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=396 ov_rd=774 ov_wr=1421 cgrp=1536 ccyc=2448 craw=0 pdrain=4 adrain=19
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=0 PIPE=3 cycles=4528 compute=1608 ov_rd=774 ov_wr=1421 prehit=4 prewait=396 cgrp=1536 ccyc=2448 pdrain=4 adrain=19
+### run_pipe4_c0
+INFO done fault=0 code=00 cycles=4552 compute=1632 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=396 ov_rd=774 ov_wr=1421 cgrp=1536 ccyc=2448 craw=0 pdrain=5 adrain=20
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=0 PIPE=4 cycles=4552 compute=1632 ov_rd=774 ov_wr=1421 prehit=4 prewait=396 cgrp=1536 ccyc=2448 pdrain=5 adrain=20
+### run_pipe4_c1
+INFO done fault=0 code=00 cycles=5329 compute=1632 rdblk=14 wrblk=128 hits=0 miss=2 prehit=4 prewait=0 ov_rd=778 ov_wr=1427 cgrp=1536 ccyc=2448 craw=0 pdrain=5 adrain=20
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=1 PIPE=4 cycles=5329 compute=1632 ov_rd=778 ov_wr=1427 prehit=4 prewait=0 cgrp=1536 ccyc=2448 pdrain=5 adrain=20
+### run_pipe4_seed1
+INFO done fault=0 code=00 cycles=4554 compute=1632 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=398 ov_rd=773 ov_wr=1424 cgrp=1536 ccyc=2448 craw=0 pdrain=5 adrain=20
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=0 PIPE=4 cycles=4554 compute=1632 ov_rd=773 ov_wr=1424 prehit=4 prewait=398 cgrp=1536 ccyc=2448 pdrain=5 adrain=20
+### run_pipe4_seed2
+INFO done fault=0 code=00 cycles=4554 compute=1632 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=398 ov_rd=772 ov_wr=1424 cgrp=1536 ccyc=2448 craw=0 pdrain=5 adrain=20
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=0 PIPE=4 cycles=4554 compute=1632 ov_rd=772 ov_wr=1424 prehit=4 prewait=398 cgrp=1536 ccyc=2448 pdrain=5 adrain=20
+### run_pipe4_seed3
+INFO done fault=0 code=00 cycles=4553 compute=1632 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=397 ov_rd=774 ov_wr=1426 cgrp=1536 ccyc=2448 craw=0 pdrain=5 adrain=20
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=0 PIPE=4 cycles=4553 compute=1632 ov_rd=774 ov_wr=1426 prehit=4 prewait=397 cgrp=1536 ccyc=2448 pdrain=5 adrain=20
+### run_pipe5_c0
+INFO done fault=0 code=00 cycles=4576 compute=1656 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=396 ov_rd=774 ov_wr=1421 cgrp=1536 ccyc=2448 craw=0 pdrain=6 adrain=21
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=0 PIPE=5 cycles=4576 compute=1656 ov_rd=774 ov_wr=1421 prehit=4 prewait=396 cgrp=1536 ccyc=2448 pdrain=6 adrain=21
+### run_pipe6_c0
+INFO done fault=0 code=00 cycles=4600 compute=1680 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=396 ov_rd=774 ov_wr=1421 cgrp=1536 ccyc=2448 craw=0 pdrain=7 adrain=22
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=0 PIPE=6 cycles=4600 compute=1680 ov_rd=774 ov_wr=1421 prehit=4 prewait=396 cgrp=1536 ccyc=2448 pdrain=7 adrain=22
+### run_storage_axi
+PASS tb_storage_axi (original axi_dma_v019 + AXI128 BFM)
+### run_storage_unit
+PASS tb_storage_unit tests rd_cmds=3 wr_cmds=64
+### run_strobe
+STROBE mem=00 01 02 00 write_bytes=3 err=0
+PASS tb_strobe

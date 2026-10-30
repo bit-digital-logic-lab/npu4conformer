@@ -1,0 +1,122 @@
+{
+  "task": "ds_protocol_audit",
+  "status": "completed",
+  "completed_at": "2026-10-29T11:08:35.657819+00:00",
+  "scope": "Read-only audit of DMA/AXI/cache/error handling in work/rtl plus the ds_ddr v020_multi candidate snapshot; independent adversarial Icarus BFM tests written only under this task directory.",
+  "constraints": {
+    "read_only_sources": true,
+    "no_work_modification": true,
+    "no_candidate_modification": true,
+    "no_synthesis_vivado_board_vnc_network": true,
+    "numeric_semantics_unchanged": "W7(S/J/M)/positions/clip, A16/C48, per-C K order, FP32 FTZ/RNE/FMA, QDQ boundaries untouched",
+    "host_only_once": true,
+    "pl_autonomy_scope": "DMA/plan logic only; no PS runtime control added by this task",
+    "frequency_claim": "none; 300/600MHz is a structural target only"
+  },
+  "summary": {
+    "confirmed_defects": [
+      "PA-001",
+      "PA-002",
+      "PA-003",
+      "PA-004"
+    ],
+    "passed_evidence": [
+      "PA-008",
+      "PA-009",
+      "PA-010",
+      "PA-013"
+    ],
+    "risk_or_behavior": [
+      "PA-005",
+      "PA-006",
+      "PA-007",
+      "PA-014"
+    ],
+    "untested": [
+      "PA-011",
+      "PA-012",
+      "physical DDR/STA/board",
+      "full CASE0000"
+    ],
+    "primary_finding": "plan_submit_csr interleaved 64-bit reads are non-atomic (PA-001).",
+    "most_severe_robustness": "plan watchdog cannot bound a stuck AXI read or non-returning child (PA-002).",
+    "structural": [
+      "PA-015"
+    ]
+  },
+  "test_counts": {
+    "dma_edge_groups": 20,
+    "vector_fixture_runs": 15,
+    "layout_fixture_runs": 16,
+    "acl_runs": 2,
+    "multi_functional_scenarios": 13,
+    "plan_phases": 3,
+    "csr_test": 1,
+    "strobe_test": 1,
+    "total_scenario_groups": 71,
+    "failures_in_functional_groups": 0,
+    "confirmed_defects": 4,
+    "structural_notes": 1
+  },
+  "reports": {
+    "dma_edge": "reports/dma_edge001/run.log (DMA_EDGE_PASS errors=0 cycles=70101)",
+    "vector": "reports/vector_stress001/summary.tsv (15/15)",
+    "layout": "reports/layout_stress001/summary.tsv (16/16)",
+    "acl": "reports/acl001 (VECTOR_ACL_PASS/LAYOUT_ACL_PASS)",
+    "multi": "reports/multi001/run.log (MULTI_TEST_END errors=0; MULTI_WRITEBYTES_METRIC_BUG)",
+    "strobe": "reports/strobe001/run.log (mem=00 01 02 00; write_bytes=16)",
+    "csr": "reports/csr001/run.log (CSR_SNAPSHOT_BUG_CONFIRMED)",
+    "plan_stall": "reports/plan_stall001/run.log (PHASE1/2 unbounded, PHASE3 done)"
+  },
+  "proven": [
+    "v019 4KiB split at 0xFF0/0x1000, ARLEN/address correct; 16-beat page-aligned single burst; multi-burst BRESP abort (T12b)",
+    "v019 AR/AW/W payload stable under independent stalls; R/W/B backpressure; late B",
+    "v019 early RLAST/error, late RLAST drained/error, RRESP mid-burst drains accepted burst, BRESP abort",
+    "v019 tail WSTRB byte accounting (51 bytes for 3-byte tail) and 65535-beat/4096-burst max transfer",
+    "vector 5 fixtures x 3 seeds byte-exact incl. out16 tail 2002B; layout 8 fixtures incl. C48 6930B and 157696B case layout byte-exact under seeded stalls",
+    "64-bit ACL rejects 0xFFFFFFF0 with zero AXI bursts in both vector and layout",
+    "candidate v020_multi multi-outstanding/FIFO-full/push-pop/early-late/RRESP/BRESP functional pass (13 scenarios)",
+    "candidate WSTRB forwarding is correct (isolated strobe test)"
+  ],
+  "assumptions": [
+    "AXI BFM is a protocol/storage model, not a DDR timing/bandwidth model",
+    "work RTL hashes recorded; sources were not modified during this audit",
+    "candidate snapshot 7123c26f is the reviewed version; the owner may continue editing",
+    "axis-Lite software read order is not guaranteed, hence PA-001 is a hardware-visible hazard"
+  ],
+  "untested": [
+    "FMA op17 numerical correctness (no official asr_fma_ip netlist in extracted tree; forbidden stub used)",
+    "c_cache_banked4 conflict/epoch, block_engine_l1bank_v020 dual-bank/epoch, block_storage abort_scalar WSCALAR (legacy, not in V022 cluster)",
+    "physical DDR behavior, STA, synthesis, board, 300/600MHz",
+    "full CASE0000 end-to-end model",
+    "task_queue/queued owner arbitration and retire (source-reviewed only)",
+    "layout cache clear-vs-inflight is structurally excluded by ready=both DMA idle; not forced"
+  ],
+  "source_sha256": {
+    "tb/axi128_stress_bfm.sv": "76441d454932c7a2972422edeb4ff621af6aee98156543e0dbf050cd13015dfd",
+    "tb/tb_csr_snapshot.sv": "84bd5b9c2ca52f5b31d7d7dcc031c60783f036d24aab9ce80f27ddf8ffa06dfd",
+    "tb/tb_dma_edge.sv": "c8afca47fdb3f5fa39f54e0d8e3316331bc7db62f4f81e70e11ac98862111c64",
+    "tb/tb_dma_multi.sv": "183495562fef881f56933c2937b331d1a444c75e6a2e4609775777f39bef0b01",
+    "tb/tb_layout_stress.sv": "3d408d59cc63a0807dd649fe4300481d0de627180a226dccf7e8077b524c6df0",
+    "tb/tb_plan_stall.sv": "55fde526118649d7c56c5f74f79170a5b1b0a7f7d07c2ea999e82bb112478f87",
+    "tb/tb_strobe.sv": "9deac4242f4390a19e567d0635f4abddc2b87c2fa42812fd6a9a09850f2a2000",
+    "tb/tb_vector_stress.sv": "b9b74c49f953ba42b822135bd412a90da1cfec261c187084030d461794aa4977",
+    "snapshots/axi_dma_v020_multi_snapshot_20261029.sv": "7123c26fd3d91643497485c1ed7c9dedc3a4f06cf488bef36f711468dd6488e3",
+    "scripts/run_all.sh": "267e1d43ca53d40d3f4e050ace96bcf70de82567a1b72d8332c9cdc63229a21b",
+    "/home/yang/Desktop/项目/work/rtl/axi_dma_v019.sv": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531",
+    "/home/yang/Desktop/项目/work/rtl/ddr_vector_engine.sv": "08a642d915f0d0a83d10c156a52c21bc20bd4f69b3ac8c402ca22c094381641d",
+    "/home/yang/Desktop/项目/work/rtl/ddr_vector_axi.sv": "9613c3f6814830b0129094ca860dafc4f5272e3e9a67ab5ef58b6074bdee34f2",
+    "/home/yang/Desktop/项目/work/rtl/ddr_layout_engine.sv": "1ebcaaa58a61f23ab298ab901f184894eb230d6225b26779b8dbf97f54722c52",
+    "/home/yang/Desktop/项目/work/rtl/ddr_layout_axi.sv": "a4728ffac826ef48776171598ebde6f58c8726f903d8b6af10cedb504c47a4c2",
+    "/home/yang/Desktop/项目/work/rtl/plan_submit_csr.sv": "a0c914cf42ab68c3b10941c7c95f42a320ce18c2089213ed8fa7daaec621a79b",
+    "/home/yang/Desktop/项目/work/rtl/pl_execution_plan_v022.sv": "e23c06c0757291a69a6d4ca03ed75a82681dc7764ae8a2f4bd6bb0284d0cb3bf",
+    "/home/yang/Desktop/项目/work/rtl/c_cache_banked4.sv": "db4713635512574b5c67ee9ef8218736b2a7bc85b9625033f16fe69eddded718",
+    "/home/yang/Desktop/项目/work/rtl/block_storage_dma_prefetch.sv": "d9905c280982974302b2db5561b3980e723573b66258b55422a8f068729f0059",
+    "/home/yang/Desktop/项目/work/rtl/block_engine_l1bank_v020.sv": "0a6f24fc51f79baf4f1ecca0b38a79180b0a56e19470bfdb4bec863b34a09c20",
+    "/home/yang/Desktop/项目/work/rtl/task_queue.sv": "001d88ba07e27155e5bad6a195e09254cdc9e7b1036722b6a16e2658158e4551",
+    "/home/yang/Desktop/项目/work/rtl/queued_v020_monitored.sv": "b4d270f1f1b024189f9843cf0bbae0280ac62f7bfbdacfc310e448a65402bd11",
+    "/home/yang/Desktop/项目/tasks/ds_ddr/candidate/axi_dma_v020_multi.sv": "7123c26fd3d91643497485c1ed7c9dedc3a4f06cf488bef36f711468dd6488e3"
+  },
+  "commands": "bash scripts/run_all.sh  (logs/rc under reports/; fixture paths via /tmp/opencode/vf,/lf symlinks)",
+  "user_updates": "re-read at end: new ds_pe_pipeline/gemini_pipeline_control/sta_paths tasks; control-path registering requested, frequency unverified (PA-015)"
+}

@@ -1,0 +1,7 @@
+PHASE1_R_STALL busy=1 done=0 fault=0 err=09 plan_state=3 wait=997 dma_state=2 bfm_ra=1
+P2MON cy=0 state=1 busy=1 fault=0 err=00 dma_done=0 rdvalid=0 req=0 dma_state=0
+   BFM cyc=1017 ra=0 vis=0 rng=833b3a66 arv=0 arr=1 stall=0 rst=1
+PHASE2_OP_STALL busy=1 done=0 fault=1 err=09 plan_state=10 wait=401 completed=0
+PHASE3_DONE busy=0 done=1 fault=0 err=00 completed=1
+PLAN_STALL_TEST_END
+tb_plan_stall.sv:117: $finish called at 13344000 (1ps)

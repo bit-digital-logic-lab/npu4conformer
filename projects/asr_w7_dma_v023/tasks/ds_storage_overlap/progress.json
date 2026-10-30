@@ -1,0 +1,131 @@
+{
+  "task": "ds_storage_overlap",
+  "phase": "P6_complete",
+  "started_at": "2026-10-29T18:09:00+08:00",
+  "updated_at": "2026-10-29T20:10:00+08:00",
+  "scope": "Logic-only: fix whole-block transfer serialization and C48 collect bottleneck in block_storage_dma_wide4 / block_engine_banked_v020. No synthesis, Vivado, board, network or push.",
+  "inputs_read": [
+    "EXECUTION_CONTRACT.md",
+    "work/DESIGN_CONTRACT_zh.txt",
+    "work/CURRENT_WORK.txt",
+    "IC_GIT_REFERENCES.txt",
+    "work/rtl/block_storage_dma_prefetch.sv",
+    "work/rtl/block_engine_l1bank_v020.sv",
+    "work/rtl/operand_banks_v020.sv",
+    "work/rtl/array16_direct_v020.sv",
+    "work/rtl/pe_direct_v020.sv",
+    "work/rtl/c_cache_banked4.sv",
+    "work/rtl/block_address_v020.sv",
+    "work/rtl/axi_dma_v019.sv"
+  ],
+  "steps": [
+    {
+      "id": "P0",
+      "name": "read contracts and read-only originals; record before SHA",
+      "status": "done"
+    },
+    {
+      "id": "P1",
+      "name": "reproduce serialization in code and baseline; build transactional DMA BFM",
+      "status": "done"
+    },
+    {
+      "id": "P2",
+      "name": "candidate operand_banks_dual_v1 two-stage A/W banks",
+      "status": "done"
+    },
+    {
+      "id": "P3",
+      "name": "candidate block_storage_stream_v1: prefetch load, C header/C stream, C48 streamed posted write, credits, drain",
+      "status": "done"
+    },
+    {
+      "id": "P4",
+      "name": "candidate block_engine_prefetch_v1: K-order engine, prefetch issue, C collect streaming, slot ownership",
+      "status": "done"
+    },
+    {
+      "id": "P5",
+      "name": "independent Python integer golden + deterministic fixtures; signed-A correction validated against baseline",
+      "status": "done"
+    },
+    {
+      "id": "P6",
+      "name": "Verilator/Icarus random BFM tests: overlap, C partial, output backpressure, bad parity, read/write error drain, AXI layer, before/after",
+      "status": "done"
+    },
+    {
+      "id": "P7",
+      "name": "INTERFACE.md / REPORT.md / result.json / FINDINGS.jsonl / logs / source SHA",
+      "status": "done"
+    },
+    {
+      "id": "P8",
+      "name": "traffic-ledger cycle trace and dependency-corrected analysis (read/write split)",
+      "status": "done"
+    }
+  ],
+  "test_summary": {
+    "all_commands_rc_zero": true,
+    "verilator_tests": 17,
+    "icarus_tests": 1,
+    "before_after_cases": 4,
+    "error_drain_cases": 3,
+    "random_bfm_seeds": 3,
+    "axi_layer": "2 x axi_dma_v019 + AXI128 BFM, 0 errors",
+    "candidate_verilator_tests": 13,
+    "baseline_verilator_tests": 4
+  },
+  "key_metrics": {
+    "baseline_k96_fast_cycles": 11839,
+    "candidate_k96_fast_cycles": 5896,
+    "speedup_k96_fast": 2.01,
+    "candidate_prefetch_hits": 4,
+    "candidate_overlap_read_cycles": 523,
+    "candidate_overlap_write_cycles": 1293,
+    "candidate_backpressure_cycles": 27673,
+    "baseline_backpressure_cycles": 34620,
+    "storage_unit_ov_same_cycle": 9,
+    "storage_unit_rdwr_active_cycles": 708,
+    "traffic_ledger_c0": {
+      "window_cycles": 5896,
+      "axi_r_payload_cycles": 1152,
+      "axi_w_payload_cycles": 768,
+      "compute_run_cycles": 1584,
+      "c_collect_cycles": 3840,
+      "operand_wait_cycles": 420,
+      "repeat_candidate_bytes": 0,
+      "dependency_bound_cycles": 5424
+    }
+  },
+  "artifacts": {
+    "report": "REPORT.md",
+    "interface": "INTERFACE.md",
+    "findings": "FINDINGS.jsonl",
+    "result": "result.json",
+    "candidate": "candidate/rtl/",
+    "tests": "tests/",
+    "fixtures": "fixtures/",
+    "logs": "logs/",
+    "commands": "logs/commands.log",
+    "metrics": "logs/metrics.txt",
+    "traffic": "traffic/",
+    "traffic_report": "traffic/report_c0/"
+  },
+  "next_for_main_agent": [
+    "Next storage bandwidth step: pipeline c_cache_banked4 C_READ+COLLECT to 1 cycle/group (current 2 cycles/group, 3840 cycles = 65% of the busy window); structural estimate ~3976 cycles, not measured.",
+    "Consider 192B C row transactions (both col halves) to reduce 128 segment commands / 921 write-command/BRESP wait cycles; needs a row buffer or different quadrant schedule.",
+    "Integrate block_storage_stream_v1 + block_engine_prefetch_v1 via INTERFACE.md.",
+    "Add a read transaction arbiter between plan/queue fetch and storage rd_*; provide a separate write master or report combined-port loss of independence.",
+    "Plug ds_ddr multi-outstanding DMA behind the rd_*/wr_* transaction contract; keep per-transaction address/beats and in-order beats.",
+    "Keep numerical core unchanged; rerun full model/CASE tests separately.",
+    "Do full synthesis/STA/DRC/board only in the integration task; no timing claim from this task.",
+    "For any 600MHz local domain, add and verify CDC/async FIFO; PS AXI is nominally <=333MHz and this task is single-clock."
+  ],
+  "honesty": [
+    "No synthesis/Vivado/DRC/STA/bitstream/board/network/push.",
+    "300/600 MHz not claimed.",
+    "Only module/task-level logic evidence; no whole-case/model accuracy claim.",
+    "FP32 FTZ/RNE/FMA and QDQ untouched and not tested here."
+  ]
+}

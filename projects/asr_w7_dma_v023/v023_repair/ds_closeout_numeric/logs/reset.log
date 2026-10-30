@@ -1,0 +1,13 @@
+HOST plan1-reset plan_base=10008000
+HOST plan1-reset START cycle=31
+HOST reset asserted cycle=3000
+HOST reset-quiescent aw=0 b=0 last_b=2400
+HOST plan2-after-reset plan_base=10010000
+HOST plan2-after-reset START cycle=3087
+HOST plan2-after-reset done=1 abort_done=0 fault=0 err=00 cycle=4297 done_cycle=4289
+CLOSEOUT_STATUS busy=0 done=1 fault=0 aborted=0 err=00 cycles=1201 completed=1 last=0
+CLOSEOUT_VEC vcyc=1142 lcyc=0 vrb=1536 vwb=512
+CLOSEOUT_AXI rburst=9 wburst=2 rbeats=116 wbeats=32 rdpeak=1 wrpeak=1 rdstall=1 wrstall=15 tag_err=0 bfm_rbeats=116 bfm_wbeats=32
+CLOSEOUT_BOUNDARY done_cycle=4289 last_b_cycle=4281 b_count_at_done=0 b_after_done=0 aw_after_done=0
+CLOSEOUT_RESULT PASS
+tb/tb_closeout_numeric.sv:319: $finish called at 34412000 (1ps)

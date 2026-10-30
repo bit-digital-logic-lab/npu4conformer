@@ -1,0 +1,3 @@
+CMD: /home/yang/Desktop/项目/v023_repair/primary_stream_fix/build/primary_bp2_stream_m1_r1_s0_a-1_bp2_pe0 +VEC_FILE=vectors/stream.vec +OUT_FILE=logs/primary_bp2_stream_m1_r1_s0_a-1_bp2_pe0.out +MODE=1 +RELU=1 +SPILL=0 +SCALE=3f000001 +BIAS=3f800000 +BP=2 +ABORT_AT=-1 +CONTROL_PROBE=0 +PARAM_EN=0 +PARAM_ADDR=0 +PARAM_DATA=00000000 +MAX_CYCLES=1000000
+DONE stream mode=1 relu=1 spill=0 abort_at=-1 abort_cycle=-1
+STATS in=256 a16=256 pack=128 spill=0 c48stat=256 a16stat=256 spillstat=0 saved=12288

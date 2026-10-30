@@ -1,0 +1,18 @@
+{
+  "ok": false,
+  "errors": [
+    "bad hash 8bd28726 != 8bd28727"
+  ],
+  "node_count": 4,
+  "roots": 1,
+  "outputs": 1,
+  "edges": 3,
+  "type_count": {
+    "5": 1,
+    "3": 1,
+    "2": 2
+  },
+  "hash": 2345830182,
+  "plan_bytes": 832,
+  "tag": "bad_hash"
+}

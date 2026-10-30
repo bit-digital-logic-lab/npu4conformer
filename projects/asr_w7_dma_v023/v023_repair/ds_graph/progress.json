@@ -1,0 +1,89 @@
+{
+  "task": "ds_graph",
+  "title": "whole-graph PL autonomous compiler candidate",
+  "updated_utc": "2026-10-29T13:05:00Z",
+  "phases": [
+    {
+      "name": "source_recovery",
+      "status": "complete_with_missing_inputs",
+      "result": "68 closed programs + 591 outer ledger recovered; true ONNX/executor/tensor edges absent",
+      "evidence": [
+        "analysis/source_ledger.json",
+        "analysis/outer591_ledger.json",
+        "analysis/outer591_groups.json"
+      ]
+    },
+    {
+      "name": "global_tensor_lifetime_allocation",
+      "status": "complete",
+      "result": "1318 tensors; 0 live address conflicts; 68 boundary inputs/outputs unique; shared SEQ temp policy documented",
+      "evidence": [
+        "analysis/global_alloc.json",
+        "analysis/tensor_map.json",
+        "analysis/alloc_check.json"
+      ]
+    },
+    {
+      "name": "wcpg_v2_compiler",
+      "status": "complete",
+      "result": "whole68_global 136 nodes, ledger591 591 nodes, small_real 4 nodes; negative plans",
+      "evidence": [
+        "analysis/whole68_global.bin",
+        "analysis/ledger591.bin",
+        "analysis/small_real.bin",
+        "analysis/descriptor_map.json"
+      ]
+    },
+    {
+      "name": "wcpg_v2_controller",
+      "status": "complete_logic_only",
+      "result": "1024-node controller, 1024-bit deps, root provenance, output retention, one START/DONE",
+      "evidence": [
+        "rtl/wc_graph_ctrl.sv",
+        "rtl/wc_graph_top.sv"
+      ]
+    },
+    {
+      "name": "control_simulation",
+      "status": "pass_with_stub_engines",
+      "result": "68 plan 136/136; 591 replay 591/591; negatives pass; output retention pass",
+      "evidence": [
+        "reports/run_all/run_all.json"
+      ]
+    },
+    {
+      "name": "real_arithmetic_chain",
+      "status": "pass_small_graph_only",
+      "result": "real layout COPY + vector ADD/MUL 64/64 words vs float32 golden",
+      "evidence": [
+        "reports/run_all/run_real_mode10.log"
+      ]
+    },
+    {
+      "name": "full_model_integration",
+      "status": "not_possible_with_supplied_tree",
+      "result": "ONNX/executor/591 true edges missing; no whole-CASE claim",
+      "evidence": [
+        "REPORT.md \u00a72.2",
+        "FINDINGS.md"
+      ]
+    }
+  ],
+  "test_counts": {
+    "run_all_total": 26,
+    "run_all_passed": 26,
+    "control_modes": 9,
+    "real_modes": 1,
+    "negative_plans": 4,
+    "negative_allocator": 1,
+    "verilator_lint": 2
+  },
+  "non_claims": [
+    "no synthesis/Vivado/bitstream/board/VNC/push",
+    "no 300/600 MHz or STA claim",
+    "no PS hard DDR controller bypass",
+    "no matrix arithmetic in 68/591 plans",
+    "no FMA/op17 execution",
+    "no whole CASE0000 or end-to-end speedup"
+  ]
+}

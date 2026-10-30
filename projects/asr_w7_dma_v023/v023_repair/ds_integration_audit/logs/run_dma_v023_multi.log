@@ -1,0 +1,44 @@
+ok   T1 done
+ok   T1 error=0
+ok   T1 read_bytes=640
+ok   T1 read_index=40
+ok   T1 3 ARs
+ok   T1 lens
+ok   T1 no overflow
+ok   T2 done
+ok   T2 error=0
+ok   T2 two bursts
+ok   T2 addr0
+ok   T2 addr1
+ok   T2 bytes=32
+ok   T3 done
+ok   T3 error=0
+ok   T3 write_bytes=51
+ok   T3 one AW
+ok   T4 done
+ok   T4 error=0
+ok   T4 two AW
+ok   T4 addr0
+ok   T4 addr1
+ok   T5 done
+ok   T5 error
+ok   T6 done
+ok   T6 aborted
+ok   T6 drained
+ok   T6 no new AR after abort
+ok   T6 all accepted R returned
+ok   T6 no error
+T6 accepted_AR=5 accepted_beats=80 returned=80 read_bytes=1280 dut_rbursts=5 bfm_ab=5 err=0
+ok   T7 done
+ok   T7 aborted
+ok   T7 drained
+ok   T7 no AR
+ok   T8 done
+ok   T8 aborted
+ok   T8 drained
+ok   T8 no new AW after abort
+ok   T8 no error
+T8 AW=2 W_beats=32 W_bytes=512 B=2
+DMA_AUDIT_RESULT errors=0
+DMA_AUDIT_PASS
+scripts/tb_dma_audit.sv:301: $finish called at 3220000 (1ps)

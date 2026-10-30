@@ -1,0 +1,32 @@
+{
+  "scope": "Icarus RTL\uff1aab_pingpong_prefetch + axi_dma_v020_multi + \u53c2\u6570\u5316 AXI128 BFM\uff1b4 \u9875\u00d764beat\uff0c\u6d88\u8d39\u8005\u6bcf\u9875 300 cycles\uff1b\u4e0d\u662f CASE0000\u3002",
+  "results": [
+    {
+      "prefetch": 0,
+      "cycles": 1651,
+      "fill_cycles": 404,
+      "overlap": 0,
+      "stall": 0,
+      "prefetch_n": 4,
+      "consume_n": 4,
+      "dma_rbeats": 256,
+      "pass": 1,
+      "host_seconds": 1.071,
+      "speedup_vs_serial": 1.0
+    },
+    {
+      "prefetch": 1,
+      "cycles": 1339,
+      "fill_cycles": 404,
+      "overlap": 303,
+      "stall": 410,
+      "prefetch_n": 4,
+      "consume_n": 4,
+      "dma_rbeats": 256,
+      "pass": 1,
+      "host_seconds": 1.094,
+      "speedup_vs_serial": 1.233
+    }
+  ],
+  "note": "\u4e32\u884c/\u9884\u53d6\u4f7f\u7528\u5b8c\u5168\u76f8\u540c\u7684 RTL\u3001BFM \u548c\u9875\u6570\u636e\uff1b\u4ec5\u63cf\u8ff0\u7b26\u4f9b\u7ed9\u7b56\u7565\u4e0d\u540c\u3002"
+}

@@ -1,0 +1,26 @@
+OFFICIAL NORMAL FIXTURES
+name nbytes pass_o pass_v1 pass_b cyc_o cyc_v1 cyc_b ratio_v1 ratio_b rbeat_o rbeat_v1 rbeat_b wbeat_o wbeat_v1 wbeat_b wb_o wb_v1 wb_b
+copy_i16 2002 1 1 1 10152 8147 6538 0.803 0.644 126 126 126 126 126 126 2002 2002 2002
+pack_matrix_edges 8192 1 1 1 27343 22313 17313 0.816 0.633 166 166 166 512 512 512 8192 8192 8192
+unpack_row_fp32 4620 1 1 1 14183 11790 8437 0.831 0.595 297 297 297 289 289 289 4620 4620 4620
+unpack_nchw_fp32 4620 1 1 1 15313 13042 10702 0.852 0.699 297 297 297 289 289 289 4620 4620 4620
+unpack_c48_compact 6930 1 1 1 17803 15605 10213 0.877 0.574 462 462 462 434 434 434 6930 6930 6930
+conv_padding 4096 1 1 1 14152 10498 8245 0.742 0.583 16 16 16 256 256 256 4096 4096 4096
+case0000_embed_conv0 157696 1 1 1 563652 413653 330327 0.734 0.586 1270 1270 1270 9856 9856 9856 157696 157696 157696
+depthwise_31 2048 1 1 1 8965 6618 5540 0.738 0.618 4 4 4 128 128 128 2048 2048 2048
+TOTAL cycles orig=671563 v1=501666 burst=397315 ratio_v1=0.747 ratio_burst=0.592
+
+ERROR / ACL / LIFECYCLE MODES (copy_i16)
+mode=1 ok=1 orig=(0, True) v1=(0, True) burst=(0, True)
+mode=2 ok=1 orig=(0, True) v1=(0, True) burst=(0, True)
+mode=3 ok=1 orig=(0, True) v1=(0, True) burst=(0, True)
+mode=4 ok=1 orig=(0, True) v1=(0, True) burst=(0, True)
+mode=5 ok=1 orig=(0, True) v1=(0, True) burst=(0, True)
+mode=6 ok=1 orig=(0, True) v1=(0, True) burst=(0, True)
+mode=7 ok=1 orig=(0, True) v1=(0, True) burst=(0, True)
+mode=8 ok=1 orig=(0, True) v1=(0, True) burst=(0, True)
+mode=9 ok=1 orig=(0, True) v1=(0, True) burst=(0, True)
+mode=10 ok=1 orig=(0, True) v1=(0, True) burst=(0, True)
+mode=11 ok=1 orig=(0, True) v1=(0, True) burst=(0, True)
+mode=12 ok=1 orig=(0, True) v1=(0, True) burst=(0, True)
+SUMMARY normal=8 error=12 fails=0

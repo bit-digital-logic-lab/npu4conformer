@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "errors": [],
+  "node_count": 591,
+  "roots": 1,
+  "outputs": 1,
+  "edges": 590,
+  "type_count": {
+    "1": 591
+  },
+  "hash": 722287100,
+  "plan_bytes": 113536,
+  "tag": "ledger591"
+}

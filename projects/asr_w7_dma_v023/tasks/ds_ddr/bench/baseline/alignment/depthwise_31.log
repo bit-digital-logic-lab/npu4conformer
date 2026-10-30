@@ -1,0 +1,2 @@
+V022_LAYOUT_AXI_PASS mode=          0 cycles=                8959 processed=      1024 cache_hits=       717 cache_misses=         4 read_requests=         4 write_requests=       129
+/home/yang/Desktop/项目/tasks/ds_ddr/bench/baseline/alignment/tb_layout_axi.sv:189: $finish called at 71736000 (1ps)

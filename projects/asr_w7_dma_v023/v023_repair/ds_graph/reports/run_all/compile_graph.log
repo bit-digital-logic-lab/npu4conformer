@@ -1,0 +1,17 @@
+{
+  "whole68_global": {
+    "bytes": 26176,
+    "node_count": 136,
+    "sha256": "0115aaeef2f7a97eece12371564a1ae449e4dc71c86aa272d320fc3afb413320"
+  },
+  "ledger591": {
+    "bytes": 113536,
+    "node_count": 591,
+    "sha256": "8da1513a5a51698114625b828d85d1c5d42601554a6616ad133daa283deeacbf"
+  },
+  "small_real": {
+    "bytes": 832,
+    "node_count": 4,
+    "sha256": "3905b0fbdd08a5bf236e05fbd08faf90cc34f0513f366952770b8edaf79fe221"
+  }
+}

@@ -1,0 +1,20 @@
+stream_256.vec 33d966c1257365615986ccd30f46bb38cdd0debf1a30bd5f6c7558c0ca92b3dd
+stream_1024.vec bc104c7d08c67e13e22d94a7ac38a1e8b77a5b0e8571149099ac195c71d71cfb
+stream_4096.vec ed67d5363b5a0784e2456bdbd54271a3d6a170506a021fde97c2f5b3f8d7d0f1
+{
+  "status": "module_pass_system_pending",
+  "cases": 18,
+  "both_correct": 18,
+  "invalid": 0,
+  "bias_only": {
+    "gemini_pass": false,
+    "primary_pass": true
+  },
+  "elapsed_seconds": 60.446
+}
+wrote REPORT.md 266 lines
+{
+  "stage": "STAGE_FINAL_DELIVERY_COMPLETE",
+  "status": "COMPLETED"
+}
+DONE: REPORT.md / result.json / logs/ / progress.json

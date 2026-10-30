@@ -1,0 +1,55 @@
+{
+  "task": "gemini_closeout_fusion",
+  "title": "V0.23 Matrix-to-Stream Epilogue Fusion Bridge & Closed-Loop AXI Writeback",
+  "updated": "2026-10-29",
+  "current_phase": "P0_initialization",
+  "scope": "logic simulation only; no synthesis, Vivado, STA, board, VNC, push; strictly local to working directory",
+  "phases": [
+    {
+      "id": "P0",
+      "name": "Audit contracts, read primary_stream_fix/REPORT, primary_acceptance/round2, integrated/REPORT, copy candidate sources",
+      "status": "done",
+      "evidence": [
+        "candidate/epilogue_stream_engine_v023.sv",
+        "candidate/block_engine_prefetch_v2.sv",
+        "candidate/axi_dma_v020_multi_v2.sv"
+      ]
+    },
+    {
+      "id": "P1",
+      "name": "Design & implement matrix-to-stream fusion bridge (credit-gated cache readout, FIFO capacity proof, odd tail support)",
+      "status": "in_progress",
+      "evidence": []
+    },
+    {
+      "id": "P2",
+      "name": "Design & implement closed-loop fused matrix cluster top with direct A16 AXI write DMA & response drain boundaries",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "P3",
+      "name": "Develop independent gold references (FMA single-rounding gold vs unfused baseline gold, odd tail vectors)",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "P4",
+      "name": "Module & cluster logic verification under 5 backpressure modes, odd tails, non-trivial scale/bias",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "P5",
+      "name": "Comparative cycle & bus traffic analysis against unfused baseline under identical workload",
+      "status": "pending",
+      "evidence": []
+    },
+    {
+      "id": "P6",
+      "name": "Deliverables: REPORT.md, INTERFACE.md, result.json, SHA256SUMS.txt, filelists, run_all.sh",
+      "status": "pending",
+      "evidence": []
+    }
+  ]
+}

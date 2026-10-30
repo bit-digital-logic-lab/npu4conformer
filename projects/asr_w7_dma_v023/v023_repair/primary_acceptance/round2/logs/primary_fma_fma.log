@@ -1,0 +1,3 @@
+CMD: /home/yang/Desktop/项目/v023_repair/primary_acceptance/round2/build/primary_fma_fma +VEC_FILE=vectors/fma.vec +OUT_FILE=logs/primary_fma_fma.out +BP=0 +MAX_CYCLES=5000000
+DONE fma in=8734 out=8734 cycles=8739
+STABILITY_ERRORS=0

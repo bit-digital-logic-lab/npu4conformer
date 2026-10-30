@@ -1,0 +1,174 @@
+%Warning-WIDTHTRUNC: candidate/rtl/operand_banks_dual_v1.sv:27:17: Operator ASSIGNW expects 5 bits on the Assign RHS, but Assign RHS's SEL generates 6 bits.
+                                                                 : ... note: In instance 'block_storage_stream_v1.banks'
+   27 |  wire [4:0] ww_k=wr_beat[6:1];
+      |                 ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.047
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_stream_v1.sv:102:72: Operator ADD expects 64 bits on the RHS, but RHS's VARREF 'ld_block_col' generates 16 bits.
+                                                                     : ... note: In instance 'block_storage_stream_v1'
+  102 |  wire [63:0] ld_expect={32'd0,ld_base}+(({48'd0,ld_block_row}*ld_ncols)+ld_block_col)*block_bytes;
+      |                                                                        ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.047
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_stream_v1.sv:103:30: Operator ADD expects 64 bits on the RHS, but RHS's VARREF 'block_bytes' generates 32 bits.
+                                                                     : ... note: In instance 'block_storage_stream_v1'
+  103 |  wire [63:0] ld_end=ld_expect+block_bytes;
+      |                              ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_stream_v1.sv:110:30: Operator LT expects 32 bits on the LHS, but LHS's VARREF 'ld_block_row' generates 16 bits.
+                                                                     : ... note: In instance 'block_storage_stream_v1'
+  110 |                 (ld_block_row<ld_nrows)&&(ld_block_col<ld_ncols)&&
+      |                              ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_stream_v1.sv:110:55: Operator LT expects 32 bits on the LHS, but LHS's VARREF 'ld_block_col' generates 16 bits.
+                                                                     : ... note: In instance 'block_storage_stream_v1'
+  110 |                 (ld_block_row<ld_nrows)&&(ld_block_col<ld_ncols)&&
+      |                                                       ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_stream_v1.sv:118:73: Operator ADD expects 64 bits on the RHS, but RHS's VARREF 'cseg_col' generates 16 bits.
+                                                                     : ... note: In instance 'block_storage_stream_v1'
+  118 |  wire [63:0] c_block_base={32'd0,cfg_c_base}+(({48'd0,cseg_row}*c_ncols)+cseg_col)*6144;
+      |                                                                         ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_stream_v1.sv:121:25: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'cseg_row' generates 16 bits.
+                                                                     : ... note: In instance 'block_storage_stream_v1'
+  121 |                (cseg_row>=c_nrows)||(cseg_col>=c_ncols)||(cseg_address[3:0]!=0)||
+      |                         ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_stream_v1.sv:121:46: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'cseg_col' generates 16 bits.
+                                                                     : ... note: In instance 'block_storage_stream_v1'
+  121 |                (cseg_row>=c_nrows)||(cseg_col>=c_ncols)||(cseg_address[3:0]!=0)||
+      |                                              ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_stream_v1.sv:131:25: Operator SUB expects 32 bits on the RHS, but RHS's VARREF 'lq_cnt' generates 4 bits.
+                                                                     : ... note: In instance 'block_storage_stream_v1'
+  131 |  wire [3:0] lq_free=LD_Q-lq_cnt;
+      |                         ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:131:20: Operator ASSIGNW expects 4 bits on the Assign RHS, but Assign RHS's SUB generates 32 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  131 |  wire [3:0] lq_free=LD_Q-lq_cnt;
+      |                    ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:153:37: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  153 |    ((ld_kind!=2)?!stg_have[ld_stage][ld_kind]:!c_cmd_busy);
+      |                                     ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_stream_v1.sv:258:58: Operator NEQ expects 32 bits on the LHS, but LHS's VARREF 'wq_cnt' generates 4 bits.
+                                                                     : ... note: In instance 'block_storage_stream_v1'
+  258 |  assign cseg_ready=rst_n&&!abort&&!wr_err_sticky&&(wq_cnt!=WR_Q);
+      |                                                          ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_stream_v1.sv:273:79: Operator LT expects 32 bits on the LHS, but LHS's VARREF 'b_out' generates 8 bits.
+                                                                     : ... note: In instance 'block_storage_stream_v1'
+  273 |  assign wr_req_valid=!w_cur_valid&&(wq_cnt!=0)&&!wr_err_sticky&&!abort&&(b_out<WR_OUT);
+      |                                                                               ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:320:24: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  320 |      stg_have[ld_stage][ld_kind]<=1;stg_ready[ld_stage][ld_kind]<=0;
+      |                        ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:320:56: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  320 |      stg_have[ld_stage][ld_kind]<=1;stg_ready[ld_stage][ld_kind]<=0;
+      |                                                        ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:321:25: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  321 |      stg_fault[ld_stage][ld_kind]<=ld_bad;
+      |                         ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:322:25: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  322 |      stg_epoch[ld_stage][ld_kind]<=ld_epoch;stg_layer[ld_stage][ld_kind]<=ld_layer;
+      |                         ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:322:64: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  322 |      stg_epoch[ld_stage][ld_kind]<=ld_epoch;stg_layer[ld_stage][ld_kind]<=ld_layer;
+      |                                                                ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:323:26: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  323 |      stg_matrix[ld_stage][ld_kind]<=ld_matrix;stg_row[ld_stage][ld_kind]<=ld_block_row;
+      |                          ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:323:64: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  323 |      stg_matrix[ld_stage][ld_kind]<=ld_matrix;stg_row[ld_stage][ld_kind]<=ld_block_row;
+      |                                                                ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:324:23: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  324 |      stg_col[ld_stage][ld_kind]<=ld_block_col;stg_allowed[ld_stage][ld_kind]<=ld_allowed_ops;
+      |                       ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:324:68: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  324 |      stg_col[ld_stage][ld_kind]<=ld_block_col;stg_allowed[ld_stage][ld_kind]<=ld_allowed_ops;
+      |                                                                    ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:325:29: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  325 |      stg_completed[ld_stage][ld_kind]<=ld_completed_ops;stg_enc[ld_stage][ld_kind]<=ld_encoding;
+      |                             ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:325:74: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  325 |      stg_completed[ld_stage][ld_kind]<=ld_completed_ops;stg_enc[ld_stage][ld_kind]<=ld_encoding;
+      |                                                                          ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:341:25: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  341 |       stg_fault[h_stage][h_kind]<=1;stg_ready[h_stage][h_kind]<=0;
+      |                         ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:341:55: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  341 |       stg_fault[h_stage][h_kind]<=1;stg_ready[h_stage][h_kind]<=0;
+      |                                                       ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:353:48: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  353 |       if(cur_kind!=2)begin stg_fault[cur_stage][cur_kind]<=1;stg_ready[cur_stage][cur_kind]<=0;end
+      |                                                ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:353:82: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  353 |       if(cur_kind!=2)begin stg_fault[cur_stage][cur_kind]<=1;stg_ready[cur_stage][cur_kind]<=0;end
+      |                                                                                  ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:389:29: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  389 |         stg_fault[cur_stage][cur_kind]<=1;stg_ready[cur_stage][cur_kind]<=0;rd_err_cnt<=rd_err_cnt+1;
+      |                             ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:389:63: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  389 |         stg_fault[cur_stage][cur_kind]<=1;stg_ready[cur_stage][cur_kind]<=0;rd_err_cnt<=rd_err_cnt+1;
+      |                                                               ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:390:37: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  390 |        end else stg_ready[cur_stage][cur_kind]<=1;
+      |                                     ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:400:42: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  400 |     if(h_kind!=2)begin stg_fault[h_stage][h_kind]<=1;stg_ready[h_stage][h_kind]<=0;end
+      |                                          ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:400:72: Bit extraction of array[1:0] requires 1 bit index, not 2 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  400 |     if(h_kind!=2)begin stg_fault[h_stage][h_kind]<=1;stg_ready[h_stage][h_kind]<=0;end
+      |                                                                        ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_stream_v1.sv:433:45: Operator COND expects 32 bits on the Conditional False, but Conditional False's VARREF 'w_nbytes' generates 6 bits.
+                                                                     : ... note: In instance 'block_storage_stream_v1'
+  433 |     wr_bytes<=wr_bytes+(w_pad?0:(w_full_beat?16:w_nbytes));
+      |                                             ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_stream_v1.sv:458:18: Operator ADD expects 8 bits on the LHS, but LHS's VARREF 'wq_cnt' generates 4 bits.
+                                                                     : ... note: In instance 'block_storage_stream_v1'
+  458 |    pend_q<=wq_cnt+w_cur_valid+b_out;
+      |                  ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_stream_v1.sv:459:20: Operator ADD expects 32 or 8 bits on the LHS, but LHS's VARREF 'wq_cnt' generates 4 bits.
+                                                                     : ... note: In instance 'block_storage_stream_v1'
+  459 |    cwr_pend<=wq_cnt+w_cur_valid+b_out+(wr_req_valid&&wr_req_ready?1:0)-(wr_done?1:0);
+      |                    ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_stream_v1.sv:482:18: Operator ASSIGNW expects 2 bits on the Assign RHS, but Assign RHS's REPLICATE generates 8 bits.
+                                                                    : ... note: In instance 'block_storage_stream_v1'
+  482 |  assign dbg_wwait={7'd0,w_cur_valid};
+      |                  ^
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_storage_stream_v1.sv:246:13: Signal is not used: 'w_cur_addr'
+                                                                      : ... note: In instance 'block_storage_stream_v1'
+  246 |  reg [31:0] w_cur_addr;
+      |             ^~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: candidate/rtl/operand_banks_dual_v1.sv:16:19: Bits of signal are not used: 'wr_beat'[7]
+                                                                   : ... note: In instance 'block_storage_stream_v1.banks'
+   16 |  input wire [7:0] wr_beat,input wire [127:0] wr_data,
+      |                   ^~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/operand_banks_dual_v1.sv:53:16: Bits of signal are not used: 'value'[7]
+                                                                   : ... note: In instance 'block_storage_stream_v1.banks'
+   53 |     wire [7:0] value=mem[c][{rd_col_half,kk}];
+      |                ^~~~~
+%Warning-SYMRSVDWORD: candidate/rtl/block_storage_stream_v1.sv:26:23: Symbol matches C++ common word: 'abort'
+   26 |  input wire clk,rst_n,abort,
+      |                       ^~~~~
+                      ... For warning description see https://verilator.org/warn/SYMRSVDWORD?v=5.047
+                      ... Use "/* verilator lint_off SYMRSVDWORD */" and lint_on around source to disable this message.
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)
+- Verilator: Built from 0.088 MB sources in 3 modules, into 0.342 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.061 s (elab=0.009, cvt=0.040, bld=0.000); cpu 0.061 s on 1 threads; allocated 23.457 MB

@@ -1,0 +1,2 @@
+wrote traffic/engine_c0.jsonl window=5896 cycles events=1433
+{"resources": 3, "transfers": 3, "out": "traffic/report_c0"}

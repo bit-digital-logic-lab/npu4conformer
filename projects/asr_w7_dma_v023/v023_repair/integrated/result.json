@@ -1,0 +1,231 @@
+{
+  "task": "v023_integrated_final",
+  "date": "2026-10-29",
+  "scope": "logic simulation only; no synthesis/Vivado/STA/board/VNC/push; single clock; no CDC test",
+  "verdict": "CANDIDATE_RUNNABLE_EXACT_PATH; FINAL_V023_INTEGRATION_NOT_ACCEPTED",
+  "final_integration_complete": false,
+  "candidate_runnable": true,
+  "integrated_default": {
+    "clock": "single clk/rst_n",
+    "approx": false,
+    "fma": false,
+    "pipeline_stages": 4,
+    "plan": "WCPG v2, 9 nodes, one START/one DONE+IRQ",
+    "chain": "IN -> LAY(A) -> LAY(W) -> MAT(V022 queue) -> VEC(I48->F32) -> VEC(MUL 2^-10) -> VEC(ADD 0.5) -> VEC(F32->I16) -> LAY(final)",
+    "final_words": 1024,
+    "final_i16_mismatches_vs_independent_golden": 0,
+    "cycles_total": 23819,
+    "matrix_task_cycles": 1880,
+    "matrix_compute_cycles": 272,
+    "vector_cycles": 952,
+    "layout_cycles": 6724,
+    "axi_read_bytes": 29248,
+    "axi_write_bytes": 25600,
+    "axi_ledger_minus_interval_read": 0,
+    "axi_ledger_minus_interval_write": 0,
+    "axi_tag_errors": 0,
+    "rd_peak": 1,
+    "wr_peak": 1,
+    "graph_completed_nodes": 9,
+    "error_code": 0,
+    "fault": 0
+  },
+  "same_load_baseline": {
+    "exact_baseline": "sealed ddr_vector_axi/ddr_vector_engine + ddr_layout_axi/ddr_layout_engine; matrix C48 from separately run V020 baseline",
+    "baseline_final_mismatches_vs_golden": 0,
+    "baseline_vs_candidate_mismatches": 0,
+    "matrix_baseline_cycles": 2921,
+    "matrix_baseline_compute_cycles": 264,
+    "matrix_candidate_task_cycles": 1880,
+    "matrix_candidate_compute_cycles": 272,
+    "layout_baseline_cycles": [
+      10386,
+      5198,
+      10402
+    ],
+    "vector_baseline_cycles": [
+      5070,
+      8096,
+      8083,
+      4941
+    ],
+    "baseline_vector_layout_bytes": {
+      "read": 23680,
+      "write": 19456
+    },
+    "candidate_vector_layout_bytes": {
+      "read": 23680,
+      "write": 19456
+    },
+    "note": "baseline chain is host-sequenced and matrix C48 is preloaded; candidate is PL-autonomous. Cycle numbers are logic cycles, not board time."
+  },
+  "negative_tests": {
+    "bad_matrix_queue_magic": {
+      "fault": 1,
+      "error_code": 3,
+      "cycles": 10449,
+      "matrix_cycles": 0,
+      "done": 1,
+      "no_hang": true
+    },
+    "bad_vector_op19": {
+      "fault": 1,
+      "error_code": 7,
+      "cycles": 12349,
+      "vector_writes": 0,
+      "layout_writes": 3072,
+      "matrix_cycles": 1880,
+      "done": 1,
+      "no_hang": true
+    }
+  },
+  "trace": {
+    "window_cycles": [
+      12,
+      23820
+    ],
+    "resources": 7,
+    "coverage": 1.0,
+    "transfers": 271,
+    "duplicate_candidate_bytes": 112,
+    "duplicate_reason": "scalars scale/bias re-read by vector nodes (8x16B, unique16B)",
+    "module_busy_samples": {
+      "graph": 23774,
+      "matrix": 1900,
+      "vector": 4643,
+      "layout": 16788
+    },
+    "warning": "busy samples are not PE-only time; CSR per-op cycles sum vector=952/layout=6724 and differ from busy samples",
+    "reports": [
+      "reports/traffic/",
+      "reports/integrated_activity.html",
+      "traces/integrated_trace.jsonl"
+    ]
+  },
+  "gate": {
+    "primary_acceptance": "NOT_PASS overall (single-module control rerun only)",
+    "gemini_fma_repair": "own tests PASS; independent 137/8734 FMA mismatches; stream tag/backpressure/param/reconfig defects; NOT integrated",
+    "gemini_approx_repair": "structure fixed (5 cycles, II=1); independent DIV/RSQRT factor-2 and RSQRT(-0) sign; NOT integrated",
+    "ds_numeric_adversarial": "overall_pass=false",
+    "ds_integration_audit": "verdict=blocked",
+    "gate_exit_json_present": true,
+    "gate_source_sha256": {
+      "primary_acceptance_report": "e0fd6a9100ea281bf3eb518e2ff6f7498aea0e89cb8d3a9c6f714952373680d8",
+      "ds_numeric_adversarial_result": "2ee4e79d2146d6e2c636f3f5a8bb8ee2b93028c027f49c53698805639b09379c",
+      "ds_integration_audit_result": "d0701190c286d376f7d8ea323ec7e87e43c8ea7ba3646cb00018475e8784f86d",
+      "gemini_fma_repair_result": "ceca1ac182f458a6e6f7914762f36b98fa87ed4f87713d307d414366b853ac06",
+      "gemini_approx_repair_result": "563d17fcc48562022c90acca62e9ebcd646338f98874be6a3cdd7b1e5f3ba79a",
+      "ds_vector_result": "86e38fbb27f88d22e70a94f3ea4fd12c2c8411c8d6e3e5203d5266283a288e22",
+      "ds_layout_result": "6bedd02a20563d5217481cd479a4f11d32f82e157fe4c6e1e76fc00b62b7c689",
+      "ds_matrix_result": "9992f51d239035ece55e82286c3ed241802f6bfcd7ae194a966bf2be7dd26325",
+      "ds_graph_result": "da98cc0cccb0f62e4dd3a32de01a95714cc469a60b453e7725a0e88ad254e135",
+      "ds_control_fixes_result": "7fab5c65932ada9645c2afcfd126abf259ce7674e8002ba9e89ded46149fca2e"
+    }
+  },
+  "integration_fixes": [
+    "xbar owner tag changed from 1-based grant to grant-1; FIFO pointers sized by $clog2(QDEPTH) (32 entries)",
+    "WCPG vec_ok op14 ACL fixed to allow a48=1 while still checking B readability (no window/overlap relaxation)",
+    "exposed seq_active and gated MAT/VEC/LAY ready during SEQ ownership",
+    "added terminal watchdog/isolation for MAT/VEC/LAY children; no false drained claim",
+    "baseline host-control race fixed (descriptor/start on negedge)"
+  ],
+  "blockers": [
+    "sealed 68/591 payload not re-lowered; 698 tensors / 16,771,840 B alias sealed scratch 0x03000000..0x04000000; 89,118 old refs, 25,021 unmapped",
+    "full 591 tensor DAG, original ONNX and host executor missing; local int16 ONNX is a different release",
+    "matrix/vector/layout have no abort/drain ports; plan_v023 child_abort/child_drained cannot be honestly wired",
+    "mixed SEQ + direct engine concurrency has no real arbiter (SEQ-exclusive gate added only in graph copy)",
+    "matrix queue adapter is direct-config V022 descriptor sequencer, not a sealed payload re-lowering executor",
+    "FMA/op17 not integrated; gemini_fma_repair rejected by independent audit (137/8734 mismatches + stream defects)",
+    "approx DIV/SQRT not integrated; independent factor-2 and RSQRT(-0) defects",
+    "epilogue stream engine rejected (A16 tag 255/256, packed backpressure duplication, param port ignored, in-flight reconfig)",
+    "no CDC/async FIFO; no synthesis/STA; no 300/600 MHz or board DDR claim",
+    "trace busy samples vs CSR per-op cycles differ; do not use busy as PE time until root cause is resolved"
+  ],
+  "tested": [
+    "single-clock CSR one START -> one DONE/IRQ",
+    "WCPG 9-node dependency execution",
+    "real LAY mode0 copy, MAT V022 queue descriptor M32/N32/K32 A16/W7/C48",
+    "vector op14 I48->F32, op2 MUL, op0 ADD, op15 F32->I16",
+    "independent signed C48 -> float32 -> 2^-10 -> +0.5 -> RNE -> clip i16 golden",
+    "shared AXI 5-read/3-write arbitrated port with credits/tags",
+    "bad matrix queue magic and bad vector op19 terminal faults",
+    "exact sealed baseline same fixture; V020 matrix baseline same fixture",
+    "traffic-ledger and module-activity-waveform on real handshakes"
+  ],
+  "unverified": [
+    "full CASE0000 / 591 true dataflow / original executor",
+    "sealed payload re-lowering and 68+591 coexistence",
+    "FMA/op17, approx integration, epilogue fusion",
+    "matrix/vector/layout abort/drain; mixed-engine arbitration",
+    "outstanding peak >1 in this workload (xbar supports credit 8; measured peak 1)",
+    "CDC/async FIFO, synthesis, STA, board, 300/600 MHz",
+    "full-model WER/CER/quantized accuracy; old KWT ranges are not applicable"
+  ],
+  "source_sha256": {
+    "rtl/array16_w7_c48_cfg.sv": "c4203e0b7fc21b1b11e82579343236089342352d70b167b70791b8e69c03daae",
+    "rtl/asr_fp32_alu.sv": "4f83fc66bb2443695e1e45b29cdd9f90e890ac44b76975fc2f66e00a8ba9c602",
+    "rtl/asr_fp32_lane_fixed.sv": "540e06db258dfa1761076e061ee4f297b9089626e225e9c68a6faf30f5117217",
+    "rtl/axi_dma_v019.sv": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531",
+    "rtl/axi_dma_v020_multi_v2.sv": "dda5aa9fa44f9a78e063b4f7ea4124c86b9252a89d0f720067f588d0592e163f",
+    "rtl/axi_dma_v023_bounded.sv": "abbf6e8595a3c3d46e007bd02f48c7ee102f2ef7b738ca29298298e69b0b2990",
+    "rtl/axi_dma_v023_multi.sv": "26e5f1f1b0e6bc26699281bab9c566d51921b1eca93bdfb0258965b1ec5e3d6f",
+    "rtl/block_address_v020.sv": "9d2bba3f38965133122ca37da9d1ffe06de10807b45c6c6758f08fbe7a3ce63b",
+    "rtl/block_address_v023.sv": "ca0d68730277b434fe04bac84b470aa0675a38b4c74c6585742dc0c23e359578",
+    "rtl/block_engine_prefetch_v2.sv": "c15d23c5eda9d111a3fff56ad419d07a3bb64be9c8222bbbaa1212511c4bc749",
+    "rtl/block_storage_stream_v2.sv": "da18bfd22a327b7bae36d937f6c877bda4211413781a9dd7c390dea4ef11e538",
+    "rtl/c_cache_banked4.sv": "db4713635512574b5c67ee9ef8218736b2a7bc85b9625033f16fe69eddded718",
+    "rtl/c_cache_banked4_pipe.sv": "e34b79c7c28df229e47a8247056a8a1e3988a7ae0385709fbf621f79b329d1fa",
+    "rtl/ddr_layout_axi.sv": "a4728ffac826ef48776171598ebde6f58c8726f903d8b6af10cedb504c47a4c2",
+    "rtl/ddr_layout_engine_v023_burst.sv": "4e45a39dcb07daeefc190d383ede885e57718f9a60c9d23eda61c4dae11eb893",
+    "rtl/ddr_vector_axi_pipe.sv": "7c492af8737f5ebfe1fa68b8cf9c4f2d9b229593ba53b15a45d404708ae66226",
+    "rtl/ddr_vector_engine_pipe.sv": "d486711cefc89f943ec8bcc85059385216752f4079bc416cee48372acabd257a",
+    "rtl/fma_forbidden_stub.sv": "9a2e615daf60712370da43b6bae9d3c94ee121a702c3a10f2c22a50dd4e8bbee",
+    "rtl/matrix_p2_cluster_v2.sv": "0cfcfda99212ac443c4384d9000a121b577baceb60e13385ad849562e423a866",
+    "rtl/operand_banks_dual_v2.sv": "0c3cd46224cd12aaed2461ab4a251fb3fce233e5c12ac21b403f4524cf45a112",
+    "rtl/pe_w7_c48_cfg.sv": "d8b5089073f4629f113b7735316593b77335ad99d8adf0c6757bd2d70269f179",
+    "rtl/pl_execution_plan_v023.sv": "93ea2e0b12a3163fee83b8210616d4d21af43ae89c4ab2162097fc5cb638aaa5",
+    "rtl/plan_submit_csr_v023.sv": "35fbe0f392c671a2c63e469a390c87d9c6173a403153d76d14c6316de80c8a98",
+    "rtl/ready_scan_banked_v1.sv": "bae88644824255b9472b6dc8a5b0c111390da711c7b352c5774958d424c7242f",
+    "rtl/task_queue.sv": "001d88ba07e27155e5bad6a195e09254cdc9e7b1036722b6a16e2658158e4551",
+    "rtl/u16_divmod.sv": "5ed69ab1748a321dc65b5e04ef32241b0e9568449707495ce19d6f6358e2f162",
+    "rtl/v023_axi_shared.sv": "4f4ab388794f30a2a9e49c9243a9acdb6f4e45fade38245144b48946382e89f5",
+    "rtl/v023_integrated_top.sv": "a3b75801665a20175a4f8dfdd57e4bd37bf46d5c09550146acf14689d7e47883",
+    "rtl/v023_layout_axi.sv": "8929ba5eca51f4c927fae7c031f845f160b187821f9004f1467197b64af2efe1",
+    "rtl/v023_layout_guard.sv": "5105985a967179721c0a555b88511a76b46de616e8a6cfc4a9b9447130ad88e4",
+    "rtl/v023_matrix_queue_engine.sv": "4bc44e3689cf4a22e0f64322951623d056ddb983d8d14015bda34747c11add0e",
+    "rtl/v023_vector_axi.sv": "cddb95f5206ebfc40f5615dbf76288c15d2ebba2d8d1bba97c35c34881ba7bb3",
+    "rtl/v023_vector_guard.sv": "fa056ed9dfda7b2bc77335e91c366898f79474e51570ac7255da820734cad547",
+    "rtl/vector_desc_check_pipe.sv": "c02cbe1ebf7c4ea694197ed215dbaa5cc76971a5f81a8389e314a80a2e9369fd",
+    "rtl/wc_graph_ctrl.sv": "a6776253db53f5a6102fad920b3abcd756b9d58d525e0b39160d644a05265013",
+    "rtl/wc_graph_top.sv": "9a8cd823809aae56cf89bceedf513d8c87d44d5775a2381a06dd1fb7393e54f2",
+    "optional/approx_div_sqrt.sv": "298a1fb5772c6a156c118b983521e2366ee3d6c361cb85a7395c2f64e7e0c343",
+    "optional/approx_recip_lut.sv": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+    "optional/approx_rsqrt_lut.sv": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153",
+    "optional/approx/approx_div_sqrt.sv": "298a1fb5772c6a156c118b983521e2366ee3d6c361cb85a7395c2f64e7e0c343",
+    "optional/approx/approx_recip_lut.sv": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+    "optional/approx/approx_rsqrt_lut.sv": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153",
+    "tb/tb_v023_baseline_chain.sv": "9dbdb5c46ad230dc7977451705764bc4a71be5785d3fceb698577b3c57589b6a",
+    "tb/tb_v023_integrated.sv": "a32e7eb9273319b5a2c5cb7c91b20d6521e7a3dfcb392fe8648f925bbac29316",
+    "tb/wc_graph_bfm.sv": "36ca51c93343179251a5a537ec95085a03972e3a109e07ee273a6caa8ee76273",
+    "scripts/check_integrated.py": "7aabfa586d65854b07261f42b3668ce70017b50216c2f0ea409b46a326f83f62",
+    "scripts/check_stages.py": "25ef854be4dcbf8614211cde4b54892ea848d5400e444863e7dd9bf6f3d7d951",
+    "scripts/gen_integrated_fixture.py": "225d25c3d041f76429fc27e14d272e2ce9974ce03cb6b64555d82efd00df9e88",
+    "scripts/graph_common.py": "44ca7cc74cfd165834c060413318bd13df2a03d9098623081bc380c191d677d4",
+    "scripts/make_integrated_trace.py": "7edc1091818f8ce62b0064d80866708406bdab4611b07d5bbd02e2ec5adfe4cf",
+    "scripts/verify_graph_chain.py": "c5d870e954dee9deb35347f091a73dc24f2f0b6db7d32888f44ba7f7ff15d09f",
+    "scripts/run_all.sh": "7cf17ef055bf67b8c2870ccb90514a004d439e76963811fbe72a3d3f6c126422",
+    "filelist_baseline.f": "024b0071d5094fdcc6f1cf786eada658e3c4cfa181f9ba247792e081a64c3e6b",
+    "filelist_integrated.f": "26ba37358a0d7ba007cdf42bac8326184054d5541d1a9c5e0618c7c3bca4c1c6",
+    "optional/filelist_approx_candidate.f": "2e05e522600e7da6674e70a6a79c2e5083d53f9471f4c67ec0d65264e4ed5add"
+  },
+  "reproduce": "cd /home/yang/Desktop/项目/v023_repair/integrated && bash scripts/run_all.sh",
+  "stage_check": {
+    "matrix_c48_mismatches": 0,
+    "i48_to_f32_mismatches": 0,
+    "mul_scale_mismatches": 0,
+    "add_bias_mismatches": 0,
+    "f32_to_i16_mismatches": 0,
+    "words": 1024,
+    "report": "reports/stage_check.json"
+  }
+}

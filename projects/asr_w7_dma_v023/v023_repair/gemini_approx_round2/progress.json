@@ -1,0 +1,32 @@
+{
+  "task": "gemini_approx_round2",
+  "status": "completed",
+  "current_stage": "completed",
+  "completed_stages": [
+    "init_and_workspace_setup",
+    "stage_1_root_cause_and_rtl_repair",
+    "stage_2_numeric_adversarial_validation",
+    "stage_3_protocol_and_flush_regression",
+    "stage_4_deliverables_and_reporting"
+  ],
+  "timestamp": "2026-10-29T22:41:00+08:00",
+  "stages": {
+    "init_and_workspace_setup": "completed",
+    "stage_1_root_cause_and_rtl_repair": "completed",
+    "stage_2_numeric_adversarial_validation": "completed",
+    "stage_3_protocol_and_flush_regression": "completed",
+    "stage_4_deliverables_and_reporting": "completed"
+  },
+  "log": [
+    "Read EXECUTION_CONTRACT.md, v023_repair/ds_numeric_adversarial/REPORT.md, FINDINGS.md, INTERFACE.md, result.json, and USER_UPDATES.md.",
+    "Copied baseline RTL and verification scripts from gemini_approx_repair into gemini_approx_round2.",
+    "Identified root causes: APPROX-1 (DIV 1/0x41fffad2 missing <0.5 normalization branch), APPROX-2 (RSQRT maxfinite missing <1.0 normalization branch), APPROX-3 (RSQRT -0 and negative subnormal signed inf), and flush integration contract (input flush = 1'b0 default).",
+    "Repaired approx_div_sqrt.sv in candidate/rtl and rtl: added 3-way DIV normalization, 2-way RSQRT normalization, a_sign ? FP32_NEG_INF : FP32_POS_INF special case, and input flush = 1'b0 default port.",
+    "Verified parameter assertions: TIER=1, LATENCY=5, II=1 accepted; TIER=0,2,3, LATENCY=4,7, II=2 rejected with elaboration errors and $fatal.",
+    "Verified protocol performance: measured exact 5-cycle latency for DIV, SQRT, RSQRT; verified II=1 on 32 back-to-back requests; verified randomized backpressure and pipeline flush.",
+    "Verified 4,131 vectors in test_approx_suite.py: 100% backpressure consistency, 100% tag integrity.",
+    "Executed independent ds_numeric_adversarial 15,168-vector black-box verification (BP=0, BP=1, flush, unconnected flush): 0 special mismatches, 0 worst cases >10%, 0 tag errors, 0 stability errors, max DIV error 0.11147%, max SQRT error 5.78e-6, max RSQRT error 5.72e-6, overall PASS (rc=0).",
+    "Co-simulated with ds_vector candidate engine on div_1001 and sqrt_1001: completed with V023_VECTOR_PASS without modifying any ds_vector files.",
+    "Generated all deliverables: REPORT.md, INTERFACE.md, result.json, progress.json, run_all.sh with all exit codes zero."
+  ]
+}

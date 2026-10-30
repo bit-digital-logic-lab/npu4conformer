@@ -1,0 +1,92 @@
+R1 read64 err=0 bytes=1024 bursts=4 armax=4 fifohi=2 rbub=0
+R2 fifo_full err=0 fifohi=128 bytes=4096 index=256
+R3 pushpop err=0 bytes=4096 index=256 fifohi=94
+R4 4k bursts=2 bytes=256
+AR t=13868000 a=0004003000 l=15 qc=0
+AR t=13876000 a=0004003100 l=15 qc=1
+BSTART t=13876000 ca=0004003000 tgt=16
+AR t=13892000 a=0004003200 l=15 qc=1
+POP t=13921000 idx=0 d0=00
+AR t=13924000 a=0004003300 l=15 qc=2
+POP t=13929000 idx=1 d0=10
+POP t=13937000 idx=2 d0=20
+POP t=13945000 idx=3 d0=30
+POP t=13953000 idx=4 d0=40
+POP t=13961000 idx=5 d0=50
+POP t=13969000 idx=6 d0=60
+POP t=13977000 idx=7 d0=70
+POP t=13985000 idx=8 d0=80
+POP t=13993000 idx=9 d0=90
+POP t=14001000 idx=10 d0=a0
+POP t=14009000 idx=11 d0=b0
+POP t=14017000 idx=12 d0=c0
+POP t=14025000 idx=13 d0=d0
+POP t=14033000 idx=14 d0=e0
+POP t=14041000 idx=15 d0=f0
+BSTART t=14044000 ca=0004003100 tgt=16
+POP t=14081000 idx=16 d0=00
+POP t=14089000 idx=17 d0=10
+POP t=14097000 idx=18 d0=20
+POP t=14105000 idx=19 d0=30
+POP t=14113000 idx=20 d0=40
+POP t=14121000 idx=21 d0=50
+POP t=14129000 idx=22 d0=60
+POP t=14137000 idx=23 d0=70
+POP t=14145000 idx=24 d0=80
+POP t=14153000 idx=25 d0=90
+POP t=14161000 idx=26 d0=a0
+POP t=14169000 idx=27 d0=b0
+POP t=14177000 idx=28 d0=c0
+POP t=14185000 idx=29 d0=d0
+POP t=14193000 idx=30 d0=e0
+POP t=14201000 idx=31 d0=f0
+BSTART t=14204000 ca=0004003200 tgt=16
+POP t=14241000 idx=32 d0=00
+POP t=14249000 idx=33 d0=10
+POP t=14257000 idx=34 d0=20
+POP t=14265000 idx=35 d0=30
+POP t=14273000 idx=36 d0=40
+POP t=14281000 idx=37 d0=50
+POP t=14289000 idx=38 d0=60
+POP t=14297000 idx=39 d0=70
+POP t=14305000 idx=40 d0=80
+POP t=14313000 idx=41 d0=90
+POP t=14321000 idx=42 d0=a0
+POP t=14329000 idx=43 d0=b0
+POP t=14337000 idx=44 d0=c0
+POP t=14345000 idx=45 d0=d0
+POP t=14353000 idx=46 d0=e0
+POP t=14361000 idx=47 d0=f0
+BSTART t=14364000 ca=0004003300 tgt=16
+POP t=14377000 idx=48 d0=00
+POP t=14385000 idx=49 d0=10
+POP t=14393000 idx=50 d0=20
+POP t=14401000 idx=51 d0=30
+POP t=14409000 idx=52 d0=40
+POP t=14417000 idx=53 d0=50
+POP t=14425000 idx=54 d0=60
+POP t=14433000 idx=55 d0=70
+POP t=14441000 idx=56 d0=80
+POP t=14449000 idx=57 d0=90
+POP t=14457000 idx=58 d0=a0
+POP t=14465000 idx=59 d0=b0
+POP t=14473000 idx=60 d0=c0
+POP t=14481000 idx=61 d0=d0
+POP t=14489000 idx=62 d0=e0
+POP t=14497000 idx=63 d0=f0
+R5 rresp err=1 bytes=1024
+R6 early err=1
+R7 late err=1
+W1 write64 err=0 bytes=1024 bursts=4 bmax=2
+WH t=16788000 wb=0 strb=ffff d0=00 last=0
+WH t=16820000 wb=1 strb=ffff d0=10 last=0
+WH t=16868000 wb=2 strb=ffff d0=20 last=0
+WH t=16900000 wb=3 strb=0007 d0=30 last=1
+W2 bubble_tail err=0 bytes=51
+W2 write_bytes=51 (expect 51)
+W3 delayedB err=0 bmax=2 bytes=1024
+W4 bresp err=1 aws=3
+Z zero_unaligned
+X wrap bursts=2 err=0 a0=00fffffff0 a1=0100000000
+MULTI_TEST_END errors=0
+/home/yang/Desktop/项目/v023_repair/ds_matrix/tests/tb_dma_multi.sv:248: $finish called at 19448000 (1ps)

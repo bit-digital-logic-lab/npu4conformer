@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "compiler": "iverilog 2012",
+  "workload": {
+    "num_tiles": 4,
+    "tile_a_bytes": 2048,
+    "tile_w_bytes": 1024,
+    "tile_c_bytes": 6144,
+    "ddr_latency_cycles": 8,
+    "bus_width_bits": 128
+  },
+  "before_serial": {
+    "total_cycles": 1261,
+    "dma_wait_cycles": 464
+  },
+  "after_overlapped": {
+    "total_cycles": 706,
+    "dma_wait_cycles": 116
+  },
+  "metrics": {
+    "dma_wait_reduction_percent": 75.0,
+    "speedup_factor": 1.79,
+    "numerical_bit_exact": true
+  },
+  "execution_time_seconds": 0.178
+}

@@ -1,0 +1,2 @@
+DONE stream mode=0 relu=0 spill=0 abort_at=-1 abort_cycle=-1
+STATS in=256 a16=256 pack=128 spill=0 c48stat=256 a16stat=256 spillstat=0 saved=12288

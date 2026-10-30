@@ -1,0 +1,1356 @@
+{
+  "label": "fma_repair_stream_bp1",
+  "bp": 1,
+  "source_sha256": {
+    "i48": "637a7b327d35760bc5d741128d04f77bcddde87cc40886dcf24aff09cebd29bf",
+    "fma": "5d52cbc54e1f61029a9c24544ae573ab345ffc8335bb57964dbfbbe8b62183bd",
+    "f32i16": "c51d3327a7fcfbe7e584f1efa275413644147669c9d216ea7f5fbf31b864af6b",
+    "relu": "0e008b394489fcdd2f453aeebee5288f1b812d715c5e8840d47f19bcb3142c4d",
+    "lane": "d00b4d57776a605cbed790d19e9a7be7bb4b0f1751d4f6b617a9ca35489435f7",
+    "stream": "b99a664bc3e49bed21acf79c22281506e85ce347777ad578bfbe2c2a78984bce",
+    "approx": "e360e7e455261ead4ee32ecacc93bed77f4de09458d3d689ae3eb3e948495ec1",
+    "recip": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+    "rsqrt": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153",
+    "fma_pipe": "3263c02d63a886f9a8701d19f8c07e3a1b66670ad737206b24846194736cb23f"
+  },
+  "sources": {
+    "i48": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_repair/candidate/epilogue_i48_to_f32.sv",
+    "fma": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_repair/candidate/epilogue_fma_stage.sv",
+    "f32i16": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_repair/candidate/epilogue_f32_to_i16.sv",
+    "relu": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_repair/candidate/epilogue_relu.sv",
+    "lane": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_repair/candidate/epilogue_lane.sv",
+    "stream": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_repair/candidate/epilogue_stream_engine_v023.sv",
+    "approx": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_approx/rtl/approx_div_sqrt.sv",
+    "recip": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_approx/rtl/approx_recip_lut.sv",
+    "rsqrt": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_approx/rtl/approx_rsqrt_lut.sv",
+    "fma_pipe": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_repair/candidate/fp32_fma_pipe.sv",
+    "asr_fma": null
+  },
+  "tests": {
+    "stream_conv": {
+      "rc": 0,
+      "mode": 0,
+      "relu": 0,
+      "spill": 0,
+      "bp": 1,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 198,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [
+        {
+          "i": 4,
+          "got_tag": "0003",
+          "exp_tag": "0004",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 6,
+          "got_tag": "0005",
+          "exp_tag": "0006",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 16,
+          "got_tag": "000f",
+          "exp_tag": "0010",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 18,
+          "got_tag": "0011",
+          "exp_tag": "0012",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 34,
+          "got_tag": "0021",
+          "exp_tag": "0022",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 38,
+          "got_tag": "0025",
+          "exp_tag": "0026",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 40,
+          "got_tag": "0027",
+          "exp_tag": "0028",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 42,
+          "got_tag": "0029",
+          "exp_tag": "002a",
+          "got_last": 0,
+          "exp_last": 0
+        }
+      ],
+      "examples": [],
+      "pass": false
+    },
+    "stream_conv_relu": {
+      "rc": 0,
+      "mode": 0,
+      "relu": 1,
+      "spill": 0,
+      "bp": 1,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 198,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [
+        {
+          "i": 4,
+          "got_tag": "0003",
+          "exp_tag": "0004",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 6,
+          "got_tag": "0005",
+          "exp_tag": "0006",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 16,
+          "got_tag": "000f",
+          "exp_tag": "0010",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 18,
+          "got_tag": "0011",
+          "exp_tag": "0012",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 34,
+          "got_tag": "0021",
+          "exp_tag": "0022",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 38,
+          "got_tag": "0025",
+          "exp_tag": "0026",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 40,
+          "got_tag": "0027",
+          "exp_tag": "0028",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 42,
+          "got_tag": "0029",
+          "exp_tag": "002a",
+          "got_last": 0,
+          "exp_last": 0
+        }
+      ],
+      "examples": [],
+      "pass": false
+    },
+    "stream_fma": {
+      "rc": 0,
+      "mode": 1,
+      "relu": 0,
+      "spill": 0,
+      "bp": 1,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 198,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [
+        {
+          "i": 4,
+          "got_tag": "0003",
+          "exp_tag": "0004",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 6,
+          "got_tag": "0005",
+          "exp_tag": "0006",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 16,
+          "got_tag": "000f",
+          "exp_tag": "0010",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 18,
+          "got_tag": "0011",
+          "exp_tag": "0012",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 34,
+          "got_tag": "0021",
+          "exp_tag": "0022",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 38,
+          "got_tag": "0025",
+          "exp_tag": "0026",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 40,
+          "got_tag": "0027",
+          "exp_tag": "0028",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 42,
+          "got_tag": "0029",
+          "exp_tag": "002a",
+          "got_last": 0,
+          "exp_last": 0
+        }
+      ],
+      "examples": [],
+      "pass": false
+    },
+    "stream_fma_relu": {
+      "rc": 0,
+      "mode": 1,
+      "relu": 1,
+      "spill": 0,
+      "bp": 1,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 198,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [
+        {
+          "i": 4,
+          "got_tag": "0003",
+          "exp_tag": "0004",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 6,
+          "got_tag": "0005",
+          "exp_tag": "0006",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 16,
+          "got_tag": "000f",
+          "exp_tag": "0010",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 18,
+          "got_tag": "0011",
+          "exp_tag": "0012",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 34,
+          "got_tag": "0021",
+          "exp_tag": "0022",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 38,
+          "got_tag": "0025",
+          "exp_tag": "0026",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 40,
+          "got_tag": "0027",
+          "exp_tag": "0028",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 42,
+          "got_tag": "0029",
+          "exp_tag": "002a",
+          "got_last": 0,
+          "exp_last": 0
+        }
+      ],
+      "examples": [],
+      "pass": false
+    },
+    "stream_fma_real": {
+      "rc": 0,
+      "mode": 1,
+      "relu": 0,
+      "spill": 0,
+      "bp": 1,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 198,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [
+        {
+          "i": 4,
+          "got_tag": "0003",
+          "exp_tag": "0004",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 6,
+          "got_tag": "0005",
+          "exp_tag": "0006",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 16,
+          "got_tag": "000f",
+          "exp_tag": "0010",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 18,
+          "got_tag": "0011",
+          "exp_tag": "0012",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 34,
+          "got_tag": "0021",
+          "exp_tag": "0022",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 38,
+          "got_tag": "0025",
+          "exp_tag": "0026",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 40,
+          "got_tag": "0027",
+          "exp_tag": "0028",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 42,
+          "got_tag": "0029",
+          "exp_tag": "002a",
+          "got_last": 0,
+          "exp_last": 0
+        }
+      ],
+      "examples": [],
+      "pass": false
+    },
+    "stream_scale_only": {
+      "rc": 0,
+      "mode": 2,
+      "relu": 0,
+      "spill": 0,
+      "bp": 1,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 198,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [
+        {
+          "i": 4,
+          "got_tag": "0003",
+          "exp_tag": "0004",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 6,
+          "got_tag": "0005",
+          "exp_tag": "0006",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 16,
+          "got_tag": "000f",
+          "exp_tag": "0010",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 18,
+          "got_tag": "0011",
+          "exp_tag": "0012",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 34,
+          "got_tag": "0021",
+          "exp_tag": "0022",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 38,
+          "got_tag": "0025",
+          "exp_tag": "0026",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 40,
+          "got_tag": "0027",
+          "exp_tag": "0028",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 42,
+          "got_tag": "0029",
+          "exp_tag": "002a",
+          "got_last": 0,
+          "exp_last": 0
+        }
+      ],
+      "examples": [],
+      "pass": false
+    },
+    "stream_spill": {
+      "rc": 0,
+      "mode": 0,
+      "relu": 0,
+      "spill": 1,
+      "bp": 1,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 256,
+      "a16_mismatch": 60,
+      "packed_mismatch": 45,
+      "spill_mismatch": 0,
+      "tag_mismatch": 195,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [
+        {
+          "i": 4,
+          "got_tag": "0003",
+          "exp_tag": "0004",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 6,
+          "got_tag": "0005",
+          "exp_tag": "0006",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 20,
+          "got_tag": "0013",
+          "exp_tag": "0014",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 22,
+          "got_tag": "0015",
+          "exp_tag": "0016",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 26,
+          "got_tag": "0019",
+          "exp_tag": "001a",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 32,
+          "got_tag": "001f",
+          "exp_tag": "0020",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 42,
+          "got_tag": "0029",
+          "exp_tag": "002a",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 44,
+          "got_tag": "002b",
+          "exp_tag": "002c",
+          "got_last": 0,
+          "exp_last": 0
+        }
+      ],
+      "examples": [
+        {
+          "i": 6,
+          "got": [
+            "8000",
+            "7fff",
+            "8000",
+            "0000"
+          ],
+          "exp": [
+            "8000",
+            "7fff",
+            "7fff",
+            "8000"
+          ]
+        },
+        {
+          "i": 7,
+          "got": [
+            "8000",
+            "7fff",
+            "7fff",
+            "8000"
+          ],
+          "exp": [
+            "0003",
+            "fffd",
+            "0007",
+            "fff9"
+          ]
+        },
+        {
+          "i": 27,
+          "got": [
+            "f001",
+            "7fff",
+            "7fff",
+            "7fff"
+          ],
+          "exp": [
+            "7fff",
+            "8000",
+            "8000",
+            "7fff"
+          ]
+        },
+        {
+          "i": 28,
+          "got": [
+            "f001",
+            "7fff",
+            "7fff",
+            "7fff"
+          ],
+          "exp": [
+            "8000",
+            "7fff",
+            "8000",
+            "0000"
+          ]
+        },
+        {
+          "i": 29,
+          "got": [
+            "8000",
+            "7fff",
+            "8000",
+            "0000"
+          ],
+          "exp": [
+            "0001",
+            "ffff",
+            "0002",
+            "fffe"
+          ]
+        },
+        {
+          "i": 33,
+          "got": [
+            "7fff",
+            "7fff",
+            "7fff",
+            "7fff"
+          ],
+          "exp": [
+            "8000",
+            "8000",
+            "8000",
+            "7fff"
+          ]
+        },
+        {
+          "i": 38,
+          "got": [
+            "ff01",
+            "0fff",
+            "f001",
+            "7fff"
+          ],
+          "exp": [
+            "7fff",
+            "7fff",
+            "7fff",
+            "7fff"
+          ]
+        },
+        {
+          "i": 39,
+          "got": [
+            "7fff",
+            "7fff",
+            "7fff",
+            "7fff"
+          ],
+          "exp": [
+            "8000",
+            "7fff",
+            "7fff",
+            "7fff"
+          ]
+        },
+        {
+          "i": 40,
+          "got": [
+            "8000",
+            "7fff",
+            "7fff",
+            "7fff"
+          ],
+          "exp": [
+            "8000",
+            "0000",
+            "0001",
+            "ffff"
+          ]
+        },
+        {
+          "i": 42,
+          "got": [
+            "0002",
+            "fffe",
+            "0003",
+            "fffd"
+          ],
+          "exp": [
+            "7fff",
+            "8000",
+            "7fff",
+            "8000"
+          ]
+        },
+        {
+          "i": 43,
+          "got": [
+            "0002",
+            "fffe",
+            "0003",
+            "fffd"
+          ],
+          "exp": [
+            "0fff",
+            "f001",
+            "7fff",
+            "7fff"
+          ]
+        },
+        {
+          "i": 44,
+          "got": [
+            "0fff",
+            "f001",
+            "7fff",
+            "7fff"
+          ],
+          "exp": [
+            "7fff",
+            "7fff",
+            "7fff",
+            "7fff"
+          ]
+        },
+        {
+          "i": 47,
+          "got": [
+            "0000",
+            "0001",
+            "ffff",
+            "0002"
+          ],
+          "exp": [
+            "fffe",
+            "0003",
+            "fffd",
+            "0007"
+          ]
+        },
+        {
+          "i": 48,
+          "got": [
+            "fffe",
+            "0003",
+            "fffd",
+            "0007"
+          ],
+          "exp": [
+            "7fff",
+            "8000",
+            "7fff",
+            "7fff"
+          ]
+        },
+        {
+          "i": 49,
+          "got": [
+            "7fff",
+            "8000",
+            "7fff",
+            "7fff"
+          ],
+          "exp": [
+            "f001",
+            "7fff",
+            "7fff",
+            "7fff"
+          ]
+        },
+        {
+          "i": 54,
+          "got": [
+            "0003",
+            "fffd",
+            "0007",
+            "fff9"
+          ],
+          "exp": [
+            "7fff",
+            "7fff",
+            "8000",
+            "7fff"
+          ]
+        },
+        {
+          "i": 55,
+          "got": [
+            "7fff",
+            "7fff",
+            "8000",
+            "7fff"
+          ],
+          "exp": [
+            "7fff",
+            "7fff",
+            "7fff",
+            "7fff"
+          ]
+        },
+        {
+          "i": 60,
+          "got": [
+            "fffd",
+            "0007",
+            "fff9",
+            "00ff"
+          ],
+          "exp": [
+            "8000",
+            "8000",
+            "7fff",
+            "7fff"
+          ]
+        },
+        {
+          "i": 65,
+          "got": [
+            "0002",
+            "fffe",
+            "0003",
+            "fffd"
+          ],
+          "exp": [
+            "0007",
+            "fff9",
+            "00ff",
+            "ff01"
+          ]
+        },
+        {
+          "i": 71,
+          "got": [
+            "fffe",
+            "0003",
+            "fffd",
+            "0007"
+          ],
+          "exp": [
+            "fff9",
+            "00ff",
+            "ff01",
+            "0fff"
+          ]
+        }
+      ],
+      "pass": false
+    },
+    "stream_abort": {
+      "rc": 0,
+      "mode": 0,
+      "relu": 0,
+      "spill": 0,
+      "bp": 1,
+      "abort_at": 100,
+      "a16_beats": 91,
+      "packed_beats": 45,
+      "spill_beats": 0,
+      "a16_mismatch": 0,
+      "packed_mismatch": 0,
+      "spill_mismatch": 0,
+      "tag_mismatch": 66,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": null,
+      "packed_count_mismatch": null,
+      "abort_cycle": 200,
+      "tag_examples": [
+        {
+          "i": 4,
+          "got_tag": "0003",
+          "exp_tag": "0004",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 6,
+          "got_tag": "0005",
+          "exp_tag": "0006",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 16,
+          "got_tag": "000f",
+          "exp_tag": "0010",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 18,
+          "got_tag": "0011",
+          "exp_tag": "0012",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 34,
+          "got_tag": "0021",
+          "exp_tag": "0022",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 38,
+          "got_tag": "0025",
+          "exp_tag": "0026",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 40,
+          "got_tag": "0027",
+          "exp_tag": "0028",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 42,
+          "got_tag": "0029",
+          "exp_tag": "002a",
+          "got_last": 0,
+          "exp_last": 0
+        }
+      ],
+      "examples": [],
+      "pass": false
+    },
+    "stream_param_port": {
+      "rc": 0,
+      "mode": 2,
+      "relu": 0,
+      "spill": 0,
+      "bp": 1,
+      "abort_at": -1,
+      "a16_beats": 256,
+      "packed_beats": 128,
+      "spill_beats": 0,
+      "a16_mismatch": 113,
+      "packed_mismatch": 91,
+      "spill_mismatch": 0,
+      "tag_mismatch": 198,
+      "post_abort_outputs": 0,
+      "a16_count_mismatch": 0,
+      "packed_count_mismatch": 0,
+      "abort_cycle": -1,
+      "tag_examples": [
+        {
+          "i": 4,
+          "got_tag": "0003",
+          "exp_tag": "0004",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 6,
+          "got_tag": "0005",
+          "exp_tag": "0006",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 16,
+          "got_tag": "000f",
+          "exp_tag": "0010",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 18,
+          "got_tag": "0011",
+          "exp_tag": "0012",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 34,
+          "got_tag": "0021",
+          "exp_tag": "0022",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 38,
+          "got_tag": "0025",
+          "exp_tag": "0026",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 40,
+          "got_tag": "0027",
+          "exp_tag": "0028",
+          "got_last": 0,
+          "exp_last": 0
+        },
+        {
+          "i": 42,
+          "got_tag": "0029",
+          "exp_tag": "002a",
+          "got_last": 0,
+          "exp_last": 0
+        }
+      ],
+      "examples": [
+        {
+          "i": 1,
+          "got": [
+            "fffe",
+            "0003",
+            "fffd",
+            "0007"
+          ],
+          "exp": [
+            "ffff",
+            "0002",
+            "fffe",
+            "0004"
+          ]
+        },
+        {
+          "i": 2,
+          "got": [
+            "fff9",
+            "00ff",
+            "ff01",
+            "0fff"
+          ],
+          "exp": [
+            "fffc",
+            "0080",
+            "ff80",
+            "0800"
+          ]
+        },
+        {
+          "i": 7,
+          "got": [
+            "0003",
+            "fffd",
+            "0007",
+            "fff9"
+          ],
+          "exp": [
+            "0002",
+            "fffe",
+            "0004",
+            "fffc"
+          ]
+        },
+        {
+          "i": 8,
+          "got": [
+            "00ff",
+            "ff01",
+            "0fff",
+            "f001"
+          ],
+          "exp": [
+            "0080",
+            "ff80",
+            "0800",
+            "f800"
+          ]
+        },
+        {
+          "i": 11,
+          "got": [
+            "7fff",
+            "8000",
+            "0000",
+            "0001"
+          ],
+          "exp": [
+            "7fff",
+            "8000",
+            "0000",
+            "0000"
+          ]
+        },
+        {
+          "i": 13,
+          "got": [
+            "fffd",
+            "0007",
+            "fff9",
+            "00ff"
+          ],
+          "exp": [
+            "fffe",
+            "0004",
+            "fffc",
+            "0080"
+          ]
+        },
+        {
+          "i": 14,
+          "got": [
+            "ff01",
+            "0fff",
+            "f001",
+            "7fff"
+          ],
+          "exp": [
+            "ff80",
+            "0800",
+            "f800",
+            "7fff"
+          ]
+        },
+        {
+          "i": 17,
+          "got": [
+            "8000",
+            "0000",
+            "0001",
+            "ffff"
+          ],
+          "exp": [
+            "8000",
+            "0000",
+            "0000",
+            "0000"
+          ]
+        },
+        {
+          "i": 19,
+          "got": [
+            "0007",
+            "fff9",
+            "00ff",
+            "ff01"
+          ],
+          "exp": [
+            "0004",
+            "fffc",
+            "0080",
+            "ff80"
+          ]
+        },
+        {
+          "i": 20,
+          "got": [
+            "0fff",
+            "f001",
+            "7fff",
+            "7fff"
+          ],
+          "exp": [
+            "0800",
+            "f800",
+            "7fff",
+            "7fff"
+          ]
+        },
+        {
+          "i": 23,
+          "got": [
+            "0000",
+            "0001",
+            "ffff",
+            "0002"
+          ],
+          "exp": [
+            "0000",
+            "0000",
+            "0000",
+            "0001"
+          ]
+        },
+        {
+          "i": 25,
+          "got": [
+            "fff9",
+            "00ff",
+            "ff01",
+            "0fff"
+          ],
+          "exp": [
+            "fffc",
+            "0080",
+            "ff80",
+            "0800"
+          ]
+        },
+        {
+          "i": 26,
+          "got": [
+            "f001",
+            "7fff",
+            "7fff",
+            "7fff"
+          ],
+          "exp": [
+            "f800",
+            "7fff",
+            "7fff",
+            "7fff"
+          ]
+        },
+        {
+          "i": 29,
+          "got": [
+            "0001",
+            "ffff",
+            "0002",
+            "fffe"
+          ],
+          "exp": [
+            "0000",
+            "0000",
+            "0001",
+            "ffff"
+          ]
+        },
+        {
+          "i": 31,
+          "got": [
+            "00ff",
+            "ff01",
+            "0fff",
+            "f001"
+          ],
+          "exp": [
+            "0080",
+            "ff80",
+            "0800",
+            "f800"
+          ]
+        },
+        {
+          "i": 34,
+          "got": [
+            "7fff",
+            "8000",
+            "0000",
+            "0001"
+          ],
+          "exp": [
+            "7fff",
+            "8000",
+            "0000",
+            "0000"
+          ]
+        },
+        {
+          "i": 35,
+          "got": [
+            "ffff",
+            "0002",
+            "fffe",
+            "0003"
+          ],
+          "exp": [
+            "0000",
+            "0001",
+            "ffff",
+            "0002"
+          ]
+        },
+        {
+          "i": 37,
+          "got": [
+            "ff01",
+            "0fff",
+            "f001",
+            "7fff"
+          ],
+          "exp": [
+            "ff80",
+            "0800",
+            "f800",
+            "7fff"
+          ]
+        },
+        {
+          "i": 40,
+          "got": [
+            "8000",
+            "0000",
+            "0001",
+            "ffff"
+          ],
+          "exp": [
+            "8000",
+            "0000",
+            "0000",
+            "0000"
+          ]
+        },
+        {
+          "i": 41,
+          "got": [
+            "0002",
+            "fffe",
+            "0003",
+            "fffd"
+          ],
+          "exp": [
+            "0001",
+            "ffff",
+            "0002",
+            "fffe"
+          ]
+        }
+      ],
+      "pass": false
+    },
+    "stream_reconfig": {
+      "rc": 0,
+      "a16": [
+        "0001000100010001",
+        "0006000600060006"
+      ],
+      "in_flight_corrupted": true,
+      "pass": false
+    }
+  },
+  "started": 1793283953.8416827,
+  "elapsed_s": 2.73,
+  "pass": false
+}

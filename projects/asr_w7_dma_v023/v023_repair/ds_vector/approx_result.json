@@ -1,0 +1,167 @@
+{
+  "passed": true,
+  "failures": [],
+  "scope": "Integrated vector RTL + gemini_approx Tier-1 core; logic simulation only. Error is against exact baseline on the same vectors; no whole-model accuracy gate claimed.",
+  "tiers": {
+    "implementation": "single measured 4-stage core; TIER/LATENCY/II source parameters are not structural and are not used to claim 2/4/7 tiers",
+    "integrated_outstanding_depth": 4
+  },
+  "tests": [
+    {
+      "name": "div_1001",
+      "baseline_cycles": 32438,
+      "approx_cycles": 2637,
+      "baseline_rc": 0,
+      "approx_rc": 0,
+      "approx_flags": "10",
+      "max_rel_error": 0.0010995431177979766,
+      "mean_rel_error": 0.00026905343024739235,
+      "max_ulp": 17742,
+      "median_ulp": 1456,
+      "exact_match_rate": 0.007928642220019821,
+      "cycle_speedup": 12.301,
+      "approx_cycles_per_element": 2.6344
+    },
+    {
+      "name": "sqrt_1001",
+      "baseline_cycles": 31843,
+      "approx_cycles": 2489,
+      "baseline_rc": 0,
+      "approx_rc": 0,
+      "approx_flags": "10",
+      "max_rel_error": 5.244722944530499e-06,
+      "mean_rel_error": 1.1016659758742059e-06,
+      "max_ulp": 63,
+      "median_ulp": 10,
+      "exact_match_rate": 0.009910802775024777,
+      "cycle_speedup": 12.793,
+      "approx_cycles_per_element": 2.4865
+    },
+    {
+      "name": "div_tail7",
+      "baseline_cycles": 273,
+      "approx_cycles": 49,
+      "baseline_rc": 0,
+      "approx_rc": 0,
+      "approx_flags": "10",
+      "max_rel_error": 0.0005540601597875133,
+      "mean_rel_error": 1.3578911750182656e-06,
+      "max_ulp": 7029,
+      "median_ulp": 0,
+      "exact_match_rate": 0.9930624380574826,
+      "cycle_speedup": 5.571,
+      "approx_cycles_per_element": 7.0
+    },
+    {
+      "name": "sqrt_tail7",
+      "baseline_cycles": 253,
+      "approx_cycles": 41,
+      "baseline_rc": 0,
+      "approx_rc": 0,
+      "approx_flags": "10",
+      "max_rel_error": 2.9486176417141445e-06,
+      "mean_rel_error": 8.873588040327287e-09,
+      "max_ulp": 35,
+      "median_ulp": 0,
+      "exact_match_rate": 0.9930624380574826,
+      "cycle_speedup": 6.171,
+      "approx_cycles_per_element": 5.8571
+    }
+  ],
+  "special": [
+    {
+      "name": "err_div_zero",
+      "baseline_rc": 0,
+      "approx_rc": 0,
+      "approx_fault": 1,
+      "approx_err": "04",
+      "ok": true
+    },
+    {
+      "name": "err_div_0_0",
+      "baseline_rc": 0,
+      "approx_rc": 0,
+      "approx_fault": 1,
+      "approx_err": "04",
+      "ok": true
+    },
+    {
+      "name": "err_sqrt_neg",
+      "baseline_rc": 0,
+      "approx_rc": 0,
+      "approx_fault": 1,
+      "approx_err": "04",
+      "ok": true
+    },
+    {
+      "name": "err_div_inf_inf",
+      "baseline_rc": 0,
+      "approx_rc": 0,
+      "approx_fault": 1,
+      "approx_err": "04",
+      "ok": true
+    }
+  ],
+  "backpressure": [
+    {
+      "name": "div_1001",
+      "mode": 11,
+      "ok": true,
+      "cycles": 2612
+    },
+    {
+      "name": "div_1001",
+      "mode": 12,
+      "ok": true,
+      "cycles": 2631
+    },
+    {
+      "name": "div_1001",
+      "mode": 13,
+      "ok": true,
+      "cycles": 2606
+    },
+    {
+      "name": "div_1001",
+      "mode": 14,
+      "ok": true,
+      "cycles": 2780
+    },
+    {
+      "name": "sqrt_1001",
+      "mode": 11,
+      "ok": true,
+      "cycles": 2477
+    },
+    {
+      "name": "sqrt_1001",
+      "mode": 12,
+      "ok": true,
+      "cycles": 2483
+    },
+    {
+      "name": "sqrt_1001",
+      "mode": 13,
+      "ok": true,
+      "cycles": 2470
+    },
+    {
+      "name": "sqrt_1001",
+      "mode": 14,
+      "ok": true,
+      "cycles": 2584
+    }
+  ],
+  "source_sha256": {
+    "tb/tb_vector_generic.sv": "bae61666bd90555bf561fb02d519f6709a33fa48b285e7cf37f27f790f3d2387",
+    "candidate/rtl/ddr_vector_engine_approx.sv": "9bd1316ae41167106d6c2a154694793a30e5d17f4ee3e82644c36573b8279907",
+    "candidate/rtl/ddr_vector_engine_pipe.sv": "d486711cefc89f943ec8bcc85059385216752f4079bc416cee48372acabd257a",
+    "candidate/rtl/asr_fp32_lane_fixed.sv": "540e06db258dfa1761076e061ee4f297b9089626e225e9c68a6faf30f5117217",
+    "candidate/rtl/vector_desc_check_pipe.sv": "c02cbe1ebf7c4ea694197ed215dbaa5cc76971a5f81a8389e314a80a2e9369fd",
+    "candidate/rtl/gemini_approx/approx_div_sqrt.sv": "e360e7e455261ead4ee32ecacc93bed77f4de09458d3d689ae3eb3e948495ec1",
+    "candidate/rtl/gemini_approx/approx_recip_lut.sv": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+    "candidate/rtl/gemini_approx/approx_rsqrt_lut.sv": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153",
+    "baseline/rtl/asr_fp32_alu.sv": "4f83fc66bb2443695e1e45b29cdd9f90e890ac44b76975fc2f66e00a8ba9c602",
+    "baseline/tb/fma_forbidden_stub.sv": "9a2e615daf60712370da43b6bae9d3c94ee121a702c3a10f2c22a50dd4e8bbee"
+  }
+}

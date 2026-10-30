@@ -1,0 +1,6 @@
+早期执行计划候选，不是本轮部署镜像，禁止上板使用。
+它只通过字节镜像编译检查；之后修正了 ADD 左操作数为 bias 时的周期广播。
+本轮已对全部 68 个程序做数值/布局对照的镜像是 ../parameters002/。
+parameters002/parameters.bin SHA256:
+fc36806a0070407ae33adbe56f80810e5e57e73d4016f049eed2c4486ed18767
+PS 的不可变索引及 CRC 检查只接受 parameters002，不接受此早期候选。

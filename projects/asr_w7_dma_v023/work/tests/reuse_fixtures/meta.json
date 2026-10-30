@@ -1,0 +1,32 @@
+[
+  {
+    "name": "period1",
+    "elements": 1001,
+    "output_bytes": 4004
+  },
+  {
+    "name": "period32",
+    "elements": 1001,
+    "output_bytes": 4004
+  },
+  {
+    "name": "period128",
+    "elements": 1001,
+    "output_bytes": 4004
+  },
+  {
+    "name": "period256",
+    "elements": 1001,
+    "output_bytes": 4004
+  },
+  {
+    "name": "period512",
+    "elements": 1001,
+    "output_bytes": 4004
+  },
+  {
+    "name": "tiled40cols",
+    "elements": 2048,
+    "output_bytes": 8192
+  }
+]

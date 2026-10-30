@@ -1,0 +1,6 @@
+INFO init done mem=1152 words
+CFG m=32 n=32 k=96 ids=1/2/3 allowed=1 req=1 pos=3210 bases=03000000/03002000/03003000 slots=2
+INFO done fault=0 code=00 cycles=2948 compute=792 rdblk=6 wrblk=64 hits=0 miss=1 prehit=2 prewait=198 ov_rd=261 ov_wr=645
+INFO bfm rdcmds=6 wrcmds=64 rdbeats=576 wrbeats=384 shared=0 maxb=1 rdstall=2 wrstall=32
+PASS tb_engine_overlap M=32 N=32 K=96 C_VALID=0 cycles=2948 compute=792 ov_rd=261 ov_wr=645 prehit=2 prewait=198
+/home/yang/Desktop/项目/tasks/ds_storage_overlap/tests/tb_engine_overlap.sv:229: $finish called at 52680000 (1ps)

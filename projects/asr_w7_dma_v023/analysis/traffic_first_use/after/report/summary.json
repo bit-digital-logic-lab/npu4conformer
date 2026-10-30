@@ -1,0 +1,97 @@
+{
+  "scope": "actual AXI handshakes of RTL DMA BFM microbenchmark, 256 beats each direction; not full model; no matrix IDs inferred",
+  "resources": [
+    {
+      "resource": "axi_r",
+      "unit": "cycle",
+      "evidence": "RTL_handshake_100MHz_simclock_not_achieved_Fmax",
+      "window": 538,
+      "observed_ticks": 538,
+      "known_ticks": 538,
+      "known_coverage": 1.0,
+      "states": {
+        "dispatch_or_drain": 6,
+        "wait_memory": 263,
+        "payload": 256,
+        "idle_no_request": 13
+      },
+      "valid_bytes": 4096,
+      "wire_bytes": 4096,
+      "payload_fraction": 0.4758364312267658,
+      "bytes_per_tick": 7.613382899628252,
+      "seconds": 5.38e-06,
+      "effective_B_per_s": 761338289.9628253,
+      "payload_B_per_tick": 16.0,
+      "capacity_bytes_per_tick": 16,
+      "ledger_valid_bytes": 4096,
+      "ledger_wire_bytes": 4096,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    },
+    {
+      "resource": "axi_w",
+      "unit": "cycle",
+      "evidence": "RTL_handshake_100MHz_simclock_not_achieved_Fmax",
+      "window": 538,
+      "observed_ticks": 538,
+      "known_ticks": 538,
+      "known_coverage": 1.0,
+      "states": {
+        "dispatch_or_drain": 54,
+        "backpressure": 228,
+        "payload": 256
+      },
+      "valid_bytes": 4096,
+      "wire_bytes": 4096,
+      "payload_fraction": 0.4758364312267658,
+      "bytes_per_tick": 7.613382899628252,
+      "seconds": 5.38e-06,
+      "effective_B_per_s": 761338289.9628253,
+      "payload_B_per_tick": 16.0,
+      "capacity_bytes_per_tick": 16,
+      "ledger_valid_bytes": 4096,
+      "ledger_wire_bytes": 4096,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    }
+  ],
+  "tensors": [
+    {
+      "tensor": "BFM_operand",
+      "version": "fixture_seed7",
+      "format": "raw128_fixture",
+      "src": "DDR_model",
+      "dst": "DMA_read_sink",
+      "transfers": 1,
+      "valid_bytes": 4096,
+      "bus_bytes": 4096,
+      "comparable_logical_bytes": 4096,
+      "unique_logical_bytes": 4096,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "test_fixture_transfer_not_model_tensor": 4096
+      }
+    },
+    {
+      "tensor": "BFM_result",
+      "version": "fixture_seed7",
+      "format": "raw128_fixture",
+      "src": "DMA_write_source",
+      "dst": "DDR_model",
+      "transfers": 1,
+      "valid_bytes": 4096,
+      "bus_bytes": 4096,
+      "comparable_logical_bytes": 4096,
+      "unique_logical_bytes": 4096,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "test_fixture_transfer_not_model_tensor": 4096
+      }
+    }
+  ],
+  "warnings": [
+    "重复字节是候选，不是可省流量证明；跨域时间未对齐；未采样区间是unknown。"
+  ]
+}

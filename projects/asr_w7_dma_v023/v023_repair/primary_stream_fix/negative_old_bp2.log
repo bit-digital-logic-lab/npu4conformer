@@ -1,0 +1,69 @@
+{
+  "stream_conv": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 244
+  },
+  "stream_conv_relu": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 244
+  },
+  "stream_fma": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 244
+  },
+  "stream_fma_relu": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 244
+  },
+  "stream_fma_real": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 234
+  },
+  "stream_scale_only": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 244
+  },
+  "stream_spill": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 244
+  },
+  "stream_abort": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 143
+  },
+  "stream_param_port": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 247
+  },
+  "stream_bias_preload": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 247
+  },
+  "stream_reconfig": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  }
+}
+RESULT /home/yang/Desktop/项目/v023_repair/primary_stream_fix/result_negative_old_bp2.json FAIL

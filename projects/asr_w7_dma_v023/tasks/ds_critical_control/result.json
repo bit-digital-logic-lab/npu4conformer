@@ -1,0 +1,132 @@
+{
+  "task": "ds_critical_control",
+  "scope": "logic simulation only; no synthesis, no Vivado/STA, no board access, no push",
+  "status": "complete",
+  "baseline_critical_path": {
+    "source": "ps_system/ps_gateway_i/accelerator/inst/core/compute/core/state_reg[3]/C",
+    "destination": "ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/bad_reg/D",
+    "requirement_ns": 8.0,
+    "data_delay_ns": 7.745,
+    "slack_ns": 0.055,
+    "logic_delay_ns": 5.057,
+    "net_delay_ns": 2.688,
+    "cell_levels": 30,
+    "level_details": "CARRY8=6 DSP_A_B_DATA=2 DSP_ALU=3 DSP_M_DATA=2 DSP_MULTIPLIER=2 DSP_OUTPUT=3 DSP_PREADD_DATA=2 LUT2=1 LUT5=4 LUT6=5",
+    "root_cause": "two cascaded DSP48E2 multiplies for expected_address, expected_end 64-bit add, ARENA/PARAM/row/col compares, all sampled by bad_reg in one clock"
+  },
+  "candidates": {
+    "storage": {
+      "file": "candidate/rtl/block_storage_dma_wide4_pipe_v1.sv",
+      "module": "block_storage_dma_wide4",
+      "stages": 7,
+      "latency": "read header decision about +8 cycles; write DMA launch +1 cycle (validation hidden under 1024-word pack)",
+      "outs": "unchanged ports/widths/ACL/error ordering/data path"
+    },
+    "layout": {
+      "file": "candidate/rtl/ddr_layout_engine_pipe_v1.sv",
+      "module": "ddr_layout_engine",
+      "stages": "CALC->ADDR1->ADDRESS",
+      "latency": "one extra cycle per element",
+      "cycle_cost_pct": [
+        10.7,
+        15.1
+      ],
+      "outs": "unchanged ports/widths/ACL/data; throughput cost at 125MHz"
+    }
+  },
+  "tests": {
+    "storage_protocol": {
+      "cases": 71,
+      "pass": 71,
+      "diff_bytes": 0,
+      "log_orig": "logs/storage_equiv_orig.log",
+      "log_cand": "logs/storage_equiv_cand.log",
+      "diff": "logs/storage_equiv_diff.log"
+    },
+    "layout_official": {
+      "cases": 20,
+      "pass": 20,
+      "log": "logs/layout_equiv_run.log"
+    },
+    "layout_fuzz": {
+      "cases": 51,
+      "pass": 51,
+      "log": "logs/layout_fuzz_run.log"
+    },
+    "block_integration": {
+      "configs": 2,
+      "pass": 2,
+      "log": "logs/block_integration.log",
+      "c_hashes": {
+        "32x32x32": "fefd48c480f5f324",
+        "64x32x64": "ee7e0905446bd2e8"
+      }
+    }
+  },
+  "bounds_file": "BOUNDS.json",
+  "bounds_summary": {
+    "vector_layout_read_bytes": 452330768,
+    "vector_layout_write_bytes": 355555088,
+    "vector_layout_shared_125MHz_s": 0.403942928,
+    "vector_layout_independent_125MHz_s": 0.226165384,
+    "aggregate_929293344_shared_125MHz_s": 0.464646672,
+    "aggregate_note": "aggregate has no measured R/W split; shared value is a scenario, not a universal bound"
+  },
+  "contracts": {
+    "W7A16C48_QDQ": "unchanged",
+    "host_once_preload": "unchanged; no runtime host control added",
+    "ACL_error_order_read_write_data_transaction_drain": "unchanged",
+    "no_synthesis_or_frequency_claim": true
+  },
+  "limitations": [
+    "no synthesis/STA/bitstream/board",
+    "storage +8 cycle read header latency and +1 cycle write launch must be accepted by upper layer",
+    "layout +10.7..15.1% element-loop cycles in fixtures; integrate only if frequency/local-domain benefit pays",
+    "929293344 B aggregate lacks measured R/W split",
+    "traffic-ledger full integration not implemented; only monitor-point contract provided",
+    "storage candidate moves the measured path endpoint to the accept registers; block_engine/block_address_v020 combinational cone remains and must be checked in the new implementation"
+  ],
+  "hashes": {
+    "candidate/rtl/block_storage_dma_wide4_pipe_v1.sv": "2f8444b13020b753f613a990b5b15d86eb650697884b4ee4c68eea2760149efd",
+    "candidate/rtl/ddr_layout_engine_pipe_v1.sv": "71d125860c030a30bb4df8bef9996c0622b0800c3f82c9869e7e135aef5764a1",
+    "tests/axi128_memory_bfm.sv": "dd2e5a075f3605cee30aa5b506bd6271a0b434a12c9d12cc377f12b18c17cf58",
+    "tests/block_engine_simfix_v020.sv": "f12535c7357a232050626b2d07b5b3ebb78638f82f864805747e816d0028abf7",
+    "tests/ddr_layout_axi_ref.sv": "a4728ffac826ef48776171598ebde6f58c8726f903d8b6af10cedb504c47a4c2",
+    "tests/tb_block_integration.sv": "a8f9a3f13c5aa5cdfb5d51159d5adb55da85d8bfe363c4f8c91e99f03b8dc9c5",
+    "tests/tb_layout_engine.sv": "c72726fd7338879531884df71629dd2145c14c33ef71eaf3559f2cc27641e307",
+    "tests/tb_layout_fuzz.sv": "1aab96295b11ef754c2dd21f6735c7845658c7a564d7c225815b47eb6cf4b212",
+    "tests/tb_storage_cand_debug.sv": "180f843e80828a1f2aa7aabb48e9d8179e119b92ff5eb65aa8ca57dd61ab3a13",
+    "tests/tb_storage_debug.sv": "dc66cb401c61b4ff3538b8f775c94170a4542c135e4cc7bb28bc2238ed59dc4a",
+    "tests/tb_storage_equiv.sv": "8a15572ef121b4e34a91f9438c98422bb566a472a84d9c448449020955b323e3",
+    "scripts/calc_bounds.py": "ea262f3c77e1ee9b96d410b2cb2c6424904203d543aed82102d071d0f915ec7e",
+    "scripts/gen_layout_fuzz.py": "9f9007d4ecccc3ae84aed0687e79ea025539d0c91c46b82b229d533fdf05c958",
+    "scripts/gen_storage_stim.py": "71e44171d046d457573180ccda17f3e17b47c02ca8329c04ae634d1bf235c493",
+    "scripts/run_layout_equiv.py": "411c7fa4ca7475dc715621b1522b252089d4c08d6f109e01b54af743f5e9543b",
+    "scripts/run_all_tests.sh": "8bf592fcfe793ee82fd73338fb109988ce031cf5783a0a98a09e148a2a0a37a8"
+  },
+  "board": {
+    "device": "XCZU15EG-2FFVB1156I",
+    "board_candidate": "ALINX AXU15EG (AL8/AL7 and RGMII pins match; no board-name/schematic anchor, not definitive)",
+    "ps_ddr": "DDR4 64-bit, 4x16-bit 8Gb, CONFIG.PSU__ACT_DDR_FREQ_MHZ~799.992 (DDR4-1600 MT/s), physical peak 12.8 GB/s",
+    "pl_port": "single S_AXI_HP0_FPD, 128-bit @125 MHz, 2.0 GB/s peak; 6 masters share one port",
+    "pl_ddr": "PL-side 2GB DDR4 possible on candidate board but not constrained/instantiated in original project; unresolved, no board operation",
+    "speedbin_note": "DDR4_2400P is component speed bin, not current 2400 MT/s operation"
+  },
+  "pe_bandwidth": {
+    "rule": "P_eq <= B*I/f",
+    "pe_256_required_I_MAC_per_byte": {
+      "300MHz": 38.4,
+      "600MHz": 76.8
+    },
+    "hp128_125MHz_GB_s": 2.0,
+    "ddr4_physical_GB_s": 12.8,
+    "six_master_note": "6 masters x 2GB/s is not valid; they share HP0",
+    "tile_examples": {
+      "32^3_2GBs_300MHz_Peq": 23.703703703703702,
+      "64x128x256_2GBs_300MHz_Peq": 121.90476190476188,
+      "16x16_local_no_cross_tile_reuse_I_max": 5.333333333333333
+    },
+    "source": "research/PE_BANDWIDTH_MATCH.md/json"
+  },
+  "user_updates": "read tasks/ds_critical_control/USER_UPDATES.md including PE_BANDWIDTH_MATCH and traffic-ledger guidance; ledger full integration is not implemented, monitor-point contract provided"
+}

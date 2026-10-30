@@ -1,0 +1,8 @@
+FUSION_DONE done=1 fault=0 code=00 cycles=3471 task_cycles=3466 busy=0
+FUSION_STATS c48_beats=512 a16_words=256 a16_bytes=4096 fifo_high=1 fifo_stalls=0 c48_ddr_bytes=0 tiles=2
+FUSION_AXI rd_beats=768 rd_cmds=48 rd_bytes=12288 wr_beats=256 wr_cmds=16 wr_bytes=4096 wr_bursts=16 bmax=5
+FUSION_DRAIN last_w=3404 last_b=3467 dma_done=3469 drain_cycles=65
+FUSION_WINDOW out_of_a16=0
+FUSION_ASSERT fifo_peak=1 assert_err=0
+FUSION_TB_PASS
+tb/tb_fusion_cluster.sv:366: $finish called at 34830000 (1ps)

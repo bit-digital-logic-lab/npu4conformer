@@ -1,0 +1,7 @@
+CMD: /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/build/fma_repair_full_flush
+FLUSH_FAIL: fma pre-flush result wrong
+FLUSH_FAIL: fma post-flush result wrong
+FLUSH_FAIL: lane pre-flush result wrong
+FLUSH_FAIL: lane post-flush result wrong
+FLUSH_ERRORS=4
+/home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/tb/tb_flush.sv:143: $finish(2) called at 540000 (1ps)

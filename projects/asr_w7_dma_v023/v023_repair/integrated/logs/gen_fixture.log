@@ -1,0 +1,48 @@
+{
+  "M": 32,
+  "N": 32,
+  "K": 32,
+  "C_VALID": 0,
+  "seed": 1234,
+  "positions": "0x3210",
+  "clip": 1,
+  "A_BASE": "0x03000000",
+  "B_BASE": "0x03001000",
+  "C_BASE": "0x03002000",
+  "MEM_WORDS": 2048,
+  "nbr": 1,
+  "nbc": 1,
+  "nbk": 1,
+  "sha256_init": "a0d6e3f402f728fc36f89a2d89e71563a2e29e7a83ba47553f57694fd2647a26",
+  "sha256_exp": "2fd3ba338d626e55ff0c61a251273480a141af87c17fa477f72a61e5e0f8f0f8",
+  "note": "integer golden only; no FP32/QDQ path in this block engine test"
+}
+{
+  "plan_base": 268468224,
+  "param_end": 268697600,
+  "plan_bytes": 1792,
+  "plan_sha256": "5c8afc4d8fe5b30317562e6474a8e79d56b03dd57617186f08dda05fdad16bec",
+  "nodes": 9,
+  "queue_base": 67158016,
+  "matrix": {
+    "m": 32,
+    "n": 32,
+    "k": 32,
+    "a": 67108864,
+    "b": 67112960,
+    "c": 67117056,
+    "golden": "ds_matrix eng_c0 independent integer exp_c"
+  },
+  "vector": {
+    "i48_to_f32": 67117056,
+    "scale_out": 67125248,
+    "mul_out": 67129344,
+    "add_out": 67133440,
+    "i16_out": 67137536,
+    "scale": 0.0009765625,
+    "bias": 0.5
+  },
+  "layout_out": 67141632,
+  "golden": "matrix integer exp_c -> float32 -> *2^-10 -> +0.5 -> RNE -> clip i16",
+  "scope": "integrated logic simulation; not full CASE0000 and not sealed payload re-lowering"
+}

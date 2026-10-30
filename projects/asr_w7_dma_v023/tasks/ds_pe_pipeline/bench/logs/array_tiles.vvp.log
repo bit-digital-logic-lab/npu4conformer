@@ -1,0 +1,3 @@
+ARRAY_DRAIN s3=19 s4=20 s5=21 s6=22 csa=21
+ARRAY_CFG_DONE cycles=840
+bench/tb_array_cfg_compare.sv:171: $finish called at 8426000 (1ps)

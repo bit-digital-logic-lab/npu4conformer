@@ -1,0 +1,8 @@
+{
+  "chain": "LAY copy -> VEC ADD 1.0 -> VEC MUL 2.0",
+  "words_checked": 64,
+  "words_matching": 64,
+  "bad": [],
+  "golden_source": "local fixture input + descriptor constants 1.0/2.0, computed with numpy float32",
+  "pass": true
+}

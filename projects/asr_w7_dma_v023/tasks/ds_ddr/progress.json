@@ -1,0 +1,137 @@
+{
+  "task": "ds_ddr",
+  "phase": "P7_restart_handoff",
+  "updated_at": "2026-10-30T14:01:58+08:00",
+  "scope": "逻辑验证：DDR/AXI 带宽与整机 PL 自主控制分析；无综合/Vivado/板卡/联网。",
+  "inputs_read": [
+    "work/DESIGN_CONTRACT_zh.txt",
+    "work/CURRENT_WORK.txt",
+    "work/BOARD_RESULT.json",
+    "work/BOARD_RESULT_zh.txt",
+    "work/rtl/axi_dma_v019.sv",
+    "work/rtl/block_storage_dma_prefetch.sv",
+    "work/rtl/block_engine_l1bank_v020.sv",
+    "work/rtl/array16_direct_v020.sv",
+    "work/rtl/pe_direct_v020.sv",
+    "work/rtl/c_cache_banked4.sv",
+    "work/rtl/ddr_execution_cluster_v022.sv",
+    "work/rtl/pl_execution_plan_v022.sv",
+    "work/rtl/ddr_vector_axi.sv",
+    "work/rtl/ddr_vector_engine.sv",
+    "work/rtl/ddr_layout_axi.sv",
+    "work/rtl/ddr_layout_engine.sv",
+    "work/tests/axi128_memory_bfm.sv",
+    "work/host/fusion_backend.py",
+    "work/host/base_v021.py",
+    "work/host/backend_v021.py",
+    "work/ps/vm_pl.c",
+    "work/ps/gateway_async.c",
+    "work/scripts/build_full.tcl",
+    "fixtures/parameters002/manifest.json",
+    "/home/yang/Desktop/ic设计竞赛 Git refs（只读 git show/ls-tree/log）"
+  ],
+  "findings": {
+    "physical_ddr_topology": "PL 6 个 AXI master -> smartconnect -> PS S_AXI_HP0_FPD（Zynq PS 硬 DDR 控制器）。PS CPU 不参与运行期数据/控制，但未绕过 PS 硬 DDR 控制器；PL MIG/独立 DDR 为未决未来选项。",
+    "baseline": "原 RTL 测试 7 组全部 PASS（csr/vector_rtl/vector_axi/plan/layout/reuse/alignment）；Icarus 14 中文路径修复只影响 fixture 别名。",
+    "dma_v019": "单在途、<=16beat、AR 等 RLAST、AW 等 BRESP；每突发暴露一次延迟。",
+    "dma_v020": "8 AR 在途 + 128beat 读 FIFO + posted write/多 B 信用。修正后同负载 4096beat：L=32 read 12548->4135（3.03x，util .326->.991），write 7404->4815（1.54x，.553->.851），mix 13558->8779（1.54x，.604->.933）；L=64 read 20740->4167（4.98x）。L=8 mix 8777->8745（1.004x），低延迟混合不应盲换。",
+    "vector_small_requests": "原 vector/layout 夹具只换 DMA 时 v020 略慢（add_scalar 7882->7887；layout case0000 563652->566367），瓶颈在算子请求粒度/相位。",
+    "pingpong": "4 页×64beat、消费者 300cyc/页：串行 1667 -> 预取 1343 cycles（1.241×），overlap 316 cycles，stall 401（2 页信用真实上限）。",
+    "workload": "68 plan，useful MAC 3,461,011,968，padded 3,991,404,544，unique C48 4,471,808，121,808 个 32×32×32 block；vector/layout elements 与板测 exact；matrix bytes 125,143,040（含 C read 1,867,776）；vector/layout 807,885,856。",
+    "bounds": "矩阵 PE 32,157,312 cycles=0.2573s@125MHz，padded 124.12 MAC/cycle；whole plan 1,560,822,594 cycles=12.4866s，阶段和 12.4844s，表观 overlap 0.0022s。",
+    "ddr": "总字节 933,028,896；16B/cycle 半双工 125MHz 下界 0.4665s（200/250/300MHz 0.2916/0.2333/0.1944s）；whole-plan 实际 74.7MB/s=2GB/s 的 3.7%。",
+    "wholecase": "153.775s wall；closed plans 12.4866s；边界上传/下载 8.683s；余约 132.6s 为 host/ONNX/legacy/逐矩阵 UDP/Python，缺 profile，不能归因 DDR。",
+    "autonomy": "当前 host 逐子图 fuse_plan、591 legacy queue、write_words 0xe300、PS vm211_run 逐 plan 轮询；已写 pl_graph_runner_v1 4 节点控制骨架（正常乱序/循环依赖 fault/子算子 fault 三例通过），68+591 集成未完成。",
+    "bfm": "共享 BFM 被外部并发改写且存在 W FIFO 死锁、AW 信用不递增、单 B 限制、每拍换向 50% 上限、同拍计数覆盖；已在 bench/bfm/axi128_ddr_bfm_ds.sv 钉住修正并实跑，shared 文件不动。",
+    "strobe": "V020 write_bytes 改为 WSTRB popcount；64beat 部分 strobe 回归 V019/V020 均 424B。"
+  },
+  "artifacts": {
+    "report": "REPORT.md",
+    "result": "result.json",
+    "historical": "HISTORICAL_OPTIONS.md",
+    "autonomy": "docs/PL_AUTONOMY.md",
+    "bounds": "bench/reports/BOUNDS.md",
+    "reports": [
+      "bench/reports/dma_compare.json",
+      "bench/reports/vector_dma_compare.json",
+      "bench/reports/pingpong.json",
+      "bench/reports/graph_runner.json",
+      "bench/reports/plan_workload.json",
+      "bench/reports/bounds.json",
+      "bench/reports/strobe_account.json"
+    ],
+    "candidates": [
+      "candidate/axi_dma_v020_multi.sv",
+      "candidate/ab_pingpong_prefetch.sv",
+      "candidate/ddr_vector_axi_v020.sv",
+      "candidate/ddr_layout_axi_v020.sv",
+      "candidate/pl_graph_runner_v1.sv"
+    ],
+    "bench": [
+      "bench/bfm/axi128_ddr_bfm.sv",
+      "bench/tb_dma_compare.sv",
+      "bench/tb_ab_pingpong.sv",
+      "bench/tb_graph_runner.sv",
+      "bench/run_baseline.py",
+      "bench/run_dma_compare.py",
+      "bench/run_vector_compare.py",
+      "bench/run_pingpong.py",
+      "bench/run_graph.py",
+      "bench/analyze_plan_workload.py",
+      "bench/analyze_bounds.py",
+      "bench/make_result.py",
+      "bench/run_short_bursts.py",
+      "bench/run_strobe_account.py",
+      "bench/tb_strobe_account.sv"
+    ],
+    "findings": "FINDINGS.md",
+    "readme": "README.md",
+    "interface": "INTERFACE.md",
+    "bfm": "bench/bfm/axi128_ddr_bfm_ds.sv"
+  },
+  "steps": [
+    {
+      "id": "P1",
+      "name": "baseline 现有 RTL 测试可移植复跑",
+      "status": "done"
+    },
+    {
+      "id": "P2",
+      "name": "参数化 AXI128 共享 DDR BFM",
+      "status": "done"
+    },
+    {
+      "id": "P3",
+      "name": "baseline/candidate 吞吐与公平对比",
+      "status": "done"
+    },
+    {
+      "id": "P4",
+      "name": "真实 RTL DMA 候选 + golden + 随机 BFM",
+      "status": "done"
+    },
+    {
+      "id": "P5",
+      "name": "整机 PL 自主计划控制分析与候选",
+      "status": "done_with_limitations"
+    },
+    {
+      "id": "P6",
+      "name": "REPORT.md / result.json / 输入 SHA",
+      "status": "done"
+    },
+    {
+      "id": "P7",
+      "name": "恢复后：外部 BFM 变更对账、钉住修正、WSTRB 计数回归、INTERFACE 交接",
+      "status": "done"
+    }
+  ],
+  "honesty": [
+    "未做综合、未做板级、未联网。",
+    "300/600MHz 仅为流水设计目标，不是物理时序结论。",
+    "历史板级 wall 与本次 Icarus/Verilator 逻辑仿真分开报告。",
+    "完整模型依赖缺失：matrix_epoch 等逐场景 golden 不在本目录，未编造 CASE 精度。",
+    "pl_graph_runner_v1 是控制骨架，不是完整 68+591 节点 CASE 集成。",
+    "外部 shared BFM 与 ds_ddr 钉住副本已分开；所有本轮数字来自 _ds 副本，不能与旧版 BFM 数字混用。"
+  ]
+}

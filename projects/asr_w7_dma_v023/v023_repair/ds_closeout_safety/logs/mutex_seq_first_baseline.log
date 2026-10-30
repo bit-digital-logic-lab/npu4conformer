@@ -1,0 +1,10 @@
+BFM_HOLD r_lo=0000000000 r_hi=0000000000 r_en=0 b_lo=0000000000 b_hi=0000000000 b_en=0
+BFM_AR addr=0010008000 hold=0 lo=0000000000 hi=0000000000
+BFM_AR addr=0010008040 hold=0 lo=0000000000 hi=0000000000
+BFM_AR addr=0010008100 hold=0 lo=0000000000 hi=0000000000
+BFM_AR addr=00100081c0 hold=0 lo=0000000000 hi=0000000000
+BFM_AR addr=0010009000 hold=0 lo=0000000000 hi=0000000000
+MUTEX_END done=1 fault=0 error=00 busy=0 seq_active=0 ov_seq_lay=279 ov_seq_vec=0 ov_seq_mat=0 ov_seq_direct=279 seq_start=117 lay_start=140 cyc=450
+MUTEX_OVERLAP_VIOLATION seq_direct=279
+MUTEX_RESULT FAIL
+tb/tb_graph_mutex.sv:225: $finish called at 3604000 (1ps)

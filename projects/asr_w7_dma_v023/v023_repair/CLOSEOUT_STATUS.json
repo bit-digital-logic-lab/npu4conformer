@@ -1,0 +1,24 @@
+{
+  "updated": 1793286738.0169075,
+  "automatic_timer": false,
+  "jobs": [
+    {
+      "name": "ds_closeout_numeric",
+      "pid": 168196,
+      "state": "running",
+      "result": "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_closeout_numeric/result.json"
+    },
+    {
+      "name": "ds_closeout_safety",
+      "pid": 168198,
+      "state": "running",
+      "result": "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_closeout_safety/result.json"
+    },
+    {
+      "name": "gemini_closeout_fusion",
+      "pid": 168197,
+      "state": "running",
+      "result": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_closeout_fusion/result.json"
+    }
+  ]
+}

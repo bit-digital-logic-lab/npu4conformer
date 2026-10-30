@@ -1,0 +1,7 @@
+STORAGE_HANDSHAKE_BEGIN
+ADDR A0 03000000 valid=1 ext=0000001000
+GOOD_READ header=1 dma_req=1 beats=128 rdblocks=1 errs=0 bad=0 recv=128 nbeats=128
+BAD_WRITE ack=1 werr=1 dma_req=0 errs=0
+STORAGE_HANDSHAKE_TEST_END errors=0
+STORAGE_HANDSHAKE_PASS
+tb/tb_storage_handshake.sv:191: $finish called at 10008000 (1ps)

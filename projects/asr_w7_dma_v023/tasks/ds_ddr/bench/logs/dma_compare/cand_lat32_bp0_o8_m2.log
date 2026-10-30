@@ -1,0 +1,3 @@
+TB_START mode=2 rst=1 req_ready=1 ar_ready=1
+DMA_RESULT mode=2 dut=cand beats=4096 cycles=8779 total_bfm_cycles=8782 busy=8192 rbeats=4096 wbeats=4096 rbursts=256 wbursts=256 rbubble=34 wbubble=3984 armax=8 awmax=8 pass=1
+/home/yang/Desktop/项目/tasks/ds_ddr/bench/tb_dma_compare.sv:224: $finish called at 87905000 (1ps)

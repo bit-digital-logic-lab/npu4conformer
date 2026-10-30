@@ -1,0 +1,39 @@
+{
+  "task": "ds_protocol_audit",
+  "stage": "complete",
+  "percent": 100,
+  "updated": "2026-10-29T11:08:35.658051+00:00",
+  "user_updates_read_at_start": true,
+  "user_updates_read_at_end": true,
+  "user_updates_last": "new strict pipeline tasks + STA paths; DMA/storage control-path registering for 300/600MHz, not verified",
+  "tests": {
+    "dma_edge": 20,
+    "vector": 15,
+    "layout": 16,
+    "acl": 2,
+    "multi": 13,
+    "plan": 3,
+    "csr": 1,
+    "strobe": 1
+  },
+  "findings": {
+    "confirmed": 4,
+    "risk_or_behavior": 4,
+    "structural": 1,
+    "pass_or_info": 4,
+    "untested_categories": 4
+  },
+  "artifacts": [
+    "REPORT.md",
+    "result.json",
+    "FINDINGS.jsonl",
+    "INTERFACE.md",
+    "tb/",
+    "reports/",
+    "snapshots/",
+    "scripts/run_all.sh",
+    "reports/COMMANDS.md",
+    "reports/SOURCE_SHA256.txt"
+  ],
+  "next": "hand findings PA-001/PA-002/PA-004 to main agent; keep read-only sources untouched"
+}

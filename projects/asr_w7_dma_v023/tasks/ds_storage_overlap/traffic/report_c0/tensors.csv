@@ -1,0 +1,4 @@
+﻿tensor,version,format,src,dst,transfers,valid_bytes,bus_bytes,comparable_logical_bytes,unique_logical_bytes,repeat_candidate_bytes,unclassified_transfers,reasons
+A,epoch3:blocks00-01:kb0-2,A16,DDR,A_stage_banks,1,12288,12288,12288,12288,0,0,"{""first_load"": 12288}"
+W,epoch3:immutable:kb0-2,W7p8_parity,DDR,W_stage_banks,1,6144,6144,6144,6144,0,0,"{""first_load"": 6144}"
+C,epoch3:blocks00-01:final,C48,C_cache,DDR,1,12288,12288,12288,12288,0,0,"{""c_result_write"": 12288}"

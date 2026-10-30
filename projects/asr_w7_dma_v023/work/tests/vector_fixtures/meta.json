@@ -1,0 +1,37 @@
+[
+  {
+    "name": "add_scalar",
+    "id": 0,
+    "count": 1001,
+    "output_bytes": 4004,
+    "numerical_oracle": "Independent numpy FP32/integer conversion, finite exact inputs; actual RTL FP32 core under test"
+  },
+  {
+    "name": "mul_vector",
+    "id": 1,
+    "count": 1001,
+    "output_bytes": 4004,
+    "numerical_oracle": "Independent numpy FP32/integer conversion, finite exact inputs; actual RTL FP32 core under test"
+  },
+  {
+    "name": "i16_to_float",
+    "id": 2,
+    "count": 1001,
+    "output_bytes": 4004,
+    "numerical_oracle": "Independent numpy FP32/integer conversion, finite exact inputs; actual RTL FP32 core under test"
+  },
+  {
+    "name": "round_i16",
+    "id": 3,
+    "count": 1001,
+    "output_bytes": 2002,
+    "numerical_oracle": "Independent numpy FP32/integer conversion, finite exact inputs; actual RTL FP32 core under test"
+  },
+  {
+    "name": "i48_to_float",
+    "id": 4,
+    "count": 1001,
+    "output_bytes": 4004,
+    "numerical_oracle": "Independent numpy FP32/integer conversion, finite exact inputs; actual RTL FP32 core under test"
+  }
+]

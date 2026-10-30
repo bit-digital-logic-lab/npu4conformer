@@ -1,0 +1,4 @@
+r3_18 3 4 2597 1 32365 18939 0.585 689 689 0 689 689
+r4_19 4 6 1216 1 27449 22625 0.824 1520 1520 0 457 457
+TOTAL cases=99 fails=0 cyc_orig=2883789 cyc_burst=1763249 ratio=0.611
+READ_OVERFETCH cases=5/99 extra_beats=50 max_extra_beats_per_case=20

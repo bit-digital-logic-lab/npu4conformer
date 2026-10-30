@@ -1,0 +1,25 @@
+V211_BOARD encoder 1 2601 /Sub
+V211_BOARD encoder 20 2601 /encoder/embed/conv/conv.1/Relu_output_0_DequantizeLinear
+V211_BOARD encoder 98 2601 /encoder/encoders.4/self_attn/linear_pos/MatMul
+V211_BOARD encoder 293 2601 /encoder/encoders.0/self_attn/MatMul_1
+V211_BOARD encoder 568 2601 /encoder/encoders.1/norm_conv/LayerNormalization
+V211_BOARD encoder 807 2601 /encoder/encoders.2/feed_forward
+V211_BOARD encoder 1046 2601 /encoder/encoders.4/self_attn/linear_k/Add
+V211_BOARD encoder 1335 2601 /encoder/encoders.5/self_attn/Softmax
+V211_BOARD encoder 1580 2601 /encoder/encoders.6/conv_module/activation/Sigmoid
+V211_BOARD encoder 1817 2601 /encoder/encoders.8/norm_mha/LayerNormalization
+V211_BOARD encoder 2075 2601 /encoder/encoders.9/self_attn/MatMul_1
+V211_BOARD encoder 2356 2601 /encoder/encoders.10/conv_module/pointwise_conv1/Conv
+V211_BOARD encoder 2596 2601 /encoder/encoders.11/norm_final/LayerNormalization
+V211_BOARD decoder 1 1016 memory_QuantizeLinear
+V211_BOARD decoder 331 1016 /decoders.1/self_attn/linear_out/MatMul
+V211_BOARD decoder 742 1016 /decoders.4/self_attn/Reshape_1_output_0_QuantizeLinear
+{
+  "completed": true,
+  "seconds": 152.72657679999247,
+  "encoder": 122.57101689999399,
+  "decoder": 27.178191400002106,
+  "parameter_upload_bytes": 0,
+  "vs_v21_bit_exact": true,
+  "strict_onnx_pass": false
+}

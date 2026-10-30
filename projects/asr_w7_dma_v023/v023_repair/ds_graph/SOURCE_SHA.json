@@ -1,0 +1,41 @@
+{
+  "read_only": {
+    "/home/yang/Desktop/\u9879\u76ee/model_a_v0_22(1).zip": "327ea1b4b228a0415b370a208e2a6881e6547a49473b360105724a12655eda84",
+    "/home/yang/Desktop/\u9879\u76ee/tasks/ds_pl_autonomy/assets/manifest_v022.json": "5544fb82a416a994784cbe3da2d2524b5b4d28bef516d35018a2030e52a7ed1a",
+    "/home/yang/Desktop/\u9879\u76ee/tasks/ds_pl_autonomy/rtl/wc_superplan_ctrl.sv": "53de6011ae2e7c630f282d0a3272995b91e991832113df0e7a933d3790db896c",
+    "/home/yang/Desktop/\u9879\u76ee/work/assets/parameters002/parameters.bin": "fc36806a0070407ae33adbe56f80810e5e57e73d4016f049eed2c4486ed18767",
+    "/home/yang/Desktop/\u9879\u76ee/work/rtl/axi_dma_v019.sv": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531",
+    "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_vector_axi.sv": "9613c3f6814830b0129094ca860dafc4f5272e3e9a67ab5ef58b6074bdee34f2",
+    "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_vector_engine.sv": "08a642d915f0d0a83d10c156a52c21bc20bd4f69b3ac8c402ca22c094381641d",
+    "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_layout_axi.sv": "a4728ffac826ef48776171598ebde6f58c8726f903d8b6af10cedb504c47a4c2",
+    "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_layout_engine.sv": "1ebcaaa58a61f23ab298ab901f184894eb230d6225b26779b8dbf97f54722c52",
+    "/home/yang/Desktop/\u9879\u76ee/work/rtl/asr_fp32_alu.sv": "4f83fc66bb2443695e1e45b29cdd9f90e890ac44b76975fc2f66e00a8ba9c602",
+    "/home/yang/Desktop/\u9879\u76ee/work/rtl/u16_divmod.sv": "5ed69ab1748a321dc65b5e04ef32241b0e9568449707495ce19d6f6358e2f162",
+    "/home/yang/Desktop/\u9879\u76ee/work/tests/fma_forbidden_stub.sv": "9a2e615daf60712370da43b6bae9d3c94ee121a702c3a10f2c22a50dd4e8bbee"
+  },
+  "candidate": {
+    "rtl/wc_graph_ctrl.sv": "046975145875d1086c22b11f3a82152da3a63d675bbe78acae01eacfd707265e",
+    "rtl/wc_graph_top.sv": "ed55cbb62113f06e57e31d623d7d8f6954469d56afb3dfceb82ec68e47d1a3a5",
+    "tb/wc_graph_bfm.sv": "36ca51c93343179251a5a537ec95085a03972e3a109e07ee273a6caa8ee76273",
+    "tb/tb_wc_graph_ctrl.sv": "d077a101ecb8b31496e353985a8dad76794fda80ede486571be9437e1c9fe3f0",
+    "tb/tb_wc_graph_real.sv": "15f9339d7eaa68225e642b6e83f12a6affc2ad342fe00e509f544ce28a40e758",
+    "scripts/explore_sources.py": "53adbe35dbb5ac556ddb1adfb87b96af74a136fb0a8f8f3ca8d0082b01071eb4",
+    "scripts/allocator.py": "5b554acc79e786b7e89809ebee7801b4d34c596725c2febc64b37007724ea209",
+    "scripts/compile_graph.py": "e5f353187a095e9539b7f68cb3841192cfa95ccbf4cfbeaae43370f58919a89c",
+    "scripts/verify_graph.py": "6a0063f60f2646bb9e269f7b9c33d4209277563384f725ed7c5b65463438fd38",
+    "scripts/check_alloc.py": "7e1e03f1c1e809ebe31d3ab2522130d1130ea60b1860104ec4faedc649e31c07",
+    "scripts/make_fixtures.py": "f4b3871f88e85ee1ceacf4bfa053693b56b62433011b36637993ed5ab5a4f69b",
+    "scripts/run_all.py": "9a0698b4d2ec669ddf0f95f296e2753a31a113ff8de1451254c2951f1738bc0b",
+    "scripts/graph_common.py": "44ca7cc74cfd165834c060413318bd13df2a03d9098623081bc380c191d677d4",
+    "analysis/whole68_global.bin": "0115aaeef2f7a97eece12371564a1ae449e4dc71c86aa272d320fc3afb413320",
+    "analysis/ledger591.bin": "8da1513a5a51698114625b828d85d1c5d42601554a6616ad133daa283deeacbf",
+    "analysis/small_real.bin": "3905b0fbdd08a5bf236e05fbd08faf90cc34f0513f366952770b8edaf79fe221",
+    "analysis/global_alloc.json": "5985b364100eab8dd70c269db8df9ab0f9697480ba24439f25a70f084932f1e9",
+    "analysis/tensor_map.json": "f8763bfe56442c2e1f2d7ab06455b96d78b594a93cdd9871caa5ba116080e3b5",
+    "analysis/descriptor_map.json": "ca3c657286885a217b242c33568af7e42641463351a8dbca6b43b5b45d69654e",
+    "tests/fixtures/mem_graph.hex": "1498201e0f47105e644dfb83a31f7fc84984545728f2aa8ecde721a5e677347c",
+    "tests/fixtures/gold_small.hex": "b952a3ace72b8b84641b50d17d8a85786d8575dbd43f89f21b54fa8243ae246a",
+    "reports/run_all/run_all.json": "2500f4e19a5788c1fdf68e96ce0457a7faad05b53c5944d20170a93f9fd57418"
+  },
+  "note": "Hashes are SHA-256.  Read-only sources were not modified.  The 68 manifest is the ds_pl_autonomy extracted copy; its sealed ZIP member identity is recorded in analysis/source_ledger.json."
+}

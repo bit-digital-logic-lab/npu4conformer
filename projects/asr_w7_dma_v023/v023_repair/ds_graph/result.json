@@ -1,0 +1,137 @@
+{
+  "task": "ds_graph",
+  "worker": "opencode-go/deepseek-v4.1-flash",
+  "date": "2026-10-29",
+  "verdict": "partial_whole_graph_compile_with_missing_outer_model",
+  "run_all": {
+    "total": 26,
+    "passed": 26,
+    "failed": [],
+    "log": "reports/run_all/run_all.json"
+  },
+  "source": {
+    "closed68_programs": 68,
+    "closed68_instructions": 45055,
+    "closed68_matrix_descriptors": 6231,
+    "outer591_tasks_recovered": 591,
+    "outer591_exact_param_labels": 111,
+    "outer591_owner_inferred": 480,
+    "outer591_owner_groups": 20,
+    "outer591_structure": "12 encoder layers * 29 + 6 decoder layers * 40 + embed 1 + output 2",
+    "true_outer_tensor_dag": false,
+    "missing_inputs": [
+      "original ONNX model",
+      "lowbit_executor.py",
+      "profiled_backend.py",
+      "vm_abi.py",
+      "D:\\program\\python\\ASR-ONNX\\software4npu\\temp\\... (not on this host)"
+    ],
+    "source_ledger": "analysis/source_ledger.json",
+    "source_sha": "SOURCE_SHA.json",
+    "outer593_queue_descriptors": 593
+  },
+  "allocation": {
+    "tensor_count": 1318,
+    "live_conflicts": 0,
+    "arena_used_bytes": 56570880,
+    "external_used_bytes": 15545344,
+    "closed68_input_bytes": 4539392,
+    "closed68_output_bytes": 11005952,
+    "ledger591_a_bytes": 8709888,
+    "ledger591_c_bytes": 17577984,
+    "shared_temp_bytes": 30277632,
+    "shared_temp_policy": "single SEQ engine owns one temp extent; two max extents + A/C exceed 80 MiB arena",
+    "old_same_base_pairs": 225310,
+    "old_same_base_pairs_live_simultaneously": 2413,
+    "negative_example_detected": true,
+    "evidence": [
+      "analysis/global_alloc.json",
+      "analysis/alloc_check.json"
+    ]
+  },
+  "plans": {
+    "whole68_global": {
+      "file": "analysis/whole68_global.bin",
+      "node_count": 136,
+      "input_nodes": 68,
+      "seq_nodes": 68,
+      "one_start": true,
+      "one_done": true,
+      "cycles": 4556,
+      "completed": 136,
+      "engine": "SEQ stub; no arithmetic",
+      "parallelism_claim": false
+    },
+    "ledger591": {
+      "file": "analysis/ledger591.bin",
+      "node_count": 591,
+      "edges": 590,
+      "dependency_kind": "synthetic host-order chain",
+      "one_start": true,
+      "one_done": true,
+      "cycles": 367846,
+      "completed": 591,
+      "engine": "MAT stub; no arithmetic"
+    },
+    "small_real": {
+      "file": "analysis/small_real.bin",
+      "node_count": 4,
+      "chain": "IN -> LAY copy -> VEC add 1.0 -> VEC mul 2.0",
+      "cycles": 2357,
+      "completed": 4,
+      "words_checked": 64,
+      "words_matching_float32_golden": 64,
+      "engines": "real ddr_layout_axi + ddr_vector_axi + asr_fp32_alu",
+      "fma_used": false
+    }
+  },
+  "controller": {
+    "rtl": [
+      "rtl/wc_graph_ctrl.sv",
+      "rtl/wc_graph_top.sv"
+    ],
+    "max_nodes": 1024,
+    "dependency_bits": 1024,
+    "node_bytes": 192,
+    "header_bytes": 64,
+    "one_start_one_done": true,
+    "root_provenance_checked": true,
+    "output_retained_after_done": true,
+    "error_codes_tested": [
+      "0x04",
+      "0x08",
+      "0x0A"
+    ],
+    "fault_drain_tested": true,
+    "fault_drain_cycles": 2,
+    "child_fault_error": "0x55"
+  },
+  "real_chain": {
+    "layout_cycles": 790,
+    "vector_cycles": 1381,
+    "fetch_cycles": 162,
+    "read_bursts": 28,
+    "write_bursts": 18,
+    "output_base": "0x04002000",
+    "output_bytes": 256,
+    "after_done_readback": true
+  },
+  "evidence": {
+    "run_all": "reports/run_all/run_all.json",
+    "report": "REPORT.md",
+    "interface": "INTERFACE.md",
+    "findings": "FINDINGS.md",
+    "tensor_map": "analysis/tensor_map.json",
+    "descriptor_map": "analysis/descriptor_map.json"
+  },
+  "non_claims": [
+    "not a whole CASE0000 run",
+    "not a recovered outer tensor DAG",
+    "not matrix arithmetic evidence",
+    "not FMA/op17 evidence",
+    "not synthesis/STA/board evidence",
+    "not 300/600 MHz",
+    "not a bypass of the PS hard DDR controller",
+    "not an end-to-end speedup"
+  ]
+}

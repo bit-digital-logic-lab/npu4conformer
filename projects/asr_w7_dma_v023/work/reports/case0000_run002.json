@@ -1,0 +1,9 @@
+{
+  "completed": true,
+  "seconds": 152.72657679999247,
+  "encoder": 122.57101689999399,
+  "decoder": 27.178191400002106,
+  "parameter_upload_bytes": 0,
+  "vs_v21_bit_exact": true,
+  "strict_onnx_pass": false
+}

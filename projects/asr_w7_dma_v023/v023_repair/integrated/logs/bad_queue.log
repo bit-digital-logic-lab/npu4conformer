@@ -1,0 +1,16 @@
+HOST write plan_base=10008000
+HOST plan_base written
+HOST plan_count written
+HOST START written at cycle 31
+WAIT cycle=2000 busy=1 mat=0 vec=0 lay=1 mst=0 mcore=0 mdone=0 merr=00 mcomp=0 mrb=0 mwb=0 ar=1 own=2 left=2 rv=1 rr=1
+WAIT cycle=4000 busy=1 mat=0 vec=0 lay=1 mst=0 mcore=0 mdone=0 merr=00 mcomp=0 mrb=0 mwb=0 ar=0 own=0 left=0 rv=0 rr=0
+WAIT cycle=6000 busy=1 mat=0 vec=0 lay=1 mst=0 mcore=0 mdone=0 merr=00 mcomp=0 mrb=0 mwb=0 ar=0 own=0 left=0 rv=0 rr=0
+WAIT cycle=8000 busy=1 mat=0 vec=0 lay=1 mst=0 mcore=0 mdone=0 merr=00 mcomp=0 mrb=0 mwb=0 ar=0 own=0 left=0 rv=0 rr=0
+WAIT cycle=10000 busy=1 mat=0 vec=0 lay=1 mst=0 mcore=0 mdone=0 merr=00 mcomp=0 mrb=0 mwb=0 ar=0 own=0 left=0 rv=0 rr=0
+INTEGRATED_STATUS busy=0 done=1 fault=1 err=03 cycles=10406 completed=3 last=3
+INTEGRATED_MATRIX cycles=0 compute=0 err=03
+INTEGRATED_VECLAY vcyc=0 lcyc=3350 vrb=0 vwb=0 lrb=3072 lwb=3072
+INTEGRATED_AXI rburst=25 wburst=12 rbeats=324 wbeats=192 rdpeak=1 wrpeak=1 rdstall=8 wrstall=92 tag_err=0 bfm_rbeats=324 bfm_wbeats=192
+INTEGRATED_END done=1 fault=1 error=03 cycle=10449
+INTEGRATED_RESULT PASS
+tb/tb_v023_integrated.sv:218: $finish called at 83596000 (1ps)

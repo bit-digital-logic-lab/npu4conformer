@@ -1,0 +1,2 @@
+V022_VECTOR_AXI_PASS mode=          0 cycles=                7887 read_compute_overlap=                 426 write_compute_overlap=                 675 read_requests=        23 write_requests=        16
+/home/yang/Desktop/项目/tasks/ds_ddr/bench/baseline/alignment/tb_vector_axi.sv:190: $finish called at 63160000 (1ps)

@@ -1,0 +1,13 @@
+iverilog -g2012 -o bench/pe_cfg_sim.vvp bench/tb_pe_cfg_compare.sv candidate/pe_w7_c48_cfg.sv ../../work/rtl/pe_direct_v020.sv
+iverilog -g2012 -o bench/array_cfg_sim.vvp bench/tb_array_cfg_compare.sv candidate/array16_w7_c48_cfg.sv candidate/pe_w7_c48_cfg.sv ../../work/rtl/array16_direct_v020.sv ../../work/rtl/pe_direct_v020.sv
+python3 bench/run_pe_tests.py --no-compile
+exhaustive: 32768 products, 622592 cycles, mismatches=0
+random_tasks: 300 tasks, 15600 cycles, cumulative mismatches=0
+directed_events: 9 scenarios, 362 cycles, cumulative mismatches=0
+overflow: 135000 products, expected=0x7c2b07ac0000, cumulative mismatches=0
+{
+  "PE": "PASS"
+}
+python3 bench/run_array_tests.py --no-compile
+array tiles: 9, 840 cycles, dumps=9, mismatches=0
+ARRAY PASS

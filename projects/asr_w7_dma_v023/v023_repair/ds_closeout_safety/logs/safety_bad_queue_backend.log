@@ -1,0 +1,13 @@
+WAIT cyc=5000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+WAIT cyc=10000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+SAFETY_CSR status=00000006 err=00000003 completed=3 last=3 cycles=10406 fetch=299 op=10080
+SAFETY_CSR vec_total=0 layout_total=10064 matrix_total=0 vec_ops=0 layout_ops=2 matrix_ops=0
+SAFETY_CSR iso_status=00000000 rd_pending=0 wr_pending=0 b_pending=0 iso_blocked=0 lockout_rej=0
+SAFETY_SUM vec_done=0 vec_sum=0 lay_done=2 lay_sum=10064 mat_core_done=0
+SAFETY_MATRIX ops=0 acc=0 st=0 completed=0 index=0 err=03 cyc=0 total=0
+SAFETY_OVERLAP seq_lay=0 seq_vec=0 seq_mat=0 seq_direct=0
+SAFETY_DRAIN rd_pending=0 wr_pending=0 b_pending=0 quiesced=1 iso_blocked=0 held_r=0 held_b=0 returned_b=12
+SAFETY_END done=1 fault=1 error=03 iso=0 requires_reset=0 seq_dto=0 seq_ito=0 fetch_to=0 drain_timeout=0 cycles=10547
+SAFETY_AXI rburst=25 wburst=12 rbeats=324 wbeats=192 tag_err=0 bfm_rbeats=324 bfm_wbeats=192
+SAFETY_RESULT PASS
+tb/tb_safety_integrated.sv:348: $finish called at 84380000 (1ps)

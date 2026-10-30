@@ -1,0 +1,14 @@
+[1/8] generating deterministic independent-golden fixtures
+generated 32 golden fixtures in /home/yang/Desktop/项目/v023_repair/ds_integration_audit/copies/layout/fixtures/gold
+[2/8] compiling official testbenches (sequential)
+[3/8] compiling fuzz testbenches (sequential)
+[4/8] official 8 fixtures + 12 error modes
+[5/8] descriptor fuzz (57 cases, original vs candidate)
+[6/8] independent golden suite and random fuzz
+[7/8] prefetch policy variant (MAX_PREFETCH=1)
+[8/8] lint + source hashes
+ALL DONE
+SUMMARY normal=8 error=12 fails=0
+SUMMARY cases=57 fails=0
+SUMMARY cases=32 fails=0 read_overfetch_cases=1 extra_beats=81
+SUMMARY cases=11 fails=0

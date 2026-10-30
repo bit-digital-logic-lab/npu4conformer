@@ -1,0 +1,91 @@
+{
+  "task": "gemini_compute",
+  "status": "completed",
+  "timestamp": "2026-10-29T18:13:50+08:00",
+  "scope": {
+    "quantization_contract": "W7p8/A16/C48 with positions[15:0], clip saturation, INT48 2's complement wrap-around",
+    "host_autonomous_boundary": "Host loads weights/inputs/descriptors once; PL autonomously executes all DMA and operators; single completion/error IRQ",
+    "compute_targets": ["300MHz (3.333ns)", "600MHz (1.667ns)"]
+  },
+  "deliverables": {
+    "historical_options": "tasks/gemini_compute/HISTORICAL_OPTIONS.md",
+    "report": "tasks/gemini_compute/REPORT.md",
+    "candidate_a_recommended": "tasks/gemini_compute/candidate/pe_pipeline_cc_v023.sv",
+    "candidate_b_csa": "tasks/gemini_compute/candidate/pe_pipeline_csa_v023.sv",
+    "candidate_array": "tasks/gemini_compute/candidate/array16_pipeline_v023.sv",
+    "python_golden": "tasks/gemini_compute/candidate/golden_pe.py",
+    "benchmarks": [
+      "tasks/gemini_compute/bench/run_pe_exhaustive.py",
+      "tasks/gemini_compute/bench/run_pe_tiles_compare.py",
+      "tasks/gemini_compute/bench/run_array16_compare.py"
+    ]
+  },
+  "verification_results": {
+    "pe_exhaustive_test": {
+      "command": "python3 tasks/gemini_compute/bench/run_pe_exhaustive.py",
+      "cycles_tested": 33667,
+      "w7_codes_tested": "All 128 codes (0..127)",
+      "a16_corners_tested": ["-32768", "-32767", "-32766", "-1", "0", "1", "32766", "32767"],
+      "random_vectors": 10000,
+      "mismatches": 0,
+      "bit_exact": true
+    },
+    "pe_3way_tiles_compare": {
+      "command": "python3 tasks/gemini_compute/bench/run_pe_tiles_compare.py",
+      "tiles_tested": 1000,
+      "mac_operations": 32000,
+      "models_compared": ["Baseline pe_direct_v020", "Candidate A pe_pipeline_cc_v023", "Candidate B pe_pipeline_csa_v023", "Python Integer Golden"],
+      "tile_mismatches": 0,
+      "bit_exact": true
+    },
+    "array16_matrix_compare": {
+      "command": "python3 tasks/gemini_compute/bench/run_array16_compare.py",
+      "array_size": "16x16 (256 PEs)",
+      "mac_operations": 8192,
+      "models_compared": ["array16_direct_v020", "array16_pipeline_v023(CC)", "array16_pipeline_v023(CSA)", "Python Golden"],
+      "cell_mismatches": 0,
+      "bit_exact": true
+    }
+  },
+  "theoretical_bounds": {
+    "total_mac_operations": 11105402880,
+    "compute_lower_bound_seconds": {
+      "125MHz": 0.3470,
+      "300MHz": 0.1446,
+      "600MHz": 0.0723
+    },
+    "ddr_user_domain": {
+      "bus_width_bits": 128,
+      "measured_clock_mhz": 125,
+      "bandwidth_gbps_at_125mhz": 2.0,
+      "bandwidth_gbps_at_250mhz": 4.0,
+      "actual_ddr_read_bytes": 617249104,
+      "actual_ddr_write_bytes": 393144144,
+      "total_traffic_bytes": 1010393248,
+      "transfer_lower_bound_seconds_at_2gbps": 0.5052,
+      "transfer_lower_bound_seconds_at_4gbps": 0.2526
+    },
+    "measured_bottleneck_attribution": {
+      "measured_case0000_wall_seconds": 153.775,
+      "closed_pl_plans_seconds": 12.487,
+      "udp_exchange_wall_seconds": 119.092,
+      "udp_batches": 361388,
+      "unfused_native_matrix_queues": 591,
+      "dma_v019_max_burst_beats": 16,
+      "dma_v019_read_channel_efficiency": "34.8% due to serialized AR/R latency bubbles (20-40 cycle bubbles every 16 beats)",
+      "pe_duty_cycle_in_closed_plans": "2.78% (0.257s compute / 12.487s total plan time, busy false-full)"
+    }
+  },
+  "sha256_manifest": {
+    "work/rtl/pe_direct_v020.sv": "7b43de74709f53f0212eb6a600c5d84b3c1aea5904c2f0dd1b6e32b300bc0317",
+    "work/rtl/array16_direct_v020.sv": "77c66aeea9dd40eb927f8f8e0658b707188427f51138af5f726ded0dc9c3fd56",
+    "work/rtl/block_engine_l1bank_v020.sv": "0a6f24fc51f79baf4f1ecca0b38a79180b0a56e19470bfdb4bec863b34a09c20",
+    "work/rtl/axi_dma_v019.sv": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531",
+    "work/scripts/build_full.tcl": "571f25750fb69ddd42c29e483ff5ab3589f954ef0bfd8fea2f29db112c05638a",
+    "work/BOARD_RESULT.json": "f8a4ac4388b930c3786ae75db3c31b656387dad7ce2cadd9b8d807632ab09f77",
+    "tasks/gemini_compute/candidate/pe_pipeline_cc_v023.sv": "2299f225a82f6849d3137bbda7ed505073e5a4d05d6d26796c2f1c02cc065e1e",
+    "tasks/gemini_compute/candidate/pe_pipeline_csa_v023.sv": "d9522e129a735cfe6ed414f4f0541c404370423203c7eda29af4744ac18603e9",
+    "tasks/gemini_compute/candidate/array16_pipeline_v023.sv": "f13ffa68682289d83977b4b87603e1aedf6f7de9717fbb639b399f298be9eb04",
+    "tasks/gemini_compute/candidate/golden_pe.py": "535c3bb1546157aa61fb114e2d9a8d4f84351b30ae05c86ae965b7ac95f54103"
+  }
+}

@@ -1,0 +1,25 @@
+# read-only check for ds_cycle_chain_compare
+# observed: 2026-10-29T23:02:16+08:00, snapshot copied then
+# observed now: 2026-10-29T23:23:20+08:00
+
+## ds_integration activity
+At snapshot time the supervisor PID 80333 and its opencode child 142767 were alive;
+integrated/scripts/run_all.sh was still being launched by that child.
+The snapshot was copied while that process was active.
+The supervisor later exited at 2026-10-29T23:14 (exit.json exit_code=0); it did not
+modify any file in this task directory.  Our results apply to the frozen snapshot,
+not to any later integrated/ state.
+
+## snapshot source
+snapshot/integrated_20261029T2302/
+  rtl/ tb/ scripts/ fixtures/ filelist_integrated.f filelist_baseline.f logs/ reports/ traces/
+
+## read-only external inputs
+/home/yang/Desktop/项目/v023_repair/integrated       (snapshot copy only)
+/home/yang/Desktop/项目/work/rtl                     (sealed baseline RTL, read-only)
+/home/yang/Desktop/项目/v023_repair/primary_stream_fix (INTERFACE.md/REPORT.md, read-only)
+/home/yang/Desktop/项目/v023_repair/ds_matrix/tests  (fixture/golden generator, read-only)
+
+## primary_stream_fix presence in frozen integrated filelist
+$ grep -nE "epilogue|a16_packed_tag|fma_stage" snapshot/integrated_20261029T2302/filelist_integrated.f
+NO primary_stream_fix epilogue module in integrated filelist

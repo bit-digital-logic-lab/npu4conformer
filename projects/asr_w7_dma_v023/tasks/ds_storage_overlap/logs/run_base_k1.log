@@ -1,0 +1,6 @@
+BASE done fault=0 code=00 cycles=6094 compute=264 rdblk=3 wrblk=1 hits=0 miss=1 res=1 st_rdwait=1254 st_wrwait=2505 st_scalar=1537
+PASS tb_engine_baseline cycles=6094 compute=264
+- /home/yang/Desktop/项目/tasks/ds_storage_overlap/tests/tb_engine_baseline.sv:156: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 92us; walltime 0.048 s; speed 1.907 ms/s
+- Verilator: cpu 0.048 s on 1 threads; allocated 7 MB

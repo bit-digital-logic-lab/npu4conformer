@@ -2,6 +2,8 @@
 
 面向 Conformer 的 FPGA 实现与数值验证工程。仓库包含一个单注意力头硬件示例、一个 Encoder→Decoder FPGA 执行研究版本，以及一组独立的 LayerNorm GPU 实验摘要。
 
+当前新增：[W7p8/A16/C48 PL自主DMA优化候选](projects/asr_w7_dma_v023/README.md)。局部逻辑回归与周期对照已记录，完整模型和物理时序尚未验收。
+
 ## 工程与状态
 
 | 工程 | 类型 | 目标与边界 | 原包记录的结果 |

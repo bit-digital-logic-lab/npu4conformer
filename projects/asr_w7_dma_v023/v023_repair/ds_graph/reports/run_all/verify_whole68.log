@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "errors": [],
+  "node_count": 136,
+  "roots": 68,
+  "outputs": 68,
+  "edges": 68,
+  "type_count": {
+    "5": 68,
+    "4": 68
+  },
+  "hash": 1530438426,
+  "plan_bytes": 26176,
+  "tag": "whole68_global"
+}

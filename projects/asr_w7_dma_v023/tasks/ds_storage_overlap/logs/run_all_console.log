@@ -1,0 +1,83 @@
+build_storage_unit rc=0
+build_engine_fast rc=0
+build_engine_bp rc=0
+build_engine_err_rd rc=0
+build_engine_err_wr rc=0
+build_engine_badpar rc=0
+build_engine_k1 rc=0
+  220 |   if(prefetch_hits<(NBK-1)*NBLK)begin $display("FAIL prefetch_hits %0d",prefetch_hits);errs=errs+1;end
+build_engine_n64 rc=0
+build_storage_axi rc=0
+build_base_fast rc=0
+build_base_bp rc=0
+build_base_c1 rc=0
+build_base_k1 rc=0
+build_icarus_k3 rc=0
+run_storage_unit rc=0
+PASS tb_storage_unit tests rd_cmds=3 wr_cmds=64
+run_engine_fast_c0 rc=0
+INFO done fault=0 code=00 cycles=5896 compute=1584 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=396 ov_rd=523 ov_wr=1293
+INFO bfm rdcmds=12 wrcmds=128 rdbeats=1152 wrbeats=768 shared=0 maxb=1 rdstall=6 wrstall=62
+PASS tb_engine_overlap M=64 N=32 K=96 C_VALID=0 cycles=5896 compute=1584 ov_rd=523 ov_wr=1293 prehit=4 prewait=396
+run_engine_seed1 rc=0
+INFO done fault=0 code=00 cycles=5898 compute=1584 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=398 ov_rd=522 ov_wr=1296
+INFO bfm rdcmds=12 wrcmds=128 rdbeats=1152 wrbeats=768 shared=0 maxb=1 rdstall=7 wrstall=53
+PASS tb_engine_overlap M=64 N=32 K=96 C_VALID=0 cycles=5898 compute=1584 ov_rd=522 ov_wr=1296 prehit=4 prewait=398
+run_engine_seed2 rc=0
+INFO done fault=0 code=00 cycles=5898 compute=1584 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=398 ov_rd=523 ov_wr=1296
+INFO bfm rdcmds=12 wrcmds=128 rdbeats=1152 wrbeats=768 shared=0 maxb=1 rdstall=6 wrstall=65
+PASS tb_engine_overlap M=64 N=32 K=96 C_VALID=0 cycles=5898 compute=1584 ov_rd=523 ov_wr=1296 prehit=4 prewait=398
+run_engine_seed3 rc=0
+INFO done fault=0 code=00 cycles=5897 compute=1584 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=397 ov_rd=523 ov_wr=1298
+INFO bfm rdcmds=12 wrcmds=128 rdbeats=1152 wrbeats=768 shared=0 maxb=1 rdstall=7 wrstall=57
+PASS tb_engine_overlap M=64 N=32 K=96 C_VALID=0 cycles=5897 compute=1584 ov_rd=523 ov_wr=1298 prehit=4 prewait=397
+run_engine_c1 rc=0
+INFO done fault=0 code=00 cycles=6673 compute=1584 rdblk=14 wrblk=128 hits=0 miss=2 prehit=4 prewait=0 ov_rd=527 ov_wr=1299
+INFO bfm rdcmds=14 wrcmds=128 rdbeats=1920 wrbeats=768 shared=0 maxb=1 rdstall=9 wrstall=72
+PASS tb_engine_overlap M=64 N=32 K=96 C_VALID=1 cycles=6673 compute=1584 ov_rd=527 ov_wr=1299 prehit=4 prewait=0
+run_engine_bp rc=0
+INFO done fault=0 code=00 cycles=27673 compute=1584 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=396 ov_rd=523 ov_wr=23225
+INFO bfm rdcmds=12 wrcmds=128 rdbeats=1152 wrbeats=768 shared=0 maxb=1 rdstall=6 wrstall=22906
+PASS tb_engine_overlap M=64 N=32 K=96 C_VALID=0 cycles=27673 compute=1584 ov_rd=523 ov_wr=23225 prehit=4 prewait=396
+run_engine_err_rd rc=0
+INFO done fault=1 code=09 cycles=137 compute=0 rdblk=2 wrblk=0 hits=0 miss=1 prehit=0 prewait=132 ov_rd=0 ov_wr=0
+INFO bfm rdcmds=2 wrcmds=0 rdbeats=128 wrbeats=0 shared=0 maxb=0 rdstall=0 wrstall=0
+PASS_FAULT code=09 cycles=137 done=1 cwr_pending=0
+PASS tb_engine_overlap M=64 N=32 K=96 C_VALID=0 cycles=137 compute=0 ov_rd=0 ov_wr=0 prehit=0 prewait=132
+run_engine_err_wr rc=0
+INFO done fault=1 code=0a cycles=1874 compute=594 rdblk=6 wrblk=2 hits=0 miss=1 prehit=2 prewait=198 ov_rd=261 ov_wr=21
+INFO bfm rdcmds=6 wrcmds=2 rdbeats=576 wrbeats=12 shared=0 maxb=1 rdstall=2 wrstall=2
+PASS_FAULT code=0a cycles=1874 done=1 cwr_pending=0
+PASS tb_engine_overlap M=64 N=32 K=96 C_VALID=0 cycles=1874 compute=594 ov_rd=261 ov_wr=21 prehit=2 prewait=198
+run_engine_badpar rc=0
+INFO done fault=1 code=09 cycles=203 compute=0 rdblk=2 wrblk=0 hits=0 miss=1 prehit=0 prewait=199 ov_rd=0 ov_wr=0
+INFO bfm rdcmds=2 wrcmds=0 rdbeats=192 wrbeats=0 shared=0 maxb=0 rdstall=0 wrstall=0
+PASS_FAULT code=09 cycles=203 done=1 cwr_pending=0
+PASS tb_engine_overlap M=64 N=32 K=96 C_VALID=0 cycles=203 compute=0 ov_rd=0 ov_wr=0 prehit=0 prewait=199
+run_engine_k1 rc=0
+INFO done fault=0 code=00 cycles=4155 compute=264 rdblk=2 wrblk=64 hits=0 miss=1 prehit=0 prewait=1256 ov_rd=0 ov_wr=2410
+INFO bfm rdcmds=2 wrcmds=64 rdbeats=192 wrbeats=384 shared=0 maxb=1 rdstall=1058 wrstall=2152
+PASS tb_engine_overlap M=32 N=32 K=32 C_VALID=0 cycles=4155 compute=264 ov_rd=0 ov_wr=2410 prehit=0 prewait=1256
+run_engine_n64 rc=0
+INFO done fault=0 code=00 cycles=4324 compute=1056 rdblk=8 wrblk=128 hits=0 miss=2 prehit=2 prewait=398 ov_rd=261 ov_wr=1297
+INFO bfm rdcmds=8 wrcmds=128 rdbeats=768 wrbeats=768 shared=0 maxb=1 rdstall=3 wrstall=72
+PASS tb_engine_overlap M=32 N=64 K=64 C_VALID=0 cycles=4324 compute=1056 ov_rd=261 ov_wr=1297 prehit=2 prewait=398
+run_storage_axi rc=0
+INFO AXI rd_bursts=8 wr_bursts=66 rd_bytes=2048 wr_bytes=6144 errs=0
+PASS tb_storage_axi (original axi_dma_v019 + AXI128 BFM)
+run_icarus_k3 rc=0
+INFO done fault=0 code=00 cycles=2948 compute=792 rdblk=6 wrblk=64 hits=0 miss=1 prehit=2 prewait=198 ov_rd=261 ov_wr=645
+INFO bfm rdcmds=6 wrcmds=64 rdbeats=576 wrbeats=384 shared=0 maxb=1 rdstall=2 wrstall=32
+PASS tb_engine_overlap M=32 N=32 K=96 C_VALID=0 cycles=2948 compute=792 ov_rd=261 ov_wr=645 prehit=2 prewait=198
+run_base_fast rc=0
+BASE done fault=0 code=00 cycles=11839 compute=1584 rdblk=14 wrblk=2 hits=4 miss=2 res=2 st_rdwait=1183 st_wrwait=781 st_scalar=5122
+PASS tb_engine_baseline cycles=11839 compute=1584
+run_base_bp rc=0
+BASE done fault=0 code=00 cycles=34620 compute=1584 rdblk=14 wrblk=2 hits=4 miss=2 res=2 st_rdwait=1183 st_wrwait=23562 st_scalar=5122
+PASS tb_engine_baseline cycles=34620 compute=1584
+run_base_c1 rc=0
+BASE done fault=0 code=00 cycles=13132 compute=1584 rdblk=14 wrblk=2 hits=4 miss=2 res=2 st_rdwait=1958 st_wrwait=783 st_scalar=5634
+PASS tb_engine_baseline cycles=13132 compute=1584
+run_base_k1 rc=0
+BASE done fault=0 code=00 cycles=6094 compute=264 rdblk=3 wrblk=1 hits=0 miss=1 res=1 st_rdwait=1254 st_wrwait=2505 st_scalar=1537
+PASS tb_engine_baseline cycles=6094 compute=264

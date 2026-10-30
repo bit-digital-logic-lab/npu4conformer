@@ -1,0 +1,1 @@
+CMD: iverilog -g2012 -o /home/yang/Desktop/项目/v023_repair/primary_acceptance/round2/build/primary_fma_fma /home/yang/Desktop/项目/v023_repair/primary_acceptance/round2/tb/tb_fma.sv /home/yang/Desktop/项目/v023_repair/gemini_fma_round2/candidate/epilogue_fma_stage.sv /home/yang/Desktop/项目/v023_repair/gemini_fma_round2/candidate/fp32_fma_pipe.sv

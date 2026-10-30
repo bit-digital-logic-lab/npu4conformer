@@ -1,0 +1,162 @@
+[
+ {
+  "name": "copy_tail_2b",
+  "output_bytes": 2002,
+  "mode": 0
+ },
+ {
+  "name": "copy_tail_4b",
+  "output_bytes": 4092,
+  "mode": 0
+ },
+ {
+  "name": "copy_tail_6b",
+  "output_bytes": 4098,
+  "mode": 0
+ },
+ {
+  "name": "copy_4k_exact",
+  "output_bytes": 4096,
+  "mode": 0
+ },
+ {
+  "name": "copy_4k_cross",
+  "output_bytes": 4098,
+  "mode": 0
+ },
+ {
+  "name": "copy_4k_cross6",
+  "output_bytes": 4200,
+  "mode": 0
+ },
+ {
+  "name": "copy_32b",
+  "output_bytes": 64,
+  "mode": 0
+ },
+ {
+  "name": "pack_mt",
+  "output_bytes": 18432,
+  "mode": 1
+ },
+ {
+  "name": "pack_slice",
+  "output_bytes": 8192,
+  "mode": 1
+ },
+ {
+  "name": "pack_tail",
+  "output_bytes": 8192,
+  "mode": 1
+ },
+ {
+  "name": "pack_slice_end",
+  "output_bytes": 2048,
+  "mode": 1
+ },
+ {
+  "name": "conv_pad1",
+  "output_bytes": 14336,
+  "mode": 2
+ },
+ {
+  "name": "conv_s2",
+  "output_bytes": 4096,
+  "mode": 2
+ },
+ {
+  "name": "conv_dil2",
+  "output_bytes": 6144,
+  "mode": 2
+ },
+ {
+  "name": "conv_dil2_s2",
+  "output_bytes": 2048,
+  "mode": 2
+ },
+ {
+  "name": "conv_multitile",
+  "output_bytes": 24576,
+  "mode": 2
+ },
+ {
+  "name": "conv_widesrc",
+  "output_bytes": 26624,
+  "mode": 2
+ },
+ {
+  "name": "conv_slice",
+  "output_bytes": 8192,
+  "mode": 2
+ },
+ {
+  "name": "conv_slice_end",
+  "output_bytes": 4096,
+  "mode": 2
+ },
+ {
+  "name": "conv_padbig",
+  "output_bytes": 6144,
+  "mode": 2
+ },
+ {
+  "name": "conv_dil_big",
+  "output_bytes": 8192,
+  "mode": 2
+ },
+ {
+  "name": "conv_stride_big",
+  "output_bytes": 4096,
+  "mode": 2
+ },
+ {
+  "name": "transpose_0",
+  "output_bytes": 5260,
+  "mode": 3
+ },
+ {
+  "name": "transpose_1",
+  "output_bytes": 24384,
+  "mode": 3
+ },
+ {
+  "name": "transpose_2",
+  "output_bytes": 1922,
+  "mode": 3
+ },
+ {
+  "name": "transpose_3",
+  "output_bytes": 8370,
+  "mode": 3
+ },
+ {
+  "name": "transpose_4",
+  "output_bytes": 4476,
+  "mode": 3
+ },
+ {
+  "name": "compactc48_0",
+  "output_bytes": 4620,
+  "mode": 4
+ },
+ {
+  "name": "compactc48_1",
+  "output_bytes": 12288,
+  "mode": 4
+ },
+ {
+  "name": "compactc48_2",
+  "output_bytes": 1922,
+  "mode": 4
+ },
+ {
+  "name": "compactc48_3",
+  "output_bytes": 7560,
+  "mode": 4
+ },
+ {
+  "name": "compactc48_4",
+  "output_bytes": 2240,
+  "mode": 4
+ }
+]

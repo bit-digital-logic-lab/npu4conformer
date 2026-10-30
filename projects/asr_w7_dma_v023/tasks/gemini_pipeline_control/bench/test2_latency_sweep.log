@@ -1,0 +1,18 @@
+[TB] Matrices initialized with deterministic test vectors.
+[TB] Launching parallel execution of all 5 latency configurations...
+
+========================================================
+[TB] All 5 Latency Configurations Reached DONE!
+========================================================
+Latency 3: task_cycles = 2331, fault = 0, err = 0
+Latency 4: task_cycles = 2335, fault = 0, err = 0
+Latency 5: task_cycles = 2339, fault = 0, err = 0
+Latency 6: task_cycles = 2343, fault = 0, err = 0
+Latency 8: task_cycles = 2351, fault = 0, err = 0
+
+[TB] Verifying Bit-Exact Result Invariance Across Latencies...
+[SUCCESS] All 1024 elements MATCH BIT-FOR-BIT across LATENCY = 3, 4, 5, 6, and 8!
+[SUCCESS] Wavefront drain and token tracking proved mathematically exact for all latencies.
+[TB] Written 1024 words to bench/sim_latency_sweep_output.hex
+[SUCCESS] All 1024 elements (32x32 block) MATCH GOLDEN MODEL BIT-FOR-BIT!
+[SUCCESS] Tested positions=0x3210, clip=1, all 4 quadrants!

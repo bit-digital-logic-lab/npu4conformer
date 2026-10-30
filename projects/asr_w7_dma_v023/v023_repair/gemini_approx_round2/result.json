@@ -1,0 +1,128 @@
+{
+  "task": "gemini_approx_round2",
+  "module": "approx_div_sqrt",
+  "date": "2026-10-29",
+  "status": "passed",
+  "passed": true,
+  "execution_constraints": {
+    "logic_simulation_only": true,
+    "no_synthesis": true,
+    "no_vivado": true,
+    "no_board": true,
+    "no_vnc": true,
+    "no_push": true,
+    "external_workspaces_readonly": true,
+    "target_model": "512-dim Conformer/Transformer ASR (not KWT)",
+    "watchdog_enforced": true
+  },
+  "specific_fixes": {
+    "APPROX-1": {
+      "issue": "DIV 1.0 / 0x41fffad2 (31.9998) 2x factor error (rel error was 99.88%)",
+      "root_cause": "Newton-Raphson approximation dip below 0.5 caused div_num_prod bits 46 and 45 to both be 0, putting bit 44 into mantissa[22] and decrementing exponent by only 1 instead of 2.",
+      "remediation": "Added explicit normalization branch in Stage 4 for div_num_prod < 0.5: mantissa from [43:21] and exp - 2.",
+      "verified_max_rel_error": 0.00111467,
+      "status": "FIXED"
+    },
+    "APPROX-2": {
+      "issue": "RSQRT(0x7f7fffff) (max finite) 2x factor error (rel error was 99.99985%)",
+      "root_cause": "For max finite input, rsqrt_y_norm dipped slightly below 1.0 (0x7ffff4), so bit 23 was 0 and bit 22 was 1; unnormalized Stage 4 treated bit 22 as mantissa without exponent decrement.",
+      "remediation": "Added normalization branch in Stage 4 for rsqrt_y_norm < 1.0: mantissa shifted left by 1 and exp 125 - k.",
+      "verified_max_rel_error": 0.00000572,
+      "status": "FIXED"
+    },
+    "APPROX-3": {
+      "issue": "RSQRT(-0) and negative subnormals returned +inf instead of -inf",
+      "root_cause": "Stage 0 special case logic assigned special_val_s0 = FP32_POS_INF unconditionally on zero FTZ operand without respecting a_sign.",
+      "remediation": "Updated special case to special_val_s0 = a_sign ? FP32_NEG_INF : FP32_POS_INF.",
+      "verified_special_mismatches": 0,
+      "status": "FIXED"
+    },
+    "FLUSH_INTEGRATION_CONTRACT": {
+      "issue": "Declared default port value in REPORT was missing in RTL, posing integration risk for callers without .flush() port connection.",
+      "remediation": "Updated port declaration to 'input flush = 1'b0,' which supports both connected flush (.flush(flush)) and unconnected legacy instantiation without warnings.",
+      "verified_unconnected_callers": true,
+      "verified_flush_cycle_clearing": true,
+      "status": "FIXED"
+    }
+  },
+  "hardware_contract": {
+    "pipeline_latency_cycles": 5,
+    "initiation_interval": 1,
+    "multiplier_budget_per_stage": {
+      "stage_0": 0,
+      "stage_1": 1,
+      "stage_2": 1,
+      "stage_3": 1,
+      "stage_4": 1
+    },
+    "supported_operations": ["DIV", "SQRT", "RSQRT"],
+    "parameter_assertions_verified": true,
+    "illegal_tier_rejection": true,
+    "illegal_latency_rejection": true,
+    "illegal_ii_rejection": true,
+    "flush_supported": true,
+    "backpressure_stall_verified": true
+  },
+  "ds_numeric_adversarial_15168_results": {
+    "total_vectors": 15168,
+    "bp0_pass": true,
+    "bp1_pass": true,
+    "special_mismatches": 0,
+    "worst_cases_gt_10pct": 0,
+    "tag_errors": 0,
+    "order_errors": 0,
+    "flags_errors": 0,
+    "flag_semantic_errors": 0,
+    "stability_errors": 0,
+    "measured_latency": {
+      "div": {"min": 5, "median": 5, "max": 5, "n": 7144},
+      "sqrt": {"min": 5, "median": 5, "max": 5, "n": 4012},
+      "rsqrt": {"min": 5, "median": 5, "max": 5, "n": 4012}
+    },
+    "measured_ii": {
+      "min": 1,
+      "max": 1,
+      "common": [[1, 15167]]
+    },
+    "relative_errors": {
+      "div_max": 0.00111467,
+      "div_mean": 0.00022870,
+      "sqrt_max": 0.00000578,
+      "sqrt_mean": 0.00000114,
+      "rsqrt_max": 0.00000572,
+      "rsqrt_mean": 0.00000109
+    },
+    "flush_test_errors": 0,
+    "unconnected_flush_pass": true
+  },
+  "integration_status": {
+    "ds_vector_read_only_co_sim": "passed",
+    "ds_vector_div_1001": "V023_VECTOR_PASS",
+    "ds_vector_sqrt_1001": "V023_VECTOR_PASS",
+    "ds_vector_files_modified": false
+  },
+  "exit_codes": {
+    "run_all_sh": 0,
+    "phase1_parameter_assertions": 0,
+    "phase2_tb_protocol_perf": 0,
+    "phase3_test_approx_suite": 0,
+    "phase4_adversarial_15168": 0,
+    "phase5_ds_vector_cosim": 0
+  },
+  "source_sha256": {
+    "candidate/rtl/approx_div_sqrt.sv": "444fa2a42f47a7cde2ad736ead3177225319c6af3bb1c2ab27309233bee7a864",
+    "candidate/rtl/approx_recip_lut.sv": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+    "candidate/rtl/approx_rsqrt_lut.sv": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153",
+    "rtl/approx_div_sqrt.sv": "444fa2a42f47a7cde2ad736ead3177225319c6af3bb1c2ab27309233bee7a864",
+    "rtl/approx_recip_lut.sv": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+    "rtl/approx_rsqrt_lut.sv": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153",
+    "scripts/run_numeric_adversarial_15168.py": "d679431cc238ef5960735550d720277e33ad57cf0d164725a5fc8a5d4a16792a",
+    "run_all.sh": "d7b5ef72beb3083aac0d221d95e238971d00d7065f4b129454cc93c83f7f6150"
+  },
+  "known_limitations": [
+    "Approximate math by contract: results match FP32 within ~0.11% for DIV and ~5.78e-6 for SQRT/RSQRT; bit-exactness is not intended.",
+    "External FMA (op 17) remains outside this module scope.",
+    "Target system is 512-dim Conformer/Transformer ASR (not KWT); whole-model end-to-end WER/CER is evaluated at graph integration, not standalone core.",
+    "No physical STA synthesis or board deployment performed in this logic simulation task."
+  ]
+}

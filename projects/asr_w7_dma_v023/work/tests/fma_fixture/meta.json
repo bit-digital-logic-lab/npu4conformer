@@ -1,0 +1,5 @@
+{
+  "count": 1001,
+  "output_bytes": 4004,
+  "scope": "Exact finite FMA oracle: integer triplets and (1+2^-23)*(1-2^-23)-1=-2^-46, correctly fused result differs from roundedmul+add"
+}

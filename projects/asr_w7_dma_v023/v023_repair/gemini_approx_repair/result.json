@@ -1,0 +1,73 @@
+{
+  "task": "gemini_approx_repair",
+  "module": "approx_div_sqrt",
+  "status": "passed",
+  "passed": true,
+  "hardware_contract": {
+    "tier_architecture": "single_production_tier",
+    "active_tier": 1,
+    "pruned_tiers": [0, 2],
+    "measured_latency_cycles": 5,
+    "measured_initiation_interval": 1,
+    "composite_cone_pipelined": true,
+    "multiplier_budget_per_stage": {
+      "stage_0": 0,
+      "stage_1": 1,
+      "stage_2": 1,
+      "stage_3": 1,
+      "stage_4": 1
+    },
+    "supported_operations": ["DIV", "SQRT", "RSQRT"],
+    "parameter_assertions_verified": true,
+    "illegal_tier_rejection": true,
+    "illegal_latency_rejection": true,
+    "illegal_ii_rejection": true,
+    "flush_supported": true,
+    "backpressure_stall_verified": true
+  },
+  "verification_metrics": {
+    "total_vectors_tested": 4131,
+    "backpressure_consistency_rate": 1.0,
+    "tag_integrity_rate": 1.0,
+    "special_cases_verified": 31,
+    "div_max_rel_error": 0.001080,
+    "div_mean_rel_error": 0.0002236,
+    "sqrt_max_rel_error": 0.00000572,
+    "sqrt_mean_rel_error": 0.00000122,
+    "rsqrt_max_rel_error": 0.00000572,
+    "rsqrt_mean_rel_error": 0.00000118,
+    "layernorm_max_lsb_diff": 1,
+    "layernorm_mean_lsb_diff": 0.008,
+    "layernorm_exact_match_pct": 99.2,
+    "softmax_max_lsb_diff": 14,
+    "softmax_mean_lsb_diff": 0.452,
+    "softmax_exact_match_pct": 74.3
+  },
+  "integration_status": {
+    "ds_vector_read_only_co_sim": "passed",
+    "ds_vector_div_tail7": "V023_VECTOR_PASS",
+    "ds_vector_div_1001": "V023_VECTOR_PASS",
+    "ds_vector_sqrt_1001": "V023_VECTOR_PASS",
+    "ds_vector_files_modified": false
+  },
+  "exit_codes": {
+    "run_all_sh": 0,
+    "test_parameter_assertions_py": 0,
+    "tb_protocol_perf_vvp": 0,
+    "test_approx_suite_py": 0
+  },
+  "source_sha256": {
+    "rtl/approx_div_sqrt.sv": "298a1fb5772c6a156c118b983521e2366ee3d6c361cb85a7395c2f64e7e0c343",
+    "rtl/approx_recip_lut.sv": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+    "rtl/approx_rsqrt_lut.sv": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153",
+    "tests/tb_protocol_perf.sv": "e89f9963741d5940a2c04d43214d14f97132e10cbe9627eded1045d4ec8c6969",
+    "tests/tb_approx_div_sqrt.sv": "dac1f146904081d0862734f1b2d472929fe4ba19d986ecd5cefad7bbbfba57d3",
+    "tests/test_approx_suite.py": "eda202afd46eee4e9fc21ba3f846f00052b143dd784db83da0c1e1f78a4ced5c",
+    "tests/test_parameter_assertions.py": "e21ec3750f6c7439612ed9a3cff2affe18d239190e1f1b7f80f2e5c5d7551f56"
+  },
+  "failures_and_unverified_scope": [
+    "Vendor FMA (op 17) remains external and is not handled by this approximate core.",
+    "Physical timing closure and nanosecond margins require full Vivado STA run not permitted in current scope.",
+    "End-to-end full network floating-point accuracy requires full graph integration evaluation."
+  ]
+}

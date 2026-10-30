@@ -1,0 +1,47 @@
+ ... Linking
+ ... Removing symbol tables
+ ... Compiletf functions
+Compiling VVP ...
+ ... VVP file version 14.0 (devel) (s20251012-128-gc8097fb6f)
+Compile cleanup...
+ ...    40816 functors (net_fun pool=2359296 bytes)
+              14702 logic
+                  0 bufif
+                  0 resolv
+               4005 signals
+ ...    33980 filters (net_fil pool=4194304 bytes)
+ ...   122679 opcodes (2949120 bytes)
+ ...    16601 nets
+ ...    40897 vvp_nets (3145632 bytes)
+ ...        7 arrays (1348 words)
+ ...     2389 memories
+               2389 logic (292719 words)
+                  0 real (0 words)
+ ...     2451 scopes
+ ... -511149 seconds, 65296.0/56904.0/5364.0 KBytes size/rss/shared
+Running ...
+ ...execute EndOfCompile callbacks
+ ...propagate initialization events
+ ...execute StartOfSim callbacks
+ ...run scheduler
+HOST plan1 plan_base=10008000
+HOST plan1 START cycle=31
+CLOSEOUT_STATUS busy=1 done=0 fault=0 aborted=0 err=00 cycles=981 completed=0 last=0
+CLOSEOUT_VEC vcyc=870 lcyc=0 vrb=4480 vwb=0
+CLOSEOUT_AXI rburst=23 wburst=0 rbeats=324 wbeats=0 rdpeak=1 wrpeak=0 rdstall=6 wrstall=0 tag_err=0 bfm_rbeats=324 bfm_wbeats=0
+CLOSEOUT_BOUNDARY done_cycle=-1 last_b_cycle=-1 b_count_at_done=0 b_after_done=0 aw_after_done=0
+CLOSEOUT_RESULT FAIL errors=2
+FATAL: tb/tb_closeout_numeric.sv:316: closeout numeric test failed
+       Time: 8100000  Scope: tb_closeout_numeric
+ ...execute Postsim callbacks
+ ... 2.54348 seconds, 71444.0/63360.0/5492.0 KBytes size/rss/shared
+Event counts:
+        2027 time steps (pool=113)
+       12061 thread schedule events
+     3373471 assign events
+             ...assign(vec4) pool=56172
+             ...assign(vec8) pool=204
+             ...assign(real) pool=256
+             ...assign(word) pool=6784
+             ...assign(word/r) pool=204
+      102441 other events (pool=12288)

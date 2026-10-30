@@ -1,0 +1,7 @@
+PA001_BASELINE pairs done errors=0
+PA001_INTERLEAVED read20,read30,read24 -> 11223344 (correct 11223344)
+PA001_INTERLEAVED_OK
+PA001_ATOMIC low=33334444 high=11112222 (expected high 11112222)
+PA001_TEST_END errors=0
+PA001_PASS
+tb/tb_csr_pa001.sv:165: $finish called at 1280000 (1ps)

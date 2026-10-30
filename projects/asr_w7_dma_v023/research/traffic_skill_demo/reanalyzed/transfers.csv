@@ -1,0 +1,5 @@
+﻿type,id,resource,start,end,tensor,version,format,src,dst,op,phase,reason,logical_offset,logical_bytes,valid_bytes,bus_bytes
+transfer,r0,axi_r,2,4,X,v1,A16,DDR,Abank,matmul,load,first_load,0,8,8,8
+transfer,r1,axi_r,6,8,X,v1,A16,DDR,Abank,matmul,load,capacity_reload,4,8,8,8
+transfer,r2,axi_r,10,12,X,v2,A16,DDR,Abank,matmul,load,first_load,0,8,8,8
+transfer,w0,axi_w,2,4,Y,v1,C48,Cbank,DDR,matmul,writeback,result,0,6,6,8

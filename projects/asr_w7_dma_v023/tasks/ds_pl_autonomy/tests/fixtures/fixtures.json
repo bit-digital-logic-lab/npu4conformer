@@ -1,0 +1,25 @@
+{
+  "fixtures": {
+    "mode0_diamond": 268435456,
+    "mode1_drain": 268439552,
+    "mode2_generation": 268443648,
+    "mode3_bad_hash": 268447744,
+    "mode4_acl": 268451840,
+    "mode5_replay": 268455936,
+    "mode6_eight": 268460032,
+    "mode10_real_chain": 268468224,
+    "mode11_real_seq": 268472320,
+    "mode12_mixed": 268476416,
+    "before_a": 268480512,
+    "before_b": 268480768,
+    "before_c": 268474368,
+    "before_d": 268481280
+  },
+  "param_base": 268435456,
+  "param_end": 268697600,
+  "vec_add": 268566528,
+  "vec_mul": 268566784,
+  "lay_copy": 268567040,
+  "seq_small": 268568576,
+  "memory_sha256": "0a09aa8a85b4dacd45bdedc96e4f038ab248a4dc549d3a66c7e1a9505975126a"
+}

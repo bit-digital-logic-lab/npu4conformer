@@ -1,0 +1,3 @@
+﻿type,id,resource,start,end,tensor,version,format,src,dst,op,phase,reason,logical_offset,logical_bytes,valid_bytes,bus_bytes
+transfer,operand_read,axi_r,6,544,BFM_operand,fixture_seed7,raw128_fixture,DDR_model,DMA_read_sink,dma_microbench,stream,test_fixture_transfer_not_model_tensor,0,4096,4096,4096
+transfer,result_write,axi_w,6,544,BFM_result,fixture_seed7,raw128_fixture,DMA_write_source,DDR_model,dma_microbench,stream,test_fixture_transfer_not_model_tensor,0,4096,4096,4096

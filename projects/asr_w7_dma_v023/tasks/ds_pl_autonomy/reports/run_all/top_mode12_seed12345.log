@@ -1,0 +1,2 @@
+WC_TOP_PASS mode=         12 cycles=                3842 completed=         4 err=00 seq=0 vec=0 lay=0 opcyc=3718 vec_cyc=688 lay_cyc=791 seq_cyc=1553
+tb/tb_wc_top.sv:197: $finish called at 30808000 (1ps)

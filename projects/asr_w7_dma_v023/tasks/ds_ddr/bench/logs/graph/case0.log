@@ -1,0 +1,6 @@
+OP_START seq=1 node=0 kind=0 plan=00001000 cnt=4
+OP_START seq=2 node=2 kind=1 plan=00003000 cnt=4
+OP_START seq=3 node=1 kind=0 plan=00004000 cnt=4
+OP_START seq=4 node=3 kind=2 plan=00002000 cnt=4
+GRAPH_RESULT case=0 completed=4 seq=4 fault=0 err=00 pass=1
+/home/yang/Desktop/项目/tasks/ds_ddr/bench/tb_graph_runner.sv:44: $finish called at 1975000 (1ps)

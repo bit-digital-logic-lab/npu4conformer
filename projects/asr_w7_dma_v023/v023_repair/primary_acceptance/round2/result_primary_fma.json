@@ -1,0 +1,86 @@
+{
+  "label": "primary_fma",
+  "bp": 0,
+  "source_sha256": {
+    "i48": "637a7b327d35760bc5d741128d04f77bcddde87cc40886dcf24aff09cebd29bf",
+    "fma": "34b55dc340b33ee570c540453662404579a77b2f8e2b166dbb2563ab3740c00b",
+    "f32i16": "c51d3327a7fcfbe7e584f1efa275413644147669c9d216ea7f5fbf31b864af6b",
+    "relu": "0e008b394489fcdd2f453aeebee5288f1b812d715c5e8840d47f19bcb3142c4d",
+    "lane": "d00b4d57776a605cbed790d19e9a7be7bb4b0f1751d4f6b617a9ca35489435f7",
+    "stream": "b99a664bc3e49bed21acf79c22281506e85ce347777ad578bfbe2c2a78984bce",
+    "approx": "e360e7e455261ead4ee32ecacc93bed77f4de09458d3d689ae3eb3e948495ec1",
+    "recip": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+    "rsqrt": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153",
+    "fma_pipe": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12"
+  },
+  "sources": {
+    "i48": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_round2/candidate/epilogue_i48_to_f32.sv",
+    "fma": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_round2/candidate/epilogue_fma_stage.sv",
+    "f32i16": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_round2/candidate/epilogue_f32_to_i16.sv",
+    "relu": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_round2/candidate/epilogue_relu.sv",
+    "lane": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_round2/candidate/epilogue_lane.sv",
+    "stream": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_epilogue/epilogue_stream_engine_v023.sv",
+    "approx": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_approx/rtl/approx_div_sqrt.sv",
+    "recip": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_approx/rtl/approx_recip_lut.sv",
+    "rsqrt": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_approx/rtl/approx_rsqrt_lut.sv",
+    "fma_pipe": "/home/yang/Desktop/\u9879\u76ee/v023_repair/gemini_fma_round2/candidate/fp32_fma_pipe.sv",
+    "asr_fma": null
+  },
+  "tests": {
+    "fma": {
+      "rc": 0,
+      "vectors": 8734,
+      "mismatches": 0,
+      "tag_errors": 0,
+      "last_errors": 0,
+      "by_mode": {
+        "0": {
+          "mismatch": 0,
+          "total": 1000
+        },
+        "1": {
+          "mismatch": 0,
+          "total": 6734
+        },
+        "2": {
+          "mismatch": 0,
+          "total": 1000
+        }
+      },
+      "stability_errors": 0,
+      "examples": [],
+      "pass": true,
+      "by_class": {
+        "inf": {
+          "mismatch": 0,
+          "total": 106
+        },
+        "nan": {
+          "mismatch": 0,
+          "total": 140
+        },
+        "normal": {
+          "mismatch": 0,
+          "total": 8311
+        },
+        "subnormal": {
+          "mismatch": 0,
+          "total": 153
+        },
+        "zero": {
+          "mismatch": 0,
+          "total": 24
+        }
+      },
+      "primary_counterexample": {
+        "x": "3f800001",
+        "scale": "3fc00000",
+        "bias": "00000000",
+        "expected_rne": "3fc00002"
+      }
+    }
+  },
+  "started": 1793285159.7877462,
+  "elapsed_s": 1.45,
+  "pass": true
+}

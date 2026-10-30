@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/yang/Desktop/项目/v023_repair/primary_stream_fix/scripts/run_suite.py", line 852, in <module>
+    main()
+  File "/home/yang/Desktop/项目/v023_repair/primary_stream_fix/scripts/run_suite.py", line 829, in main
+    result["tests"]["stream_bias_preload"] = test_stream(
+                                             ^^^^^^^^^^^^
+  File "/home/yang/Desktop/项目/v023_repair/primary_stream_fix/scripts/run_suite.py", line 515, in test_stream
+    a16, packed, spill_out = parse_stream_out(out_file)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yang/Desktop/项目/v023_repair/primary_stream_fix/scripts/run_suite.py", line 479, in parse_stream_out
+    a16.append((int(p[1]), int(p[2], 16), int(p[3], 16), int(p[4])))
+                           ^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 16: 'xxxxxxxxxxxxxxxx'

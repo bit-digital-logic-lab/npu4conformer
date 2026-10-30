@@ -1,0 +1,2 @@
+WC_BEFORE_PASS starts=4 dones=4 cycles=719 gap=200 vec_cyc=689 lay_cyc=787 pl_cyc=719
+tb/tb_wc_before.sv:200: $finish called at 30656000 (1ps)

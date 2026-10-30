@@ -1,0 +1,44 @@
+[
+  {
+    "title": "DS925: Zynq UltraScale+ MPSoC Data Sheet: DC and AC Switching Characteristics",
+    "section": "Table 49: Processor System (PS) Performance Characteristics - S_AXI_HP{0:3}_FPD Interface",
+    "url": "https://docs.amd.com/r/en-US/ds925-zynq-ultrascale-plus/Processor-System-PS-Performance-Characteristics",
+    "relevance": "PS-PL AXI接口在-2速度等级标称最大333MHz。600MHz绝不可直通PS AXI，仅能作为PL局部计算域，必须加异步FIFO/CDC隔离。"
+  },
+  {
+    "title": "UG1085: Zynq UltraScale+ MPSoC Technical Reference Manual",
+    "section": "Chapter 9/10: AXI FIFO Interface (AFI) Architecture & High-Performance Ports",
+    "url": "https://docs.amd.com/r/en-US/ug1085-zynq-ultrascale-trm/AFI-Overview",
+    "relevance": "AFI内部架构基于AXI3标准，单次突发长度本质受限于16 beats。AXI4中>16 beats的突发在互连中会被切分。"
+  },
+  {
+    "title": "PG201: Zynq UltraScale+ MPSoC Processing System LogiCORE IP Product Guide",
+    "section": "Slave Interfaces: S_AXI_HP0_FPD through S_AXI_HP3_FPD Configuration",
+    "url": "https://docs.amd.com/r/en-US/pg201-zynq-ultrascale-plus-processing-system/Slave-Interface",
+    "relevance": "HP接口支持32/64/128-bit位宽。工程当前使用HP0（S_AXI_GP2）128-bit配置，接入125MHz时钟。"
+  },
+  {
+    "title": "AMD Wiki: Zynq UltraScale+ MPSoC High Performance (HP) Ports Traffic Shaping and Performance Guidelines",
+    "section": "Burst Length, Multiple Outstanding Transactions, and Latency Hiding",
+    "url": "https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/688128001",
+    "relevance": "官方推荐128-bit 16-beat突发。16-beat本身不是设计缺陷；单在途事务（Depth=1）暴露50-100拍往返延迟才是瓶颈，必须引入流水线多在途（Depth 4-8）隐藏延迟。"
+  },
+  {
+    "title": "UG579: UltraScale Architecture DSP48E2 Primitive User Guide",
+    "section": "DSP48E2 Internal Datapath, Pipeline Registers, and Multiplier Accumulator Operations",
+    "url": "https://docs.amd.com/v/u/en-US/ug579-ultrascale-dsp",
+    "relevance": "DSP48E2硬核在-2等级标称最高741MHz，但受到外围织网布线与高扇出限制，需采用输入输出完整流水级支撑300-600MHz。"
+  },
+  {
+    "title": "UG949: UltraFast Design Methodology Guide for the Vivado Design Suite",
+    "section": "Optimizing High-Fanout Nets, Clock Domain Crossing (CDC), and Asynchronous FIFOs",
+    "url": "https://docs.amd.com/r/en-US/ug949-vivado-design-methodology/Optimizing-High-Fanout-Nets",
+    "relevance": "指导高扇出使能/复位控制网的寄存器复制与跨时钟域异步FIFO（XPM_FIFO_ASYNC）隔离规则。"
+  },
+  {
+    "title": "ALINX AXU15EG / ACU15EG 官方硬件手册与代码库",
+    "section": "ACU15EG Core Board Schematic & User Manual",
+    "url": "https://github.com/alinxalinx/AXU9EG_AXU15EG/blob/master/README_CN.md",
+    "relevance": "器件型号一致(XCZU15EG-2FFVB1156I)；PS端4GB DDR4(64-bit)，PL端2GB DDR4(32-bit)。引脚AL8/AL7、V3/V4等与原工程完全相符，列为最高优先级候选板卡（非绝对认定）。"
+  }
+]

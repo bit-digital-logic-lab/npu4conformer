@@ -1,0 +1,18 @@
+{
+  "ok": false,
+  "errors": [
+    "header requires output but none flagged"
+  ],
+  "node_count": 4,
+  "roots": 1,
+  "outputs": 0,
+  "edges": 3,
+  "type_count": {
+    "5": 1,
+    "3": 1,
+    "2": 2
+  },
+  "hash": 1265582921,
+  "plan_bytes": 832,
+  "tag": "no_output"
+}

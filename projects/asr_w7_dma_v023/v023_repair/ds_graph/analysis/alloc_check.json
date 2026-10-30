@@ -1,0 +1,26 @@
+{
+  "alloc_ok": true,
+  "alloc_errors": [],
+  "negative_supplied": {
+    "a": "encoder|/encoder/embed/conv/conv.2/Conv::out",
+    "b": "encoder|/encoder/encoders.0/feed_forward_macaron::out",
+    "live_a": [
+      2,
+      68
+    ],
+    "live_b": [
+      3,
+      68
+    ],
+    "base": 141786112,
+    "bytes": 1206272
+  },
+  "negative_detected": true,
+  "negative_errors": [
+    "negative example: live tensors share base 8737c00"
+  ],
+  "old_same_base_pairs": 225310,
+  "old_same_base_pairs_live_simultaneously": 2413,
+  "arena_used": 56570880,
+  "external_used": 15545344
+}

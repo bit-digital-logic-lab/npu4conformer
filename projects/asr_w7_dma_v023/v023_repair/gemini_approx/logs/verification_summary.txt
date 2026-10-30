@@ -1,0 +1,9 @@
+total_vectors: 4131
+div_max_rel_err: 0.0010798249316549284
+div_mean_rel_err: 0.0002236402806720608
+sqrt_max_rel_err: 5.7220458984375e-06
+sqrt_mean_rel_err: 1.2180712548107951e-06
+rsqrt_max_rel_err: 5.7220458984375e-06
+rsqrt_mean_rel_err: 1.1770034306226968e-06
+layernorm_max_code_diff: 1
+softmax_max_code_diff: 14

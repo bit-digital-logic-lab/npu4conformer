@@ -1,0 +1,22 @@
+
+========================================================
+[TB] Double-Buffer Ping-Pong (SLOTS=2) Test Starting...
+[TB] Workload: M=32, N=64, K=32 (2 Output Blocks: (0,0) and (0,1))
+========================================================
+[PROGRESS cycle=0] state=0 br=0 bc=0 bk=0 flush_slot=0 v0=0 v1=0 d0=0 d1=0 done=0
+[PROGRESS cycle=1000] state=17 br=0 bc=0 bk=0 flush_slot=0 v0=1 v1=0 d0=0 d1=0 done=0
+[TB T=13095000] Captured Block 0 via result interface!
+[PROGRESS cycle=2000] state=16 br=0 bc=1 bk=0 flush_slot=0 v0=1 v1=1 d0=1 d1=0 done=0
+[TB T=26145000] Captured Block 1 via result interface!
+[PROGRESS cycle=3000] state=22 br=0 bc=1 bk=0 flush_slot=0 v0=1 v1=1 d0=1 d1=1 done=0
+[PROGRESS cycle=4000] state=22 br=0 bc=1 bk=0 flush_slot=1 v0=1 v1=1 d0=0 d1=1 done=0
+
+========================================================
+[TB] Double-Buffer Simulation Completed!
+========================================================
+Task Cycles: 4667, Compute Cycles: 536, Read Blocks: 6, Write Blocks: 2, Fault: 0
+Captured Output Blocks: 2 (Expected 2)
+[TB] Dumped 2048 words to bench/sim_double_buffer_output.hex
+[SUCCESS] Double-buffer switching and flush verification PASSED!
+[SUCCESS] All 2048 elements (2 double-buffered 32x32 blocks) MATCH GOLDEN MODEL BIT-FOR-BIT!
+[SUCCESS] Multi-block continuous execution, ping-pong slot switching, and dirty flush verified!

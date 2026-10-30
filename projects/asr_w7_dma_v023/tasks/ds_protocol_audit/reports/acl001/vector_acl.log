@@ -1,0 +1,2 @@
+VECTOR_ACL_PASS fault=1 err=01 rb=0 wb=0
+/home/yang/Desktop/项目/tasks/ds_protocol_audit/tb/tb_vector_stress.sv:73: $finish called at 72000 (1ps)

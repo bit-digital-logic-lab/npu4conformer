@@ -1,0 +1,9 @@
+{
+  "cycles": 23808,
+  "transfers": 271,
+  "intervals": 10520,
+  "window": [
+    12,
+    23820
+  ]
+}

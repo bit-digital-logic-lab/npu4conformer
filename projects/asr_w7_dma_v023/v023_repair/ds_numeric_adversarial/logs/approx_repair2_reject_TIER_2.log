@@ -1,0 +1,6 @@
+CMD: iverilog -g2012 -DHAS_FLUSH -Ptb_approx.TIER=2 -o /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/build/approx_repair2_reject_TIER_2 /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/tb/tb_approx.sv /home/yang/Desktop/项目/v023_repair/gemini_approx_repair/candidate/rtl/approx_div_sqrt.sv /home/yang/Desktop/项目/v023_repair/gemini_approx_repair/candidate/rtl/approx_recip_lut.sv /home/yang/Desktop/项目/v023_repair/gemini_approx_repair/candidate/rtl/approx_rsqrt_lut.sv
+/home/yang/Desktop/项目/v023_repair/gemini_approx_repair/candidate/rtl/approx_div_sqrt.sv:50: error: Unknown module type: illegal_tier_parameter_only_tier_1_supported
+1 error(s) during elaboration.
+*** These modules were missing:
+        illegal_tier_parameter_only_tier_1_supported referenced 1 times.
+***

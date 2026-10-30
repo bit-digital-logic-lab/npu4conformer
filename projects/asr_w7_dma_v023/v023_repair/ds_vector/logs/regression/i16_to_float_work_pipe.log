@@ -1,0 +1,6 @@
+$ vvp /tmp/v023_pipe.vvp +folder=/tmp/opencode/ds_vector/fixtures/work_copy/i16_to_float +nbytes=4004 +mode=0 +expect_fault=0 +expect_no_dma=0
+rc=0
+V023_VECTOR_PASS mode=          0 cycles=                 533 rcov=                  82 wcov=                 137 rreq=          4 wreq=          4 count=      1001 fault=0 err=00 flags=00 rejected=         0
+/home/yang/Desktop/项目/v023_repair/ds_vector/tb/tb_vector_generic.sv:107: $finish called at 4328000 (1ps)
+
+

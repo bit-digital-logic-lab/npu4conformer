@@ -1,0 +1,9 @@
+INFO init done mem=1536 words
+CFG m=32 n=32 k=32 ids=1/2/3 allowed=1 req=1 pos=3210 bases=03000000/03002000/03003000 slots=2
+INFO done fault=0 code=00 cycles=4155 compute=264 rdblk=2 wrblk=64 hits=0 miss=1 prehit=0 prewait=1256 ov_rd=0 ov_wr=2410
+INFO bfm rdcmds=2 wrcmds=64 rdbeats=192 wrbeats=384 shared=0 maxb=1 rdstall=1058 wrstall=2152
+PASS tb_engine_overlap M=32 N=32 K=32 C_VALID=0 cycles=4155 compute=264 ov_rd=0 ov_wr=2410 prehit=0 prewait=1256
+- /home/yang/Desktop/项目/tasks/ds_storage_overlap/tests/tb_engine_overlap.sv:229: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 72us; walltime 0.037 s; speed 1.958 ms/s
+- Verilator: cpu 0.037 s on 1 threads; allocated 7 MB

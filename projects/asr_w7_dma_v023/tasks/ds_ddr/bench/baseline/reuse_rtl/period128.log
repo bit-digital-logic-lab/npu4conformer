@@ -1,0 +1,2 @@
+V022_VECTOR_AXI_PASS mode=          0 cycles=                8202 read_compute_overlap=                 610 write_compute_overlap=                 678 read_requests=        24 write_requests=        16
+/home/yang/Desktop/项目/tasks/ds_ddr/bench/baseline/reuse_rtl/tb.sv:190: $finish called at 65680000 (1ps)

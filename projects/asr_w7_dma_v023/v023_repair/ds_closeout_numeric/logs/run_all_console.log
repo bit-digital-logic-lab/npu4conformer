@@ -1,0 +1,7 @@
+== 0. deterministic fixture / plan / independent golden ==
+== 1. sequential compile (iverilog, one at a time) ==
+compile_top rc=0
+compile_lint rc=0
+== 2. exact baseline (FMA op17 + DIV op3 + SQRT op4) ==
+exact rc=0 seconds=104 log=logs/exact.log
+== 3. candidate approx (same plan/load) ==

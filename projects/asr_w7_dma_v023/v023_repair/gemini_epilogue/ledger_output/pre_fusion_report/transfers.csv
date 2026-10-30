@@ -1,0 +1,10 @@
+﻿type,id,resource,start,end,tensor,version,format,src,dst,op,phase,reason,logical_offset,logical_bytes,valid_bytes,bus_bytes
+transfer,t0_c48_wr,axi_w,50,434,C48_tile,v1,C48,C_Cache,DDR,matrix_collect,writeback,unfused_c48_evict,0,6144,6144,6144
+transfer,t1_c48_rd,axi_r,450,834,C48_tile,v1,C48,DDR,Vector_LPRE,vector_i48_f32,load,read_c48_for_conversion,0,6144,6144,6144
+transfer,t2_fp32_wr1,axi_w,850,1106,FP32_raw,v1,FP32,Vector_ALU,DDR,vector_i48_f32,writeback,intermediate_spill,0,4096,4096,4096
+transfer,t3_fp32_rd1,axi_r,1120,1376,FP32_raw,v1,FP32,DDR,Vector_ALU,vector_scale,load,read_fp32_scale,0,4096,4096,4096
+transfer,t4_fp32_wr2,axi_w,1400,1656,FP32_scaled,v1,FP32,Vector_ALU,DDR,vector_scale,writeback,intermediate_spill,0,4096,4096,4096
+transfer,t5_fp32_rd2,axi_r,1670,1926,FP32_scaled,v1,FP32,DDR,Vector_ALU,vector_bias,load,read_fp32_bias,0,4096,4096,4096
+transfer,t6_fp32_wr3,axi_w,1950,2206,FP32_biased,v1,FP32,Vector_ALU,DDR,vector_bias,writeback,intermediate_spill,0,4096,4096,4096
+transfer,t7_fp32_rd3,axi_r,2220,2476,FP32_biased,v1,FP32,DDR,Vector_ALU,vector_quant,load,read_fp32_quant,0,4096,4096,4096
+transfer,t8_a16_wr,axi_w,2500,2628,A16_out,v1,A16,Vector_ALU,DDR,vector_quant,writeback,final_output,0,2048,2048,2048

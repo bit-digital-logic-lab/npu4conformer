@@ -1,0 +1,12 @@
+{
+  "exp_sha_match": true,
+  "init_sha_match": true,
+  "exp_values": 1024,
+  "gold_words": 512,
+  "gold_sha256": "296ae0193a999187c13f69631c218136b2d74f46d536b333a7d728a1b0f91ad5",
+  "mem_sha256": "1c657402c61de080db36933f2392b2ab21fb07d57c08f7f0e95c458c67c57f37",
+  "gold_recomputed_match": true,
+  "plan_sha_recomputed": "5c8afc4d8fe5b30317562e6474a8e79d56b03dd57617186f08dda05fdad16bec",
+  "plan_sha_match": true,
+  "pass": true
+}

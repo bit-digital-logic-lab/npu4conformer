@@ -1,0 +1,346 @@
+{
+  "task": "ds_storage_overlap",
+  "status": "complete_logic_validation",
+  "date": "2026-10-29",
+  "scope": "Logic-only: A/W double-bank prefetch and C48 streamed posted write for block_storage_dma_wide4 / block_engine_banked_v020. No synthesis, Vivado, DRC/STA, board, VNC, network or push.",
+  "inputs_read": [
+    "/home/yang/Desktop/项目/EXECUTION_CONTRACT.md",
+    "/home/yang/Desktop/项目/work/DESIGN_CONTRACT_zh.txt",
+    "/home/yang/Desktop/项目/work/CURRENT_WORK.txt",
+    "/home/yang/Desktop/项目/IC_GIT_REFERENCES.txt",
+    "/home/yang/Desktop/项目/work/rtl/block_storage_dma_prefetch.sv",
+    "/home/yang/Desktop/项目/work/rtl/block_engine_l1bank_v020.sv",
+    "/home/yang/Desktop/项目/work/rtl/operand_banks_v020.sv",
+    "/home/yang/Desktop/项目/work/rtl/array16_direct_v020.sv",
+    "/home/yang/Desktop/项目/work/rtl/pe_direct_v020.sv",
+    "/home/yang/Desktop/项目/work/rtl/c_cache_banked4.sv",
+    "/home/yang/Desktop/项目/work/rtl/block_address_v020.sv",
+    "/home/yang/Desktop/项目/work/rtl/axi_dma_v019.sv"
+  ],
+  "source_sha256_original_readonly": {
+    "work/rtl/block_storage_dma_prefetch.sv": "d9905c280982974302b2db5561b3980e723573b66258b55422a8f068729f0059",
+    "work/rtl/block_engine_l1bank_v020.sv": "0a6f24fc51f79baf4f1ecca0b38a79180b0a56e19470bfdb4bec863b34a09c20",
+    "work/rtl/block_address_v020.sv": "9d2bba3f38965133122ca37da9d1ffe06de10807b45c6c6758f08fbe7a3ce63b",
+    "work/rtl/operand_banks_v020.sv": "93dbf8364e4d7b9b22d15221ca25778adfd044638d8723f1462fa7a328925d6b",
+    "work/rtl/array16_direct_v020.sv": "77c66aeea9dd40eb927f8f8e0658b707188427f51138af5f726ded0dc9c3fd56",
+    "work/rtl/pe_direct_v020.sv": "7b43de74709f53f0212eb6a600c5d84b3c1aea5904c2f0dd1b6e32b300bc0317",
+    "work/rtl/c_cache_banked4.sv": "db4713635512574b5c67ee9ef8218736b2a7bc85b9625033f16fe69eddded718",
+    "work/rtl/axi_dma_v019.sv": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531"
+  },
+  "candidate_sha256": {
+    "candidate/rtl/block_storage_stream_v1.sv": "0f1931b1674110bace3989467a97240f137f69fcc12933f02a01cb550a05647b",
+    "candidate/rtl/operand_banks_dual_v1.sv": "0c3cd46224cd12aaed2461ab4a251fb3fce233e5c12ac21b403f4524cf45a112",
+    "candidate/rtl/block_engine_prefetch_v1.sv": "dcfdd54f3edc6922feb025ef3061d8804b6588efe332a669e2efe0e21946446e",
+    "candidate/rtl/block_address_v020.sv": "9d2bba3f38965133122ca37da9d1ffe06de10807b45c6c6758f08fbe7a3ce63b",
+    "candidate/rtl/array16_direct_v020.sv": "77c66aeea9dd40eb927f8f8e0658b707188427f51138af5f726ded0dc9c3fd56",
+    "candidate/rtl/pe_direct_v020.sv": "7b43de74709f53f0212eb6a600c5d84b3c1aea5904c2f0dd1b6e32b300bc0317",
+    "candidate/rtl/c_cache_banked4.sv": "db4713635512574b5c67ee9ef8218736b2a7bc85b9625033f16fe69eddded718",
+    "candidate/rtl/axi_dma_v019.sv": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531"
+  },
+  "test_sha256": {
+    "tests/txn_dma_bfm.sv": "10e3db5870d0c716c24b8726cbdb416e06c15e35039a188835fe460a79caf272",
+    "tests/gen_engine_vectors.py": "c5e224d62a5c304cf8c347311ab4e60d7479bb0af043d37a225d6e0d19c054f3",
+    "tests/tb_storage_unit.sv": "5560f439681c85b48abacece4a577c51bd35d48f62b77bec8263c46273e1a1d7",
+    "tests/tb_engine_overlap.sv": "dda51b6bd65bf6714a83154204f00c03fef8d0341219c42d27c8c343b85365a4",
+    "tests/tb_engine_baseline.sv": "a75c87141b7074f9d5ae16f913ef559af4afc4050dab369b96e5dbc0f03777e3",
+    "tests/tb_storage_axi.sv": "d06003f892e499e96d750b1631e9abc9e07f016c3f3476c0beafe9f96d98774e",
+    "tests/axi128_mem_bfm_v1.sv": "15420735e6963ad65b40e80d1bf41f2140961a24b13cff7cca4a8d8eac12ac55",
+    "scripts/run_all.sh": "5b7ea8d937f415415f35f921642c31019790d3262daa92355a440a3133c1f72f",
+    "traffic/make_trace.py": "2acb635ef47452addf3c8aaf6fa943047c564eb3fedb503fadbc65b09d0e7fb3",
+    "scripts/run_traffic_ledger.sh": "23035cc58333158f39d681eb604a0b3ce340dc2f76fbbe32673d6fe995df3d9c"
+  },
+  "tests": [
+    {
+      "name": "storage_unit",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_storage_unit.log",
+      "checks": "2048 A16 + 1024 W7 bank values, 6144 C48 bytes, 64 segments, ACL rejection, ovsame=9, rdwr=708"
+    },
+    {
+      "name": "engine_fast_c0",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_engine_fast_c0.log",
+      "checks": "2 blocks x 1024 C48 result + 2 x 6144 memory bytes; 5896 cycles; prehit=4; ov_rd=523; ov_wr=1293"
+    },
+    {
+      "name": "engine_seed1",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_engine_seed1.log",
+      "checks": "same workload, BFM seed 1; PASS"
+    },
+    {
+      "name": "engine_seed2",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_engine_seed2.log",
+      "checks": "same workload, BFM seed 2; PASS"
+    },
+    {
+      "name": "engine_seed3",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_engine_seed3.log",
+      "checks": "same workload, BFM seed 3; PASS"
+    },
+    {
+      "name": "engine_c1_partial",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_engine_c1.log",
+      "checks": "existing partial C load, 2 blocks; 6673 cycles; PASS"
+    },
+    {
+      "name": "engine_write_backpressure",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_engine_bp.log",
+      "checks": "WR_GAP=60/B=40; 27673 cycles; wrstall=22906; ov_wr=23225; PASS"
+    },
+    {
+      "name": "engine_read_error_drain",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_engine_err_rd.log",
+      "checks": "expected fault code 09; done=1; cwr_pending=0"
+    },
+    {
+      "name": "engine_write_error_drain",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_engine_err_wr.log",
+      "checks": "expected fault code 0a; done=1; cwr_pending=0"
+    },
+    {
+      "name": "engine_bad_W_parity",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_engine_badpar.log",
+      "checks": "expected stage fault code 09; done=1"
+    },
+    {
+      "name": "engine_k1",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_engine_k1.log",
+      "checks": "32x32x32; 4155 cycles; PASS"
+    },
+    {
+      "name": "engine_multi_bc_n64",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_engine_n64.log",
+      "checks": "32x64x64, two N blocks (bc=0/1), 128 C segments, 2 K; 4324 cycles; PASS"
+    },
+    {
+      "name": "storage_axi_layer",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_storage_axi.log",
+      "checks": "2 x original axi_dma_v019 + AXI128 BFM; 8 read bursts, 66 write bursts, 2048 B/6144 B, 0 errors"
+    },
+    {
+      "name": "icarus_k96_random_bfm",
+      "tool": "Icarus 14.0",
+      "rc": 0,
+      "log": "logs/run_icarus_k3.log",
+      "checks": "32x32x96; 2948 cycles; prehit=2; ov_rd=261; ov_wr=645; PASS"
+    },
+    {
+      "name": "baseline_k1",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_base_k1.log",
+      "checks": "original RTL; 32x32x32; 6094 cycles; PASS"
+    },
+    {
+      "name": "baseline_fast_c0",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_base_fast.log",
+      "checks": "original RTL; 64x32x96; 11839 cycles; PASS"
+    },
+    {
+      "name": "baseline_c1_partial",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_base_c1.log",
+      "checks": "original RTL; existing partial C; 13132 cycles; PASS"
+    },
+    {
+      "name": "baseline_write_backpressure",
+      "tool": "Verilator",
+      "rc": 0,
+      "log": "logs/run_base_bp.log",
+      "checks": "original RTL; WR_GAP=60/B=40; 34620 cycles; PASS"
+    }
+  ],
+  "metrics": {
+    "before_after_cycles_same_fixture_same_bfm": [
+      {
+        "case": "M32N32K32_C0_stress",
+        "baseline": 6094,
+        "candidate": 4155,
+        "ratio": 1.47
+      },
+      {
+        "case": "M64N32K96_C0_fast",
+        "baseline": 11839,
+        "candidate": 5896,
+        "ratio": 2.01
+      },
+      {
+        "case": "M64N32K96_C1_fast",
+        "baseline": 13132,
+        "candidate": 6673,
+        "ratio": 1.97
+      },
+      {
+        "case": "M64N32K96_C0_write_backpressure",
+        "baseline": 34620,
+        "candidate": 27673,
+        "ratio": 1.25
+      }
+    ],
+    "baseline_storage_counters_fast": {
+      "cycles": 11839,
+      "compute_cycles": 1584,
+      "st_read_wait_cycles": 1183,
+      "st_write_wait_cycles": 781,
+      "st_scalar_cycles": 5122
+    },
+    "candidate_fast": {
+      "cycles": 5896,
+      "compute_cycles": 1584,
+      "read_blocks": 12,
+      "write_segments": 128,
+      "read_beats": 1152,
+      "write_beats": 768,
+      "prefetch_hits": 4,
+      "prefetch_wait_cycles": 396,
+      "overlap_compute_read_cycles": 523,
+      "overlap_compute_write_cycles": 1293
+    },
+    "candidate_write_backpressure": {
+      "cycles": 27673,
+      "wrstall": 22906,
+      "overlap_compute_write_cycles": 23225,
+      "prefetch_hits": 4,
+      "prefetch_wait_cycles": 396
+    },
+    "storage_unit": {
+      "read_cmds": 3,
+      "write_cmds": 64,
+      "write_segments": 64,
+      "write_bytes": 6144,
+      "ov_same_cycle": 9,
+      "rd_active_wr_active_cycles": 708
+    },
+    "storage_axi": {
+      "read_bursts": 8,
+      "write_bursts": 66,
+      "read_bytes": 2048,
+      "write_bytes": 6144,
+      "errors": 0
+    },
+    "traffic_ledger_c0": {
+      "window_cycles": 5896,
+      "axi_r_payload_cycles": 1152,
+      "axi_r_valid_bytes": 18432,
+      "axi_r_payload_fraction": 0.1954,
+      "axi_w_payload_cycles": 768,
+      "axi_w_valid_bytes": 12288,
+      "axi_w_payload_fraction": 0.1303,
+      "compute_run_cycles": 1584,
+      "c_collect_cycles": 3840,
+      "operand_wait_cycles": 420,
+      "control_cycles": 52,
+      "repeat_candidate_bytes": 0,
+      "ledger_minus_interval_bytes": 0,
+      "dependency_bound_cycles": 5424,
+      "overhead_vs_bound": 0.087,
+      "next_bottleneck": "C_READ+COLLECT 2 cycles per 4-value group (c_cache_banked4); pipelining to 1 cycle/group estimated ~3976 cycles, not measured",
+      "report": "traffic/report_c0/"
+    },
+    "pe_bandwidth_sanity": {
+      "MACs": 393216,
+      "unique_bytes": 30720,
+      "MAC_per_byte": 12.8,
+      "equiv_PE_at_2GBps_300MHz": 85,
+      "equiv_PE_at_2GBps_600MHz": 43,
+      "cycle_average_MAC_per_cycle": 66.7,
+      "run_peak_MAC_per_cycle": 248,
+      "note": "not a sizing/TOPS/timing claim; module-level tile has low reuse"
+    }
+  },
+  "confirmed": [
+    "Original block_storage_dma_wide4 has a whole-block RDMA barrier before RSCALAR and waits for 1024 C48 words before WREQ.",
+    "Original block_engine_banked_v020 loads C/A/B serially before RUN and defers C writeback to EVICT/FLUSH.",
+    "A/W double-stage prefetch is real: candidate prefetch_hits=4 for 2 blocks x 3 K, with overlap_compute_read_cycles>0 in Verilator and Icarus.",
+    "C48 128b packing/posting is real: candidate streams 128 write segments (12288 B) while compute runs; output backpressure stalls the write side without losing data.",
+    "Read/write independence is exercised: storage unit ov_same_cycle=9, rd_active_wr_active_cycles=708; engine write backpressure run has overlap_compute_write_cycles=23225.",
+    "ACL/header/parity faults drain accepted DMA and report done=1/fault=1, no hang.",
+    "Candidate contract drives the frozen axi_dma_v019 through two independent AXI masters with an AXI128 BFM and zero errors.",
+    "Traffic ledger shows 0 duplicate-candidate bytes and identifies C collect (3840 cycles, 65% of busy window) as the next bottleneck, not DMA.",
+    "Multi-column output block case (N=64, bc=0/1) passes, covering C block base and W block column addressing for more than one bc."
+  ],
+  "assumptions": [
+    "WR_OUT=8 is a chosen credit; a different ds_ddr credit changes only posting depth/timing.",
+    "The fixtures use bounded A/W values; INT48 overflow is detected by code 8 but not intentionally stressed.",
+    "The physical DDR controller is still the PS hard controller in the current topology; this task models a transactional DMA terminal, not a MIG bypass.",
+    "The baseline uses the original RTL unmodified under Verilator; Icarus baseline is not claimed because the original has declaration-after-use issues.",
+    "The traffic ledger window is the engine busy window of the C=0 fast case; it is not a full-model or board trace."
+  ],
+  "untested": [
+    "No synthesis, Vivado, DRC, STA, bitstream or board run.",
+    "No 300/600 MHz timing claim.",
+    "No full model/CASE0000 accuracy run; model/weight assets are not in this task directory.",
+    "FP32 FTZ/RNE/FMA and QDQ boundaries are unchanged but not exercised by this integer block-engine test.",
+    "No full plan/queue integration: the wrapper adaptation is specified in INTERFACE.md, not implemented in this task.",
+    "No 600MHz CDC/async FIFO was implemented; PS AXI nominal <=333MHz and local-domain 600MHz are not verified.",
+    "Combinational ready/credit paths were not timing-analyzed or registered for a 600MHz local domain; no CDC/async FIFO implemented.",
+    "Deep BRESP posting depth beyond max_b=1 is not claimed; a B_DELAY=200 exploratory run exposed a testbench B-response credit loss, not a DUT pass."
+  ],
+  "artifacts": {
+    "report": "REPORT.md",
+    "interface": "INTERFACE.md",
+    "findings": "FINDINGS.jsonl",
+    "progress": "progress.json",
+    "candidate_rtl": "candidate/rtl/",
+    "tests": "tests/",
+    "fixtures": "fixtures/",
+    "logs": "logs/",
+    "commands_log": "logs/commands.log",
+    "metrics": "logs/metrics.txt",
+    "traffic": "traffic/",
+    "traffic_report": "traffic/report_c0/",
+    "traffic_script": "scripts/run_traffic_ledger.sh",
+    "lint_engine": "logs/verilator_lint_engine.log",
+    "lint_storage": "logs/verilator_lint_storage.log"
+  },
+  "lint": {
+    "engine": {
+      "tool": "Verilator --lint-only -Wall",
+      "rc": 0,
+      "warnings": 76,
+      "errors": 0,
+      "log": "logs/verilator_lint_engine.log"
+    },
+    "storage": {
+      "tool": "Verilator --lint-only -Wall",
+      "rc": 0,
+      "warnings": 41,
+      "errors": 0,
+      "log": "logs/verilator_lint_storage.log"
+    }
+  },
+  "next_steps": [
+    "Pipeline c_cache_banked4 C_READ+COLLECT to 1 cycle/group (current 2 cycles/group; 3840 of 5896 busy cycles). Structural estimate ~3976 cycles, not measured.",
+    "Coalesce the two 96B C column-half segments into a 192B row transaction (needs a row buffer or different quadrant schedule) to cut 128 commands / 921 wait cycles.",
+    "Overlap C partial load (C_VALID=1) with first-K RUN; RUN does not read C until COLLECT.",
+    "Issue next block A0/W0 during previous final COLLECT/WAITWR to remove the ~396-cycle block-start operand wait.",
+    "For 600MHz local domain, register combinational ready/credit paths and add CDC/async FIFO; no timing claim."
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "scope": "RTL logic simulation: matrix P2 cluster K32, AXI128 BFM; not board DDR",
+  "input_sha256": "ac865b628d343d232fa7094379ed4bfb51d5b41d903287ba57473f649aa01e69",
+  "groups": [
+    {
+      "name": "tb_clk",
+      "unit": "cycle",
+      "clock_hz": null,
+      "start": 0,
+      "end": 2708
+    }
+  ],
+  "lanes": [
+    {
+      "name": "axi_r",
+      "group": "tb_clk",
+      "kind": "channel",
+      "start": 0,
+      "end": 2708,
+      "evidence": "RVALID&&RREADY / ARVALID&&ARREADY",
+      "states": {
+        "idle_no_work": 2403.0,
+        "command": 2.0,
+        "wait_memory": 111.0,
+        "payload": 192.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "axi_w",
+      "group": "tb_clk",
+      "kind": "channel",
+      "start": 0,
+      "end": 2708,
+      "evidence": "WVALID&&WREADY / AWVALID&&AWREADY / BVALID&&BREADY",
+      "states": {
+        "idle_no_work": 533.0,
+        "wait_memory": 1596.0,
+        "command": 65.0,
+        "backpressure": 65.0,
+        "payload": 384.0,
+        "response": 65.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "ddr_bfm",
+      "group": "tb_clk",
+      "kind": "channel",
+      "start": 0,
+      "end": 2708,
+      "evidence": "AXI128 BFM shared data channel; logic model only",
+      "states": {
+        "idle_no_work": 2065.0,
+        "command": 67.0,
+        "payload": 576.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "compute",
+      "group": "tb_clk",
+      "kind": "module",
+      "start": 0,
+      "end": 2708,
+      "evidence": "engine FSM state and array drain",
+      "states": {
+        "idle_no_work": 3.0,
+        "control": 23.0,
+        "wait_operand": 309.0,
+        "compute": 272.0,
+        "c_collect": 2101.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "c_cache_rd",
+      "group": "tb_clk",
+      "kind": "module",
+      "start": 0,
+      "end": 2708,
+      "evidence": "c_cache_banked4_pipe read port issue",
+      "states": {
+        "idle_no_work": 2452.0,
+        "payload": 256.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "c_cache_wr",
+      "group": "tb_clk",
+      "kind": "module",
+      "start": 0,
+      "end": 2708,
+      "evidence": "c_cache_banked4_pipe write port issue",
+      "states": {
+        "idle_no_work": 2452.0,
+        "payload": 256.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "packer",
+      "group": "tb_clk",
+      "kind": "module",
+      "start": 0,
+      "end": 2708,
+      "evidence": "C48 cseg/cval packer handshake",
+      "states": {
+        "idle_no_work": 611.0,
+        "command": 64.0,
+        "backpressure": 1777.0,
+        "payload": 256.0
+      },
+      "known_coverage": 1.0
+    }
+  ]
+}

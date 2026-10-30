@@ -1,0 +1,6 @@
+INFO init done mem=2048 words
+CFG m=64 n=32 k=96 ids=1/2/3 allowed=1 req=1 pos=3210 bases=03000000/03004000/03005000 slots=2
+TIMEOUT done=0 fault=0 code=00 engstate=15 bk=2 cwr=2 bfmtx=64 bfmb=0 bfmwact=0 bfmwidx=5 bfmwbeats=6 wcur=0 wsent=6/6 wnb=0 wq=0 bout=2 wreq=0/1 wp=0 err=0 wseg=64 wrblk=64
+[5000000000] %Fatal: tb_engine_overlap.sv:260: Assertion failed in tb_engine_overlap: timeout
+%Error: tests/tb_engine_overlap.sv:260: Verilog $stop
+Aborting...

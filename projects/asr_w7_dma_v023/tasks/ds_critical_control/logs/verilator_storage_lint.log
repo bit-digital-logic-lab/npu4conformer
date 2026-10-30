@@ -1,0 +1,82 @@
+%Warning-DECLFILENAME: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:26:8: Filename 'block_storage_dma_wide4_pipe_v1' does not match MODULE name: 'block_storage_dma_wide4'
+   26 | module block_storage_dma_wide4 #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/DECLFILENAME?v=5.047
+                       ... Use "/* verilator lint_off DECLFILENAME */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:119:48: Operator SHIFTL expects 32 or 13 bits on the LHS, but LHS's VARREF 'word_index' generates 11 bits.
+                                                                             : ... note: In instance 'block_storage_dma_wide4'
+  119 |  wire [12:0] first_byte=encoding==0?(word_index<<1):encoding==1?word_index:word_index*6;
+      |                                                ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.047
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:119:64: Operator COND expects 32 or 13 bits on the Conditional True, but Conditional True's VARREF 'word_index' generates 11 bits.
+                                                                             : ... note: In instance 'block_storage_dma_wide4'
+  119 |  wire [12:0] first_byte=encoding==0?(word_index<<1):encoding==1?word_index:word_index*6;
+      |                                                                ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:122:48: Operator SHIFTL expects 32 or 13 bits on the LHS, but LHS's VARREF 'fetch_word' generates 11 bits.
+                                                                             : ... note: In instance 'block_storage_dma_wide4'
+  122 |  wire [12:0] fetch_byte=encoding==0?(fetch_word<<1):encoding==1?fetch_word:fetch_word*6;
+      |                                                ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:122:64: Operator COND expects 32 or 13 bits on the Conditional True, but Conditional True's VARREF 'fetch_word' generates 11 bits.
+                                                                             : ... note: In instance 'block_storage_dma_wide4'
+  122 |  wire [12:0] fetch_byte=encoding==0?(fetch_word<<1):encoding==1?fetch_word:fetch_word*6;
+      |                                                                ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:179:12: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's SHIFTR generates 32 bits.
+                                                                            : ... note: In instance 'block_storage_dma_wide4'
+  179 |      nbeats<=block_bytes>>4;word_index<=0;bad<=0;dma_received<=0;
+      |            ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.047
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:224:40: Operator ASSIGNDLY expects 5 bits on the Assign RHS, but Assign RHS's SUB generates 32 or 6 bits.
+                                                                            : ... note: In instance 'block_storage_dma_wide4'
+  224 |       pack<=packed_next>>128;pack_bytes<=packed_bytes-16;
+      |                                        ^~
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:225:49: Operator ASSIGNDLY expects 5 bits on the Assign RHS, but Assign RHS's VARREF 'packed_bytes' generates 6 bits.
+                                                                            : ... note: In instance 'block_storage_dma_wide4'
+  225 |      end else begin pack<=packed_next;pack_bytes<=packed_bytes;end
+      |                                                 ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:293:14: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'r_row' generates 16 bits.
+                                                                             : ... note: In instance 'block_storage_dma_wide4'
+  293 |        (r_row>=v_nrows)||(r_col>=v_ncols);
+      |              ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:293:32: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'r_col' generates 16 bits.
+                                                                             : ... note: In instance 'block_storage_dma_wide4'
+  293 |        (r_row>=v_nrows)||(r_col>=v_ncols);
+      |                                ^~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:52:56: Bits of signal are not used: 'dma_write_index'[15:9]
+                                                                             : ... note: In instance 'block_storage_dma_wide4'
+   52 |  output wire [15:0] dma_write_strobe,input wire [15:0] dma_write_index,
+      |                                                        ^~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:77:14: Signal is not used: 'ncols'
+                                                                             : ... note: In instance 'block_storage_dma_wide4'
+   77 |  wire [31:0] ncols=req_encoding==0?(({16'd0,cfg_k}+31)>>5):(({16'd0,cfg_n}+31)>>5);
+      |              ^~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:78:14: Signal is not used: 'nrows'
+                                                                             : ... note: In instance 'block_storage_dma_wide4'
+   78 |  wire [31:0] nrows=req_encoding==1?(({16'd0,cfg_k}+31)>>5):(({16'd0,cfg_m}+31)>>5);
+      |              ^~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:79:14: Signal is not used: 'source_base'
+                                                                             : ... note: In instance 'block_storage_dma_wide4'
+   79 |  wire [31:0] source_base=req_encoding==0?cfg_a_base:req_encoding==1?cfg_b_base:cfg_c_base;
+      |              ^~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:84:72: Signal is not used: 'r_c_completed'
+                                                                             : ... note: In instance 'block_storage_dma_wide4'
+   84 |  reg [15:0] r_m,r_n,r_k,r_cfg_layer,r_a_id,r_b_id,r_c_id,r_cfg_allowed,r_c_completed;
+      |                                                                        ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:86:43: Signal is not used: 'r_c_valid'
+                                                                             : ... note: In instance 'block_storage_dma_wide4'
+   86 |  reg r_write,r_block_valid,r_in_operation,r_c_valid;
+      |                                           ^~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:119:14: Bits of signal are not used: 'first_byte'[12:5]
+                                                                              : ... note: In instance 'block_storage_dma_wide4'
+  119 |  wire [12:0] first_byte=encoding==0?(word_index<<1):encoding==1?word_index:word_index*6;
+      |              ^~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/block_storage_dma_wide4_pipe_v1.sv:122:14: Bits of signal are not used: 'fetch_byte'[3:0]
+                                                                              : ... note: In instance 'block_storage_dma_wide4'
+  122 |  wire [12:0] fetch_byte=encoding==0?(fetch_word<<1):encoding==1?fetch_word:fetch_word*6;
+      |              ^~~~~~~~~~
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)
+- Verilator: Built from 0.044 MB sources in 2 modules, into 0.093 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.025 s (elab=0.003, cvt=0.015, bld=0.000); cpu 0.025 s on 1 threads; allocated 21.629 MB

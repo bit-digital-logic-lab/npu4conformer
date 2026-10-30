@@ -1,0 +1,2 @@
+V022_VECTOR_PASS mode=          8 cycles=                2630 read_compute_overlap=                  88 write_compute_overlap=                 225 read_requests=          4 write_requests=          1
+/home/yang/Desktop/项目/work/tests/tb_vector.sv:85: $finish called at 21104000 (1ps)

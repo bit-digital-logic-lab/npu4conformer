@@ -1,0 +1,83 @@
+{
+  "task": "ds_pe_pipeline",
+  "unit": "PE",
+  "summary": {
+    "exhaustive": {
+      "vectors": 622592,
+      "products": 32768,
+      "outputs": 622632,
+      "drain_constants": [
+        4,
+        5,
+        6,
+        7,
+        6
+      ]
+    },
+    "random_tasks": {
+      "vectors": 15600,
+      "tasks": 300,
+      "outputs": 15640
+    },
+    "directed_events": {
+      "vectors": 362,
+      "scenarios": [
+        {
+          "name": "reset_inflight",
+          "expected": 0,
+          "index": 42
+        },
+        {
+          "name": "flush_inflight_preserves_sum",
+          "expected": -1073709056,
+          "index": 85
+        },
+        {
+          "name": "flush_then_new",
+          "expected": -1071832576,
+          "index": 133
+        },
+        {
+          "name": "clear_settled",
+          "expected": 0,
+          "index": 173
+        },
+        {
+          "name": "clear_inflight_keeps_product",
+          "expected": -1073709056,
+          "index": 204
+        },
+        {
+          "name": "clear_inflight_then_new",
+          "expected": -1073338706,
+          "index": 240
+        },
+        {
+          "name": "clear_flush",
+          "expected": 0,
+          "index": 282
+        },
+        {
+          "name": "valid_bubbles",
+          "expected": 0,
+          "index": 312
+        },
+        {
+          "name": "clear_then_late_product",
+          "expected": 370350,
+          "index": 361
+        }
+      ],
+      "outputs": 402
+    },
+    "overflow": {
+      "vectors": 135020,
+      "products": 135000,
+      "product": -1073709056,
+      "expected": 136524254150656,
+      "outputs": 135060
+    }
+  },
+  "failures": [],
+  "pass": true
+}

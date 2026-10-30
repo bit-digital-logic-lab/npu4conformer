@@ -1,0 +1,118 @@
+{
+  "task": "ds_layout",
+  "updated": "2026-10-29",
+  "stages": [
+    {
+      "id": "S0",
+      "name": "baseline and source freeze",
+      "status": "done",
+      "detail": "read EXECUTION_CONTRACT, USER_REPAIR_REQUEST, ds_critical_control REPORT/INTERFACE/FINDINGS; recorded source SHA; ran original on 8 official fixtures (671,563 cycles total)",
+      "evidence": [
+        "SOURCE_BASELINE_SHA.txt",
+        "logs/base_*.log",
+        "logs/official_table.log"
+      ]
+    },
+    {
+      "id": "S1",
+      "name": "incremental stepping / stride precompute, no runtime u16_divmod",
+      "status": "done",
+      "detail": "rtl/ddr_layout_engine_v023.sv; 8/8 official byte-exact with identical counters; 12/12 error modes; 57/57 descriptor fuzz; cycles 0.747x official total",
+      "evidence": [
+        "rtl/ddr_layout_engine_v023.sv",
+        "logs/official_table.log",
+        "logs/layout_fuzz.log"
+      ]
+    },
+    {
+      "id": "S2",
+      "name": "16-beat write burst and bounded read prefetch",
+      "status": "done",
+      "detail": "rtl/ddr_layout_engine_v023_burst.sv; 8/8 official, 12/12 error modes; write requests 11890->746, beats/bytes unchanged; cycles 0.592x official total",
+      "evidence": [
+        "rtl/ddr_layout_engine_v023_burst.sv",
+        "logs/official_table.log"
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "independent golden model and multi-shape coverage",
+      "status": "done",
+      "detail": "32 deterministic golden fixtures (4KiB split, tail, slice incl. end slices, dilation, transpose, compact C48) and 100 random legal shapes; all byte-exact vs Python model",
+      "evidence": [
+        "scripts/layout_model.py",
+        "scripts/gen_gold_fixtures.py",
+        "logs/gold_table.log",
+        "logs/random_fuzz.log"
+      ]
+    },
+    {
+      "id": "S4",
+      "name": "prefetch policy trade-off measurement",
+      "status": "done",
+      "detail": "MAX_PREFETCH=16 vs 1; pf1 restores original read beats exactly on sampled cases, cycles 0.603x vs 0.595x; over-read reported",
+      "evidence": [
+        "scripts/run_prefetch_policy.py",
+        "logs/prefetch_policy.log"
+      ]
+    },
+    {
+      "id": "S5",
+      "name": "lint, docs and reproducibility",
+      "status": "done",
+      "detail": "Verilator lint pass with no latch/undriven; REPORT/FINDINGS/INTERFACE/result.json; scripts/run_all.sh regenerates all logs",
+      "evidence": [
+        "logs/verilator_burst_lint.log",
+        "scripts/run_all.sh",
+        "logs/FINAL_SUMMARY.txt"
+      ]
+    },
+    {
+      "id": "S6",
+      "name": "primary acceptance response (C48 cross-line)",
+      "status": "done",
+      "detail": "read ../primary_acceptance/REPORT.md; global acceptance remains NOT PASS; located and fixed the Layout C48 cross-cache-line defect with a negative control (byte 18 mismatch when source_part is not cleared; fixed RTL passes)",
+      "evidence": [
+        "REPORT.md section 0 and 5.1",
+        "logs/c48_known_bad_*.log",
+        "logs/c48_fixed_*.log"
+      ]
+    }
+  ],
+  "counts": {
+    "official_normal": {
+      "cases": 8,
+      "fails": 0
+    },
+    "official_error_modes": {
+      "cases": 12,
+      "fails": 0
+    },
+    "descriptor_fuzz": {
+      "cases": 57,
+      "fails": 0
+    },
+    "independent_golden": {
+      "cases": 32,
+      "fails": 0
+    },
+    "random_legal_shapes": {
+      "cases": 100,
+      "fails": 0
+    },
+    "prefetch_policy": {
+      "cases": 11,
+      "fails": 0
+    }
+  },
+  "current_blocker": null,
+  "unfinished": [
+    "shared-DMA arbiter hardware/integration",
+    "reset in the middle of an in-flight burst",
+    "runtime prefetch-policy CSR",
+    "full CASE0000 end-to-end",
+    "STA/frequency and CDC verification",
+    "global integration / whole-model acceptance (NOT PASS)"
+  ],
+  "status": "module_level_complete_global_not_pass"
+}

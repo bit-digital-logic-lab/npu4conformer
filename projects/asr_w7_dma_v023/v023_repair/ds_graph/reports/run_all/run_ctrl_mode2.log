@@ -1,0 +1,2 @@
+WC_GRAPH_CTRL_PASS mode=          2 plan=10020000 cycles=              367846 completed=       591 nodes=       591 err=00 fetch=               16196 drain=                   0 rb=       610 rbeats=      7096 out_ret=1 out_count=         1 last_out=048e7c00/    178176
+tb/tb_wc_graph_ctrl.sv:177: $finish called at 2942840000 (1ps)

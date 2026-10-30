@@ -1,0 +1,6 @@
+BASE done fault=0 code=00 cycles=13132 compute=1584 rdblk=14 wrblk=2 hits=4 miss=2 res=2 st_rdwait=1958 st_wrwait=783 st_scalar=5634
+PASS tb_engine_baseline cycles=13132 compute=1584
+- /home/yang/Desktop/项目/v023_repair/ds_matrix/tests/tb_engine_baseline.sv:156: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 172us; walltime 0.089 s; speed 1.931 ms/s
+- Verilator: cpu 0.089 s on 1 threads; allocated 7 MB

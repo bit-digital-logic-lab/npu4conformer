@@ -1,0 +1,225 @@
+{
+  "task": "ds_integration_audit",
+  "date": "2026-10-29",
+  "verdict": "blocked",
+  "scope": "logic simulation only; no synthesis/Vivado/STA/board/VNC/network/push",
+  "source": {
+    "pin_file": "PINNED_SHA256.txt",
+    "pin_sha256": "5012058752e089ac2990af30ebd6e46a37c64019c8998b1a914f4c2914fb5008",
+    "candidates": {
+      "ds_vector_engine_pipe": "d486711cefc89f943ec8bcc85059385216752f4079bc416cee48372acabd257a",
+      "ds_vector_axi_pipe": "7c492af8737f5ebfe1fa68b8cf9c4f2d9b229593ba53b15a45d404708ae66226",
+      "ds_layout_burst": "4e45a39dcb07daeefc190d383ede885e57718f9a60c9d23eda61c4dae11eb893",
+      "ds_matrix_cluster": "0cfcfda99212ac443c4384d9000a121b577baceb60e13385ad849562e423a866",
+      "ds_matrix_dma": "dda5aa9fa44f9a78e063b4f7ea4124c86b9252a89d0f720067f588d0592e163f",
+      "ds_graph_ctrl": "046975145875d1086c22b11f3a82152da3a63d675bbe78acae01eacfd707265e",
+      "ds_graph_top": "ed55cbb62113f06e57e31d623d7d8f6954469d56afb3dfceb82ec68e47d1a3a5",
+      "plan_v023": "93ea2e0b12a3163fee83b8210616d4d21af43ae89c4ab2162097fc5cb638aaa5",
+      "ctl_dma_multi": "26e5f1f1b0e6bc26699281bab9c566d51921b1eca93bdfb0258965b1ec5e3d6f",
+      "ctl_dma_bounded": "abbf6e8595a3c3d46e007bd02f48c7ee102f2ef7b738ca29298298e69b0b2990"
+    }
+  },
+  "smoke": {
+    "script": "scripts/run_smoke.sh",
+    "stages": 14,
+    "all_rc_zero": true,
+    "results_csv": "logs/smoke_results.csv",
+    "failures": []
+  },
+  "independent_evidence": {
+    "dma_v023_multi": {
+      "cases": 8,
+      "pass": true,
+      "log": "logs/run_dma_v023_multi.log",
+      "detail": "tail 40=16+16+8; 4GiB crossing; WSTRB 51; early RLAST; abort read/write; no new AR/AW after abort; drained"
+    },
+    "dma_v023_bounded": {
+      "cases": 8,
+      "pass": true,
+      "log": "logs/run_dma_v023_bounded.log"
+    },
+    "dma_matrix_v2": {
+      "functional_cases": 5,
+      "pass": true,
+      "abort_contract": false,
+      "log": "logs/run_dma_matrix_v2.log"
+    },
+    "graph_chain": {
+      "chain": "LAY copy -> VEC ADD 1.0 -> VEC MUL 2.0",
+      "words": 64,
+      "matching": 64,
+      "pass": true,
+      "cycles": 885,
+      "sealed_baseline_cycles": 2353,
+      "golden": "local fixture input + descriptor constants, numpy float32",
+      "log": "logs/run_graph_real_candidate.log"
+    },
+    "matrix_cluster_k32": {
+      "pass": true,
+      "cycles": 2704,
+      "armax": 8,
+      "wr_bytes": 6144,
+      "log": "logs/run_mx_cluster_k1.log",
+      "golden": "worker fixture exp_c, not independently re-derived"
+    },
+    "vector_exact_rerun": {
+      "cases": 67,
+      "pass": true,
+      "former_tail_cases": {
+        "add_tail5": true,
+        "add_tail7": true,
+        "a48_tail3": true,
+        "f32_to_i16_tail7": true
+      },
+      "log": "logs/vector_regression_copy.log",
+      "note": "worker harness/gold; independent only for the small graph chain"
+    },
+    "layout_rerun": {
+      "pass": true,
+      "official_normal": 8,
+      "official_error": 12,
+      "fuzz": 57,
+      "independent_golden": 32,
+      "random": 100,
+      "prefetch": 11,
+      "log": "logs/layout_run_all_copy_rc.log",
+      "note": "worker harness/golden",
+      "rc": 0
+    },
+    "graph_relocation": {
+      "live_conflicts": 0,
+      "sealed_scratch_alias_tensors": 698,
+      "sealed_scratch_alias_bytes": 16771840,
+      "old_refs_total": 89118,
+      "old_refs_mappable": 64097,
+      "moves_to_0x03000000": 98,
+      "pass_direct_relowering": false,
+      "json": "analysis/graph_relocation_audit.json"
+    },
+    "dependency_search": {
+      "missing_host_modules": [
+        "lowbit_executor.py",
+        "profiled_backend.py",
+        "vm_abi.py"
+      ],
+      "host_import_probe": {
+        "base_v021": "ModuleNotFoundError: No module named 'profiled_backend'",
+        "backend_v021": "ModuleNotFoundError: No module named 'profiled_backend'",
+        "fusion_backend": "ModuleNotFoundError: No module named 'profiled_backend'"
+      },
+      "onnx_candidates": [
+        "/home/yang/Desktop/当前工程文件/解压归档/v5_xc7a35t_frozen/reference_data/models/int16_qdq_fix01/decoder.onnx",
+        "/home/yang/Desktop/当前工程文件/解压归档/v5_xc7a35t_frozen/reference_data/models/int16_qdq_fix01/encoder.onnx",
+        "/home/yang/Desktop/software4npu/third_party/espnet/espnet2/sds/end_to_end/mini_omni/utils/assets/silero_vad.onnx"
+      ],
+      "json": "analysis/dependency_search.json"
+    }
+  },
+  "blockers": [
+    {
+      "id": "B1",
+      "severity": "blocker",
+      "title": "sealed payload not re-lowered; 591 A/C alias sealed scratch",
+      "detail": "698 allocated tensors (16771840 B) alias the sealed V022 matrix queue scratch 0x03000000..0x04000000; direct SEQ execution would corrupt them; sealed V022 payload still contains 89118 old boundary/temp references and 98 move(s) to 0x03000000; 338 new-address references found. Direct execution under global_alloc addresses is not safe; re-lowering was not performed"
+    },
+    {
+      "id": "B2",
+      "severity": "blocker",
+      "title": "plan_v023 child abort/drain not connectable",
+      "detail": "wc_graph_top has no seq_abort/seq_drained; vector/layout/matrix engines and matrix DMA expose no abort/drained. plan_v023 child_abort/child_drained cannot be wired."
+    },
+    {
+      "id": "B3",
+      "severity": "blocker",
+      "title": "SEQ and direct engines share hardware without an exclusive gate",
+      "detail": "WCPG treats SEQ/MAT/VEC/LAY as independent engines, but a V022 SEQ program drives the same matrix/vector/layout hardware. A mixed plan can dispatch MAT/VEC/LAY while SEQ is running; no arbiter/exclusive gate exists"
+    },
+    {
+      "id": "B4",
+      "severity": "blocker",
+      "title": "matrix queue decoder adapter missing",
+      "detail": "matrix queue decoder adapter missing; no real matrix->conversion->vector->layout chain"
+    },
+    {
+      "id": "B5",
+      "severity": "blocker",
+      "title": "hung direct child has no terminal watchdog",
+      "detail": "hung direct graph child has no terminal watchdog; drain_timeout only in fault-drain path"
+    },
+    {
+      "id": "B6",
+      "severity": "blocker",
+      "title": "matrix still uses combinational block_address_v020",
+      "detail": "matrix still uses combinational block_address_v020; v023 pipelined address is not integrated"
+    },
+    {
+      "id": "B7",
+      "severity": "blocker",
+      "title": "duplicate layout module name in candidate union",
+      "detail": "duplicate module definitions in candidate union: ddr_layout_engine:['lay_step', 'lay_burst']"
+    },
+    {
+      "id": "B8",
+      "severity": "open-dependency",
+      "title": "full 591 tensor DAG / original executor missing",
+      "detail": "full 591 tensor DAG/original executor missing; local int16 ONNX is a different release and unproven"
+    },
+    {
+      "id": "B9",
+      "severity": "unverified",
+      "title": "FMA/op17 and approx DIV/SQRT not in system smoke",
+      "detail": "FMA/op17 and approx DIV/SQRT not covered by this system smoke; no full-model accuracy/frequency claim"
+    }
+  ],
+  "unverified": [
+    "full CASE0000 / full 591 true dataflow",
+    "matrix arithmetic independent golden (worker fixture only)",
+    "vector/layout arithmetic independent golden for all ops (worker harness rerun only)",
+    "FMA/op17 vendor IP",
+    "approx DIV/SQRT integration and full-model quantized accuracy",
+    "mixed SEQ+MAT/VEC/LAY concurrent execution and arbitration",
+    "abort/drain for matrix/vector/layout children",
+    "CDC/async FIFO, synthesis, STA, board, 300/600 MHz, PS hard DDR bypass"
+  ],
+  "non_claims": [
+    "not whole-model / CASE0000 completion",
+    "not 591 true tensor DAG (mode2 is synthetic host-order replay with MAT stub)",
+    "not 300/600MHz or any Fmax",
+    "not physical DDR/PS bypass",
+    "not FMA/approx full-model precision"
+  ],
+  "reproduce": "cd v023_repair/ds_integration_audit && bash scripts/run_smoke.sh",
+  "blocker_details": [
+    "698 allocated tensors (16771840 B) alias the sealed V022 matrix queue scratch 0x03000000..0x04000000; direct SEQ execution would corrupt them",
+    "sealed V022 payload still contains 89118 old boundary/temp references and 98 move(s) to 0x03000000; 338 new-address references found. Direct execution under global_alloc addresses is not safe; re-lowering was not performed",
+    "wc_graph_top SEQ handshake has no abort/drained; plan_v023 child_abort/child_drained cannot be connected. Vector/layout engines and matrix cluster expose no abort/drained",
+    "WCPG treats SEQ/MAT/VEC/LAY as independent engines, but a V022 SEQ program drives the same matrix/vector/layout hardware. A mixed plan can dispatch MAT/VEC/LAY while SEQ is running; no arbiter/exclusive gate exists",
+    "duplicate module definitions in candidate union: ddr_layout_engine:['lay_step', 'lay_burst']",
+    "wc_graph_top cannot carry plan_v023 child_abort/child_drained",
+    "vec_engine_pipe has no abort/aborted/drained contract",
+    "vec_axi_pipe has no abort/aborted/drained contract",
+    "lay_burst has no abort/aborted/drained contract",
+    "mx_cluster has no abort/aborted/drained contract",
+    "mx_dma has no abort/aborted/drained contract",
+    "matrix DMA (axi_dma_v020_multi_v2) has no abort/drained; matrix cluster cannot satisfy plan_v023 child contract",
+    "plan_v023 child abort/drain cannot be connected to matrix/vector/layout (no abort/drained ports)",
+    "WCPG permits MAT/VEC/LAY dispatch while a SEQ program owns the same engines",
+    "hung direct graph child has no terminal watchdog; drain_timeout only in fault-drain path",
+    "matrix queue decoder adapter missing; no real matrix->conversion->vector->layout chain",
+    "matrix still uses combinational block_address_v020; v023 pipelined address is not integrated",
+    "full 591 tensor DAG/original executor missing; local int16 ONNX is a different release and unproven",
+    "FMA/op17 and approx DIV/SQRT not covered by this system smoke; no full-model accuracy/frequency claim"
+  ],
+  "exit_codes": {
+    "summary": "logs/EXIT_CODES.txt",
+    "smoke": "logs/smoke_results.csv",
+    "smoke_rc": 0,
+    "vector_copy_rc": 0,
+    "layout_copy_rc": 0,
+    "matrix_cluster_rc": 0,
+    "graph_chain_rc": 0
+  },
+  "report": "REPORT.md",
+  "interface": "INTERFACE.md",
+  "self_sha256_file": "SELF_SHA256.txt"
+}

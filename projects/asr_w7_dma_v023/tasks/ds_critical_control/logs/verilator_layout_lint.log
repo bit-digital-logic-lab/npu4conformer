@@ -1,0 +1,232 @@
+%Warning-DECLFILENAME: candidate/rtl/ddr_layout_engine_pipe_v1.sv:4:8: Filename 'ddr_layout_engine_pipe_v1' does not match MODULE name: 'ddr_layout_engine'
+    4 | module ddr_layout_engine(
+      |        ^~~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/DECLFILENAME?v=5.047
+                       ... Use "/* verilator lint_off DECLFILENAME */" and lint_on around source to disable this message.
+%Warning-GENUNNAMED: candidate/rtl/ddr_layout_engine_pipe_v1.sv:44:2: Unnamed generate block 'genblk1' (IEEE 1800-2023 27.6)
+                                                                    : ... Suggest assign a label with 'begin : gen_<label_name>'
+   44 |  for(genvar entry=0;entry<64;entry=entry+1)assign cache_matches[entry]=cache_valid[entry]&&cache_tag[entry]==wanted_tag;
+      |  ^~~
+                     ... For warning description see https://verilator.org/warn/GENUNNAMED?v=5.047
+                     ... Use "/* verilator lint_off GENUNNAMED */" and lint_on around source to disable this message.
+%Warning-GENUNNAMED: candidate/rtl/ddr_layout_engine_pipe_v1.sv:58:2: Unnamed generate block 'genblk2' (IEEE 1800-2023 27.6)
+                                                                    : ... Suggest assign a label with 'begin : gen_<label_name>'
+   58 |  for(genvar lane=0;lane<16;lane=lane+1)assign fragment_byte_mask[lane*8+:8]={8{fragment_mask[lane]}};
+      |  ^~~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:54:32: Operator LTE expects 5 bits on the LHS, but LHS's VARREF 'fragment_bytes' generates 4 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+   54 |  wire [3:0] take=fragment_bytes<=space?fragment_bytes:space[3:0];
+      |                                ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.047
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:80:35: Operator LTE expects 64 bits on the RHS, but RHS's CONST '32'h8000000' generates 32 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+   80 |   !((src>=32'h03000000&&source_end<=32'h08000000)||
+      |                                   ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:81:35: Operator LTE expects 64 bits on the RHS, but RHS's VARREF 'param_end' generates 32 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+   81 |     (src>=32'h10000000&&source_end<=param_end&&param_end<=32'h40000000))||
+      |                                   ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:82:36: Operator GT expects 64 bits on the RHS, but RHS's CONST '32'h8000000' generates 32 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+   82 |   dst<32'h03000000||destination_end>32'h08000000||
+      |                                    ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:84:29: Operator NEQ expects 64 bits on the LHS, but LHS's VARREF 'total' generates 32 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+   84 |   ((mode==1||mode==2)&&total!={32'd0,mt}*nt*1024)||((mode==3||mode==4)&&total!={32'd0,m}*n);
+      |                             ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:84:78: Operator NEQ expects 64 bits on the LHS, but LHS's VARREF 'total' generates 32 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+   84 |   ((mode==1||mode==2)&&total!={32'd0,mt}*nt*1024)||((mode==3||mode==4)&&total!={32'd0,m}*n);
+      |                                                                              ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:85:28: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'row' generates 16 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+   85 |  wire [31:0] rr=tile_row*32+row,cc=tile_col*32+col;
+      |                            ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:85:47: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'col' generates 16 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+   85 |  wire [31:0] rr=tile_row*32+row,cc=tile_col*32+col;
+      |                                               ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:113:39: Operator ASSIGNDLY expects 64 bits on the Assign RHS, but Assign RHS's VARREF 'total' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  113 |       if(mode==0)begin source_elements<=total;destination_elements<=total;end
+      |                                       ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:113:67: Operator ASSIGNDLY expects 64 bits on the Assign RHS, but Assign RHS's VARREF 'total' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  113 |       if(mode==0)begin source_elements<=total;destination_elements<=total;end
+      |                                                                   ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:114:83: Operator ASSIGNDLY expects 64 bits on the Assign RHS, but Assign RHS's VARREF 'total' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  114 |       else if(mode==1)begin source_elements<={32'd0,m}*full_n;destination_elements<=total;end
+      |                                                                                   ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:115:86: Operator ASSIGNDLY expects 64 bits on the Assign RHS, but Assign RHS's VARREF 'total' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  115 |       else if(mode==2)begin source_elements<={32'd0,channels}*ih;destination_elements<=total;end
+      |                                                                                      ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:116:100: Operator ADD expects 64 bits on the RHS, but RHS's VARREF 'col_start' generates 32 bits.
+                                                                        : ... note: In instance 'ddr_layout_engine'
+  116 | else begin source_elements<={32'd0,mt}*nt*1024;destination_elements<=mode==3?{32'd0,m-32'd1}*full_n+col_start+n:{32'd0,col_start+n}*m;end
+      |                                                                                                    ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:116:110: Operator ADD expects 64 bits on the RHS, but RHS's VARREF 'n' generates 32 bits.
+                                                                        : ... note: In instance 'ddr_layout_engine'
+  116 | else begin source_elements<={32'd0,mt}*nt*1024;destination_elements<=mode==3?{32'd0,m-32'd1}*full_n+col_start+n:{32'd0,col_start+n}*m;end
+      |                                                                                                              ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:119:58: Operator COND expects 64 bits on the Conditional False, but Conditional False's VARREF 'bytes' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  119 |      EXTENT1:begin source_bytes<=source_elements*(mode==2?iw*2:bytes);destination_bytes<=destination_elements*bytes;state<=EXTENT2;end
+      |                                                          ^
+%Warning-WIDTHTRUNC: candidate/rtl/ddr_layout_engine_pipe_v1.sv:121:79: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's MUL generates 32 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+  121 |      INIT:if(mode==2)begin divide_numerator<=k_offset[15:0];divide_denominator<=kh*kw;state<=TILE_DIV_REQ;end
+      |                                                                               ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.047
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:152:49: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'kernel_channel' generates 16 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  152 |        source_zero<=rr>=m||cc>=n||kernel_channel>=channels||input_y<0||input_x<0||$unsigned(input_y)>=ih||$unsigned(input_x)>=iw;
+      |                                                 ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:157:36: Operator ASSIGNDLY expects 64 bits on the Assign RHS, but Assign RHS's VARREF 'linear_index' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  157 |       if(mode==0)begin source_index<=linear_index;destination_index<=linear_index;end
+      |                                    ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:157:68: Operator ASSIGNDLY expects 64 bits on the Assign RHS, but Assign RHS's VARREF 'linear_index' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  157 |       if(mode==0)begin source_index<=linear_index;destination_index<=linear_index;end
+      |                                                                    ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:158:60: Operator ADD expects 64 bits on the RHS, but RHS's VARREF 'cc' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  158 |       else if(mode==1)begin source_index<={32'd0,rr}*full_n+cc+k_offset;destination_index<=linear_index;end
+      |                                                            ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:158:63: Operator ADD expects 64 bits on the RHS, but RHS's VARREF 'k_offset' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  158 |       else if(mode==1)begin source_index<={32'd0,rr}*full_n+cc+k_offset;destination_index<=linear_index;end
+      |                                                               ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:158:90: Operator ASSIGNDLY expects 64 bits on the Assign RHS, but Assign RHS's VARREF 'linear_index' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  158 |       else if(mode==1)begin source_index<={32'd0,rr}*full_n+cc+k_offset;destination_index<=linear_index;end
+      |                                                                                          ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:160:43: Operator ADD expects 64 bits on the RHS, but RHS's UNSIGNED generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  160 |        source_index<=(kc_ih+{32'd0,iy})*iw+$unsigned(ix);
+      |                                           ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:161:25: Operator ASSIGNDLY expects 64 bits on the Assign RHS, but Assign RHS's VARREF 'linear_index' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  161 |        destination_index<=linear_index;
+      |                         ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:163:44: Operator ADD expects 64 bits on the RHS, but RHS's SEL generates 11 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  163 |        source_index<=(({48'd0,row[15:5]}*nt+col[15:5])<<10)+({48'd0,row[4:0]}<<5)+col[4:0];
+      |                                            ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:163:78: Operator SHIFTL expects 64 bits on the LHS, but LHS's REPLICATE generates 53 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  163 |        source_index<=(({48'd0,row[15:5]}*nt+col[15:5])<<10)+({48'd0,row[4:0]}<<5)+col[4:0];
+      |                                                                              ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:163:82: Operator ADD expects 64 bits on the RHS, but RHS's SEL generates 5 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  163 |        source_index<=(({48'd0,row[15:5]}*nt+col[15:5])<<10)+({48'd0,row[4:0]}<<5)+col[4:0];
+      |                                                                                  ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:164:87: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'col' generates 16 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  164 |        destination_index<=mode==3?({48'd0,row}*full_n+col_start+col):({32'd0,col_start+col}*m+row);
+      |                                                                                       ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:164:54: Operator ADD expects 64 bits on the RHS, but RHS's VARREF 'col_start' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  164 |        destination_index<=mode==3?({48'd0,row}*full_n+col_start+col):({32'd0,col_start+col}*m+row);
+      |                                                      ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:164:64: Operator ADD expects 64 bits on the RHS, but RHS's VARREF 'col' generates 16 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  164 |        destination_index<=mode==3?({48'd0,row}*full_n+col_start+col):({32'd0,col_start+col}*m+row);
+      |                                                                ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:164:94: Operator ADD expects 64 bits on the RHS, but RHS's VARREF 'row' generates 16 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  164 |        destination_index<=mode==3?({48'd0,row}*full_n+col_start+col):({32'd0,col_start+col}*m+row);
+      |                                                                                              ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:169:26: Operator ADD expects 64 bits on the LHS, but LHS's VARREF 'src' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  169 |       source_address<=src+source_index*bytes;destination_address<=dst+destination_index*bytes;
+      |                          ^
+%Warning-WIDTHTRUNC: candidate/rtl/ddr_layout_engine_pipe_v1.sv:169:21: Operator ASSIGNDLY expects 32 bits on the Assign RHS, but Assign RHS's ADD generates 64 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+  169 |       source_address<=src+source_index*bytes;destination_address<=dst+destination_index*bytes;
+      |                     ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:169:70: Operator ADD expects 64 bits on the LHS, but LHS's VARREF 'dst' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  169 |       source_address<=src+source_index*bytes;destination_address<=dst+destination_index*bytes;
+      |                                                                      ^
+%Warning-WIDTHTRUNC: candidate/rtl/ddr_layout_engine_pipe_v1.sv:169:65: Operator ASSIGNDLY expects 32 bits on the Assign RHS, but Assign RHS's ADD generates 64 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+  169 |       source_address<=src+source_index*bytes;destination_address<=dst+destination_index*bytes;
+      |                                                                 ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:171:66: Operator ADD expects 64 bits on the LHS, but LHS's VARREF 'dst' generates 32 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  171 |       if(source_zero)begin fragment_data<=0;fragment_address<=dst+destination_index*bytes;fragment_bytes<=bytes[3:0];state<=PACK;end
+      |                                                                  ^
+%Warning-WIDTHTRUNC: candidate/rtl/ddr_layout_engine_pipe_v1.sv:171:61: Operator ASSIGNDLY expects 32 bits on the Assign RHS, but Assign RHS's ADD generates 64 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+  171 |       if(source_zero)begin fragment_data<=0;fragment_address<=dst+destination_index*bytes;fragment_bytes<=bytes[3:0];state<=PACK;end
+      |                                                             ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:195:36: Operator ADD expects 32 bits on the LHS, but LHS's REPLICATE generates 5 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  195 |       if({1'b0,source_address[3:0]}+bytes>16)begin source_part<=1;state<=LOOKUP;end
+      |                                    ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:205:82: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'take' generates 4 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  205 |         fragment_data<=fragment_data>>(take*8);fragment_address<=fragment_address+take;fragment_bytes<=fragment_bytes-take;
+      |                                                                                  ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:218:44: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'kernel_y' generates 16 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  218 |          else begin kernel_x<=0;if(kernel_y+1<kh)kernel_y<=kernel_y+1;else begin kernel_y<=0;kernel_channel<=kernel_channel+1;end end
+      |                                            ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:217:21: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'kernel_x' generates 16 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  217 |          if(kernel_x+1<kw)kernel_x<=kernel_x+1;
+      |                     ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:229:55: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'tile_col' generates 16 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  229 |           if(mode==2)begin divide_numerator<=(tile_col+1)*32+k_offset;divide_denominator<=kh*kw;state<=TILE_DIV_REQ;end
+      |                                                       ^
+%Warning-WIDTHTRUNC: candidate/rtl/ddr_layout_engine_pipe_v1.sv:229:44: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's ADD generates 32 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+  229 |           if(mode==2)begin divide_numerator<=(tile_col+1)*32+k_offset;divide_denominator<=kh*kw;state<=TILE_DIV_REQ;end
+      |                                            ^~
+%Warning-WIDTHTRUNC: candidate/rtl/ddr_layout_engine_pipe_v1.sv:229:89: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's MUL generates 32 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+  229 |           if(mode==2)begin divide_numerator<=(tile_col+1)*32+k_offset;divide_denominator<=kh*kw;state<=TILE_DIV_REQ;end
+      |                                                                                         ^~
+%Warning-WIDTHTRUNC: candidate/rtl/ddr_layout_engine_pipe_v1.sv:232:79: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's MUL generates 32 bits.
+                                                                      : ... note: In instance 'ddr_layout_engine'
+  232 |           if(mode==2)begin divide_numerator<=k_offset[15:0];divide_denominator<=kh*kw;state<=TILE_DIV_REQ;end
+      |                                                                               ^~
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:227:21: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'tile_col' generates 16 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  227 |          if(tile_col+1<nt)begin
+      |                     ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:236:39: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'col' generates 16 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  236 |       end else if(mode==3)begin if(col+1<n)col<=col+1;else begin col<=0;row<=row+1;end end
+      |                                       ^
+%Warning-WIDTHEXPAND: candidate/rtl/ddr_layout_engine_pipe_v1.sv:237:35: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'row' generates 16 bits.
+                                                                       : ... note: In instance 'ddr_layout_engine'
+  237 |       else if(mode==4)begin if(row+1<m)row<=row+1;else begin row<=0;col<=col+1;end end
+      |                                   ^
+%Warning-UNUSEDSIGNAL: candidate/rtl/ddr_layout_engine_pipe_v1.sv:30:64: Signal is not used: 'kernel_remainder'
+                                                                       : ... note: In instance 'ddr_layout_engine'
+   30 |  reg [15:0] kernel_channel_start,kernel_y_start,kernel_x_start,kernel_remainder;
+      |                                                                ^~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.047
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: candidate/rtl/ddr_layout_engine_pipe_v1.sv:48:15: Bits of signal are not used: 'source_window'[255:48]
+                                                                       : ... note: In instance 'ddr_layout_engine'
+   48 |  wire [255:0] source_window={value_hi,value_lo}>>(source_address[3:0]*8);
+      |               ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: candidate/rtl/ddr_layout_engine_pipe_v1.sv:55:14: Bits of signal are not used: 'fragment_mask'[16]
+                                                                       : ... note: In instance 'ddr_layout_engine'
+   55 |  wire [16:0] fragment_mask=((17'd1<<take)-1)<<fragment_address[3:0];
+      |              ^~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: ../../work/rtl/u16_divmod.sv:5:61: Bits of signal are not used: 'rem'[16]
+                                                        : ... note: In instance 'ddr_layout_engine.indices'
+    5 |  reg busy;reg [4:0] step;reg [15:0] bits,divisor;reg [16:0] rem;
+      |                                                             ^~~
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)
+- Verilator: Built from 0.074 MB sources in 3 modules, into 0.269 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.048 s (elab=0.007, cvt=0.031, bld=0.000); cpu 0.048 s on 1 threads; allocated 23.152 MB

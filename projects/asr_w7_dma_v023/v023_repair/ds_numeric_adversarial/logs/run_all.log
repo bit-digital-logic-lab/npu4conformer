@@ -1,0 +1,464 @@
+[1/6] generate vectors
+{'i48': 37166, 'fma': 8734, 'f32_i16': 464154, 'approx': 15168, 'stream': 256}
+[2/6] audit actual ASR model
+{
+  "observed": {
+    "model_family": "Conformer/Transformer ASR encoder-decoder (ONNX names: encoder.encoders.N, decoder.decoders.N, conv_module, norm_mha/norm_conv/norm_ff/norm_ff_macaron)",
+    "encoder_layers": 12,
+    "decoder_layers": 6,
+    "d_model": 512,
+    "layernorm_instances": 79,
+    "layernorm_output_scale_stats": {
+      "n": 79,
+      "min": 1.3564567780122161e-05,
+      "max": 0.0037580581847578287,
+      "median": 0.00011022004036931321,
+      "mean": 0.0006083733740156219
+    },
+    "layernorm_output_zero_point_stats": {
+      "n": 79,
+      "min": 0,
+      "max": 0,
+      "median": 0,
+      "mean": 0.0
+    },
+    "layernorm_gamma_stats": {
+      "n": 40960,
+      "min": -0.547856867313385,
+      "max": 12.318202018737793,
+      "median": 0.3502390682697296,
+      "mean": 1.0039388265510745
+    },
+    "layernorm_beta_stats": {
+      "n": 39936,
+      "min": -14.784724235534668,
+      "max": 8.1659574508667,
+      "median": 0.0018216398311778903,
+      "mean": 0.005705267608905699
+    },
+    "layernorm_gamma_nonunit_fraction": 1.0,
+    "layernorm_beta_nonzero_fraction": 0.9995743189102564,
+    "softmax_count_encoder": 12,
+    "softmax_count_decoder": 12,
+    "logsoftmax_count_decoder": 1,
+    "div_count_encoder": 25,
+    "div_count_decoder": 12,
+    "layernorm_count_encoder": 61,
+    "layernorm_count_decoder": 19,
+    "softmax_output_scale_stats": {
+      "n": 6,
+      "min": 1.5661078577977605e-05,
+      "max": 3.045370067411568e-05,
+      "median": 3.0421564588323236e-05,
+      "mean": 2.7938247815958068e-05
+    },
+    "case0000_frames": 128,
+    "case0000_supplied_tokens": 16
+  },
+  "verdict": {
+    "model_family": "REFUTED: the project image is a Conformer/Transformer ASR, not KWT-1",
+    "layernorm_features": "REFUTED: 512, not 64",
+    "layernorm_var_range": "UNVERIFIED for this model: no ONNX/calibration data in the read-only tree; the [1e-6,1e2] range is a KWT/old-competition assumption",
+    "epsilon": "UNVERIFIED for this model: epsilon is not present in the parameter image",
+    "softmax_row_length": "REFUTED as a model-wide claim: 24 Softmax ops over time-frame axes; case0000 has 128 frames/16 supplied tokens, not 99 keywords"
+  }
+}
+[3/6] C reference cross-check
+{
+  "i48": {
+    "vectors": 37166,
+    "mismatches": 0
+  },
+  "f32_i16": {
+    "vectors": 464154,
+    "mismatches": 0
+  },
+  "fma_normal_finite_nonzero": {
+    "vectors": 7272,
+    "mismatches": 0
+  },
+  "pass": true
+}
+[4/6] old baseline
+{
+  "i48": {
+    "pass": true,
+    "mismatches": 0,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  },
+  "fma": {
+    "pass": false,
+    "mismatches": 4271,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  },
+  "f32i16": {
+    "pass": true,
+    "mismatches": 0,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  },
+  "approx_t0": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": 3,
+    "a16_mismatch": null
+  },
+  "approx_t1": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": 3,
+    "a16_mismatch": null
+  },
+  "approx_t2": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": 3,
+    "a16_mismatch": null
+  },
+  "flush": {
+    "pass": true,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  },
+  "stream_conv": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_conv_relu": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_fma": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 75
+  },
+  "stream_fma_relu": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 75
+  },
+  "stream_fma_real": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_scale_only": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_spill": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_abort": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_param_port": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 113
+  },
+  "stream_reconfig": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  }
+}
+RESULT /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/result_old_final.json FAIL
+[5/6] repaired FMA candidate
+{
+  "fma": {
+    "pass": false,
+    "mismatches": 137,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  },
+  "asr_fma_ip": {
+    "pass": false,
+    "mismatches": 137,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  }
+}
+RESULT /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/result_fma_repair.json FAIL
+[6/8] repaired FMA candidate: BP1 / flush / stream
+{
+  "fma": {
+    "pass": false,
+    "mismatches": 137,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  }
+}
+RESULT /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/result_fma_repair_bp1.json FAIL
+{
+  "flush": {
+    "pass": true,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  }
+}
+RESULT /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/result_fma_repair_flush2.json PASS
+{
+  "stream_conv": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_conv_relu": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_fma": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_fma_relu": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_fma_real": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_scale_only": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_spill": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_abort": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_param_port": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 113
+  },
+  "stream_reconfig": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  }
+}
+RESULT /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/result_fma_repair_stream2.json FAIL
+{
+  "stream_conv": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_conv_relu": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_fma": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_fma_relu": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_fma_real": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_scale_only": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_spill": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 60
+  },
+  "stream_abort": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 0
+  },
+  "stream_param_port": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 113
+  },
+  "stream_reconfig": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  }
+}
+RESULT /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/result_fma_repair_stream_bp1.json FAIL
+{
+  "stream_conv": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 244
+  },
+  "stream_conv_relu": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 244
+  },
+  "stream_fma": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 244
+  },
+  "stream_fma_relu": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 244
+  },
+  "stream_fma_real": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 234
+  },
+  "stream_scale_only": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 244
+  },
+  "stream_spill": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 244
+  },
+  "stream_abort": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 143
+  },
+  "stream_param_port": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": 248
+  },
+  "stream_reconfig": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  }
+}
+RESULT /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/result_fma_repair_stream_bp2b.json FAIL
+[7/8] repaired approx candidate
+{
+  "approx_t1": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": 3,
+    "a16_mismatch": null
+  },
+  "approx_flush": {
+    "pass": true,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  },
+  "approx_param_rejection": {
+    "pass": true,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  }
+}
+RESULT /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/result_approx_repair2.json FAIL
+{
+  "approx_t1": {
+    "pass": false,
+    "mismatches": null,
+    "special_mismatch": 3,
+    "a16_mismatch": null
+  },
+  "approx_flush": {
+    "pass": true,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  },
+  "approx_param_rejection": {
+    "pass": true,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  }
+}
+RESULT /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/result_approx_repair_bp1.json FAIL
+[8/8] consolidate
+{
+  "overall_pass": false,
+  "fma_repair_mismatches": 137,
+  "approx_special_mismatch": 3,
+  "stream_tag_mismatch": 255,
+  "stream_bp2_duplicates": 146
+}
+overall_pass= False
+blocking= 10

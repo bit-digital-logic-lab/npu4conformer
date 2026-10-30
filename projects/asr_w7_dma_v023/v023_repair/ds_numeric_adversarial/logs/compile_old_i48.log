@@ -1,0 +1,1 @@
+CMD: iverilog -g2012 -o /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/build/old_i48 /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/tb/tb_i48_to_f32.sv /home/yang/Desktop/项目/v023_repair/gemini_epilogue/epilogue_i48_to_f32.sv

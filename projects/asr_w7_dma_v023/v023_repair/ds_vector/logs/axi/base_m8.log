@@ -1,0 +1,6 @@
+$ vvp /tmp/v023_axi_base.vvp +folder=/tmp/opencode/ds_vector/fixtures/work_copy/add_scalar +nbytes=4004 +mode=8
+rc=0
+V022_VECTOR_AXI_PASS mode=          8 cycles=                2518 read_compute_overlap=                 144 write_compute_overlap=                  59 read_requests=        10 write_requests=         1
+/home/yang/Desktop/项目/v023_repair/ds_vector/tb/tb_vector_axi_generic.sv:191: $finish called at 20208000 (1ps)
+
+

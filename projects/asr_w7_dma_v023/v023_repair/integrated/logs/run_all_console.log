@@ -1,0 +1,55 @@
+== 1. deterministic fixture/plan/golden ==
+== 2. integrated exact build/run ==
+integrated_run rc=0 seconds=55 log=logs/integrated_run.log
+== 3. negative/error inputs ==
+bad_queue rc=0 seconds=25 log=logs/bad_queue.log
+bad_vec rc=0 seconds=28 log=logs/bad_vec.log
+== 4. exact sealed-RTL baseline chain ==
+baseline_chain rc=0 seconds=1 log=logs/baseline_chain.log
+== 5. matrix V020 baseline (same M32/N32/K32 fixture) ==
+base_mx_m32 rc=0 seconds=1 log=logs/base_mx_m32.log
+== 6. output/golden checks ==
+{
+  "gold_words": 512,
+  "candidate_words": 512,
+  "baseline_words": 512,
+  "candidate_vs_gold_mismatches": 0,
+  "baseline_vs_gold_mismatches": 0,
+  "baseline_vs_candidate_mismatches": 0,
+  "candidate_pass": true,
+  "baseline_pass": true,
+  "integrated_log": "/home/yang/Desktop/\u9879\u76ee/v023_repair/integrated/logs/integrated_run.log",
+  "baseline_log": "/home/yang/Desktop/\u9879\u76ee/v023_repair/integrated/logs/baseline_chain.log",
+  "matrix_baseline_log": "/home/yang/Desktop/\u9879\u76ee/v023_repair/integrated/logs/base_mx_m32.log",
+  "integrated_cycles": 23819,
+  "baseline_matrix_cycles": 2921,
+  "candidate_matrix_cycles": 1880
+}
+== 7. trace + project skills ==
+integrated_trace_run rc=0 seconds=55 log=logs/integrated_trace_run.log
+== summary ==
+{
+  "integrated_end": "INTEGRATED_END done=1 fault=0 error=00 cycle=23819",
+  "integrated_result": "PASS",
+  "baseline_result": "PASS",
+  "baseline_matrix": "PASS tb_engine_baseline cycles=2921 compute=264",
+  "bad_queue": "INTEGRATED_END done=1 fault=1 error=03 cycle=10449",
+  "bad_vec": "INTEGRATED_END done=1 fault=1 error=07 cycle=12349",
+  "check": {
+    "gold_words": 512,
+    "candidate_words": 512,
+    "baseline_words": 512,
+    "candidate_vs_gold_mismatches": 0,
+    "baseline_vs_gold_mismatches": 0,
+    "baseline_vs_candidate_mismatches": 0,
+    "candidate_pass": true,
+    "baseline_pass": true,
+    "integrated_log": "/home/yang/Desktop/\u9879\u76ee/v023_repair/integrated/logs/integrated_run.log",
+    "baseline_log": "/home/yang/Desktop/\u9879\u76ee/v023_repair/integrated/logs/baseline_chain.log",
+    "matrix_baseline_log": "/home/yang/Desktop/\u9879\u76ee/v023_repair/integrated/logs/base_mx_m32.log",
+    "integrated_cycles": 23819,
+    "baseline_matrix_cycles": 2921,
+    "candidate_matrix_cycles": 1880
+  }
+}
+RUN_ALL_PASS (integrated candidate only; final acceptance is gated separately)

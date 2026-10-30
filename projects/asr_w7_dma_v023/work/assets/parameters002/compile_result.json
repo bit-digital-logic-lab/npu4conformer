@@ -1,0 +1,13 @@
+{
+  "hardware_accessed": false,
+  "original_image_sha256": "b0c85ee8dc5e78391f73695585a168dc34627529028e8d57ad24a6408f34c3c2",
+  "image_sha256": "fc36806a0070407ae33adbe56f80810e5e57e73d4016f049eed2c4486ed18767",
+  "image_bytes": 173715968,
+  "added_bytes": 8143104,
+  "programs": 68,
+  "instructions": 45055,
+  "matrix_descriptors": 6231,
+  "depthwise_padding_elements_avoided": 6100992,
+  "original_payload_unchanged": true,
+  "source_sha256": "5ee5d488b651504ef36f4bbd3d89be5ab2ec452c6670e545a54a8fa8a7a8ae2c"
+}

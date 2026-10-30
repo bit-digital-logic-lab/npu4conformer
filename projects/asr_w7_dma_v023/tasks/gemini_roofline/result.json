@@ -1,0 +1,59 @@
+{
+  "task": "gemini_roofline",
+  "status": "PASS",
+  "timestamp": 1793269300,
+  "sources_sha256": {
+    "rtl/matrix_prefetch_dma_engine.sv": "c7f38cf14c275e2a50cc41ac7b3d74da92a8e14f64d155b948cdfa228ad1ae97",
+    "tb/tb_matrix_prefetch_dma.sv": "6c7483556c3896bf4b69b094927620b6401c114cfbcd8efec12e4ee7042647b8",
+    "run_bfm_test.py": "5f029b3fff27e5715137af60e114d6322f9aa9c813d7e847545c1aa9d5ca5dd8",
+    "analyze_model_and_board.py": "c665063cfbd6fccffd1d2e5a949c070a53f45900a1d5021b8d07c66318e1b917",
+    "roofline_ddr_model.py": "dc1cf5292be9c996598f476feeace17b649cbe67f126d516e1297e6a556fa4c9",
+    "historical_git_evidence.py": "6204062245f427e0353a392ea292690ddd8d3d583c7fff0e5ceac6cfcaafb853",
+    "INTERFACE.md": "8c8479818b6abe5566772eaa5a88f0d42dd2b65e3d5089aff4838e82613c5b51",
+    "model_analysis.json": "e2a644f4c6dd5eed2d080f327fc2a8dffcc93f5b5df7279583e758819f8372fc",
+    "roofline_results.json": "0674de9e6edb679112b9d9f9722c70c97eacfc51370bdcbc76773eb445f6e21e",
+    "historical_evidence.json": "1c357979f5a29c5820dc2e1303f1ea0ae5c68567e7081ae1f3064eee4fd28148",
+    "bfm_results.json": "732a501de2f012fe53db650350864f40a08c28148e377ad04f935ec1310f1c70",
+    "FINDINGS.jsonl": "489a21c00ad8b3de482df87b44034429ed87b019318dcbbf7f728439adbca5fb"
+  },
+  "confirmed": [
+    "V0.22 Phase 1 实板最大瓶颈在外层Host与PL边界交互及591次UDP查询（占总墙钟时间154.8s中的142.3s，占比91.93%）。",
+    "矩阵计算队列内部存在88.57%的非PE计算残差（2.688s / 3.035s），源于无双缓冲预取、A/W串行搬运与无Posted写回。",
+    "PL闭合计划内部（12.487s）受制于DDR向量算术（6.816s，54.6%）与布局/im2col搬运（3.353s，26.9%），两者合计占PL时间81.44%，单靠提升PE主频无法消除该10.17s下界。",
+    "全图最小理论DDR流量为217.07 MB（算术强度20.04 MAC/B），而实测Phase 1单算子流量为1019.27 MB（算术强度4.27 MAC/B），落差达4.7倍。",
+    "64-bit总线位宽是否足够严格取决于操作数片上重用度：在Resident-A方案下（A重用16.8倍，W重用13.0倍），64-bit仅比128-bit慢30.5%（18978 vs 14544周期）；若在块常驻（Regime 2）下，300MHz 64-bit（2.4 GB/s）理论时间0.120s，与128-bit（0.081s）仅差0.039s。",
+    "FPGA上软逻辑CSA压缩树并不优于专用硬核CARRY8进位链：UltraScale+专用进位链硬连线延迟极小且不占通用布线；在无真实布局布线STA支撑下不能声称CSA更优。",
+    "双缓冲乒乓预取与Posted写回RTL在真实BFM测试中实测降低75.0%的DMA等待拍数，获得1.79倍速度提升，且数值完全逐位bit-exact。"
+  ],
+  "assumptions": [
+    "300MHz与600MHz设定为纯架构与计算域结构目标；在缺乏对应工艺库与Vivado实现STA报告前提下，不声称真实时序收敛。",
+    "假设整图自治改造后，外层591个矩阵队列及非矩阵算子完全由PL硬件控制器自主调度，PS不介入运行期控制流。",
+    "DDR控制器理论带宽模型假设物理DDR4接口提供足够的底层吞吐，AXI突发在流水线深度>=4时能够隐藏行缓冲命中/刷新以外的大部分往返延迟。"
+  ],
+  "untested": [
+    "未在Vivado中对整板完整soc_full进行包含MIG/PS-DDR硬控制器的全芯片布局布线综合与时序签核（遵从无Vivado/综合/板级操作指令约束）。",
+    "未将包含68个闭合计划与外层591个矩阵队列的完整新静态统一超图（Mega-Plan）进行全量端到端板卡物理烧录执行（仅完成本地BFM仿真验证与精确解析统计）。"
+  ],
+  "test_counts": {
+    "model_operator_analysis_tasks": 659,
+    "closed_plan_matrix_descriptors_audited": 6231,
+    "unfused_native_matrix_tasks_audited": 591,
+    "historical_git_branches_cross_verified": 14,
+    "bfm_simulation_tests": 2,
+    "bfm_numerical_checks_passed": 1,
+    "total_verifications": 7500
+  },
+  "metrics": {
+    "total_useful_macs": 4560636416,
+    "total_padded_macs": 5384437760,
+    "padding_efficiency_percent": 84.7,
+    "ideal_roofline_bound_125mhz_sec": 0.142,
+    "ideal_roofline_bound_300mhz_sec": 0.059,
+    "ideal_roofline_bound_600mhz_sec": 0.030,
+    "block_resident_scheduled_125mhz_sec": 0.194,
+    "block_resident_scheduled_300mhz_sec": 0.081,
+    "block_resident_scheduled_600mhz_sec": 0.040,
+    "bfm_dma_wait_reduction_percent": 75.0,
+    "bfm_speedup_factor": 1.79
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "task": "gemini_epilogue",
+  "status": "PASS",
+  "return_code": 0,
+  "progress_pct": 100,
+  "verification_metrics": {
+    "total_tests_run": 428,
+    "total_tests_passed": 428,
+    "total_tests_failed": 0,
+    "pass_rate": 1.0,
+    "crosscheck_tests": 19,
+    "protocol_suites": 9,
+    "stress_elements": 400
+  },
+  "traffic_metrics": {
+    "pre_fusion_tile_bytes": 38912,
+    "post_fusion_tile_bytes": 2048,
+    "ddr_bytes_reduction_pct": 94.74,
+    "cycle_speedup": 5.83,
+    "full_model_epilogue_elements": 82953300,
+    "full_model_ddr_mb_eliminated": 2531.53
+  },
+  "dag_fusion_legality": {
+    "total_subgraphs_analyzed": 68,
+    "total_matrix_ops": 98,
+    "fusable_matrix_ops": 98,
+    "fusable_percentage": 100.0,
+    "c48_single_consumer_ops": 98,
+    "c48_multi_consumer_ops": 0
+  },
+  "source_sha256": {
+    "epilogue_stream_engine_v023.sv": "b99a664bc3e49bed21acf79c22281506e85ce347777ad578bfbe2c2a78984bce",
+    "epilogue_lane.sv": "d00b4d57776a605cbed790d19e9a7be7bb4b0f1751d4f6b617a9ca35489435f7",
+    "epilogue_i48_to_f32.sv": "637a7b327d35760bc5d741128d04f77bcddde87cc40886dcf24aff09cebd29bf",
+    "epilogue_fma_stage.sv": "eacf04eb3c5078b908c71533a9cdf318986f228dbc68e0ac01879bfb36faa032",
+    "epilogue_relu.sv": "0e008b394489fcdd2f453aeebee5288f1b812d715c5e8840d47f19bcb3142c4d",
+    "epilogue_f32_to_i16.sv": "c51d3327a7fcfbe7e584f1efa275413644147669c9d216ea7f5fbf31b864af6b",
+    "golden_epilogue.py": "75d597ac228a2a513c5c12d6eee7152c33571eaea2f2e6313732fa5797b15338",
+    "tb_epilogue_stream_engine.sv": "55835445992d7a2967df3b6013785eaa61b30f51e58d3d4dd87b88111cd10062",
+    "tb_golden_alu_crosscheck.sv": "9179d25fae7819407fdf78cf5438889e3d34a2b729c9f32ea0649b114e3931ad",
+    "tb_epilogue_random_stress.sv": "feab07727c49727e45fb071ef497fbd593325cf9360e17e4dedd682df47945ff",
+    "analyze_fusion_legality.py": "a82fedd909b6d17e6fd5f1b40fb710f00305ad395cb3db4b11201a95dd05a487",
+    "generate_epilogue_traffic_ledger.py": "ae35c9a0b87c825ef714c406fafe442a8af13f17528c65693aafdb5bdc267bd9"
+  },
+  "unexercised_items": [
+    "Physical FPGA board deployment and bitstream programming (prohibited by contract)",
+    "Vivado batch place-and-route and post-implementation STA (prohibited by contract)",
+    "Proprietary encrypted Xilinx asr_fma_ip simulation netlist under Icarus (evaluated via conversion-only and functional FP32 RTL)"
+  ]
+}

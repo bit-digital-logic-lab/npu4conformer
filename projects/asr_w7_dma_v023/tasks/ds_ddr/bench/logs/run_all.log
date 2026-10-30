@@ -1,0 +1,242 @@
+PASS csr001 AXIL CSR 单测 0.02s
+PASS vector_rtl 14 个数值/背压用例 4.87s
+PASS vector_axi 14 个真实 AXI 用例 6.84s
+PASS plan_rtl 15 个计划/错误/依赖用例 10.91s
+PASS layout_rtl 20 个布局用例 47.71s
+PASS reuse_rtl 6 个周期复用用例 3.48s
+PASS alignment 8 个非对齐用例 0.00s
+BASELINE_DONE True 79.014
+{
+  "programs": 68,
+  "matrix_ops": 98,
+  "matrix_descriptors": 6231,
+  "mac_useful": 3461011968,
+  "mac_padded": 3991404544,
+  "a_bytes": 11487232,
+  "w_bytes": 81018880,
+  "c_bytes": 28901376,
+  "c_write_bytes": 28901376,
+  "blocks": 115856,
+  "vector_instr": 26254,
+  "vector_elements": 82953300,
+  "layout_instr": 18703,
+  "layout_elements": 16784752,
+  "layout_bytes": 43474368,
+  "plan_instr": 45055
+}
+per_kind {
+  "CONV": {
+    "n": 38,
+    "mac": 1699404288,
+    "blocks": 54416,
+    "instr": 43393
+  },
+  "FFN": {
+    "n": 30,
+    "mac": 1761607680,
+    "blocks": 61440,
+    "instr": 1662
+  }
+}
+board {
+  "vector_elements": 82953300,
+  "layout_elements": 16784752,
+  "pl_instructions": 45055,
+  "matrix_descriptors": 6231,
+  "matrix_pe_cycles": 32157312,
+  "matrix_queue_cycles": 284175569,
+  "vector_cycles": 851939384,
+  "layout_cycles": 419186668,
+  "plan_fetch_cycles": 5250673,
+  "whole_plan_cycles": 1560822594,
+  "vector_layout_read_bytes": 452330768,
+  "vector_layout_write_bytes": 355555088
+}
+base_lat8_bp0_o2_m0 cycles=6690 util=0.612 bub=0.344/0.000
+cand_lat8_bp0_o2_m0 cycles=4368 util=0.938 bub=0.003/0.000
+cand_lat8_bp0_o4_m0 cycles=4368 util=0.938 bub=0.003/0.000
+cand_lat8_bp0_o8_m0 cycles=4368 util=0.938 bub=0.002/0.000
+base_lat8_bp0_o2_m1 cycles=6961 util=0.588 bub=0.000/0.294
+cand_lat8_bp0_o2_m1 cycles=4659 util=0.879 bub=0.000/0.002
+cand_lat8_bp0_o4_m1 cycles=4659 util=0.879 bub=0.000/0.002
+cand_lat8_bp0_o8_m1 cycles=4659 util=0.879 bub=0.000/0.002
+base_lat8_bp0_o2_m2 cycles=9654 util=0.849 bub=0.523/0.212
+cand_lat8_bp0_o2_m2 cycles=8339 util=0.982 bub=0.453/0.001
+cand_lat8_bp0_o4_m2 cycles=8339 util=0.982 bub=0.453/0.001
+cand_lat8_bp0_o8_m2 cycles=8339 util=0.982 bub=0.453/0.001
+base_lat32_bp0_o2_m0 cycles=12832 util=0.319 bub=0.658/0.000
+cand_lat32_bp0_o2_m0 cycles=6443 util=0.636 bub=0.321/0.000
+cand_lat32_bp0_o4_m0 cycles=4391 util=0.933 bub=0.008/0.000
+cand_lat32_bp0_o8_m0 cycles=4391 util=0.933 bub=0.007/0.000
+base_lat32_bp0_o2_m1 cycles=13101 util=0.313 bub=0.000/0.625
+cand_lat32_bp0_o2_m1 cycles=6570 util=0.623 bub=0.000/0.266
+cand_lat32_bp0_o4_m1 cycles=4673 util=0.876 bub=0.000/0.007
+cand_lat32_bp0_o8_m1 cycles=4673 util=0.876 bub=0.000/0.007
+base_lat32_bp0_o2_m2 cycles=14550 util=0.563 bub=0.682/0.563
+cand_lat32_bp0_o2_m2 cycles=8344 util=0.982 bub=0.461/0.012
+cand_lat32_bp0_o4_m2 cycles=8329 util=0.984 bub=0.450/0.004
+cand_lat32_bp0_o8_m2 cycles=8329 util=0.984 bub=0.449/0.004
+base_lat64_bp0_o2_m0 cycles=21032 util=0.195 bub=0.791/0.000
+cand_lat64_bp0_o2_m0 cycles=10542 util=0.389 bub=0.584/0.000
+cand_lat64_bp0_o4_m0 cycles=5322 util=0.770 bub=0.176/0.000
+cand_lat64_bp0_o8_m0 cycles=4424 util=0.926 bub=0.015/0.000
+base_lat64_bp0_o2_m1 cycles=21280 util=0.193 bub=0.000/0.770
+cand_lat64_bp0_o2_m1 cycles=10671 util=0.384 bub=0.000/0.543
+cand_lat64_bp0_o4_m1 cycles=5387 util=0.760 bub=0.000/0.101
+cand_lat64_bp0_o8_m1 cycles=4712 util=0.869 bub=0.000/0.013
+base_lat64_bp0_o2_m2 cycles=22315 util=0.367 bub=0.793/0.734
+cand_lat64_bp0_o2_m2 cycles=11531 util=0.710 bub=0.607/0.430
+cand_lat64_bp0_o4_m2 cycles=8385 util=0.977 bub=0.451/0.010
+cand_lat64_bp0_o8_m2 cycles=8351 util=0.981 bub=0.449/0.007
+base_lat32_bp25_o2_m0 cycles=16115 util=0.254 bub=0.727/0.000
+cand_lat32_bp25_o2_m0 cycles=8607 util=0.476 bub=0.491/0.000
+cand_lat32_bp25_o4_m0 cycles=7857 util=0.521 bub=0.445/0.000
+cand_lat32_bp25_o8_m0 cycles=7857 util=0.521 bub=0.444/0.000
+base_lat32_bp25_o2_m1 cycles=13099 util=0.313 bub=0.000/0.625
+cand_lat32_bp25_o2_m1 cycles=6572 util=0.623 bub=0.000/0.256
+cand_lat32_bp25_o4_m1 cycles=4827 util=0.849 bub=0.000/0.007
+cand_lat32_bp25_o8_m1 cycles=4827 util=0.849 bub=0.000/0.007
+base_lat32_bp25_o2_m2 cycles=17012 util=0.481 bub=0.741/0.482
+cand_lat32_bp25_o2_m2 cycles=10107 util=0.810 bub=0.568/0.070
+cand_lat32_bp25_o4_m2 cycles=9902 util=0.827 bub=0.559/0.003
+cand_lat32_bp25_o8_m2 cycles=9902 util=0.827 bub=0.559/0.003
+DMA_COMPARE_DONE 48 runs -> /home/yang/Desktop/项目/tasks/ds_ddr/bench/reports/dma_compare.json
+vector_base_add_scalar_0 7882
+vector_base_add_scalar_1 1
+vector_base_add_scalar_2 1
+vector_base_add_scalar_3 1
+vector_base_add_scalar_4 1
+vector_base_add_scalar_5 1
+vector_base_add_scalar_6 1
+vector_base_add_scalar_7 39
+vector_base_add_scalar_8 2518
+vector_base_add_scalar_9 7882
+vector_base_mul_vector_0 8528
+vector_base_i16_to_float_0 4805
+vector_base_round_i16_0 4820
+vector_base_i48_to_float_0 4942
+vector_cand_add_scalar_0 7887
+vector_cand_add_scalar_1 1
+vector_cand_add_scalar_2 1
+vector_cand_add_scalar_3 1
+vector_cand_add_scalar_4 1
+vector_cand_add_scalar_5 1
+vector_cand_add_scalar_6 1
+vector_cand_add_scalar_7 41
+vector_cand_add_scalar_8 2531
+vector_cand_add_scalar_9 7887
+vector_cand_mul_vector_0 8532
+vector_cand_i16_to_float_0 4807
+vector_cand_round_i16_0 4823
+vector_cand_i48_to_float_0 4942
+layout_base_copy_i16_0 10152
+layout_base_pack_matrix_edges_0 27343
+layout_base_unpack_row_fp32_0 14183
+layout_base_unpack_nchw_fp32_0 15313
+layout_base_unpack_c48_compact_0 17803
+layout_base_conv_padding_0 14152
+layout_base_case0000_embed_conv0_0 563652
+layout_base_depthwise_31_0 8965
+layout_cand_copy_i16_0 10517
+layout_cand_pack_matrix_edges_0 27720
+layout_cand_unpack_row_fp32_0 14678
+layout_cand_unpack_nchw_fp32_0 15890
+layout_cand_unpack_c48_compact_0 18732
+layout_cand_conv_padding_0 14180
+layout_cand_case0000_embed_conv0_0 566367
+layout_cand_depthwise_31_0 8982
+VECTOR_DMA_COMPARE_DONE 44
+{
+  "scope": "Icarus RTL\uff1aab_pingpong_prefetch + axi_dma_v020_multi + \u53c2\u6570\u5316 AXI128 BFM\uff1b4 \u9875\u00d764beat\uff0c\u6d88\u8d39\u8005\u6bcf\u9875 300 cycles\uff1b\u4e0d\u662f CASE0000\u3002",
+  "results": [
+    {
+      "prefetch": 0,
+      "cycles": 1667,
+      "fill_cycles": 420,
+      "overlap": 0,
+      "stall": 0,
+      "prefetch_n": 4,
+      "consume_n": 4,
+      "dma_rbeats": 256,
+      "pass": 1,
+      "host_seconds": 0.619,
+      "speedup_vs_serial": 1.0
+    },
+    {
+      "prefetch": 1,
+      "cycles": 1343,
+      "fill_cycles": 421,
+      "overlap": 316,
+      "stall": 401,
+      "prefetch_n": 4,
+      "consume_n": 4,
+      "dma_rbeats": 256,
+      "pass": 1,
+      "host_seconds": 0.446,
+      "speedup_vs_serial": 1.2413
+    }
+  ],
+  "note": "\u4e32\u884c/\u9884\u53d6\u4f7f\u7528\u5b8c\u5168\u76f8\u540c\u7684 RTL\u3001BFM \u548c\u9875\u6570\u636e\uff1b\u4ec5\u63cf\u8ff0\u7b26\u4f9b\u7ed9\u7b56\u7565\u4e0d\u540c\u3002"
+}
+{
+  "scope": "Icarus RTL \u63a7\u5236\u9aa8\u67b6\uff1bop_* \u4e3a\u5b50\u7b97\u5b50\u63e1\u624b\u6869\uff0c\u4e0d\u662f\u5b8c\u6574 CASE \u96c6\u6210\u3002",
+  "cases": [
+    {
+      "case": 0,
+      "completed": 4,
+      "seq": 4,
+      "fault": 0,
+      "err": "0x00",
+      "pass": 1
+    },
+    {
+      "case": 1,
+      "completed": 2,
+      "seq": 2,
+      "fault": 1,
+      "err": "0x04",
+      "pass": 1
+    },
+    {
+      "case": 2,
+      "completed": 0,
+      "seq": 1,
+      "fault": 1,
+      "err": "0x05",
+      "pass": 1
+    }
+  ],
+  "note": "case0 \u8282\u70b9\u8868\u987a\u5e8f 0,3,1,2\uff0c\u4f9d\u8d56 1\u21900\u30012\u21900\u30013\u21901|2\uff0c\u5b9e\u6d4b\u542f\u52a8 0,2,1,3\uff1bcase1 \u5faa\u73af\u4f9d\u8d56 fault=1/err=04\uff1bcase2 \u5b50\u7b97\u5b50 fault=1/err=05\u3002"
+}
+# 下界与未满归因（自动生成，详见 result.json/bounds.json）
+
+- useful MAC: 3,461,011,968; padded MAC: 3,991,404,544; unique C48: 4,471,808
+- matrix PE cycles: 32,157,312 -> padded 124.12 MAC/cycle, useful 107.63
+- C48 retire: 0.139/cycle = 6.7 bit/cycle; A/W 片上供数 368 bit/cycle
+- matrix DDR bytes: 121,407,488 B = 3.78 B/PE-cycle (16B/cycle 通道的 23.60%)
+- vector/layout bytes: 807,885,856 B; total 929,293,344 B
+- whole plan 12.4866s; stage sum 12.4844s; overlap 0.0022s
+- naive max(stage) 6.8155s（仅独立假设，不采用）
+
+| compute MHz | matrix actual s | matrix 256MAC/s | vector s | layout s | whole schedule s |
+|---:|---:|---:|---:|---:|---:|
+| 125 | 0.2573 | 0.1247 | 6.8155 | 3.3535 | 12.4866 |
+| 300 | 0.1072 | 0.0520 | 2.8398 | 1.3973 | 5.2027 |
+| 600 | 0.0536 | 0.0260 | 1.4199 | 0.6986 | 2.6014 |
+
+| DDR MHz | peak GB/s | total bytes LB s | vector/layout LB s | matrix LB s | actual effective MB/s |
+|---:|---:|---:|---:|---:|---:|
+| 125 | 2.00 | 0.4646 | 0.4039 | 0.0607 | 74.4 |
+| 200 | 3.20 | 0.2904 | 0.2525 | 0.0379 | 74.4 |
+| 250 | 4.00 | 0.2323 | 0.2020 | 0.0304 | 74.4 |
+| 300 | 4.80 | 0.1936 | 0.1683 | 0.0253 | 74.4 |
+
+| latency | base read | cand read | base write | cand write | base read util | cand read util |
+|---:|---:|---:|---:|---:|---:|---:|
+| 8 | 6690 | 4368 | 6961 | 4659 | 0.612 | 0.938 |
+| 32 | 12832 | 4391 | 13101 | 4673 | 0.319 | 0.933 |
+| 64 | 21032 | 4424 | 21280 | 4712 | 0.195 | 0.926 |
+
+Ping-pong: serial 1667 cycles, prefetch 1343 cycles, speedup 1.241×, overlap 316 cycles.
+RESULT_DONE /home/yang/Desktop/项目/tasks/ds_ddr/result.json
+DS_DDR_ALL_DONE

@@ -1,0 +1,55 @@
+V0.22 PHASE1 COMPLETED AND REAL-BOARD TESTED, 2026-10-13.
+
+FINAL STATUS (supersedes all earlier ongoing snapshots below):
+full002 complete:125MHz,setup+0.055ns/hold+0.010ns,zero criticalDRC/errors,no unclocked/unconstrainedinternal endpoints. BitSHA f79e6ce94745a8f9e996d8ebe550265db113cefeb970813665c123b60db55d2e,USR A51A2201. Original201RGMII placementlocks/DDR settings retained.
+Userexplicitlyreleased2070. LiveCPU/cache/DDR/matrix/COPY/supervisor idle checked beforevolatilePLswitch. Board/run001 programmed andgatewaystarted successfully.173715968B parameters002uploaded/CRCverifiedin97.2698909s separately excluded;generation1. FirstrealCONVall1257984FP32/I16 outputs bitexactpriorV211capture,wall4.7940185s,PLplan1.435502144s.
+TwofullCASE0000realruns:154.8237812s/152.7265768s;mean153.775179s.61.116651%lesswall vsV211_ASYNC002mean395.4782303s,2.571795x.57.56%lesswall vsV21. Bothruns andV21 realoutputs bitexact;parameterupload0B/generationunchanged/noCPU neuralfallback. StrictONNXencoder2278/15872fail,max.004179753363 unchanged inheriteddifference;notWER/freefirsttoken/CTC.
+MeasuredperCASE:allmatrixPE.34704384s,allmatrixqueue3.03537s;68PLplans12.4866s includingvector6.8155s/layout3.3535s/fetch.042s. Vector+layoutDDRactualread452330768B/write355555088B (matrixDMA separate).45055instructions/6231internalmatrixdescs;outside591queues/593descs remain. No assumption thatqueue-minusPE ispureDMA.
+GatewaycleanSTOP/cache restore/haltverified. Finalread-onlyROscriptchecksallreadableCSRholesavoided,READY1/generation1,allbusy/fault0,DDRstilltrained. Initialfinal_check001 diagnostic mistakenly bulkreadwrite-onlySTART andreturnedAXISLVERR; retained. Newseparatefinal_readonly_status.tcl/final_check002 verifiedcleanstatewithoutreset. No sealed source changed;erroronlydiagnosticread, inference results unaffected.
+Deliverables:BOARD_RESULT.json,BOARD_RESULT_zh.txt,RUN_PHASE1_zh.txt,reports/final_check002/board_release.json;oldoffline release_full002.json preserved withhistoricalhardware_tested=false, board-tested supplement isauthoritative. OriginalV211294files/ASYNC00231filessealverifiedunchanged. NoARMfloatarithinstructionsfoundinELF.
+Phase2remaining (user agreed stagedtesting):integerA/Wtrueprefetch+Cposted-writeback,MNKresidency/furtherdepthwisebatching,outerDAGDDRresidency/nohostper-matrixqueries. Phase1 didnot claimthesecomplete. Newbottleneckisremaininghost/UDP/legacySRAM roundtrips:wholePLclosedprograms~12.5s vswholewall~153.8s;prioritizeoutsideintermediatetransfers before expectingPEfrequencygains.
+CurrentboardnewV022volatilebitandparametersretained,CPU0halted,othercoresreset. Board/run001alreadySTOPPED;neverreplayitsSTARTreceipt. Furtherboardworkrequiresownfresh session/ownershipcheck. Build/execsessionsallfinished;noactivework.
+
+EARLIER SNAPSHOTS (historical only):
+
+LATEST (supersedes historical snapshot below):
+User explicitly chose staged FPGA testing: first PL plans + directDDR CONV/FFN/layout; integer matrix A/W prefetch/C-posted-writeback and further small-task batching remain phase2. User explicitly released current A51A2070 and allows switching toV022.
+Current V022 ROOT contains real fiveDMA plan/vector/layout cluster, sticky AXIL CSR, static matrix queue epoch bias and control-only PS firmware. All68 static programs compiled into assets/parameters002;173715968B image, +8143104B schedule metadata, original payload [256:originalEnd] byte-identical. Actual weights/arithmetic/model unchanged.6100992depthwise padded epilogue elements avoided by compactC48 gathers (layout accounting, not real performance).
+Passed: vector_axi004(14), vendor_fma004(officialvendor1001), layout_rtl005(20), layout_cluster002(8 actual5DMAs), reuse_rtl002(6), alignment001(8), matrix_epoch001(10 actual16x16/AXIDMA), plan_oracle001(all68 CPUoracle bitexact, NOT hardware), csr001(stickyDONE/independentAW,W/stalls/guard/counteredge).
+Fullboard build full001 failed Vivado wrapperfiletype only; retained. full002 active exec26357,125MHz fullsynthesis/implementation with same DDR/RGMII201locks and strict STA/DRC. Do not edit RTL while building. No signedoff bit yet.
+Firmware ps/gateway_v022.elf compiled -Werror -mgeneral-regs-only, SHA36f784ec8c06f821cb2a6623461bb43bb0b4781ff9a22d5cba0fdbba7751de7d.68-entryimmutableindex bound to imageCRC/model. FirmwarecapA51A2202/asyncmagic2201a501/planID A51A22D0/profile10102201/newbitUSR A51A2201. MatrixlegacyID A51A21C1/profile10102131 preserved for outside-DAG compatibility.
+Read-only currentboard:USR A51A2070 DONE1/EOS1/CRC0, CPU0haltedEL3 andothersreset, stoppedgatewaystate2/error0/cache saved=restored00C52838, trainedDDR81040010/mode1, HP128/caps7. This is another V020 autonomousproject; cannot touch its files. Beforeprogram re-audit its AC COPY and AE supervisor via own scripts/audit_warm_handoff.tcl (derivedread-onlyaudit; uses ownROOTreports).
+Next: finishfull002 STA/DRC -> seal_runtime.py full002 -> program_warm_board.tcl run001 --board-released -> control_board.tcl start run001 --board-released -> run_logged.py parameter_load001 load --allow-hardware --board-receipt board/run001/started.txt -> first_conv_smoke.py -> twoactualCASE0000 runs -> detailtiming/data-bytecomparison -> cleanSTOP/cache restore. Program/start scripts refuse unknown/active board, unsafe replay and unsignedbit. No PS reset/DDRinit/clock/MIO/media writes. Parameterloading separate/excluded.
+Wholegraph stillhostDAG: only68CONV/FFN plans removeinternalper-matrixnetworkqueries andPSlayout/numericdispatch; outside591legacyqueues remain. Do not claim wholegraphPL/autonomy or integerPE trueprefetch in phase1.
+
+HISTORICAL SNAPSHOT (earlier status, retained for context):
+
+User scope: only new/changed files under software4npu/temp. Preserve sealed V211/ASYNC002 and all numerical semantics W7p8/A16/C48/FP32 FTZ RNE FMA. User explicitly requested optimize intermediates/transfers, PL execution plan (PS start/completion/error only), true A/W prefetch+C write overlap, DDR nonmatrix operators, reuse/MNK/depthwise/padding; after optimization continue board tests.
+
+Implemented under this folder:
+rtl/pl_execution_plan.sv: immutable DRAM plan, kind1 matrix queue pointer/count, kind2 vector64B payload, one START and plan IRQ; parameter generation guards, dependency checks, bounded watchdog drains child instead of cancelling it.
+rtl/ddr_vector_engine.sv: real PL FP32 core (unchanged copy), original FMA IP, A/B/C operand ping-pong and output ping-pong, separate read/write DMA, I16 bit extension, packed C48 conversion, tail byte strobes, source/destination ACL, error drain including early multi-burst BRESP errors.
+rtl/ddr_vector_axi.sv: two actual frozen axi_dma_v019 cores; read/write independent AXI128 masters.
+rtl/ddr_execution_cluster.sv: real plan fetch DMA + vector two DMAs, matrix queue external ready/done interface not yet wholeboard-connected.
+
+Tests:
+reports/vector_rtl001:14PASS, transactional DMA BFM + actual FP32 RTL. FMA stub aborts if used (not arithmetic substitute). Vector source later changed for early-BRESP handling, so final rerun required.
+reports/vector_axi001 failed from testbench path/reset initialization only, retained.
+reports/vector_axi002:14PASS, actual2AXIDMAs and actualFP32 RTL with shared AXI memory BFM; stalls/tails/ACL/errors/busy START. Testbench later declaration order corrected for Xsim; rerun final.
+reports/vendor_fma001 failed declaration order;002 failed Windows batch splitting '=' in plusarg, retained.
+reports/vendor_fma003:PASS with official frozen asr_fma_ip functional netlist and Xsim.1001outputs includes (1+2^-23)*(1-2^-23)-1=-2^-46; no numerical stub.
+reports/plan_rtl001 failed hex literal lexer spacing, retained.
+reports/plan_rtl002:15PASS. One START, actual3DMAs and actualFP32 Add thenI16cast, intermediateDDR only. Modes12..14 matrix completion stub, explicitly NOT matrix arithmetic evidence.
+reports/vector_ooc001: actualpart ZU15EG-ffvb1156-2-i routedOOC at125MHz,setup+.195ns,hold+.020ns. NOT fullboard/IO signoff; no bitstream. Completed exec session2002 already closed.
+
+No active tool sessions currently. Firmware still prior ASYNC002 safely stopped/cache restored, originalV211 bit/DDR retained from previous task; recheck hardware ownership before next configuration.
+
+Remaining:
+1. Add DDR bit-layout/im2col/compact scatter engine, avoiding PS indexing/copies. Wire kind3 layout128B into plancluster.
+2. Add exact repeating B-period addressing to vector engine (power-of-two period up to4096): needed scale/bias reuse over M rows and tiled output. Do not change arithmetic; rerun current tests and FMA vendor.
+3. Lower all68 original closed CONV/FFN programs to static hardware plans including im2col, matrix queues, C48 conversion, scales,bias,QDQ and activation exact order. Current implementation does NOT yet execute fullASR CASE or remove allPS responsibilities.
+4. Matrix double-buffer prefetch/posted writeback and coherent cache reuse. Existing frozen storage is serial; MNK pair blocking can reuse A while preserving K accumulation order. Depthwise compact physical/transfer encoding must preserve logical block/header ACL and avoid reading uninitialized padding.
+5. Full integration/STA/DRC/bitstream/firmware/board runtime, then actual CASE0000 tests excluding parameter load, compare V21 actual outputs separately from known ONNX encoder failures. Never report module results as wholecase acceleration.
+
+Baseline true board data:
+temp/model_a_v0_21_1_board_20261013_001/BOARD_RESULT.json and FINAL_CHECK.json. V211+ASYNC002 wholeCASE400.810743/390.145717s, mean395.478230s, slower9.14% vsV21 362.364893s. Real outputs bitexactV21, strictONNX encoder2278/15872fail/max.00417975336. MatrixPE .34704384s total, queue2.78429s; fusedPSlayout45.74s + numericdispatch inclusive187.08s, fusedwhole234.90s. LocalPLcommands386210; UDP365428 batches vs827543 old. Parameter165572864B at10000000, fullimageCRC/load excluded. Actual bridge watchdog8s (not old default4s).

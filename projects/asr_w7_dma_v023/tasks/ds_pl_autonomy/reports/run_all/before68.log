@@ -1,0 +1,2 @@
+WC_CTRL68_BEFORE_PASS starts=68 dones=68 cycles=2505
+tb/tb_wc_ctrl68_before.sv:80: $finish called at 20104000 (1ps)

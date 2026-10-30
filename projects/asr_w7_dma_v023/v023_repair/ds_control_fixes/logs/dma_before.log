@@ -1,0 +1,7 @@
+BEFORE_PA003 done=1 err=0 bursts=2 bytes=32
+  AR[0]=00fffffff0 len=0
+  AR[1]=0000000000 len=0
+PA003_WRAP_BUG_CONFIRMED
+BEFORE_PA004 done=1 err=0 write_bytes=16 (correct 3)
+PA004_STRB_COUNT_BUG_CONFIRMED
+tb/tb_dma_pa003_pa004_before.sv:63: $finish called at 3148000 (1ps)

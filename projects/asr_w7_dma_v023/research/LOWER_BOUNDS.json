@@ -1,0 +1,122 @@
+{
+  "scope": "68 closed plans separated from whole model; read/write decomposed; tensor footprint quantified; PE systolic bandwidth matched",
+  "useful_MAC": 3461011968,
+  "padded_MAC": 3991404544,
+  "unique_C48_outputs": 4471808,
+  "total_3D_tiles": 121808,
+  "traffic_bytes_measured": 933028896,
+  "traffic_bytes_preliminary": 929293344,
+  "read_write_decomposition": {
+    "read_bytes": 577473808,
+    "write_bytes": 355555088,
+    "sum_bytes": 933028896
+  },
+  "tensor_footprint_compulsory_bytes": {
+    "unique_weight_bytes": 81007616,
+    "boundary_input_bytes": 4539392,
+    "boundary_output_bytes": 16508928,
+    "unique_tensor_range_bytes": 12592128,
+    "compulsory_onchip_intermediate_lb_bytes": 102055936,
+    "all_intermediate_ddr_coarse_lb_bytes": 127240192,
+    "traffic_amplification_vs_onchip_lb": 9.14
+  },
+  "compute_scenarios": [
+    {
+      "compute_MHz": 125,
+      "MACs_per_cycle": 256,
+      "useful_matrix_lb_s": 0.108157,
+      "padded_matrix_lb_s": 0.124731,
+      "vector_scaled_s": 6.815515,
+      "layout_scaled_s": 3.353493
+    },
+    {
+      "compute_MHz": 150,
+      "MACs_per_cycle": 256,
+      "useful_matrix_lb_s": 0.090131,
+      "padded_matrix_lb_s": 0.103943,
+      "vector_scaled_s": 5.679596,
+      "layout_scaled_s": 2.794578
+    },
+    {
+      "compute_MHz": 300,
+      "MACs_per_cycle": 256,
+      "useful_matrix_lb_s": 0.045065,
+      "padded_matrix_lb_s": 0.051971,
+      "vector_scaled_s": 2.839798,
+      "layout_scaled_s": 1.397289
+    },
+    {
+      "compute_MHz": 600,
+      "MACs_per_cycle": 256,
+      "useful_matrix_lb_s": 0.022533,
+      "padded_matrix_lb_s": 0.025986,
+      "vector_scaled_s": 1.419899,
+      "layout_scaled_s": 0.698644
+    }
+  ],
+  "memory_scenarios": [
+    {
+      "name": "HP0 @ 125MHz (Baseline)",
+      "peak_GB_s": 2.0,
+      "serialized_shared_lb_s": 0.466514,
+      "concurrent_rw_lb_s": 0.288737,
+      "compulsory_onchip_lb_s": 0.051028
+    },
+    {
+      "name": "HP0 @ 200MHz",
+      "peak_GB_s": 3.2,
+      "serialized_shared_lb_s": 0.291572,
+      "concurrent_rw_lb_s": 0.180461,
+      "compulsory_onchip_lb_s": 0.031892
+    },
+    {
+      "name": "HP0 @ 250MHz",
+      "peak_GB_s": 4.0,
+      "serialized_shared_lb_s": 0.233257,
+      "concurrent_rw_lb_s": 0.144368,
+      "compulsory_onchip_lb_s": 0.025514
+    },
+    {
+      "name": "HP0 @ 333MHz (DS925 Max)",
+      "peak_GB_s": 5.333,
+      "serialized_shared_lb_s": 0.174954,
+      "concurrent_rw_lb_s": 0.108283,
+      "compulsory_onchip_lb_s": 0.019137
+    },
+    {
+      "name": "Dual HP @ 250MHz",
+      "peak_GB_s": 8.0,
+      "serialized_shared_lb_s": 0.116629,
+      "concurrent_rw_lb_s": 0.072184,
+      "compulsory_onchip_lb_s": 0.012757
+    },
+    {
+      "name": "PL DDR4-2400 (32-bit MIG)",
+      "peak_GB_s": 9.6,
+      "serialized_shared_lb_s": 0.097191,
+      "concurrent_rw_lb_s": 0.060154,
+      "compulsory_onchip_lb_s": 0.010631
+    },
+    {
+      "name": "PS DDR4-1600 (Physical Peak)",
+      "peak_GB_s": 12.8,
+      "serialized_shared_lb_s": 0.072893,
+      "concurrent_rw_lb_s": 0.045115,
+      "compulsory_onchip_lb_s": 0.007973
+    }
+  ],
+  "pe_bandwidth_matching_summary": {
+    "formula": "P_equiv <= B * I / fc",
+    "at_2GB_s_300MHz_tile32cube": {
+      "intensity_mac_per_b": 3.5556,
+      "p_equiv": 23.7,
+      "utilization_256PE": 0.0926
+    },
+    "at_2GB_s_300MHz_tile64x128x256": {
+      "intensity_mac_per_b": 18.2857,
+      "p_equiv": 121.9,
+      "utilization_256PE": 0.4762
+    },
+    "required_intensity_for_256PE_at_300MHz_2GBs": 38.4
+  }
+}

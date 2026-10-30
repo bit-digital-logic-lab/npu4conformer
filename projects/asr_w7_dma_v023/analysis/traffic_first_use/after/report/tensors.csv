@@ -1,0 +1,3 @@
+﻿tensor,version,format,src,dst,transfers,valid_bytes,bus_bytes,comparable_logical_bytes,unique_logical_bytes,repeat_candidate_bytes,unclassified_transfers,reasons
+BFM_operand,fixture_seed7,raw128_fixture,DDR_model,DMA_read_sink,1,4096,4096,4096,4096,0,0,"{""test_fixture_transfer_not_model_tensor"": 4096}"
+BFM_result,fixture_seed7,raw128_fixture,DMA_write_source,DDR_model,1,4096,4096,4096,4096,0,0,"{""test_fixture_transfer_not_model_tensor"": 4096}"

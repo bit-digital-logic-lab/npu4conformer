@@ -1,0 +1,6 @@
+BEFORE_NORMAL done=1 fault=0 completed=1
+BEFORE_DEAD_READ busy=1 done=0 fault=0 err=09 state=3 wait=997 dma_state=2 bfm_rb=1
+PA002_FETCH_UNBOUNDED_CONFIRMED
+BEFORE_DEAD_CHILD busy=1 done=0 fault=1 err=09 state=10 completed=0
+PA002_ERROR_DRAIN_UNBOUNDED_CONFIRMED
+tb/tb_plan_pa002_before.sv:89: $finish called at 16828000 (1ps)

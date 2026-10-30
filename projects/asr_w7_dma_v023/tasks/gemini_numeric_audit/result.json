@@ -1,0 +1,41 @@
+{
+  "task": "gemini_numeric_audit",
+  "status": "COMPLETED",
+  "timestamp": "2026-10-29T18:22:30+08:00",
+  "source_sha256": {
+    "work/rtl/pe_direct_v020.sv": "7b43de74709f53f0212eb6a600c5d84b3c1aea5904c2f0dd1b6e32b300bc0317",
+    "work/rtl/array16_direct_v020.sv": "77c66aeea9dd40eb927f8f8e0658b707188427f51138af5f726ded0dc9c3fd56",
+    "work/rtl/block_engine_l1bank_v020.sv": "0a6f24fc51f79baf4f1ecca0b38a79180b0a56e19470bfdb4bec863b34a09c20",
+    "work/rtl/asr_fp32_alu.sv": "4f83fc66bb2443695e1e45b29cdd9f90e890ac44b76975fc2f66e00a8ba9c602",
+    "work/rtl/ddr_vector_engine.sv": "08a642d915f0d0a83d10c156a52c21bc20bd4f69b3ac8c402ca22c094381641d",
+    "tasks/gemini_compute/candidate/pe_pipeline_cc_v023.sv": "2299f225a82f6849d3137bbda7ed505073e5a4d05d6d26796c2f1c02cc065e1e",
+    "tasks/gemini_compute/candidate/pe_pipeline_csa_v023.sv": "d9522e129a735cfe6ed414f4f0541c404370423203c7eda29af4744ac18603e9",
+    "tasks/gemini_compute/candidate/array16_pipeline_v023.sv": "f13ffa68682289d83977b4b87603e1aedf6f7de9717fbb639b399f298be9eb04"
+  },
+  "metrics": {
+    "exhaustive_w7_a16_cases": 40960,
+    "valid_p_cases": 33280,
+    "valid_p_match_rate": 1.0,
+    "base_vs_candidate_cc_match_rate": 1.0,
+    "base_vs_candidate_csa_match_rate": 1.0,
+    "a_minus_32768_cases": 4096,
+    "a_minus_32768_match_rate": 1.0,
+    "clip_p12_m_ge_8_cases": 640,
+    "clip_p12_m_ge_8_match_rate": 1.0,
+    "p_over_12_overflow_count": 4508,
+    "flush_timing_modes_tested": 4,
+    "flush_slack_cycles_candidate": 0,
+    "fp32_qdq_cases_tested": 17,
+    "fp32_qdq_pass_rate": 1.0
+  },
+  "confirmed_findings": [
+    "FINDING-001: 4-cycle vs 3-cycle PE latency requires delay alignment before comparing cycle-by-cycle signals.",
+    "FINDING-002 & 003: Under block_engine_l1bank_v020 (run_cycle==65), Candidate CC/CSA has exactly 0 cycles of slack. Early flush at cycle 64 truncates PE(15,15) data.",
+    "FINDING-004: clear_sum only resets sum accumulator; in-flight pipeline operands continue to accumulate upon clear_sum deassertion.",
+    "FINDING-005: asr_fp32_alu.sv adheres bit-identically to independent golden for I48_F32, F32_I16 banker's rounding, and subnormal FTZ."
+  ],
+  "untested_scope": [
+    "Physical FPGA board execution (forbidden by contract)",
+    "Proprietary Vivado FMA IP netlist in Icarus (verified independently via C99 libm.fmaf)"
+  ]
+}

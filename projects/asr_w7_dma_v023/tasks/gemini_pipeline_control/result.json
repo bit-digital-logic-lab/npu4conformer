@@ -1,0 +1,86 @@
+{
+  "task": "gemini_pipeline_control",
+  "verification_status": "PASSED",
+  "target_device": "xczu15eg-ffvb1156-2-I (AMD Xilinx Zynq UltraScale+)",
+  "timing_clarification": {
+    "baseline_sta_clock": "125 MHz (8.000 ns period, clk100_raw, worst slack +0.269 ns in full002 timing.rpt)",
+    "user_claimed_current": "约 150 MHz (6.667 ns period)",
+    "target_budgets": {
+      "budget_300mhz": "3.333 ns clock period",
+      "budget_600mhz": "1.667 ns clock period"
+    },
+    "sta_policy_statement": "Target budgets (300 MHz / 600 MHz) are design budgets for pure logical and architectural verification only. Without new Vivado static timing analysis (STA), no physical timing closure is claimed or implied. Clock frequency in simulation is not timing proof."
+  },
+  "candidate_modules": {
+    "block_engine_pipeline_ctrl_v023": {
+      "path": "candidate/block_engine_pipeline_ctrl_v023.sv",
+      "sha256": "b6b879626543e9e8c69be4eb34ce85d589e85e3d214eb1835805a3d1e7248872",
+      "description": "System-level pipeline drain, on-chip supply, and collection controller with parameterized PE_LATENCY, registered collection MUX, safe clear/flush, precomputed boundary masks, and double-buffer cache management."
+    },
+    "pe_delay_stub": {
+      "path": "candidate/pe_delay_stub.sv",
+      "sha256": "61cd750645566306cb00c2109a3562fa1788e5d5f62256dd65ac73fefc442c19",
+      "description": "Bit-exact parameterized delay processing element and 16x16 array delay stub supporting arbitrary PE_LATENCY >= 1 with wavefront tracking."
+    },
+    "skid_buffer": {
+      "path": "candidate/skid_buffer.sv",
+      "sha256": "68fda7b15355ea8eb77298e5c2b171e577c43fa9cab1d151a1532b46b535a359",
+      "description": "Zero-bubble (II=1) 2-register skid buffer breaking forward valid and backward ready combinational paths."
+    }
+  },
+  "verification_benchmarks": {
+    "test1_skid_buffer": {
+      "testbench": "bench/tb_skid_backpressure.sv",
+      "sha256": "f9f9e8e6d66f80e350ac517c06a8ec680f4c7a433ccdd7db63c0e58adf3ae616",
+      "transactions": 5001,
+      "mismatches": 0,
+      "data_loss": 0,
+      "deadlocks": 0,
+      "status": "PASSED"
+    },
+    "test2_latency_sweep": {
+      "testbench": "bench/tb_pipeline_latency_sweep.sv",
+      "sha256": "a77c4755f00cf932dde04b614078d1d4e4d4bf2fc9c2883ac6f87714f723658a",
+      "latencies_swept": [3, 4, 5, 6, 8],
+      "cycle_counts": {
+        "latency_3": 2331,
+        "latency_4": 2335,
+        "latency_5": 2339,
+        "latency_6": 2343,
+        "latency_8": 2351
+      },
+      "bit_exact_invariance": "PASSED (1024 / 1024 elements identical across all 5 latencies)",
+      "golden_model_verification": "PASSED (1024 / 1024 elements matched Python golden model)",
+      "status": "PASSED"
+    },
+    "test3_real_array_integration": {
+      "testbench": "bench/tb_full_array_integration.sv",
+      "sha256": "e0374c68cd07e74d113c8c943db50cae44501b6941e2ad3e223578571bc318f6",
+      "workload": "M=32, N=32, K=64 (2 K-chunks, 4 quadrants)",
+      "baseline_array": "array16_direct_v020 (PE_LATENCY=3, task_cycles=3629)",
+      "candidate_array": "array16_w7_c48_cfg (PE_LATENCY=4, task_cycles=3637)",
+      "cross_k_cache_hits": 1,
+      "equivalence": "PASSED (1024 / 1024 elements bit-exact between baseline and candidate array)",
+      "golden_model_verification": "PASSED (1024 / 1024 elements matched Python golden model for K=64)",
+      "status": "PASSED"
+    },
+    "test4_double_buffer_pingpong": {
+      "testbench": "bench/tb_double_buffer.sv",
+      "sha256": "868d205d65041a446aa7057a4eeac8734be9d4083cc9acee95ed65c092e7678c",
+      "workload": "M=32, N=64, K=32 (2 distinct output blocks, SLOTS=2)",
+      "task_cycles": 4667,
+      "read_blocks": 6,
+      "write_blocks": 2,
+      "captured_blocks": 2,
+      "golden_model_verification": "PASSED (2048 / 2048 elements matched Python golden model with 0 dropped sums)",
+      "status": "PASSED"
+    }
+  },
+  "mathematical_drain_proof": {
+    "systolic_wavefront": "Injection at row r and column c with step ki arrives at corner PE(15,15) at run_cycle = 31 + 15 + 15 = 61",
+    "pe_pipeline_depth": "Multiplication and pipeline requires PE_LATENCY cycles",
+    "accumulator_stabilization": "Product updates accumulator on clock edge 61 + PE_LATENCY",
+    "exact_run_limit": "run_cycle == 61 + PE_LATENCY + 1 ensures all 256 PEs have finished in-place accumulation before transition to C_READ",
+    "failure_of_v020": "v020 hardcoded run_cycle == 65 provided 1 cycle margin at PE_LATENCY=3, exactly 0 cycles at PE_LATENCY=4, and completely failed (lost partial sums) at PE_LATENCY >= 5"
+  }
+}

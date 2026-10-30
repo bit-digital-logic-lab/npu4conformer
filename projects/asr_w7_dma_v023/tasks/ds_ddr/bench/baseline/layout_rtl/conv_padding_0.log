@@ -1,0 +1,2 @@
+V022_LAYOUT_AXI_PASS mode=          0 cycles=               14152 processed=      2048 cache_hits=       478 cache_misses=        16 read_requests=        16 write_requests=       256
+/home/yang/Desktop/项目/work/tests/tb_layout_axi.sv:189: $finish called at 113280000 (1ps)

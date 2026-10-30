@@ -1,0 +1,30 @@
+{
+  "task": "ds_closeout_numeric",
+  "started": "2026-10-29T23:12:00+08:00",
+  "updated": "2026-10-29T23:47:00+08:00",
+  "working_dir": "/home/yang/Desktop/项目/v023_repair/ds_closeout_numeric",
+  "stages": [
+    {"id": "S0", "name": "read primary_stream_fix/REPORT, primary_acceptance/round2 FMA+approx results, integrated/REPORT, USER_UPDATES", "status": "done",
+     "evidence": ["primary_stream_fix/REPORT.md", "primary_acceptance/round2/result_primary_fma.json", "primary_acceptance/round2/result_primary_approx.json", "integrated/REPORT.md", "gemini_fma_round2/USER_UPDATES.md", "gemini_approx_round2/REPORT.md"]},
+    {"id": "S1", "name": "copy integrated snapshot and round-2 numeric sources into own directory", "status": "done",
+     "evidence": ["snapshot/integrated/", "rtl/asr_fma_ip.sv", "rtl/fp32_fma_pipe.sv", "rtl/approx_div_sqrt.sv"]},
+    {"id": "S2", "name": "delete forbidden stub, unique module/filelist check", "status": "done",
+     "evidence": ["filelist_closeout_numeric.f", "reports/unique_modules.json", "scripts/check_unique_modules.py"]},
+    {"id": "S3", "name": "wire real FMA and approx flush into vector engine; abort propagation", "status": "done",
+     "evidence": ["rtl/ddr_vector_engine_pipe.sv", "rtl/v023_vector_axi.sv", "rtl/v023_vector_guard.sv", "rtl/wc_graph_ctrl.sv", "rtl/wc_graph_top.sv", "rtl/v023_integrated_top.sv"]},
+    {"id": "S4", "name": "independent fixture/plan/golden from read-only adversarial vectors", "status": "done",
+     "evidence": ["scripts/gen_closeout_fixtures.py", "fixtures/closeout_meta.json", "fixtures/gold_fma.hex", "fixtures/gold_div.hex", "fixtures/gold_sqrt.hex"]},
+    {"id": "S5", "name": "exact baseline graph run (op17/op3/op4) through shared AXI", "status": "done",
+     "evidence": ["logs/exact.log", "logs/exact_fma.hex", "logs/exact_div.hex", "logs/exact_sqrt.hex"]},
+    {"id": "S6", "name": "candidate approx graph run with same plan/load", "status": "done",
+     "evidence": ["logs/approx.log", "logs/approx_fma.hex", "logs/approx_div.hex", "logs/approx_sqrt.hex"]},
+    {"id": "S7", "name": "abort drain and new-epoch isolation", "status": "done",
+     "evidence": ["logs/abort.log", "logs/abort_fma2.hex"]},
+    {"id": "S8", "name": "reset and new-epoch isolation", "status": "done",
+     "evidence": ["logs/reset.log", "logs/reset_fma2.hex"]},
+    {"id": "S9", "name": "independent comparison, result.json, REPORT/INTERFACE, patch/filelist/SHA", "status": "done",
+     "evidence": ["reports/check_summary.json", "result.json", "REPORT.md", "INTERFACE.md", "patch/closeout_numeric.patch", "SHA256SUMS.txt", "logs/rc.txt"]}
+  ],
+  "pass": true,
+  "notes": "Local logic simulation only. PASS applies to the vector-numeric integration (FMA/DIV/SQRT) through the shared AXI/WCPG path, not to a full-model or board acceptance. Old integrated FMA/approx gate is superseded by the independently rerun primary_acceptance/round2 results; the real round-2 cores are used, not a stub."
+}

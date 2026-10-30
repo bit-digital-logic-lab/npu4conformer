@@ -1,0 +1,15 @@
+{
+  "i48": {
+    "vectors": 37166,
+    "mismatches": 0
+  },
+  "f32_i16": {
+    "vectors": 464154,
+    "mismatches": 0
+  },
+  "fma_normal_finite_nonzero": {
+    "vectors": 7272,
+    "mismatches": 0
+  },
+  "pass": true
+}

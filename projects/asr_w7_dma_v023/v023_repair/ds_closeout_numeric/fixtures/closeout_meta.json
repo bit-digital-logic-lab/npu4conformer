@@ -1,0 +1,47 @@
+{
+  "scope": "vector-numeric integration through the shared AXI/WCPG path; not a full-model run",
+  "vectors": {
+    "fma_mode1_all": 6734,
+    "div_safe_all": 7005,
+    "sqrt_safe_all": 4002,
+    "fma_mode1_used": 2048,
+    "div_used": 512,
+    "sqrt_used": 512,
+    "fma2_epoch2": 128,
+    "fma_vec_sha256": "5a995d68158bf82714fc79110156d3b6af21c3fb09b2d3f67f51c5ef4961cdd7",
+    "approx_vec_sha256": "11273f22160ef2808fa18ef8484647f84c231bb1dec1696db3dea15d4b05d3d5",
+    "refmodel_sha256": "38eb7ed944f05d6ac45ff68b69fbaa4b0b5b895f0eef46fa33e138395ceb64e2"
+  },
+  "addresses": {
+    "ext": 134217728,
+    "arena": 67108864,
+    "plan1": 268468224,
+    "plan2": 268500992,
+    "fma_in": [
+      67108864,
+      67137536,
+      67166208
+    ],
+    "fma_out": 67272704,
+    "div_in": [
+      67194880,
+      67223552
+    ],
+    "div_out": 67301376,
+    "sqrt_in": [
+      67252224
+    ],
+    "sqrt_out": 67330048,
+    "fma2_in": [
+      67268608,
+      67269632,
+      67270656
+    ],
+    "fma2_out": 67346432
+  },
+  "gold": {
+    "fma": "refmodel.fma_bits exact Fraction, single RNE, FTZ",
+    "div": "refmodel.round_f32(exact Fraction a/b)",
+    "sqrt": "exact integer-sqrt rounding in gen_closeout_fixtures.py"
+  }
+}

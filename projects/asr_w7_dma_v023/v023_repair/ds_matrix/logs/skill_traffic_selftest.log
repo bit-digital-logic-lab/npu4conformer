@@ -1,0 +1,14 @@
+test_capacity_rejected (__main__.Tests.test_capacity_rejected) ... ok
+test_coverage_units_and_parallel (__main__.Tests.test_coverage_units_and_parallel) ... ok
+test_failed_transfer_not_deduplicated (__main__.Tests.test_failed_transfer_not_deduplicated) ... ok
+test_formats_not_deduplicated (__main__.Tests.test_formats_not_deduplicated) ... ok
+test_logger_and_report (__main__.Tests.test_logger_and_report) ... ok
+test_non_payload_cannot_count_bytes (__main__.Tests.test_non_payload_cannot_count_bytes) ... ok
+test_overlap_rejected (__main__.Tests.test_overlap_rejected) ... ok
+test_partial_repeats_and_versions (__main__.Tests.test_partial_repeats_and_versions) ... ok
+test_window_and_id_rejected (__main__.Tests.test_window_and_id_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.002s
+
+OK

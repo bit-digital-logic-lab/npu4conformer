@@ -1,0 +1,14 @@
+{
+  "tag": "real68",
+  "plan": "analysis/whole68_serial.bin",
+  "sha256": "5b81b10d7e779eab02e137cbe4a0362e1b58cc288bf6440afa049e3cbedd0ff0",
+  "status": "PASS",
+  "node_count": 68,
+  "plan_bytes": 4416,
+  "hash_ok": true,
+  "checks": [],
+  "unordered_conflicts": 0,
+  "dependency_edges": 67,
+  "max_predecessors": 1,
+  "notes": "Conflicts are expected for whole68_roots.bin and reject parallel execution; whole68_serial.bin must have zero."
+}

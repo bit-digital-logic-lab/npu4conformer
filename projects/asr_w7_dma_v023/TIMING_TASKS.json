@@ -1,0 +1,14 @@
+{
+  "gemini_sta_paths": {
+    "kind": "gemini",
+    "supervisor_pid": 43682
+  },
+  "ds_pe_pipeline": {
+    "kind": "ds",
+    "supervisor_pid": 43683
+  },
+  "gemini_pipeline_control": {
+    "kind": "gemini",
+    "supervisor_pid": 43684
+  }
+}

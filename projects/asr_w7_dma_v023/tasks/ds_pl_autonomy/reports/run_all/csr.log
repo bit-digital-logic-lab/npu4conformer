@@ -1,0 +1,2 @@
+WC_CSR_PASS checks=39 starts=2
+tb/tb_wc_csr.sv:81: $finish called at 448000 (1ps)

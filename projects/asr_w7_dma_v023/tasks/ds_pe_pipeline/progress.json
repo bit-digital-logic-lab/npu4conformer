@@ -1,0 +1,40 @@
+{
+  "task": "ds_pe_pipeline",
+  "status": "completed",
+  "scope": "logic-only PE/array pipeline candidates; no synthesis/implementation/Vivado/board/STA",
+  "current_stage": "final_report_and_handoff",
+  "completed_stages": [
+    "read_execution_and_design_contracts",
+    "read_gemini_compute_and_numeric_audit",
+    "read_timing_baseline_full002",
+    "derive_stage_schedules_3_4_5_6",
+    "implement_parameterized_pe_and_array",
+    "implement_independent_integer_golden",
+    "pe_equivalence_and_event_verification",
+    "array16_wavefront_verification",
+    "drain_interface_verification",
+    "report_findings_interface_result_sha"
+  ],
+  "key_constraints_observed": [
+    "original work/ZIP/other workers read-only",
+    "W7p8/A16/C48, positions/clip, -32768, INT48 wrap preserved",
+    "QDQ/FP32 FTZ/RNE/FMA not modified",
+    "full002 timing report is 125 MHz, user-reported ~150 MHz not conflated",
+    "300/600 MHz are target budgets only, no new STA",
+    "host preload once; PL autonomous DMA not modified in this task",
+    "no push/VNC"
+  ],
+  "timestamp": "2026-10-29T19:29:13+0800",
+  "final_verification": {
+    "pe_pass": true,
+    "pe_exhaustive_products": 32768,
+    "pe_random_tasks": 300,
+    "pe_directed_event_scenarios": 9,
+    "pe_overflow_products": 135000,
+    "array_pass": true,
+    "array_tiles": 9,
+    "array_cycles": 840,
+    "array_outputs_checked": 13824,
+    "drain_done_exact_checks": 45
+  }
+}

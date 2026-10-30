@@ -1,0 +1,44 @@
+{
+  "default": {
+    "candidate_ok": true,
+    "baseline_ok": true,
+    "delta": {
+      "total_cycles_baseline": 53015,
+      "total_cycles_candidate": 21121,
+      "candidate_minus_baseline": -31894,
+      "baseline_over_candidate": 2.5101,
+      "baseline_engine_sum": 52997,
+      "candidate_engine_sum": 8480,
+      "baseline_residual_non_engine": 18,
+      "candidate_residual_non_engine": 12641
+    }
+  },
+  "rand_bp": {
+    "candidate_ok": true,
+    "baseline_ok": true,
+    "delta": {
+      "total_cycles_baseline": 55014,
+      "total_cycles_candidate": 23744,
+      "candidate_minus_baseline": -31270,
+      "baseline_over_candidate": 2.317,
+      "baseline_engine_sum": 54996,
+      "candidate_engine_sum": 9460,
+      "baseline_residual_non_engine": 18,
+      "candidate_residual_non_engine": 14284
+    }
+  },
+  "long_wait": {
+    "candidate_ok": true,
+    "baseline_ok": true,
+    "delta": {
+      "total_cycles_baseline": 87973,
+      "total_cycles_candidate": 33660,
+      "candidate_minus_baseline": -54313,
+      "baseline_over_candidate": 2.6136,
+      "baseline_engine_sum": 87955,
+      "candidate_engine_sum": 14204,
+      "baseline_residual_non_engine": 18,
+      "candidate_residual_non_engine": 19456
+    }
+  }
+}

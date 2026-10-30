@@ -1,0 +1,2 @@
+CMD: /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/build/old_f32i16_f32i16 +VEC_FILE=vectors/f32_i16.vec +OUT_FILE=logs/old_f32i16_f32i16.out +BP=0 +MAX_CYCLES=20000000
+DONE f32_i16 in=464154 out=464154 cycles=464157

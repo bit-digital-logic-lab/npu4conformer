@@ -1,0 +1,8 @@
+ALL LOGIC TESTS COMPLETE
+logs/layout_equiv_run.log:SUMMARY runs=20 fails=0
+logs/layout_fuzz_run.log:SUMMARY cases=51 fails=0
+storage cases: 71, diff bytes: 0
+BLOCK m=32 n=32 k=32 done=1 fault=0 err=00 result_count=1 read=3 write=1 hit=0 miss=1 st_err=0 c_hash=fefd48c480f5f324
+BLOCK m=32 n=32 k=32 done=1 fault=0 err=00 result_count=1 read=3 write=1 hit=0 miss=1 st_err=0 c_hash=fefd48c480f5f324
+BLOCK m=64 n=32 k=64 done=1 fault=0 err=00 result_count=2 read=10 write=2 hit=2 miss=2 st_err=0 c_hash=ee7e0905446bd2e8
+BLOCK m=64 n=32 k=64 done=1 fault=0 err=00 result_count=2 read=10 write=2 hit=2 miss=2 st_err=0 c_hash=ee7e0905446bd2e8

@@ -1,0 +1,126 @@
+[
+  {
+    "tag": "before",
+    "window": 821,
+    "read_bytes": 4096,
+    "write_bytes": 4096,
+    "resources": [
+      {
+        "resource": "axi_r",
+        "unit": "cycle",
+        "evidence": "RTL_handshake_100MHz_simclock_not_achieved_Fmax",
+        "window": 821,
+        "observed_ticks": 821,
+        "known_ticks": 821,
+        "known_coverage": 1.0,
+        "states": {
+          "dispatch_or_drain": 21,
+          "wait_memory": 528,
+          "payload": 256,
+          "idle_no_request": 16
+        },
+        "valid_bytes": 4096,
+        "wire_bytes": 4096,
+        "payload_fraction": 0.3118148599269184,
+        "bytes_per_tick": 4.989037758830694,
+        "seconds": 8.21e-06,
+        "effective_B_per_s": 498903775.88306946,
+        "payload_B_per_tick": 16.0,
+        "capacity_bytes_per_tick": 16,
+        "ledger_valid_bytes": 4096,
+        "ledger_wire_bytes": 4096,
+        "ledger_minus_interval_valid_bytes": 0,
+        "ledger_minus_interval_wire_bytes": 0
+      },
+      {
+        "resource": "axi_w",
+        "unit": "cycle",
+        "evidence": "RTL_handshake_100MHz_simclock_not_achieved_Fmax",
+        "window": 821,
+        "observed_ticks": 821,
+        "known_ticks": 821,
+        "known_coverage": 1.0,
+        "states": {
+          "dispatch_or_drain": 549,
+          "backpressure": 16,
+          "payload": 256
+        },
+        "valid_bytes": 4096,
+        "wire_bytes": 4096,
+        "payload_fraction": 0.3118148599269184,
+        "bytes_per_tick": 4.989037758830694,
+        "seconds": 8.21e-06,
+        "effective_B_per_s": 498903775.88306946,
+        "payload_B_per_tick": 16.0,
+        "capacity_bytes_per_tick": 16,
+        "ledger_valid_bytes": 4096,
+        "ledger_wire_bytes": 4096,
+        "ledger_minus_interval_valid_bytes": 0,
+        "ledger_minus_interval_wire_bytes": 0
+      }
+    ],
+    "source_sha256": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531"
+  },
+  {
+    "tag": "after",
+    "window": 538,
+    "read_bytes": 4096,
+    "write_bytes": 4096,
+    "resources": [
+      {
+        "resource": "axi_r",
+        "unit": "cycle",
+        "evidence": "RTL_handshake_100MHz_simclock_not_achieved_Fmax",
+        "window": 538,
+        "observed_ticks": 538,
+        "known_ticks": 538,
+        "known_coverage": 1.0,
+        "states": {
+          "dispatch_or_drain": 6,
+          "wait_memory": 263,
+          "payload": 256,
+          "idle_no_request": 13
+        },
+        "valid_bytes": 4096,
+        "wire_bytes": 4096,
+        "payload_fraction": 0.4758364312267658,
+        "bytes_per_tick": 7.613382899628252,
+        "seconds": 5.38e-06,
+        "effective_B_per_s": 761338289.9628253,
+        "payload_B_per_tick": 16.0,
+        "capacity_bytes_per_tick": 16,
+        "ledger_valid_bytes": 4096,
+        "ledger_wire_bytes": 4096,
+        "ledger_minus_interval_valid_bytes": 0,
+        "ledger_minus_interval_wire_bytes": 0
+      },
+      {
+        "resource": "axi_w",
+        "unit": "cycle",
+        "evidence": "RTL_handshake_100MHz_simclock_not_achieved_Fmax",
+        "window": 538,
+        "observed_ticks": 538,
+        "known_ticks": 538,
+        "known_coverage": 1.0,
+        "states": {
+          "dispatch_or_drain": 54,
+          "backpressure": 228,
+          "payload": 256
+        },
+        "valid_bytes": 4096,
+        "wire_bytes": 4096,
+        "payload_fraction": 0.4758364312267658,
+        "bytes_per_tick": 7.613382899628252,
+        "seconds": 5.38e-06,
+        "effective_B_per_s": 761338289.9628253,
+        "payload_B_per_tick": 16.0,
+        "capacity_bytes_per_tick": 16,
+        "ledger_valid_bytes": 4096,
+        "ledger_wire_bytes": 4096,
+        "ledger_minus_interval_valid_bytes": 0,
+        "ledger_minus_interval_wire_bytes": 0
+      }
+    ],
+    "source_sha256": "7123c26fd3d91643497485c1ed7c9dedc3a4f06cf488bef36f711468dd6488e3"
+  }
+]

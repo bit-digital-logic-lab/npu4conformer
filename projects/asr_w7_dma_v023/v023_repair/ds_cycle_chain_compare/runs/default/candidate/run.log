@@ -1,0 +1,18 @@
+HOST write plan_base=10008000
+HOST START write begins at cycle 26
+HOST START accepted at cycle 31 (monitor t_start=30)
+WAIT cycle=5000 busy=1 mat=0 vec=0 lay=1 mst=0 mcore=0 mdone=0 merr=00 ar=0 own=0 left=0 rv=0 rr=0
+WAIT cycle=10000 busy=1 mat=1 vec=0 lay=0 mst=3 mcore=1 mdone=0 merr=00 ar=1 own=3 left=1 rv=1 rr=1
+WAIT cycle=15000 busy=1 mat=0 vec=0 lay=1 mst=0 mcore=0 mdone=1 merr=00 ar=0 own=1 left=1 rv=0 rr=0
+WAIT cycle=20000 busy=1 mat=0 vec=0 lay=1 mst=0 mcore=0 mdone=1 merr=00 ar=0 own=1 left=1 rv=0 rr=0
+CAND_TOTAL start=30 done=21151 drain=21151 total_start_to_drain=21121 done_to_drain=0 csr_cycles=21119
+CAND_WINDOW matrix=9966..11310 (1345) vector=11327..14638 (3256) layout=198..21146 (16232) any_busy=20833
+CAND_MATRIX cycles=1329 compute=272 queue=1345 fetch=8 engine_wait=1335 retire_wait=1 rblk=2 wblk=64 cg=256 cc=825
+CAND_VECLAY vcyc=659 lcyc=6492 vrb=18560 vwb=14336 lrb=5120 lwb=5120
+CAND_AXI rburst=130 wburst=141 rbeats=1828 wbeats=1600 rdpeak=1 wrpeak=1 rdstall=160 wrstall=1 tag_err=0 bfm_rbeats=1828 bfm_wbeats=1600
+CAND_WAIT ar_stall=160 aw_stall=1 w_stall=0 r_stall=0 b_stall=0 bfm_read_busy=1828 bfm_write_busy=1932 bfm_bresp_wait=0
+CAND_ENGWAIT matrix ar=160 aw=1 w=0 r=0 b=0 | vector ar=0 aw=0 w=0 r=0 b=0 | layout ar=0 aw=0 w=0 r=0 b=0 | graph_fetch ar=0 r=0 | queue ar=0 r=0
+CAND_GRAPH fetch=203 operator=20841 drain=0 busy_cycles=21119
+CAND_STATUS busy=0 done=1 fault=0 err=00 completed=9 last=8
+CAND_RESULT PASS
+tb/tb_chain_integrated.sv:280: $finish called at 169228000 (1ps)

@@ -1,0 +1,465 @@
+{
+  "task": "ds_closeout_numeric",
+  "date": "2026-10-29",
+  "scope": "local logic simulation only; vector-numeric integration through shared AXI/WCPG",
+  "not_claimed": [
+    "full 591-tensor DAG / sealed payload re-lowering / host executor",
+    "full-model WER/CER/CASE0000",
+    "synthesis, Vivado/STA, board, VNC, git push",
+    "matrix/layout abort-drain (only the vector path has abort)",
+    "CDC/async FIFO or board frequency"
+  ],
+  "pass": true,
+  "fails": [],
+  "stale_gate_note": {
+    "primary_acceptance_round2_fma": "8734 vectors, 0 mismatches, pass",
+    "primary_acceptance_round2_approx": "15168 vectors, pass, DIV max 0.1114666%, SQRT 5.78e-6, RSQRT 5.72e-6",
+    "integrated_old_report": "quoted first-round FMA/approx failures; those are superseded by round-2 primary acceptance"
+  },
+  "numeric_sources_sha256": {
+    "asr_fma_ip.sv": "634eea1a15d1f8dbc7a2f8bae8eebd2b0e892da5978ed974ccb7645ff9b10599",
+    "fp32_fma_pipe.sv": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12",
+    "approx_div_sqrt.sv": "444fa2a42f47a7cde2ad736ead3177225319c6af3bb1c2ab27309233bee7a864",
+    "approx_recip_lut.sv": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+    "approx_rsqrt_lut.sv": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153"
+  },
+  "upstream_candidate_sha256": {
+    "gemini_fma_round2/fp32_fma_pipe.sv": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12",
+    "gemini_fma_round2/asr_fma_ip.sv": "634eea1a15d1f8dbc7a2f8bae8eebd2b0e892da5978ed974ccb7645ff9b10599",
+    "gemini_approx_round2/approx_div_sqrt.sv": "444fa2a42f47a7cde2ad736ead3177225319c6af3bb1c2ab27309233bee7a864",
+    "gemini_approx_round2/approx_recip_lut.sv": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+    "gemini_approx_round2/approx_rsqrt_lut.sv": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153"
+  },
+  "unique_filelist": {
+    "path": "filelist_closeout_numeric.f",
+    "sha256": "709a4c5250205a6274be5d3ed1cbff94b52f9557b88ce43ebbb6839e90f5af08",
+    "files": 38,
+    "modules": 38,
+    "duplicates": {},
+    "forbidden_stub_present": false,
+    "pass": true
+  },
+  "vectors": {
+    "fma_mode1_all": 6734,
+    "div_safe_all": 7005,
+    "sqrt_safe_all": 4002,
+    "fma_mode1_used": 2048,
+    "div_used": 512,
+    "sqrt_used": 512,
+    "fma2_epoch2": 128,
+    "fma_vec_sha256": "5a995d68158bf82714fc79110156d3b6af21c3fb09b2d3f67f51c5ef4961cdd7",
+    "approx_vec_sha256": "11273f22160ef2808fa18ef8484647f84c231bb1dec1696db3dea15d4b05d3d5",
+    "refmodel_sha256": "38eb7ed944f05d6ac45ff68b69fbaa4b0b5b895f0eef46fa33e138395ceb64e2"
+  },
+  "addresses": {
+    "ext": 134217728,
+    "arena": 67108864,
+    "plan1": 268468224,
+    "plan2": 268500992,
+    "fma_in": [
+      67108864,
+      67137536,
+      67166208
+    ],
+    "fma_out": 67272704,
+    "div_in": [
+      67194880,
+      67223552
+    ],
+    "div_out": 67301376,
+    "sqrt_in": [
+      67252224
+    ],
+    "sqrt_out": 67330048,
+    "fma2_in": [
+      67268608,
+      67269632,
+      67270656
+    ],
+    "fma2_out": 67346432
+  },
+  "exact_baseline": {
+    "fma_vs_exact_reference": {
+      "n": 2048,
+      "mismatches": 0,
+      "first_mismatches": [],
+      "max_ulp": 0,
+      "mean_ulp": 0.0,
+      "pass": true
+    },
+    "div_vs_exact_reference": {
+      "n": 512,
+      "mismatches": 0,
+      "first_mismatches": [],
+      "max_ulp": 0,
+      "mean_ulp": 0.0,
+      "pass": true
+    },
+    "sqrt_vs_exact_reference": {
+      "n": 512,
+      "mismatches": 0,
+      "first_mismatches": [],
+      "max_ulp": 0,
+      "mean_ulp": 0.0,
+      "pass": true
+    }
+  },
+  "candidate_approx": {
+    "fma_vs_exact_reference": {
+      "n": 2048,
+      "mismatches": 0,
+      "first_mismatches": [],
+      "max_ulp": 0,
+      "mean_ulp": 0.0,
+      "pass": true
+    },
+    "fma_vs_exact_baseline": {
+      "n": 2048,
+      "mismatches": 0,
+      "first_mismatches": [],
+      "max_ulp": 0,
+      "mean_ulp": 0.0,
+      "pass": true
+    },
+    "div_vs_exact_reference": {
+      "n": 512,
+      "mismatches": 512,
+      "first_mismatches": [
+        {
+          "index": 0,
+          "got": "4e20464c",
+          "exp": "4e204a0c"
+        },
+        {
+          "index": 1,
+          "got": "47ea7531",
+          "exp": "47ea9750"
+        },
+        {
+          "index": 2,
+          "got": "421efcbf",
+          "exp": "421efd40"
+        },
+        {
+          "index": 3,
+          "got": "593502cd",
+          "exp": "59350561"
+        },
+        {
+          "index": 4,
+          "got": "3da40261",
+          "exp": "3da42c83"
+        }
+      ],
+      "max_ulp": 17951,
+      "mean_ulp": 2933.05078125,
+      "pass": false,
+      "informational_only": true
+    },
+    "div_vs_exact_baseline": {
+      "n": 512,
+      "mismatches": 512,
+      "first_mismatches": [
+        {
+          "index": 0,
+          "got": "4e20464c",
+          "exp": "4e204a0c"
+        },
+        {
+          "index": 1,
+          "got": "47ea7531",
+          "exp": "47ea9750"
+        },
+        {
+          "index": 2,
+          "got": "421efcbf",
+          "exp": "421efd40"
+        },
+        {
+          "index": 3,
+          "got": "593502cd",
+          "exp": "59350561"
+        },
+        {
+          "index": 4,
+          "got": "3da40261",
+          "exp": "3da42c83"
+        }
+      ],
+      "max_ulp": 17951,
+      "mean_ulp": 2933.05078125,
+      "pass": false,
+      "informational_only": true
+    },
+    "sqrt_vs_exact_reference": {
+      "n": 512,
+      "mismatches": 509,
+      "first_mismatches": [
+        {
+          "index": 0,
+          "got": "408239c8",
+          "exp": "408239c9"
+        },
+        {
+          "index": 1,
+          "got": "40c538b3",
+          "exp": "40c538dc"
+        },
+        {
+          "index": 2,
+          "got": "40d76912",
+          "exp": "40d7691e"
+        },
+        {
+          "index": 3,
+          "got": "4109d3f0",
+          "exp": "4109d3f2"
+        },
+        {
+          "index": 4,
+          "got": "4032f539",
+          "exp": "4032f540"
+        }
+      ],
+      "max_ulp": 60,
+      "mean_ulp": 12.528487229862476,
+      "pass": false,
+      "informational_only": true
+    },
+    "sqrt_vs_exact_baseline": {
+      "n": 512,
+      "mismatches": 509,
+      "first_mismatches": [
+        {
+          "index": 0,
+          "got": "408239c8",
+          "exp": "408239c9"
+        },
+        {
+          "index": 1,
+          "got": "40c538b3",
+          "exp": "40c538dc"
+        },
+        {
+          "index": 2,
+          "got": "40d76912",
+          "exp": "40d7691e"
+        },
+        {
+          "index": 3,
+          "got": "4109d3f0",
+          "exp": "4109d3f2"
+        },
+        {
+          "index": 4,
+          "got": "4032f539",
+          "exp": "4032f540"
+        }
+      ],
+      "max_ulp": 60,
+      "mean_ulp": 12.528487229862476,
+      "pass": false,
+      "informational_only": true
+    },
+    "div_error": {
+      "n": 512,
+      "missing_or_special": 0,
+      "max_rel": 0.0011093994158386522,
+      "mean_rel": 0.00025164266011881925,
+      "over_10pct": 0,
+      "over_0p2pct": 0,
+      "pass_error_bound": true
+    },
+    "sqrt_error": {
+      "n": 512,
+      "missing_or_special": 0,
+      "max_rel": 5.622923815982944e-06,
+      "mean_rel": 1.0787093869510222e-06,
+      "over_10pct": 0,
+      "over_0p2pct": 0,
+      "pass_error_bound": true
+    }
+  },
+  "epoch2_isolation": {
+    "abort_fma2_vs_reference": {
+      "n": 128,
+      "mismatches": 0,
+      "first_mismatches": [],
+      "max_ulp": 0,
+      "mean_ulp": 0.0,
+      "pass": true
+    },
+    "reset_fma2_vs_reference": {
+      "n": 128,
+      "mismatches": 0,
+      "first_mismatches": [],
+      "max_ulp": 0,
+      "mean_ulp": 0.0,
+      "pass": true
+    }
+  },
+  "cycles": {
+    "exact": {
+      "graph": 45785,
+      "vector": 16205,
+      "done_cycle": 45817,
+      "last_b_cycle": 45809
+    },
+    "approx": {
+      "graph": 16589,
+      "vector": 1603,
+      "done_cycle": 16621,
+      "last_b_cycle": 16613
+    }
+  },
+  "axi": {
+    "exact": {
+      "rburst": 127,
+      "wburst": 48,
+      "rbeats": 1972,
+      "wbeats": 768,
+      "tag_err": 0
+    },
+    "approx": {
+      "rburst": 127,
+      "wburst": 48,
+      "rbeats": 1972,
+      "wbeats": 768,
+      "tag_err": 0
+    }
+  },
+  "abort": {
+    "path": "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_closeout_numeric/logs/abort.log",
+    "pass": true,
+    "lines": [
+      "HOST plan1-abort plan_base=10008000",
+      "HOST plan1-abort START cycle=31",
+      "HOST abort asserted cycle=2500 vector_busy=1",
+      "HOST abort-drain done=1 abort_done=1 fault=0 err=00 cycle=2556 done_cycle=2548",
+      "HOST abort-quiescent aw=0 b=0 done_cycle=2548 last_b=2400",
+      "HOST plan2-new-epoch plan_base=10010000",
+      "HOST plan2-new-epoch START cycle=2603",
+      "HOST plan2 done=1 abort_done=0 fault=0 err=00 cycle=3813 done_cycle=3805",
+      "CLOSEOUT_STATUS busy=0 done=1 fault=0 aborted=0 err=00 cycles=1201 completed=1 last=0",
+      "CLOSEOUT_VEC vcyc=1141 lcyc=0 vrb=8704 vwb=1536",
+      "CLOSEOUT_AXI rburst=42 wburst=6 rbeats=608 wbeats=96 rdpeak=1 wrpeak=1 rdstall=11 wrstall=39 tag_err=0 bfm_rbeats=608 bfm_wbeats=96",
+      "CLOSEOUT_BOUNDARY done_cycle=3805 last_b_cycle=3797 b_count_at_done=0 b_after_done=0 aw_after_done=0",
+      "CLOSEOUT_RESULT PASS"
+    ],
+    "cycles": 1201,
+    "completed": 1,
+    "last_node": 0,
+    "fault": 0,
+    "aborted": 0,
+    "vcyc": 1141,
+    "vrb": 8704,
+    "vwb": 1536,
+    "rburst": 42,
+    "wburst": 6,
+    "rbeats": 608,
+    "wbeats": 96,
+    "tag_err": 0,
+    "done_cycle": 3805,
+    "last_b_cycle": 3797,
+    "b_count_at_done": 0,
+    "b_after_done": 0,
+    "aw_after_done": 0
+  },
+  "reset": {
+    "path": "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_closeout_numeric/logs/reset.log",
+    "pass": true,
+    "lines": [
+      "HOST plan1-reset plan_base=10008000",
+      "HOST plan1-reset START cycle=31",
+      "HOST reset asserted cycle=3000",
+      "HOST reset-quiescent aw=0 b=0 last_b=2400",
+      "HOST plan2-after-reset plan_base=10010000",
+      "HOST plan2-after-reset START cycle=3087",
+      "HOST plan2-after-reset done=1 abort_done=0 fault=0 err=00 cycle=4297 done_cycle=4289",
+      "CLOSEOUT_STATUS busy=0 done=1 fault=0 aborted=0 err=00 cycles=1201 completed=1 last=0",
+      "CLOSEOUT_VEC vcyc=1142 lcyc=0 vrb=1536 vwb=512",
+      "CLOSEOUT_AXI rburst=9 wburst=2 rbeats=116 wbeats=32 rdpeak=1 wrpeak=1 rdstall=1 wrstall=15 tag_err=0 bfm_rbeats=116 bfm_wbeats=32",
+      "CLOSEOUT_BOUNDARY done_cycle=4289 last_b_cycle=4281 b_count_at_done=0 b_after_done=0 aw_after_done=0",
+      "CLOSEOUT_RESULT PASS"
+    ],
+    "cycles": 1201,
+    "completed": 1,
+    "last_node": 0,
+    "fault": 0,
+    "aborted": 0,
+    "vcyc": 1142,
+    "vrb": 1536,
+    "vwb": 512,
+    "rburst": 9,
+    "wburst": 2,
+    "rbeats": 116,
+    "wbeats": 32,
+    "tag_err": 0,
+    "done_cycle": 4289,
+    "last_b_cycle": 4281,
+    "b_count_at_done": 0,
+    "b_after_done": 0,
+    "aw_after_done": 0
+  },
+  "run_rc": {
+    "compile_top": {
+      "rc": 0,
+      "seconds": null
+    },
+    "compile_lint": {
+      "rc": 0,
+      "seconds": null
+    },
+    "exact": {
+      "rc": 0,
+      "seconds": 104
+    },
+    "approx": {
+      "rc": 0,
+      "seconds": 40
+    },
+    "abort": {
+      "rc": 0,
+      "seconds": 10
+    },
+    "reset": {
+      "rc": 0,
+      "seconds": 11
+    },
+    "check": {
+      "rc": 0,
+      "seconds": null
+    },
+    "make_evidence": {
+      "rc": 0,
+      "seconds": null
+    },
+    "make_patch": {
+      "rc": 0,
+      "seconds": null
+    }
+  },
+  "cited_evidence": {
+    "primary_acceptance_cited_json_sha256": "1911a014f2fdf42b9a2f5cfc3de1b346d542ee2db904f277fc21fd8921667b4b",
+    "snapshot_integrity_sha256": "e90d5ed6aea750c6452d385a81d2c2aa8b18eeb30b819e6fc3dfd4790fedd95f",
+    "patch_sha256": "ecf0b38a6fc80635517ea773620798bfe9feba31c6cf5b6aaf8d5b69afe33088"
+  },
+  "deliverables": [
+    "REPORT.md",
+    "INTERFACE.md",
+    "result.json",
+    "progress.json",
+    "USER_UPDATES.md",
+    "filelist_closeout_numeric.f",
+    "run_all.sh",
+    "scripts/",
+    "tb/",
+    "rtl/",
+    "patch/closeout_numeric.patch",
+    "logs/",
+    "reports/",
+    "SHA256SUMS.txt",
+    "reports/NUMERIC_SOURCE_SHA256.txt",
+    "reports/UPSTREAM_SHA256.txt"
+  ]
+}

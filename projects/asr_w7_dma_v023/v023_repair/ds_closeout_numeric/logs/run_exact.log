@@ -1,0 +1,8 @@
+HOST plan1 plan_base=10008000
+HOST plan1 START cycle=31
+CLOSEOUT_STATUS busy=0 done=1 fault=0 aborted=0 err=00 cycles=45785 completed=3 last=2
+CLOSEOUT_VEC vcyc=16205 lcyc=0 vrb=30720 vwb=12288
+CLOSEOUT_AXI rburst=127 wburst=48 rbeats=1972 wbeats=768 rdpeak=1 wrpeak=1 rdstall=77 wrstall=326 tag_err=0 bfm_rbeats=1972 bfm_wbeats=768
+CLOSEOUT_BOUNDARY done_cycle=45817 last_b_cycle=45809 b_count_at_done=0 b_after_done=0 aw_after_done=0
+CLOSEOUT_RESULT PASS
+tb/tb_closeout_numeric.sv:319: $finish called at 366636000 (1ps)

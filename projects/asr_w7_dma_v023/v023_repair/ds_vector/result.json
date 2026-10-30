@@ -1,0 +1,2119 @@
+{
+  "task": "ds_vector",
+  "status": "completed",
+  "passed": true,
+  "scope": "Actual RTL logic simulation; transactional DMA BFM; NOT board DDR timing, synthesis, or full model.",
+  "acceptance_response": {
+    "primary_report": "../primary_acceptance/REPORT.md",
+    "tail_cases": "fixed: add_tail5/add_tail7/a48_tail3/f32_to_i16_tail7 route banks <=8 to exact core; all 67 exact fixtures pass",
+    "fma": "not implemented/substituted in ds_vector; op17 only reaches vendor asr_fma_ip and aborts under forbidden stub; epilogue FMA blocker remains outside this task",
+    "approx_tiers": "three-tier claim withdrawn; delivered core is one fixed 4-stage structure; TIER/LATENCY/II are metadata, not structural",
+    "early_pass_reused": false
+  },
+  "counts": {
+    "exact_regression_cases": 67,
+    "exact_stress_cases": 7,
+    "exact_passed": 74,
+    "axi_cases": 14,
+    "approx_normal": 4,
+    "approx_special": 4,
+    "approx_backpressure": 8
+  },
+  "exact": {
+    "passed": true,
+    "failures": [],
+    "scope": "Actual RTL logic simulation; transactional DMA BFM; NOT board DDR timing, synthesis, or full model.",
+    "compile_seconds": {
+      "baseline": 0.027868032455444336,
+      "candidate": 0.060306549072265625
+    },
+    "tests": [
+      {
+        "name": "add_1001",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 8414,
+        "candidate_cycles": 1309,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 6.428,
+        "candidate_cycles_per_element": 1.3077
+      },
+      {
+        "name": "sub_1001",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 8414,
+        "candidate_cycles": 1309,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 6.428,
+        "candidate_cycles_per_element": 1.3077
+      },
+      {
+        "name": "mul_1001",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 8414,
+        "candidate_cycles": 1309,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 6.428,
+        "candidate_cycles_per_element": 1.3077
+      },
+      {
+        "name": "add_tail1",
+        "kind": "normal",
+        "count": 1,
+        "output_bytes": 4,
+        "expect_fault": 0,
+        "baseline_cycles": 34,
+        "candidate_cycles": 34,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          2,
+          1
+        ],
+        "candidate_req": [
+          2,
+          1
+        ],
+        "speedup_cycles": 1.0,
+        "candidate_cycles_per_element": 34.0
+      },
+      {
+        "name": "add_tail2",
+        "kind": "normal",
+        "count": 2,
+        "output_bytes": 8,
+        "expect_fault": 0,
+        "baseline_cycles": 46,
+        "candidate_cycles": 41,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          2,
+          1
+        ],
+        "candidate_req": [
+          2,
+          1
+        ],
+        "speedup_cycles": 1.122,
+        "candidate_cycles_per_element": 20.5
+      },
+      {
+        "name": "add_tail3",
+        "kind": "normal",
+        "count": 3,
+        "output_bytes": 12,
+        "expect_fault": 0,
+        "baseline_cycles": 56,
+        "candidate_cycles": 48,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          2,
+          1
+        ],
+        "candidate_req": [
+          2,
+          1
+        ],
+        "speedup_cycles": 1.167,
+        "candidate_cycles_per_element": 16.0
+      },
+      {
+        "name": "add_tail5",
+        "kind": "normal",
+        "count": 5,
+        "output_bytes": 20,
+        "expect_fault": 0,
+        "baseline_cycles": 84,
+        "candidate_cycles": 68,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          2,
+          1
+        ],
+        "candidate_req": [
+          2,
+          1
+        ],
+        "speedup_cycles": 1.235,
+        "candidate_cycles_per_element": 13.6
+      },
+      {
+        "name": "add_tail7",
+        "kind": "normal",
+        "count": 7,
+        "output_bytes": 28,
+        "expect_fault": 0,
+        "baseline_cycles": 105,
+        "candidate_cycles": 82,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          2,
+          1
+        ],
+        "candidate_req": [
+          2,
+          1
+        ],
+        "speedup_cycles": 1.28,
+        "candidate_cycles_per_element": 11.7143
+      },
+      {
+        "name": "add_tail127",
+        "kind": "normal",
+        "count": 127,
+        "output_bytes": 508,
+        "expect_fault": 0,
+        "baseline_cycles": 1603,
+        "candidate_cycles": 239,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          2,
+          1
+        ],
+        "candidate_req": [
+          2,
+          1
+        ],
+        "speedup_cycles": 6.707,
+        "candidate_cycles_per_element": 1.8819
+      },
+      {
+        "name": "add_tail255",
+        "kind": "normal",
+        "count": 255,
+        "output_bytes": 1020,
+        "expect_fault": 0,
+        "baseline_cycles": 3206,
+        "candidate_cycles": 453,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          2,
+          1
+        ],
+        "candidate_req": [
+          2,
+          1
+        ],
+        "speedup_cycles": 7.077,
+        "candidate_cycles_per_element": 1.7765
+      },
+      {
+        "name": "add_tail257",
+        "kind": "normal",
+        "count": 257,
+        "output_bytes": 1028,
+        "expect_fault": 0,
+        "baseline_cycles": 3222,
+        "candidate_cycles": 460,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          4,
+          2
+        ],
+        "candidate_req": [
+          4,
+          2
+        ],
+        "speedup_cycles": 7.004,
+        "candidate_cycles_per_element": 1.7899
+      },
+      {
+        "name": "mul_tail3",
+        "kind": "normal",
+        "count": 3,
+        "output_bytes": 12,
+        "expect_fault": 0,
+        "baseline_cycles": 56,
+        "candidate_cycles": 48,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          2,
+          1
+        ],
+        "candidate_req": [
+          2,
+          1
+        ],
+        "speedup_cycles": 1.167,
+        "candidate_cycles_per_element": 16.0
+      },
+      {
+        "name": "a16_to_f32_1001",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 4778,
+        "candidate_cycles": 533,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          4,
+          4
+        ],
+        "candidate_req": [
+          4,
+          4
+        ],
+        "speedup_cycles": 8.964,
+        "candidate_cycles_per_element": 0.5325
+      },
+      {
+        "name": "a16_tail3",
+        "kind": "normal",
+        "count": 3,
+        "output_bytes": 12,
+        "expect_fault": 0,
+        "baseline_cycles": 36,
+        "candidate_cycles": 32,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          1,
+          1
+        ],
+        "candidate_req": [
+          1,
+          1
+        ],
+        "speedup_cycles": 1.125,
+        "candidate_cycles_per_element": 10.6667
+      },
+      {
+        "name": "a48_to_f32_1001",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 4858,
+        "candidate_cycles": 1194,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          4,
+          4
+        ],
+        "candidate_req": [
+          4,
+          4
+        ],
+        "speedup_cycles": 4.069,
+        "candidate_cycles_per_element": 1.1928
+      },
+      {
+        "name": "a48_tail1",
+        "kind": "normal",
+        "count": 1,
+        "output_bytes": 4,
+        "expect_fault": 0,
+        "baseline_cycles": 25,
+        "candidate_cycles": 25,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          1,
+          1
+        ],
+        "candidate_req": [
+          1,
+          1
+        ],
+        "speedup_cycles": 1.0,
+        "candidate_cycles_per_element": 25.0
+      },
+      {
+        "name": "a48_tail3",
+        "kind": "normal",
+        "count": 3,
+        "output_bytes": 12,
+        "expect_fault": 0,
+        "baseline_cycles": 37,
+        "candidate_cycles": 35,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          1,
+          1
+        ],
+        "candidate_req": [
+          1,
+          1
+        ],
+        "speedup_cycles": 1.057,
+        "candidate_cycles_per_element": 11.6667
+      },
+      {
+        "name": "f32_to_i16_1001",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 2002,
+        "expect_fault": 0,
+        "baseline_cycles": 4769,
+        "candidate_cycles": 695,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          4,
+          4
+        ],
+        "candidate_req": [
+          4,
+          4
+        ],
+        "speedup_cycles": 6.862,
+        "candidate_cycles_per_element": 0.6943
+      },
+      {
+        "name": "f32_to_i16_tail1",
+        "kind": "normal",
+        "count": 1,
+        "output_bytes": 2,
+        "expect_fault": 0,
+        "baseline_cycles": 26,
+        "candidate_cycles": 25,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          1,
+          1
+        ],
+        "candidate_req": [
+          1,
+          1
+        ],
+        "speedup_cycles": 1.04,
+        "candidate_cycles_per_element": 25.0
+      },
+      {
+        "name": "f32_to_i16_tail7",
+        "kind": "normal",
+        "count": 7,
+        "output_bytes": 14,
+        "expect_fault": 0,
+        "baseline_cycles": 63,
+        "candidate_cycles": 51,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          1,
+          1
+        ],
+        "candidate_req": [
+          1,
+          1
+        ],
+        "speedup_cycles": 1.235,
+        "candidate_cycles_per_element": 7.2857
+      },
+      {
+        "name": "f32_to_i16_tail255",
+        "kind": "normal",
+        "count": 255,
+        "output_bytes": 510,
+        "expect_fault": 0,
+        "baseline_cycles": 1790,
+        "candidate_cycles": 267,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          1,
+          1
+        ],
+        "candidate_req": [
+          1,
+          1
+        ],
+        "speedup_cycles": 6.704,
+        "candidate_cycles_per_element": 1.0471
+      },
+      {
+        "name": "add_ascalar_1001",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 7830,
+        "candidate_cycles": 754,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 10.385,
+        "candidate_cycles_per_element": 0.7532
+      },
+      {
+        "name": "add_bscalar_1001",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 7826,
+        "candidate_cycles": 754,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 10.379,
+        "candidate_cycles_per_element": 0.7532
+      },
+      {
+        "name": "add_bothscalar_1001",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 7238,
+        "candidate_cycles": 407,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 17.784,
+        "candidate_cycles_per_element": 0.4066
+      },
+      {
+        "name": "bperiod_1",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 7826,
+        "candidate_cycles": 754,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 10.379,
+        "candidate_cycles_per_element": 0.7532
+      },
+      {
+        "name": "bperiod_2",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 7830,
+        "candidate_cycles": 754,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 10.385,
+        "candidate_cycles_per_element": 0.7532
+      },
+      {
+        "name": "bperiod_4",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 7833,
+        "candidate_cycles": 754,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 10.389,
+        "candidate_cycles_per_element": 0.7532
+      },
+      {
+        "name": "bperiod_8",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 7844,
+        "candidate_cycles": 762,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 10.294,
+        "candidate_cycles_per_element": 0.7612
+      },
+      {
+        "name": "bperiod_16",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 7861,
+        "candidate_cycles": 779,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 10.091,
+        "candidate_cycles_per_element": 0.7782
+      },
+      {
+        "name": "bperiod_32",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 7896,
+        "candidate_cycles": 816,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 9.676,
+        "candidate_cycles_per_element": 0.8152
+      },
+      {
+        "name": "bperiod_64",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 7970,
+        "candidate_cycles": 887,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 8.985,
+        "candidate_cycles_per_element": 0.8861
+      },
+      {
+        "name": "bperiod_128",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 8120,
+        "candidate_cycles": 1033,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 7.861,
+        "candidate_cycles_per_element": 1.032
+      },
+      {
+        "name": "bperiod_256",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 8414,
+        "candidate_cycles": 1309,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 6.428,
+        "candidate_cycles_per_element": 1.3077
+      },
+      {
+        "name": "btiled_1024",
+        "kind": "normal",
+        "count": 1024,
+        "output_bytes": 4096,
+        "expect_fault": 0,
+        "baseline_cycles": 8075,
+        "candidate_cycles": 838,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 9.636,
+        "candidate_cycles_per_element": 0.8184
+      },
+      {
+        "name": "btiled_2048",
+        "kind": "normal",
+        "count": 2048,
+        "output_bytes": 8192,
+        "expect_fault": 0,
+        "baseline_cycles": 15246,
+        "candidate_cycles": 1518,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          16,
+          8
+        ],
+        "candidate_req": [
+          16,
+          8
+        ],
+        "speedup_cycles": 10.043,
+        "candidate_cycles_per_element": 0.7412
+      },
+      {
+        "name": "div_1001",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 32438,
+        "candidate_cycles": 31411,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          8,
+          4
+        ],
+        "candidate_req": [
+          8,
+          4
+        ],
+        "speedup_cycles": 1.033,
+        "candidate_cycles_per_element": 31.3796
+      },
+      {
+        "name": "div_tail7",
+        "kind": "normal",
+        "count": 7,
+        "output_bytes": 28,
+        "expect_fault": 0,
+        "baseline_cycles": 273,
+        "candidate_cycles": 250,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          2,
+          1
+        ],
+        "candidate_req": [
+          2,
+          1
+        ],
+        "speedup_cycles": 1.092,
+        "candidate_cycles_per_element": 35.7143
+      },
+      {
+        "name": "sqrt_1001",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 31843,
+        "candidate_cycles": 31263,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          4,
+          4
+        ],
+        "candidate_req": [
+          4,
+          4
+        ],
+        "speedup_cycles": 1.019,
+        "candidate_cycles_per_element": 31.2318
+      },
+      {
+        "name": "sqrt_tail7",
+        "kind": "normal",
+        "count": 7,
+        "output_bytes": 28,
+        "expect_fault": 0,
+        "baseline_cycles": 253,
+        "candidate_cycles": 242,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "baseline_req": [
+          1,
+          1
+        ],
+        "candidate_req": [
+          1,
+          1
+        ],
+        "speedup_cycles": 1.045,
+        "candidate_cycles_per_element": 34.5714
+      },
+      {
+        "name": "exp_1001",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 82894,
+        "candidate_cycles": 82314,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": false,
+        "baseline_req": [
+          4,
+          4
+        ],
+        "candidate_req": [
+          4,
+          4
+        ],
+        "speedup_cycles": 1.007,
+        "candidate_cycles_per_element": 82.2318
+      },
+      {
+        "name": "log_1001",
+        "kind": "normal",
+        "count": 1001,
+        "output_bytes": 4004,
+        "expect_fault": 0,
+        "baseline_cycles": 116928,
+        "candidate_cycles": 116348,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": false,
+        "baseline_req": [
+          4,
+          4
+        ],
+        "candidate_req": [
+          4,
+          4
+        ],
+        "speedup_cycles": 1.005,
+        "candidate_cycles_per_element": 116.2318
+      },
+      {
+        "name": "err_div_zero",
+        "kind": "special",
+        "count": 2,
+        "output_bytes": 8,
+        "expect_fault": 1,
+        "baseline_cycles": 27,
+        "candidate_cycles": 24,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          2,
+          0
+        ],
+        "candidate_req": [
+          2,
+          0
+        ],
+        "speedup_cycles": 1.125,
+        "candidate_cycles_per_element": 12.0
+      },
+      {
+        "name": "err_div_0_0",
+        "kind": "special",
+        "count": 1,
+        "output_bytes": 4,
+        "expect_fault": 1,
+        "baseline_cycles": 22,
+        "candidate_cycles": 24,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          2,
+          0
+        ],
+        "candidate_req": [
+          2,
+          0
+        ],
+        "speedup_cycles": 0.917,
+        "candidate_cycles_per_element": 24.0
+      },
+      {
+        "name": "err_sqrt_neg",
+        "kind": "special",
+        "count": 1,
+        "output_bytes": 4,
+        "expect_fault": 1,
+        "baseline_cycles": 15,
+        "candidate_cycles": 17,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          1,
+          0
+        ],
+        "candidate_req": [
+          1,
+          0
+        ],
+        "speedup_cycles": 0.882,
+        "candidate_cycles_per_element": 17.0
+      },
+      {
+        "name": "err_div_inf_inf",
+        "kind": "special",
+        "count": 1,
+        "output_bytes": 4,
+        "expect_fault": 1,
+        "baseline_cycles": 22,
+        "candidate_cycles": 24,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          2,
+          0
+        ],
+        "candidate_req": [
+          2,
+          0
+        ],
+        "speedup_cycles": 0.917,
+        "candidate_cycles_per_element": 24.0
+      },
+      {
+        "name": "err_magic",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_reserved_low",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_reserved_high",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_count0",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_count_huge",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_op19",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_dest_low",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_dest_unaligned",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_a_overlap_dest",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_a_unaligned",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_a16_a48",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_a48_ascalar",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_out16_op",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_period_nonpow2",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_period_bscalar",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_btiled_period0",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "err_btiled_count",
+        "kind": "acl",
+        "count": 37,
+        "output_bytes": 148,
+        "expect_fault": 1,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": null,
+        "gold_match": null,
+        "baseline_req": [
+          0,
+          0
+        ],
+        "candidate_req": [
+          0,
+          0
+        ],
+        "speedup_cycles": 0.2,
+        "candidate_cycles_per_element": 0.1351
+      },
+      {
+        "name": "work_add_scalar",
+        "kind": "work_gold",
+        "count": 1001,
+        "output_bytes": 4004,
+        "baseline_cycles": 7826,
+        "candidate_cycles": 754,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "speedup_cycles": 10.379,
+        "candidate_cycles_per_element": 0.7532
+      },
+      {
+        "name": "work_mul_vector",
+        "kind": "work_gold",
+        "count": 1001,
+        "output_bytes": 4004,
+        "baseline_cycles": 8414,
+        "candidate_cycles": 1309,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "speedup_cycles": 6.428,
+        "candidate_cycles_per_element": 1.3077
+      },
+      {
+        "name": "work_i16_to_float",
+        "kind": "work_gold",
+        "count": 1001,
+        "output_bytes": 4004,
+        "baseline_cycles": 4778,
+        "candidate_cycles": 533,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "speedup_cycles": 8.964,
+        "candidate_cycles_per_element": 0.5325
+      },
+      {
+        "name": "work_round_i16",
+        "kind": "work_gold",
+        "count": 1001,
+        "output_bytes": 2002,
+        "baseline_cycles": 4769,
+        "candidate_cycles": 695,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "speedup_cycles": 6.862,
+        "candidate_cycles_per_element": 0.6943
+      },
+      {
+        "name": "work_i48_to_float",
+        "kind": "work_gold",
+        "count": 1001,
+        "output_bytes": 4004,
+        "baseline_cycles": 4858,
+        "candidate_cycles": 1194,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "byte_match": true,
+        "gold_match": true,
+        "speedup_cycles": 4.069,
+        "candidate_cycles_per_element": 1.1928
+      }
+    ],
+    "stress": [
+      {
+        "mode": 0,
+        "baseline_cycles": 7826,
+        "candidate_cycles": 754,
+        "byte_match": true,
+        "ok": true
+      },
+      {
+        "mode": 9,
+        "baseline_cycles": 7826,
+        "candidate_cycles": 754,
+        "byte_match": true,
+        "ok": true
+      },
+      {
+        "mode": 10,
+        "baseline_cycles": 7826,
+        "candidate_cycles": 754,
+        "byte_match": true,
+        "ok": true
+      },
+      {
+        "mode": 11,
+        "baseline_cycles": 7816,
+        "candidate_cycles": 714,
+        "byte_match": true,
+        "ok": true
+      },
+      {
+        "mode": 12,
+        "baseline_cycles": 7808,
+        "candidate_cycles": 747,
+        "byte_match": true,
+        "ok": true
+      },
+      {
+        "mode": 13,
+        "baseline_cycles": 7795,
+        "candidate_cycles": 701,
+        "byte_match": true,
+        "ok": true
+      },
+      {
+        "mode": 14,
+        "baseline_cycles": 7906,
+        "candidate_cycles": 992,
+        "byte_match": true,
+        "ok": true
+      }
+    ],
+    "counts": {
+      "regression_cases": 67,
+      "stress_cases": 7,
+      "passed_cases": 74
+    },
+    "source_sha256": {
+      "tb/tb_vector_generic.sv": "bae61666bd90555bf561fb02d519f6709a33fa48b285e7cf37f27f790f3d2387",
+      "baseline/rtl/ddr_vector_engine.sv": "08a642d915f0d0a83d10c156a52c21bc20bd4f69b3ac8c402ca22c094381641d",
+      "baseline/rtl/asr_fp32_alu.sv": "4f83fc66bb2443695e1e45b29cdd9f90e890ac44b76975fc2f66e00a8ba9c602",
+      "baseline/tb/fma_forbidden_stub.sv": "9a2e615daf60712370da43b6bae9d3c94ee121a702c3a10f2c22a50dd4e8bbee",
+      "candidate/rtl/ddr_vector_engine_pipe.sv": "d486711cefc89f943ec8bcc85059385216752f4079bc416cee48372acabd257a",
+      "candidate/rtl/asr_fp32_lane_fixed.sv": "540e06db258dfa1761076e061ee4f297b9089626e225e9c68a6faf30f5117217",
+      "candidate/rtl/vector_desc_check_pipe.sv": "c02cbe1ebf7c4ea694197ed215dbaa5cc76971a5f81a8389e314a80a2e9369fd"
+    }
+  },
+  "approx": {
+    "passed": true,
+    "failures": [],
+    "scope": "Integrated vector RTL + gemini_approx Tier-1 core; logic simulation only. Error is against exact baseline on the same vectors; no whole-model accuracy gate claimed.",
+    "tiers": {
+      "implementation": "single measured 4-stage core; TIER/LATENCY/II source parameters are not structural and are not used to claim 2/4/7 tiers",
+      "integrated_outstanding_depth": 4
+    },
+    "tests": [
+      {
+        "name": "div_1001",
+        "baseline_cycles": 32438,
+        "approx_cycles": 2637,
+        "baseline_rc": 0,
+        "approx_rc": 0,
+        "approx_flags": "10",
+        "max_rel_error": 0.0010995431177979766,
+        "mean_rel_error": 0.00026905343024739235,
+        "max_ulp": 17742,
+        "median_ulp": 1456,
+        "exact_match_rate": 0.007928642220019821,
+        "cycle_speedup": 12.301,
+        "approx_cycles_per_element": 2.6344
+      },
+      {
+        "name": "sqrt_1001",
+        "baseline_cycles": 31843,
+        "approx_cycles": 2489,
+        "baseline_rc": 0,
+        "approx_rc": 0,
+        "approx_flags": "10",
+        "max_rel_error": 5.244722944530499e-06,
+        "mean_rel_error": 1.1016659758742059e-06,
+        "max_ulp": 63,
+        "median_ulp": 10,
+        "exact_match_rate": 0.009910802775024777,
+        "cycle_speedup": 12.793,
+        "approx_cycles_per_element": 2.4865
+      },
+      {
+        "name": "div_tail7",
+        "baseline_cycles": 273,
+        "approx_cycles": 49,
+        "baseline_rc": 0,
+        "approx_rc": 0,
+        "approx_flags": "10",
+        "max_rel_error": 0.0005540601597875133,
+        "mean_rel_error": 1.3578911750182656e-06,
+        "max_ulp": 7029,
+        "median_ulp": 0,
+        "exact_match_rate": 0.9930624380574826,
+        "cycle_speedup": 5.571,
+        "approx_cycles_per_element": 7.0
+      },
+      {
+        "name": "sqrt_tail7",
+        "baseline_cycles": 253,
+        "approx_cycles": 41,
+        "baseline_rc": 0,
+        "approx_rc": 0,
+        "approx_flags": "10",
+        "max_rel_error": 2.9486176417141445e-06,
+        "mean_rel_error": 8.873588040327287e-09,
+        "max_ulp": 35,
+        "median_ulp": 0,
+        "exact_match_rate": 0.9930624380574826,
+        "cycle_speedup": 6.171,
+        "approx_cycles_per_element": 5.8571
+      }
+    ],
+    "special": [
+      {
+        "name": "err_div_zero",
+        "baseline_rc": 0,
+        "approx_rc": 0,
+        "approx_fault": 1,
+        "approx_err": "04",
+        "ok": true
+      },
+      {
+        "name": "err_div_0_0",
+        "baseline_rc": 0,
+        "approx_rc": 0,
+        "approx_fault": 1,
+        "approx_err": "04",
+        "ok": true
+      },
+      {
+        "name": "err_sqrt_neg",
+        "baseline_rc": 0,
+        "approx_rc": 0,
+        "approx_fault": 1,
+        "approx_err": "04",
+        "ok": true
+      },
+      {
+        "name": "err_div_inf_inf",
+        "baseline_rc": 0,
+        "approx_rc": 0,
+        "approx_fault": 1,
+        "approx_err": "04",
+        "ok": true
+      }
+    ],
+    "backpressure": [
+      {
+        "name": "div_1001",
+        "mode": 11,
+        "ok": true,
+        "cycles": 2612
+      },
+      {
+        "name": "div_1001",
+        "mode": 12,
+        "ok": true,
+        "cycles": 2631
+      },
+      {
+        "name": "div_1001",
+        "mode": 13,
+        "ok": true,
+        "cycles": 2606
+      },
+      {
+        "name": "div_1001",
+        "mode": 14,
+        "ok": true,
+        "cycles": 2780
+      },
+      {
+        "name": "sqrt_1001",
+        "mode": 11,
+        "ok": true,
+        "cycles": 2477
+      },
+      {
+        "name": "sqrt_1001",
+        "mode": 12,
+        "ok": true,
+        "cycles": 2483
+      },
+      {
+        "name": "sqrt_1001",
+        "mode": 13,
+        "ok": true,
+        "cycles": 2470
+      },
+      {
+        "name": "sqrt_1001",
+        "mode": 14,
+        "ok": true,
+        "cycles": 2584
+      }
+    ],
+    "source_sha256": {
+      "tb/tb_vector_generic.sv": "bae61666bd90555bf561fb02d519f6709a33fa48b285e7cf37f27f790f3d2387",
+      "candidate/rtl/ddr_vector_engine_approx.sv": "9bd1316ae41167106d6c2a154694793a30e5d17f4ee3e82644c36573b8279907",
+      "candidate/rtl/ddr_vector_engine_pipe.sv": "d486711cefc89f943ec8bcc85059385216752f4079bc416cee48372acabd257a",
+      "candidate/rtl/asr_fp32_lane_fixed.sv": "540e06db258dfa1761076e061ee4f297b9089626e225e9c68a6faf30f5117217",
+      "candidate/rtl/vector_desc_check_pipe.sv": "c02cbe1ebf7c4ea694197ed215dbaa5cc76971a5f81a8389e314a80a2e9369fd",
+      "candidate/rtl/gemini_approx/approx_div_sqrt.sv": "e360e7e455261ead4ee32ecacc93bed77f4de09458d3d689ae3eb3e948495ec1",
+      "candidate/rtl/gemini_approx/approx_recip_lut.sv": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+      "candidate/rtl/gemini_approx/approx_rsqrt_lut.sv": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153",
+      "baseline/rtl/asr_fp32_alu.sv": "4f83fc66bb2443695e1e45b29cdd9f90e890ac44b76975fc2f66e00a8ba9c602",
+      "baseline/tb/fma_forbidden_stub.sv": "9a2e615daf60712370da43b6bae9d3c94ee121a702c3a10f2c22a50dd4e8bbee"
+    }
+  },
+  "axi": {
+    "passed": true,
+    "failures": [],
+    "scope": "Actual two axi_dma_v019 + candidate engine + shared-memory AXI BFM; logic simulation, not board DDR timing. Write-side compute overlap may be zero for the faster candidate.",
+    "tests": [
+      {
+        "mode": 0,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 7882,
+        "candidate_cycles": 995,
+        "baseline_overlap": [
+          420,
+          677
+        ],
+        "candidate_overlap": [
+          204,
+          0
+        ],
+        "requests": [
+          20,
+          16
+        ],
+        "byte_match": true,
+        "ok": true
+      },
+      {
+        "mode": 1,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_overlap": [
+          0,
+          0
+        ],
+        "candidate_overlap": [
+          0,
+          0
+        ],
+        "requests": [
+          0,
+          0
+        ],
+        "byte_match": null,
+        "ok": true
+      },
+      {
+        "mode": 2,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_overlap": [
+          0,
+          0
+        ],
+        "candidate_overlap": [
+          0,
+          0
+        ],
+        "requests": [
+          0,
+          0
+        ],
+        "byte_match": null,
+        "ok": true
+      },
+      {
+        "mode": 3,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_overlap": [
+          0,
+          0
+        ],
+        "candidate_overlap": [
+          0,
+          0
+        ],
+        "requests": [
+          0,
+          0
+        ],
+        "byte_match": null,
+        "ok": true
+      },
+      {
+        "mode": 4,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_overlap": [
+          0,
+          0
+        ],
+        "candidate_overlap": [
+          0,
+          0
+        ],
+        "requests": [
+          0,
+          0
+        ],
+        "byte_match": null,
+        "ok": true
+      },
+      {
+        "mode": 5,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_overlap": [
+          0,
+          0
+        ],
+        "candidate_overlap": [
+          0,
+          0
+        ],
+        "requests": [
+          0,
+          0
+        ],
+        "byte_match": null,
+        "ok": true
+      },
+      {
+        "mode": 6,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 1,
+        "candidate_cycles": 5,
+        "baseline_overlap": [
+          0,
+          0
+        ],
+        "candidate_overlap": [
+          0,
+          0
+        ],
+        "requests": [
+          0,
+          0
+        ],
+        "byte_match": null,
+        "ok": true
+      },
+      {
+        "mode": 7,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 39,
+        "candidate_cycles": 43,
+        "baseline_overlap": [
+          0,
+          0
+        ],
+        "candidate_overlap": [
+          0,
+          0
+        ],
+        "requests": [
+          1,
+          0
+        ],
+        "byte_match": null,
+        "ok": true
+      },
+      {
+        "mode": 8,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 2518,
+        "candidate_cycles": 356,
+        "baseline_overlap": [
+          144,
+          59
+        ],
+        "candidate_overlap": [
+          68,
+          0
+        ],
+        "requests": [
+          9,
+          1
+        ],
+        "byte_match": null,
+        "ok": true
+      },
+      {
+        "mode": 9,
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 7882,
+        "candidate_cycles": 995,
+        "baseline_overlap": [
+          420,
+          677
+        ],
+        "candidate_overlap": [
+          204,
+          0
+        ],
+        "requests": [
+          20,
+          16
+        ],
+        "byte_match": null,
+        "ok": true
+      },
+      {
+        "mode": 0,
+        "fixture": "mul_vector",
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 8528,
+        "candidate_cycles": 1763,
+        "baseline_overlap": [
+          804,
+          678
+        ],
+        "candidate_overlap": [
+          204,
+          0
+        ],
+        "requests": [
+          32,
+          16
+        ],
+        "byte_match": true,
+        "ok": true
+      },
+      {
+        "mode": 0,
+        "fixture": "i16_to_float",
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 4805,
+        "candidate_cycles": 658,
+        "baseline_overlap": [
+          205,
+          680
+        ],
+        "candidate_overlap": [
+          135,
+          133
+        ],
+        "requests": [
+          8,
+          16
+        ],
+        "byte_match": true,
+        "ok": true
+      },
+      {
+        "mode": 0,
+        "fixture": "round_i16",
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 4820,
+        "candidate_cycles": 923,
+        "baseline_overlap": [
+          403,
+          505
+        ],
+        "candidate_overlap": [
+          204,
+          0
+        ],
+        "requests": [
+          16,
+          8
+        ],
+        "byte_match": true,
+        "ok": true
+      },
+      {
+        "mode": 0,
+        "fixture": "i48_to_float",
+        "baseline_rc": 0,
+        "candidate_rc": 0,
+        "baseline_cycles": 4942,
+        "candidate_cycles": 1543,
+        "baseline_overlap": [
+          601,
+          677
+        ],
+        "candidate_overlap": [
+          396,
+          0
+        ],
+        "requests": [
+          24,
+          16
+        ],
+        "byte_match": true,
+        "ok": true
+      }
+    ],
+    "source_sha256": {
+      "tb/tb_vector_axi_generic.sv": "bffaa859b328ab556ebe096b3920b45f6c744e84d381167a04d0b0fe36d2f111",
+      "baseline/tb/axi128_memory_bfm.sv": "dd2e5a075f3605cee30aa5b506bd6271a0b434a12c9d12cc377f12b18c17cf58",
+      "baseline/tb/fma_forbidden_stub.sv": "9a2e615daf60712370da43b6bae9d3c94ee121a702c3a10f2c22a50dd4e8bbee",
+      "baseline/rtl/ddr_vector_axi.sv": "9613c3f6814830b0129094ca860dafc4f5272e3e9a67ab5ef58b6074bdee34f2",
+      "baseline/rtl/ddr_vector_engine.sv": "08a642d915f0d0a83d10c156a52c21bc20bd4f69b3ac8c402ca22c094381641d",
+      "baseline/rtl/asr_fp32_alu.sv": "4f83fc66bb2443695e1e45b29cdd9f90e890ac44b76975fc2f66e00a8ba9c602",
+      "baseline/rtl/axi_dma_v019.sv": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531",
+      "candidate/rtl/ddr_vector_axi_pipe.sv": "7c492af8737f5ebfe1fa68b8cf9c4f2d9b229593ba53b15a45d404708ae66226",
+      "candidate/rtl/ddr_vector_engine_pipe.sv": "d486711cefc89f943ec8bcc85059385216752f4079bc416cee48372acabd257a",
+      "candidate/rtl/asr_fp32_lane_fixed.sv": "540e06db258dfa1761076e061ee4f297b9089626e225e9c68a6faf30f5117217",
+      "candidate/rtl/vector_desc_check_pipe.sv": "c02cbe1ebf7c4ea694197ed215dbaa5cc76971a5f81a8389e314a80a2e9369fd"
+    }
+  },
+  "fma": {
+    "covered": false,
+    "reason": "vendor asr_fma_ip simulation model absent; tests link fma_forbidden_stub.sv",
+    "evidence_log": "logs/fma_not_covered.log",
+    "expected_rc": 1,
+    "observed_message": "FMA not covered by forbidden-stub tests"
+  },
+  "deliverables_sha256": {
+    "baseline/rtl/asr_fp32_alu.sv": "4f83fc66bb2443695e1e45b29cdd9f90e890ac44b76975fc2f66e00a8ba9c602",
+    "baseline/rtl/axi_dma_v019.sv": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531",
+    "baseline/rtl/ddr_vector_axi.sv": "9613c3f6814830b0129094ca860dafc4f5272e3e9a67ab5ef58b6074bdee34f2",
+    "baseline/rtl/ddr_vector_engine.sv": "08a642d915f0d0a83d10c156a52c21bc20bd4f69b3ac8c402ca22c094381641d",
+    "baseline/tb/axi128_memory_bfm.sv": "dd2e5a075f3605cee30aa5b506bd6271a0b434a12c9d12cc377f12b18c17cf58",
+    "baseline/tb/fma_forbidden_stub.sv": "9a2e615daf60712370da43b6bae9d3c94ee121a702c3a10f2c22a50dd4e8bbee",
+    "baseline/tb/tb_vector.sv": "031c9d8e71b494baa88f7435a3a20c5c21bbaf7f76a9abee70f7c307fa3aeb30",
+    "baseline/tb/tb_vector_axi.sv": "36079df2083e90021e8787c45f3e3b98f2898a41c03371a6c7ece6463f2e0a87",
+    "candidate/rtl/asr_fp32_lane_fixed.sv": "540e06db258dfa1761076e061ee4f297b9089626e225e9c68a6faf30f5117217",
+    "candidate/rtl/ddr_vector_axi_pipe.sv": "7c492af8737f5ebfe1fa68b8cf9c4f2d9b229593ba53b15a45d404708ae66226",
+    "candidate/rtl/ddr_vector_engine_approx.sv": "9bd1316ae41167106d6c2a154694793a30e5d17f4ee3e82644c36573b8279907",
+    "candidate/rtl/ddr_vector_engine_pipe.sv": "d486711cefc89f943ec8bcc85059385216752f4079bc416cee48372acabd257a",
+    "candidate/rtl/gemini_approx/approx_div_sqrt.sv": "e360e7e455261ead4ee32ecacc93bed77f4de09458d3d689ae3eb3e948495ec1",
+    "candidate/rtl/gemini_approx/approx_recip_lut.sv": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+    "candidate/rtl/gemini_approx/approx_rsqrt_lut.sv": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153",
+    "candidate/rtl/vector_desc_check_pipe.sv": "c02cbe1ebf7c4ea694197ed215dbaa5cc76971a5f81a8389e314a80a2e9369fd",
+    "scripts/finalize_result.py": "3971cc6d5d6e9c600da95eb57830a418c2757bb4bbd6ab68fe4dce4cd4d90be8",
+    "scripts/gen_fixtures.py": "f3d0070bc63e3f516d1498c797061269ba856a010d4c299389909c0a5c8ca4b6",
+    "scripts/run_approx.py": "4314e717457a441a43e14a84f918f9c6c3df2f9390fac22bc81d898f83cb6fb0",
+    "scripts/run_axi.py": "41be3a015d03d80c0e9acaa9bfe34eef01fe5e9c3d259357b1a4ce41607897af",
+    "scripts/run_regression.py": "173d1ba808b8a50e7b5e249bcb4a02f1731339de8f2f75f1c94229966d28e9b1",
+    "tb/tb_vector_axi_generic.sv": "bffaa859b328ab556ebe096b3920b45f6c744e84d381167a04d0b0fe36d2f111",
+    "tb/tb_vector_generic.sv": "bae61666bd90555bf561fb02d519f6709a33fa48b285e7cf37f27f790f3d2387"
+  },
+  "uncompleted": [
+    "FMA numeric simulation not covered (vendor model absent); primary FMA rounding blocker in epilogue remains open",
+    "No whole-model accuracy/latency claim; vector-level simulation only",
+    "No synthesis/STA/Vivado/board/300-600MHz claim",
+    "Wide-lane tag tokens carried/echoed but not used as an ordering gate",
+    "Candidate AXI write/compute overlap zero on add_scalar; read/compute overlap nonzero",
+    "Generated exp/log gold differs because baseline is polynomial approximation"
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "task": "ds_matrix",
+  "title": "V0.23 matrix P2 unified candidate",
+  "updated": "2026-10-29",
+  "current_phase": "primary-acceptance-response-complete",
+  "scope": "logic simulation only; no synthesis, Vivado, DRC/STA, board, VNC or push",
+  "phases": [
+    {
+      "id": "P0",
+      "name": "read contracts, original work RTL, ds_storage_overlap/ds_ddr/ds_protocol_audit/ds_pe_pipeline reports",
+      "status": "done",
+      "evidence": [
+        "logs/source_sha256.txt",
+        "EXECUTION_CONTRACT.md",
+        "USER_REPAIR_REQUEST.txt",
+        "USER_UPDATES.md"
+      ]
+    },
+    {
+      "id": "P1",
+      "name": "copy and adapt the three mature storage modules",
+      "status": "done",
+      "evidence": [
+        "candidate/rtl/block_storage_stream_v2.sv",
+        "candidate/rtl/operand_banks_dual_v2.sv",
+        "candidate/rtl/block_engine_prefetch_v2.sv"
+      ]
+    },
+    {
+      "id": "P2",
+      "name": "II=1 C read-modify-write cache, registered array MUX, final-result bypass, cross-K RAW bypass",
+      "status": "done",
+      "evidence": [
+        "candidate/rtl/c_cache_banked4_pipe.sv",
+        "run_cache_pipe",
+        "run_pipe4_c1"
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "configurable PE 3/4/5/6 and real drain_done; remove hard-coded 65 and RUN-exit flush",
+      "status": "done",
+      "evidence": [
+        "run_pipe3_c0",
+        "run_pipe4_c0",
+        "run_pipe5_c0",
+        "run_pipe6_c0"
+      ]
+    },
+    {
+      "id": "P4",
+      "name": "integrate ds_ddr multi-outstanding DMA and fix PA-003/PA-004/PA-014",
+      "status": "done",
+      "evidence": [
+        "candidate/rtl/axi_dma_v020_multi_v2.sv",
+        "run_dma_multi",
+        "run_strobe"
+      ]
+    },
+    {
+      "id": "P5",
+      "name": "same-fixture regression: normal, old C, multi-N, K1, bad parity, backpressure, error drain, baseline",
+      "status": "done",
+      "evidence": [
+        "logs/metrics.txt",
+        "logs/commands.log"
+      ]
+    },
+    {
+      "id": "P6",
+      "name": "AXI + module activity trace through project skills",
+      "status": "done",
+      "evidence": [
+        "traffic/report_k1",
+        "traffic/report_c1_k96",
+        "activity/cluster_k1.html",
+        "activity/cluster_c1_k96.html"
+      ]
+    },
+    {
+      "id": "P7",
+      "name": "Resident-A optional assessment",
+      "status": "done-not-selected",
+      "evidence": [
+        "REPORT.md section 6"
+      ]
+    },
+    {
+      "id": "P8",
+      "name": "final report, interface, result, SHAs",
+      "status": "done",
+      "evidence": [
+        "REPORT.md",
+        "INTERFACE.md",
+        "result.json",
+        "logs/source_sha256.txt"
+      ]
+    },
+    {
+      "id": "P9",
+      "name": "read primary_acceptance/REPORT.md and USER_UPDATES.md; distinguish matrix scope from vector tail/FMA/approx findings",
+      "status": "done",
+      "evidence": [
+        "REPORT.md section 9"
+      ]
+    }
+  ],
+  "tests": {
+    "commands_total": 62,
+    "commands_nonzero": 0,
+    "rtl_run_groups": 27,
+    "skill_selftests": 2,
+    "golden_regeneration_cmp": 2,
+    "traffic_activity_generations": 4,
+    "icarus_cross_check": "K32 PIPE4 PASS cycles=4147, same as Verilator",
+    "edge_partial": "M17 N19 K33 PIPE4 PASS cycles=5236",
+    "p12_clip": "positions=0xCCCC clip=1 PASS cycles=4147"
+  },
+  "known_limits": [
+    "no full model / CASE0000 integration or accuracy metric in this task",
+    "no synthesis, STA, CDC proof or frequency claim",
+    "BFM is not a physical DDR controller/timing model",
+    "C48 C-accumulation overflow is still reported as fault 8 (baseline contract), while PE INT48 accumulation wraps naturally",
+    "Resident-A not enabled; capacity/port benefit not measured",
+    "overall acceptance is not claimed; ds_vector tail, fused FMA rounding and approx tier findings are outside this task and were not re-run here"
+  ]
+}

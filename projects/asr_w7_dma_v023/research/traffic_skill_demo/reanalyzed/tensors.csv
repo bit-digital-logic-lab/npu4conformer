@@ -1,0 +1,4 @@
+﻿tensor,version,format,src,dst,transfers,valid_bytes,bus_bytes,comparable_logical_bytes,unique_logical_bytes,repeat_candidate_bytes,unclassified_transfers,reasons
+X,v1,A16,DDR,Abank,2,16,16,16,12,4,0,"{""first_load"": 8, ""capacity_reload"": 8}"
+X,v2,A16,DDR,Abank,1,8,8,8,8,0,0,"{""first_load"": 8}"
+Y,v1,C48,Cbank,DDR,1,6,8,6,6,0,0,"{""result"": 6}"

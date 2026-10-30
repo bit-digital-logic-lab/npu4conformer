@@ -1,0 +1,15 @@
+PA001_BASELINE pairs done errors=0
+PA001_INTERLEAVED read20,read30,read24 -> aabbccdd (correct 11223344)
+PA001_INTERLEAVED_BUG
+FAIL op interleave ddddeeee
+FAIL vec interleave 11112222
+FAIL lay interleave 00000000
+FAIL mat interleave 55556666
+FAIL mpe interleave 11223344
+PA001_ATOMIC low=33334444 high=aabbccdd (expected high 11112222)
+FAIL atomic snapshot
+FAIL high-only read aabbccdd
+FAIL post-START snapshot aaaa5555
+PA001_TEST_END errors=9
+PA001_FAIL
+tb/tb_csr_pa001.sv:165: $finish called at 1280000 (1ps)

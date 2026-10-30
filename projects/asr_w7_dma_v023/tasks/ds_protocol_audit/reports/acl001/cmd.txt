@@ -1,0 +1,1 @@
+32-bit add would wrap at 0xFFFFFFF0; the 64-bit ACL must reject with no AXI.

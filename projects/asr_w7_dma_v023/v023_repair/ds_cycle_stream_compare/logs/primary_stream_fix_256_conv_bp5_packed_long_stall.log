@@ -1,0 +1,4 @@
+CMD: /home/yang/Desktop/项目/v023_repair/ds_cycle_stream_compare/build/tb_primary_stream_fix +VEC_FILE=vectors/stream_256.vec +OUT_FILE=logs/primary_stream_fix_256_conv_bp5_packed_long_stall.out +MODE=0 +RELU=0 +SPILL=0 +SCALE=3f800000 +BIAS=00000000 +BP=5 +ABORT_AT=-1 +PARAM_EN=0 +PARAM_ADDR=0 +PARAM_DATA=00000000 +CONTROL_PROBE=0 +MAX_CYCLES=2000000
+MILESTONE FIRST_IN 2 LAST_A 2046 LAST_P 2046 IDLE 2047 IN_FIRES 256 A_FIRES 256 P_FIRES 128
+DONE stream mode=0 relu=0 spill=0 abort_at=-1 abort_cycle=-1
+STATS in=256 a16=256 pack=128 spill=0 c48stat=256 a16stat=256 spillstat=0 saved=12288

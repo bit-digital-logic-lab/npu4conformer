@@ -1,0 +1,10 @@
+﻿tensor,version,format,src,dst,transfers,valid_bytes,bus_bytes,comparable_logical_bytes,unique_logical_bytes,repeat_candidate_bytes,unclassified_transfers,reasons
+C48_tile,v1,C48,C_Cache,DDR,1,6144,6144,6144,6144,0,0,"{""unfused_c48_evict"": 6144}"
+C48_tile,v1,C48,DDR,Vector_LPRE,1,6144,6144,6144,6144,0,0,"{""read_c48_for_conversion"": 6144}"
+FP32_raw,v1,FP32,Vector_ALU,DDR,1,4096,4096,4096,4096,0,0,"{""intermediate_spill"": 4096}"
+FP32_raw,v1,FP32,DDR,Vector_ALU,1,4096,4096,4096,4096,0,0,"{""read_fp32_scale"": 4096}"
+FP32_scaled,v1,FP32,Vector_ALU,DDR,1,4096,4096,4096,4096,0,0,"{""intermediate_spill"": 4096}"
+FP32_scaled,v1,FP32,DDR,Vector_ALU,1,4096,4096,4096,4096,0,0,"{""read_fp32_bias"": 4096}"
+FP32_biased,v1,FP32,Vector_ALU,DDR,1,4096,4096,4096,4096,0,0,"{""intermediate_spill"": 4096}"
+FP32_biased,v1,FP32,DDR,Vector_ALU,1,4096,4096,4096,4096,0,0,"{""read_fp32_quant"": 4096}"
+A16_out,v1,A16,Vector_ALU,DDR,1,2048,2048,2048,2048,0,0,"{""final_output"": 2048}"

@@ -1,0 +1,3 @@
+CMD: /home/yang/Desktop/项目/v023_repair/ds_numeric_adversarial/build/approx_repair2_approx_t1 +VEC_FILE=vectors/approx.vec +OUT_FILE=logs/approx_repair2_approx_t1_bp0.out +BP=0 +MAX_CYCLES=10000000
+DONE approx tier=1 in=15168 out=15168 cycles=15174
+STABILITY_ERRORS=0

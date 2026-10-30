@@ -1,0 +1,9 @@
+INFO init done mem=2048 words
+CFG m=64 n=32 k=96 ids=1/2/3 allowed=1 req=1 pos=3210 bases=03000000/03004000/03005000 slots=2
+INFO done fault=0 code=00 cycles=4554 compute=1632 rdblk=12 wrblk=128 hits=0 miss=2 prehit=4 prewait=398 ov_rd=773 ov_wr=1424 cgrp=1536 ccyc=2448 craw=0 pdrain=5 adrain=20
+INFO bfm rdcmds=12 wrcmds=128 rdbeats=1152 wrbeats=768 shared=0 maxb=1 rdstall=7 wrstall=53
+PASS tb_engine_p2 M=64 N=32 K=96 C_VALID=0 PIPE=4 cycles=4554 compute=1632 ov_rd=773 ov_wr=1424 prehit=4 prewait=398 cgrp=1536 ccyc=2448 pdrain=5 adrain=20
+- /home/yang/Desktop/项目/v023_repair/ds_matrix/tests/tb_engine_p2.sv:238: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 87us; walltime 0.256 s; speed 338.487 us/s
+- Verilator: cpu 0.256 s on 1 threads; allocated 7 MB

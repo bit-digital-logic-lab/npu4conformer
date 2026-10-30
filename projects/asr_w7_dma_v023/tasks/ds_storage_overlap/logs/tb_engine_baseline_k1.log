@@ -1,0 +1,5 @@
+BASE done fault=1 code=06 cycles=1522 compute=0 rdblk=3 wrblk=0 hits=0 miss=1 res=0
+BASE fault code=06
+[46100000] %Fatal: tb_engine_baseline.sv:144: Assertion failed in tb_engine_baseline: fault
+%Error: tests/tb_engine_baseline.sv:144: Verilog $stop
+Aborting...

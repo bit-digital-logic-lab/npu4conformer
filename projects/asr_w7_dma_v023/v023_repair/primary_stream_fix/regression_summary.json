@@ -1,0 +1,80 @@
+[
+  {
+    "label": "negative_old_bp2",
+    "rc": 1,
+    "pass": false,
+    "failed": [
+      "stream_conv",
+      "stream_conv_relu",
+      "stream_fma",
+      "stream_fma_relu",
+      "stream_fma_real",
+      "stream_scale_only",
+      "stream_spill",
+      "stream_abort",
+      "stream_param_port",
+      "stream_bias_preload",
+      "stream_reconfig"
+    ]
+  },
+  {
+    "label": "gemini_bp0",
+    "rc": 1,
+    "pass": null,
+    "failed": []
+  },
+  {
+    "label": "gemini_bp1",
+    "rc": 1,
+    "pass": null,
+    "failed": []
+  },
+  {
+    "label": "gemini_bp2",
+    "rc": 1,
+    "pass": null,
+    "failed": []
+  },
+  {
+    "label": "gemini_bp3",
+    "rc": 1,
+    "pass": null,
+    "failed": []
+  },
+  {
+    "label": "gemini_bp4",
+    "rc": 1,
+    "pass": null,
+    "failed": []
+  },
+  {
+    "label": "primary_bp0",
+    "rc": 0,
+    "pass": true,
+    "failed": []
+  },
+  {
+    "label": "primary_bp1",
+    "rc": 0,
+    "pass": true,
+    "failed": []
+  },
+  {
+    "label": "primary_bp2",
+    "rc": 0,
+    "pass": true,
+    "failed": []
+  },
+  {
+    "label": "primary_bp3",
+    "rc": 0,
+    "pass": true,
+    "failed": []
+  },
+  {
+    "label": "primary_bp4",
+    "rc": 0,
+    "pass": true,
+    "failed": []
+  }
+]

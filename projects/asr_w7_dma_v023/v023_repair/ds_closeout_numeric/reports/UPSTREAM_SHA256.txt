@@ -1,0 +1,5 @@
+1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12  ../gemini_fma_round2/candidate/fp32_fma_pipe.sv
+634eea1a15d1f8dbc7a2f8bae8eebd2b0e892da5978ed974ccb7645ff9b10599  ../gemini_fma_round2/candidate/asr_fma_ip.sv
+444fa2a42f47a7cde2ad736ead3177225319c6af3bb1c2ab27309233bee7a864  ../gemini_approx_round2/candidate/rtl/approx_div_sqrt.sv
+b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a  ../gemini_approx_round2/candidate/rtl/approx_recip_lut.sv
+cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153  ../gemini_approx_round2/candidate/rtl/approx_rsqrt_lut.sv

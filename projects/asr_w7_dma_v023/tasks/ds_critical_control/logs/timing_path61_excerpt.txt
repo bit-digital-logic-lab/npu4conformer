@@ -1,0 +1,86 @@
+Source: timing_baseline/timing.rpt (read-only), excerpt for path 61
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.055ns  (required time - arrival time)
+  Source:                 ps_system/ps_gateway_i/accelerator/inst/core/compute/core/state_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk100_raw  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/bad_reg/D
+                            (rising edge-triggered cell FDRE clocked by clk100_raw  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk100_raw
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk100_raw rise@8.000ns - clk100_raw rise@0.000ns)
+  Data Path Delay:        7.745ns  (logic 5.057ns (65.292%)  route 2.688ns (34.708%))
+  Logic Levels:           30  (CARRY8=6 DSP_A_B_DATA=2 DSP_ALU=3 DSP_M_DATA=2 DSP_MULTIPLIER=2 DSP_OUTPUT=3 DSP_PREADD_DATA=2 LUT2=1 LUT5=4 LUT6=5)
+  Clock Path Skew:        -0.161ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.830ns = ( 8.830 - 8.000 ) 
+    Source Clock Delay      (SCD):    0.966ns
+...
+                                                      0.546     6.043 f  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/expected_address0__0/DSP_ALU_INST/ALU_OUT[0]
+                         net (fo=1, routed)           0.000     6.043    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/expected_address0__0/DSP_ALU.ALU_OUT<0>
+    DSP48E2_X10Y22       DSP_OUTPUT (Prop_DSP_OUTPUT_DSP48E2_ALU_OUT[0]_P[0])
+                                                      0.109     6.152 r  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/expected_address0__0/DSP_OUTPUT_INST/P[0]
+                         net (fo=2, routed)           0.242     6.393    ps_system/ps_gateway_i/accelerator/inst/core/compute/core/state_reg[2]_i_202[0]
+    SLICE_X51Y52         LUT6 (Prop_B6LUT_SLICEM_I5_O)
+                                                      0.037     6.430 r  ps_system/ps_gateway_i/accelerator/inst/core/compute/core/state[2]_i_352/O
+                         net (fo=1, routed)           0.016     6.446    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state_reg[2]_i_297_0[1]
+    SLICE_X51Y52         CARRY8 (Prop_CARRY8_SLICEM_S[1]_CO[7])
+                                                      0.190     6.636 r  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state_reg[2]_i_287/CO[7]
+                         net (fo=1, routed)           0.026     6.662    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state_reg[2]_i_287_n_0
+    SLICE_X51Y53         CARRY8 (Prop_CARRY8_SLICEM_CI_O[5])
+                                                      0.116     6.778 r  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state_reg[2]_i_202/O[5]
+                         net (fo=6, routed)           0.401     7.179    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/expected_address[29]
+    SLICE_X52Y56         CARRY8 (Prop_CARRY8_SLICEM_S[4]_CO[7])
+                                                      0.156     7.335 r  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state_reg[2]_i_212/CO[7]
+                         net (fo=1, routed)           0.026     7.361    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state_reg[2]_i_212_n_0
+    SLICE_X52Y57         CARRY8 (Prop_CARRY8_SLICEM_CI_O[4])
+                                                      0.086     7.447 f  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state_reg[2]_i_126/O[4]
+                         net (fo=2, routed)           0.218     7.665    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/expected_end[37]
+    SLICE_X53Y59         LUT2 (Prop_C6LUT_SLICEL_I0_O)
+                                                      0.096     7.761 r  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state[2]_i_237/O
+                         net (fo=1, routed)           0.010     7.771    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state[2]_i_237_n_0
+    SLICE_X53Y59         CARRY8 (Prop_CARRY8_SLICEL_S[2]_CO[7])
+                                                      0.155     7.926 f  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state_reg[2]_i_129/CO[7]
+                         net (fo=1, routed)           0.026     7.952    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state_reg[2]_i_129_n_0
+    SLICE_X53Y60         CARRY8 (Prop_CARRY8_SLICEL_CI_CO[0])
+                                                      0.052     8.004 f  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state_reg[2]_i_62/CO[0]
+                         net (fo=1, routed)           0.178     8.182    ps_system/ps_gateway_i/accelerator/inst/core/compute/core/state[2]_i_7__0[0]
+    SLICE_X51Y60         LUT6 (Prop_F6LUT_SLICEM_I1_O)
+                                                      0.037     8.219 r  ps_system/ps_gateway_i/accelerator/inst/core/compute/core/state[2]_i_19/O
+                         net (fo=1, routed)           0.094     8.313    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state[2]_i_5__0
+    SLICE_X51Y61         LUT6 (Prop_A6LUT_SLICEM_I2_O)
+                                                      0.038     8.351 r  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/state[2]_i_7__0/O
+                         net (fo=1, routed)           0.050     8.401    ps_system/ps_gateway_i/accelerator/inst/core/compute/core/ma/bad_i_2_0
+    SLICE_X51Y60         LUT6 (Prop_G6LUT_SLICEM_I1_O)
+                                                      0.037     8.438 r  ps_system/ps_gateway_i/accelerator/inst/core/compute/core/ma/state[2]_i_5__0/O
+                         net (fo=2, routed)           0.098     8.536    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/bad_reg_2
+    SLICE_X50Y60         LUT6 (Prop_E6LUT_SLICEL_I2_O)
+                                                      0.035     8.571 r  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/bad_i_2/O
+                         net (fo=1, routed)           0.042     8.613    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/bad_i_2_n_0
+    SLICE_X50Y60         LUT5 (Prop_A6LUT_SLICEL_I0_O)
+                                                      0.050     8.663 r  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/bad_i_1/O
+                         net (fo=1, routed)           0.048     8.711    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/bad_i_1_n_0
+    SLICE_X50Y60         FDRE                                         r  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/bad_reg/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk100_raw rise edge)
+                                                      8.000     8.000 r  
+    AL8                                               0.000     8.000 r  clk200_p (IN)
+                         net (fo=0)                   0.079     8.079    board/refclk_buf/I
+    HPIOBDIFFINBUF_X0Y11 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.399     8.478 r  board/refclk_buf/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     8.518    board/refclk_buf/OUT
+    AL8                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     8.518 r  board/refclk_buf/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.344     8.862    board/refclk
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -2.966     5.896 r  board/clock_mmcm/CLKOUT1
+                         net (fo=1, routed)           0.220     6.116    board/clk100_raw
+    BUFGCE_X0Y9          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     6.140 r  board/core_clock/O
+    X1Y3 (CLOCK_ROOT)    net (fo=109110, routed)      2.690     8.830    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/clk
+    SLICE_X50Y60         FDRE                                         r  ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/bad_reg/C
+                         clock pessimism             -0.025     8.805    
+                         clock uncertainty           -0.064     8.741    
+    SLICE_X50Y60         FDRE (Setup_AFF_SLICEL_C_D)
+                                                      0.025     8.766    ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/bad_reg
+  -------------------------------------------------------------------

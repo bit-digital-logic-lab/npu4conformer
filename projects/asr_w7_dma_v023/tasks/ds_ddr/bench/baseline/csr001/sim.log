@@ -1,0 +1,2 @@
+V022_PLAN_CSR_PASS starts=          2 stickyDONE reverseAW/W stalledreplies readonlyACL counteredge
+/home/yang/Desktop/项目/work/tests/tb_plan_csr.sv:61: $finish called at 3552000 (1ps)

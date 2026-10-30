@@ -1,0 +1,142 @@
+{
+  "scope": "candidate V1 M=64 N=32 K=96 C=0; preload excluded; window=engine busy cycles; Verilator logic simulation",
+  "resources": [
+    {
+      "resource": "axi_r",
+      "unit": "cycle",
+      "evidence": "Verilator trace rd_valid&&rd_ready; transactional storage read port",
+      "window": 5896,
+      "observed_ticks": 5896,
+      "known_ticks": 5896,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 4714,
+        "command": 12,
+        "payload": 1152,
+        "wait_memory": 18
+      },
+      "valid_bytes": 18432,
+      "wire_bytes": 18432,
+      "payload_fraction": 0.19538670284938942,
+      "bytes_per_tick": 3.1261872455902306,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": 16.0,
+      "capacity_bytes_per_tick": 16,
+      "ledger_valid_bytes": 18432,
+      "ledger_wire_bytes": 18432,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    },
+    {
+      "resource": "axi_w",
+      "unit": "cycle",
+      "evidence": "Verilator trace wr_valid&&wr_ready; transactional storage write port",
+      "window": 5896,
+      "observed_ticks": 5896,
+      "known_ticks": 5896,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 4079,
+        "command": 128,
+        "wait_memory": 921,
+        "payload": 768
+      },
+      "valid_bytes": 12288,
+      "wire_bytes": 12288,
+      "payload_fraction": 0.13025780189959293,
+      "bytes_per_tick": 2.084124830393487,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": 16.0,
+      "capacity_bytes_per_tick": 16,
+      "ledger_valid_bytes": 12288,
+      "ledger_wire_bytes": 12288,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    },
+    {
+      "resource": "compute",
+      "unit": "cycle",
+      "evidence": "Verilator trace eng.state RUN/CREAD/COLLECT/WAITCUR/PREFA/PREFW",
+      "window": 5896,
+      "observed_ticks": 5896,
+      "known_ticks": 5896,
+      "known_coverage": 1.0,
+      "states": {
+        "control": 52,
+        "operand_wait": 420,
+        "compute": 1584,
+        "c_collect": 3840
+      },
+      "valid_bytes": 0,
+      "wire_bytes": 0,
+      "payload_fraction": 0.0,
+      "bytes_per_tick": 0.0,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": null,
+      "capacity_bytes_per_tick": null,
+      "ledger_valid_bytes": 0,
+      "ledger_wire_bytes": 0,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    }
+  ],
+  "tensors": [
+    {
+      "tensor": "A",
+      "version": "epoch3:blocks00-01:kb0-2",
+      "format": "A16",
+      "src": "DDR",
+      "dst": "A_stage_banks",
+      "transfers": 1,
+      "valid_bytes": 12288,
+      "bus_bytes": 12288,
+      "comparable_logical_bytes": 12288,
+      "unique_logical_bytes": 12288,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "first_load": 12288
+      }
+    },
+    {
+      "tensor": "W",
+      "version": "epoch3:immutable:kb0-2",
+      "format": "W7p8_parity",
+      "src": "DDR",
+      "dst": "W_stage_banks",
+      "transfers": 1,
+      "valid_bytes": 6144,
+      "bus_bytes": 6144,
+      "comparable_logical_bytes": 6144,
+      "unique_logical_bytes": 6144,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "first_load": 6144
+      }
+    },
+    {
+      "tensor": "C",
+      "version": "epoch3:blocks00-01:final",
+      "format": "C48",
+      "src": "C_cache",
+      "dst": "DDR",
+      "transfers": 1,
+      "valid_bytes": 12288,
+      "bus_bytes": 12288,
+      "comparable_logical_bytes": 12288,
+      "unique_logical_bytes": 12288,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "c_result_write": 12288
+      }
+    }
+  ],
+  "warnings": [
+    "重复字节是候选，不是可省流量证明；跨域时间未对齐；未采样区间是unknown。"
+  ]
+}

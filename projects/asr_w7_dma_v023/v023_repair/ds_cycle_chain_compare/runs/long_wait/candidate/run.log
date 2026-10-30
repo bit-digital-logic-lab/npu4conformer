@@ -1,0 +1,20 @@
+HOST write plan_base=10008000
+HOST START write begins at cycle 26
+HOST START accepted at cycle 31 (monitor t_start=30)
+WAIT cycle=5000 busy=1 mat=0 vec=0 lay=1 mst=0 mcore=0 mdone=0 merr=00 ar=0 own=0 left=0 rv=0 rr=0
+WAIT cycle=10000 busy=1 mat=0 vec=0 lay=1 mst=0 mcore=0 mdone=0 merr=00 ar=0 own=0 left=0 rv=0 rr=0
+WAIT cycle=15000 busy=1 mat=1 vec=0 lay=0 mst=3 mcore=1 mdone=0 merr=00 ar=0 own=0 left=1 rv=0 rr=0
+WAIT cycle=20000 busy=1 mat=0 vec=1 lay=0 mst=0 mcore=0 mdone=1 merr=00 ar=0 own=3 left=1 rv=0 rr=0
+WAIT cycle=25000 busy=1 mat=0 vec=1 lay=0 mst=0 mcore=0 mdone=1 merr=00 ar=1 own=1 left=10 rv=0 rr=1
+WAIT cycle=30000 busy=1 mat=0 vec=0 lay=1 mst=0 mcore=0 mdone=1 merr=00 ar=1 own=2 left=6 rv=0 rr=1
+CAND_TOTAL start=30 done=33690 drain=33690 total_start_to_drain=33660 done_to_drain=0 csr_cycles=33658
+CAND_WINDOW matrix=11988..17115 (5128) vector=17180..26228 (8840) layout=835..33685 (18452) any_busy=32420
+CAND_MATRIX cycles=5061 compute=272 queue=5128 fetch=59 engine_wait=5067 retire_wait=1 rblk=2 wblk=64 cg=256 cc=3753
+CAND_VECLAY vcyc=1763 lcyc=7380 vrb=18560 vwb=14336 lrb=5120 lwb=5120
+CAND_AXI rburst=130 wburst=141 rbeats=1828 wbeats=1600 rdpeak=1 wrpeak=1 rdstall=790 wrstall=49 tag_err=0 bfm_rbeats=1828 bfm_wbeats=1600
+CAND_WAIT ar_stall=790 aw_stall=49 w_stall=0 r_stall=0 b_stall=0 bfm_read_busy=9766 bfm_write_busy=8700 bfm_bresp_wait=6768
+CAND_ENGWAIT matrix ar=790 aw=49 w=0 r=0 b=0 | vector ar=0 aw=0 w=0 r=0 b=0 | layout ar=0 aw=0 w=0 r=0 b=0 | graph_fetch ar=0 r=0 | queue ar=0 r=0
+CAND_GRAPH fetch=1154 operator=32428 drain=0 busy_cycles=33658
+CAND_STATUS busy=0 done=1 fault=0 err=00 completed=9 last=8
+CAND_RESULT PASS
+tb/tb_chain_integrated.sv:280: $finish called at 269540000 (1ps)

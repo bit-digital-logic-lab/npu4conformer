@@ -1,0 +1,96 @@
+{
+  "scope": "真实RTL/BFM DMA候选活动及信号波形：读写各4KiB；仅已采集接口，不含未采集PE/缓存；100MHz为仿真时钟非Fmax",
+  "input_sha256": "cc200e0c901825edaff328fdb8cf3a8716761ddf1b067e9404131af075655986",
+  "groups": [
+    {
+      "name": "tb_clk_sampled_posedge",
+      "unit": "cycle",
+      "clock_hz": 100000000,
+      "start": 6,
+      "end": 544
+    }
+  ],
+  "lanes": [
+    {
+      "name": "axi_r",
+      "group": "tb_clk_sampled_posedge",
+      "kind": "module_interface",
+      "start": 6,
+      "end": 544,
+      "evidence": "RTL_handshake_100MHz_simclock_not_achieved_Fmax",
+      "states": {
+        "dispatch_or_drain": 6.0,
+        "wait_memory": 263.0,
+        "payload": 256.0,
+        "idle_no_request": 13.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "axi_w",
+      "group": "tb_clk_sampled_posedge",
+      "kind": "module_interface",
+      "start": 6,
+      "end": 544,
+      "evidence": "RTL_handshake_100MHz_simclock_not_achieved_Fmax",
+      "states": {
+        "dispatch_or_drain": 54.0,
+        "backpressure": 228.0,
+        "payload": 256.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "dma_read.RVALID",
+      "group": "tb_clk_sampled_posedge",
+      "kind": "signal",
+      "start": 6,
+      "end": 544,
+      "evidence": "read-only posedge RTL monitor",
+      "states": {
+        "0": 282.0,
+        "1": 256.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "dma_read.RREADY",
+      "group": "tb_clk_sampled_posedge",
+      "kind": "signal",
+      "start": 6,
+      "end": 544,
+      "evidence": "read-only posedge RTL monitor",
+      "states": {
+        "0": 19.0,
+        "1": 519.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "dma_write.WVALID",
+      "group": "tb_clk_sampled_posedge",
+      "kind": "signal",
+      "start": 6,
+      "end": 544,
+      "evidence": "read-only posedge RTL monitor",
+      "states": {
+        "0": 54.0,
+        "1": 484.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "dma_write.WREADY",
+      "group": "tb_clk_sampled_posedge",
+      "kind": "signal",
+      "start": 6,
+      "end": 544,
+      "evidence": "read-only posedge RTL monitor",
+      "states": {
+        "0": 282.0,
+        "1": 256.0
+      },
+      "known_coverage": 1.0
+    }
+  ]
+}

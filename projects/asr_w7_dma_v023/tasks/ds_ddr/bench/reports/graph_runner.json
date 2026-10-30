@@ -1,0 +1,30 @@
+{
+  "scope": "Icarus RTL \u63a7\u5236\u9aa8\u67b6\uff1bop_* \u4e3a\u5b50\u7b97\u5b50\u63e1\u624b\u6869\uff0c\u4e0d\u662f\u5b8c\u6574 CASE \u96c6\u6210\u3002",
+  "cases": [
+    {
+      "case": 0,
+      "completed": 4,
+      "seq": 4,
+      "fault": 0,
+      "err": "0x00",
+      "pass": 1
+    },
+    {
+      "case": 1,
+      "completed": 2,
+      "seq": 2,
+      "fault": 1,
+      "err": "0x04",
+      "pass": 1
+    },
+    {
+      "case": 2,
+      "completed": 0,
+      "seq": 1,
+      "fault": 1,
+      "err": "0x05",
+      "pass": 1
+    }
+  ],
+  "note": "case0 \u8282\u70b9\u8868\u987a\u5e8f 0,3,1,2\uff0c\u4f9d\u8d56 1\u21900\u30012\u21900\u30013\u21901|2\uff0c\u5b9e\u6d4b\u542f\u52a8 0,2,1,3\uff1bcase1 \u5faa\u73af\u4f9d\u8d56 fault=1/err=04\uff1bcase2 \u5b50\u7b97\u5b50 fault=1/err=05\u3002"
+}

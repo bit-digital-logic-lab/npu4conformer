@@ -1,0 +1,2 @@
+PASS tb_cache_pipe
+/home/yang/Desktop/项目/v023_repair/ds_matrix/tests/tb_cache_pipe.sv:51: $finish called at 211000 (1ps)

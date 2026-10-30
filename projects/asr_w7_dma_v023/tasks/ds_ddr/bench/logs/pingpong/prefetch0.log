@@ -1,0 +1,11 @@
+PPDBG state=x q=x req=x rdy=0 dstate=x descv=0 desr=0 pv=xx pb=xx
+CONSUME_START bank=0 n=0
+CONSUME_END bank=0 n=0
+CONSUME_START bank=0 n=1
+CONSUME_END bank=0 n=1
+CONSUME_START bank=0 n=2
+CONSUME_END bank=0 n=2
+CONSUME_START bank=0 n=3
+CONSUME_END bank=0 n=3
+PP_RESULT prefetch=0 cycles=1651 fill_cycles=404 overlap=0 stall=0 prefetch_n=4 consume_n=4 dma_rbeats=256 pass=1
+/home/yang/Desktop/项目/tasks/ds_ddr/bench/tb_ab_pingpong.sv:154: $finish called at 16625000 (1ps)

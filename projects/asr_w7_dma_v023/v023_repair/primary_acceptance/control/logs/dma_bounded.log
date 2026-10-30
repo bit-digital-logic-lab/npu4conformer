@@ -1,0 +1,5 @@
+BOUNDED_PA003 hist=2 a0=00fffffff0 a1=0100000000 bytes=32
+BOUNDED_PA004 write_bytes=3
+BOUNDED_TEST_END errors=0
+BOUNDED_PASS
+tb/tb_dma_bounded_pa003.sv:56: $finish called at 2124000 (1ps)

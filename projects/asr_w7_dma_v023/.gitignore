@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+build/
+sim/
+obj_dir/
+*.vvp
+*.o
+*.gch
+*.bit
+*.xsa
+*.dcp
+worker.log
+supervisor.log
+
+# Keep selected historical simulation evidence shipped in this snapshot.
+!*.log

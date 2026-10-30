@@ -1,0 +1,23 @@
+%Warning-WIDTHEXPAND: candidate/rtl/block_address_v023.sv:47:33: Operator ADD expects 64 bits on the RHS, but RHS's REPLICATE generates 48 bits.
+                                                               : ... note: In instance 'block_address_v023'
+   47 |  wire [63:0] w_off64=(s1_rowprod+{32'd0,s1_col})*{32'd0,s1_bb};
+      |                                 ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.047
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: candidate/rtl/block_address_v023.sv:64:9: Operator LT expects 32 bits on the LHS, but LHS's VARREF 's2_row' generates 16 bits.
+                                                              : ... note: In instance 'block_address_v023'
+   64 |   s2_row<s2_nrb&&s2_col<s2_ncb&&w_full[40:32]==0;
+      |         ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_address_v023.sv:64:24: Operator LT expects 32 bits on the LHS, but LHS's VARREF 's2_col' generates 16 bits.
+                                                               : ... note: In instance 'block_address_v023'
+   64 |   s2_row<s2_nrb&&s2_col<s2_ncb&&w_full[40:32]==0;
+      |                        ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_address_v023.sv:93:29: Operator ASSIGNDLY expects 32 bits on the Assign RHS, but Assign RHS's VARREF 's2_off' generates 40 bits.
+                                                              : ... note: In instance 'block_address_v023'
+   93 |      s3_base<=s2_base;s3_off<=s2_off;s3_nrb<=s2_nrb;s3_ncb<=s2_ncb;s3_bb<=s2_bb;
+      |                             ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.047
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)
+- Verilator: Built from 0.036 MB sources in 2 modules, into 0.030 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.012 s (elab=0.001, cvt=0.006, bld=0.000); cpu 0.011 s on 1 threads; allocated 20.691 MB

@@ -1,0 +1,2 @@
+LAYOUT_STRESS_PASS seed=29 bytes=157696 cycles=627674 hits=20843 misses=1270 rb=1270 wb=9856 rbytes=20320 wbytes=157696
+/home/yang/Desktop/项目/tasks/ds_protocol_audit/tb/tb_layout_stress.sv:79: $finish called at 5021456000 (1ps)

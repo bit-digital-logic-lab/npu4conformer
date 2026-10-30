@@ -1,0 +1,1343 @@
+{
+  "task": "ds_ddr",
+  "generated_by": "tasks/ds_ddr/bench/make_result.py",
+  "scope": "逻辑验证：Icarus RTL + 参数化 AXI128 共享 DDR BFM + sealed 计划统计；无综合/Vivado/板卡/联网。",
+  "hardware_accessed": false,
+  "synthesis": false,
+  "board": false,
+  "network": false,
+  "input_sha256": {
+    "/home/yang/Desktop/项目/work/DESIGN_CONTRACT_zh.txt": "c6282714ef614339c49658377c4d021650af4da8bebc9df440006a6d060e102a",
+    "/home/yang/Desktop/项目/work/CURRENT_WORK.txt": "7e54a48e3f9fd5308450dfd5e08f6d9567b296aa9286a1dfd9035d7c92e46be9",
+    "/home/yang/Desktop/项目/work/BOARD_RESULT.json": "f8a4ac4388b930c3786ae75db3c31b656387dad7ce2cadd9b8d807632ab09f77",
+    "/home/yang/Desktop/项目/work/BOARD_RESULT_zh.txt": "70aa377c50f1b6ed83db1e2de905a7899998e43f4d8a966c057a351849fbfd8f",
+    "/home/yang/Desktop/项目/work/clockInfo.txt": "683432233ba2dea40a3e603e5d30a325fa9a5d53b1d18a4fdcf2dbb1c1df4ec8",
+    "/home/yang/Desktop/项目/work/rtl/axi_dma_v019.sv": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531",
+    "/home/yang/Desktop/项目/work/rtl/block_storage_dma_prefetch.sv": "d9905c280982974302b2db5561b3980e723573b66258b55422a8f068729f0059",
+    "/home/yang/Desktop/项目/work/rtl/block_engine_l1bank_v020.sv": "0a6f24fc51f79baf4f1ecca0b38a79180b0a56e19470bfdb4bec863b34a09c20",
+    "/home/yang/Desktop/项目/work/rtl/array16_direct_v020.sv": "77c66aeea9dd40eb927f8f8e0658b707188427f51138af5f726ded0dc9c3fd56",
+    "/home/yang/Desktop/项目/work/rtl/pe_direct_v020.sv": "7b43de74709f53f0212eb6a600c5d84b3c1aea5904c2f0dd1b6e32b300bc0317",
+    "/home/yang/Desktop/项目/work/rtl/c_cache_banked4.sv": "db4713635512574b5c67ee9ef8218736b2a7bc85b9625033f16fe69eddded718",
+    "/home/yang/Desktop/项目/work/rtl/ddr_execution_cluster_v022.sv": "7a2bccdc562582e4c1a724e5b2050440a38cff43a20be73a548304af3556d104",
+    "/home/yang/Desktop/项目/work/rtl/pl_execution_plan_v022.sv": "e23c06c0757291a69a6d4ca03ed75a82681dc7764ae8a2f4bd6bb0284d0cb3bf",
+    "/home/yang/Desktop/项目/work/rtl/ddr_vector_axi.sv": "9613c3f6814830b0129094ca860dafc4f5272e3e9a67ab5ef58b6074bdee34f2",
+    "/home/yang/Desktop/项目/work/rtl/ddr_vector_engine.sv": "08a642d915f0d0a83d10c156a52c21bc20bd4f69b3ac8c402ca22c094381641d",
+    "/home/yang/Desktop/项目/work/rtl/ddr_layout_axi.sv": "a4728ffac826ef48776171598ebde6f58c8726f903d8b6af10cedb504c47a4c2",
+    "/home/yang/Desktop/项目/work/rtl/ddr_layout_engine.sv": "1ebcaaa58a61f23ab298ab901f184894eb230d6225b26779b8dbf97f54722c52",
+    "/home/yang/Desktop/项目/work/tests/axi128_memory_bfm.sv": "dd2e5a075f3605cee30aa5b506bd6271a0b434a12c9d12cc377f12b18c17cf58",
+    "/home/yang/Desktop/项目/work/tests/tb_vector_axi.sv": "36079df2083e90021e8787c45f3e3b98f2898a41c03371a6c7ece6463f2e0a87",
+    "/home/yang/Desktop/项目/work/tests/tb_layout_axi.sv": "c72726fd7338879531884df71629dd2145c14c33ef71eaf3559f2cc27641e307",
+    "/home/yang/Desktop/项目/work/tests/tb_plan_cluster.sv": "149e69b1e487f90a858a3cd13e85e989f4a7537a03d4a3b98caed05cb5e169f6",
+    "/home/yang/Desktop/项目/work/host/fusion_backend.py": "ed3e7fe4db2c03d5d7013071ed7dd554525dad2134520b5d8d2cc37d93c9d2d2",
+    "/home/yang/Desktop/项目/work/host/base_v021.py": "9ee8d176055a7399b05b9aa23858b479091474c6eb53d9348bddd4318386e06e",
+    "/home/yang/Desktop/项目/work/host/backend_v021.py": "e72aae791fca3dbcc00925430f414298c0c342b8e796d7ba186dc0abced18652",
+    "/home/yang/Desktop/项目/work/host/parameters.py": "0a2d13421fdcd3a53800282a8a2e4a9c181cdb95422ce487ccbd7aa2900ac383",
+    "/home/yang/Desktop/项目/work/host/plan_metrics.py": "9a8cccee0999310be62b03e33fbc88b998a05af857177527e2c984daa8b7f596",
+    "/home/yang/Desktop/项目/work/ps/vm_pl.c": "53f6616c57b2ded5b35951c0953b64538620b02bc86a0d7937a8a640245fbec3",
+    "/home/yang/Desktop/项目/work/ps/gateway_async.c": "f5c3c1a6dc20c5366c47dd7ebf92b31fc42e62093cb7e405989c68854c8b01ed",
+    "/home/yang/Desktop/项目/work/scripts/build_full.tcl": "571f25750fb69ddd42c29e483ff5ab3589f954ef0bfd8fea2f29db112c05638a",
+    "/home/yang/Desktop/项目/work/assets/parameters002/parameters.bin": "fc36806a0070407ae33adbe56f80810e5e57e73d4016f049eed2c4486ed18767",
+    "/home/yang/Desktop/项目/tasks/ds_ddr/fixtures/parameters002/manifest.json": "5544fb82a416a994784cbe3da2d2524b5b4d28bef516d35018a2030e52a7ed1a",
+    "/home/yang/Desktop/项目/model_a_v0_22(1).zip": "327ea1b4b228a0415b370a208e2a6881e6547a49473b360105724a12655eda84",
+    "/home/yang/Desktop/项目/IC_GIT_REFERENCES.txt": "f8028402a1bfd76ecbff9eee4510df19b051023ff9f38a3ecc99057261741090"
+  },
+  "candidate_sha256": {
+    "/home/yang/Desktop/项目/tasks/ds_ddr/candidate/axi_dma_v020_multi.sv": "a846744d3236ee3b8acc217abbe63a94ad7ecf56dc5d6cfa862e2e62a18ff0cb",
+    "/home/yang/Desktop/项目/tasks/ds_ddr/candidate/ab_pingpong_prefetch.sv": "446b08816f02f98961a7d0c4331e1f1ffa5c6d80de4463d99c4fa811d809f042",
+    "/home/yang/Desktop/项目/tasks/ds_ddr/candidate/ddr_vector_axi_v020.sv": "b057e9050392345496023120bc4b2d64ae78c80f0ba886131f50d27e82403307",
+    "/home/yang/Desktop/项目/tasks/ds_ddr/candidate/ddr_layout_axi_v020.sv": "95d1d884c191fc34c1d9ada23c49ce45a59ff683630dea8ab9de7178447d6572",
+    "/home/yang/Desktop/项目/tasks/ds_ddr/candidate/pl_graph_runner_v1.sv": "4b21690b0c5d1dcb810bbe392ef3660d62da661d2a649add0ca6535cea79672c",
+    "/home/yang/Desktop/项目/tasks/ds_ddr/bench/bfm/axi128_ddr_bfm_ds.sv": "cd6dfd5dbad15cc1afc0b79f9c7592aaf217095c938d242f04b55b1087667fcd",
+    "/home/yang/Desktop/项目/tasks/ds_ddr/bench/tb_dma_compare.sv": "b96b2bb358718dc1f8ce7da9d5c8a3925e7eb3b0526a1b485a43852e815f2e87",
+    "/home/yang/Desktop/项目/tasks/ds_ddr/bench/tb_ab_pingpong.sv": "8f54eff6c44f431a3e138e4fc473aea27a27ca7e0a9e60c0fab81be492535c28",
+    "/home/yang/Desktop/项目/tasks/ds_ddr/bench/tb_graph_runner.sv": "0834eb10f7f5ef78ba2b8005eb5e6c77b5ab3cc259c34422832214dc6cc11795",
+    "/home/yang/Desktop/项目/tasks/ds_ddr/bench/tb_strobe_account.sv": "a5046c57a0a658c3f5f1feeeb66f3b5e2969335e140e9c463fbd47a6150d8655",
+    "/home/yang/Desktop/项目/tasks/ds_ddr/bench/run_strobe_account.py": "af5ab53a4458d2213d9445f6a57ecaf3d4847f82974e627e6bafe885513d8fbc"
+  },
+  "git_refs": {
+    "codex/kwt-ds-r6-bus128": "f438e3f",
+    "codex/kwt-ds-r6-feed8x16": "cc2259b",
+    "codex/kwt-ds-r6-resident_a": "812da1c",
+    "codex/kwt-ds-r7-cacc": "9fd4aac",
+    "codex/kwt-ds-r7-fifo": "6344eda",
+    "codex/kwt-ds-r7-packing": "9b6ff45",
+    "codex/kwt-ds-r7-resident_both": "c01ca6e",
+    "codex/kwt-ds-r6-traffic": "49415ba",
+    "codex/kwt-bus-budget": "9f1fd68",
+    "codex/kwt-architecture": "df93c87",
+    "verified/dataflow-v2-functional-20261024": "cc3ac4c",
+    "archive/ws-before-prune-20261027": "0b178b7"
+  },
+  "baseline": {
+    "passed": true,
+    "host_seconds": 25.533,
+    "tests": [
+      {
+        "test": "csr001",
+        "passed": true,
+        "detail": "AXIL CSR 单测",
+        "host_seconds": 0.009
+      },
+      {
+        "test": "vector_rtl",
+        "passed": true,
+        "detail": "14 个数值/背压用例",
+        "host_seconds": 1.651
+      },
+      {
+        "test": "vector_axi",
+        "passed": true,
+        "detail": "14 个真实 AXI 用例",
+        "host_seconds": 2.22
+      },
+      {
+        "test": "plan_rtl",
+        "passed": true,
+        "detail": "15 个计划/错误/依赖用例",
+        "host_seconds": 3.865
+      },
+      {
+        "test": "layout_rtl",
+        "passed": true,
+        "detail": "20 个布局用例",
+        "host_seconds": 12.538
+      },
+      {
+        "test": "reuse_rtl",
+        "passed": true,
+        "detail": "6 个周期复用用例",
+        "host_seconds": 1.962
+      },
+      {
+        "test": "alignment",
+        "passed": true,
+        "detail": "8 个非对齐用例",
+        "host_seconds": 0
+      }
+    ],
+    "skipped": [
+      {
+        "test": "matrix_epoch",
+        "reason": "依赖 model_a_v0_21_1/tests/tb_queue.sv 与 W7/A16/C48 逐场景 vectors；本目录缺失，未编造。"
+      },
+      {
+        "test": "layout_cluster",
+        "reason": "依赖生成脚本与 5 端口 harness；本阶段先保留原始 RTL 逻辑测试，后续单独移植。"
+      },
+      {
+        "test": "protocol_native",
+        "reason": "依赖 model_a_v0_21_1_board_20261013_001/async002 与 Windows mock 外设；不在本次逻辑验证范围。"
+      }
+    ]
+  },
+  "dma_compare": {
+    "summary": [
+      {
+        "scenario": "lat8_bp0",
+        "mode": "read",
+        "dut": "base",
+        "max_out": 2,
+        "cycles": 6404,
+        "bus_util": 0.6396,
+        "read_util": 0.6396,
+        "write_util": 0.0,
+        "speedup_vs_base": null,
+        "bubbles": {
+          "read": 2049,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat8_bp0",
+        "mode": "read",
+        "dut": "cand",
+        "max_out": 2,
+        "cycles": 4111,
+        "bus_util": 0.9964,
+        "read_util": 0.9964,
+        "write_util": 0.0,
+        "speedup_vs_base": 1.5578,
+        "bubbles": {
+          "read": 10,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat8_bp0",
+        "mode": "read",
+        "dut": "cand",
+        "max_out": 4,
+        "cycles": 4111,
+        "bus_util": 0.9964,
+        "read_util": 0.9964,
+        "write_util": 0.0,
+        "speedup_vs_base": 1.5578,
+        "bubbles": {
+          "read": 8,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat8_bp0",
+        "mode": "read",
+        "dut": "cand",
+        "max_out": 8,
+        "cycles": 4111,
+        "bus_util": 0.9964,
+        "read_util": 0.9964,
+        "write_util": 0.0,
+        "speedup_vs_base": 1.5578,
+        "bubbles": {
+          "read": 4,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat8_bp0",
+        "mode": "write",
+        "dut": "base",
+        "max_out": 2,
+        "cycles": 7347,
+        "bus_util": 0.5575,
+        "read_util": 0.0,
+        "write_util": 0.5575,
+        "speedup_vs_base": null,
+        "bubbles": {
+          "read": 0,
+          "write": 2306
+        }
+      },
+      {
+        "scenario": "lat8_bp0",
+        "mode": "write",
+        "dut": "cand",
+        "max_out": 2,
+        "cycles": 4816,
+        "bus_util": 0.8505,
+        "read_util": 0.0,
+        "write_util": 0.8505,
+        "speedup_vs_base": 1.5255,
+        "bubbles": {
+          "read": 0,
+          "write": 8
+        }
+      },
+      {
+        "scenario": "lat8_bp0",
+        "mode": "write",
+        "dut": "cand",
+        "max_out": 4,
+        "cycles": 4816,
+        "bus_util": 0.8505,
+        "read_util": 0.0,
+        "write_util": 0.8505,
+        "speedup_vs_base": 1.5255,
+        "bubbles": {
+          "read": 0,
+          "write": 8
+        }
+      },
+      {
+        "scenario": "lat8_bp0",
+        "mode": "write",
+        "dut": "cand",
+        "max_out": 8,
+        "cycles": 4816,
+        "bus_util": 0.8505,
+        "read_util": 0.0,
+        "write_util": 0.8505,
+        "speedup_vs_base": 1.5255,
+        "bubbles": {
+          "read": 0,
+          "write": 8
+        }
+      },
+      {
+        "scenario": "lat8_bp0",
+        "mode": "mix",
+        "dut": "base",
+        "max_out": 2,
+        "cycles": 8777,
+        "bus_util": 0.9333,
+        "read_util": 0.4667,
+        "write_util": 0.4667,
+        "speedup_vs_base": null,
+        "bubbles": {
+          "read": 4304,
+          "write": 3752
+        }
+      },
+      {
+        "scenario": "lat8_bp0",
+        "mode": "mix",
+        "dut": "cand",
+        "max_out": 2,
+        "cycles": 8860,
+        "bus_util": 0.9246,
+        "read_util": 0.4623,
+        "write_util": 0.4623,
+        "speedup_vs_base": 0.9906,
+        "bubbles": {
+          "read": 21,
+          "write": 4102
+        }
+      },
+      {
+        "scenario": "lat8_bp0",
+        "mode": "mix",
+        "dut": "cand",
+        "max_out": 4,
+        "cycles": 8821,
+        "bus_util": 0.9287,
+        "read_util": 0.4643,
+        "write_util": 0.4643,
+        "speedup_vs_base": 0.995,
+        "bubbles": {
+          "read": 19,
+          "write": 4060
+        }
+      },
+      {
+        "scenario": "lat8_bp0",
+        "mode": "mix",
+        "dut": "cand",
+        "max_out": 8,
+        "cycles": 8745,
+        "bus_util": 0.9368,
+        "read_util": 0.4684,
+        "write_util": 0.4684,
+        "speedup_vs_base": 1.0037,
+        "bubbles": {
+          "read": 15,
+          "write": 3983
+        }
+      },
+      {
+        "scenario": "lat32_bp0",
+        "mode": "read",
+        "dut": "base",
+        "max_out": 2,
+        "cycles": 12548,
+        "bus_util": 0.3264,
+        "read_util": 0.3264,
+        "write_util": 0.0,
+        "speedup_vs_base": null,
+        "bubbles": {
+          "read": 8193,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat32_bp0",
+        "mode": "read",
+        "dut": "cand",
+        "max_out": 2,
+        "cycles": 6294,
+        "bus_util": 0.6508,
+        "read_util": 0.6508,
+        "write_util": 0.0,
+        "speedup_vs_base": 1.9936,
+        "bubbles": {
+          "read": 2066,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat32_bp0",
+        "mode": "read",
+        "dut": "cand",
+        "max_out": 4,
+        "cycles": 4135,
+        "bus_util": 0.9906,
+        "read_util": 0.9906,
+        "write_util": 0.0,
+        "speedup_vs_base": 3.0346,
+        "bubbles": {
+          "read": 32,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat32_bp0",
+        "mode": "read",
+        "dut": "cand",
+        "max_out": 8,
+        "cycles": 4135,
+        "bus_util": 0.9906,
+        "read_util": 0.9906,
+        "write_util": 0.0,
+        "speedup_vs_base": 3.0346,
+        "bubbles": {
+          "read": 28,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat32_bp0",
+        "mode": "write",
+        "dut": "base",
+        "max_out": 2,
+        "cycles": 7404,
+        "bus_util": 0.5532,
+        "read_util": 0.0,
+        "write_util": 0.5532,
+        "speedup_vs_base": null,
+        "bubbles": {
+          "read": 0,
+          "write": 2323
+        }
+      },
+      {
+        "scenario": "lat32_bp0",
+        "mode": "write",
+        "dut": "cand",
+        "max_out": 2,
+        "cycles": 4815,
+        "bus_util": 0.8507,
+        "read_util": 0.0,
+        "write_util": 0.8507,
+        "speedup_vs_base": 1.5377,
+        "bubbles": {
+          "read": 0,
+          "write": 14
+        }
+      },
+      {
+        "scenario": "lat32_bp0",
+        "mode": "write",
+        "dut": "cand",
+        "max_out": 4,
+        "cycles": 4815,
+        "bus_util": 0.8507,
+        "read_util": 0.0,
+        "write_util": 0.8507,
+        "speedup_vs_base": 1.5377,
+        "bubbles": {
+          "read": 0,
+          "write": 14
+        }
+      },
+      {
+        "scenario": "lat32_bp0",
+        "mode": "write",
+        "dut": "cand",
+        "max_out": 8,
+        "cycles": 4815,
+        "bus_util": 0.8507,
+        "read_util": 0.0,
+        "write_util": 0.8507,
+        "speedup_vs_base": 1.5377,
+        "bubbles": {
+          "read": 0,
+          "write": 14
+        }
+      },
+      {
+        "scenario": "lat32_bp0",
+        "mode": "mix",
+        "dut": "base",
+        "max_out": 2,
+        "cycles": 13558,
+        "bus_util": 0.6042,
+        "read_util": 0.3021,
+        "write_util": 0.3021,
+        "speedup_vs_base": null,
+        "bubbles": {
+          "read": 9203,
+          "write": 4012
+        }
+      },
+      {
+        "scenario": "lat32_bp0",
+        "mode": "mix",
+        "dut": "cand",
+        "max_out": 2,
+        "cycles": 9295,
+        "bus_util": 0.8813,
+        "read_util": 0.4407,
+        "write_util": 0.4407,
+        "speedup_vs_base": 1.4586,
+        "bubbles": {
+          "read": 5067,
+          "write": 1667
+        }
+      },
+      {
+        "scenario": "lat32_bp0",
+        "mode": "mix",
+        "dut": "cand",
+        "max_out": 4,
+        "cycles": 8823,
+        "bus_util": 0.9285,
+        "read_util": 0.4642,
+        "write_util": 0.4642,
+        "speedup_vs_base": 1.5367,
+        "bubbles": {
+          "read": 35,
+          "write": 4059
+        }
+      },
+      {
+        "scenario": "lat32_bp0",
+        "mode": "mix",
+        "dut": "cand",
+        "max_out": 8,
+        "cycles": 8779,
+        "bus_util": 0.9331,
+        "read_util": 0.4666,
+        "write_util": 0.4666,
+        "speedup_vs_base": 1.5444,
+        "bubbles": {
+          "read": 34,
+          "write": 3984
+        }
+      },
+      {
+        "scenario": "lat64_bp0",
+        "mode": "read",
+        "dut": "base",
+        "max_out": 2,
+        "cycles": 20740,
+        "bus_util": 0.1975,
+        "read_util": 0.1975,
+        "write_util": 0.0,
+        "speedup_vs_base": null,
+        "bubbles": {
+          "read": 16385,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat64_bp0",
+        "mode": "read",
+        "dut": "cand",
+        "max_out": 2,
+        "cycles": 10390,
+        "bus_util": 0.3942,
+        "read_util": 0.3942,
+        "write_util": 0.0,
+        "speedup_vs_base": 1.9962,
+        "bubbles": {
+          "read": 6162,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat64_bp0",
+        "mode": "read",
+        "dut": "cand",
+        "max_out": 4,
+        "cycles": 5238,
+        "bus_util": 0.782,
+        "read_util": 0.782,
+        "write_util": 0.0,
+        "speedup_vs_base": 3.9595,
+        "bubbles": {
+          "read": 1072,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat64_bp0",
+        "mode": "read",
+        "dut": "cand",
+        "max_out": 8,
+        "cycles": 4167,
+        "bus_util": 0.983,
+        "read_util": 0.983,
+        "write_util": 0.0,
+        "speedup_vs_base": 4.9772,
+        "bubbles": {
+          "read": 60,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat64_bp0",
+        "mode": "write",
+        "dut": "base",
+        "max_out": 2,
+        "cycles": 7376,
+        "bus_util": 0.5553,
+        "read_util": 0.0,
+        "write_util": 0.5553,
+        "speedup_vs_base": null,
+        "bubbles": {
+          "read": 0,
+          "write": 2323
+        }
+      },
+      {
+        "scenario": "lat64_bp0",
+        "mode": "write",
+        "dut": "cand",
+        "max_out": 2,
+        "cycles": 4800,
+        "bus_util": 0.8533,
+        "read_util": 0.0,
+        "write_util": 0.8533,
+        "speedup_vs_base": 1.5367,
+        "bubbles": {
+          "read": 0,
+          "write": 9
+        }
+      },
+      {
+        "scenario": "lat64_bp0",
+        "mode": "write",
+        "dut": "cand",
+        "max_out": 4,
+        "cycles": 4800,
+        "bus_util": 0.8533,
+        "read_util": 0.0,
+        "write_util": 0.8533,
+        "speedup_vs_base": 1.5367,
+        "bubbles": {
+          "read": 0,
+          "write": 9
+        }
+      },
+      {
+        "scenario": "lat64_bp0",
+        "mode": "write",
+        "dut": "cand",
+        "max_out": 8,
+        "cycles": 4800,
+        "bus_util": 0.8533,
+        "read_util": 0.0,
+        "write_util": 0.8533,
+        "speedup_vs_base": 1.5367,
+        "bubbles": {
+          "read": 0,
+          "write": 9
+        }
+      },
+      {
+        "scenario": "lat64_bp0",
+        "mode": "mix",
+        "dut": "base",
+        "max_out": 2,
+        "cycles": 21183,
+        "bus_util": 0.3867,
+        "read_util": 0.1934,
+        "write_util": 0.1934,
+        "speedup_vs_base": null,
+        "bubbles": {
+          "read": 16828,
+          "write": 3315
+        }
+      },
+      {
+        "scenario": "lat64_bp0",
+        "mode": "mix",
+        "dut": "cand",
+        "max_out": 2,
+        "cycles": 11448,
+        "bus_util": 0.7156,
+        "read_util": 0.3578,
+        "write_util": 0.3578,
+        "speedup_vs_base": 1.8504,
+        "bubbles": {
+          "read": 7220,
+          "write": 1428
+        }
+      },
+      {
+        "scenario": "lat64_bp0",
+        "mode": "mix",
+        "dut": "cand",
+        "max_out": 4,
+        "cycles": 9053,
+        "bus_util": 0.9049,
+        "read_util": 0.4524,
+        "write_util": 0.4524,
+        "speedup_vs_base": 2.3399,
+        "bubbles": {
+          "read": 4887,
+          "write": 288
+        }
+      },
+      {
+        "scenario": "lat64_bp0",
+        "mode": "mix",
+        "dut": "cand",
+        "max_out": 8,
+        "cycles": 8760,
+        "bus_util": 0.9352,
+        "read_util": 0.4676,
+        "write_util": 0.4676,
+        "speedup_vs_base": 2.4182,
+        "bubbles": {
+          "read": 65,
+          "write": 3985
+        }
+      },
+      {
+        "scenario": "lat32_bp25",
+        "mode": "read",
+        "dut": "base",
+        "max_out": 2,
+        "cycles": 12638,
+        "bus_util": 0.3241,
+        "read_util": 0.3241,
+        "write_util": 0.0,
+        "speedup_vs_base": null,
+        "bubbles": {
+          "read": 8193,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat32_bp25",
+        "mode": "read",
+        "dut": "cand",
+        "max_out": 2,
+        "cycles": 6338,
+        "bus_util": 0.6463,
+        "read_util": 0.6463,
+        "write_util": 0.0,
+        "speedup_vs_base": 1.994,
+        "bubbles": {
+          "read": 1928,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat32_bp25",
+        "mode": "read",
+        "dut": "cand",
+        "max_out": 4,
+        "cycles": 4135,
+        "bus_util": 0.9906,
+        "read_util": 0.9906,
+        "write_util": 0.0,
+        "speedup_vs_base": 3.0563,
+        "bubbles": {
+          "read": 31,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat32_bp25",
+        "mode": "read",
+        "dut": "cand",
+        "max_out": 8,
+        "cycles": 4135,
+        "bus_util": 0.9906,
+        "read_util": 0.9906,
+        "write_util": 0.0,
+        "speedup_vs_base": 3.0563,
+        "bubbles": {
+          "read": 27,
+          "write": 0
+        }
+      },
+      {
+        "scenario": "lat32_bp25",
+        "mode": "write",
+        "dut": "base",
+        "max_out": 2,
+        "cycles": 7588,
+        "bus_util": 0.5398,
+        "read_util": 0.0,
+        "write_util": 0.5398,
+        "speedup_vs_base": null,
+        "bubbles": {
+          "read": 0,
+          "write": 2425
+        }
+      },
+      {
+        "scenario": "lat32_bp25",
+        "mode": "write",
+        "dut": "cand",
+        "max_out": 2,
+        "cycles": 4874,
+        "bus_util": 0.8404,
+        "read_util": 0.0,
+        "write_util": 0.8404,
+        "speedup_vs_base": 1.5568,
+        "bubbles": {
+          "read": 0,
+          "write": 11
+        }
+      },
+      {
+        "scenario": "lat32_bp25",
+        "mode": "write",
+        "dut": "cand",
+        "max_out": 4,
+        "cycles": 4874,
+        "bus_util": 0.8404,
+        "read_util": 0.0,
+        "write_util": 0.8404,
+        "speedup_vs_base": 1.5568,
+        "bubbles": {
+          "read": 0,
+          "write": 11
+        }
+      },
+      {
+        "scenario": "lat32_bp25",
+        "mode": "write",
+        "dut": "cand",
+        "max_out": 8,
+        "cycles": 4874,
+        "bus_util": 0.8404,
+        "read_util": 0.0,
+        "write_util": 0.8404,
+        "speedup_vs_base": 1.5568,
+        "bubbles": {
+          "read": 0,
+          "write": 11
+        }
+      },
+      {
+        "scenario": "lat32_bp25",
+        "mode": "mix",
+        "dut": "base",
+        "max_out": 2,
+        "cycles": 13501,
+        "bus_util": 0.6068,
+        "read_util": 0.3034,
+        "write_util": 0.3034,
+        "speedup_vs_base": null,
+        "bubbles": {
+          "read": 9066,
+          "write": 4293
+        }
+      },
+      {
+        "scenario": "lat32_bp25",
+        "mode": "mix",
+        "dut": "cand",
+        "max_out": 2,
+        "cycles": 9331,
+        "bus_util": 0.8779,
+        "read_util": 0.439,
+        "write_util": 0.439,
+        "speedup_vs_base": 1.4469,
+        "bubbles": {
+          "read": 5062,
+          "write": 1566
+        }
+      },
+      {
+        "scenario": "lat32_bp25",
+        "mode": "mix",
+        "dut": "cand",
+        "max_out": 4,
+        "cycles": 8941,
+        "bus_util": 0.9162,
+        "read_util": 0.4581,
+        "write_util": 0.4581,
+        "speedup_vs_base": 1.51,
+        "bubbles": {
+          "read": 38,
+          "write": 4055
+        }
+      },
+      {
+        "scenario": "lat32_bp25",
+        "mode": "mix",
+        "dut": "cand",
+        "max_out": 8,
+        "cycles": 8907,
+        "bus_util": 0.9197,
+        "read_util": 0.4599,
+        "write_util": 0.4599,
+        "speedup_vs_base": 1.5158,
+        "bubbles": {
+          "read": 31,
+          "write": 3981
+        }
+      }
+    ]
+  },
+  "vector_dma_compare": {
+    "note": "小请求 vector/layout 负载下 v020 略慢；DMA 大范围微基准另见 dma_compare。"
+  },
+  "pingpong": [
+    {
+      "prefetch": 0,
+      "cycles": 1651,
+      "fill_cycles": 404,
+      "overlap": 0,
+      "stall": 0,
+      "prefetch_n": 4,
+      "consume_n": 4,
+      "dma_rbeats": 256,
+      "pass": 1,
+      "host_seconds": 1.071,
+      "speedup_vs_serial": 1.0
+    },
+    {
+      "prefetch": 1,
+      "cycles": 1339,
+      "fill_cycles": 404,
+      "overlap": 303,
+      "stall": 410,
+      "prefetch_n": 4,
+      "consume_n": 4,
+      "dma_rbeats": 256,
+      "pass": 1,
+      "host_seconds": 1.094,
+      "speedup_vs_serial": 1.233
+    }
+  ],
+  "short_burst": [
+    {
+      "dut": "base",
+      "beats": 1,
+      "mode": "read",
+      "cycles": 38,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 1,
+      "mode": "write",
+      "cycles": 14,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 4,
+      "mode": "read",
+      "cycles": 41,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 4,
+      "mode": "write",
+      "cycles": 17,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 7,
+      "mode": "read",
+      "cycles": 44,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 7,
+      "mode": "write",
+      "cycles": 20,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 13,
+      "mode": "read",
+      "cycles": 50,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 13,
+      "mode": "write",
+      "cycles": 26,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 16,
+      "mode": "read",
+      "cycles": 53,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 16,
+      "mode": "write",
+      "cycles": 29,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 32,
+      "mode": "read",
+      "cycles": 102,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 32,
+      "mode": "write",
+      "cycles": 63,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 64,
+      "mode": "read",
+      "cycles": 200,
+      "pass_": 1
+    },
+    {
+      "dut": "base",
+      "beats": 64,
+      "mode": "write",
+      "cycles": 123,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 1,
+      "mode": "read",
+      "cycles": 40,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 1,
+      "mode": "write",
+      "cycles": 14,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 4,
+      "mode": "read",
+      "cycles": 43,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 4,
+      "mode": "write",
+      "cycles": 17,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 7,
+      "mode": "read",
+      "cycles": 46,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 7,
+      "mode": "write",
+      "cycles": 20,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 13,
+      "mode": "read",
+      "cycles": 52,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 13,
+      "mode": "write",
+      "cycles": 26,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 16,
+      "mode": "read",
+      "cycles": 55,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 16,
+      "mode": "write",
+      "cycles": 29,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 32,
+      "mode": "read",
+      "cycles": 71,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 32,
+      "mode": "write",
+      "cycles": 55,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 64,
+      "mode": "read",
+      "cycles": 103,
+      "pass_": 1
+    },
+    {
+      "dut": "cand",
+      "beats": 64,
+      "mode": "write",
+      "cycles": 93,
+      "pass_": 1
+    }
+  ],
+  "strobe_account": {
+    "note": "单端口 AXI128 BFM；64beat 写，8 种部分 WSTRB 循环，每 8beat 共 53 字节。V019/V020 的 write_bytes 都必须按 popcount 累计。",
+    "nbeats": 64,
+    "bytes_per_8beats": 53,
+    "expected_bytes": 424,
+    "results": [
+      {
+        "dut": "base",
+        "expected_bytes": 424,
+        "write_bytes": 424,
+        "dma_error": 0,
+        "cycles": 9,
+        "dma_write_beats": 4,
+        "bfm_write_beats": 64,
+        "pass_": true,
+        "log": "/home/yang/Desktop/项目/tasks/ds_ddr/bench/logs/strobe/base.run.log"
+      },
+      {
+        "dut": "cand",
+        "expected_bytes": 424,
+        "write_bytes": 424,
+        "dma_error": 0,
+        "cycles": 9,
+        "dma_write_beats": 4,
+        "bfm_write_beats": 64,
+        "pass_": true,
+        "log": "/home/yang/Desktop/项目/tasks/ds_ddr/bench/logs/strobe/cand.run.log"
+      }
+    ],
+    "pass_": true
+  },
+  "graph_runner": [
+    {
+      "case": 0,
+      "completed": 4,
+      "seq": 4,
+      "fault": 0,
+      "err": "0x00",
+      "pass": 1
+    },
+    {
+      "case": 1,
+      "completed": 2,
+      "seq": 2,
+      "fault": 1,
+      "err": "0x04",
+      "pass": 1
+    },
+    {
+      "case": 2,
+      "completed": 0,
+      "seq": 1,
+      "fault": 1,
+      "err": "0x05",
+      "pass": 1
+    }
+  ],
+  "plan_workload": {
+    "mac_useful": 3461011968,
+    "mac_padded": 3991404544,
+    "unique_c48": 4471808,
+    "blocks": 121808,
+    "matrix_pe_cycles": 32157312,
+    "matrix_queue_cycles": 284175569,
+    "vector_cycles": 851939384,
+    "layout_cycles": 419186668,
+    "fetch_cycles": 5250673,
+    "whole_plan_cycles": 1560822594,
+    "matrix_bytes": 125143040,
+    "matrix_c_read_bytes": 1867776,
+    "vector_read_bytes": 452330768,
+    "vector_write_bytes": 355555088,
+    "total_bytes": 933028896,
+    "mac_per_cycle_padded": 124.121,
+    "mac_per_cycle_useful": 107.628,
+    "matrix_full_block_cycles": 63340160,
+    "matrix_full_block_seconds": 0.50672128,
+    "matrix_full_block_mac_per_cycle": 63.015,
+    "c48_per_cycle": 0.1391,
+    "c48_bits_per_cycle": 6.67,
+    "onboard_operand_bits_per_cycle": 368,
+    "onboard_operand_B_per_cycle": 46,
+    "matrix_DDR_B_per_cycle": 3.892,
+    "compulsory": {
+      "unique_weight_B": 81007616,
+      "unique_tensor_range_B": 12592128,
+      "boundary_input_B": 4539392,
+      "boundary_output_B": 16508928,
+      "onchip_intermediate_lower_B": 102055936,
+      "all_intermediate_ddr_lower_B": 127240192,
+      "actual_total_B": 933028896,
+      "note": "onchip 假设中间量全片内；all_intermediate 假设唯一张量范围各写/读一次（粗下界）。"
+    }
+  },
+  "frequency_table": [
+    {
+      "compute_hz": 125000000,
+      "matrix_actual_schedule_s": 0.257258496,
+      "matrix_ideal256_s": 0.124731392,
+      "matrix_useful256_s": 0.108156624,
+      "vector_schedule_s": 6.815515072,
+      "layout_schedule_s": 3.353493344,
+      "whole_plan_schedule_s": 12.486580752,
+      "matrix_queue_schedule_s": 2.273404552,
+      "note": "whole_plan 是当前串行计划的整段；DDR 用户域不随 compute_hz 变化。"
+    },
+    {
+      "compute_hz": 300000000,
+      "matrix_actual_schedule_s": 0.10719104,
+      "matrix_ideal256_s": 0.051971413333333334,
+      "matrix_useful256_s": 0.04506526,
+      "vector_schedule_s": 2.8397979466666667,
+      "layout_schedule_s": 1.3972888933333334,
+      "whole_plan_schedule_s": 5.20274198,
+      "matrix_queue_schedule_s": 0.9472518966666666,
+      "note": "whole_plan 是当前串行计划的整段；DDR 用户域不随 compute_hz 变化。"
+    },
+    {
+      "compute_hz": 600000000,
+      "matrix_actual_schedule_s": 0.05359552,
+      "matrix_ideal256_s": 0.025985706666666667,
+      "matrix_useful256_s": 0.02253263,
+      "vector_schedule_s": 1.4198989733333334,
+      "layout_schedule_s": 0.6986444466666667,
+      "whole_plan_schedule_s": 2.60137099,
+      "matrix_queue_schedule_s": 0.4736259483333333,
+      "note": "whole_plan 是当前串行计划的整段；DDR 用户域不随 compute_hz 变化。"
+    }
+  ],
+  "ddr_table": [
+    {
+      "ddr_user_hz": 125000000,
+      "peak_GBps": 2.0,
+      "actual_bytes_lb_s": 0.466514448,
+      "vector_layout_bytes_lb_s": 0.403942928,
+      "matrix_bytes_lb_s": 0.06257152,
+      "actual_effective_MBps": 74.72252929214068,
+      "note": "半双工共享数据通道，每 cycle 最多一个 16B beat；不含命令/延迟。"
+    },
+    {
+      "ddr_user_hz": 200000000,
+      "peak_GBps": 3.2,
+      "actual_bytes_lb_s": 0.29157153,
+      "vector_layout_bytes_lb_s": 0.25246433,
+      "matrix_bytes_lb_s": 0.0391072,
+      "actual_effective_MBps": 74.72252929214068,
+      "note": "半双工共享数据通道，每 cycle 最多一个 16B beat；不含命令/延迟。"
+    },
+    {
+      "ddr_user_hz": 250000000,
+      "peak_GBps": 4.0,
+      "actual_bytes_lb_s": 0.233257224,
+      "vector_layout_bytes_lb_s": 0.201971464,
+      "matrix_bytes_lb_s": 0.03128576,
+      "actual_effective_MBps": 74.72252929214068,
+      "note": "半双工共享数据通道，每 cycle 最多一个 16B beat；不含命令/延迟。"
+    },
+    {
+      "ddr_user_hz": 300000000,
+      "peak_GBps": 4.8,
+      "actual_bytes_lb_s": 0.19438102,
+      "vector_layout_bytes_lb_s": 0.16830955333333333,
+      "matrix_bytes_lb_s": 0.026071466666666668,
+      "actual_effective_MBps": 74.72252929214068,
+      "note": "半双工共享数据通道，每 cycle 最多一个 16B beat；不含命令/延迟。"
+    }
+  ],
+  "burst_model": {
+    "8": {
+      "base_read_cycles": 6404,
+      "cand_read_cycles": 4111,
+      "base_write_cycles": 7347,
+      "cand_write_cycles": 4816,
+      "model_base_read": 6144,
+      "model_cand_read": 4104,
+      "cand_read_overhead": 7,
+      "base_read_util": 0.6396,
+      "cand_read_util": 0.9964,
+      "base_write_util": 0.5575,
+      "cand_write_util": 0.8505
+    },
+    "32": {
+      "base_read_cycles": 12548,
+      "cand_read_cycles": 4135,
+      "base_write_cycles": 7404,
+      "cand_write_cycles": 4815,
+      "model_base_read": 12288,
+      "model_cand_read": 4128,
+      "cand_read_overhead": 7,
+      "base_read_util": 0.3264,
+      "cand_read_util": 0.9906,
+      "base_write_util": 0.5532,
+      "cand_write_util": 0.8507
+    },
+    "64": {
+      "base_read_cycles": 20740,
+      "cand_read_cycles": 4167,
+      "base_write_cycles": 7376,
+      "cand_write_cycles": 4800,
+      "model_base_read": 20480,
+      "model_cand_read": 4160,
+      "cand_read_overhead": 7,
+      "base_read_util": 0.1975,
+      "cand_read_util": 0.983,
+      "base_write_util": 0.5553,
+      "cand_write_util": 0.8533
+    }
+  },
+  "critical_path": {
+    "stage_sum_cycles": 1560552294,
+    "whole_plan_cycles": 1560822594,
+    "apparent_overlap_cycles": 270300,
+    "stage_sum_seconds": 12.484418352,
+    "whole_seconds": 12.486580752,
+    "serial_fraction": 0.999827,
+    "naive_max_seconds": 6.815515072,
+    "note": "68 个计划按 host 依赖串行启动；matrix/vector/layout 是有依赖的阶段，不能把总和取 max。naive_max 只作为“若完全独立”的对照，不是可实现调度。"
+  },
+  "reports": {
+    "baseline": "/home/yang/Desktop/项目/tasks/ds_ddr/bench/baseline/result.json",
+    "dma_compare": "/home/yang/Desktop/项目/tasks/ds_ddr/bench/reports/dma_compare.json",
+    "vector_dma_compare": "/home/yang/Desktop/项目/tasks/ds_ddr/bench/reports/vector_dma_compare.json",
+    "pingpong": "/home/yang/Desktop/项目/tasks/ds_ddr/bench/reports/pingpong.json",
+    "graph_runner": "/home/yang/Desktop/项目/tasks/ds_ddr/bench/reports/graph_runner.json",
+    "plan_workload": "/home/yang/Desktop/项目/tasks/ds_ddr/bench/reports/plan_workload.json",
+    "bounds": "/home/yang/Desktop/项目/tasks/ds_ddr/bench/reports/bounds.json",
+    "short_burst": "/home/yang/Desktop/项目/tasks/ds_ddr/bench/reports/short_burst.json",
+    "strobe_account": "/home/yang/Desktop/项目/tasks/ds_ddr/bench/reports/strobe_account.json",
+    "findings": "/home/yang/Desktop/项目/tasks/ds_ddr/FINDINGS.md",
+    "report": "/home/yang/Desktop/项目/tasks/ds_ddr/REPORT.md",
+    "historical": "/home/yang/Desktop/项目/tasks/ds_ddr/HISTORICAL_OPTIONS.md",
+    "autonomy": "/home/yang/Desktop/项目/tasks/ds_ddr/docs/PL_AUTONOMY.md"
+  },
+  "commands": [
+    "python3 bench/run_baseline.py",
+    "python3 bench/analyze_plan_workload.py",
+    "python3 bench/run_dma_compare.py",
+    "python3 bench/run_vector_compare.py",
+    "python3 bench/run_short_bursts.py",
+    "python3 bench/run_strobe_account.py",
+    "python3 bench/run_pingpong.py",
+    "python3 bench/run_graph.py",
+    "python3 bench/analyze_bounds.py",
+    "python3 bench/make_result.py"
+  ],
+  "honesty": [
+    "Icarus/Verilator 逻辑仿真，不是板级 DDR；BFM 不建模 PS DDR 控制器、刷新、bank/row、PHY。",
+    "300/600MHz 只是流水设计目标；没有综合/STA，不能宣称物理时序。",
+    "DDR 用户域频率独立；不能把 125MHz 的字节界按 compute 频率乘。",
+    "历史 wholecase 153.775s 的剩余时间不是纯 DDR 延迟；缺逐阶段 profile。",
+    "v020 对大范围连续 DMA 有效；对当前 vector/layout 小请求负载略慢，说明瓶颈在算子串行/请求粒度。",
+    "bench/bfm/axi128_ddr_bfm_ds.sv 是本任务钉住的修正版共享 BFM：修复了 W FIFO 死锁、AW 信用不递增、单 B 仅支持一笔在途 B、每拍换向导致 50% 上限；shared 文件仍由外部维护，二者已分开。",
+    "pl_graph_runner_v1 只是控制骨架（op_* 桩、本地 64B 行读取），不是 68+591 节点 CASE 集成。",
+    "matrix_pe_cycles 是 RUN-only；整块 520 拍/block=63.0 MAC/cycle 是 RTL 常数推导，不是板测计数器。",
+    "历史 64bit 必然不够/300MHz 已达到只对特定 A16W12/预布局成立；本轮不外推。",
+    "未实现完整 PL 自主图、591 legacy 静态化、host 一次上传/下载端到端。"
+  ]
+}

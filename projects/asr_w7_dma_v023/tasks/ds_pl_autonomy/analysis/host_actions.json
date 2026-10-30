@@ -1,0 +1,1842 @@
+{
+ "scope": "static source audit; FusionExecutor/profiled_backend absent",
+ "files": [
+  "host/base_v021.py",
+  "host/backend_v021.py",
+  "host/fusion_backend.py",
+  "host/layout.py",
+  "host/parameters.py",
+  "host/plan_metrics.py",
+  "scripts/run_case0000.py",
+  "scripts/compile_pl_plans.py",
+  "ps/vm_pl.c",
+  "ps/async_dispatch.inc.c",
+  "ps/gateway_main_async.c",
+  "rtl/pl_execution_plan_v022.sv",
+  "rtl/plan_submit_csr.sv",
+  "rtl/ddr_execution_cluster_v022.sv",
+  "rtl/plan_board_v022.sv",
+  "ps/plan_index.h",
+  "scripts/run_logged.py",
+  "scripts/derive_runtime_v022.py"
+ ],
+ "counts": {
+  "HOST_SHAPE_DECISION": 5,
+  "HOST_RUNTIME_LAYOUT": 16,
+  "HOST_PYTHON_NUMERIC": 49,
+  "HOST_IMPLICIT_STATE": 25,
+  "HOST_RUNTIME_DATA": 9,
+  "HOST_RUNTIME_CONTROL": 7,
+  "HOST_NN_DISPATCH": 4,
+  "PL_GUARD": 47,
+  "HOST_PER_PROGRAM_START": 1,
+  "PL_PLAN_CONTROL": 18,
+  "PL_PROGRAM_INDEX": 5,
+  "PS_PROGRAM_START": 2,
+  "PS_START_MMIO": 1,
+  "PS_ONLY_STATE": 9,
+  "PL_DEPENDENCY": 2
+ },
+ "actions": [
+  {
+   "file": "host/base_v021.py",
+   "line": 24,
+   "symbol": "column_step",
+   "classification": "HOST_SHAPE_DECISION",
+   "why": "host chooses N column window",
+   "disposition": "W023 must freeze row/column windows at compile time.",
+   "snippet": "def column_step(m, k, n):"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 29,
+   "symbol": "choose_row_step",
+   "classification": "HOST_SHAPE_DECISION",
+   "why": "host chooses M row window from DDR capacity",
+   "disposition": "W023 must freeze row/column windows at compile time.",
+   "snippet": "def choose_row_step(m, k, n):"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 36,
+   "symbol": "column_step",
+   "classification": "HOST_SHAPE_DECISION",
+   "why": "host chooses N column window",
+   "disposition": "W023 must freeze row/column windows at compile time.",
+   "snippet": "nc = column_step(mr, k, n)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 50,
+   "symbol": "block_bytes",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "A16/W7 tile packing",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "def block_bytes(x, weights=False):"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 52,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "pad = np.zeros((tiles(r) * 32, tiles(c) * 32), dtype=np.uint8 if weights else '<i2')"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 54,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "parity = np.zeros_like(x)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 62,
+   "symbol": "pack_task",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "A/W packing on host for each matrix call",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "def dynamic_pack_task(a, codes, positions, clip, first_cookie):"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 63,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "if a.dtype != np.int16 or codes.dtype != np.uint8 or a.ndim != 2 or codes.ndim != 2:"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 67,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "if codes.shape[0] != k or not 1 <= m <= 4096 or not 1 <= n <= 4096 or k < 1 or np.any(codes > 127):"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 69,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "if len(positions) != 4 or any(type(p) not in (int, np.int64, np.int32) or not 0 <= p <= 12 for p in positions):"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 79,
+   "symbol": "block_bytes",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "A16/W7 tile packing",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "av = block_bytes(a[:, at:at+4096])"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 80,
+   "symbol": "block_bytes",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "A16/W7 tile packing",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "wv = block_bytes(codes[at:at+4096, :], True)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 107,
+   "symbol": "unpack_c",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "host converts C48 tiles to INT64 after board read",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "def unpack_c(data, layout):"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 108,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "b = np.frombuffer(data, np.uint8).reshape(layout['mt'], layout['nt'], 32, 32, 6)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 109,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "extended = np.empty(b.shape[:-1] + (8,), np.uint8)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 111,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "extended[..., 6:] = np.where(b[..., 5:6] & 128, 255, 0).astype(np.uint8)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 116,
+   "symbol": "pack_task",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "A/W packing on host for each matrix call",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "pack_task=staticmethod(dynamic_pack_task)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 126,
+   "symbol": "cookie21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host increments queue epoch; must become PL generation",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "self.cookie21=capability[2]"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 131,
+   "symbol": "upload21",
+   "classification": "HOST_RUNTIME_DATA",
+   "why": "host uploads each fused input to DDR before each START",
+   "disposition": "W023 moves to PL DMA descriptor/addressing; host only preloads once.",
+   "snippet": "def upload21(self, address, data):"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 139,
+   "symbol": "read21",
+   "classification": "HOST_RUNTIME_DATA",
+   "why": "host reads each fused output from DDR after each START",
+   "disposition": "W023 moves to PL DMA descriptor/addressing; host only preloads once.",
+   "snippet": "def read21(self, address, size):"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 151,
+   "symbol": "native21",
+   "classification": "HOST_RUNTIME_CONTROL",
+   "why": "host packs/uploads/submits/reads one matrix queue",
+   "disposition": "W023 moves to one superplan START; no per-program MMIO.",
+   "snippet": "def native21(self, a, codes, positions, clip):"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 153,
+   "symbol": "pack_task",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "A/W packing on host for each matrix call",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "segments,layout=self.pack_task(a,codes,positions,clip,self.cookie21+1)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 153,
+   "symbol": "cookie21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host increments queue epoch; must become PL generation",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "segments,layout=self.pack_task(a,codes,positions,clip,self.cookie21+1)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 154,
+   "symbol": "cookie21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host increments queue epoch; must become PL generation",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "self.cookie21+=layout['queue_count']"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 157,
+   "symbol": "upload21",
+   "classification": "HOST_RUNTIME_DATA",
+   "why": "host uploads each fused input to DDR before each START",
+   "disposition": "W023 moves to PL DMA descriptor/addressing; host only preloads once.",
+   "snippet": "for address,blob in segments:self.upload21(address,blob)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 163,
+   "symbol": "cookie21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host increments queue epoch; must become PL generation",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "if w[0]!=0xa51a2202 or w[2]!=self.cookie21 or w[3]!=layout['queue_count'] or w[20]!=layout['queue_count']-1 or w[21] or w[22]!=0x10102131 or w[30]!=3:"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 168,
+   "symbol": "cookie21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host increments queue epoch; must become PL generation",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "entry={**layout,'cookie':self.cookie21,'queue_cycles':cycles,'compute_cycles':compute,"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 178,
+   "symbol": "read21",
+   "classification": "HOST_RUNTIME_DATA",
+   "why": "host reads each fused output from DDR after each START",
+   "disposition": "W023 moves to PL DMA descriptor/addressing; host only preloads once.",
+   "snippet": "start=time.perf_counter();data=self.read21(layout['cbase'],layout['cbytes'])"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 180,
+   "symbol": "unpack_c",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "host converts C48 tiles to INT64 after board read",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "return unpack_c(data,layout)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 181,
+   "symbol": "matmul_special",
+   "classification": "HOST_NN_DISPATCH",
+   "why": "host chooses matrix tiling/windows and calls native21",
+   "disposition": "W023 must bind concrete program/weight/tensor addresses offline.",
+   "snippet": "def matmul_special(self,a,b,positions=None):"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 182,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "started=time.perf_counter();a=np.asarray(a);b=np.asarray(b)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 183,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "if a.dtype!=np.int16 or b.dtype!=np.int16 or a.ndim<2 or b.ndim<2:"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 187,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "batch=np.broadcast_shapes(a.shape[:-2],b.shape[:-2])"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 188,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "aa=np.broadcast_to(a,batch+(m,k));bb=np.broadcast_to(b,batch+(k,n))"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 189,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "output=np.empty(batch+(m,n),np.int64)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 191,
+   "symbol": "choose_row_step",
+   "classification": "HOST_SHAPE_DECISION",
+   "why": "host chooses M row window from DDR capacity",
+   "disposition": "W023 must freeze row/column windows at compile time.",
+   "snippet": "row_step=choose_row_step(m,effective_k,n)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 192,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "for ix in np.ndindex(batch):"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 195,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "if positions is None:av=np.tile(av,(1,4))"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 196,
+   "symbol": "column_step",
+   "classification": "HOST_SHAPE_DECISION",
+   "why": "host chooses N column window",
+   "disposition": "W023 must freeze row/column windows at compile time.",
+   "snippet": "nc=column_step(mr,effective_k,n)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 202,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "mag=np.abs(q.astype(np.int32));sign=(q<0).astype(np.uint8)<<6"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 203,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "codes=np.concatenate([sign|(digit<<4)|((mag>>(4*digit))&15).astype(np.uint8) for digit in range(4)],axis=0)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 205,
+   "symbol": "native21",
+   "classification": "HOST_RUNTIME_CONTROL",
+   "why": "host packs/uploads/submits/reads one matrix queue",
+   "disposition": "W023 moves to one superplan START; no per-program MMIO.",
+   "snippet": "output[ix][row:row+mr,col:col+nc]=self.native21(np.ascontiguousarray(av),codes,p,clip)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 205,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "output[ix][row:row+mr,col:col+nc]=self.native21(np.ascontiguousarray(av),codes,p,clip)"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 207,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "self.lowbit_stats['logical_int16_mac_terms']+=int(np.prod(batch,dtype=np.int64))*m*k*n"
+  },
+  {
+   "file": "host/base_v021.py",
+   "line": 210,
+   "symbol": "matmul_special",
+   "classification": "HOST_NN_DISPATCH",
+   "why": "host chooses matrix tiling/windows and calls native21",
+   "disposition": "W023 must bind concrete program/weight/tensor addresses offline.",
+   "snippet": "def matmul_i16(self,a,b):return self.matmul_special(a,b)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 5,
+   "symbol": "pack_task",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "A/W packing on host for each matrix call",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "from base_v021 import V021Base,dynamic_pack_task,BASE,END,align,tiles"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 6,
+   "symbol": "block_bytes",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "A16/W7 tile packing",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "from layout import block_bytes"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 9,
+   "symbol": "pack_task",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "A/W packing on host for each matrix call",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "def resident_pack_task(a,view,positions,clip,first_cookie):"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 10,
+   "symbol": "pack_task",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "A/W packing on host for each matrix call",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "if not isinstance(view,dict):return dynamic_pack_task(a,view,positions,clip,first_cookie)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 11,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "if a.dtype!=np.int16 or a.ndim!=2:raise ValueError('A16 matrix required')"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 17,
+   "symbol": "block_bytes",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "A16/W7 tile packing",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "blob=block_bytes(a[:,start:start+4096]);abase=cursor;segments.append((cursor,blob));cursor+=len(blob)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 36,
+   "symbol": "pack_task",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "A/W packing on host for each matrix call",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "pack_task=staticmethod(resident_pack_task)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 39,
+   "symbol": "param_state21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host re-checks parameter generation between calls",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "self.image=image;self.transport21=ParameterTransport(link,image);self.param_state21=self.transport21.require_ready()"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 40,
+   "symbol": "matrix_index21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "round-robin selection of matrix context/views",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "self.context21=None;self.matrix_index21=0;self.resident_stats=Counter();self.fp32_refs={}"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 40,
+   "symbol": "context21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host selects resident B context by Python string",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "self.context21=None;self.matrix_index21=0;self.resident_stats=Counter();self.fp32_refs={}"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 40,
+   "symbol": "fp32_refs",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host dedup table for FP32 parameter copies",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "self.context21=None;self.matrix_index21=0;self.resident_stats=Counter();self.fp32_refs={}"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 42,
+   "symbol": "fp32_refs",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host dedup table for FP32 parameter copies",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "if r['kind'].startswith('static_') and r['dtype']=='<f4':self.fp32_refs.setdefault((r['bytes'],r['sha256']),r)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 43,
+   "symbol": "repeat_lengths",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host scalar-repeat inference for write_words",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "self.repeat_lengths=sorted({size//4 for size,_ in self.fp32_refs if 0<size<=2048},reverse=True)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 43,
+   "symbol": "fp32_refs",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host dedup table for FP32 parameter copies",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "self.repeat_lengths=sorted({size//4 for size,_ in self.fp32_refs if 0<size<=2048},reverse=True)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 45,
+   "symbol": "matrix_index21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "round-robin selection of matrix context/views",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "def set_context(self,name):self.context21=name;self.matrix_index21=0"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 45,
+   "symbol": "context21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host selects resident B context by Python string",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "def set_context(self,name):self.context21=name;self.matrix_index21=0"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 48,
+   "symbol": "param_state21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host re-checks parameter generation between calls",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "if s[37]!=self.param_state21[37]:raise RuntimeError('Parameter generation changed during run')"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 48,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "if s[37]!=self.param_state21[37]:raise RuntimeError('Parameter generation changed during run')"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 50,
+   "symbol": "matmul_special",
+   "classification": "HOST_NN_DISPATCH",
+   "why": "host chooses matrix tiling/windows and calls native21",
+   "disposition": "W023 must bind concrete program/weight/tensor addresses offline.",
+   "snippet": "def matmul_special(self,a,b,positions=None):"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 51,
+   "symbol": "matmul_special",
+   "classification": "HOST_NN_DISPATCH",
+   "why": "host chooses matrix tiling/windows and calls native21",
+   "disposition": "W023 must bind concrete program/weight/tensor addresses offline.",
+   "snippet": "if positions is None:return super().matmul_special(a,b,positions)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 52,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "self.require_resident();started=time.perf_counter();a=np.asarray(a);b=np.asarray(b)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 53,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "if a.dtype!=np.int16 or b.dtype!=np.int16:raise ValueError('Static QDQ INT16 required')"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 54,
+   "symbol": "context21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host selects resident B context by Python string",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "context=self.image.meta['contexts'].get(self.context21)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 55,
+   "symbol": "context21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host selects resident B context by Python string",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "if context is None:raise RuntimeError('No resident B context: '+str(self.context21))"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 56,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "m,k=a.shape[-2:];n=b.shape[-1];batch=np.broadcast_shapes(a.shape[:-2],b.shape[:-2]);aa=np.broadcast_to(a,batch+(m,k));output=np.empty(batch+(m,n),np.int64)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 57,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "for ix in np.ndindex(batch):"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 58,
+   "symbol": "matrix_index21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "round-robin selection of matrix context/views",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "ref=context['matrices'][self.matrix_index21%len(context['matrices'])];self.matrix_index21+=1"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 66,
+   "symbol": "native21",
+   "classification": "HOST_RUNTIME_CONTROL",
+   "why": "host packs/uploads/submits/reads one matrix queue",
+   "disposition": "W023 moves to one superplan START; no per-program MMIO.",
+   "snippet": "c=view['start_col'];result=self.native21(np.ascontiguousarray(aa[ix][row:row+row_step]),view,positions,True)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 66,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "c=view['start_col'];result=self.native21(np.ascontiguousarray(aa[ix][row:row+row_step]),view,positions,True)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 71,
+   "symbol": "write_words",
+   "classification": "HOST_RUNTIME_DATA",
+   "why": "host writes nonmatrix operands through the link",
+   "disposition": "W023 moves to PL DMA descriptor/addressing; host only preloads once.",
+   "snippet": "def write_words(self,address,values):"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 72,
+   "symbol": "fp32_refs",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host dedup table for FP32 parameter copies",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "v=np.asarray(values,dtype='<u4').ravel();blob=v.tobytes();r=self.fp32_refs.get((len(blob),hashlib.sha256(blob).hexdigest()))"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 72,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "v=np.asarray(values,dtype='<u4').ravel();blob=v.tobytes();r=self.fp32_refs.get((len(blob),hashlib.sha256(blob).hexdigest()))"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 75,
+   "symbol": "repeat_lengths",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host scalar-repeat inference for write_words",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "for length in self.repeat_lengths:"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 77,
+   "symbol": "fp32_refs",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host dedup table for FP32 parameter copies",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "candidate=self.fp32_refs.get((length*4,hashlib.sha256(blob[:length*4]).hexdigest()))"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 78,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "if candidate is not None and np.array_equal(v,np.resize(v[:length],v.size)):"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 82,
+   "symbol": "write_words",
+   "classification": "HOST_RUNTIME_DATA",
+   "why": "host writes nonmatrix operands through the link",
+   "disposition": "W023 moves to PL DMA descriptor/addressing; host only preloads once.",
+   "snippet": "return super().write_words(address,values)"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 84,
+   "symbol": "param_state21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host re-checks parameter generation between calls",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "r=super().report();r['resident_parameters']=dict(self.resident_stats);r['parameter_image_bytes']=self.image.meta['image_bytes'];r['parameter_generation']=self.param_state21[37]"
+  },
+  {
+   "file": "host/backend_v021.py",
+   "line": 84,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "r=super().report();r['resident_parameters']=dict(self.resident_stats);r['parameter_image_bytes']=self.image.meta['image_bytes'];r['parameter_generation']=self.param_state21[37]"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 12,
+   "symbol": "fusion_calls",
+   "classification": "HOST_RUNTIME_CONTROL",
+   "why": "per-fused-call timing/identity",
+   "disposition": "W023 moves to one superplan START; no per-program MMIO.",
+   "snippet": "super().__init__(link,image);self.fusion_stats=Counter();self.fusion_calls=[]"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 17,
+   "symbol": "fuse_plan",
+   "classification": "HOST_PER_PROGRAM_START",
+   "why": "one START/poll/read per fused program",
+   "disposition": "W023 removes; one START covers the whole plan.",
+   "snippet": "def fuse_plan(self,image,key,feed):"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 20,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "if feed.q is None or feed.q.dtype!=np.int16 or feed.q.shape!=shape:raise ValueError('Fixed CASE input QDQ shape')"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 21,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "expected=np.frombuffer(image.data,'<f4',count=1,offset=iv[2]-PARAM_BASE)[0]"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 22,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "if not np.all(feed.scale_view()==expected):raise ValueError('Compiled input scale differs from graph')"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 23,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "started=time.perf_counter();blob=np.ascontiguousarray(feed.q,dtype='<i2').tobytes();padding=(-len(blob))%4"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 24,
+   "symbol": "upload21",
+   "classification": "HOST_RUNTIME_DATA",
+   "why": "host uploads each fused input to DDR before each START",
+   "disposition": "W023 moves to PL DMA descriptor/addressing; host only preloads once.",
+   "snippet": "begin=time.perf_counter();self.upload21(iv[1],blob+b'\\0'*padding);uploaded=time.perf_counter()-begin"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 46,
+   "symbol": "cookie21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host increments queue epoch; must become PL generation",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "if w[0]!=MAGIC or w[2]!=self.param_state21[37] or w[3]!=len(p['ops']) or w[4]!=ov[3] or w[1]<=self.cookie21:raise RuntimeError('Stale/incomplete VM completion')"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 46,
+   "symbol": "param_state21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host re-checks parameter generation between calls",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "if w[0]!=MAGIC or w[2]!=self.param_state21[37] or w[3]!=len(p['ops']) or w[4]!=ov[3] or w[1]<=self.cookie21:raise RuntimeError('Stale/incomplete VM completion')"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 47,
+   "symbol": "cookie21",
+   "classification": "HOST_IMPLICIT_STATE",
+   "why": "host increments queue epoch; must become PL generation",
+   "disposition": "W023 must encode as explicit plan generation/tensor ids.",
+   "snippet": "self.cookie21=w[1]"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 48,
+   "symbol": "read21",
+   "classification": "HOST_RUNTIME_DATA",
+   "why": "host reads each fused output from DDR after each START",
+   "disposition": "W023 moves to PL DMA descriptor/addressing; host only preloads once.",
+   "snippet": "begin=time.perf_counter();shape=tuple(ov[6:6+ov[5]]);data=np.frombuffer(self.read21(ov[0],ov[3]*4),'<f4').reshape(shape).copy();q=scale=None"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 48,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "begin=time.perf_counter();shape=tuple(ov[6:6+ov[5]]);data=np.frombuffer(self.read21(ov[0],ov[3]*4),'<f4').reshape(shape).copy();q=scale=None"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 50,
+   "symbol": "read21",
+   "classification": "HOST_RUNTIME_DATA",
+   "why": "host reads each fused output from DDR after each START",
+   "disposition": "W023 moves to PL DMA descriptor/addressing; host only preloads once.",
+   "snippet": "qbytes=ov[3]*2;raw=self.read21(ov[1],(qbytes+3)&~3);q=np.frombuffer(raw[:qbytes],'<i2').reshape(shape).copy();scale=np.frombuffer(image.data,'<f4',count=ov[11],offset=ov[2]-PARAM_BASE).copy()"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 50,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "qbytes=ov[3]*2;raw=self.read21(ov[1],(qbytes+3)&~3);q=np.frombuffer(raw[:qbytes],'<i2').reshape(shape).copy();scale=np.frombuffer(image.data,'<f4',count=ov[11],offset=ov[2]-PARAM_BASE).copy()"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 53,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "entry=dict(async_polls=polls,async_ticket=ticket,key=key,kind=p['kind'],original_nodes=len(p['members']),input_bytes=len(blob),output_bytes=data.nbytes+(q.nbytes if q is not None else 0),upload_seconds=uploaded,board_wait_seconds=board_wait"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 54,
+   "symbol": "fusion_calls",
+   "classification": "HOST_RUNTIME_CONTROL",
+   "why": "per-fused-call timing/identity",
+   "disposition": "W023 moves to one superplan START; no per-program MMIO.",
+   "snippet": "self.fusion_calls.append(entry);self.fusion_stats[p['kind']]+=1"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 59,
+   "symbol": "fusion_calls",
+   "classification": "HOST_RUNTIME_CONTROL",
+   "why": "per-fused-call timing/identity",
+   "disposition": "W023 moves to one superplan START; no per-program MMIO.",
+   "snippet": "r=super().report();r.update(fused_subgraphs=dict(self.fusion_stats),fusion_calls=self.fusion_calls,initial_vm_status=self.initial_vm_status,"
+  },
+  {
+   "file": "host/fusion_backend.py",
+   "line": 60,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "final_vm_status=final,plan_counter_delta=delta_plan(self.initial_vm_status,final),core_hz=125000000,"
+  },
+  {
+   "file": "host/layout.py",
+   "line": 5,
+   "symbol": "block_bytes",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "A16/W7 tile packing",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "def block_bytes(x,weights=False):"
+  },
+  {
+   "file": "host/layout.py",
+   "line": 6,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "r,c=x.shape;pad=np.zeros((tiles(r)*32,tiles(c)*32),dtype=np.uint8 if weights else '<i2')"
+  },
+  {
+   "file": "host/layout.py",
+   "line": 8,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "parity=np.zeros_like(x)"
+  },
+  {
+   "file": "host/layout.py",
+   "line": 13,
+   "symbol": "unpack_c",
+   "classification": "HOST_RUNTIME_LAYOUT",
+   "why": "host converts C48 tiles to INT64 after board read",
+   "disposition": "W023 requires offline compile or PL layout engine; no host packing at runtime.",
+   "snippet": "def unpack_c(data,m,n):"
+  },
+  {
+   "file": "host/layout.py",
+   "line": 14,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "r,c=tiles(m),tiles(n);b=np.frombuffer(data,np.uint8).reshape(r,c,32,32,6)"
+  },
+  {
+   "file": "host/layout.py",
+   "line": 15,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "e=np.empty(b.shape[:-1]+(8,),np.uint8);e[...,:6]=b;e[...,6:]=np.where(b[...,5:6]&128,255,0).astype(np.uint8)"
+  },
+  {
+   "file": "host/parameters.py",
+   "line": 20,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "def array(self,r):return np.frombuffer(self.data,dtype=r['dtype'],count=int(np.prod(r['shape'])),offset=r['offset']).reshape(r['shape'])"
+  },
+  {
+   "file": "host/parameters.py",
+   "line": 27,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "raw=np.frombuffer(self.blob(v),np.uint8).reshape(kt,nt,32,32).transpose(0,2,1,3).reshape(kt*32,nt*32)[:k,:n]"
+  },
+  {
+   "file": "host/parameters.py",
+   "line": 28,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "parity=np.zeros(raw.shape,np.uint8)"
+  },
+  {
+   "file": "host/parameters.py",
+   "line": 30,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "if np.any(parity):raise ValueError('DDR W7 byte parity')"
+  },
+  {
+   "file": "host/parameters.py",
+   "line": 31,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "code=raw&127;p=np.asarray(v['positions_lsb'],np.int64)"
+  },
+  {
+   "file": "host/parameters.py",
+   "line": 32,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "mag=(code&15).astype(np.int64)<<p[(code>>4)&3]"
+  },
+  {
+   "file": "host/parameters.py",
+   "line": 33,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "if v['clip']:mag=np.minimum(mag,32767)"
+  },
+  {
+   "file": "host/parameters.py",
+   "line": 34,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "q=np.where(code&64,-mag,mag).astype(np.int16);chunks.append(q)"
+  },
+  {
+   "file": "host/parameters.py",
+   "line": 35,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "value=np.concatenate(chunks,axis=1);value.flags.writeable=False"
+  },
+  {
+   "file": "host/parameters.py",
+   "line": 41,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "def __init__(self):self.ready=False;self.generation=0;self.upload_bytes=0;self.meta=None"
+  },
+  {
+   "file": "host/parameters.py",
+   "line": 48,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "self.ready=True;self.generation+=1"
+  },
+  {
+   "file": "scripts/run_case0000.py",
+   "line": 42,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "print(json.dumps(dict(stage='load',ready=True,generation=after[37],seconds=time.perf_counter()-started,parameter_payload_bytes=(after[38]-before[38])&0xffffffff,readback_verified_bytes=after[45],image_bytes=len(image.data)),indent=2));raise"
+  },
+  {
+   "file": "scripts/run_case0000.py",
+   "line": 54,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "report=dict(completed=False,hardware_executed=True,cpu_numeric_fallback=False,started_utc=datetime.now(timezone.utc).isoformat(),parameter_generation=before[37],provenance=provenance,"
+  },
+  {
+   "file": "scripts/run_case0000.py",
+   "line": 70,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "if after[38]!=before[38] or after[37]!=before[37]:raise ValueError('Parameter reload/generation changed during run')"
+  },
+  {
+   "file": "scripts/run_case0000.py",
+   "line": 71,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "np.savez(out/'hardware_outputs.npz',**actual)"
+  },
+  {
+   "file": "scripts/run_case0000.py",
+   "line": 72,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "with np.load(prep/'reference7_outputs.npz') as z:report['vs_7bit_onnx']={k:common.compare_golden(v,z[k]) for k,v in actual.items()}"
+  },
+  {
+   "file": "scripts/run_case0000.py",
+   "line": 73,
+   "symbol": "np.",
+   "classification": "HOST_PYTHON_NUMERIC",
+   "why": "host-side numpy use; must be absent from runtime path",
+   "disposition": "Must be absent from runtime; numeric only in PL.",
+   "snippet": "with np.load(OLD/'reports/case0000_board001/hardware_outputs.npz') as z:report['vs_v21_hardware']={k:common.compare_golden(v,z[k]) for k,v in actual.items()}"
+  },
+  {
+   "file": "scripts/run_case0000.py",
+   "line": 78,
+   "symbol": "fusion_calls",
+   "classification": "HOST_RUNTIME_CONTROL",
+   "why": "per-fused-call timing/identity",
+   "disposition": "W023 moves to one superplan START; no per-program MMIO.",
+   "snippet": "report['fusion_calls']=backend.fusion_calls;report['fusion_stats']=dict(backend.fusion_stats)"
+  },
+  {
+   "file": "scripts/compile_pl_plans.py",
+   "line": 130,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "programs[key]=dict(part=p['part'],name=p['name'],kind=p['kind'],original_program_address=p['address'],plan_address=address,plan_count=len(instructions),matrix_tasks=matrix_tasks,input_id=p['input_id'],output_id=p['output_id'],output_address"
+  },
+  {
+   "file": "scripts/compile_pl_plans.py",
+   "line": 136,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "result=dict(hardware_accessed=False,original_image_sha256=old.meta['image_sha256'],image_sha256=meta['image_sha256'],image_bytes=len(image),added_bytes=len(image)-old.meta['image_bytes'],programs=len(programs),instructions=sum(p['plan_count"
+  },
+  {
+   "file": "ps/vm_pl.c",
+   "line": 7,
+   "symbol": "plan_index",
+   "classification": "PL_PROGRAM_INDEX",
+   "why": "generated immutable per-program entry table",
+   "disposition": "Keep as read-only; superplan nodes point at these programs.",
+   "snippet": "#include \"plan_index.h\""
+  },
+  {
+   "file": "ps/vm_pl.c",
+   "line": 16,
+   "symbol": "vm211_run",
+   "classification": "PS_PROGRAM_START",
+   "why": "PS starts one program and waits for completion",
+   "disposition": "Replace with one PL superplan; PS only starts/observes.",
+   "snippet": "int vm211_run(const struct v10_io *io,uint32_t address,uint32_t reply[16]){"
+  },
+  {
+   "file": "ps/vm_pl.c",
+   "line": 18,
+   "symbol": "plan_index",
+   "classification": "PL_PROGRAM_INDEX",
+   "why": "generated immutable per-program entry table",
+   "disposition": "Keep as read-only; superplan nodes point at these programs.",
+   "snippet": "for(unsigned i=0;i<sizeof(plan_index)/sizeof(plan_index[0]);i++)if(plan_index[i].program==address){p=&plan_index[i];break;}"
+  },
+  {
+   "file": "ps/vm_pl.c",
+   "line": 21,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "uint32_t generation=matrix[0xa4/4],cookie=matrix[0x28/4];"
+  },
+  {
+   "file": "ps/vm_pl.c",
+   "line": 23,
+   "symbol": "plan[4]=1",
+   "classification": "PS_START_MMIO",
+   "why": "single plan doorbell write",
+   "disposition": "Keep one START for the whole superplan.",
+   "snippet": "uint64_t begin=ticks_vm();plan[2]=p->plan;plan[3]=p->count;fence_vm();plan[4]=1;fence_vm();"
+  },
+  {
+   "file": "ps/vm_pl.c",
+   "line": 31,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "if((plan[1]&5)||plan[7]||plan[5]!=p->count||plan[0x78/4]&7||matrix[0xa4/4]!=generation||matrix[0x90/4]!=1||matrix[0x28/4]!=cookie+p->matrix_tasks){stats[27]=(uint32_t)V10_FAULT;return V10_FAULT;}"
+  },
+  {
+   "file": "ps/vm_pl.c",
+   "line": 38,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "stats[26]=matrix[0x28/4];stats[27]=0;stats[28]=generation;stats[29]=address;stats[30]=2201;"
+  },
+  {
+   "file": "ps/vm_pl.c",
+   "line": 42,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "reply[0]=0x2111ff01u;reply[1]=stats[26];reply[2]=generation;reply[3]=p->ops;reply[4]=p->output_elements;reply[5]=(uint32_t)elapsed;reply[6]=(uint32_t)(elapsed>>32);"
+  },
+  {
+   "file": "ps/async_dispatch.inc.c",
+   "line": 4,
+   "symbol": "async_state",
+   "classification": "PS_ONLY_STATE",
+   "why": "PS async completion state, no arithmetic",
+   "disposition": "Allowed: PS completion/IRQ only, no neural control flow.",
+   "snippet": "static volatile uint32_t async_state,async_program,async_ticket;"
+  },
+  {
+   "file": "ps/async_dispatch.inc.c",
+   "line": 17,
+   "symbol": "async_state",
+   "classification": "PS_ONLY_STATE",
+   "why": "PS async completion state, no arithmetic",
+   "disposition": "Allowed: PS completion/IRQ only, no neural control flow.",
+   "snippet": "if(async_state==1||async_state==2)return V10_BUSY;"
+  },
+  {
+   "file": "ps/async_dispatch.inc.c",
+   "line": 19,
+   "symbol": "async_state",
+   "classification": "PS_ONLY_STATE",
+   "why": "PS async completion state, no arithmetic",
+   "disposition": "Allowed: PS completion/IRQ only, no neural control flow.",
+   "snippet": "async_program=get32_21(req+12);async_ticket++;async_error=0;async_state=1;"
+  },
+  {
+   "file": "ps/async_dispatch.inc.c",
+   "line": 23,
+   "symbol": "async_state",
+   "classification": "PS_ONLY_STATE",
+   "why": "PS async completion state, no arithmetic",
+   "disposition": "Allowed: PS completion/IRQ only, no neural control flow.",
+   "snippet": "words[7]=async_state;words[8]=async_program;words[9]=(uint32_t)async_error;"
+  },
+  {
+   "file": "ps/async_dispatch.inc.c",
+   "line": 26,
+   "symbol": "async_state",
+   "classification": "PS_ONLY_STATE",
+   "why": "PS async completion state, no arithmetic",
+   "disposition": "Allowed: PS completion/IRQ only, no neural control flow.",
+   "snippet": "vm211_status(words);words[49]=ASYNC_MAGIC;words[50]=async_state;words[51]=async_program;"
+  },
+  {
+   "file": "ps/async_dispatch.inc.c",
+   "line": 35,
+   "symbol": "async_state",
+   "classification": "PS_ONLY_STATE",
+   "why": "PS async completion state, no arithmetic",
+   "disposition": "Allowed: PS completion/IRQ only, no neural control flow.",
+   "snippet": "if(async_state!=2||async_servicing||!(async_mb[1]&1))return;"
+  },
+  {
+   "file": "ps/async_dispatch.inc.c",
+   "line": 52,
+   "symbol": "async_state",
+   "classification": "PS_ONLY_STATE",
+   "why": "PS async completion state, no arithmetic",
+   "disposition": "Allowed: PS completion/IRQ only, no neural control flow.",
+   "snippet": "if(async_state!=1)return;"
+  },
+  {
+   "file": "ps/async_dispatch.inc.c",
+   "line": 53,
+   "symbol": "vm211_run",
+   "classification": "PS_PROGRAM_START",
+   "why": "PS starts one program and waits for completion",
+   "disposition": "Replace with one PL superplan; PS only starts/observes.",
+   "snippet": "async_state=2;uint32_t completion[16];int rc=vm211_run(io,async_program,completion);"
+  },
+  {
+   "file": "ps/async_dispatch.inc.c",
+   "line": 53,
+   "symbol": "async_state",
+   "classification": "PS_ONLY_STATE",
+   "why": "PS async completion state, no arithmetic",
+   "disposition": "Allowed: PS completion/IRQ only, no neural control flow.",
+   "snippet": "async_state=2;uint32_t completion[16];int rc=vm211_run(io,async_program,completion);"
+  },
+  {
+   "file": "ps/async_dispatch.inc.c",
+   "line": 54,
+   "symbol": "async_state",
+   "classification": "PS_ONLY_STATE",
+   "why": "PS async completion state, no arithmetic",
+   "disposition": "Allowed: PS completion/IRQ only, no neural control flow.",
+   "snippet": "async_error=rc;async_state=rc?4:3;"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 8,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": ")(input wire clk,rst_n,start,input wire [31:0] plan_base,plan_count,param_end,"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 9,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "input wire parameter_ready,input wire [31:0] generation,"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 9,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "input wire parameter_ready,input wire [31:0] generation,"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 35,
+   "symbol": "dependency",
+   "classification": "PL_DEPENDENCY",
+   "why": "V022 linear dependency field",
+   "disposition": "V022 only supports previous-instruction chain; W023 adds 128-bit masks.",
+   "snippet": "wire [31:0] kind=instruction[63:32],ticket=instruction[95:64],dependency=instruction[127:96];"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 39,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "wire bad_start=!parameter_ready||plan_base[5:0]!=0||plan_count==0||plan_count>65535||"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 39,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "wire bad_start=!parameter_ready||plan_base[5:0]!=0||plan_count==0||plan_count>65535||"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 40,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "plan_base<PLAN_BASE||({32'd0,plan_base}+({32'd0,plan_count}<<6))>{32'd0,param_end}||param_end>PLAN_LIMIT;"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 42,
+   "symbol": "dependency",
+   "classification": "PL_DEPENDENCY",
+   "why": "V022 linear dependency field",
+   "disposition": "V022 only supports previous-instruction chain; W023 adds 128-bit masks.",
+   "snippet": "dependency!=(index==0?32'hffffffff:index-1)||instruction[511:192]!=0||"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 51,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "assign matrix_valid=state==DISPATCH&&kind==1&&parameter_ready&&generation==gen;"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 51,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "assign matrix_valid=state==DISPATCH&&kind==1&&parameter_ready&&generation==gen;"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 52,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "assign vector_valid=state==DISPATCH&&kind==2&&parameter_ready&&generation==gen;"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 52,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "assign vector_valid=state==DISPATCH&&kind==2&&parameter_ready&&generation==gen;"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 56,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "assign layout_valid=state==DISPATCH&&kind==3&&parameter_ready&&generation==gen;"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 56,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "assign layout_valid=state==DISPATCH&&kind==3&&parameter_ready&&generation==gen;"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 71,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "base<=plan_base;count<=plan_count;gen<=generation;cycles<=0;fetch_cycles<=0;operator_cycles<=0;"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 71,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "base<=plan_base;count<=plan_count;gen<=generation;cycles<=0;fetch_cycles<=0;operator_cycles<=0;"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 74,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "PRECHECK:if(!parameter_ready||generation!=gen||plan_end>param_end)fail(8'h02);else state<=REQ;"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 74,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "PRECHECK:if(!parameter_ready||generation!=gen||plan_end>param_end)fail(8'h02);else state<=REQ;"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 96,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "else if(!parameter_ready||generation!=gen)fail(8'h02);"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 96,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "else if(!parameter_ready||generation!=gen)fail(8'h02);"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 98,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "DISPATCH:if(!parameter_ready||generation!=gen)fail(8'h02);"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 98,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "DISPATCH:if(!parameter_ready||generation!=gen)fail(8'h02);"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 103,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "if(!parameter_ready||generation!=gen||wait_cycles>=WATCHDOG)fail(8'h09);"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 103,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "if(!parameter_ready||generation!=gen||wait_cycles>=WATCHDOG)fail(8'h09);"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 107,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "else if(!parameter_ready||generation!=gen||wait_cycles>=WATCHDOG)begin fault<=1;error_code<=8'h09;state<=ERROR_DRAIN;end"
+  },
+  {
+   "file": "rtl/pl_execution_plan_v022.sv",
+   "line": 107,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "else if(!parameter_ready||generation!=gen||wait_cycles>=WATCHDOG)begin fault<=1;error_code<=8'h09;state<=ERROR_DRAIN;end"
+  },
+  {
+   "file": "rtl/plan_submit_csr.sv",
+   "line": 11,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "output reg start,output reg [31:0] plan_base,plan_count,"
+  },
+  {
+   "file": "rtl/plan_submit_csr.sv",
+   "line": 12,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "input wire parameter_ready,input wire [31:0] generation,param_end,"
+  },
+  {
+   "file": "rtl/plan_submit_csr.sv",
+   "line": 12,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "input wire parameter_ready,input wire [31:0] generation,param_end,"
+  },
+  {
+   "file": "rtl/plan_submit_csr.sv",
+   "line": 36,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "s_axi_rdata<=0;s_axi_rresp<=0;s_axi_rvalid<=0;start<=0;plan_base<=0;plan_count<=0;done_latched<=0;snapshot_high<=0;"
+  },
+  {
+   "file": "rtl/plan_submit_csr.sv",
+   "line": 69,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "12:plan_count<=wd;"
+  },
+  {
+   "file": "rtl/plan_submit_csr.sv",
+   "line": 70,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "16:if(wd==1&&parameter_ready)begin"
+  },
+  {
+   "file": "rtl/plan_submit_csr.sv",
+   "line": 86,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "8:s_axi_rdata<=plan_base;12:s_axi_rdata<=plan_count;"
+  },
+  {
+   "file": "rtl/plan_submit_csr.sv",
+   "line": 110,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "144:s_axi_rdata<={31'd0,parameter_ready};148:s_axi_rdata<=generation;"
+  },
+  {
+   "file": "rtl/plan_submit_csr.sv",
+   "line": 110,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "144:s_axi_rdata<={31'd0,parameter_ready};148:s_axi_rdata<=generation;"
+  },
+  {
+   "file": "rtl/ddr_execution_cluster_v022.sv",
+   "line": 8,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "input wire [31:0] plan_count,"
+  },
+  {
+   "file": "rtl/ddr_execution_cluster_v022.sv",
+   "line": 10,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "input wire  parameter_ready,"
+  },
+  {
+   "file": "rtl/ddr_execution_cluster_v022.sv",
+   "line": 11,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "input wire [31:0] generation,"
+  },
+  {
+   "file": "rtl/ddr_execution_cluster_v022.sv",
+   "line": 224,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": ".plan_count(plan_count),"
+  },
+  {
+   "file": "rtl/ddr_execution_cluster_v022.sv",
+   "line": 226,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": ".parameter_ready(parameter_ready),"
+  },
+  {
+   "file": "rtl/ddr_execution_cluster_v022.sv",
+   "line": 227,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": ".generation(generation),"
+  },
+  {
+   "file": "rtl/plan_board_v022.sv",
+   "line": 6,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "input wire  parameter_ready,"
+  },
+  {
+   "file": "rtl/plan_board_v022.sv",
+   "line": 7,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": "input wire [31:0] generation,"
+  },
+  {
+   "file": "rtl/plan_board_v022.sv",
+   "line": 183,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "wire [31:0] plan_count;"
+  },
+  {
+   "file": "rtl/plan_board_v022.sv",
+   "line": 226,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": ".plan_count(plan_count),"
+  },
+  {
+   "file": "rtl/plan_board_v022.sv",
+   "line": 228,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": ".parameter_ready(parameter_ready),"
+  },
+  {
+   "file": "rtl/plan_board_v022.sv",
+   "line": 229,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": ".generation(generation),"
+  },
+  {
+   "file": "rtl/plan_board_v022.sv",
+   "line": 443,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": ".plan_count(plan_count),"
+  },
+  {
+   "file": "rtl/plan_board_v022.sv",
+   "line": 444,
+   "symbol": "parameter_ready",
+   "classification": "PL_GUARD",
+   "why": "parameter generation guard",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": ".parameter_ready(parameter_ready),"
+  },
+  {
+   "file": "rtl/plan_board_v022.sv",
+   "line": 445,
+   "symbol": "generation",
+   "classification": "PL_GUARD",
+   "why": "generation latch/compare",
+   "disposition": "Keep and extend to whole-plan header.",
+   "snippet": ".generation(generation),"
+  },
+  {
+   "file": "ps/plan_index.h",
+   "line": 8,
+   "symbol": "plan_index",
+   "classification": "PL_PROGRAM_INDEX",
+   "why": "generated immutable per-program entry table",
+   "disposition": "Keep as read-only; superplan nodes point at these programs.",
+   "snippet": "static const struct plan_entry plan_index[]={"
+  },
+  {
+   "file": "scripts/derive_runtime_v022.py",
+   "line": 17,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "s=s.replace('vm_counter_delta=delta_vm(self.initial_vm_status,final)','plan_counter_delta=delta_plan(self.initial_vm_status,final)')"
+  },
+  {
+   "file": "scripts/derive_runtime_v022.py",
+   "line": 32,
+   "symbol": "plan_count",
+   "classification": "PL_PLAN_CONTROL",
+   "why": "linear instruction count",
+   "disposition": "Existing linear executor remains a SEQ engine.",
+   "snippet": "vals=[p['original_program_address'],p['plan_address'],p['plan_count'],p['matrix_tasks'],queues,len(original['ops']),original['values'][original['output_id']]['words'][3],1 if p['kind']=='CONV' else 2]"
+  },
+  {
+   "file": "scripts/derive_runtime_v022.py",
+   "line": 36,
+   "symbol": "plan_index",
+   "classification": "PL_PROGRAM_INDEX",
+   "why": "generated immutable per-program entry table",
+   "disposition": "Keep as read-only; superplan nodes point at these programs.",
+   "snippet": "header+='struct plan_entry {uint32_t program,plan,count,matrix_tasks,matrix_queues,ops,output_elements,kind;};\\nstatic const struct plan_entry plan_index[]={\\n'+',\\n'.join(entries)+'\\n};\\n#endif\\n'"
+  },
+  {
+   "file": "scripts/derive_runtime_v022.py",
+   "line": 37,
+   "symbol": "plan_index",
+   "classification": "PL_PROGRAM_INDEX",
+   "why": "generated immutable per-program entry table",
+   "disposition": "Keep as read-only; superplan nodes point at these programs.",
+   "snippet": "emit(ROOT/'ps/plan_index.h',header)"
+  }
+ ]
+}

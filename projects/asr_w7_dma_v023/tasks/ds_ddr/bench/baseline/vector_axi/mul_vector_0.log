@@ -1,0 +1,2 @@
+V022_VECTOR_AXI_PASS mode=          0 cycles=                8528 read_compute_overlap=                 804 write_compute_overlap=                 678 read_requests=        32 write_requests=        16
+/home/yang/Desktop/项目/work/tests/tb_vector_axi.sv:190: $finish called at 68288000 (1ps)

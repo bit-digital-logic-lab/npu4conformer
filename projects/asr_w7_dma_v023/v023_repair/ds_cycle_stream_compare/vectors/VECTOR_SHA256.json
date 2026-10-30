@@ -1,0 +1,17 @@
+{
+  "stream_256.vec": {
+    "beats": 256,
+    "sha256": "33d966c1257365615986ccd30f46bb38cdd0debf1a30bd5f6c7558c0ca92b3dd",
+    "bytes": 15104
+  },
+  "stream_1024.vec": {
+    "beats": 1024,
+    "sha256": "bc104c7d08c67e13e22d94a7ac38a1e8b77a5b0e8571149099ac195c71d71cfb",
+    "bytes": 60416
+  },
+  "stream_4096.vec": {
+    "beats": 4096,
+    "sha256": "ed67d5363b5a0784e2456bdbd54271a3d6a170506a021fde97c2f5b3f8d7d0f1",
+    "bytes": 241664
+  }
+}

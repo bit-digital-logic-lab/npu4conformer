@@ -1,0 +1,41 @@
+%Warning-WIDTHTRUNC: candidate/rtl/plan_submit_csr_v023.sv:43:21: Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'S_CYCLES' generates 32 bits.
+                                                                : ... note: In instance 'plan_submit_csr_v023'
+   43 |     8'h20:snap_index=S_CYCLES; 8'h30:snap_index=S_FETCH;
+      |                     ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.047
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: candidate/rtl/plan_submit_csr_v023.sv:43:48: Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'S_FETCH' generates 32 bits.
+                                                                : ... note: In instance 'plan_submit_csr_v023'
+   43 |     8'h20:snap_index=S_CYCLES; 8'h30:snap_index=S_FETCH;
+      |                                                ^
+%Warning-WIDTHTRUNC: candidate/rtl/plan_submit_csr_v023.sv:44:21: Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'S_OPERATOR' generates 32 bits.
+                                                                : ... note: In instance 'plan_submit_csr_v023'
+   44 |     8'h38:snap_index=S_OPERATOR;8'h40:snap_index=S_VECTOR;
+      |                     ^
+%Warning-WIDTHTRUNC: candidate/rtl/plan_submit_csr_v023.sv:44:49: Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'S_VECTOR' generates 32 bits.
+                                                                : ... note: In instance 'plan_submit_csr_v023'
+   44 |     8'h38:snap_index=S_OPERATOR;8'h40:snap_index=S_VECTOR;
+      |                                                 ^
+%Warning-WIDTHTRUNC: candidate/rtl/plan_submit_csr_v023.sv:45:21: Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'S_LAYOUT' generates 32 bits.
+                                                                : ... note: In instance 'plan_submit_csr_v023'
+   45 |     8'h48:snap_index=S_LAYOUT; 8'h60:snap_index=S_RDOVL;
+      |                     ^
+%Warning-WIDTHTRUNC: candidate/rtl/plan_submit_csr_v023.sv:45:48: Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'S_RDOVL' generates 32 bits.
+                                                                : ... note: In instance 'plan_submit_csr_v023'
+   45 |     8'h48:snap_index=S_LAYOUT; 8'h60:snap_index=S_RDOVL;
+      |                                                ^
+%Warning-WIDTHTRUNC: candidate/rtl/plan_submit_csr_v023.sv:46:21: Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'S_WROVL' generates 32 bits.
+                                                                : ... note: In instance 'plan_submit_csr_v023'
+   46 |     8'h68:snap_index=S_WROVL;  8'hA0:snap_index=S_MATRIX;
+      |                     ^
+%Warning-WIDTHTRUNC: candidate/rtl/plan_submit_csr_v023.sv:46:48: Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'S_MATRIX' generates 32 bits.
+                                                                : ... note: In instance 'plan_submit_csr_v023'
+   46 |     8'h68:snap_index=S_WROVL;  8'hA0:snap_index=S_MATRIX;
+      |                                                ^
+%Warning-WIDTHTRUNC: candidate/rtl/plan_submit_csr_v023.sv:47:21: Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'S_MATRIX_PE' generates 32 bits.
+                                                                : ... note: In instance 'plan_submit_csr_v023'
+   47 |     8'hA8:snap_index=S_MATRIX_PE;
+      |                     ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)
+- Verilator: Built from 0.041 MB sources in 2 modules, into 0.076 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.018 s (elab=0.002, cvt=0.011, bld=0.000); cpu 0.018 s on 1 threads; allocated 22.512 MB

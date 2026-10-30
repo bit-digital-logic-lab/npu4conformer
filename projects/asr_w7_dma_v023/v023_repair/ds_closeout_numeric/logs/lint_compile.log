@@ -1,0 +1,27 @@
+rtl/asr_fp32_alu.sv:9: warning: timescale for asr_fp32_alu inherited from another file.
+rtl/axi_dma_v019.sv:1: ...: The inherited timescale is here.
+rtl/ddr_vector_engine_pipe.sv:179: warning: @* is sensitive to all 2 words in array 'bank_count'.
+rtl/ddr_vector_engine_pipe.sv:180: warning: @* is sensitive to all 512 words in array 'a48mem'.
+rtl/ddr_vector_engine_pipe.sv:181: warning: @* is sensitive to all 256 words in array 'amem'.
+rtl/ddr_vector_engine_pipe.sv:182: warning: @* is sensitive to all 256 words in array 'amem'.
+rtl/ddr_vector_engine_pipe.sv:183: warning: @* is sensitive to all 256 words in array 'amem'.
+rtl/ddr_vector_engine_pipe.sv:184: warning: @* is sensitive to all 512 words in array 'a48mem'.
+rtl/ddr_vector_engine_pipe.sv:185: warning: @* is sensitive to all 256 words in array 'bmem'.
+rtl/ddr_vector_engine_pipe.sv:186: warning: @* is sensitive to all 256 words in array 'bmem'.
+rtl/ddr_vector_engine_pipe.sv:189: warning: @* is sensitive to all 256 words in array 'bmem'.
+rtl/ddr_vector_engine_pipe.sv:190: warning: @* is sensitive to all 256 words in array 'bmem'.
+rtl/ddr_vector_engine_pipe.sv:191: warning: @* is sensitive to all 256 words in array 'cmem'.
+rtl/ddr_vector_engine_pipe.sv:192: warning: @* is sensitive to all 256 words in array 'cmem'.
+rtl/block_engine_prefetch_v2.sv:253: warning: @* is sensitive to all 2 words in array 'valid_cache'.
+rtl/block_engine_prefetch_v2.sv:253: warning: @* is sensitive to all 2 words in array 'tag_done'.
+rtl/block_engine_prefetch_v2.sv:253: warning: @* is sensitive to all 2 words in array 'tag_epoch'.
+rtl/block_engine_prefetch_v2.sv:253: warning: @* is sensitive to all 2 words in array 'tag_base'.
+rtl/block_engine_prefetch_v2.sv:254: warning: @* is sensitive to all 2 words in array 'tag_layer'.
+rtl/block_engine_prefetch_v2.sv:254: warning: @* is sensitive to all 2 words in array 'tag_matrix'.
+rtl/block_engine_prefetch_v2.sv:254: warning: @* is sensitive to all 2 words in array 'tag_r'.
+rtl/block_engine_prefetch_v2.sv:254: warning: @* is sensitive to all 2 words in array 'tag_c'.
+rtl/block_engine_prefetch_v2.sv:255: warning: @* is sensitive to all 2 words in array 'tag_rows'.
+rtl/block_engine_prefetch_v2.sv:255: warning: @* is sensitive to all 2 words in array 'tag_cols'.
+rtl/block_engine_prefetch_v2.sv:255: warning: @* is sensitive to all 2 words in array 'tag_allowed'.
+rtl/v023_axi_shared.sv:133: warning: @* is sensitive to all 5 words in array 'rd_out'.
+rtl/v023_axi_shared.sv:169: warning: @* is sensitive to all 3 words in array 'wr_out'.

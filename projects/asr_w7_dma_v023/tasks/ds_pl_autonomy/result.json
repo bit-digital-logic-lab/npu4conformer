@@ -1,0 +1,237 @@
+{
+  "generated_utc": "2026-10-29T11:05:44Z",
+  "status": "CANDIDATE_IMPLEMENTED_LOGIC_TESTED_NOT_WHOLECASE",
+  "task": "ds_pl_autonomy",
+  "scope": "PL whole-plan control/compiler/dependency/ACL/generation/drain candidate; closed 68-program control and real layout/vector data chains; no synthesis/STA/board/whole CASE.",
+  "confirmed": [
+    {
+      "id": "C01",
+      "fact": "Sealed V022 image contains 68 closed CONV/FFN programs, 636 original nodes, 45055 instructions and 6231 matrix descriptors.",
+      "evidence": "analysis/analysis.json"
+    },
+    {
+      "id": "C02",
+      "fact": "The 68 programs have zero tensor-name dependencies; all 68 are roots and leaves; all inputs are produced outside the closed set.",
+      "evidence": "analysis/deps.json, analysis/analysis.json"
+    },
+    {
+      "id": "C03",
+      "fact": "All 2278 unordered program pairs overlap in DDR (WAW/RAW/WAR); root-parallel dispatch is unsafe.",
+      "evidence": "analysis/analysis.json, analysis/verify_roots_strict.json"
+    },
+    {
+      "id": "C04",
+      "fact": "Temporary arenas overlap; peak 36 live temp ranges; 994 overlapping pairs; compile_pl_plans.py uses per-program temp bases.",
+      "evidence": "analysis/whole68.json, work/scripts/compile_pl_plans.py:32-34"
+    },
+    {
+      "id": "C05",
+      "fact": "A 4416-byte WCPL superplan with 68 real program pointers, 128-bit dependency masks and FNV-1a hash compiles and verifies.",
+      "evidence": "analysis/whole68_serial.bin, analysis/verify_real68.json"
+    },
+    {
+      "id": "C06",
+      "fact": "The compiled 68-node plan runs under a SEQ stub with one START, 68 dispatches, one DONE/IRQ and zero errors in Icarus and Verilator.",
+      "evidence": "reports/run_all/ctrl_mode7_seed12345.log, verilator_ctrl_mode7.log"
+    },
+    {
+      "id": "C07",
+      "fact": "Real layout->vector->vector and real V022 layout+vector data chains match an independent Python float32 golden on 64/64 words.",
+      "evidence": "reports/run_all/top_mode10_seed12345.log, top_mode11_seed12345.log, top_mode12_seed12345.log"
+    },
+    {
+      "id": "C08",
+      "fact": "Generation loss, bad hash, bad VEC ACL, child fault with drain, START replay and parameter-window writes are rejected/guarded.",
+      "evidence": "reports/run_all/ctrl_mode2/3/4/5/1 logs"
+    },
+    {
+      "id": "C09",
+      "fact": "One-START control reduces 68 per-program starts to 1 (68-node control: 1372 vs 2505 cycles).",
+      "evidence": "reports/run_all/ctrl_mode7_seed12345.log, before68.log"
+    },
+    {
+      "id": "C10",
+      "fact": "The candidate top needs one more AXI master than the current 5-master plans block, or a shared fetch arbiter.",
+      "evidence": "INTERFACE.md, work/scripts/build_full.tcl:60-62"
+    },
+    {
+      "id": "C11",
+      "fact": "Board PL traffic uses ps/S_AXI_HP0_FPD; PS CPU is out of data path but the PS hard DDR controller is not bypassed.",
+      "evidence": "work/scripts/build_full.tcl:55"
+    },
+    {
+      "id": "C12",
+      "fact": "CSR passes 39 control checks; compiler format passes 200 random DAGs plus negative cycle/hash/129-node tests.",
+      "evidence": "reports/run_all/csr.log, reports/compiler_random.json"
+    }
+  ],
+  "assumptions": [
+    "The sealed manifest/image and V022 plans are the intended read-only baseline; no weight/plan content was changed.",
+    "The 68-node serial order uses the manifest/topological root order; it is a control-safe serialization, not a proven semantic whole-CASE order.",
+    "The BFM is a logic model with deterministic+random stalls; it is not a board DDR timing model.",
+    "The before/after 4-program cycle comparison aligns BFM port indices/seed but not full host/network latency; no CASE-time extrapolation.",
+    "Generation=0 in the 68-node artifact means ignore; production must bind the sealed generation.",
+    "No matrix arithmetic or vendor FMA is used as evidence in this task."
+  ],
+  "untested": [
+    "Whole CASE0000 execution and strict ONNX comparison.",
+    "Matrix W7/A16/C48 arithmetic through the whole plan (external engine only control-stubbed here).",
+    "Vendor asr_fma_ip / opcode 17 FMA.",
+    "Outside 591 legacy queues / 593 descriptors and the upstream FusionExecutor/ONNX model.",
+    "Synthesis, STA at 300/600 MHz, DRC, bitstream, board, VNC/network deployment.",
+    "True bypass of the PS hard DDR controller (needs MIG/external adapter).",
+    "Parallel execution of the 68 programs without arena relocation."
+  ],
+  "coverage": {
+    "closed_programs": 68,
+    "closed_original_nodes": 636,
+    "plan_instructions": 45055,
+    "matrix_descriptors": 6231,
+    "tensor_name_edges": 0,
+    "external_inputs": 68,
+    "outside_legacy_queues_quoted": 591,
+    "outside_legacy_descriptors_quoted": 593,
+    "whole_case_runnable": false,
+    "whole_case_reason": "68 closed programs are disjoint islands: all 68 inputs are produced outside the closed set; 591 legacy queues/593 descriptors remain in the host DAG (quoted from work/CURRENT_WORK.txt). A single START here would read tensors not yet produced.",
+    "matrix_numeric_tested": false,
+    "fma_tested": false,
+    "board_tested": false,
+    "sta_tested": false
+  },
+  "tests": {
+    "static_checks": 18,
+    "sim_runs": 24,
+    "sim_passed": 24,
+    "sim_failed": 0,
+    "compiler_random_dags": 200,
+    "csr_checks": 39,
+    "verilator_runs": 4,
+    "icarus_sim_runs": 20,
+    "negative_strict_roots_rc": 1,
+    "all_ok": true
+  },
+  "metrics": {
+    "ctrl_mode0_seed1": {
+      "ctrl": [
+        "0",
+        "298",
+        "7",
+        "00"
+      ]
+    },
+    "ctrl_mode7_seed12345": {
+      "ctrl": [
+        "7",
+        "1372",
+        "68",
+        "00"
+      ]
+    },
+    "top_mode10_seed12345": {
+      "top": [
+        "10",
+        "2287",
+        "3",
+        "00"
+      ]
+    },
+    "top_mode11_seed12345": {
+      "top": [
+        "11",
+        "1584",
+        "1",
+        "00"
+      ]
+    },
+    "top_mode12_seed12345": {
+      "top": [
+        "12",
+        "3842",
+        "4",
+        "00"
+      ]
+    },
+    "before_gap0": {
+      "before": [
+        "4",
+        "4",
+        "719",
+        "0"
+      ]
+    },
+    "before68": {
+      "before68": [
+        "68",
+        "68",
+        "2505"
+      ]
+    },
+    "verilator_ctrl_mode7": {
+      "ctrl": [
+        "7",
+        "1372",
+        "68",
+        "00"
+      ]
+    },
+    "csr": {
+      "csr": [
+        "pass"
+      ]
+    }
+  },
+  "hazard": {
+    "pairs": 2278,
+    "kinds": {
+      "RAW": 2278,
+      "WAR": 2278,
+      "WAW": 2278
+    },
+    "temp_overlap_pairs": 994,
+    "peak_temp_live_ranges": 36,
+    "shared_write_spans": 15,
+    "output_alias_groups": 4
+  },
+  "host_clearance": {
+    "counts": {
+      "NOT_IMPLEMENTED": 3,
+      "CANDIDATE_COVERED": 3,
+      "MUST_MOVE": 10,
+      "OFFLINE_ONLY": 4
+    },
+    "ledger": "analysis/host_clearance.json",
+    "raw": "analysis/host_actions.json"
+  },
+  "findings": {
+    "count": 26,
+    "file": "FINDINGS.jsonl",
+    "high": 13
+  },
+  "artifacts": {
+    "compiler": "scripts/wc_compile.py",
+    "verifier": "scripts/wc_verify_plan.py",
+    "controller": "rtl/wc_superplan_ctrl.sv",
+    "top": "rtl/wc_plan_top_v023.sv",
+    "csr": "rtl/wc_plan_csr.sv",
+    "interface": "INTERFACE.md",
+    "host_clearance": "HOST_CLEARANCE.md",
+    "report": "REPORT.md",
+    "run": "reports/run_all/run_all.json"
+  },
+  "source_identity": {
+    "baseline": "SOURCE_BASELINE.json",
+    "zip_sha256": "327ea1b4b228a0415b370a208e2a6881e6547a49473b360105724a12655eda84",
+    "manifest_sha256": "5544fb82a416a994784cbe3da2d2524b5b4d28bef516d35018a2030e52a7ed1a",
+    "image_sha256": "fc36806a0070407ae33adbe56f80810e5e57e73d4016f049eed2c4486ed18767",
+    "serial_plan_sha256": "5b81b10d7e779eab02e137cbe4a0362e1b58cc288bf6440afa049e3cbedd0ff0",
+    "roots_plan_sha256": "aa15b17fa8902434594cb8283d3b87bbb6140793edd1d6edc138f342424fb667",
+    "candidate_source_count": 18
+  },
+  "commands": [
+    "python3 scripts/run_all.py"
+  ],
+  "limitations": [
+    "No wholecase; no board/STA; matrix/FMA untested; outside DAG missing.",
+    "Control scan is combinational over up to 128 nodes; no registered/pipelined scan or 300/600 MHz STA."
+  ]
+}

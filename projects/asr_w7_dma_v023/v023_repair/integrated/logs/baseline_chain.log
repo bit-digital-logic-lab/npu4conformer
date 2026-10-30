@@ -1,0 +1,3 @@
+BASE_CHAIN lcyc=10386/5198/10402 vcyc=5070/8096/8083/4941 axi rb=1480 wb=1216 rburst=400 wburst=376 errors=0
+BASE_CHAIN_RESULT PASS
+tb/tb_v023_baseline_chain.sv:216: $finish called at 417844000 (1ps)

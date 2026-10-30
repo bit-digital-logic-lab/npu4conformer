@@ -1,0 +1,549 @@
+{
+  "scope": "V0.23 integrated single-clock logic simulation; shared AXI128 BFM, not board DDR",
+  "resources": [
+    {
+      "resource": "axi_r",
+      "unit": "cycle",
+      "evidence": "RVALID&&RREADY / ARVALID&&ARREADY / outstanding count",
+      "window": 23808,
+      "observed_ticks": 23808,
+      "known_ticks": 23808,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 19949,
+        "command": 130,
+        "wait_memory": 1901,
+        "payload": 1828
+      },
+      "valid_bytes": 29248,
+      "wire_bytes": 29248,
+      "payload_fraction": 0.07678091397849462,
+      "bytes_per_tick": 1.228494623655914,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": 16.0,
+      "capacity_bytes_per_tick": 16,
+      "ledger_valid_bytes": 29248,
+      "ledger_wire_bytes": 29248,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    },
+    {
+      "resource": "axi_w",
+      "unit": "cycle",
+      "evidence": "WVALID&&WREADY (WSTRB bytes) / AW / B",
+      "window": 23808,
+      "observed_ticks": 23808,
+      "known_ticks": 23808,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 20644,
+        "command": 141,
+        "wait_memory": 1282,
+        "payload": 1600,
+        "response": 141
+      },
+      "valid_bytes": 25600,
+      "wire_bytes": 25600,
+      "payload_fraction": 0.06720430107526881,
+      "bytes_per_tick": 1.075268817204301,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": 16.0,
+      "capacity_bytes_per_tick": 16,
+      "ledger_valid_bytes": 25600,
+      "ledger_wire_bytes": 25600,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    },
+    {
+      "resource": "ddr_bfm",
+      "unit": "cycle",
+      "evidence": "shared BFM R/W handshakes; union of both directions (separate R and W channels)",
+      "window": 23808,
+      "observed_ticks": 23808,
+      "known_ticks": 23808,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 17546,
+        "command": 250,
+        "wait_memory": 2804,
+        "payload": 3208
+      },
+      "valid_bytes": 54848,
+      "wire_bytes": 54848,
+      "payload_fraction": 0.13474462365591397,
+      "bytes_per_tick": 2.303763440860215,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": 17.09725685785536,
+      "capacity_bytes_per_tick": 32,
+      "ledger_valid_bytes": 0,
+      "ledger_wire_bytes": 0,
+      "ledger_minus_interval_valid_bytes": -54848,
+      "ledger_minus_interval_wire_bytes": -54848
+    },
+    {
+      "resource": "graph",
+      "unit": "cycle",
+      "evidence": "WCPG controller busy sample",
+      "window": 23808,
+      "observed_ticks": 23808,
+      "known_ticks": 23808,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 34,
+        "compute": 23774
+      },
+      "valid_bytes": 0,
+      "wire_bytes": 0,
+      "payload_fraction": 0.0,
+      "bytes_per_tick": 0.0,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": null,
+      "capacity_bytes_per_tick": null,
+      "ledger_valid_bytes": 0,
+      "ledger_wire_bytes": 0,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    },
+    {
+      "resource": "matrix",
+      "unit": "cycle",
+      "evidence": "matrix queue child/core busy sample; no PE-cycle fabrication",
+      "window": 23808,
+      "observed_ticks": 23808,
+      "known_ticks": 23808,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 21908,
+        "compute": 1900
+      },
+      "valid_bytes": 0,
+      "wire_bytes": 0,
+      "payload_fraction": 0.0,
+      "bytes_per_tick": 0.0,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": null,
+      "capacity_bytes_per_tick": null,
+      "ledger_valid_bytes": 0,
+      "ledger_wire_bytes": 0,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    },
+    {
+      "resource": "vector",
+      "unit": "cycle",
+      "evidence": "vector engine busy sample",
+      "window": 23808,
+      "observed_ticks": 23808,
+      "known_ticks": 23808,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 19165,
+        "compute": 4643
+      },
+      "valid_bytes": 0,
+      "wire_bytes": 0,
+      "payload_fraction": 0.0,
+      "bytes_per_tick": 0.0,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": null,
+      "capacity_bytes_per_tick": null,
+      "ledger_valid_bytes": 0,
+      "ledger_wire_bytes": 0,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    },
+    {
+      "resource": "layout",
+      "unit": "cycle",
+      "evidence": "layout engine busy sample",
+      "window": 23808,
+      "observed_ticks": 23808,
+      "known_ticks": 23808,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 7020,
+        "compute": 16788
+      },
+      "valid_bytes": 0,
+      "wire_bytes": 0,
+      "payload_fraction": 0.0,
+      "bytes_per_tick": 0.0,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": null,
+      "capacity_bytes_per_tick": null,
+      "ledger_valid_bytes": 0,
+      "ledger_wire_bytes": 0,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    }
+  ],
+  "tensors": [
+    {
+      "tensor": "plan",
+      "version": "run1",
+      "format": "PLAN",
+      "src": "DDR",
+      "dst": "graph_fetch_bank",
+      "transfers": 10,
+      "valid_bytes": 1792,
+      "bus_bytes": 1792,
+      "comparable_logical_bytes": 1792,
+      "unique_logical_bytes": 1792,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_load": 1792
+      }
+    },
+    {
+      "tensor": "payloads",
+      "version": "run1",
+      "format": "DESC",
+      "src": "DDR",
+      "dst": "graph_fetch_bank",
+      "transfers": 7,
+      "valid_bytes": 640,
+      "bus_bytes": 640,
+      "comparable_logical_bytes": 640,
+      "unique_logical_bytes": 640,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_load": 640
+      }
+    },
+    {
+      "tensor": "A16_param",
+      "version": "run1",
+      "format": "A16",
+      "src": "DDR",
+      "dst": "layout_bank",
+      "transfers": 8,
+      "valid_bytes": 2048,
+      "bus_bytes": 2048,
+      "comparable_logical_bytes": 2048,
+      "unique_logical_bytes": 2048,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_load": 2048
+      }
+    },
+    {
+      "tensor": "A16",
+      "version": "run1",
+      "format": "A16",
+      "src": "layout_bank",
+      "dst": "DDR",
+      "transfers": 8,
+      "valid_bytes": 2048,
+      "bus_bytes": 2048,
+      "comparable_logical_bytes": 2048,
+      "unique_logical_bytes": 2048,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_store": 2048
+      }
+    },
+    {
+      "tensor": "W7_param",
+      "version": "run1",
+      "format": "W7p8",
+      "src": "DDR",
+      "dst": "layout_bank",
+      "transfers": 4,
+      "valid_bytes": 1024,
+      "bus_bytes": 1024,
+      "comparable_logical_bytes": 1024,
+      "unique_logical_bytes": 1024,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_load": 1024
+      }
+    },
+    {
+      "tensor": "W7",
+      "version": "run1",
+      "format": "W7p8",
+      "src": "layout_bank",
+      "dst": "DDR",
+      "transfers": 4,
+      "valid_bytes": 1024,
+      "bus_bytes": 1024,
+      "comparable_logical_bytes": 1024,
+      "unique_logical_bytes": 1024,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_store": 1024
+      }
+    },
+    {
+      "tensor": "queue",
+      "version": "run1",
+      "format": "DESC",
+      "src": "DDR",
+      "dst": "matrix_queue_bank",
+      "transfers": 1,
+      "valid_bytes": 64,
+      "bus_bytes": 64,
+      "comparable_logical_bytes": 64,
+      "unique_logical_bytes": 64,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_load": 64
+      }
+    },
+    {
+      "tensor": "A16",
+      "version": "run1",
+      "format": "A16",
+      "src": "DDR",
+      "dst": "matrix_bank",
+      "transfers": 8,
+      "valid_bytes": 2048,
+      "bus_bytes": 2048,
+      "comparable_logical_bytes": 2048,
+      "unique_logical_bytes": 2048,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_load": 2048
+      }
+    },
+    {
+      "tensor": "W7",
+      "version": "run1",
+      "format": "W7p8",
+      "src": "DDR",
+      "dst": "matrix_bank",
+      "transfers": 4,
+      "valid_bytes": 1024,
+      "bus_bytes": 1024,
+      "comparable_logical_bytes": 1024,
+      "unique_logical_bytes": 1024,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_load": 1024
+      }
+    },
+    {
+      "tensor": "C48",
+      "version": "run1",
+      "format": "C48",
+      "src": "matrix_bank",
+      "dst": "DDR",
+      "transfers": 65,
+      "valid_bytes": 6144,
+      "bus_bytes": 6144,
+      "comparable_logical_bytes": 6144,
+      "unique_logical_bytes": 6144,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_store": 6144
+      }
+    },
+    {
+      "tensor": "C48",
+      "version": "run1",
+      "format": "C48",
+      "src": "DDR",
+      "dst": "vector_bank",
+      "transfers": 24,
+      "valid_bytes": 6144,
+      "bus_bytes": 6144,
+      "comparable_logical_bytes": 6144,
+      "unique_logical_bytes": 6144,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_load": 6144
+      }
+    },
+    {
+      "tensor": "F32_conv",
+      "version": "run1",
+      "format": "F32",
+      "src": "vector_bank",
+      "dst": "DDR",
+      "transfers": 16,
+      "valid_bytes": 4096,
+      "bus_bytes": 4096,
+      "comparable_logical_bytes": 4096,
+      "unique_logical_bytes": 4096,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_store": 4096
+      }
+    },
+    {
+      "tensor": "F32_conv",
+      "version": "run1",
+      "format": "F32",
+      "src": "DDR",
+      "dst": "vector_bank",
+      "transfers": 16,
+      "valid_bytes": 4096,
+      "bus_bytes": 4096,
+      "comparable_logical_bytes": 4096,
+      "unique_logical_bytes": 4096,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_load": 4096
+      }
+    },
+    {
+      "tensor": "scalars",
+      "version": "run1",
+      "format": "F32",
+      "src": "DDR",
+      "dst": "vector_bank",
+      "transfers": 8,
+      "valid_bytes": 128,
+      "bus_bytes": 128,
+      "comparable_logical_bytes": 128,
+      "unique_logical_bytes": 16,
+      "repeat_candidate_bytes": 112,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_load": 128
+      }
+    },
+    {
+      "tensor": "F32_scale",
+      "version": "run1",
+      "format": "F32",
+      "src": "vector_bank",
+      "dst": "DDR",
+      "transfers": 16,
+      "valid_bytes": 4096,
+      "bus_bytes": 4096,
+      "comparable_logical_bytes": 4096,
+      "unique_logical_bytes": 4096,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_store": 4096
+      }
+    },
+    {
+      "tensor": "F32_scale",
+      "version": "run1",
+      "format": "F32",
+      "src": "DDR",
+      "dst": "vector_bank",
+      "transfers": 16,
+      "valid_bytes": 4096,
+      "bus_bytes": 4096,
+      "comparable_logical_bytes": 4096,
+      "unique_logical_bytes": 4096,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_load": 4096
+      }
+    },
+    {
+      "tensor": "F32_bias",
+      "version": "run1",
+      "format": "F32",
+      "src": "vector_bank",
+      "dst": "DDR",
+      "transfers": 16,
+      "valid_bytes": 4096,
+      "bus_bytes": 4096,
+      "comparable_logical_bytes": 4096,
+      "unique_logical_bytes": 4096,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_store": 4096
+      }
+    },
+    {
+      "tensor": "F32_bias",
+      "version": "run1",
+      "format": "F32",
+      "src": "DDR",
+      "dst": "vector_bank",
+      "transfers": 16,
+      "valid_bytes": 4096,
+      "bus_bytes": 4096,
+      "comparable_logical_bytes": 4096,
+      "unique_logical_bytes": 4096,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_load": 4096
+      }
+    },
+    {
+      "tensor": "A16_out",
+      "version": "run1",
+      "format": "I16",
+      "src": "vector_bank",
+      "dst": "DDR",
+      "transfers": 8,
+      "valid_bytes": 2048,
+      "bus_bytes": 2048,
+      "comparable_logical_bytes": 2048,
+      "unique_logical_bytes": 2048,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_store": 2048
+      }
+    },
+    {
+      "tensor": "A16_out",
+      "version": "run1",
+      "format": "I16",
+      "src": "DDR",
+      "dst": "layout_bank",
+      "transfers": 8,
+      "valid_bytes": 2048,
+      "bus_bytes": 2048,
+      "comparable_logical_bytes": 2048,
+      "unique_logical_bytes": 2048,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_load": 2048
+      }
+    },
+    {
+      "tensor": "final",
+      "version": "run1",
+      "format": "I16",
+      "src": "layout_bank",
+      "dst": "DDR",
+      "transfers": 8,
+      "valid_bytes": 2048,
+      "bus_bytes": 2048,
+      "comparable_logical_bytes": 2048,
+      "unique_logical_bytes": 2048,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "burst_store": 2048
+      }
+    }
+  ],
+  "warnings": [
+    "重复字节是候选，不是可省流量证明；跨域时间未对齐；未采样区间是unknown。"
+  ]
+}

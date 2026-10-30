@@ -1,0 +1,231 @@
+{
+  "task": "ds_pe_pipeline",
+  "status": "completed",
+  "scope": {
+    "kind": "logic_only",
+    "synthesis": false,
+    "implementation": false,
+    "vivado": false,
+    "board": false,
+    "new_sta": false,
+    "host_or_dma_changes": false,
+    "numeric_contract": "W7p8/A16/C48, positions[15:0], clip saturation, -32768, INT48 modulo-2^48 wrap preserved",
+    "qdq_fp32_ftz_rne_fma": "not modified"
+  },
+  "timing_baseline_full002": {
+    "device": "xczu15eg-ffvb1156-2-I",
+    "main_clock": "clk100_raw",
+    "period_ns": 8.0,
+    "frequency_mhz": 125,
+    "wns_ns": 0.055,
+    "tns_ns": 0.0,
+    "failing_setup_endpoints": 0,
+    "whs_ns": 0.01,
+    "worst_path": {
+      "source": "ps_system/ps_gateway_i/accelerator/inst/core/compute/core/state_reg[3]",
+      "destination": "ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/bad_reg/D",
+      "data_path_ns": 7.745,
+      "logic_levels": 30,
+      "carry8": 6,
+      "has_dsp48e2": true
+    },
+    "user_reported_150mhz_evidenced_in_package": false,
+    "note": "full002 is a 125 MHz historical routed build. Its critical path is not pe_direct_v020. No new STA was run for any candidate."
+  },
+  "targets_only_not_claimed": {
+    "300MHz_period_ns": 3.333,
+    "600MHz_period_ns": 1.667,
+    "achieved_frequency_claim": "none"
+  },
+  "pipeline_candidates": {
+    "recommended_for_future_sta": "4-stage native CARRY",
+    "exploration": [
+      "3-stage baseline-shape equivalence",
+      "5-stage native",
+      "6-stage native",
+      "4-stage CSA with registered final CPA"
+    ],
+    "stage_schedule": {
+      "3": [
+        "ABS/DECODE",
+        "MUL",
+        "SHIFT+SUB+NEG",
+        "ACC"
+      ],
+      "4": [
+        "ABS/DECODE",
+        "MUL",
+        "SHIFT+SUB",
+        "NEG",
+        "ACC"
+      ],
+      "5": [
+        "ABS/DECODE",
+        "MUL",
+        "SHIFT",
+        "SUB",
+        "NEG",
+        "ACC"
+      ],
+      "6": [
+        "ABS/DECODE",
+        "MUL",
+        "SHIFT",
+        "SUB",
+        "NEG",
+        "SEXT48",
+        "ACC"
+      ]
+    },
+    "drain_constants": {
+      "3_native": {
+        "pe_drain": 4,
+        "array_drain": 19,
+        "k32_run_end": 65
+      },
+      "4_native": {
+        "pe_drain": 5,
+        "array_drain": 20,
+        "k32_run_end": 66
+      },
+      "5_native": {
+        "pe_drain": 6,
+        "array_drain": 21,
+        "k32_run_end": 67
+      },
+      "6_native": {
+        "pe_drain": 7,
+        "array_drain": 22,
+        "k32_run_end": 68
+      },
+      "4_csa_cpa": {
+        "pe_drain": 6,
+        "array_drain": 21,
+        "k32_run_end": 67
+      }
+    },
+    "controller_rule": "RUN_END = last_external_input_cycle + ARRAY_DRAIN; for 16x16 K=32 last_external_input_cycle=46, so RUN_END=46+ARRAY_DRAIN; do not hard-code 65",
+    "pe_ii": 1,
+    "array_wavefront_ii": 1
+  },
+  "verification": {
+    "pe": {
+      "exhaustive_single_product": {
+        "w7_codes": 128,
+        "a_corners": 8,
+        "positions_tested": "0..15",
+        "clip_values": 2,
+        "products": 32768,
+        "cycles": 622592,
+        "mismatches": 0
+      },
+      "random_k32_tasks": {
+        "tasks": 300,
+        "cycles": 15600,
+        "features": [
+          "valid bubbles",
+          "dynamic positions/clip",
+          "-32768",
+          "INT48 ordered accumulation"
+        ],
+        "mismatches": 0
+      },
+      "directed_events": {
+        "scenarios": 9,
+        "features": [
+          "reset in-flight",
+          "flush in-flight preserves sum",
+          "clear settled",
+          "clear in-flight keeps in-flight product",
+          "clear+flush",
+          "valid bubbles"
+        ],
+        "mismatches": 0
+      },
+      "int48_overflow": {
+        "products": 135000,
+        "expected": "0x7c2b07ac0000",
+        "mismatches": 0
+      },
+      "per_cycle_base_vs_3stage": true
+    },
+    "array16": {
+      "tiles": 9,
+      "cycles": 840,
+      "outputs_checked": 13824,
+      "features": [
+        "random dense",
+        "-32768",
+        "P=12 clip on/off",
+        "positions=0xBA98",
+        "valid holes/bubbles",
+        "post-complete flush/clear/reset"
+      ],
+      "drain_done_checks": "exact cycle before=0 and at=1 for all candidate arrays/tiles",
+      "mismatches": 0
+    },
+    "baseline_compared": [
+      "pe_direct_v020",
+      "array16_direct_v020"
+    ],
+    "independent_golden": "candidate/golden_w7_c48.py"
+  },
+  "structural_estimates_only": {
+    "note": "RTL declared-state estimates, not synthesis",
+    "ff_per_pe": {
+      "baseline_pe_direct_v020": 176,
+      "3_stage_native": 181,
+      "4_stage_native": 214,
+      "5_stage_native": 264,
+      "6_stage_native": 312,
+      "4_stage_csa_cpa": 310
+    }
+  },
+  "artifacts": {
+    "report": "REPORT.md",
+    "findings_md": "FINDINGS.md",
+    "findings_jsonl": "FINDINGS.jsonl",
+    "interface": "INTERFACE.md",
+    "progress": "progress.json",
+    "sha_manifest": "SHA256SUMS.txt",
+    "makefile": "Makefile",
+    "run_all": "run_all.sh",
+    "candidate_pe": "candidate/pe_w7_c48_cfg.sv",
+    "candidate_array": "candidate/array16_w7_c48_cfg.sv",
+    "candidate_golden": "candidate/golden_w7_c48.py",
+    "pe_test": "bench/run_pe_tests.py",
+    "array_test": "bench/run_array_tests.py",
+    "pe_result_log": "bench/logs/pe_tests_result.json",
+    "array_result_log": "bench/logs/array_tests_result.json",
+    "final_build_log": "bench/logs/final_make_j2.log"
+  },
+  "reproduce": {
+    "all": "cd /home/yang/Desktop/项目/tasks/ds_pe_pipeline && make -j2",
+    "pe_only": "python3 bench/run_pe_tests.py",
+    "array_only": "python3 bench/run_array_tests.py",
+    "note": "Icarus Verilog has no -j option; -j2 is implemented by make compiling the two independent testbenches in parallel."
+  },
+  "sha256": {
+    "candidate/pe_w7_c48_cfg.sv": "d8b5089073f4629f113b7735316593b77335ad99d8adf0c6757bd2d70269f179",
+    "candidate/array16_w7_c48_cfg.sv": "c4203e0b7fc21b1b11e82579343236089342352d70b167b70791b8e69c03daae",
+    "candidate/golden_w7_c48.py": "f800f019f6a69eb7317ee665ac3362cff68504c9f6c0857ab400ed06805b8483",
+    "bench/tb_pe_cfg_compare.sv": "5a287e0fdee80ec3df0f6b989cf493156dc51a63438ee249d415d5db96800d21",
+    "bench/tb_array_cfg_compare.sv": "0e9b677d243b94483477cbfe9b84d0e5216ddd2cd9dc41c20124ed26f42c27db",
+    "bench/run_pe_tests.py": "1e77088ab33e0b597741d90d5306219049c256b50a64da0b556b5bd9ae9426ce",
+    "bench/run_array_tests.py": "504df7b9b5636de32b44ee92f907ad45e6d4f95a4a9625bc7a9d5fd801f6ae43",
+    "Makefile": "18c46e113c1911234066df03326119d54ed332dc1c3cd43418091e5aa7dfd0c6",
+    "work/rtl/pe_direct_v020.sv": "7b43de74709f53f0212eb6a600c5d84b3c1aea5904c2f0dd1b6e32b300bc0317",
+    "work/rtl/array16_direct_v020.sv": "77c66aeea9dd40eb927f8f8e0658b707188427f51138af5f726ded0dc9c3fd56",
+    "work/rtl/block_engine_l1bank_v020.sv": "0a6f24fc51f79baf4f1ecca0b38a79180b0a56e19470bfdb4bec863b34a09c20",
+    "timing_baseline/timing.rpt": "43b3449423958db335539997dc95f02df2667ed5ad45703b1f445ff95d10cda1",
+    "timing_baseline/utilization.rpt": "fa1f91271a389a1b66b0099643ffffd6e7c2c349042dba66ee0886cae7be084d"
+  },
+  "warnings": [
+    "No synthesis/implementation/STA: no achieved frequency is claimed.",
+    "full002 is 125 MHz; user-reported ~150 MHz is not evidenced by this package.",
+    "300/600 MHz are only target budgets.",
+    "16x16 array positions/clip must be static for the whole wavefront and drain until drain_done.",
+    "Old block_engine run_cycle==65 must become 46+ARRAY_DRAIN for 4/5/6-stage or CSA.",
+    "CSA is not automatically better on UltraScale+ CARRY8; no resource/timing win is claimed."
+  ]
+}

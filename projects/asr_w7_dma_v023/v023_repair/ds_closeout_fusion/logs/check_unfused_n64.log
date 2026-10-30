@@ -1,0 +1,2 @@
+CHECK unfused_n64 dut=2048 gold=2048 mismatch=0
+CHECK_PASS

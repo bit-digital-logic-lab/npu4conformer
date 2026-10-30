@@ -1,0 +1,85 @@
+{
+  "task": "ds_critical_control",
+  "scope": "logic simulation only; no synthesis, no Vivado, no board access, no push",
+  "stages": [
+    {
+      "stage": 1,
+      "name": "contracts_and_sources",
+      "status": "complete",
+      "inputs": [
+        "EXECUTION_CONTRACT.md",
+        "work/DESIGN_CONTRACT_zh.txt",
+        "research/SOURCES.json",
+        "research/BOARD_FINDINGS.md",
+        "research/PE_BANDWIDTH_MATCH.md",
+        "research/PE_BANDWIDTH_MATCH.json",
+        "tasks/ds_critical_control/USER_UPDATES.md",
+        "timing_baseline/timing.rpt",
+        "tasks/gemini_sta_paths/PATHS.csv",
+        "tasks/gemini_sta_paths/PIPELINE_PLAN.md"
+      ],
+      "notes": "work/ZIP treated read-only; no writes outside tasks/ds_critical_control"
+    },
+    {
+      "stage": 2,
+      "name": "baseline_path_confirmation",
+      "status": "complete",
+      "result": "path 61 state_reg[3] -> storage/bad_reg/D, 7.745 ns, 30 levels, two cascaded DSP48E2 plus bound compares"
+    },
+    {
+      "stage": 3,
+      "name": "storage_candidate",
+      "status": "complete",
+      "result": "candidate/rtl/block_storage_dma_wide4_pipe_v1.sv; 7 registered descriptor stages; same ports/ordering"
+    },
+    {
+      "stage": 4,
+      "name": "storage_equivalence",
+      "status": "complete",
+      "result": "71/71 protocol cases bit-identical canonical outcomes, diff 0 bytes"
+    },
+    {
+      "stage": 5,
+      "name": "layout_candidate",
+      "status": "complete",
+      "result": "candidate/rtl/ddr_layout_engine_pipe_v1.sv; CALC/ADDR1/ADDRESS split, one extra cycle per element"
+    },
+    {
+      "stage": 6,
+      "name": "layout_equivalence",
+      "status": "complete",
+      "result": "20/20 official fixtures/error modes and 51/51 fuzz cases pass"
+    },
+    {
+      "stage": 7,
+      "name": "block_engine_integration",
+      "status": "complete",
+      "result": "real block engine + storage; 32x32x32 and 64x32x64 configurations produce identical C hashes and status"
+    },
+    {
+      "stage": 8,
+      "name": "bounds_and_pe_bandwidth",
+      "status": "complete",
+      "result": "BOUNDS.json/BOUNDS.md; read/write split, DAG correction, PE<=B*I/f examples"
+    },
+    {
+      "stage": 9,
+      "name": "final_report",
+      "status": "complete",
+      "result": "REPORT.md, INTERFACE.md, result.json, SHA256SUMS.txt, logs/"
+    }
+  ],
+  "tests": {
+    "storage_protocol_cases": 71,
+    "layout_official_cases": 20,
+    "layout_fuzz_cases": 51,
+    "block_integration_configs": 2,
+    "all_canonical_outcomes_match": true
+  },
+  "limitations": [
+    "no synthesis/STA/bitstream/board run",
+    "no physical frequency claim",
+    "layout candidate adds about 10.7-15.1% element-loop cycles in the tested fixtures; integrate only if the frequency/local-domain benefit pays for it",
+    "929293344 B aggregate has no measured read/write split; only conditional scenarios are reported"
+  ]
+}

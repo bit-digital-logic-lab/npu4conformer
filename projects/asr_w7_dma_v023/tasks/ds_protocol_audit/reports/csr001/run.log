@@ -1,0 +1,11 @@
+BASE cycles_lo=55667788 hi=11223344 fetch_lo=eeff0011 hi=aabbccdd
+INTERLEAVED read32,read48,read36 -> aabbccdd (correct would be 11223344)
+FETCH high after own low -> aabbccdd
+CSR_SNAPSHOT_BUG_CONFIRMED
+INTERLEAVED read56,read64,read60 -> 00000000 (correct 01234567)
+W_BEFORE_AW plan_base=deadbeef bresp=0
+BAD_STROBE bresp=2 plan_count=00000000
+BUSY_START bresp=2 start=0
+START_OK bresp=0 start=1
+CSR_BASELINE_PASS
+tb_csr_snapshot.sv:128: $finish called at 664000 (1ps)

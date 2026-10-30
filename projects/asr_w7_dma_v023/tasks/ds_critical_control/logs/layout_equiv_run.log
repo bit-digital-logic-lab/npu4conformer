@@ -1,0 +1,102 @@
+PASS normal copy_i16 mode=0
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=               10152 processed=      1001 cache_hits=       875 cache_misses=       126 read_requests=       126 write_requests=       126
+tests/tb_layout_engine.sv:189: $finish called at 81280000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=               11242 processed=      1001 cache_hits=       875 cache_misses=       126 read_requests=       126 write_requests=       126
+tests/tb_layout_engine.sv:189: $finish called at 90000000 (1ps)
+PASS normal pack_matrix_edges mode=0
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=               27343 processed=      4096 cache_hits=       989 cache_misses=       166 read_requests=       166 write_requests=       512
+tests/tb_layout_engine.sv:189: $finish called at 218808000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=               31474 processed=      4096 cache_hits=       989 cache_misses=       166 read_requests=       166 write_requests=       512
+tests/tb_layout_engine.sv:189: $finish called at 251856000 (1ps)
+PASS normal unpack_row_fp32 mode=0
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=               14183 processed=      1155 cache_hits=       858 cache_misses=       297 read_requests=       297 write_requests=       289
+tests/tb_layout_engine.sv:189: $finish called at 113528000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=               15292 processed=      1155 cache_hits=       858 cache_misses=       297 read_requests=       297 write_requests=       289
+tests/tb_layout_engine.sv:189: $finish called at 122400000 (1ps)
+PASS normal unpack_nchw_fp32 mode=0
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=               15313 processed=      1155 cache_hits=       858 cache_misses=       297 read_requests=       297 write_requests=       289
+tests/tb_layout_engine.sv:189: $finish called at 122568000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=               16349 processed=      1155 cache_hits=       858 cache_misses=       297 read_requests=       297 write_requests=       289
+tests/tb_layout_engine.sv:189: $finish called at 130856000 (1ps)
+PASS normal unpack_c48_compact mode=0
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=               17803 processed=      1155 cache_hits=       990 cache_misses=       462 read_requests=       462 write_requests=       434
+tests/tb_layout_engine.sv:189: $finish called at 142488000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=               18972 processed=      1155 cache_hits=       990 cache_misses=       462 read_requests=       462 write_requests=       434
+tests/tb_layout_engine.sv:189: $finish called at 151840000 (1ps)
+PASS normal conv_padding mode=0
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=               14152 processed=      2048 cache_hits=       478 cache_misses=        16 read_requests=        16 write_requests=       256
+tests/tb_layout_engine.sv:189: $finish called at 113280000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=               16187 processed=      2048 cache_hits=       478 cache_misses=        16 read_requests=        16 write_requests=       256
+tests/tb_layout_engine.sv:189: $finish called at 129560000 (1ps)
+PASS normal case0000_embed_conv0 mode=0
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=              563652 processed=     78848 cache_hits=     20843 cache_misses=      1270 read_requests=      1270 write_requests=      9856
+tests/tb_layout_engine.sv:189: $finish called at 4509280000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=              638750 processed=     78848 cache_hits=     20843 cache_misses=      1270 read_requests=      1270 write_requests=      9856
+tests/tb_layout_engine.sv:189: $finish called at 5110064000 (1ps)
+PASS normal depthwise_31 mode=0
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=                8965 processed=      1024 cache_hits=       717 cache_misses=         4 read_requests=         4 write_requests=       128
+tests/tb_layout_engine.sv:189: $finish called at 71784000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          0 cycles=                9972 processed=      1024 cache_hits=       717 cache_misses=         4 read_requests=         4 write_requests=       128
+tests/tb_layout_engine.sv:189: $finish called at 79840000 (1ps)
+PASS error copy_i16 mode=1
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          1 cycles=                   4 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 96000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          1 cycles=                   4 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 96000 (1ps)
+PASS error copy_i16 mode=2
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          2 cycles=                   4 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 96000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          2 cycles=                   4 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 96000 (1ps)
+PASS error copy_i16 mode=3
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          3 cycles=                   2 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 80000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          3 cycles=                   2 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 80000 (1ps)
+PASS error copy_i16 mode=4
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          4 cycles=                   4 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 96000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          4 cycles=                   4 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 96000 (1ps)
+PASS error copy_i16 mode=5
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          5 cycles=                   2 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 80000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          5 cycles=                   2 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 80000 (1ps)
+PASS error copy_i16 mode=6
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          6 cycles=                   2 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 80000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          6 cycles=                   2 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 80000 (1ps)
+PASS error copy_i16 mode=7
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          7 cycles=                  15 processed=         0 cache_hits=         0 cache_misses=         1 read_requests=         1 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 184000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          7 cycles=                  15 processed=         0 cache_hits=         0 cache_misses=         1 read_requests=         1 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 184000 (1ps)
+PASS error copy_i16 mode=8
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          8 cycles=                  98 processed=         8 cache_hits=         7 cache_misses=         2 read_requests=         2 write_requests=         1
+tests/tb_layout_engine.sv:189: $finish called at 848000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          8 cycles=                 107 processed=         8 cache_hits=         7 cache_misses=         2 read_requests=         2 write_requests=         1
+tests/tb_layout_engine.sv:189: $finish called at 920000 (1ps)
+PASS error copy_i16 mode=9
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=          9 cycles=               10152 processed=      1001 cache_hits=       875 cache_misses=       126 read_requests=       126 write_requests=       126
+tests/tb_layout_engine.sv:189: $finish called at 81280000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=          9 cycles=               11242 processed=      1001 cache_hits=       875 cache_misses=       126 read_requests=       126 write_requests=       126
+tests/tb_layout_engine.sv:189: $finish called at 90000000 (1ps)
+PASS error copy_i16 mode=10
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=         10 cycles=                   2 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 80000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=         10 cycles=                   2 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 80000 (1ps)
+PASS error copy_i16 mode=11
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=         11 cycles=                   2 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 80000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=         11 cycles=                   2 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 80000 (1ps)
+PASS error copy_i16 mode=12
+  orig rc=0 V022_LAYOUT_AXI_PASS mode=         12 cycles=                   2 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 80000 (1ps)
+  cand rc=0 V022_LAYOUT_AXI_PASS mode=         12 cycles=                   2 processed=         0 cache_hits=         0 cache_misses=         0 read_requests=         0 write_requests=         0
+tests/tb_layout_engine.sv:189: $finish called at 80000 (1ps)
+SUMMARY runs=20 fails=0
+

@@ -1,0 +1,18 @@
+{
+  "phase": "COMPLETED",
+  "status": "done",
+  "timestamp": "2026-10-29T18:22:45+08:00",
+  "task": "gemini_numeric_audit",
+  "steps_completed": [
+    "Read execution contracts and references",
+    "Verified sha256 of reference RTL and gemini_compute candidate RTL",
+    "Built independent mathematical golden models (w7_math_golden.py, fp32_fma_qdq_golden.py)",
+    "Executed 40,960-vector exhaustive audit on W7/A16/C48 across Baseline, Candidate CC, and Candidate CSA",
+    "Audited boundary cases: A=-32768, clip p12 m>=8, positions out-of-range overflow",
+    "Simulated and proved upper-layer flush contract and zero-slack condition on 16x16 array",
+    "Audited clear_sum in-flight behavior, random stalls, and dynamic positions switching",
+    "Audited QDQ, FTZ, RNE, and exact single-rounding FMA arithmetic",
+    "Generated INTERFACE.md, FINDINGS.jsonl, REPORT.md, and result.json"
+  ],
+  "current_step": "Task complete; all evidence, logs, and artifacts recorded."
+}

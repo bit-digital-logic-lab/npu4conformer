@@ -1,0 +1,2 @@
+﻿tensor,version,format,src,dst,transfers,valid_bytes,bus_bytes,comparable_logical_bytes,unique_logical_bytes,repeat_candidate_bytes,unclassified_transfers,reasons
+A16_out,v1,A16,Epilogue_Engine,DDR,1,2048,2048,2048,2048,0,0,"{""fused_output_stream"": 2048}"

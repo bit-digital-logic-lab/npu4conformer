@@ -1,0 +1,17 @@
+V0.23 ds_integration_audit exit-code summary
+============================================
+smoke (scripts/run_smoke.sh)                         rc=0   logs/run_smoke_stdout.log; per-stage logs/smoke_results.csv
+  audit_interfaces                                   rc=0
+  audit_graph_reloc                                  rc=0
+  audit_dependencies                                 rc=0
+  dma v023 multi compile/run                         rc=0/0
+  dma v023 bounded compile/run                       rc=0/0
+  dma matrix v020_multi_v2 compile/run               rc=0/0
+  graph real chain compile/run                       rc=0/0
+  graph chain local-golden verify                    rc=0
+  matrix cluster K32 compile/run                     rc=0/0
+vector exact regression in isolated copy             rc=0   logs/vector_regression_copy.log
+layout full regression in isolated copy              rc=0   logs/layout_run_all_copy_rc.log
+sealed graph real baseline (reference only)          rc=0   logs/run_graph_real_sealed.log
+Note: rc=0 means the executed tests passed. result.json verdict is "blocked"
+      because of interface/relocation gaps, not because a test failed.

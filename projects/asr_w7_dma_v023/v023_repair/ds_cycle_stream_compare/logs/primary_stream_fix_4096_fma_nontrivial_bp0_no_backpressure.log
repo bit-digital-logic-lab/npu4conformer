@@ -1,0 +1,4 @@
+CMD: /home/yang/Desktop/项目/v023_repair/ds_cycle_stream_compare/build/tb_primary_stream_fix +VEC_FILE=vectors/stream_4096.vec +OUT_FILE=logs/primary_stream_fix_4096_fma_nontrivial_bp0_no_backpressure.out +MODE=1 +RELU=0 +SPILL=0 +SCALE=3f000001 +BIAS=3f800000 +BP=0 +ABORT_AT=-1 +PARAM_EN=0 +PARAM_ADDR=0 +PARAM_DATA=00000000 +CONTROL_PROBE=0 +MAX_CYCLES=2000000
+MILESTONE FIRST_IN 2 LAST_A 4107 LAST_P 4107 IDLE 4108 IN_FIRES 4096 A_FIRES 4096 P_FIRES 2048
+DONE stream mode=1 relu=0 spill=0 abort_at=-1 abort_cycle=-1
+STATS in=4096 a16=4096 pack=2048 spill=0 c48stat=4096 a16stat=4096 spillstat=0 saved=196608

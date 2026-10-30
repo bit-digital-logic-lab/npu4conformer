@@ -1,0 +1,12 @@
+PA003 read addr=fffffff0 beats=2 -> done=1 err=0 bursts=2 bytes=32 ar_n=2
+  AR[0]=00fffffff0 len=0
+  AR[1]=0100000000 len=0
+PA004 write 1 beat wstrb=0007 -> done=1 err=0 write_bytes=3 (expect 3)
+PA004 write 4 beats last wstrb=0007 -> write_bytes=51 (expect 51)
+MULTI 256beat done=1 err=0 rb=16 bytes=4096 ar_max=8 fifo_high=2
+ABORT_READ done=1 done_seen=1 busy=0 err=0 aborted=1 drained=1 rb=8 bfm_rbeats=128
+ABORT_LATE done=1 aborted=1 drained=1 bfm_rbeats=64
+DMA_RECOVER done=1 err=0 bytes=256
+PA003_PA004_TEST_END errors=0
+PA003_PA004_PASS
+tb/tb_dma_pa003_pa004.sv:149: $finish called at 13724000 (1ps)

@@ -1,0 +1,4 @@
+GENERATED accepted=3000 attempts=3000
+BLOCK_ADDRESS_TEST_END accepted=3000 checked=3000 errors=0
+BLOCK_ADDRESS_PASS
+tb/tb_block_address.sv:69: $finish called at 48076000 (1ps)

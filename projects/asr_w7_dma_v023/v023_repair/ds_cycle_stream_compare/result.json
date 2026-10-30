@@ -1,0 +1,3622 @@
+{
+  "task": "same-load cycle comparison of epilogue_stream_engine_v023",
+  "timestamp": "2026-10-29T23:12:03+0800",
+  "status": "module_pass_system_pending",
+  "system_pass": false,
+  "scope": "logic simulation only; module-level stream engine; no synthesis/Vivado/board/VNC/push; no full model",
+  "direction": {
+    "before": "gemini_stream_round2",
+    "after": "primary_stream_fix",
+    "delta_definition": "after - before (negative = fewer cycles after)",
+    "percent_definition": "100 * delta / before (negative = improvement)"
+  },
+  "constants": {
+    "lanes_per_beat": 4,
+    "lengths": [
+      256,
+      1024,
+      4096
+    ],
+    "configs": {
+      "conv": {
+        "mode": 0,
+        "scale": 1065353216,
+        "bias": 0,
+        "desc": "INT48->FP32->INT16 conversion bypass, relu=0"
+      },
+      "fma_nontrivial": {
+        "mode": 1,
+        "scale": 1056964609,
+        "bias": 1065353216,
+        "desc": "non-trivial FMA scale/bias (rounding-discriminating), relu=0"
+      }
+    },
+    "scenarios": {
+      "bp0_no_backpressure": {
+        "bp": 0,
+        "desc": "a16_ready=1, a16_packed_ready=1"
+      },
+      "bp1_both_random": {
+        "bp": 1,
+        "desc": "a16_ready and a16_packed_ready driven by independent LFSR bits"
+      },
+      "bp5_packed_long_stall": {
+        "bp": 5,
+        "desc": "a16_ready=1; packed ready only in last 32 of every 256 cycles (224-cycle stall)"
+      }
+    },
+    "dependency_set": "primary_stream_fix/candidate (gemini_fma_round2 SHA); held identical for both DUTs",
+    "packed_tag_contract": {
+      "gemini_stream_round2": "shared a16_tag (a16_tag = p128_valid ? p128_tag : a16_tag)",
+      "primary_stream_fix": "independent a16_packed_tag port"
+    },
+    "max_cycles": 2000000,
+    "wall_timeout_s": 180,
+    "compile": "iverilog -g2012, one variant at a time (no parallel jobs)",
+    "correctness_gate": "rc==0 AND milestone present AND A16/packed data, tag, last and counts all exact; any failure => comparison invalid, no speedup claim",
+    "param_passing": "PARAM_EN/PARAM_ADDR/PARAM_DATA are actually passed to vvp; bias-only test uses them",
+    "reference": "independent ref/refmodel.py (copied read-only from primary_stream_fix)"
+  },
+  "vectors": {
+    "stream_256.vec": {
+      "beats": 256,
+      "sha256": "33d966c1257365615986ccd30f46bb38cdd0debf1a30bd5f6c7558c0ca92b3dd",
+      "bytes": 15104
+    },
+    "stream_1024.vec": {
+      "beats": 1024,
+      "sha256": "bc104c7d08c67e13e22d94a7ac38a1e8b77a5b0e8571149099ac195c71d71cfb",
+      "bytes": 60416
+    },
+    "stream_4096.vec": {
+      "beats": 4096,
+      "sha256": "ed67d5363b5a0784e2456bdbd54271a3d6a170506a021fde97c2f5b3f8d7d0f1",
+      "bytes": 241664
+    }
+  },
+  "source_sha256": {
+    "candidate/gemini/epilogue_stream_engine_v023.sv": "5a2a111c35f3e688574cb4ae8df5e03edd1f09793272d182cea60829ace25ffd",
+    "candidate/primary/epilogue_stream_engine_v023.sv": "336e859f7c061e6c71b25761a299e00656f0fc2d8d18fcf77bdb40c0e98b2e18",
+    "candidate/primary/epilogue_i48_to_f32.sv": "637a7b327d35760bc5d741128d04f77bcddde87cc40886dcf24aff09cebd29bf",
+    "candidate/primary/epilogue_fma_stage.sv": "34b55dc340b33ee570c540453662404579a77b2f8e2b166dbb2563ab3740c00b",
+    "candidate/primary/fp32_fma_pipe.sv": "1ed8801a4536ad79c385b90033d5dbd76ad58eed04288a7c500a26e0a740ab12",
+    "candidate/primary/epilogue_f32_to_i16.sv": "c51d3327a7fcfbe7e584f1efa275413644147669c9d216ea7f5fbf31b864af6b",
+    "candidate/primary/epilogue_relu.sv": "0e008b394489fcdd2f453aeebee5288f1b812d715c5e8840d47f19bcb3142c4d",
+    "candidate/primary/epilogue_lane.sv": "d00b4d57776a605cbed790d19e9a7be7bb4b0f1751d4f6b617a9ca35489435f7",
+    "tb/tb_stream_bench.sv": "6627a146cdc3d8d991121034fca1a8e10d20405b6ac1e52567ee3f1cf488ffb4",
+    "ref/refmodel.py": "38eb7ed944f05d6ac45ff68b69fbaa4b0b5b895f0eef46fa33e138395ceb64e2",
+    "scripts/gen_vectors.py": "77950435b804a5bb8ab632cc84688da3bf96218fd35fd90e844c094465c3594e",
+    "scripts/run_bench.py": "630becc0bb573e1ab2392e037d42751fefd3ad3a0c9f15063e95db2d89228ed3",
+    "scripts/make_report.py": "dd6099af9258e9aa6cf95013b865bdf28a52158d6850f1733bf34185ea4eb8f4",
+    "run_all.sh": "e6dc1589d895a0acc6678e4590987bd68f3304d96fdddaf69fa60049dd3d29bd"
+  },
+  "cases": [
+    {
+      "length": 256,
+      "config": "conv",
+      "scenario": "bp0_no_backpressure",
+      "vector": "vectors/stream_256.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 256,
+        "config": "conv",
+        "scenario": "bp0_no_backpressure",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_256_conv_bp0_no_backpressure.log",
+        "out": "logs/gemini_stream_round2_256_conv_bp0_no_backpressure.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 393,
+          "last_p": 394,
+          "idle": 395,
+          "in_fires": 256,
+          "a_fires": 256,
+          "p_fires": 128
+        },
+        "stats": {
+          "in": 256,
+          "a16": 256,
+          "pack": 128,
+          "spill": 0,
+          "c48stat": 256,
+          "a16stat": 256,
+          "spillstat": 0,
+          "saved": 12288
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 393,
+          "last_p": 394,
+          "idle": 395,
+          "t_last_a16": 391,
+          "t_last_packed": 392,
+          "t_idle": 393,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 256,
+          "packed_beats": 128,
+          "spill_beats": 0,
+          "expected_a16_beats": 256,
+          "expected_packed_beats": 128,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 256,
+          "stat_a16_beats_out": 256,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 256,
+        "config": "conv",
+        "scenario": "bp0_no_backpressure",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_256_conv_bp0_no_backpressure.log",
+        "out": "logs/primary_stream_fix_256_conv_bp0_no_backpressure.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 267,
+          "last_p": 267,
+          "idle": 268,
+          "in_fires": 256,
+          "a_fires": 256,
+          "p_fires": 128
+        },
+        "stats": {
+          "in": 256,
+          "a16": 256,
+          "pack": 128,
+          "spill": 0,
+          "c48stat": 256,
+          "a16stat": 256,
+          "spillstat": 0,
+          "saved": 12288
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 267,
+          "last_p": 267,
+          "idle": 268,
+          "t_last_a16": 265,
+          "t_last_packed": 265,
+          "t_idle": 266,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 256,
+          "packed_beats": 128,
+          "spill_beats": 0,
+          "expected_a16_beats": 256,
+          "expected_packed_beats": 128,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 256,
+          "stat_a16_beats_out": 256,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 391,
+          "after": 265,
+          "delta": -126,
+          "percent": -32.22506393861892,
+          "speedup": 1.4754716981132074
+        },
+        "t_last_packed": {
+          "before": 392,
+          "after": 265,
+          "delta": -127,
+          "percent": -32.39795918367347,
+          "speedup": 1.4792452830188678
+        },
+        "t_idle": {
+          "before": 393,
+          "after": 266,
+          "delta": -127,
+          "percent": -32.31552162849873,
+          "speedup": 1.4774436090225564
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 393,
+            "last_p": 394,
+            "idle": 395
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 267,
+            "last_p": 267,
+            "idle": 268
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 256,
+      "config": "conv",
+      "scenario": "bp1_both_random",
+      "vector": "vectors/stream_256.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 256,
+        "config": "conv",
+        "scenario": "bp1_both_random",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_256_conv_bp1_both_random.log",
+        "out": "logs/gemini_stream_round2_256_conv_bp1_both_random.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 638,
+          "last_p": 639,
+          "idle": 640,
+          "in_fires": 256,
+          "a_fires": 256,
+          "p_fires": 128
+        },
+        "stats": {
+          "in": 256,
+          "a16": 256,
+          "pack": 128,
+          "spill": 0,
+          "c48stat": 256,
+          "a16stat": 256,
+          "spillstat": 0,
+          "saved": 12288
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 638,
+          "last_p": 639,
+          "idle": 640,
+          "t_last_a16": 636,
+          "t_last_packed": 637,
+          "t_idle": 638,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 256,
+          "packed_beats": 128,
+          "spill_beats": 0,
+          "expected_a16_beats": 256,
+          "expected_packed_beats": 128,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 256,
+          "stat_a16_beats_out": 256,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 256,
+        "config": "conv",
+        "scenario": "bp1_both_random",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_256_conv_bp1_both_random.log",
+        "out": "logs/primary_stream_fix_256_conv_bp1_both_random.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 511,
+          "last_p": 511,
+          "idle": 512,
+          "in_fires": 256,
+          "a_fires": 256,
+          "p_fires": 128
+        },
+        "stats": {
+          "in": 256,
+          "a16": 256,
+          "pack": 128,
+          "spill": 0,
+          "c48stat": 256,
+          "a16stat": 256,
+          "spillstat": 0,
+          "saved": 12288
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 511,
+          "last_p": 511,
+          "idle": 512,
+          "t_last_a16": 509,
+          "t_last_packed": 509,
+          "t_idle": 510,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 256,
+          "packed_beats": 128,
+          "spill_beats": 0,
+          "expected_a16_beats": 256,
+          "expected_packed_beats": 128,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 256,
+          "stat_a16_beats_out": 256,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 636,
+          "after": 509,
+          "delta": -127,
+          "percent": -19.968553459119498,
+          "speedup": 1.2495088408644401
+        },
+        "t_last_packed": {
+          "before": 637,
+          "after": 509,
+          "delta": -128,
+          "percent": -20.09419152276295,
+          "speedup": 1.2514734774066798
+        },
+        "t_idle": {
+          "before": 638,
+          "after": 510,
+          "delta": -128,
+          "percent": -20.062695924764892,
+          "speedup": 1.2509803921568627
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 638,
+            "last_p": 639,
+            "idle": 640
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 511,
+            "last_p": 511,
+            "idle": 512
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 256,
+      "config": "conv",
+      "scenario": "bp5_packed_long_stall",
+      "vector": "vectors/stream_256.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 256,
+        "config": "conv",
+        "scenario": "bp5_packed_long_stall",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_256_conv_bp5_packed_long_stall.log",
+        "out": "logs/gemini_stream_round2_256_conv_bp5_packed_long_stall.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 3057,
+          "last_p": 3058,
+          "idle": 3059,
+          "in_fires": 256,
+          "a_fires": 256,
+          "p_fires": 128
+        },
+        "stats": {
+          "in": 256,
+          "a16": 256,
+          "pack": 128,
+          "spill": 0,
+          "c48stat": 256,
+          "a16stat": 256,
+          "spillstat": 0,
+          "saved": 12288
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 3057,
+          "last_p": 3058,
+          "idle": 3059,
+          "t_last_a16": 3055,
+          "t_last_packed": 3056,
+          "t_idle": 3057,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 256,
+          "packed_beats": 128,
+          "spill_beats": 0,
+          "expected_a16_beats": 256,
+          "expected_packed_beats": 128,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 256,
+          "stat_a16_beats_out": 256,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 256,
+        "config": "conv",
+        "scenario": "bp5_packed_long_stall",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_256_conv_bp5_packed_long_stall.log",
+        "out": "logs/primary_stream_fix_256_conv_bp5_packed_long_stall.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 2046,
+          "last_p": 2046,
+          "idle": 2047,
+          "in_fires": 256,
+          "a_fires": 256,
+          "p_fires": 128
+        },
+        "stats": {
+          "in": 256,
+          "a16": 256,
+          "pack": 128,
+          "spill": 0,
+          "c48stat": 256,
+          "a16stat": 256,
+          "spillstat": 0,
+          "saved": 12288
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 2046,
+          "last_p": 2046,
+          "idle": 2047,
+          "t_last_a16": 2044,
+          "t_last_packed": 2044,
+          "t_idle": 2045,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 256,
+          "packed_beats": 128,
+          "spill_beats": 0,
+          "expected_a16_beats": 256,
+          "expected_packed_beats": 128,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 256,
+          "stat_a16_beats_out": 256,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 3055,
+          "after": 2044,
+          "delta": -1011,
+          "percent": -33.09328968903437,
+          "speedup": 1.4946183953033267
+        },
+        "t_last_packed": {
+          "before": 3056,
+          "after": 2044,
+          "delta": -1012,
+          "percent": -33.1151832460733,
+          "speedup": 1.4951076320939334
+        },
+        "t_idle": {
+          "before": 3057,
+          "after": 2045,
+          "delta": -1012,
+          "percent": -33.10435067059208,
+          "speedup": 1.4948655256723717
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 3057,
+            "last_p": 3058,
+            "idle": 3059
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 2046,
+            "last_p": 2046,
+            "idle": 2047
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 256,
+      "config": "fma_nontrivial",
+      "scenario": "bp0_no_backpressure",
+      "vector": "vectors/stream_256.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 256,
+        "config": "fma_nontrivial",
+        "scenario": "bp0_no_backpressure",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_256_fma_nontrivial_bp0_no_backpressure.log",
+        "out": "logs/gemini_stream_round2_256_fma_nontrivial_bp0_no_backpressure.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 393,
+          "last_p": 394,
+          "idle": 395,
+          "in_fires": 256,
+          "a_fires": 256,
+          "p_fires": 128
+        },
+        "stats": {
+          "in": 256,
+          "a16": 256,
+          "pack": 128,
+          "spill": 0,
+          "c48stat": 256,
+          "a16stat": 256,
+          "spillstat": 0,
+          "saved": 12288
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 393,
+          "last_p": 394,
+          "idle": 395,
+          "t_last_a16": 391,
+          "t_last_packed": 392,
+          "t_idle": 393,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 256,
+          "packed_beats": 128,
+          "spill_beats": 0,
+          "expected_a16_beats": 256,
+          "expected_packed_beats": 128,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 256,
+          "stat_a16_beats_out": 256,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 256,
+        "config": "fma_nontrivial",
+        "scenario": "bp0_no_backpressure",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_256_fma_nontrivial_bp0_no_backpressure.log",
+        "out": "logs/primary_stream_fix_256_fma_nontrivial_bp0_no_backpressure.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 267,
+          "last_p": 267,
+          "idle": 268,
+          "in_fires": 256,
+          "a_fires": 256,
+          "p_fires": 128
+        },
+        "stats": {
+          "in": 256,
+          "a16": 256,
+          "pack": 128,
+          "spill": 0,
+          "c48stat": 256,
+          "a16stat": 256,
+          "spillstat": 0,
+          "saved": 12288
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 267,
+          "last_p": 267,
+          "idle": 268,
+          "t_last_a16": 265,
+          "t_last_packed": 265,
+          "t_idle": 266,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 256,
+          "packed_beats": 128,
+          "spill_beats": 0,
+          "expected_a16_beats": 256,
+          "expected_packed_beats": 128,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 256,
+          "stat_a16_beats_out": 256,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 391,
+          "after": 265,
+          "delta": -126,
+          "percent": -32.22506393861892,
+          "speedup": 1.4754716981132074
+        },
+        "t_last_packed": {
+          "before": 392,
+          "after": 265,
+          "delta": -127,
+          "percent": -32.39795918367347,
+          "speedup": 1.4792452830188678
+        },
+        "t_idle": {
+          "before": 393,
+          "after": 266,
+          "delta": -127,
+          "percent": -32.31552162849873,
+          "speedup": 1.4774436090225564
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 393,
+            "last_p": 394,
+            "idle": 395
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 267,
+            "last_p": 267,
+            "idle": 268
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 256,
+      "config": "fma_nontrivial",
+      "scenario": "bp1_both_random",
+      "vector": "vectors/stream_256.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 256,
+        "config": "fma_nontrivial",
+        "scenario": "bp1_both_random",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_256_fma_nontrivial_bp1_both_random.log",
+        "out": "logs/gemini_stream_round2_256_fma_nontrivial_bp1_both_random.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 638,
+          "last_p": 639,
+          "idle": 640,
+          "in_fires": 256,
+          "a_fires": 256,
+          "p_fires": 128
+        },
+        "stats": {
+          "in": 256,
+          "a16": 256,
+          "pack": 128,
+          "spill": 0,
+          "c48stat": 256,
+          "a16stat": 256,
+          "spillstat": 0,
+          "saved": 12288
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 638,
+          "last_p": 639,
+          "idle": 640,
+          "t_last_a16": 636,
+          "t_last_packed": 637,
+          "t_idle": 638,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 256,
+          "packed_beats": 128,
+          "spill_beats": 0,
+          "expected_a16_beats": 256,
+          "expected_packed_beats": 128,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 256,
+          "stat_a16_beats_out": 256,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 256,
+        "config": "fma_nontrivial",
+        "scenario": "bp1_both_random",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_256_fma_nontrivial_bp1_both_random.log",
+        "out": "logs/primary_stream_fix_256_fma_nontrivial_bp1_both_random.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 511,
+          "last_p": 511,
+          "idle": 512,
+          "in_fires": 256,
+          "a_fires": 256,
+          "p_fires": 128
+        },
+        "stats": {
+          "in": 256,
+          "a16": 256,
+          "pack": 128,
+          "spill": 0,
+          "c48stat": 256,
+          "a16stat": 256,
+          "spillstat": 0,
+          "saved": 12288
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 511,
+          "last_p": 511,
+          "idle": 512,
+          "t_last_a16": 509,
+          "t_last_packed": 509,
+          "t_idle": 510,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 256,
+          "packed_beats": 128,
+          "spill_beats": 0,
+          "expected_a16_beats": 256,
+          "expected_packed_beats": 128,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 256,
+          "stat_a16_beats_out": 256,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 636,
+          "after": 509,
+          "delta": -127,
+          "percent": -19.968553459119498,
+          "speedup": 1.2495088408644401
+        },
+        "t_last_packed": {
+          "before": 637,
+          "after": 509,
+          "delta": -128,
+          "percent": -20.09419152276295,
+          "speedup": 1.2514734774066798
+        },
+        "t_idle": {
+          "before": 638,
+          "after": 510,
+          "delta": -128,
+          "percent": -20.062695924764892,
+          "speedup": 1.2509803921568627
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 638,
+            "last_p": 639,
+            "idle": 640
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 511,
+            "last_p": 511,
+            "idle": 512
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 256,
+      "config": "fma_nontrivial",
+      "scenario": "bp5_packed_long_stall",
+      "vector": "vectors/stream_256.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 256,
+        "config": "fma_nontrivial",
+        "scenario": "bp5_packed_long_stall",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_256_fma_nontrivial_bp5_packed_long_stall.log",
+        "out": "logs/gemini_stream_round2_256_fma_nontrivial_bp5_packed_long_stall.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 3057,
+          "last_p": 3058,
+          "idle": 3059,
+          "in_fires": 256,
+          "a_fires": 256,
+          "p_fires": 128
+        },
+        "stats": {
+          "in": 256,
+          "a16": 256,
+          "pack": 128,
+          "spill": 0,
+          "c48stat": 256,
+          "a16stat": 256,
+          "spillstat": 0,
+          "saved": 12288
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 3057,
+          "last_p": 3058,
+          "idle": 3059,
+          "t_last_a16": 3055,
+          "t_last_packed": 3056,
+          "t_idle": 3057,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 256,
+          "packed_beats": 128,
+          "spill_beats": 0,
+          "expected_a16_beats": 256,
+          "expected_packed_beats": 128,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 256,
+          "stat_a16_beats_out": 256,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 256,
+        "config": "fma_nontrivial",
+        "scenario": "bp5_packed_long_stall",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_256_fma_nontrivial_bp5_packed_long_stall.log",
+        "out": "logs/primary_stream_fix_256_fma_nontrivial_bp5_packed_long_stall.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 2046,
+          "last_p": 2046,
+          "idle": 2047,
+          "in_fires": 256,
+          "a_fires": 256,
+          "p_fires": 128
+        },
+        "stats": {
+          "in": 256,
+          "a16": 256,
+          "pack": 128,
+          "spill": 0,
+          "c48stat": 256,
+          "a16stat": 256,
+          "spillstat": 0,
+          "saved": 12288
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 2046,
+          "last_p": 2046,
+          "idle": 2047,
+          "t_last_a16": 2044,
+          "t_last_packed": 2044,
+          "t_idle": 2045,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 256,
+          "packed_beats": 128,
+          "spill_beats": 0,
+          "expected_a16_beats": 256,
+          "expected_packed_beats": 128,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 256,
+          "stat_a16_beats_out": 256,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 3055,
+          "after": 2044,
+          "delta": -1011,
+          "percent": -33.09328968903437,
+          "speedup": 1.4946183953033267
+        },
+        "t_last_packed": {
+          "before": 3056,
+          "after": 2044,
+          "delta": -1012,
+          "percent": -33.1151832460733,
+          "speedup": 1.4951076320939334
+        },
+        "t_idle": {
+          "before": 3057,
+          "after": 2045,
+          "delta": -1012,
+          "percent": -33.10435067059208,
+          "speedup": 1.4948655256723717
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 3057,
+            "last_p": 3058,
+            "idle": 3059
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 2046,
+            "last_p": 2046,
+            "idle": 2047
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 1024,
+      "config": "conv",
+      "scenario": "bp0_no_backpressure",
+      "vector": "vectors/stream_1024.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 1024,
+        "config": "conv",
+        "scenario": "bp0_no_backpressure",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_1024_conv_bp0_no_backpressure.log",
+        "out": "logs/gemini_stream_round2_1024_conv_bp0_no_backpressure.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 1545,
+          "last_p": 1546,
+          "idle": 1547,
+          "in_fires": 1024,
+          "a_fires": 1024,
+          "p_fires": 512
+        },
+        "stats": {
+          "in": 1024,
+          "a16": 1024,
+          "pack": 512,
+          "spill": 0,
+          "c48stat": 1024,
+          "a16stat": 1024,
+          "spillstat": 0,
+          "saved": 49152
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 1545,
+          "last_p": 1546,
+          "idle": 1547,
+          "t_last_a16": 1543,
+          "t_last_packed": 1544,
+          "t_idle": 1545,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 1024,
+          "packed_beats": 512,
+          "spill_beats": 0,
+          "expected_a16_beats": 1024,
+          "expected_packed_beats": 512,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 1024,
+          "stat_a16_beats_out": 1024,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 1024,
+        "config": "conv",
+        "scenario": "bp0_no_backpressure",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_1024_conv_bp0_no_backpressure.log",
+        "out": "logs/primary_stream_fix_1024_conv_bp0_no_backpressure.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 1035,
+          "last_p": 1035,
+          "idle": 1036,
+          "in_fires": 1024,
+          "a_fires": 1024,
+          "p_fires": 512
+        },
+        "stats": {
+          "in": 1024,
+          "a16": 1024,
+          "pack": 512,
+          "spill": 0,
+          "c48stat": 1024,
+          "a16stat": 1024,
+          "spillstat": 0,
+          "saved": 49152
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 1035,
+          "last_p": 1035,
+          "idle": 1036,
+          "t_last_a16": 1033,
+          "t_last_packed": 1033,
+          "t_idle": 1034,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 1024,
+          "packed_beats": 512,
+          "spill_beats": 0,
+          "expected_a16_beats": 1024,
+          "expected_packed_beats": 512,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 1024,
+          "stat_a16_beats_out": 1024,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 1543,
+          "after": 1033,
+          "delta": -510,
+          "percent": -33.05249513933895,
+          "speedup": 1.4937076476282671
+        },
+        "t_last_packed": {
+          "before": 1544,
+          "after": 1033,
+          "delta": -511,
+          "percent": -33.09585492227979,
+          "speedup": 1.494675701839303
+        },
+        "t_idle": {
+          "before": 1545,
+          "after": 1034,
+          "delta": -511,
+          "percent": -33.07443365695793,
+          "speedup": 1.4941972920696325
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 1545,
+            "last_p": 1546,
+            "idle": 1547
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 1035,
+            "last_p": 1035,
+            "idle": 1036
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 1024,
+      "config": "conv",
+      "scenario": "bp1_both_random",
+      "vector": "vectors/stream_1024.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 1024,
+        "config": "conv",
+        "scenario": "bp1_both_random",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_1024_conv_bp1_both_random.log",
+        "out": "logs/gemini_stream_round2_1024_conv_bp1_both_random.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 2535,
+          "last_p": 2536,
+          "idle": 2537,
+          "in_fires": 1024,
+          "a_fires": 1024,
+          "p_fires": 512
+        },
+        "stats": {
+          "in": 1024,
+          "a16": 1024,
+          "pack": 512,
+          "spill": 0,
+          "c48stat": 1024,
+          "a16stat": 1024,
+          "spillstat": 0,
+          "saved": 49152
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 2535,
+          "last_p": 2536,
+          "idle": 2537,
+          "t_last_a16": 2533,
+          "t_last_packed": 2534,
+          "t_idle": 2535,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 1024,
+          "packed_beats": 512,
+          "spill_beats": 0,
+          "expected_a16_beats": 1024,
+          "expected_packed_beats": 512,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 1024,
+          "stat_a16_beats_out": 1024,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 1024,
+        "config": "conv",
+        "scenario": "bp1_both_random",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_1024_conv_bp1_both_random.log",
+        "out": "logs/primary_stream_fix_1024_conv_bp1_both_random.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 2020,
+          "last_p": 2017,
+          "idle": 2021,
+          "in_fires": 1024,
+          "a_fires": 1024,
+          "p_fires": 512
+        },
+        "stats": {
+          "in": 1024,
+          "a16": 1024,
+          "pack": 512,
+          "spill": 0,
+          "c48stat": 1024,
+          "a16stat": 1024,
+          "spillstat": 0,
+          "saved": 49152
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 2020,
+          "last_p": 2017,
+          "idle": 2021,
+          "t_last_a16": 2018,
+          "t_last_packed": 2015,
+          "t_idle": 2019,
+          "drain_tail": 1,
+          "last_p_minus_last_a": -3
+        },
+        "check": {
+          "a16_beats": 1024,
+          "packed_beats": 512,
+          "spill_beats": 0,
+          "expected_a16_beats": 1024,
+          "expected_packed_beats": 512,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 1024,
+          "stat_a16_beats_out": 1024,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 2533,
+          "after": 2018,
+          "delta": -515,
+          "percent": -20.331622581918673,
+          "speedup": 1.255203171456888
+        },
+        "t_last_packed": {
+          "before": 2534,
+          "after": 2015,
+          "delta": -519,
+          "percent": -20.48145224940805,
+          "speedup": 1.2575682382133995
+        },
+        "t_idle": {
+          "before": 2535,
+          "after": 2019,
+          "delta": -516,
+          "percent": -20.355029585798817,
+          "speedup": 1.2555720653789004
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 2535,
+            "last_p": 2536,
+            "idle": 2537
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 2020,
+            "last_p": 2017,
+            "idle": 2021
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 1024,
+      "config": "conv",
+      "scenario": "bp5_packed_long_stall",
+      "vector": "vectors/stream_1024.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 1024,
+        "config": "conv",
+        "scenario": "bp5_packed_long_stall",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_1024_conv_bp5_packed_long_stall.log",
+        "out": "logs/gemini_stream_round2_1024_conv_bp5_packed_long_stall.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 12014,
+          "last_p": 12015,
+          "idle": 12016,
+          "in_fires": 1024,
+          "a_fires": 1024,
+          "p_fires": 512
+        },
+        "stats": {
+          "in": 1024,
+          "a16": 1024,
+          "pack": 512,
+          "spill": 0,
+          "c48stat": 1024,
+          "a16stat": 1024,
+          "spillstat": 0,
+          "saved": 49152
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 12014,
+          "last_p": 12015,
+          "idle": 12016,
+          "t_last_a16": 12012,
+          "t_last_packed": 12013,
+          "t_idle": 12014,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 1024,
+          "packed_beats": 512,
+          "spill_beats": 0,
+          "expected_a16_beats": 1024,
+          "expected_packed_beats": 512,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 1024,
+          "stat_a16_beats_out": 1024,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 1024,
+        "config": "conv",
+        "scenario": "bp5_packed_long_stall",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_1024_conv_bp5_packed_long_stall.log",
+        "out": "logs/primary_stream_fix_1024_conv_bp5_packed_long_stall.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 8190,
+          "last_p": 8190,
+          "idle": 8191,
+          "in_fires": 1024,
+          "a_fires": 1024,
+          "p_fires": 512
+        },
+        "stats": {
+          "in": 1024,
+          "a16": 1024,
+          "pack": 512,
+          "spill": 0,
+          "c48stat": 1024,
+          "a16stat": 1024,
+          "spillstat": 0,
+          "saved": 49152
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 8190,
+          "last_p": 8190,
+          "idle": 8191,
+          "t_last_a16": 8188,
+          "t_last_packed": 8188,
+          "t_idle": 8189,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 1024,
+          "packed_beats": 512,
+          "spill_beats": 0,
+          "expected_a16_beats": 1024,
+          "expected_packed_beats": 512,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 1024,
+          "stat_a16_beats_out": 1024,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 12012,
+          "after": 8188,
+          "delta": -3824,
+          "percent": -31.834831834831835,
+          "speedup": 1.4670249145090377
+        },
+        "t_last_packed": {
+          "before": 12013,
+          "after": 8188,
+          "delta": -3825,
+          "percent": -31.840506118371763,
+          "speedup": 1.4671470444553005
+        },
+        "t_idle": {
+          "before": 12014,
+          "after": 8189,
+          "delta": -3825,
+          "percent": -31.83785583485933,
+          "speedup": 1.4670899987788497
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 12014,
+            "last_p": 12015,
+            "idle": 12016
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 8190,
+            "last_p": 8190,
+            "idle": 8191
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 1024,
+      "config": "fma_nontrivial",
+      "scenario": "bp0_no_backpressure",
+      "vector": "vectors/stream_1024.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 1024,
+        "config": "fma_nontrivial",
+        "scenario": "bp0_no_backpressure",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_1024_fma_nontrivial_bp0_no_backpressure.log",
+        "out": "logs/gemini_stream_round2_1024_fma_nontrivial_bp0_no_backpressure.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 1545,
+          "last_p": 1546,
+          "idle": 1547,
+          "in_fires": 1024,
+          "a_fires": 1024,
+          "p_fires": 512
+        },
+        "stats": {
+          "in": 1024,
+          "a16": 1024,
+          "pack": 512,
+          "spill": 0,
+          "c48stat": 1024,
+          "a16stat": 1024,
+          "spillstat": 0,
+          "saved": 49152
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 1545,
+          "last_p": 1546,
+          "idle": 1547,
+          "t_last_a16": 1543,
+          "t_last_packed": 1544,
+          "t_idle": 1545,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 1024,
+          "packed_beats": 512,
+          "spill_beats": 0,
+          "expected_a16_beats": 1024,
+          "expected_packed_beats": 512,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 1024,
+          "stat_a16_beats_out": 1024,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 1024,
+        "config": "fma_nontrivial",
+        "scenario": "bp0_no_backpressure",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_1024_fma_nontrivial_bp0_no_backpressure.log",
+        "out": "logs/primary_stream_fix_1024_fma_nontrivial_bp0_no_backpressure.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 1035,
+          "last_p": 1035,
+          "idle": 1036,
+          "in_fires": 1024,
+          "a_fires": 1024,
+          "p_fires": 512
+        },
+        "stats": {
+          "in": 1024,
+          "a16": 1024,
+          "pack": 512,
+          "spill": 0,
+          "c48stat": 1024,
+          "a16stat": 1024,
+          "spillstat": 0,
+          "saved": 49152
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 1035,
+          "last_p": 1035,
+          "idle": 1036,
+          "t_last_a16": 1033,
+          "t_last_packed": 1033,
+          "t_idle": 1034,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 1024,
+          "packed_beats": 512,
+          "spill_beats": 0,
+          "expected_a16_beats": 1024,
+          "expected_packed_beats": 512,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 1024,
+          "stat_a16_beats_out": 1024,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 1543,
+          "after": 1033,
+          "delta": -510,
+          "percent": -33.05249513933895,
+          "speedup": 1.4937076476282671
+        },
+        "t_last_packed": {
+          "before": 1544,
+          "after": 1033,
+          "delta": -511,
+          "percent": -33.09585492227979,
+          "speedup": 1.494675701839303
+        },
+        "t_idle": {
+          "before": 1545,
+          "after": 1034,
+          "delta": -511,
+          "percent": -33.07443365695793,
+          "speedup": 1.4941972920696325
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 1545,
+            "last_p": 1546,
+            "idle": 1547
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 1035,
+            "last_p": 1035,
+            "idle": 1036
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 1024,
+      "config": "fma_nontrivial",
+      "scenario": "bp1_both_random",
+      "vector": "vectors/stream_1024.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 1024,
+        "config": "fma_nontrivial",
+        "scenario": "bp1_both_random",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_1024_fma_nontrivial_bp1_both_random.log",
+        "out": "logs/gemini_stream_round2_1024_fma_nontrivial_bp1_both_random.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 2535,
+          "last_p": 2536,
+          "idle": 2537,
+          "in_fires": 1024,
+          "a_fires": 1024,
+          "p_fires": 512
+        },
+        "stats": {
+          "in": 1024,
+          "a16": 1024,
+          "pack": 512,
+          "spill": 0,
+          "c48stat": 1024,
+          "a16stat": 1024,
+          "spillstat": 0,
+          "saved": 49152
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 2535,
+          "last_p": 2536,
+          "idle": 2537,
+          "t_last_a16": 2533,
+          "t_last_packed": 2534,
+          "t_idle": 2535,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 1024,
+          "packed_beats": 512,
+          "spill_beats": 0,
+          "expected_a16_beats": 1024,
+          "expected_packed_beats": 512,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 1024,
+          "stat_a16_beats_out": 1024,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 1024,
+        "config": "fma_nontrivial",
+        "scenario": "bp1_both_random",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_1024_fma_nontrivial_bp1_both_random.log",
+        "out": "logs/primary_stream_fix_1024_fma_nontrivial_bp1_both_random.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 2020,
+          "last_p": 2017,
+          "idle": 2021,
+          "in_fires": 1024,
+          "a_fires": 1024,
+          "p_fires": 512
+        },
+        "stats": {
+          "in": 1024,
+          "a16": 1024,
+          "pack": 512,
+          "spill": 0,
+          "c48stat": 1024,
+          "a16stat": 1024,
+          "spillstat": 0,
+          "saved": 49152
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 2020,
+          "last_p": 2017,
+          "idle": 2021,
+          "t_last_a16": 2018,
+          "t_last_packed": 2015,
+          "t_idle": 2019,
+          "drain_tail": 1,
+          "last_p_minus_last_a": -3
+        },
+        "check": {
+          "a16_beats": 1024,
+          "packed_beats": 512,
+          "spill_beats": 0,
+          "expected_a16_beats": 1024,
+          "expected_packed_beats": 512,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 1024,
+          "stat_a16_beats_out": 1024,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 2533,
+          "after": 2018,
+          "delta": -515,
+          "percent": -20.331622581918673,
+          "speedup": 1.255203171456888
+        },
+        "t_last_packed": {
+          "before": 2534,
+          "after": 2015,
+          "delta": -519,
+          "percent": -20.48145224940805,
+          "speedup": 1.2575682382133995
+        },
+        "t_idle": {
+          "before": 2535,
+          "after": 2019,
+          "delta": -516,
+          "percent": -20.355029585798817,
+          "speedup": 1.2555720653789004
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 2535,
+            "last_p": 2536,
+            "idle": 2537
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 2020,
+            "last_p": 2017,
+            "idle": 2021
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 1024,
+      "config": "fma_nontrivial",
+      "scenario": "bp5_packed_long_stall",
+      "vector": "vectors/stream_1024.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 1024,
+        "config": "fma_nontrivial",
+        "scenario": "bp5_packed_long_stall",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_1024_fma_nontrivial_bp5_packed_long_stall.log",
+        "out": "logs/gemini_stream_round2_1024_fma_nontrivial_bp5_packed_long_stall.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 12014,
+          "last_p": 12015,
+          "idle": 12016,
+          "in_fires": 1024,
+          "a_fires": 1024,
+          "p_fires": 512
+        },
+        "stats": {
+          "in": 1024,
+          "a16": 1024,
+          "pack": 512,
+          "spill": 0,
+          "c48stat": 1024,
+          "a16stat": 1024,
+          "spillstat": 0,
+          "saved": 49152
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 12014,
+          "last_p": 12015,
+          "idle": 12016,
+          "t_last_a16": 12012,
+          "t_last_packed": 12013,
+          "t_idle": 12014,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 1024,
+          "packed_beats": 512,
+          "spill_beats": 0,
+          "expected_a16_beats": 1024,
+          "expected_packed_beats": 512,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 1024,
+          "stat_a16_beats_out": 1024,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 1024,
+        "config": "fma_nontrivial",
+        "scenario": "bp5_packed_long_stall",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_1024_fma_nontrivial_bp5_packed_long_stall.log",
+        "out": "logs/primary_stream_fix_1024_fma_nontrivial_bp5_packed_long_stall.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 8190,
+          "last_p": 8190,
+          "idle": 8191,
+          "in_fires": 1024,
+          "a_fires": 1024,
+          "p_fires": 512
+        },
+        "stats": {
+          "in": 1024,
+          "a16": 1024,
+          "pack": 512,
+          "spill": 0,
+          "c48stat": 1024,
+          "a16stat": 1024,
+          "spillstat": 0,
+          "saved": 49152
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 8190,
+          "last_p": 8190,
+          "idle": 8191,
+          "t_last_a16": 8188,
+          "t_last_packed": 8188,
+          "t_idle": 8189,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 1024,
+          "packed_beats": 512,
+          "spill_beats": 0,
+          "expected_a16_beats": 1024,
+          "expected_packed_beats": 512,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 1024,
+          "stat_a16_beats_out": 1024,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 12012,
+          "after": 8188,
+          "delta": -3824,
+          "percent": -31.834831834831835,
+          "speedup": 1.4670249145090377
+        },
+        "t_last_packed": {
+          "before": 12013,
+          "after": 8188,
+          "delta": -3825,
+          "percent": -31.840506118371763,
+          "speedup": 1.4671470444553005
+        },
+        "t_idle": {
+          "before": 12014,
+          "after": 8189,
+          "delta": -3825,
+          "percent": -31.83785583485933,
+          "speedup": 1.4670899987788497
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 12014,
+            "last_p": 12015,
+            "idle": 12016
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 8190,
+            "last_p": 8190,
+            "idle": 8191
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 4096,
+      "config": "conv",
+      "scenario": "bp0_no_backpressure",
+      "vector": "vectors/stream_4096.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 4096,
+        "config": "conv",
+        "scenario": "bp0_no_backpressure",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_4096_conv_bp0_no_backpressure.log",
+        "out": "logs/gemini_stream_round2_4096_conv_bp0_no_backpressure.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 6153,
+          "last_p": 6154,
+          "idle": 6155,
+          "in_fires": 4096,
+          "a_fires": 4096,
+          "p_fires": 2048
+        },
+        "stats": {
+          "in": 4096,
+          "a16": 4096,
+          "pack": 2048,
+          "spill": 0,
+          "c48stat": 4096,
+          "a16stat": 4096,
+          "spillstat": 0,
+          "saved": 196608
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 6153,
+          "last_p": 6154,
+          "idle": 6155,
+          "t_last_a16": 6151,
+          "t_last_packed": 6152,
+          "t_idle": 6153,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 4096,
+          "packed_beats": 2048,
+          "spill_beats": 0,
+          "expected_a16_beats": 4096,
+          "expected_packed_beats": 2048,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 4096,
+          "stat_a16_beats_out": 4096,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 4096,
+        "config": "conv",
+        "scenario": "bp0_no_backpressure",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_4096_conv_bp0_no_backpressure.log",
+        "out": "logs/primary_stream_fix_4096_conv_bp0_no_backpressure.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 4107,
+          "last_p": 4107,
+          "idle": 4108,
+          "in_fires": 4096,
+          "a_fires": 4096,
+          "p_fires": 2048
+        },
+        "stats": {
+          "in": 4096,
+          "a16": 4096,
+          "pack": 2048,
+          "spill": 0,
+          "c48stat": 4096,
+          "a16stat": 4096,
+          "spillstat": 0,
+          "saved": 196608
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 4107,
+          "last_p": 4107,
+          "idle": 4108,
+          "t_last_a16": 4105,
+          "t_last_packed": 4105,
+          "t_idle": 4106,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 4096,
+          "packed_beats": 2048,
+          "spill_beats": 0,
+          "expected_a16_beats": 4096,
+          "expected_packed_beats": 2048,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 4096,
+          "stat_a16_beats_out": 4096,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 6151,
+          "after": 4105,
+          "delta": -2046,
+          "percent": -33.2628840838888,
+          "speedup": 1.4984165651644337
+        },
+        "t_last_packed": {
+          "before": 6152,
+          "after": 4105,
+          "delta": -2047,
+          "percent": -33.27373211963589,
+          "speedup": 1.4986601705237514
+        },
+        "t_idle": {
+          "before": 6153,
+          "after": 4106,
+          "delta": -2047,
+          "percent": -33.26832439460426,
+          "speedup": 1.4985387238188017
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 6153,
+            "last_p": 6154,
+            "idle": 6155
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 4107,
+            "last_p": 4107,
+            "idle": 4108
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 4096,
+      "config": "conv",
+      "scenario": "bp1_both_random",
+      "vector": "vectors/stream_4096.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 4096,
+        "config": "conv",
+        "scenario": "bp1_both_random",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_4096_conv_bp1_both_random.log",
+        "out": "logs/gemini_stream_round2_4096_conv_bp1_both_random.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 10225,
+          "last_p": 10226,
+          "idle": 10227,
+          "in_fires": 4096,
+          "a_fires": 4096,
+          "p_fires": 2048
+        },
+        "stats": {
+          "in": 4096,
+          "a16": 4096,
+          "pack": 2048,
+          "spill": 0,
+          "c48stat": 4096,
+          "a16stat": 4096,
+          "spillstat": 0,
+          "saved": 196608
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 10225,
+          "last_p": 10226,
+          "idle": 10227,
+          "t_last_a16": 10223,
+          "t_last_packed": 10224,
+          "t_idle": 10225,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 4096,
+          "packed_beats": 2048,
+          "spill_beats": 0,
+          "expected_a16_beats": 4096,
+          "expected_packed_beats": 2048,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 4096,
+          "stat_a16_beats_out": 4096,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 4096,
+        "config": "conv",
+        "scenario": "bp1_both_random",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_4096_conv_bp1_both_random.log",
+        "out": "logs/primary_stream_fix_4096_conv_bp1_both_random.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 8213,
+          "last_p": 8213,
+          "idle": 8214,
+          "in_fires": 4096,
+          "a_fires": 4096,
+          "p_fires": 2048
+        },
+        "stats": {
+          "in": 4096,
+          "a16": 4096,
+          "pack": 2048,
+          "spill": 0,
+          "c48stat": 4096,
+          "a16stat": 4096,
+          "spillstat": 0,
+          "saved": 196608
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 8213,
+          "last_p": 8213,
+          "idle": 8214,
+          "t_last_a16": 8211,
+          "t_last_packed": 8211,
+          "t_idle": 8212,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 4096,
+          "packed_beats": 2048,
+          "spill_beats": 0,
+          "expected_a16_beats": 4096,
+          "expected_packed_beats": 2048,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 4096,
+          "stat_a16_beats_out": 4096,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 10223,
+          "after": 8211,
+          "delta": -2012,
+          "percent": -19.681111219798492,
+          "speedup": 1.2450371452928997
+        },
+        "t_last_packed": {
+          "before": 10224,
+          "after": 8211,
+          "delta": -2013,
+          "percent": -19.688967136150236,
+          "speedup": 1.2451589331384727
+        },
+        "t_idle": {
+          "before": 10225,
+          "after": 8212,
+          "delta": -2013,
+          "percent": -19.687041564792175,
+          "speedup": 1.245129079396006
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 10225,
+            "last_p": 10226,
+            "idle": 10227
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 8213,
+            "last_p": 8213,
+            "idle": 8214
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 4096,
+      "config": "conv",
+      "scenario": "bp5_packed_long_stall",
+      "vector": "vectors/stream_4096.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 4096,
+        "config": "conv",
+        "scenario": "bp5_packed_long_stall",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_4096_conv_bp5_packed_long_stall.log",
+        "out": "logs/gemini_stream_round2_4096_conv_bp5_packed_long_stall.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 47842,
+          "last_p": 47843,
+          "idle": 47844,
+          "in_fires": 4096,
+          "a_fires": 4096,
+          "p_fires": 2048
+        },
+        "stats": {
+          "in": 4096,
+          "a16": 4096,
+          "pack": 2048,
+          "spill": 0,
+          "c48stat": 4096,
+          "a16stat": 4096,
+          "spillstat": 0,
+          "saved": 196608
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 47842,
+          "last_p": 47843,
+          "idle": 47844,
+          "t_last_a16": 47840,
+          "t_last_packed": 47841,
+          "t_idle": 47842,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 4096,
+          "packed_beats": 2048,
+          "spill_beats": 0,
+          "expected_a16_beats": 4096,
+          "expected_packed_beats": 2048,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 4096,
+          "stat_a16_beats_out": 4096,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 4096,
+        "config": "conv",
+        "scenario": "bp5_packed_long_stall",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_4096_conv_bp5_packed_long_stall.log",
+        "out": "logs/primary_stream_fix_4096_conv_bp5_packed_long_stall.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 32766,
+          "last_p": 32766,
+          "idle": 32767,
+          "in_fires": 4096,
+          "a_fires": 4096,
+          "p_fires": 2048
+        },
+        "stats": {
+          "in": 4096,
+          "a16": 4096,
+          "pack": 2048,
+          "spill": 0,
+          "c48stat": 4096,
+          "a16stat": 4096,
+          "spillstat": 0,
+          "saved": 196608
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 32766,
+          "last_p": 32766,
+          "idle": 32767,
+          "t_last_a16": 32764,
+          "t_last_packed": 32764,
+          "t_idle": 32765,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 4096,
+          "packed_beats": 2048,
+          "spill_beats": 0,
+          "expected_a16_beats": 4096,
+          "expected_packed_beats": 2048,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 4096,
+          "stat_a16_beats_out": 4096,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 47840,
+          "after": 32764,
+          "delta": -15076,
+          "percent": -31.513377926421406,
+          "speedup": 1.4601391771456476
+        },
+        "t_last_packed": {
+          "before": 47841,
+          "after": 32764,
+          "delta": -15077,
+          "percent": -31.51480947304613,
+          "speedup": 1.4601696984495178
+        },
+        "t_idle": {
+          "before": 47842,
+          "after": 32765,
+          "delta": -15077,
+          "percent": -31.514150746206262,
+          "speedup": 1.4601556538989775
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 47842,
+            "last_p": 47843,
+            "idle": 47844
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 32766,
+            "last_p": 32766,
+            "idle": 32767
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 4096,
+      "config": "fma_nontrivial",
+      "scenario": "bp0_no_backpressure",
+      "vector": "vectors/stream_4096.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 4096,
+        "config": "fma_nontrivial",
+        "scenario": "bp0_no_backpressure",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_4096_fma_nontrivial_bp0_no_backpressure.log",
+        "out": "logs/gemini_stream_round2_4096_fma_nontrivial_bp0_no_backpressure.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 6153,
+          "last_p": 6154,
+          "idle": 6155,
+          "in_fires": 4096,
+          "a_fires": 4096,
+          "p_fires": 2048
+        },
+        "stats": {
+          "in": 4096,
+          "a16": 4096,
+          "pack": 2048,
+          "spill": 0,
+          "c48stat": 4096,
+          "a16stat": 4096,
+          "spillstat": 0,
+          "saved": 196608
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 6153,
+          "last_p": 6154,
+          "idle": 6155,
+          "t_last_a16": 6151,
+          "t_last_packed": 6152,
+          "t_idle": 6153,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 4096,
+          "packed_beats": 2048,
+          "spill_beats": 0,
+          "expected_a16_beats": 4096,
+          "expected_packed_beats": 2048,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 4096,
+          "stat_a16_beats_out": 4096,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 4096,
+        "config": "fma_nontrivial",
+        "scenario": "bp0_no_backpressure",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_4096_fma_nontrivial_bp0_no_backpressure.log",
+        "out": "logs/primary_stream_fix_4096_fma_nontrivial_bp0_no_backpressure.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 4107,
+          "last_p": 4107,
+          "idle": 4108,
+          "in_fires": 4096,
+          "a_fires": 4096,
+          "p_fires": 2048
+        },
+        "stats": {
+          "in": 4096,
+          "a16": 4096,
+          "pack": 2048,
+          "spill": 0,
+          "c48stat": 4096,
+          "a16stat": 4096,
+          "spillstat": 0,
+          "saved": 196608
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 4107,
+          "last_p": 4107,
+          "idle": 4108,
+          "t_last_a16": 4105,
+          "t_last_packed": 4105,
+          "t_idle": 4106,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 4096,
+          "packed_beats": 2048,
+          "spill_beats": 0,
+          "expected_a16_beats": 4096,
+          "expected_packed_beats": 2048,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 4096,
+          "stat_a16_beats_out": 4096,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 6151,
+          "after": 4105,
+          "delta": -2046,
+          "percent": -33.2628840838888,
+          "speedup": 1.4984165651644337
+        },
+        "t_last_packed": {
+          "before": 6152,
+          "after": 4105,
+          "delta": -2047,
+          "percent": -33.27373211963589,
+          "speedup": 1.4986601705237514
+        },
+        "t_idle": {
+          "before": 6153,
+          "after": 4106,
+          "delta": -2047,
+          "percent": -33.26832439460426,
+          "speedup": 1.4985387238188017
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 6153,
+            "last_p": 6154,
+            "idle": 6155
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 4107,
+            "last_p": 4107,
+            "idle": 4108
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 4096,
+      "config": "fma_nontrivial",
+      "scenario": "bp1_both_random",
+      "vector": "vectors/stream_4096.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 4096,
+        "config": "fma_nontrivial",
+        "scenario": "bp1_both_random",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_4096_fma_nontrivial_bp1_both_random.log",
+        "out": "logs/gemini_stream_round2_4096_fma_nontrivial_bp1_both_random.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 10225,
+          "last_p": 10226,
+          "idle": 10227,
+          "in_fires": 4096,
+          "a_fires": 4096,
+          "p_fires": 2048
+        },
+        "stats": {
+          "in": 4096,
+          "a16": 4096,
+          "pack": 2048,
+          "spill": 0,
+          "c48stat": 4096,
+          "a16stat": 4096,
+          "spillstat": 0,
+          "saved": 196608
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 10225,
+          "last_p": 10226,
+          "idle": 10227,
+          "t_last_a16": 10223,
+          "t_last_packed": 10224,
+          "t_idle": 10225,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 4096,
+          "packed_beats": 2048,
+          "spill_beats": 0,
+          "expected_a16_beats": 4096,
+          "expected_packed_beats": 2048,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 4096,
+          "stat_a16_beats_out": 4096,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 4096,
+        "config": "fma_nontrivial",
+        "scenario": "bp1_both_random",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_4096_fma_nontrivial_bp1_both_random.log",
+        "out": "logs/primary_stream_fix_4096_fma_nontrivial_bp1_both_random.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 8213,
+          "last_p": 8213,
+          "idle": 8214,
+          "in_fires": 4096,
+          "a_fires": 4096,
+          "p_fires": 2048
+        },
+        "stats": {
+          "in": 4096,
+          "a16": 4096,
+          "pack": 2048,
+          "spill": 0,
+          "c48stat": 4096,
+          "a16stat": 4096,
+          "spillstat": 0,
+          "saved": 196608
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 8213,
+          "last_p": 8213,
+          "idle": 8214,
+          "t_last_a16": 8211,
+          "t_last_packed": 8211,
+          "t_idle": 8212,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 4096,
+          "packed_beats": 2048,
+          "spill_beats": 0,
+          "expected_a16_beats": 4096,
+          "expected_packed_beats": 2048,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 4096,
+          "stat_a16_beats_out": 4096,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 10223,
+          "after": 8211,
+          "delta": -2012,
+          "percent": -19.681111219798492,
+          "speedup": 1.2450371452928997
+        },
+        "t_last_packed": {
+          "before": 10224,
+          "after": 8211,
+          "delta": -2013,
+          "percent": -19.688967136150236,
+          "speedup": 1.2451589331384727
+        },
+        "t_idle": {
+          "before": 10225,
+          "after": 8212,
+          "delta": -2013,
+          "percent": -19.687041564792175,
+          "speedup": 1.245129079396006
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 10225,
+            "last_p": 10226,
+            "idle": 10227
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 8213,
+            "last_p": 8213,
+            "idle": 8214
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    },
+    {
+      "length": 4096,
+      "config": "fma_nontrivial",
+      "scenario": "bp5_packed_long_stall",
+      "vector": "vectors/stream_4096.vec",
+      "before": {
+        "variant": "gemini_stream_round2",
+        "length": 4096,
+        "config": "fma_nontrivial",
+        "scenario": "bp5_packed_long_stall",
+        "rc": 0,
+        "log": "logs/gemini_stream_round2_4096_fma_nontrivial_bp5_packed_long_stall.log",
+        "out": "logs/gemini_stream_round2_4096_fma_nontrivial_bp5_packed_long_stall.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 47842,
+          "last_p": 47843,
+          "idle": 47844,
+          "in_fires": 4096,
+          "a_fires": 4096,
+          "p_fires": 2048
+        },
+        "stats": {
+          "in": 4096,
+          "a16": 4096,
+          "pack": 2048,
+          "spill": 0,
+          "c48stat": 4096,
+          "a16stat": 4096,
+          "spillstat": 0,
+          "saved": 196608
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 47842,
+          "last_p": 47843,
+          "idle": 47844,
+          "t_last_a16": 47840,
+          "t_last_packed": 47841,
+          "t_idle": 47842,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 1
+        },
+        "check": {
+          "a16_beats": 4096,
+          "packed_beats": 2048,
+          "spill_beats": 0,
+          "expected_a16_beats": 4096,
+          "expected_packed_beats": 2048,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 4096,
+          "stat_a16_beats_out": 4096,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "after": {
+        "variant": "primary_stream_fix",
+        "length": 4096,
+        "config": "fma_nontrivial",
+        "scenario": "bp5_packed_long_stall",
+        "rc": 0,
+        "log": "logs/primary_stream_fix_4096_fma_nontrivial_bp5_packed_long_stall.log",
+        "out": "logs/primary_stream_fix_4096_fma_nontrivial_bp5_packed_long_stall.out",
+        "milestones": {
+          "first_in": 2,
+          "last_a": 32766,
+          "last_p": 32766,
+          "idle": 32767,
+          "in_fires": 4096,
+          "a_fires": 4096,
+          "p_fires": 2048
+        },
+        "stats": {
+          "in": 4096,
+          "a16": 4096,
+          "pack": 2048,
+          "spill": 0,
+          "c48stat": 4096,
+          "a16stat": 4096,
+          "spillstat": 0,
+          "saved": 196608
+        },
+        "timed_out": false,
+        "cycles": {
+          "first_in": 2,
+          "last_a": 32766,
+          "last_p": 32766,
+          "idle": 32767,
+          "t_last_a16": 32764,
+          "t_last_packed": 32764,
+          "t_idle": 32765,
+          "drain_tail": 1,
+          "last_p_minus_last_a": 0
+        },
+        "check": {
+          "a16_beats": 4096,
+          "packed_beats": 2048,
+          "spill_beats": 0,
+          "expected_a16_beats": 4096,
+          "expected_packed_beats": 2048,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "a16_data_mismatch": 0,
+          "packed_data_mismatch": 0,
+          "a16_tag_mismatch": 0,
+          "packed_tag_mismatch": 0,
+          "a16_last_mismatch": 0,
+          "packed_last_mismatch": 0,
+          "stat_c48_beats_in": 4096,
+          "stat_a16_beats_out": 4096,
+          "stat_count_mismatch": false,
+          "examples": [],
+          "pass": true
+        },
+        "pass": true
+      },
+      "comparison_valid": true,
+      "metrics": {
+        "t_last_a16": {
+          "before": 47840,
+          "after": 32764,
+          "delta": -15076,
+          "percent": -31.513377926421406,
+          "speedup": 1.4601391771456476
+        },
+        "t_last_packed": {
+          "before": 47841,
+          "after": 32764,
+          "delta": -15077,
+          "percent": -31.51480947304613,
+          "speedup": 1.4601696984495178
+        },
+        "t_idle": {
+          "before": 47842,
+          "after": 32765,
+          "delta": -15077,
+          "percent": -31.514150746206262,
+          "speedup": 1.4601556538989775
+        },
+        "drain_tail": {
+          "before": 1,
+          "after": 1,
+          "delta": 0,
+          "percent": 0.0,
+          "speedup": 1.0
+        },
+        "absolute": {
+          "before": {
+            "first_in": 2,
+            "last_a": 47842,
+            "last_p": 47843,
+            "idle": 47844
+          },
+          "after": {
+            "first_in": 2,
+            "last_a": 32766,
+            "last_p": 32766,
+            "idle": 32767
+          }
+        }
+      },
+      "status": "COMPARED_BOTH_CORRECT"
+    }
+  ],
+  "bias_only": {
+    "length": 256,
+    "test": "bias_only_param_preload",
+    "expected_semantics": "scale falls back to cfg_scale=1.5; preloaded bias=2.0",
+    "before": {
+      "variant": "gemini_stream_round2",
+      "length": 256,
+      "config": "bias_only",
+      "scenario": "bias_only",
+      "rc": 0,
+      "log": "logs/gemini_stream_round2_bias_only_256.log",
+      "out": "logs/gemini_stream_round2_bias_only_256.out",
+      "milestones": {
+        "first_in": 3,
+        "last_a": 394,
+        "last_p": 395,
+        "idle": 396,
+        "in_fires": 256,
+        "a_fires": 256,
+        "p_fires": 128
+      },
+      "stats": {
+        "in": 256,
+        "a16": 256,
+        "pack": 128,
+        "spill": 0,
+        "c48stat": 256,
+        "a16stat": 256,
+        "spillstat": 0,
+        "saved": 12288
+      },
+      "timed_out": false,
+      "cycles": {
+        "first_in": 3,
+        "last_a": 394,
+        "last_p": 395,
+        "idle": 396,
+        "t_last_a16": 391,
+        "t_last_packed": 392,
+        "t_idle": 393,
+        "drain_tail": 1,
+        "last_p_minus_last_a": 1
+      },
+      "check": {
+        "a16_beats": 256,
+        "packed_beats": 128,
+        "spill_beats": 0,
+        "expected_a16_beats": 256,
+        "expected_packed_beats": 128,
+        "a16_count_mismatch": 0,
+        "packed_count_mismatch": 0,
+        "a16_data_mismatch": 256,
+        "packed_data_mismatch": 128,
+        "a16_tag_mismatch": 0,
+        "packed_tag_mismatch": 0,
+        "a16_last_mismatch": 0,
+        "packed_last_mismatch": 0,
+        "stat_c48_beats_in": 256,
+        "stat_a16_beats_out": 256,
+        "stat_count_mismatch": false,
+        "examples": [
+          {
+            "kind": "A16_data",
+            "i": 0,
+            "got": "xxxxxxxxxxxx0002",
+            "exp": "0005000000040002"
+          },
+          {
+            "kind": "A16_data",
+            "i": 1,
+            "got": "xxxxxxxxxxxxxxxx",
+            "exp": "7fff7fff7fff8000"
+          },
+          {
+            "kind": "A16_data",
+            "i": 2,
+            "got": "xxxxxxxxxxxxxxxx",
+            "exp": "7fff800080007fff"
+          },
+          {
+            "kind": "A16_data",
+            "i": 3,
+            "got": "xxxxxxxxxxxxxxxx",
+            "exp": "80007fff7fff7fff"
+          },
+          {
+            "kind": "A16_data",
+            "i": 4,
+            "got": "xxxxxxxxxxxxxxxx",
+            "exp": "7fff7fff7fff8000"
+          },
+          {
+            "kind": "A16_data",
+            "i": 5,
+            "got": "xxxxxxxxxxxxxxxx",
+            "exp": "7fff7fff8000fffe"
+          },
+          {
+            "kind": "A16_data",
+            "i": 6,
+            "got": "xxxxxxxxxxxxxxxx",
+            "exp": "7fff800080007fff"
+          },
+          {
+            "kind": "A16_data",
+            "i": 7,
+            "got": "xxxxxxxxxxxxxxxx",
+            "exp": "80007fff7fff8000"
+          },
+          {
+            "kind": "A16_data",
+            "i": 8,
+            "got": "xxxxxxxxxxxxxxxx",
+            "exp": "8000800080008000"
+          },
+          {
+            "kind": "A16_data",
+            "i": 9,
+            "got": "xxxxxxxxxxxxxxxx",
+            "exp": "80007fff80007fff"
+          },
+          {
+            "kind": "A16_data",
+            "i": 10,
+            "got": "0002xxxxxxxxxxxx",
+            "exp": "0002fff8ffd48000"
+          },
+          {
+            "kind": "A16_data",
+            "i": 11,
+            "got": "xxxxxxxxxxxxxxxx",
+            "exp": "e8041800fe840180"
+          }
+        ],
+        "pass": false
+      },
+      "pass": false
+    },
+    "after": {
+      "variant": "primary_stream_fix",
+      "length": 256,
+      "config": "bias_only",
+      "scenario": "bias_only",
+      "rc": 0,
+      "log": "logs/primary_stream_fix_bias_only_256.log",
+      "out": "logs/primary_stream_fix_bias_only_256.out",
+      "milestones": {
+        "first_in": 3,
+        "last_a": 268,
+        "last_p": 268,
+        "idle": 269,
+        "in_fires": 256,
+        "a_fires": 256,
+        "p_fires": 128
+      },
+      "stats": {
+        "in": 256,
+        "a16": 256,
+        "pack": 128,
+        "spill": 0,
+        "c48stat": 256,
+        "a16stat": 256,
+        "spillstat": 0,
+        "saved": 12288
+      },
+      "timed_out": false,
+      "cycles": {
+        "first_in": 3,
+        "last_a": 268,
+        "last_p": 268,
+        "idle": 269,
+        "t_last_a16": 265,
+        "t_last_packed": 265,
+        "t_idle": 266,
+        "drain_tail": 1,
+        "last_p_minus_last_a": 0
+      },
+      "check": {
+        "a16_beats": 256,
+        "packed_beats": 128,
+        "spill_beats": 0,
+        "expected_a16_beats": 256,
+        "expected_packed_beats": 128,
+        "a16_count_mismatch": 0,
+        "packed_count_mismatch": 0,
+        "a16_data_mismatch": 0,
+        "packed_data_mismatch": 0,
+        "a16_tag_mismatch": 0,
+        "packed_tag_mismatch": 0,
+        "a16_last_mismatch": 0,
+        "packed_last_mismatch": 0,
+        "stat_c48_beats_in": 256,
+        "stat_a16_beats_out": 256,
+        "stat_count_mismatch": false,
+        "examples": [],
+        "pass": true
+      },
+      "pass": true
+    },
+    "comparison_valid": false,
+    "status": "EXPECTED_NEGATIVE_CONTROL",
+    "note": "Old/gemini version writes bias only but sets a shared param_loaded flag, so uninitialised param_mem[0] is used as scale. Failure is recorded; its cycles are NOT reported as an acceleration."
+  },
+  "aggregate": {
+    "conv/bp0_no_backpressure": {
+      "t_last_a16": {
+        "before_sum": 8085,
+        "after_sum": 5403,
+        "delta_sum": -2682,
+        "percent": -33.172541743970314,
+        "cases": 3
+      },
+      "t_last_packed": {
+        "before_sum": 8088,
+        "after_sum": 5403,
+        "delta_sum": -2685,
+        "percent": -33.1973293768546,
+        "cases": 3
+      },
+      "t_idle": {
+        "before_sum": 8091,
+        "after_sum": 5406,
+        "delta_sum": -2685,
+        "percent": -33.18502039302929,
+        "cases": 3
+      },
+      "drain_tail": {
+        "before_sum": 3,
+        "after_sum": 3,
+        "delta_sum": 0,
+        "percent": 0.0,
+        "cases": 3
+      }
+    },
+    "conv/bp1_both_random": {
+      "t_last_a16": {
+        "before_sum": 13392,
+        "after_sum": 10738,
+        "delta_sum": -2654,
+        "percent": -19.817801672640382,
+        "cases": 3
+      },
+      "t_last_packed": {
+        "before_sum": 13395,
+        "after_sum": 10735,
+        "delta_sum": -2660,
+        "percent": -19.858156028368793,
+        "cases": 3
+      },
+      "t_idle": {
+        "before_sum": 13398,
+        "after_sum": 10741,
+        "delta_sum": -2657,
+        "percent": -19.831318107180177,
+        "cases": 3
+      },
+      "drain_tail": {
+        "before_sum": 3,
+        "after_sum": 3,
+        "delta_sum": 0,
+        "percent": 0.0,
+        "cases": 3
+      }
+    },
+    "conv/bp5_packed_long_stall": {
+      "t_last_a16": {
+        "before_sum": 62907,
+        "after_sum": 42996,
+        "delta_sum": -19911,
+        "percent": -31.65148552625304,
+        "cases": 3
+      },
+      "t_last_packed": {
+        "before_sum": 62910,
+        "after_sum": 42996,
+        "delta_sum": -19914,
+        "percent": -31.654744873628992,
+        "cases": 3
+      },
+      "t_idle": {
+        "before_sum": 62913,
+        "after_sum": 42999,
+        "delta_sum": -19914,
+        "percent": -31.653235420342376,
+        "cases": 3
+      },
+      "drain_tail": {
+        "before_sum": 3,
+        "after_sum": 3,
+        "delta_sum": 0,
+        "percent": 0.0,
+        "cases": 3
+      }
+    },
+    "fma_nontrivial/bp0_no_backpressure": {
+      "t_last_a16": {
+        "before_sum": 8085,
+        "after_sum": 5403,
+        "delta_sum": -2682,
+        "percent": -33.172541743970314,
+        "cases": 3
+      },
+      "t_last_packed": {
+        "before_sum": 8088,
+        "after_sum": 5403,
+        "delta_sum": -2685,
+        "percent": -33.1973293768546,
+        "cases": 3
+      },
+      "t_idle": {
+        "before_sum": 8091,
+        "after_sum": 5406,
+        "delta_sum": -2685,
+        "percent": -33.18502039302929,
+        "cases": 3
+      },
+      "drain_tail": {
+        "before_sum": 3,
+        "after_sum": 3,
+        "delta_sum": 0,
+        "percent": 0.0,
+        "cases": 3
+      }
+    },
+    "fma_nontrivial/bp1_both_random": {
+      "t_last_a16": {
+        "before_sum": 13392,
+        "after_sum": 10738,
+        "delta_sum": -2654,
+        "percent": -19.817801672640382,
+        "cases": 3
+      },
+      "t_last_packed": {
+        "before_sum": 13395,
+        "after_sum": 10735,
+        "delta_sum": -2660,
+        "percent": -19.858156028368793,
+        "cases": 3
+      },
+      "t_idle": {
+        "before_sum": 13398,
+        "after_sum": 10741,
+        "delta_sum": -2657,
+        "percent": -19.831318107180177,
+        "cases": 3
+      },
+      "drain_tail": {
+        "before_sum": 3,
+        "after_sum": 3,
+        "delta_sum": 0,
+        "percent": 0.0,
+        "cases": 3
+      }
+    },
+    "fma_nontrivial/bp5_packed_long_stall": {
+      "t_last_a16": {
+        "before_sum": 62907,
+        "after_sum": 42996,
+        "delta_sum": -19911,
+        "percent": -31.65148552625304,
+        "cases": 3
+      },
+      "t_last_packed": {
+        "before_sum": 62910,
+        "after_sum": 42996,
+        "delta_sum": -19914,
+        "percent": -31.654744873628992,
+        "cases": 3
+      },
+      "t_idle": {
+        "before_sum": 62913,
+        "after_sum": 42999,
+        "delta_sum": -19914,
+        "percent": -31.653235420342376,
+        "cases": 3
+      },
+      "drain_tail": {
+        "before_sum": 3,
+        "after_sum": 3,
+        "delta_sum": 0,
+        "percent": 0.0,
+        "cases": 3
+      }
+    }
+  },
+  "summary": {
+    "comparison_cases": 18,
+    "both_correct": 18,
+    "invalid_no_speedup_claim": 0,
+    "bias_only_gemini_pass": false,
+    "bias_only_primary_pass": true,
+    "bias_only_expected_negative_control": true,
+    "required_checks_pass": true
+  },
+  "elapsed_seconds": 60.446
+}

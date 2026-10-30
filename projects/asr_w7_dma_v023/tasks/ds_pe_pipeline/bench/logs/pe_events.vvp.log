@@ -1,0 +1,3 @@
+DRAIN base=4 s3=4 s4=5 s5=6 s6=7 csa=6
+PE_CFG_DONE cycles=402
+bench/tb_pe_cfg_compare.sv:159: $finish called at 4046000 (1ps)

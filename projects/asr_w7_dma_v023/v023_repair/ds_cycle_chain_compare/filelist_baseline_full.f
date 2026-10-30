@@ -1,0 +1,16 @@
+snapshot/integrated_20261029T2302/rtl/fma_forbidden_stub.sv
+../../work/rtl/axi_dma_v019.sv
+../../work/rtl/asr_fp32_alu.sv
+../../work/rtl/u16_divmod.sv
+../../work/rtl/ddr_vector_engine.sv
+../../work/rtl/ddr_vector_axi.sv
+../../work/rtl/ddr_layout_engine.sv
+../../work/rtl/ddr_layout_axi.sv
+rtl_harness/baseline_compat/block_engine_l1bank_v020.sv
+../../work/rtl/block_storage_dma_prefetch.sv
+../../work/rtl/block_address_v020.sv
+../../work/rtl/operand_banks_v020.sv
+../../work/rtl/array16_direct_v020.sv
+../../work/rtl/pe_direct_v020.sv
+../../work/rtl/c_cache_banked4.sv
+snapshot/integrated_20261029T2302/rtl/v023_axi_shared.sv

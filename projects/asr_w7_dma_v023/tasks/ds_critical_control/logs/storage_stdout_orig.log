@@ -1,0 +1,2 @@
+STORAGE_EQUIV_DONE cases=71
+tests/tb_storage_equiv.sv:265: $finish called at 266472000 (1ps)

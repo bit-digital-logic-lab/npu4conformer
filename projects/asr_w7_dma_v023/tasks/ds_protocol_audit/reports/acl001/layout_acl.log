@@ -1,0 +1,2 @@
+LAYOUT_ACL_PASS fault=1 err=01 rb=0 wb=0
+/home/yang/Desktop/项目/tasks/ds_protocol_audit/tb/tb_layout_stress.sv:72: $finish called at 96000 (1ps)

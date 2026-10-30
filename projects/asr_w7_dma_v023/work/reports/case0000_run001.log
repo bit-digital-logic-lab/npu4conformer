@@ -1,0 +1,25 @@
+V211_BOARD encoder 1 2601 /Sub
+V211_BOARD encoder 20 2601 /encoder/embed/conv/conv.1/Relu_output_0_DequantizeLinear
+V211_BOARD encoder 98 2601 /encoder/encoders.4/self_attn/linear_pos/MatMul
+V211_BOARD encoder 298 2601 /encoder/encoders.0/self_attn/MatMul_1_output_0_DequantizeLinear
+V211_BOARD encoder 565 2601 /encoder/encoders.1/Add_1
+V211_BOARD encoder 806 2601 /encoder/encoders.2/norm_ff/LayerNormalization_output_0_DequantizeLinear
+V211_BOARD encoder 1030 2601 /encoder/encoders.4/self_attn/linear_k/MatMul
+V211_BOARD encoder 1288 2601 /encoder/encoders.5/self_attn/MatMul_1_output_0_DequantizeLinear
+V211_BOARD encoder 1562 2601 /encoder/encoders.6/conv_module/Transpose_output_0_QuantizeLinear
+V211_BOARD encoder 1797 2601 /encoder/encoders.7/feed_forward
+V211_BOARD encoder 2023 2601 /encoder/encoders.9/self_attn/linear_q/MatMul_output_0_QuantizeLinear
+V211_BOARD encoder 2323 2601 /encoder/encoders.10/self_attn/Div_1
+V211_BOARD encoder 2554 2601 /encoder/encoders.11/conv_module/pointwise_conv1/Conv
+V211_BOARD decoder 1 1016 memory_QuantizeLinear
+V211_BOARD decoder 322 1016 /decoders.1/self_attn/MatMul_1
+V211_BOARD decoder 715 1016 /decoders.4/self_attn/linear_v/MatMul
+{
+  "completed": true,
+  "seconds": 154.82378120000067,
+  "encoder": 124.19863820000319,
+  "decoder": 27.681222400002298,
+  "parameter_upload_bytes": 0,
+  "vs_v21_bit_exact": true,
+  "strict_onnx_pass": false
+}

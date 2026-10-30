@@ -1,0 +1,159 @@
+{
+  "Add": {
+    "count": 520,
+    "examples": [
+      "/decoders.0/Add_1_output_0_scale",
+      "/decoders.0/Add_1_output_0_zero_point",
+      "/decoders.0/Add_2_output_0_scale",
+      "/decoders.0/Add_2_output_0_zero_point",
+      "/decoders.0/Add_output_0_scale"
+    ]
+  },
+  "BatchNormalization": {
+    "count": 24,
+    "examples": [
+      "/encoder/encoders.0/conv_module/norm/BatchNormalization_output_0_scale",
+      "/encoder/encoders.0/conv_module/norm/BatchNormalization_output_0_zero_point",
+      "/encoder/encoders.1/conv_module/norm/BatchNormalization_output_0_scale",
+      "/encoder/encoders.1/conv_module/norm/BatchNormalization_output_0_zero_point",
+      "/encoder/encoders.10/conv_module/norm/BatchNormalization_output_0_scale"
+    ]
+  },
+  "Concat": {
+    "count": 24,
+    "examples": [
+      "/encoder/encoders.0/self_attn/Concat_5_output_0_scale",
+      "/encoder/encoders.0/self_attn/Concat_5_output_0_zero_point",
+      "/encoder/encoders.1/self_attn/Concat_5_output_0_scale",
+      "/encoder/encoders.1/self_attn/Concat_5_output_0_zero_point",
+      "/encoder/encoders.10/self_attn/Concat_5_output_0_scale"
+    ]
+  },
+  "ConstantOfShape": {
+    "count": 24,
+    "examples": [
+      "/encoder/encoders.0/self_attn/ConstantOfShape_output_0_scale",
+      "/encoder/encoders.0/self_attn/ConstantOfShape_output_0_zero_point",
+      "/encoder/encoders.1/self_attn/ConstantOfShape_output_0_scale",
+      "/encoder/encoders.1/self_attn/ConstantOfShape_output_0_zero_point",
+      "/encoder/encoders.10/self_attn/ConstantOfShape_output_0_scale"
+    ]
+  },
+  "Gemm": {
+    "count": 2,
+    "examples": [
+      "/output_layer/Gemm_output_0_scale",
+      "/output_layer/Gemm_output_0_zero_point"
+    ]
+  },
+  "LayerNormalization": {
+    "count": 158,
+    "examples": [
+      "/after_norm/LayerNormalization_output_0_scale",
+      "/after_norm/LayerNormalization_output_0_zero_point",
+      "/decoders.0/norm1/LayerNormalization_output_0_scale",
+      "/decoders.0/norm1/LayerNormalization_output_0_zero_point",
+      "/decoders.0/norm2/LayerNormalization_output_0_scale"
+    ]
+  },
+  "MatMul": {
+    "count": 458,
+    "examples": [
+      "/decoders.0/feed_forward/w_1/MatMul_output_0_scale",
+      "/decoders.0/feed_forward/w_1/MatMul_output_0_zero_point",
+      "/decoders.0/feed_forward/w_2/MatMul_output_0_scale",
+      "/decoders.0/feed_forward/w_2/MatMul_output_0_zero_point",
+      "/decoders.0/self_attn/MatMul_1_output_0_scale"
+    ]
+  },
+  "Mul": {
+    "count": 196,
+    "examples": [
+      "/embed/embed.1/Mul_output_0_scale",
+      "/embed/embed.1/Mul_output_0_zero_point",
+      "/encoder/embed/pos_enc/Mul_output_0_scale",
+      "/encoder/embed/pos_enc/Mul_output_0_zero_point",
+      "/encoder/encoders.0/Mul_1_output_0_scale"
+    ]
+  },
+  "Relu": {
+    "count": 16,
+    "examples": [
+      "/decoders.0/feed_forward/activation/Relu_output_0_scale",
+      "/decoders.0/feed_forward/activation/Relu_output_0_zero_point",
+      "/decoders.1/feed_forward/activation/Relu_output_0_scale",
+      "/decoders.1/feed_forward/activation/Relu_output_0_zero_point",
+      "/decoders.2/feed_forward/activation/Relu_output_0_scale"
+    ]
+  },
+  "Sigmoid": {
+    "count": 96,
+    "examples": [
+      "/encoder/encoders.0/conv_module/Sigmoid_output_0_scale",
+      "/encoder/encoders.0/conv_module/Sigmoid_output_0_zero_point",
+      "/encoder/encoders.0/conv_module/activation/Sigmoid_output_0_scale",
+      "/encoder/encoders.0/conv_module/activation/Sigmoid_output_0_zero_point",
+      "/encoder/encoders.0/feed_forward/activation/Sigmoid_output_0_scale"
+    ]
+  },
+  "Slice": {
+    "count": 28,
+    "examples": [
+      "/embed/embed.1/Slice_output_0_scale",
+      "/embed/embed.1/Slice_output_0_zero_point",
+      "/encoder/embed/pos_enc/Slice_output_0_scale",
+      "/encoder/embed/pos_enc/Slice_output_0_zero_point",
+      "/encoder/encoders.0/self_attn/Slice_2_output_0_scale"
+    ]
+  },
+  "Softmax": {
+    "count": 12,
+    "examples": [
+      "/decoders.0/src_attn/Softmax_output_0_scale",
+      "/decoders.0/src_attn/Softmax_output_0_zero_point",
+      "/decoders.1/src_attn/Softmax_output_0_scale",
+      "/decoders.1/src_attn/Softmax_output_0_zero_point",
+      "/decoders.2/src_attn/Softmax_output_0_scale"
+    ]
+  },
+  "Split": {
+    "count": 48,
+    "examples": [
+      "/encoder/encoders.0/conv_module/Split_output_0_scale",
+      "/encoder/encoders.0/conv_module/Split_output_0_zero_point",
+      "/encoder/encoders.0/conv_module/Split_output_1_scale",
+      "/encoder/encoders.0/conv_module/Split_output_1_zero_point",
+      "/encoder/encoders.1/conv_module/Split_output_0_scale"
+    ]
+  },
+  "Transpose": {
+    "count": 169,
+    "examples": [
+      "/decoders.0/feed_forward/w_1/Transpose_output_0_DequantizeLinear_Output",
+      "/decoders.0/feed_forward/w_2/Transpose_output_0_DequantizeLinear_Output",
+      "/decoders.0/self_attn/linear_k/Transpose_output_0_DequantizeLinear_Output",
+      "/decoders.0/self_attn/linear_out/Transpose_output_0_DequantizeLinear_Output",
+      "/decoders.0/self_attn/linear_q/Transpose_output_0_DequantizeLinear_Output"
+    ]
+  },
+  "Unsqueeze": {
+    "count": 411,
+    "examples": [
+      "/decoders.0/self_attn/Unsqueeze_10_output_0",
+      "/decoders.0/self_attn/Unsqueeze_11_output_0",
+      "/decoders.0/self_attn/Unsqueeze_14_output_0",
+      "/decoders.0/self_attn/Unsqueeze_15_output_0",
+      "/decoders.0/self_attn/Unsqueeze_1_output_0"
+    ]
+  },
+  "Where": {
+    "count": 36,
+    "examples": [
+      "/decoders.0/self_attn/Where_1_output_0_scale",
+      "/decoders.0/self_attn/Where_1_output_0_zero_point",
+      "/decoders.1/self_attn/Where_1_output_0_scale",
+      "/decoders.1/self_attn/Where_1_output_0_zero_point",
+      "/decoders.2/self_attn/Where_1_output_0_scale"
+    ]
+  }
+}

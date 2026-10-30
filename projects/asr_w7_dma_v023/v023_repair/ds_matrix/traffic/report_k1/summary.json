@@ -1,0 +1,248 @@
+{
+  "scope": "RTL logic simulation: matrix P2 cluster K32, AXI128 BFM; not board DDR",
+  "resources": [
+    {
+      "resource": "axi_r",
+      "unit": "cycle",
+      "evidence": "RVALID&&RREADY / ARVALID&&ARREADY",
+      "window": 2708,
+      "observed_ticks": 2708,
+      "known_ticks": 2708,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 2403,
+        "command": 2,
+        "wait_memory": 111,
+        "payload": 192
+      },
+      "valid_bytes": 3072,
+      "wire_bytes": 3072,
+      "payload_fraction": 0.07090103397341212,
+      "bytes_per_tick": 1.1344165435745939,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": 16.0,
+      "capacity_bytes_per_tick": 16,
+      "ledger_valid_bytes": 3072,
+      "ledger_wire_bytes": 3072,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    },
+    {
+      "resource": "axi_w",
+      "unit": "cycle",
+      "evidence": "WVALID&&WREADY / AWVALID&&AWREADY / BVALID&&BREADY",
+      "window": 2708,
+      "observed_ticks": 2708,
+      "known_ticks": 2708,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 533,
+        "wait_memory": 1596,
+        "command": 65,
+        "backpressure": 65,
+        "payload": 384,
+        "response": 65
+      },
+      "valid_bytes": 6144,
+      "wire_bytes": 6144,
+      "payload_fraction": 0.14180206794682423,
+      "bytes_per_tick": 2.2688330871491877,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": 16.0,
+      "capacity_bytes_per_tick": 16,
+      "ledger_valid_bytes": 6144,
+      "ledger_wire_bytes": 6144,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    },
+    {
+      "resource": "ddr_bfm",
+      "unit": "cycle",
+      "evidence": "AXI128 BFM shared data channel; logic model only",
+      "window": 2708,
+      "observed_ticks": 2708,
+      "known_ticks": 2708,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 2065,
+        "command": 67,
+        "payload": 576
+      },
+      "valid_bytes": 9216,
+      "wire_bytes": 9216,
+      "payload_fraction": 0.21270310192023634,
+      "bytes_per_tick": 3.4032496307237814,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": 16.0,
+      "capacity_bytes_per_tick": 16,
+      "ledger_valid_bytes": 0,
+      "ledger_wire_bytes": 0,
+      "ledger_minus_interval_valid_bytes": -9216,
+      "ledger_minus_interval_wire_bytes": -9216
+    },
+    {
+      "resource": "compute",
+      "unit": "cycle",
+      "evidence": "engine FSM state and array drain",
+      "window": 2708,
+      "observed_ticks": 2708,
+      "known_ticks": 2708,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 3,
+        "control": 23,
+        "wait_operand": 309,
+        "compute": 272,
+        "c_collect": 2101
+      },
+      "valid_bytes": 0,
+      "wire_bytes": 0,
+      "payload_fraction": 0.0,
+      "bytes_per_tick": 0.0,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": null,
+      "capacity_bytes_per_tick": null,
+      "ledger_valid_bytes": 0,
+      "ledger_wire_bytes": 0,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    },
+    {
+      "resource": "c_cache_rd",
+      "unit": "cycle",
+      "evidence": "c_cache_banked4_pipe read port issue",
+      "window": 2708,
+      "observed_ticks": 2708,
+      "known_ticks": 2708,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 2452,
+        "payload": 256
+      },
+      "valid_bytes": 0,
+      "wire_bytes": 0,
+      "payload_fraction": 0.09453471196454949,
+      "bytes_per_tick": 0.0,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": 0.0,
+      "capacity_bytes_per_tick": null,
+      "ledger_valid_bytes": 0,
+      "ledger_wire_bytes": 0,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    },
+    {
+      "resource": "c_cache_wr",
+      "unit": "cycle",
+      "evidence": "c_cache_banked4_pipe write port issue",
+      "window": 2708,
+      "observed_ticks": 2708,
+      "known_ticks": 2708,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 2452,
+        "payload": 256
+      },
+      "valid_bytes": 0,
+      "wire_bytes": 0,
+      "payload_fraction": 0.09453471196454949,
+      "bytes_per_tick": 0.0,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": 0.0,
+      "capacity_bytes_per_tick": null,
+      "ledger_valid_bytes": 0,
+      "ledger_wire_bytes": 0,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    },
+    {
+      "resource": "packer",
+      "unit": "cycle",
+      "evidence": "C48 cseg/cval packer handshake",
+      "window": 2708,
+      "observed_ticks": 2708,
+      "known_ticks": 2708,
+      "known_coverage": 1.0,
+      "states": {
+        "idle_no_work": 611,
+        "command": 64,
+        "backpressure": 1777,
+        "payload": 256
+      },
+      "valid_bytes": 0,
+      "wire_bytes": 0,
+      "payload_fraction": 0.09453471196454949,
+      "bytes_per_tick": 0.0,
+      "seconds": null,
+      "effective_B_per_s": null,
+      "payload_B_per_tick": 0.0,
+      "capacity_bytes_per_tick": null,
+      "ledger_valid_bytes": 0,
+      "ledger_wire_bytes": 0,
+      "ledger_minus_interval_valid_bytes": 0,
+      "ledger_minus_interval_wire_bytes": 0
+    }
+  ],
+  "tensors": [
+    {
+      "tensor": "A",
+      "version": "epoch3",
+      "format": "A16",
+      "src": "DDR",
+      "dst": "Abank",
+      "transfers": 1,
+      "valid_bytes": 2048,
+      "bus_bytes": 2048,
+      "comparable_logical_bytes": 2048,
+      "unique_logical_bytes": 2048,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "block_load": 2048
+      }
+    },
+    {
+      "tensor": "W",
+      "version": "epoch3",
+      "format": "W7p8",
+      "src": "DDR",
+      "dst": "Wbank",
+      "transfers": 1,
+      "valid_bytes": 1024,
+      "bus_bytes": 1024,
+      "comparable_logical_bytes": 1024,
+      "unique_logical_bytes": 1024,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "block_load": 1024
+      }
+    },
+    {
+      "tensor": "C",
+      "version": "epoch3",
+      "format": "C48",
+      "src": "Ccache",
+      "dst": "DDR",
+      "transfers": 64,
+      "valid_bytes": 6144,
+      "bus_bytes": 6144,
+      "comparable_logical_bytes": 6144,
+      "unique_logical_bytes": 6144,
+      "repeat_candidate_bytes": 0,
+      "unclassified_transfers": 0,
+      "reasons": {
+        "result_stream": 6144
+      }
+    }
+  ],
+  "warnings": [
+    "重复字节是候选，不是可省流量证明；跨域时间未对齐；未采样区间是unknown。"
+  ]
+}

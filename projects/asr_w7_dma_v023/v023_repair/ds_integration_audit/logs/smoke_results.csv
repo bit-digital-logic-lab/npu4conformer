@@ -1,0 +1,15 @@
+stage,rc,seconds,log
+audit_interfaces,0,0,logs/audit_interfaces.log
+audit_graph_reloc,0,2,logs/audit_graph_reloc.log
+audit_dependencies,0,1,logs/audit_dependencies.log
+compile_dma_v023_multi,0,0,logs/compile_dma_v023_multi.log
+run_dma_v023_multi,0,2,logs/run_dma_v023_multi.log
+compile_dma_v023_bounded,0,0,logs/compile_dma_v023_bounded.log
+run_dma_v023_bounded,0,3,logs/run_dma_v023_bounded.log
+compile_dma_matrix_v2,0,0,logs/compile_dma_matrix_v2.log
+run_dma_matrix_v2,0,2,logs/run_dma_matrix_v2.log
+compile_graph_real_candidate,0,0,logs/compile_graph_real_candidate.log
+run_graph_real_candidate,0,0,logs/run_graph_real_candidate.log
+verify_graph_chain,0,0,logs/verify_graph_chain.log
+compile_mx_cluster_k1,0,0,logs/compile_mx_cluster_k1.log
+run_mx_cluster_k1,0,0,logs/run_mx_cluster_k1.log

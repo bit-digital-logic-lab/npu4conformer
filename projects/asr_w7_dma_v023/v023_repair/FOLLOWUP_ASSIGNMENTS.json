@@ -1,0 +1,11 @@
+{
+  "created": 1793280054.4476335,
+  "jobs": [
+    "gemini_fma_repair",
+    "gemini_approx_repair",
+    "ds_numeric_adversarial",
+    "ds_integration_audit"
+  ],
+  "scope": "logic_only",
+  "timer": "not_installed_for_this_project"
+}

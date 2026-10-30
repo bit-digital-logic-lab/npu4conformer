@@ -1,0 +1,16 @@
+{
+  "closed68": 68,
+  "outer591": 591,
+  "unlabelled": 480,
+  "missing_conclusion": "The 591 queue ledger is recoverable from the sealed board result, but the source ONNX graph, Tensor-name edges and the host executor that ordered them are absent.  A true whole-model tensor DAG cannot be reconstructed from the supplied read-only tree.  Ledger shape/parameter provenance is complete; ledger dataflow edges are explicitly marked unknown and are not claimed as a DAG.",
+  "found": {
+    "lowbit_executor.py": 0,
+    "profiled_backend.py": 0,
+    "vm_abi.py": 0,
+    "fusion_executor.py": 0,
+    "onnx_executor.py": 8
+  },
+  "onnx_outside_venv": 1,
+  "manifest_sha256": "5544fb82a416a994784cbe3da2d2524b5b4d28bef516d35018a2030e52a7ed1a",
+  "result_sha256": "44a76dfab40d0f30c38f4f6c938f5e815b9b8199890f62bf696cf4a9eff05808"
+}

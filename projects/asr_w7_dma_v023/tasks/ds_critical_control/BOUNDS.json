@@ -1,0 +1,425 @@
+{
+  "scope": "68 closed plans only; logic/arithmetic accounting, not a whole-model or board measurement",
+  "sources": [
+    "research/LOWER_BOUNDS.json",
+    "research/PE_BANDWIDTH_MATCH.json",
+    "work/BOARD_RESULT.json",
+    "work/CURRENT_WORK.txt"
+  ],
+  "measured_vector_layout": {
+    "read_bytes": 452330768,
+    "write_bytes": 355555088,
+    "total_bytes": 807885856
+  },
+  "aggregate_traffic": {
+    "bytes": 929293344,
+    "measured_read_write_split": false
+  },
+  "compute": [
+    {
+      "compute_MHz": 125,
+      "MACs_per_cycle": 256,
+      "useful_compute_lb_s": 0.108156624,
+      "padded_compute_lb_s": 0.124731392,
+      "note": "matrix compute only; excludes vector/layout/QDQ/padding and DAG stalls"
+    },
+    {
+      "compute_MHz": 150,
+      "MACs_per_cycle": 256,
+      "useful_compute_lb_s": 0.09013052,
+      "padded_compute_lb_s": 0.10394282666666667,
+      "note": "matrix compute only; excludes vector/layout/QDQ/padding and DAG stalls"
+    },
+    {
+      "compute_MHz": 300,
+      "MACs_per_cycle": 256,
+      "useful_compute_lb_s": 0.04506526,
+      "padded_compute_lb_s": 0.051971413333333334,
+      "note": "matrix compute only; excludes vector/layout/QDQ/padding and DAG stalls"
+    },
+    {
+      "compute_MHz": 600,
+      "MACs_per_cycle": 256,
+      "useful_compute_lb_s": 0.02253263,
+      "padded_compute_lb_s": 0.025985706666666667,
+      "note": "matrix compute only; excludes vector/layout/QDQ/padding and DAG stalls"
+    }
+  ],
+  "vector_layout_memory_bounds": [
+    {
+      "AXI_MHz": 125,
+      "bytes_per_cycle": 16,
+      "one_direction_GB_s": 2.0,
+      "read_cycles": 28270673,
+      "write_cycles": 22222193,
+      "read_only_lb_s": 0.226165384,
+      "write_only_lb_s": 0.177777544,
+      "shared_serialized_lb_s": 0.403942928,
+      "independent_max_lb_s": 0.226165384,
+      "note": "vector/layout measured R/W split; independent max assumes perfect overlap and no DDR read/write turnaround"
+    },
+    {
+      "AXI_MHz": 200,
+      "bytes_per_cycle": 16,
+      "one_direction_GB_s": 3.2,
+      "read_cycles": 28270673,
+      "write_cycles": 22222193,
+      "read_only_lb_s": 0.141353365,
+      "write_only_lb_s": 0.111110965,
+      "shared_serialized_lb_s": 0.25246433,
+      "independent_max_lb_s": 0.141353365,
+      "note": "vector/layout measured R/W split; independent max assumes perfect overlap and no DDR read/write turnaround"
+    },
+    {
+      "AXI_MHz": 250,
+      "bytes_per_cycle": 16,
+      "one_direction_GB_s": 4.0,
+      "read_cycles": 28270673,
+      "write_cycles": 22222193,
+      "read_only_lb_s": 0.113082692,
+      "write_only_lb_s": 0.088888772,
+      "shared_serialized_lb_s": 0.201971464,
+      "independent_max_lb_s": 0.113082692,
+      "note": "vector/layout measured R/W split; independent max assumes perfect overlap and no DDR read/write turnaround"
+    },
+    {
+      "AXI_MHz": 300,
+      "bytes_per_cycle": 16,
+      "one_direction_GB_s": 4.8,
+      "read_cycles": 28270673,
+      "write_cycles": 22222193,
+      "read_only_lb_s": 0.09423557666666667,
+      "write_only_lb_s": 0.07407397666666667,
+      "shared_serialized_lb_s": 0.16830955333333333,
+      "independent_max_lb_s": 0.09423557666666667,
+      "note": "vector/layout measured R/W split; independent max assumes perfect overlap and no DDR read/write turnaround"
+    },
+    {
+      "AXI_MHz": 333,
+      "bytes_per_cycle": 16,
+      "one_direction_GB_s": 5.328,
+      "read_cycles": 28270673,
+      "write_cycles": 22222193,
+      "read_only_lb_s": 0.08489691591591592,
+      "write_only_lb_s": 0.06673331231231232,
+      "shared_serialized_lb_s": 0.15163022822822822,
+      "independent_max_lb_s": 0.08489691591591592,
+      "note": "vector/layout measured R/W split; independent max assumes perfect overlap and no DDR read/write turnaround"
+    }
+  ],
+  "aggregate_memory_scenarios": [
+    {
+      "AXI_MHz": 125,
+      "total_bytes": 929293344,
+      "shared_serialized_scenario_s": 0.464646672,
+      "independent_balanced_floor_s": 0.232323336,
+      "independent_unknown_split_ceiling_s": 0.464646672,
+      "note": "929293344 B aggregate has no measured R/W split; shared value is a scenario, not a universal bound"
+    },
+    {
+      "AXI_MHz": 200,
+      "total_bytes": 929293344,
+      "shared_serialized_scenario_s": 0.29040417,
+      "independent_balanced_floor_s": 0.145202085,
+      "independent_unknown_split_ceiling_s": 0.29040417,
+      "note": "929293344 B aggregate has no measured R/W split; shared value is a scenario, not a universal bound"
+    },
+    {
+      "AXI_MHz": 250,
+      "total_bytes": 929293344,
+      "shared_serialized_scenario_s": 0.232323336,
+      "independent_balanced_floor_s": 0.116161668,
+      "independent_unknown_split_ceiling_s": 0.232323336,
+      "note": "929293344 B aggregate has no measured R/W split; shared value is a scenario, not a universal bound"
+    },
+    {
+      "AXI_MHz": 300,
+      "total_bytes": 929293344,
+      "shared_serialized_scenario_s": 0.19360278,
+      "independent_balanced_floor_s": 0.09680139,
+      "independent_unknown_split_ceiling_s": 0.19360278,
+      "note": "929293344 B aggregate has no measured R/W split; shared value is a scenario, not a universal bound"
+    },
+    {
+      "AXI_MHz": 333,
+      "total_bytes": 929293344,
+      "shared_serialized_scenario_s": 0.17441691891891892,
+      "independent_balanced_floor_s": 0.08720845945945946,
+      "independent_unknown_split_ceiling_s": 0.17441691891891892,
+      "note": "929293344 B aggregate has no measured R/W split; shared value is a scenario, not a universal bound"
+    }
+  ],
+  "pe_bandwidth_examples": [
+    {
+      "DDR_GB_s": 2.0,
+      "compute_MHz": 150,
+      "tile_MACs": 8192,
+      "MAC_per_byte": 2.6666666666666665,
+      "bandwidth_supported_PE_equivalent": 35.55555555555555
+    },
+    {
+      "DDR_GB_s": 2.0,
+      "compute_MHz": 150,
+      "tile_MACs": 32768,
+      "MAC_per_byte": 3.5555555555555554,
+      "bandwidth_supported_PE_equivalent": 47.407407407407405
+    },
+    {
+      "DDR_GB_s": 2.0,
+      "compute_MHz": 150,
+      "tile_MACs": 262144,
+      "MAC_per_byte": 8.533333333333333,
+      "bandwidth_supported_PE_equivalent": 113.77777777777777
+    },
+    {
+      "DDR_GB_s": 2.0,
+      "compute_MHz": 150,
+      "tile_MACs": 2097152,
+      "MAC_per_byte": 18.285714285714285,
+      "bandwidth_supported_PE_equivalent": 243.80952380952377
+    },
+    {
+      "DDR_GB_s": 2.0,
+      "compute_MHz": 300,
+      "tile_MACs": 8192,
+      "MAC_per_byte": 2.6666666666666665,
+      "bandwidth_supported_PE_equivalent": 17.777777777777775
+    },
+    {
+      "DDR_GB_s": 2.0,
+      "compute_MHz": 300,
+      "tile_MACs": 32768,
+      "MAC_per_byte": 3.5555555555555554,
+      "bandwidth_supported_PE_equivalent": 23.703703703703702
+    },
+    {
+      "DDR_GB_s": 2.0,
+      "compute_MHz": 300,
+      "tile_MACs": 262144,
+      "MAC_per_byte": 8.533333333333333,
+      "bandwidth_supported_PE_equivalent": 56.888888888888886
+    },
+    {
+      "DDR_GB_s": 2.0,
+      "compute_MHz": 300,
+      "tile_MACs": 2097152,
+      "MAC_per_byte": 18.285714285714285,
+      "bandwidth_supported_PE_equivalent": 121.90476190476188
+    },
+    {
+      "DDR_GB_s": 2.0,
+      "compute_MHz": 600,
+      "tile_MACs": 8192,
+      "MAC_per_byte": 2.6666666666666665,
+      "bandwidth_supported_PE_equivalent": 8.888888888888888
+    },
+    {
+      "DDR_GB_s": 2.0,
+      "compute_MHz": 600,
+      "tile_MACs": 32768,
+      "MAC_per_byte": 3.5555555555555554,
+      "bandwidth_supported_PE_equivalent": 11.851851851851851
+    },
+    {
+      "DDR_GB_s": 2.0,
+      "compute_MHz": 600,
+      "tile_MACs": 262144,
+      "MAC_per_byte": 8.533333333333333,
+      "bandwidth_supported_PE_equivalent": 28.444444444444443
+    },
+    {
+      "DDR_GB_s": 2.0,
+      "compute_MHz": 600,
+      "tile_MACs": 2097152,
+      "MAC_per_byte": 18.285714285714285,
+      "bandwidth_supported_PE_equivalent": 60.95238095238094
+    },
+    {
+      "DDR_GB_s": 4.0,
+      "compute_MHz": 150,
+      "tile_MACs": 8192,
+      "MAC_per_byte": 2.6666666666666665,
+      "bandwidth_supported_PE_equivalent": 71.1111111111111
+    },
+    {
+      "DDR_GB_s": 4.0,
+      "compute_MHz": 150,
+      "tile_MACs": 32768,
+      "MAC_per_byte": 3.5555555555555554,
+      "bandwidth_supported_PE_equivalent": 94.81481481481481
+    },
+    {
+      "DDR_GB_s": 4.0,
+      "compute_MHz": 150,
+      "tile_MACs": 262144,
+      "MAC_per_byte": 8.533333333333333,
+      "bandwidth_supported_PE_equivalent": 227.55555555555554
+    },
+    {
+      "DDR_GB_s": 4.0,
+      "compute_MHz": 150,
+      "tile_MACs": 2097152,
+      "MAC_per_byte": 18.285714285714285,
+      "bandwidth_supported_PE_equivalent": 487.61904761904754
+    },
+    {
+      "DDR_GB_s": 4.0,
+      "compute_MHz": 300,
+      "tile_MACs": 8192,
+      "MAC_per_byte": 2.6666666666666665,
+      "bandwidth_supported_PE_equivalent": 35.55555555555555
+    },
+    {
+      "DDR_GB_s": 4.0,
+      "compute_MHz": 300,
+      "tile_MACs": 32768,
+      "MAC_per_byte": 3.5555555555555554,
+      "bandwidth_supported_PE_equivalent": 47.407407407407405
+    },
+    {
+      "DDR_GB_s": 4.0,
+      "compute_MHz": 300,
+      "tile_MACs": 262144,
+      "MAC_per_byte": 8.533333333333333,
+      "bandwidth_supported_PE_equivalent": 113.77777777777777
+    },
+    {
+      "DDR_GB_s": 4.0,
+      "compute_MHz": 300,
+      "tile_MACs": 2097152,
+      "MAC_per_byte": 18.285714285714285,
+      "bandwidth_supported_PE_equivalent": 243.80952380952377
+    },
+    {
+      "DDR_GB_s": 4.0,
+      "compute_MHz": 600,
+      "tile_MACs": 8192,
+      "MAC_per_byte": 2.6666666666666665,
+      "bandwidth_supported_PE_equivalent": 17.777777777777775
+    },
+    {
+      "DDR_GB_s": 4.0,
+      "compute_MHz": 600,
+      "tile_MACs": 32768,
+      "MAC_per_byte": 3.5555555555555554,
+      "bandwidth_supported_PE_equivalent": 23.703703703703702
+    },
+    {
+      "DDR_GB_s": 4.0,
+      "compute_MHz": 600,
+      "tile_MACs": 262144,
+      "MAC_per_byte": 8.533333333333333,
+      "bandwidth_supported_PE_equivalent": 56.888888888888886
+    },
+    {
+      "DDR_GB_s": 4.0,
+      "compute_MHz": 600,
+      "tile_MACs": 2097152,
+      "MAC_per_byte": 18.285714285714285,
+      "bandwidth_supported_PE_equivalent": 121.90476190476188
+    },
+    {
+      "DDR_GB_s": 4.8,
+      "compute_MHz": 150,
+      "tile_MACs": 8192,
+      "MAC_per_byte": 2.6666666666666665,
+      "bandwidth_supported_PE_equivalent": 85.33333333333333
+    },
+    {
+      "DDR_GB_s": 4.8,
+      "compute_MHz": 150,
+      "tile_MACs": 32768,
+      "MAC_per_byte": 3.5555555555555554,
+      "bandwidth_supported_PE_equivalent": 113.77777777777777
+    },
+    {
+      "DDR_GB_s": 4.8,
+      "compute_MHz": 150,
+      "tile_MACs": 262144,
+      "MAC_per_byte": 8.533333333333333,
+      "bandwidth_supported_PE_equivalent": 273.06666666666666
+    },
+    {
+      "DDR_GB_s": 4.8,
+      "compute_MHz": 150,
+      "tile_MACs": 2097152,
+      "MAC_per_byte": 18.285714285714285,
+      "bandwidth_supported_PE_equivalent": 585.1428571428571
+    },
+    {
+      "DDR_GB_s": 4.8,
+      "compute_MHz": 300,
+      "tile_MACs": 8192,
+      "MAC_per_byte": 2.6666666666666665,
+      "bandwidth_supported_PE_equivalent": 42.666666666666664
+    },
+    {
+      "DDR_GB_s": 4.8,
+      "compute_MHz": 300,
+      "tile_MACs": 32768,
+      "MAC_per_byte": 3.5555555555555554,
+      "bandwidth_supported_PE_equivalent": 56.888888888888886
+    },
+    {
+      "DDR_GB_s": 4.8,
+      "compute_MHz": 300,
+      "tile_MACs": 262144,
+      "MAC_per_byte": 8.533333333333333,
+      "bandwidth_supported_PE_equivalent": 136.53333333333333
+    },
+    {
+      "DDR_GB_s": 4.8,
+      "compute_MHz": 300,
+      "tile_MACs": 2097152,
+      "MAC_per_byte": 18.285714285714285,
+      "bandwidth_supported_PE_equivalent": 292.57142857142856
+    },
+    {
+      "DDR_GB_s": 4.8,
+      "compute_MHz": 600,
+      "tile_MACs": 8192,
+      "MAC_per_byte": 2.6666666666666665,
+      "bandwidth_supported_PE_equivalent": 21.333333333333332
+    },
+    {
+      "DDR_GB_s": 4.8,
+      "compute_MHz": 600,
+      "tile_MACs": 32768,
+      "MAC_per_byte": 3.5555555555555554,
+      "bandwidth_supported_PE_equivalent": 28.444444444444443
+    },
+    {
+      "DDR_GB_s": 4.8,
+      "compute_MHz": 600,
+      "tile_MACs": 262144,
+      "MAC_per_byte": 8.533333333333333,
+      "bandwidth_supported_PE_equivalent": 68.26666666666667
+    },
+    {
+      "DDR_GB_s": 4.8,
+      "compute_MHz": 600,
+      "tile_MACs": 2097152,
+      "MAC_per_byte": 18.285714285714285,
+      "bandwidth_supported_PE_equivalent": 146.28571428571428
+    }
+  ],
+  "key_limits": {
+    "hp128_at_125MHz_GB_s": 2.0,
+    "ddr4_config_800MHz_64bit_peak_GB_s": 12.8,
+    "ps_axi_nominal_max_MHz": 333,
+    "local_compute_domain_600MHz_requires_CDC": true,
+    "hp_burst_beats_recommended": 16,
+    "sixteen_beat_is_not_a_defect": true,
+    "multiple_outstanding_needed_to_hide_latency": true,
+    "six_master_hp0_shared_not_6x2GB_s": true
+  },
+  "dependency_correction": [
+    "AXI read and write channels are independent; do not use total_bytes / one_direction_bandwidth as a universal lower bound.",
+    "DDR controller read/write turnaround and arbitration make effective R+W bandwidth below 2x the one-direction peak.",
+    "The 68 plans are a DAG. A valid schedule bound is per segment: T >= sum_s max(C_s/(256 f), R_s/BW_r_eff, W_s/BW_w_eff) for serialized segments, or the critical path when segments overlap. A single global max is optimistic; a global sum is pessimistic.",
+    "The measured split (R=452330768, W=355555088) only proves 0.403942928 s on one shared 2 GB/s channel at 125 MHz; independent channels allow a lower bound of max(R,W)/2GB/s=0.226165384 s only under perfect overlap.",
+    "929293344 B / 16 B / 125 MHz = 0.464646672 s is a shared-serialized scenario. With unknown split and independent channels the conditional range is [0.232323336, 0.464646672] s.",
+    "16-beat 128-bit bursts are the AMD-recommended HP size; >16 beats split. The useful optimization is more outstanding transactions and hiding latency, not rejecting 16 beats.",
+    "600 MHz is only a local compute-domain target; PS AXI is <=333 MHz nominal and requires CDC/async FIFO. No frequency is claimed by this task."
+  ]
+}

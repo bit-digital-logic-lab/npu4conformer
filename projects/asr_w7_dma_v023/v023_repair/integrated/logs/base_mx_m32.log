@@ -1,0 +1,6 @@
+BASE done fault=0 code=00 cycles=2921 compute=264 rdblk=3 wrblk=1 hits=0 miss=1 res=1 st_rdwait=196 st_wrwait=390 st_scalar=1537
+PASS tb_engine_baseline cycles=2921 compute=264
+- ../ds_matrix/tests/tb_engine_baseline.sv:156: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.047 devel
+- Verilator: $finish at 70us; walltime 0.037 s; speed 1.884 ms/s
+- Verilator: cpu 0.037 s on 1 threads; allocated 7 MB

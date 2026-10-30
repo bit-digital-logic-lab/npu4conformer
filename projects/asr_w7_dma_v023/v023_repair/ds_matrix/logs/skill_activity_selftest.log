@@ -1,0 +1,12 @@
+test_different_domain_rejected (__main__.Tests.test_different_domain_rejected) ... ok
+test_html_json_injection (__main__.Tests.test_html_json_injection) ... ok
+test_overlap_rejected (__main__.Tests.test_overlap_rejected) ... ok
+test_same_frequency_not_autoaligned (__main__.Tests.test_same_frequency_not_autoaligned) ... ok
+test_shared_time_and_unknown (__main__.Tests.test_shared_time_and_unknown) ... ok
+test_signals_preserve_pulse (__main__.Tests.test_signals_preserve_pulse) ... ok
+test_window_rejected (__main__.Tests.test_window_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.002s
+
+OK

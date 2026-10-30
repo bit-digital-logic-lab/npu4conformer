@@ -1,0 +1,119 @@
+{
+  "task": "gemini_sta_paths",
+  "status": "completed",
+  "timestamp": "2026-10-29T19:02:40+08:00",
+  "hardware_context": {
+    "device": "xczu15eg-ffvb1156-2-I",
+    "family": "Zynq UltraScale+",
+    "speed_grade": "-2",
+    "temperature_grade": "I",
+    "vivado_version": "v2025.2 (Build 6299465)",
+    "baseline_run_tag": "full002",
+    "baseline_clock_frequency_mhz": 125.0,
+    "baseline_clock_period_ns": 8.0,
+    "user_reference_frequency_mhz": 150.0,
+    "user_reference_period_ns": 6.667,
+    "frequency_distinction_note": "full002 signed off at 125 MHz (clk100_raw period 8.000ns). User reference of ~150 MHz is not signed off in full002 STA (all 30 reported setup paths in clk100_raw fail at 150 MHz with WNS ~ -1.278ns)."
+  },
+  "sta_baseline_summary": {
+    "wns_ns": 0.055,
+    "tns_ns": 0.0,
+    "whs_ns": 0.010,
+    "ths_ns": 0.0,
+    "wpws_ns": 0.333,
+    "tpws_ns": 0.0,
+    "total_endpoints": 329103,
+    "clk100_raw_endpoints": 326545,
+    "clk125_raw_endpoints": 412,
+    "rgmii_rx_endpoints": 479,
+    "cal_clk_raw_endpoints": 31
+  },
+  "path_parse_statistics": {
+    "total_paths_in_timing_rpt": 601,
+    "path_group_distribution": {
+      "(none)": 219,
+      "clk100_raw": 90,
+      "clk125_raw": 76,
+      "rgmii_rx": 76,
+      "**async_default**": 70,
+      "cal_clk_raw": 60,
+      "rgmii_tx": 10
+    },
+    "category_counts": {
+      "carries": 36,
+      "dsps": 49,
+      "resets": 222,
+      "clock_enables": 37,
+      "fmas": 50,
+      "muxes": 1,
+      "shifters": 2
+    },
+    "worst_paths": {
+      "worst_setup": {
+        "path_id": 61,
+        "clock": "clk100_raw",
+        "slack_ns": 0.055,
+        "data_delay_ns": 7.745,
+        "logic_delay_ns": 5.057,
+        "net_delay_ns": 2.688,
+        "cell_levels": 30,
+        "primitives": "CARRY8=6 DSP_A_B_DATA=2 DSP_ALU=3 DSP_M_DATA=2 DSP_MULTIPLIER=2 DSP_OUTPUT=3 DSP_PREADD_DATA=2 LUT2=1 LUT5=4 LUT6=5",
+        "source": "ps_system/ps_gateway_i/accelerator/inst/core/compute/core/state_reg[3]/C",
+        "destination": "ps_system/ps_gateway_i/accelerator/inst/core/compute/storage/bad_reg/D"
+      },
+      "worst_hold": {
+        "path_id": 91,
+        "clock": "clk100_raw",
+        "slack_ns": 0.010,
+        "data_delay_ns": 0.168,
+        "logic_delay_ns": 0.082,
+        "net_delay_ns": 0.086,
+        "cell_levels": 1,
+        "source": "v10_full_top/v9_command_router/asr_command_engine_parallel/interleaved_fma_gemm/asr_fma_ip_HD2705",
+        "destination": "v10_full_top/v9_command_router/asr_command_engine_parallel/interleaved_fma_gemm/asr_fma_ip_HD2705"
+      }
+    }
+  },
+  "independent_candidate_review": {
+    "candidate_a_cc": {
+      "file": "tasks/gemini_compute/candidate/pe_pipeline_cc_v023.sv",
+      "verdict": "Partially pipelined; fails 600 MHz target budget",
+      "evidence": "In Stage 2A, the 20-bit variable barrel shifter ({12'd0, raw1} << p1) and the 32-bit saturation subtractor (aligned - (sat1 ? mag1 : 0)) remain coupled in a single combinational stage before magnitude2a. In Stage 2B, only negate was split. Cascaded shifter + 32-bit carry chain + net delay (~1.55ns) exceeds effective data budget of ~1.40ns at 600 MHz."
+    },
+    "candidate_b_csa": {
+      "file": "tasks/gemini_compute/candidate/pe_pipeline_csa_v023.sv",
+      "verdict": "Dual-rail inside accumulation, but CPA output is unclocked and cascades into upper collection path",
+      "evidence": "CPA at line 141 'assign sum = $signed(sum_s + sum_c);' is an unclocked continuous assignment. All 256 CPAs (12,288 full adders) toggle continuously every compute cycle. When reading out, block_engine_l1bank_v020 feeds combinational CPA directly through 256:4 mux into a second 49-bit adder (c_old + sums) before BRAM. The critical path was not eliminated, but shifted outside the PE to the memory collection boundary."
+    }
+  },
+  "cdc_and_constraints_audit": {
+    "unconstrained_ports": ["phy_tx_clk (no output delay constraint)"],
+    "cdc_warnings": {
+      "CDC-6": 2,
+      "CDC-15": 26
+    },
+    "bus_skew_constraints": 4,
+    "required_remedy": "For 300/600 MHz domains, set_max_delay -datapath_only must be re-constrained to < 1.667 ns, set_bus_skew to < 0.800 ns, and CDC-15 depth-0 paths must use ASYNC_REG synchronizers."
+  },
+  "deliverables": {
+    "parser_script": "tasks/gemini_sta_paths/parse_sta_timing.py",
+    "paths_csv": "tasks/gemini_sta_paths/PATHS.csv",
+    "pipeline_plan": "tasks/gemini_sta_paths/PIPELINE_PLAN.md",
+    "findings": "tasks/gemini_sta_paths/FINDINGS.md",
+    "test_suite": "tasks/gemini_sta_paths/test_sta_analysis.py",
+    "test_log": "tasks/gemini_sta_paths/test.log",
+    "interface_doc": "tasks/gemini_sta_paths/INTERFACE.md",
+    "final_report": "tasks/gemini_sta_paths/REPORT.md"
+  },
+  "sha256_manifest": {
+    "timing_baseline_timing_rpt": "43b3449423958db335539997dc95f02df2667ed5ad45703b1f445ff95d10cda1",
+    "candidate_pe_pipeline_cc_v023": "2299f225a82f6849d3137bbda7ed505073e5a4d05d6d26796c2f1c02cc065e1e",
+    "candidate_pe_pipeline_csa_v023": "d9522e129a735cfe6ed414f4f0541c404370423203c7eda29af4744ac18603e9",
+    "candidate_array16_pipeline_v023": "f13ffa68682289d83977b4b87603e1aedf6f7de9717fbb639b399f298be9eb04",
+    "work_rtl_pe_direct_v020": "7b43de74709f53f0212eb6a600c5d84b3c1aea5904c2f0dd1b6e32b300bc0317",
+    "work_rtl_block_engine_l1bank_v020": "0a6f24fc51f79baf4f1ecca0b38a79180b0a56e19470bfdb4bec863b34a09c20",
+    "work_rtl_ddr_layout_engine": "1ebcaaa58a61f23ab298ab901f184894eb230d6225b26779b8dbf97f54722c52",
+    "work_rtl_ddr_vector_engine": "08a642d915f0d0a83d10c156a52c21bc20bd4f69b3ac8c402ca22c094381641d"
+  },
+  "verification_status": "All test suite assertions passed (100% bit-level and STA metric verification)."
+}

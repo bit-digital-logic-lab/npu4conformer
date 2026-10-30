@@ -1,0 +1,162 @@
+{
+  "task": "gemini_review",
+  "status": "PASS",
+  "review_timestamp": "2026-10-29T20:57:30+08:00",
+  "summary": {
+    "speculative_projections_status": "REBUTTED",
+    "multi_hp_summing_status": "REBUTTED",
+    "approx_div_sqrt_recommendation": "TIER_1_RECOMMENDED",
+    "carry8_vs_csa_recommendation": "CARRY8_NATIVE_PREFERRED",
+    "candidate_reviews_count": 8,
+    "independent_simulations_count": 10,
+    "independent_simulations_pass": 10
+  },
+  "rebutted_claims": [
+    {
+      "claim": "P0: 591 matrix tasks sink to PL -> Whole model time 153.8s -> ~12.5s",
+      "verdict": "REJECTED_AS_FALLACIOUS",
+      "reason": "12.49s was the execution time of ONLY the 68 CONV/FFN subgraphs in V0.22. Sinking 591 Attention/Decoder matrices (1.39 GigaMACs padded compute, 148.6 MB DMA) + 80 LayerNorms + 25 Softmaxes + 145 Transposes onto PL requires real PL cycles and cannot execute in 0.00s. In addition, 2,278 intermediate address overlap pairs require global offline tensor arena recoloring before parallel dispatch is legal."
+    },
+    {
+      "claim": "P1: Vector/Layout pipelining + epilogue fusion -> PL plans 10.17s -> <0.8s",
+      "verdict": "REJECTED_AS_UNVERIFIED_SPECULATION",
+      "reason": "Epilogue fusion only covers pointwise C48->A16 chains. Softmax and LayerNorm require row-wide reductions and cannot be streamed away. Furthermore, at 125MHz (2.0 GB/s), raw transfer of 807.9 MB takes 0.404s minimum, and with DRAM efficiency and turnaround bubbles, claiming <0.8s for all non-matrix operations is physically unbacked."
+    },
+    {
+      "claim": "P3: Multi-HP ports (HP0+HP1+HP2) raise available PL bandwidth to 8~12 GB/s",
+      "verdict": "REJECTED_AS_ARCHITECTURAL_FALLACY",
+      "reason": "Single 64-bit DDR4-1600 PHY has an absolute physical peak of 12.8 GB/s. Arithmetic summing of AXI port capacities ignores physical DDR channel limits, bank conflicts, tRCD/tRP row activations, and read/write turnaround. Effective DDR throughput under concurrent masters is capped at 7.7~9.6 GB/s (60-75% efficiency). Furthermore, AMD DS925 limits S_AXI_HP to 333 MHz."
+    },
+    {
+      "claim": "Step 4: Whole CASE0000 pushed to 0.15s - 0.35s",
+      "verdict": "REJECTED_AS_UNVERIFIED_PROJECTION",
+      "reason": "Whole CASE0000 DDR traffic is 1,010.4 MB, imposing a transfer lower bound of 0.505s at 2.0 GB/s and 0.253s at 4.0 GB/s. Reaching 0.15s requires 600 MHz clock and near-100% array utilization with zero bubbles, which has no STA signoff."
+    }
+  ],
+  "approx_div_sqrt_evaluation": {
+    "tier_0": {
+      "latency_cycles": 2,
+      "ii": 1,
+      "max_relative_error_pct": 0.3881,
+      "mean_relative_error_pct": 0.1364,
+      "softmax_a16_mismatch_rate_pct": 17.34,
+      "softmax_a16_max_lsb_diff": 61,
+      "suitable_for_a16_qdq": false
+    },
+    "tier_1": {
+      "latency_cycles": 4,
+      "ii": 1,
+      "max_relative_error_pct": 0.0015,
+      "mean_relative_error_pct": 0.000257,
+      "softmax_a16_mismatch_rate_pct": 0.14,
+      "softmax_a16_max_lsb_diff": 1,
+      "suitable_for_a16_qdq": true,
+      "notes": "Optimal Pareto trade-off. Error strictly below INT16 quantization resolution (3.05e-5). 99.86% bit-identical to FP32 golden under A16 quantization."
+    },
+    "tier_2": {
+      "latency_cycles": 7,
+      "ii": 1,
+      "max_relative_error_pct": 0.00003,
+      "mean_relative_error_pct": 0.000002,
+      "softmax_a16_mismatch_rate_pct": 0.00,
+      "softmax_a16_max_lsb_diff": 0,
+      "suitable_for_a16_qdq": true,
+      "notes": "Exact reference grade."
+    }
+  ],
+  "unified_metrics_baseline": {
+    "whole_model_measured_wall_seconds": 154.824,
+    "closed_68_plans_measured_seconds": 12.487,
+    "unfused_residual_measured_seconds": 142.337,
+    "total_padded_macs": 5384437760,
+    "closed_68_padded_macs": 3991404544,
+    "unfused_591_padded_macs": 1393033216,
+    "compute_lower_bound_seconds": {
+      "125MHz": { "whole": 0.1683, "closed68": 0.1247, "unfused591": 0.0435 },
+      "250MHz": { "whole": 0.0841, "closed68": 0.0624, "unfused591": 0.0218 },
+      "300MHz": { "whole": 0.0701, "closed68": 0.0520, "unfused591": 0.0181 },
+      "600MHz": { "whole": 0.0351, "closed68": 0.0260, "unfused591": 0.0091 }
+    },
+    "measured_ddr_traffic_bytes": {
+      "whole_model": 1010393248,
+      "closed_68_vector_layout": 807885856,
+      "unfused_dma": 148606016
+    },
+    "memory_lower_bound_seconds": {
+      "hp0_125mhz_2gbps": 0.5052,
+      "hp0_250mhz_4gbps": 0.2526,
+      "hp0_300mhz_4.8gbps": 0.2105,
+      "ddr4_1600_phys_peak_12.8gbps": 0.0789,
+      "ddr4_1600_real_70pct_8.96gbps": 0.1128
+    }
+  },
+  "candidate_verification_ledger": [
+    {
+      "candidate": "plan_submit_csr_v023.sv",
+      "author": "ds_control_fixes",
+      "bug_fixed": "PA-001 interleaved 64-bit snapshot corruption",
+      "testbench": "tb_csr_pa001.sv",
+      "baseline_result": "FAIL (9 errors)",
+      "candidate_result": "PASS (0 errors)",
+      "verdict": "VERIFIED"
+    },
+    {
+      "candidate": "pl_execution_plan_v023.sv",
+      "author": "ds_control_fixes",
+      "bug_fixed": "PA-002 unbounded wait on DRAIN watchdog",
+      "testbench": "tb_drain_watchdog",
+      "verdict": "VERIFIED"
+    },
+    {
+      "candidate": "pe_w7_c48_cfg.sv + array16_w7_c48_cfg.sv",
+      "author": "ds_matrix",
+      "feature": "Parameterized pipeline stages 3..6 and carry chain vs CSA",
+      "testbench": "tb_array_drain.sv (gemini_review local)",
+      "coverage": "8 configs (stages 3,4,5,6 x carry/csa)",
+      "result": "8/8 PASS",
+      "verdict": "VERIFIED"
+    },
+    {
+      "candidate": "ddr_layout_engine_v023.sv",
+      "author": "ds_layout",
+      "feature": "Incremental stepping, removal of u16_divmod",
+      "testbench": "tb_layout_engine.sv (copy_i16, embed_conv0)",
+      "cycle_reduction": "19.7% on copy_i16, 26.6% on embed_conv0",
+      "audit_note": "Requires strict source_zero padding isolation to prevent out-of-bounds AXI AR",
+      "verdict": "CONDITIONAL_PASS"
+    },
+    {
+      "candidate": "epilogue_stream_engine_v023.sv",
+      "author": "gemini_epilogue",
+      "feature": "C48 to A16 on-chip stream fusion, backpressure, abort flush",
+      "testbench": "tb_epilogue_stream_engine.sv",
+      "result": "Conversion, ReLU, Spill, Backpressure, Abort PASS; FMA scale/bias alignment needs calibration",
+      "verdict": "CONDITIONAL_PASS"
+    },
+    {
+      "candidate": "ddr_vector_engine_pipe.sv",
+      "author": "ds_vector",
+      "feature": "4-lane fixed-latency II=1 pipeline, approx_div_sqrt adapter",
+      "verdict": "VERIFIED"
+    }
+  ],
+  "sha256_manifest": {
+    "work/rtl/plan_submit_csr.sv": "a0c914cf42ab68c3b10941c7c95f42a320ce18c2089213ed8fa7daaec621a79b",
+    "work/rtl/pe_direct_v020.sv": "7b43de74709f53f0212eb6a600c5d84b3c1aea5904c2f0dd1b6e32b300bc0317",
+    "work/rtl/block_engine_l1bank_v020.sv": "0a6f24fc51f79baf4f1ecca0b38a79180b0a56e19470bfdb4bec863b34a09c20",
+    "work/rtl/ddr_layout_engine.sv": "1ebcaaa58a61f23ab298ab901f184894eb230d6225b26779b8dbf97f54722c52",
+    "work/rtl/ddr_vector_engine.sv": "08a642d915f0d0a83d10c156a52c21bc20bd4f69b3ac8c402ca22c094381641d",
+    "v023_repair/ds_control_fixes/candidate/rtl/plan_submit_csr_v023.sv": "35fbe0f392c671a2c63e469a390c87d9c6173a403153d76d14c6316de80c8a98",
+    "v023_repair/ds_control_fixes/candidate/rtl/pl_execution_plan_v023.sv": "d7a52640246f2097063facfae73529fa4fb705da55c8a881ebab965756624088",
+    "v023_repair/ds_matrix/candidate/rtl/pe_w7_c48_cfg.sv": "d8b5089073f4629f113b7735316593b77335ad99d8adf0c6757bd2d70269f179",
+    "v023_repair/ds_matrix/candidate/rtl/array16_w7_c48_cfg.sv": "c4203e0b7fc21b1b11e82579343236089342352d70b167b70791b8e69c03daae",
+    "v023_repair/ds_matrix/candidate/rtl/block_engine_prefetch_v2.sv": "9ab9b22db4b6787863b3aae878bbc3760afd0a3ccc9bf8b6df6e290156831c00",
+    "v023_repair/ds_layout/rtl/ddr_layout_engine_v023.sv": "dbfd68df4aa2ecbc77582c29ce4d18bc0f49a33b5b42cb904a87c4ebbb823d0e",
+    "v023_repair/gemini_epilogue/epilogue_stream_engine_v023.sv": "b99a664bc3e49bed21acf79c22281506e85ce347777ad578bfbe2c2a78984bce",
+    "v023_repair/ds_vector/candidate/rtl/ddr_vector_engine_pipe.sv": "819a9633e22638f44e904985173b7deaf071dfc1cb171aefdcfbb0481155c2df",
+    "v023_repair/ds_vector/candidate/rtl/asr_fp32_lane_fixed.sv": "3f51532af96c4d2a49f83df9f99da09cb56089c3795daf059bbc9f54333c2264",
+    "v023_repair/gemini_review/tb/tb_array_drain.sv": "b9420268511856ba2dc73989e0f45d6426c9d3b4b252846df58c32d83764ac8f",
+    "v023_repair/gemini_review/tests/test_approx_error.py": "645065422fd83bccff927f230e816f433529204f2c721095d96cbf0ff6c14171",
+    "v023_repair/gemini_review/scripts/audit_projections.py": "6b425d8c8e599d1bcf8b383a5d5815a695b98cfdaac9ce034c38e697eedb3f8b"
+  }
+}

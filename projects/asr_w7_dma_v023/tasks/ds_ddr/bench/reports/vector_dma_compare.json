@@ -1,0 +1,478 @@
+{
+  "scope": "Icarus RTL\uff1a\u539f vector/layout \u5939\u5177 + \u72ec\u7acb golden\uff1b\u53ea\u6362 DMA \u5c42\u3002",
+  "note": "\u5c0f\u8bf7\u6c42\u8d1f\u8f7d\uff0820 read/16 write \u8bf7\u6c42\uff0c64beat \u7ea7\uff09\u4e0b DMA \u591a\u5728\u9014\u6536\u76ca\u6709\u9650\uff1b\u5927\u8303\u56f4 DMA \u5fae\u57fa\u51c6\u53e6\u89c1 dma_compare.json\u3002",
+  "results": [
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "add_scalar",
+      "mode": 0,
+      "cycles": 7882,
+      "pass_": true,
+      "host_seconds": 0.288,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_add_scalar_0.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "add_scalar",
+      "mode": 1,
+      "cycles": 1,
+      "pass_": true,
+      "host_seconds": 0.08,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_add_scalar_1.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "add_scalar",
+      "mode": 2,
+      "cycles": 1,
+      "pass_": true,
+      "host_seconds": 0.081,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_add_scalar_2.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "add_scalar",
+      "mode": 3,
+      "cycles": 1,
+      "pass_": true,
+      "host_seconds": 0.078,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_add_scalar_3.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "add_scalar",
+      "mode": 4,
+      "cycles": 1,
+      "pass_": true,
+      "host_seconds": 0.079,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_add_scalar_4.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "add_scalar",
+      "mode": 5,
+      "cycles": 1,
+      "pass_": true,
+      "host_seconds": 0.078,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_add_scalar_5.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "add_scalar",
+      "mode": 6,
+      "cycles": 1,
+      "pass_": true,
+      "host_seconds": 0.079,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_add_scalar_6.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "add_scalar",
+      "mode": 7,
+      "cycles": 39,
+      "pass_": true,
+      "host_seconds": 0.079,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_add_scalar_7.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "add_scalar",
+      "mode": 8,
+      "cycles": 2518,
+      "pass_": true,
+      "host_seconds": 0.138,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_add_scalar_8.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "add_scalar",
+      "mode": 9,
+      "cycles": 7882,
+      "pass_": true,
+      "host_seconds": 0.286,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_add_scalar_9.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "mul_vector",
+      "mode": 0,
+      "cycles": 8528,
+      "pass_": true,
+      "host_seconds": 0.327,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_mul_vector_0.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "i16_to_float",
+      "mode": 0,
+      "cycles": 4805,
+      "pass_": true,
+      "host_seconds": 0.228,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_i16_to_float_0.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "round_i16",
+      "mode": 0,
+      "cycles": 4820,
+      "pass_": true,
+      "host_seconds": 0.189,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_round_i16_0.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "base",
+      "fixture": "i48_to_float",
+      "mode": 0,
+      "cycles": 4942,
+      "pass_": true,
+      "host_seconds": 0.244,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_base_i48_to_float_0.log"
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "add_scalar",
+      "mode": 0,
+      "cycles": 7887,
+      "pass_": true,
+      "host_seconds": 0.297,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_add_scalar_0.log",
+      "speedup": 0.9994
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "add_scalar",
+      "mode": 1,
+      "cycles": 1,
+      "pass_": true,
+      "host_seconds": 0.083,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_add_scalar_1.log",
+      "speedup": 1.0
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "add_scalar",
+      "mode": 2,
+      "cycles": 1,
+      "pass_": true,
+      "host_seconds": 0.083,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_add_scalar_2.log",
+      "speedup": 1.0
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "add_scalar",
+      "mode": 3,
+      "cycles": 1,
+      "pass_": true,
+      "host_seconds": 0.081,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_add_scalar_3.log",
+      "speedup": 1.0
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "add_scalar",
+      "mode": 4,
+      "cycles": 1,
+      "pass_": true,
+      "host_seconds": 0.08,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_add_scalar_4.log",
+      "speedup": 1.0
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "add_scalar",
+      "mode": 5,
+      "cycles": 1,
+      "pass_": true,
+      "host_seconds": 0.079,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_add_scalar_5.log",
+      "speedup": 1.0
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "add_scalar",
+      "mode": 6,
+      "cycles": 1,
+      "pass_": true,
+      "host_seconds": 0.079,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_add_scalar_6.log",
+      "speedup": 1.0
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "add_scalar",
+      "mode": 7,
+      "cycles": 41,
+      "pass_": true,
+      "host_seconds": 0.082,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_add_scalar_7.log",
+      "speedup": 0.9512
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "add_scalar",
+      "mode": 8,
+      "cycles": 2531,
+      "pass_": true,
+      "host_seconds": 0.147,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_add_scalar_8.log",
+      "speedup": 0.9949
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "add_scalar",
+      "mode": 9,
+      "cycles": 7887,
+      "pass_": true,
+      "host_seconds": 0.309,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_add_scalar_9.log",
+      "speedup": 0.9994
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "mul_vector",
+      "mode": 0,
+      "cycles": 8532,
+      "pass_": true,
+      "host_seconds": 0.314,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_mul_vector_0.log",
+      "speedup": 0.9995
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "i16_to_float",
+      "mode": 0,
+      "cycles": 4807,
+      "pass_": true,
+      "host_seconds": 0.236,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_i16_to_float_0.log",
+      "speedup": 0.9996
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "round_i16",
+      "mode": 0,
+      "cycles": 4823,
+      "pass_": true,
+      "host_seconds": 0.196,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_round_i16_0.log",
+      "speedup": 0.9994
+    },
+    {
+      "kind": "vector",
+      "dut": "cand",
+      "fixture": "i48_to_float",
+      "mode": 0,
+      "cycles": 4942,
+      "pass_": true,
+      "host_seconds": 0.256,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/vector_cand_i48_to_float_0.log",
+      "speedup": 1.0
+    },
+    {
+      "kind": "layout",
+      "dut": "base",
+      "fixture": "copy_i16",
+      "mode": 0,
+      "cycles": 10152,
+      "pass_": true,
+      "host_seconds": 0.237,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_base_copy_i16_0.log"
+    },
+    {
+      "kind": "layout",
+      "dut": "base",
+      "fixture": "pack_matrix_edges",
+      "mode": 0,
+      "cycles": 27343,
+      "pass_": true,
+      "host_seconds": 0.529,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_base_pack_matrix_edges_0.log"
+    },
+    {
+      "kind": "layout",
+      "dut": "base",
+      "fixture": "unpack_row_fp32",
+      "mode": 0,
+      "cycles": 14183,
+      "pass_": true,
+      "host_seconds": 0.331,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_base_unpack_row_fp32_0.log"
+    },
+    {
+      "kind": "layout",
+      "dut": "base",
+      "fixture": "unpack_nchw_fp32",
+      "mode": 0,
+      "cycles": 15313,
+      "pass_": true,
+      "host_seconds": 0.38,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_base_unpack_nchw_fp32_0.log"
+    },
+    {
+      "kind": "layout",
+      "dut": "base",
+      "fixture": "unpack_c48_compact",
+      "mode": 0,
+      "cycles": 17803,
+      "pass_": true,
+      "host_seconds": 0.422,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_base_unpack_c48_compact_0.log"
+    },
+    {
+      "kind": "layout",
+      "dut": "base",
+      "fixture": "conv_padding",
+      "mode": 0,
+      "cycles": 14152,
+      "pass_": true,
+      "host_seconds": 0.309,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_base_conv_padding_0.log"
+    },
+    {
+      "kind": "layout",
+      "dut": "base",
+      "fixture": "case0000_embed_conv0",
+      "mode": 0,
+      "cycles": 563652,
+      "pass_": true,
+      "host_seconds": 9.591,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_base_case0000_embed_conv0_0.log"
+    },
+    {
+      "kind": "layout",
+      "dut": "base",
+      "fixture": "depthwise_31",
+      "mode": 0,
+      "cycles": 8965,
+      "pass_": true,
+      "host_seconds": 0.223,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_base_depthwise_31_0.log"
+    },
+    {
+      "kind": "layout",
+      "dut": "cand",
+      "fixture": "copy_i16",
+      "mode": 0,
+      "cycles": 10517,
+      "pass_": true,
+      "host_seconds": 0.269,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_cand_copy_i16_0.log",
+      "speedup": 0.9653
+    },
+    {
+      "kind": "layout",
+      "dut": "cand",
+      "fixture": "pack_matrix_edges",
+      "mode": 0,
+      "cycles": 27720,
+      "pass_": true,
+      "host_seconds": 0.562,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_cand_pack_matrix_edges_0.log",
+      "speedup": 0.9864
+    },
+    {
+      "kind": "layout",
+      "dut": "cand",
+      "fixture": "unpack_row_fp32",
+      "mode": 0,
+      "cycles": 14678,
+      "pass_": true,
+      "host_seconds": 0.356,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_cand_unpack_row_fp32_0.log",
+      "speedup": 0.9663
+    },
+    {
+      "kind": "layout",
+      "dut": "cand",
+      "fixture": "unpack_nchw_fp32",
+      "mode": 0,
+      "cycles": 15890,
+      "pass_": true,
+      "host_seconds": 0.41,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_cand_unpack_nchw_fp32_0.log",
+      "speedup": 0.9637
+    },
+    {
+      "kind": "layout",
+      "dut": "cand",
+      "fixture": "unpack_c48_compact",
+      "mode": 0,
+      "cycles": 18732,
+      "pass_": true,
+      "host_seconds": 0.45,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_cand_unpack_c48_compact_0.log",
+      "speedup": 0.9504
+    },
+    {
+      "kind": "layout",
+      "dut": "cand",
+      "fixture": "conv_padding",
+      "mode": 0,
+      "cycles": 14180,
+      "pass_": true,
+      "host_seconds": 0.348,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_cand_conv_padding_0.log",
+      "speedup": 0.998
+    },
+    {
+      "kind": "layout",
+      "dut": "cand",
+      "fixture": "case0000_embed_conv0",
+      "mode": 0,
+      "cycles": 566367,
+      "pass_": true,
+      "host_seconds": 10.228,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_cand_case0000_embed_conv0_0.log",
+      "speedup": 0.9952
+    },
+    {
+      "kind": "layout",
+      "dut": "cand",
+      "fixture": "depthwise_31",
+      "mode": 0,
+      "cycles": 8982,
+      "pass_": true,
+      "host_seconds": 0.23,
+      "log": "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/bench/logs/vector_compare/layout_cand_depthwise_31_0.log",
+      "speedup": 0.9981
+    }
+  ],
+  "source_sha256": {
+    "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_vector_axi.sv": "9613c3f6814830b0129094ca860dafc4f5272e3e9a67ab5ef58b6074bdee34f2",
+    "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_layout_axi.sv": "a4728ffac826ef48776171598ebde6f58c8726f903d8b6af10cedb504c47a4c2",
+    "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_vector_engine.sv": "08a642d915f0d0a83d10c156a52c21bc20bd4f69b3ac8c402ca22c094381641d",
+    "/home/yang/Desktop/\u9879\u76ee/work/rtl/ddr_layout_engine.sv": "1ebcaaa58a61f23ab298ab901f184894eb230d6225b26779b8dbf97f54722c52",
+    "/home/yang/Desktop/\u9879\u76ee/work/rtl/axi_dma_v019.sv": "930775c6ab8f1461ccd081f6b81f68b34f2da8f0fdf96c68b51b05f01da9b531",
+    "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/candidate/axi_dma_v020_multi.sv": "a846744d3236ee3b8acc217abbe63a94ad7ecf56dc5d6cfa862e2e62a18ff0cb",
+    "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/candidate/ddr_vector_axi_v020.sv": "b057e9050392345496023120bc4b2d64ae78c80f0ba886131f50d27e82403307",
+    "/home/yang/Desktop/\u9879\u76ee/tasks/ds_ddr/candidate/ddr_layout_axi_v020.sv": "95d1d884c191fc34c1d9ada23c49ce45a59ff683630dea8ab9de7178447d6572"
+  }
+}

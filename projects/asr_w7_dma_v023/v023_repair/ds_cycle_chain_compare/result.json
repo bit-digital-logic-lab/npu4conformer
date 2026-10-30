@@ -1,0 +1,683 @@
+{
+  "status": "small_chain_logic_pass_full_system_pending",
+  "scope": "single-clock logic simulation of a 32x32x32 matrix -> I48/F32 -> vector -> layout chain; not CASE0000, not full model, not board, not STA",
+  "gold": {
+    "source": "fixtures/mat32/exp_c.txt (ds_matrix integer golden) -> independent numpy float32 scale/bias/RNE/clip -> i16",
+    "sha256": "296ae0193a999187c13f69631c218136b2d74f46d536b333a7d728a1b0f91ad5"
+  },
+  "inputs": {
+    "exp_sha_match": true,
+    "init_sha_match": true,
+    "exp_values": 1024,
+    "gold_words": 512,
+    "gold_sha256": "296ae0193a999187c13f69631c218136b2d74f46d536b333a7d728a1b0f91ad5",
+    "mem_sha256": "1c657402c61de080db36933f2392b2ab21fb07d57c08f7f0e95c458c67c57f37",
+    "gold_recomputed_match": true,
+    "plan_sha_recomputed": "5c8afc4d8fe5b30317562e6474a8e79d56b03dd57617186f08dda05fdad16bec",
+    "plan_sha_match": true,
+    "pass": true
+  },
+  "scenarios": {
+    "default": {
+      "scenario": "default",
+      "candidate": {
+        "log": "runs/default/candidate/run.log",
+        "out_hex": "runs/default/candidate/out.hex",
+        "gold_words": 512,
+        "out_words": 512,
+        "gold_mismatches": 0,
+        "c48_mismatches": 0,
+        "pass": true,
+        "metrics": {
+          "start": 30,
+          "done": 21151,
+          "drain": 21151,
+          "total_start_to_drain": 21121,
+          "done_to_drain": 0,
+          "csr_cycles": 21119,
+          "windows": {
+            "matrix": {
+              "first": 9966,
+              "last": 11310,
+              "busy_cycles": 1345
+            },
+            "vector": {
+              "first": 11327,
+              "last": 14638,
+              "busy_cycles": 3256
+            },
+            "layout": {
+              "first": 198,
+              "last": 21146,
+              "busy_cycles": 16232
+            },
+            "any_busy": 20833
+          },
+          "matrix": {
+            "cycles": 1329,
+            "compute": 272,
+            "queue": 1345,
+            "fetch": 8,
+            "engine_wait": 1335,
+            "retire_wait": 1,
+            "rblk": 2,
+            "wblk": 64,
+            "cg": 256,
+            "cc": 825
+          },
+          "veclay": {
+            "vcyc": 659,
+            "lcyc": 6492,
+            "vrb": 18560,
+            "vwb": 14336,
+            "lrb": 5120,
+            "lwb": 5120
+          },
+          "axi": {
+            "rburst": 130,
+            "wburst": 141,
+            "rbeats": 1828,
+            "wbeats": 1600,
+            "rdpeak": 1,
+            "wrpeak": 1,
+            "rdstall": 160,
+            "wrstall": 1,
+            "tag_err": 0
+          },
+          "wait": {
+            "ar_stall": 160,
+            "aw_stall": 1,
+            "w_stall": 0,
+            "r_stall": 0,
+            "b_stall": 0,
+            "bfm_read_busy": 1828,
+            "bfm_write_busy": 1932,
+            "bfm_bresp_wait": 0
+          },
+          "engine_wait": {
+            "matrix": {
+              "ar": 160,
+              "aw": 1,
+              "w": 0,
+              "r": 0,
+              "b": 0
+            },
+            "vector": {
+              "ar": 0,
+              "aw": 0,
+              "w": 0,
+              "r": 0,
+              "b": 0
+            },
+            "layout": {
+              "ar": 0,
+              "aw": 0,
+              "w": 0,
+              "r": 0,
+              "b": 0
+            },
+            "graph_fetch": {
+              "ar": 0,
+              "r": 0
+            },
+            "queue": {
+              "ar": 0,
+              "r": 0
+            }
+          },
+          "graph": {
+            "fetch": 203,
+            "operator": 20841,
+            "drain": 0,
+            "busy_cycles": 21119
+          },
+          "status": {
+            "busy": 0,
+            "done": 1,
+            "fault": 0,
+            "error": 0,
+            "completed": 9,
+            "last": 8
+          },
+          "result": "PASS"
+        }
+      },
+      "baseline": {
+        "log": "runs/default/baseline/run.log",
+        "out_hex": "runs/default/baseline/out.hex",
+        "gold_words": 512,
+        "out_words": 512,
+        "gold_mismatches": 0,
+        "c48_mismatches": 0,
+        "pass": true,
+        "metrics": {
+          "start": 16,
+          "done": 53028,
+          "drain": 53031,
+          "total_start_to_drain": 53015,
+          "done_to_drain": 3,
+          "windows": {
+            "matrix": {
+              "first": 14619,
+              "last": 17598,
+              "busy_cycles": 2980
+            },
+            "vector": {
+              "first": 17601,
+              "last": 43294,
+              "busy_cycles": 25688
+            },
+            "layout": {
+              "first": 17,
+              "last": 53027,
+              "busy_cycles": 24329
+            },
+            "any_busy": 52997
+          },
+          "matrix": {
+            "cycles": 2980,
+            "compute": 264,
+            "rblk": 3,
+            "wblk": 1,
+            "rdwait": 210,
+            "wrwait": 435,
+            "scalar": 1537,
+            "c48_errs": 0
+          },
+          "veclay": {
+            "vcyc": [
+              4916,
+              7961,
+              7961,
+              4850
+            ],
+            "vsum": 25688,
+            "lcyc": [
+              9731,
+              4867,
+              9731
+            ],
+            "lsum": 24329
+          },
+          "axi": {
+            "rburst": 412,
+            "wburst": 400,
+            "rbeats": 1672,
+            "wbeats": 1600,
+            "rdpeak": 1,
+            "wrpeak": 1,
+            "rdstall": 0,
+            "wrstall": 0,
+            "tag_err": 0
+          },
+          "wait": {
+            "ar_stall": 0,
+            "aw_stall": 0,
+            "w_stall": 0,
+            "r_stall": 0,
+            "b_stall": 0,
+            "bfm_read_busy": 1672,
+            "bfm_write_busy": 3952,
+            "bfm_bresp_wait": 0
+          },
+          "result": "PASS"
+        }
+      },
+      "delta": {
+        "total_cycles_baseline": 53015,
+        "total_cycles_candidate": 21121,
+        "candidate_minus_baseline": -31894,
+        "baseline_over_candidate": 2.5101,
+        "baseline_engine_sum": 52997,
+        "candidate_engine_sum": 8480,
+        "baseline_residual_non_engine": 18,
+        "candidate_residual_non_engine": 12641
+      }
+    },
+    "rand_bp": {
+      "scenario": "rand_bp",
+      "candidate": {
+        "log": "runs/rand_bp/candidate/run.log",
+        "out_hex": "runs/rand_bp/candidate/out.hex",
+        "gold_words": 512,
+        "out_words": 512,
+        "gold_mismatches": 0,
+        "c48_mismatches": 0,
+        "pass": true,
+        "metrics": {
+          "start": 30,
+          "done": 23774,
+          "drain": 23774,
+          "total_start_to_drain": 23744,
+          "done_to_drain": 0,
+          "csr_cycles": 23742,
+          "windows": {
+            "matrix": {
+              "first": 10445,
+              "last": 12232,
+              "busy_cycles": 1788
+            },
+            "vector": {
+              "first": 12251,
+              "last": 17055,
+              "busy_cycles": 4735
+            },
+            "layout": {
+              "first": 330,
+              "last": 23769,
+              "busy_cycles": 16760
+            },
+            "any_busy": 23283
+          },
+          "matrix": {
+            "cycles": 1763,
+            "compute": 272,
+            "queue": 1788,
+            "fetch": 17,
+            "engine_wait": 1769,
+            "retire_wait": 1,
+            "rblk": 2,
+            "wblk": 64,
+            "cg": 256,
+            "cc": 985
+          },
+          "veclay": {
+            "vcyc": 1009,
+            "lcyc": 6688,
+            "vrb": 18560,
+            "vwb": 14336,
+            "lrb": 5120,
+            "lwb": 5120
+          },
+          "axi": {
+            "rburst": 130,
+            "wburst": 141,
+            "rbeats": 1828,
+            "wbeats": 1600,
+            "rdpeak": 1,
+            "wrpeak": 1,
+            "rdstall": 435,
+            "wrstall": 261,
+            "tag_err": 0
+          },
+          "wait": {
+            "ar_stall": 435,
+            "aw_stall": 41,
+            "w_stall": 220,
+            "r_stall": 0,
+            "b_stall": 0,
+            "bfm_read_busy": 4116,
+            "bfm_write_busy": 2361,
+            "bfm_bresp_wait": 209
+          },
+          "engine_wait": {
+            "matrix": {
+              "ar": 401,
+              "aw": 18,
+              "w": 63,
+              "r": 0,
+              "b": 0
+            },
+            "vector": {
+              "ar": 25,
+              "aw": 17,
+              "w": 104,
+              "r": 0,
+              "b": 0
+            },
+            "layout": {
+              "ar": 4,
+              "aw": 6,
+              "w": 53,
+              "r": 0,
+              "b": 0
+            },
+            "graph_fetch": {
+              "ar": 3,
+              "r": 0
+            },
+            "queue": {
+              "ar": 2,
+              "r": 0
+            }
+          },
+          "graph": {
+            "fetch": 380,
+            "operator": 23291,
+            "drain": 0,
+            "busy_cycles": 23742
+          },
+          "status": {
+            "busy": 0,
+            "done": 1,
+            "fault": 0,
+            "error": 0,
+            "completed": 9,
+            "last": 8
+          },
+          "result": "PASS"
+        }
+      },
+      "baseline": {
+        "log": "runs/rand_bp/baseline/run.log",
+        "out_hex": "runs/rand_bp/baseline/out.hex",
+        "gold_words": 512,
+        "out_words": 512,
+        "gold_mismatches": 0,
+        "c48_mismatches": 0,
+        "pass": true,
+        "metrics": {
+          "start": 16,
+          "done": 55027,
+          "drain": 55030,
+          "total_start_to_drain": 55014,
+          "done_to_drain": 3,
+          "windows": {
+            "matrix": {
+              "first": 15347,
+              "last": 18661,
+              "busy_cycles": 3315
+            },
+            "vector": {
+              "first": 18664,
+              "last": 44812,
+              "busy_cycles": 26143
+            },
+            "layout": {
+              "first": 17,
+              "last": 55026,
+              "busy_cycles": 25538
+            },
+            "any_busy": 54996
+          },
+          "matrix": {
+            "cycles": 3315,
+            "compute": 264,
+            "rblk": 3,
+            "wblk": 1,
+            "rdwait": 450,
+            "wrwait": 530,
+            "scalar": 1537,
+            "c48_errs": 0
+          },
+          "veclay": {
+            "vcyc": [
+              5057,
+              8051,
+              8088,
+              4947
+            ],
+            "vsum": 26143,
+            "lcyc": [
+              10226,
+              5100,
+              10212
+            ],
+            "lsum": 25538
+          },
+          "axi": {
+            "rburst": 412,
+            "wburst": 400,
+            "rbeats": 1672,
+            "wbeats": 1600,
+            "rdpeak": 1,
+            "wrpeak": 1,
+            "rdstall": 114,
+            "wrstall": 485,
+            "tag_err": 0
+          },
+          "wait": {
+            "ar_stall": 114,
+            "aw_stall": 104,
+            "w_stall": 381,
+            "r_stall": 0,
+            "b_stall": 0,
+            "bfm_read_busy": 3817,
+            "bfm_write_busy": 4932,
+            "bfm_bresp_wait": 603
+          },
+          "result": "PASS"
+        }
+      },
+      "delta": {
+        "total_cycles_baseline": 55014,
+        "total_cycles_candidate": 23744,
+        "candidate_minus_baseline": -31270,
+        "baseline_over_candidate": 2.317,
+        "baseline_engine_sum": 54996,
+        "candidate_engine_sum": 9460,
+        "baseline_residual_non_engine": 18,
+        "candidate_residual_non_engine": 14284
+      }
+    },
+    "long_wait": {
+      "scenario": "long_wait",
+      "candidate": {
+        "log": "runs/long_wait/candidate/run.log",
+        "out_hex": "runs/long_wait/candidate/out.hex",
+        "gold_words": 512,
+        "out_words": 512,
+        "gold_mismatches": 0,
+        "c48_mismatches": 0,
+        "pass": true,
+        "metrics": {
+          "start": 30,
+          "done": 33690,
+          "drain": 33690,
+          "total_start_to_drain": 33660,
+          "done_to_drain": 0,
+          "csr_cycles": 33658,
+          "windows": {
+            "matrix": {
+              "first": 11988,
+              "last": 17115,
+              "busy_cycles": 5128
+            },
+            "vector": {
+              "first": 17180,
+              "last": 26228,
+              "busy_cycles": 8840
+            },
+            "layout": {
+              "first": 835,
+              "last": 33685,
+              "busy_cycles": 18452
+            },
+            "any_busy": 32420
+          },
+          "matrix": {
+            "cycles": 5061,
+            "compute": 272,
+            "queue": 5128,
+            "fetch": 59,
+            "engine_wait": 5067,
+            "retire_wait": 1,
+            "rblk": 2,
+            "wblk": 64,
+            "cg": 256,
+            "cc": 3753
+          },
+          "veclay": {
+            "vcyc": 1763,
+            "lcyc": 7380,
+            "vrb": 18560,
+            "vwb": 14336,
+            "lrb": 5120,
+            "lwb": 5120
+          },
+          "axi": {
+            "rburst": 130,
+            "wburst": 141,
+            "rbeats": 1828,
+            "wbeats": 1600,
+            "rdpeak": 1,
+            "wrpeak": 1,
+            "rdstall": 790,
+            "wrstall": 49,
+            "tag_err": 0
+          },
+          "wait": {
+            "ar_stall": 790,
+            "aw_stall": 49,
+            "w_stall": 0,
+            "r_stall": 0,
+            "b_stall": 0,
+            "bfm_read_busy": 9766,
+            "bfm_write_busy": 8700,
+            "bfm_bresp_wait": 6768
+          },
+          "engine_wait": {
+            "matrix": {
+              "ar": 790,
+              "aw": 49,
+              "w": 0,
+              "r": 0,
+              "b": 0
+            },
+            "vector": {
+              "ar": 0,
+              "aw": 0,
+              "w": 0,
+              "r": 0,
+              "b": 0
+            },
+            "layout": {
+              "ar": 0,
+              "aw": 0,
+              "w": 0,
+              "r": 0,
+              "b": 0
+            },
+            "graph_fetch": {
+              "ar": 0,
+              "r": 0
+            },
+            "queue": {
+              "ar": 0,
+              "r": 0
+            }
+          },
+          "graph": {
+            "fetch": 1154,
+            "operator": 32428,
+            "drain": 0,
+            "busy_cycles": 33658
+          },
+          "status": {
+            "busy": 0,
+            "done": 1,
+            "fault": 0,
+            "error": 0,
+            "completed": 9,
+            "last": 8
+          },
+          "result": "PASS"
+        }
+      },
+      "baseline": {
+        "log": "runs/long_wait/baseline/run.log",
+        "out_hex": "runs/long_wait/baseline/out.hex",
+        "gold_words": 512,
+        "out_words": 512,
+        "gold_mismatches": 0,
+        "c48_mismatches": 0,
+        "pass": true,
+        "metrics": {
+          "start": 16,
+          "done": 87986,
+          "drain": 87989,
+          "total_start_to_drain": 87973,
+          "done_to_drain": 3,
+          "windows": {
+            "matrix": {
+              "first": 33051,
+              "last": 37938,
+              "busy_cycles": 4888
+            },
+            "vector": {
+              "first": 37941,
+              "last": 65964,
+              "busy_cycles": 28018
+            },
+            "layout": {
+              "first": 17,
+              "last": 87985,
+              "busy_cycles": 55049
+            },
+            "any_busy": 87955
+          },
+          "matrix": {
+            "cycles": 4888,
+            "compute": 264,
+            "rblk": 3,
+            "wblk": 1,
+            "rdwait": 966,
+            "wrwait": 1587,
+            "scalar": 1537,
+            "c48_errs": 0
+          },
+          "veclay": {
+            "vcyc": [
+              5846,
+              8453,
+              8453,
+              5266
+            ],
+            "vsum": 28018,
+            "lcyc": [
+              22019,
+              11011,
+              22019
+            ],
+            "lsum": 55049
+          },
+          "axi": {
+            "rburst": 412,
+            "wburst": 400,
+            "rbeats": 1672,
+            "wbeats": 1600,
+            "rdpeak": 1,
+            "wrpeak": 1,
+            "rdstall": 0,
+            "wrstall": 0,
+            "tag_err": 0
+          },
+          "wait": {
+            "ar_stall": 0,
+            "aw_stall": 0,
+            "w_stall": 0,
+            "r_stall": 0,
+            "b_stall": 0,
+            "bfm_read_busy": 22708,
+            "bfm_write_busy": 23144,
+            "bfm_bresp_wait": 19200
+          },
+          "result": "PASS"
+        }
+      },
+      "delta": {
+        "total_cycles_baseline": 87973,
+        "total_cycles_candidate": 33660,
+        "candidate_minus_baseline": -54313,
+        "baseline_over_candidate": 2.6136,
+        "baseline_engine_sum": 87955,
+        "candidate_engine_sum": 14204,
+        "baseline_residual_non_engine": 18,
+        "candidate_residual_non_engine": 19456
+      }
+    }
+  },
+  "all_outputs_and_c48_match_gold": true,
+  "limits": [
+    "baseline is host-sequenced with sealed vector/layout RTL, sealed matrix engine/storage and axi_dma_v019; candidate is one START PL superplan with the integrated P2 cluster/multi-DMA. Control/interface boundaries differ.",
+    "therefore ratios below are comparable-chain interval ratios, not whole-machine or CASE0000 speedups.",
+    "the shared-BFM/xbar harness is not a DDR/PHY model and all runs are logic simulation at one clock.",
+    "primary_stream_fix is an epilogue stream module and is not in the current integrated filelist/data path; its 127-cycle packed-output result is not counted here.",
+    "no synthesis, STA, Vivado, board, VNC, push, or frequency claim was made."
+  ],
+  "watchdog_selftest": {
+    "log": "runs/watchdog_selftest/candidate/run.log",
+    "fired": true,
+    "expected_fail_marker": true
+  }
+}

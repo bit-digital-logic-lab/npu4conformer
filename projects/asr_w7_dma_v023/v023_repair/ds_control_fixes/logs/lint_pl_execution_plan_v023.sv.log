@@ -1,0 +1,29 @@
+%Warning-WIDTHEXPAND: candidate/rtl/pl_execution_plan_v023.sv:67:41: Operator ADD expects 64 bits on the RHS, but RHS's VARREF 'length' generates 32 bits.
+                                                                   : ... note: In instance 'pl_execution_plan_v023'
+   67 |  wire [63:0] payload_end={32'd0,pointer}+length;
+      |                                         ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.047
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: candidate/rtl/pl_execution_plan_v023.sv:73:41: Operator GT expects 64 bits on the RHS, but RHS's VARREF 'ARENA_LIMIT' generates 32 bits.
+                                                                   : ... note: In instance 'pl_execution_plan_v023'
+   73 |    ({32'd0,pointer}+({32'd0,length}<<6))>ARENA_LIMIT):
+      |                                         ^
+%Warning-WIDTHEXPAND: candidate/rtl/pl_execution_plan_v023.sv:74:86: Operator GT expects 64 bits on the RHS, but RHS's VARREF 'param_end' generates 32 bits.
+                                                                   : ... note: In instance 'pl_execution_plan_v023'
+   74 |    ((kind==2?length!=64:length!=128)||pointer[5:0]!=0||pointer<PLAN_BASE||payload_end>param_end));
+      |                                                                                      ^
+%Warning-WIDTHEXPAND: candidate/rtl/pl_execution_plan_v023.sv:121:60: Operator GT expects 64 bits on the RHS, but RHS's VARREF 'param_end' generates 32 bits.
+                                                                    : ... note: In instance 'pl_execution_plan_v023'
+  121 |     PRECHECK:if(!parameter_ready||generation!=gen||plan_end>param_end)begin
+      |                                                            ^
+%Warning-WIDTHEXPAND: candidate/rtl/pl_execution_plan_v023.sv:141:24: Operator NEQ expects 16 bits on the RHS, but RHS's VARREF 'received' generates 4 bits.
+                                                                    : ... note: In instance 'pl_execution_plan_v023'
+  141 |       if(dma_read_index!=received||dma_read_index>=dma_beats)fetch_bad<=1;
+      |                        ^~
+%Warning-WIDTHEXPAND: candidate/rtl/pl_execution_plan_v023.sv:151:40: Operator NEQ expects 16 bits on the LHS, but LHS's VARREF 'received' generates 4 bits.
+                                                                    : ... note: In instance 'pl_execution_plan_v023'
+  151 |       if(dma_error||fetch_bad||received!=dma_beats||wait_cycles>=WATCHDOG)begin
+      |                                        ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)
+- Verilator: Built from 0.041 MB sources in 2 modules, into 0.058 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.017 s (elab=0.002, cvt=0.010, bld=0.000); cpu 0.017 s on 1 threads; allocated 21.270 MB

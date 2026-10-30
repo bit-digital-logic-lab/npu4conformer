@@ -1,0 +1,9 @@
+{
+  "fma": {
+    "pass": true,
+    "mismatches": 0,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  }
+}
+RESULT /home/yang/Desktop/项目/v023_repair/primary_acceptance/round2/result_primary_fma.json PASS

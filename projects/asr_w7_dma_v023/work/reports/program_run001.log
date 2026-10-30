@@ -1,0 +1,100 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Tue Oct 13 19:42:14 2026
+# Process ID         : 62148
+# Current directory  : D:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22
+# Command line       : vivado.exe -mode batch -notrace -source scripts/program_warm_board.tcl -log reports/program_run001.log -journal reports/program_run001.jou -tclargs run001 --board-released
+# Log file           : D:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22/reports/program_run001.log
+# Journal file       : D:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22\reports/program_run001.jou
+# Running On         : ZYF
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 9 7945HX with Radeon Graphics        
+# CPU Frequency      : 2495 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 32
+# Host memory        : 68384 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 72679 MB
+# Available Virtual  : 33650 MB
+#-----------------------------------------------------------
+INFO: [Common 17-1239] XILINX_LOCAL_USER_DATA is set to 'NO'.
+INFO: [Common 17-748] XILINX_TCLAPP_REPO is set to 'D:/fpga/new2025/vitis/2025.2/Vivado/data/XilinxTclStore'. Refresh XilinxTclStore catalog is disabled when XILINX_TCLAPP_REPO is set.
+source scripts/program_warm_board.tcl -notrace
+V022_RUNTIME_SEAL_VERIFIED
+open_hw_manager: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 547.375 ; gain = 221.984
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2025.2.0
+  ****** Build date   : Nov 14 2025-07:16:52
+    **** Build number : 2025.2.1763075812
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Labtools 27-1434] Device xczu15 (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+  1  Digilent JTAG-HS1 210512180081
+     2  xczu15 (idcode 14750093 irlen 12 fpga)
+     3  arm_dap (idcode 5ba00477 irlen 4)
+  1  PS TAP
+     2  PMU
+     3  PL
+  4* PSU
+     5  RPU (Reset)
+        6  Cortex-R5 #0 (RPU Reset)
+        7  Cortex-R5 #1 (RPU Reset)
+     8  APU
+        9  Cortex-A53 #0 (External Debug Request, EL3(S)/A64)
+       10  Cortex-A53 #1 (Power On Reset)
+       11  Cortex-A53 #2 (Power On Reset)
+       12  Cortex-A53 #3 (Power On Reset)
+AUTONOMY_AUDIT_RO FFFE0000=A51A1301
+AUTONOMY_AUDIT_RO FFFE0004=00000002
+AUTONOMY_AUDIT_RO FFFE0010=00000000
+AUTONOMY_AUDIT_RO FFFE0068=00C52838
+AUTONOMY_AUDIT_RO FFFE006C=00000000
+AUTONOMY_AUDIT_RO FFFE0078=00C52838
+AUTONOMY_AUDIT_RO FFFE007C=00000000
+AUTONOMY_AUDIT_RO FD070000=81040010
+AUTONOMY_AUDIT_RO FD070004=00000001
+AUTONOMY_AUDIT_RO FD1A0100=000F807E
+AUTONOMY_AUDIT_RO FD615000=00000A00
+AUTONOMY_AUDIT_RO FD380000=000003B0
+AUTONOMY_AUDIT_RO FD380014=000003B0
+AUTONOMY_AUDIT_RO FD390000=000003B0
+AUTONOMY_AUDIT_RO FD390014=000003B0
+AUTONOMY_AUDIT_RO FD3A0000=000003B0
+AUTONOMY_AUDIT_RO FD3A0014=000003B0
+AUTONOMY_AUDIT_RO FD3B0000=000003B0
+AUTONOMY_AUDIT_RO FD3B0014=000003B0
+AUTONOMY_AUDIT_RO FD380004=00000007
+AUTONOMY_AUDIT_RO FD380018=00000007
+AUTONOMY_AUDIT_RO FD390004=00000007
+AUTONOMY_AUDIT_RO FD390018=00000007
+AUTONOMY_AUDIT_RO FD3A0004=00000007
+AUTONOMY_AUDIT_RO FD3A0018=00000007
+AUTONOMY_AUDIT_RO FD3B0004=00000007
+AUTONOMY_AUDIT_RO FD3B0018=00000007
+AUTONOMY_AUDIT_RO A0000000=A51A1001
+AUTONOMY_AUDIT_RO A0000004=00000000
+AUTONOMY_AUDIT_RO A4000000=A51A1310
+AUTONOMY_AUDIT_RO A4000004=00000000
+AUTONOMY_AUDIT_RO A8000000=A51A20A1
+AUTONOMY_AUDIT_RO A8000004=00000002
+AUTONOMY_AUDIT_RO A800001C=00000000
+AUTONOMY_BOARD_READONLY_AUDIT_PASS
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 613.047 ; gain = 0.551
+INFO: [Labtools 27-1434] Device xczu15 (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+V022_PHASE1_PROGRAMMED_PASS
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 13 19:42:49 2026...

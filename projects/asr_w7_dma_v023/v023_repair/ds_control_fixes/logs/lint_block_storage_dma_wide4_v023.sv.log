@@ -1,0 +1,43 @@
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_dma_wide4_v023.sv:119:48: Operator SHIFTL expects 32 or 13 bits on the LHS, but LHS's VARREF 'word_index' generates 11 bits.
+                                                                          : ... note: In instance 'block_storage_dma_wide4'
+  119 |  wire [12:0] first_byte=encoding==0?(word_index<<1):encoding==1?word_index:word_index*6;
+      |                                                ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.047
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_dma_wide4_v023.sv:119:64: Operator COND expects 32 or 13 bits on the Conditional True, but Conditional True's VARREF 'word_index' generates 11 bits.
+                                                                          : ... note: In instance 'block_storage_dma_wide4'
+  119 |  wire [12:0] first_byte=encoding==0?(word_index<<1):encoding==1?word_index:word_index*6;
+      |                                                                ^
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_dma_wide4_v023.sv:122:48: Operator SHIFTL expects 32 or 13 bits on the LHS, but LHS's VARREF 'fetch_word' generates 11 bits.
+                                                                          : ... note: In instance 'block_storage_dma_wide4'
+  122 |  wire [12:0] fetch_byte=encoding==0?(fetch_word<<1):encoding==1?fetch_word:fetch_word*6;
+      |                                                ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_dma_wide4_v023.sv:122:64: Operator COND expects 32 or 13 bits on the Conditional True, but Conditional True's VARREF 'fetch_word' generates 11 bits.
+                                                                          : ... note: In instance 'block_storage_dma_wide4'
+  122 |  wire [12:0] fetch_byte=encoding==0?(fetch_word<<1):encoding==1?fetch_word:fetch_word*6;
+      |                                                                ^
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_dma_wide4_v023.sv:179:12: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's SHIFTR generates 32 bits.
+                                                                         : ... note: In instance 'block_storage_dma_wide4'
+  179 |      nbeats<=block_bytes>>4;word_index<=0;bad<=0;dma_received<=0;
+      |            ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.047
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_dma_wide4_v023.sv:224:40: Operator ASSIGNDLY expects 5 bits on the Assign RHS, but Assign RHS's SUB generates 32 or 6 bits.
+                                                                         : ... note: In instance 'block_storage_dma_wide4'
+  224 |       pack<=packed_next>>128;pack_bytes<=packed_bytes-16;
+      |                                        ^~
+%Warning-WIDTHTRUNC: candidate/rtl/block_storage_dma_wide4_v023.sv:225:49: Operator ASSIGNDLY expects 5 bits on the Assign RHS, but Assign RHS's VARREF 'packed_bytes' generates 6 bits.
+                                                                         : ... note: In instance 'block_storage_dma_wide4'
+  225 |      end else begin pack<=packed_next;pack_bytes<=packed_bytes;end
+      |                                                 ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_dma_wide4_v023.sv:293:14: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'r_row' generates 16 bits.
+                                                                          : ... note: In instance 'block_storage_dma_wide4'
+  293 |        (r_row>=v_nrows)||(r_col>=v_ncols);
+      |              ^~
+%Warning-WIDTHEXPAND: candidate/rtl/block_storage_dma_wide4_v023.sv:293:32: Operator GTE expects 32 bits on the LHS, but LHS's VARREF 'r_col' generates 16 bits.
+                                                                          : ... note: In instance 'block_storage_dma_wide4'
+  293 |        (r_row>=v_nrows)||(r_col>=v_ncols);
+      |                                ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.047 devel rev v5.046-102-g1e50fefb8 (mod)
+- Verilator: Built from 0.044 MB sources in 2 modules, into 0.094 MB in 3 C++ files needing 0.000 MB
+- Verilator: Walltime 0.024 s (elab=0.003, cvt=0.014, bld=0.000); cpu 0.023 s on 1 threads; allocated 21.621 MB

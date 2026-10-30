@@ -1,0 +1,46 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Tue Oct 13 18:38:47 2026
+# Process ID         : 42828
+# Current directory  : D:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22
+# Command line       : vivado.exe -mode batch -notrace -source D:\program\python\ASR-ONNX\software4npu\temp\model_a_v0_21_1_board_20261013_001\read_pl.tcl -log reports/preflight_pl001.log -journal reports/preflight_pl001.jou
+# Log file           : D:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22/reports/preflight_pl001.log
+# Journal file       : D:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22\reports/preflight_pl001.jou
+# Running On         : ZYF
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 9 7945HX with Radeon Graphics        
+# CPU Frequency      : 2495 MHz
+# CPU Physical cores : 16
+# CPU Logical cores  : 32
+# Host memory        : 68384 MB
+# Swap memory        : 4294 MB
+# Total Virtual      : 72679 MB
+# Available Virtual  : 30998 MB
+#-----------------------------------------------------------
+INFO: [Common 17-1239] XILINX_LOCAL_USER_DATA is set to 'NO'.
+INFO: [Common 17-748] XILINX_TCLAPP_REPO is set to 'D:/fpga/new2025/vitis/2025.2/Vivado/data/XilinxTclStore'. Refresh XilinxTclStore catalog is disabled when XILINX_TCLAPP_REPO is set.
+source {D:\program\python\ASR-ONNX\software4npu\temp\model_a_v0_21_1_board_20261013_001\read_pl.tcl} -notrace
+open_hw_manager: Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 546.172 ; gain = 222.293
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2025.2.0
+  ****** Build date   : Nov 14 2025-07:16:52
+    **** Build number : 2025.2.1763075812
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Labtools 27-1434] Device xczu15 (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+V211_READONLY_PL_ID_PASS MARKER=0xa51a2070 DONE=1 EOS=1 CRC=0 IDCODE=14750093
+INFO: [Labtoolstcl 44-464] Closing hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 13 18:39:08 2026...

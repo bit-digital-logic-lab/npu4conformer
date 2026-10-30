@@ -1,0 +1,659 @@
+{
+  "version": "V0.22 phase1",
+  "hardware_executed": true,
+  "cpu_numeric_fallback": false,
+  "parameter_load_included_in_case_time": false,
+  "runs": [
+    {
+      "name": "case0000_board001",
+      "elapsed_seconds": 154.82378120000067,
+      "encoder_seconds": 124.19863820000319,
+      "decoder_seconds": 27.681222400002298,
+      "all_matrix_pe_seconds": 0.34704384,
+      "all_matrix_queue_seconds": 3.03537044,
+      "matrix_queue_non_pe_residual_seconds": 2.6883266,
+      "closed_plan": {
+        "closed_plans": 68,
+        "conv_plans": 38,
+        "ffn_plans": 30,
+        "original_operators": 636,
+        "matrix_queues": 98,
+        "matrix_descriptors": 6231,
+        "vector_layout_read_bytes": 452330768,
+        "vector_layout_write_bytes": 355555088,
+        "pl_instructions": 45055,
+        "vector_elements": 82953300,
+        "layout_elements": 16784752,
+        "layout_cache_hits": 11358772,
+        "layout_cache_misses": 3100573,
+        "matrix_queue_cycles": 284175569,
+        "matrix_pe_cycles": 32157312,
+        "vector_cycles": 851939384,
+        "layout_cycles": 419186668,
+        "plan_fetch_cycles": 5250673,
+        "whole_plan_cycles": 1560822594,
+        "ps_wait_ticks": 416237473,
+        "matrix_queue_seconds": 2.273404552,
+        "matrix_pe_seconds": 0.257258496,
+        "vector_seconds": 6.815515072,
+        "layout_seconds": 3.353493344,
+        "plan_fetch_seconds": 0.042005384,
+        "whole_plan_seconds": 12.486580752,
+        "ps_wait_seconds": 12.487249062490624,
+        "numeric_flags": 0,
+        "last_error": 0,
+        "scope": "Closed68 CONV/FFN only. Vector/layout DMA bytes exclude matrix DMA. Queue includes matrix transfer/wait, PE excludes it. Whole plan includes fetch/control: do not add inclusive wall times."
+      },
+      "unfused": {
+        "host_to_ddr_payload_bytes": 19814464,
+        "ddr_to_host_payload_bytes": 34086912,
+        "layout_seconds": 0.07357269985368475,
+        "upload_seconds": 7.138196400090237,
+        "submit_wait_seconds": 0.9811586002033437,
+        "queue_cycles": 95245736,
+        "compute_cycles": 11223168,
+        "dma_read_bytes": 130831424,
+        "dma_write_bytes": 17774592,
+        "dma_read_bursts": 511505,
+        "dma_write_bursts": 69432,
+        "fetch_cycles": 33759,
+        "engine_wait_cycles": 95210791,
+        "retire_wait_cycles": 593,
+        "cpu_mmio_writes": 1773,
+        "alignment_gap_not_uploaded": 113344,
+        "native_matrix_queues": 591,
+        "native_matrix_tasks": 593,
+        "read_seconds": 7.378827399996226
+      },
+      "fused_boundary_input_bytes": 4539392,
+      "fused_boundary_output_bytes": 16508928,
+      "fused_boundary_upload_seconds": 1.951413400020101,
+      "fused_boundary_download_seconds": 6.731671799978358,
+      "fused_board_wait_seconds": 14.035644900010084,
+      "fused_wall_seconds": 22.71974130005401,
+      "vs_v21_hardware": {
+        "encoder_memory": {
+          "pass_golden": true,
+          "actual_shape": [
+            1,
+            31,
+            512
+          ],
+          "expected_shape": [
+            1,
+            31,
+            512
+          ],
+          "actual_dtype": "float32",
+          "expected_dtype": "float32",
+          "shape_match": true,
+          "dtype_match": true,
+          "atol": 0.001,
+          "rtol": 0.001,
+          "all_finite": true,
+          "bit_exact": true,
+          "elements": 15872,
+          "acceptance": "Every element: abs(actual-golden) <= atol + rtol*abs(golden)",
+          "failing_elements": 0,
+          "max_abs_error": 0.0,
+          "rms_error": 0.0,
+          "worst_abs_index": [
+            0,
+            0,
+            0
+          ],
+          "worst_actual": -1.9921627044677734,
+          "worst_expected": -1.9921627044677734,
+          "first_failing_indices": []
+        },
+        "encoder_memory_lengths": {
+          "pass_golden": true,
+          "actual_shape": [
+            1
+          ],
+          "expected_shape": [
+            1
+          ],
+          "actual_dtype": "int64",
+          "expected_dtype": "int64",
+          "shape_match": true,
+          "dtype_match": true,
+          "atol": 0,
+          "rtol": 0,
+          "all_finite": true,
+          "bit_exact": true,
+          "elements": 1,
+          "acceptance": "Exact integer equality, no floating tolerance",
+          "failing_elements": 0
+        },
+        "decoder_log_probs": {
+          "pass_golden": true,
+          "actual_shape": [
+            1,
+            5000
+          ],
+          "expected_shape": [
+            1,
+            5000
+          ],
+          "actual_dtype": "float32",
+          "expected_dtype": "float32",
+          "shape_match": true,
+          "dtype_match": true,
+          "atol": 0.001,
+          "rtol": 0.001,
+          "all_finite": true,
+          "bit_exact": true,
+          "elements": 5000,
+          "acceptance": "Every element: abs(actual-golden) <= atol + rtol*abs(golden)",
+          "failing_elements": 0,
+          "max_abs_error": 0.0,
+          "rms_error": 0.0,
+          "worst_abs_index": [
+            0,
+            0
+          ],
+          "worst_actual": -11.022294998168945,
+          "worst_expected": -11.022294998168945,
+          "first_failing_indices": []
+        }
+      },
+      "vs_7bit_onnx": {
+        "encoder_memory": {
+          "pass_golden": false,
+          "actual_shape": [
+            1,
+            31,
+            512
+          ],
+          "expected_shape": [
+            1,
+            31,
+            512
+          ],
+          "actual_dtype": "float32",
+          "expected_dtype": "float32",
+          "shape_match": true,
+          "dtype_match": true,
+          "atol": 0.001,
+          "rtol": 0.001,
+          "all_finite": true,
+          "bit_exact": false,
+          "elements": 15872,
+          "acceptance": "Every element: abs(actual-golden) <= atol + rtol*abs(golden)",
+          "failing_elements": 2278,
+          "max_abs_error": 0.004179753363132477,
+          "rms_error": 0.0008112641751153727,
+          "worst_abs_index": [
+            0,
+            9,
+            10
+          ],
+          "worst_actual": -0.09919944405555725,
+          "worst_expected": -0.09501969069242477,
+          "first_failing_indices": [
+            [
+              0,
+              2,
+              2
+            ],
+            [
+              0,
+              2,
+              21
+            ],
+            [
+              0,
+              2,
+              26
+            ],
+            [
+              0,
+              2,
+              33
+            ],
+            [
+              0,
+              2,
+              40
+            ],
+            [
+              0,
+              2,
+              46
+            ],
+            [
+              0,
+              2,
+              60
+            ],
+            [
+              0,
+              2,
+              67
+            ]
+          ]
+        },
+        "encoder_memory_lengths": {
+          "pass_golden": true,
+          "actual_shape": [
+            1
+          ],
+          "expected_shape": [
+            1
+          ],
+          "actual_dtype": "int64",
+          "expected_dtype": "int64",
+          "shape_match": true,
+          "dtype_match": true,
+          "atol": 0,
+          "rtol": 0,
+          "all_finite": true,
+          "bit_exact": true,
+          "elements": 1,
+          "acceptance": "Exact integer equality, no floating tolerance",
+          "failing_elements": 0
+        },
+        "decoder_log_probs": {
+          "pass_golden": true,
+          "actual_shape": [
+            1,
+            5000
+          ],
+          "expected_shape": [
+            1,
+            5000
+          ],
+          "actual_dtype": "float32",
+          "expected_dtype": "float32",
+          "shape_match": true,
+          "dtype_match": true,
+          "atol": 0.001,
+          "rtol": 0.001,
+          "all_finite": true,
+          "bit_exact": false,
+          "elements": 5000,
+          "acceptance": "Every element: abs(actual-golden) <= atol + rtol*abs(golden)",
+          "failing_elements": 0,
+          "max_abs_error": 0.006225109100341797,
+          "rms_error": 0.0010071654647761197,
+          "worst_abs_index": [
+            0,
+            14
+          ],
+          "worst_actual": -7.448831558227539,
+          "worst_expected": -7.455056667327881,
+          "first_failing_indices": []
+        }
+      },
+      "ethernet": {
+        "transport": "udp-v4",
+        "session": 403614496,
+        "next_sequence": 361389,
+        "active": true,
+        "poisoned": false,
+        "closed": false,
+        "close_confirmed": false,
+        "one_outstanding_batch": true,
+        "batches": 361388,
+        "max_batch_commands": 2,
+        "datagrams_sent": 361389,
+        "datagrams_received": 361389,
+        "retransmissions": 0,
+        "discarded_datagrams": 0,
+        "bytes_sent": 212179088,
+        "bytes_received": 223927779,
+        "exchange_wall_seconds": 119.09197710370063,
+        "exchange_timing_scope": "includes board execution, protocol and network waits; NOT pure network time",
+        "sram_write_cache": {
+          "policy": "skip identical fully-known upload chunks only; never cached numerical execution/read",
+          "requested_words": 48568490,
+          "skipped_words": 4347462,
+          "skipped_upload_bytes": 17389848,
+          "skipped_batches": 13243,
+          "known_words": 5000
+        }
+      },
+      "parameter_generation": 1,
+      "parameter_upload_bytes": 0
+    },
+    {
+      "name": "case0000_board002",
+      "elapsed_seconds": 152.72657679999247,
+      "encoder_seconds": 122.57101689999399,
+      "decoder_seconds": 27.178191400002106,
+      "all_matrix_pe_seconds": 0.34704384,
+      "all_matrix_queue_seconds": 3.035375504,
+      "matrix_queue_non_pe_residual_seconds": 2.688331664,
+      "closed_plan": {
+        "closed_plans": 68,
+        "conv_plans": 38,
+        "ffn_plans": 30,
+        "original_operators": 636,
+        "matrix_queues": 98,
+        "matrix_descriptors": 6231,
+        "vector_layout_read_bytes": 452330768,
+        "vector_layout_write_bytes": 355555088,
+        "pl_instructions": 45055,
+        "vector_elements": 82953300,
+        "layout_elements": 16784752,
+        "layout_cache_hits": 11358772,
+        "layout_cache_misses": 3100573,
+        "matrix_queue_cycles": 284176909,
+        "matrix_pe_cycles": 32157312,
+        "vector_cycles": 851941340,
+        "layout_cycles": 419199705,
+        "plan_fetch_cycles": 5249085,
+        "whole_plan_cycles": 1560837339,
+        "ps_wait_ticks": 416241288,
+        "matrix_queue_seconds": 2.273415272,
+        "matrix_pe_seconds": 0.257258496,
+        "vector_seconds": 6.81553072,
+        "layout_seconds": 3.35359764,
+        "plan_fetch_seconds": 0.04199268,
+        "whole_plan_seconds": 12.486698712,
+        "ps_wait_seconds": 12.487363513635136,
+        "numeric_flags": 0,
+        "last_error": 0,
+        "scope": "Closed68 CONV/FFN only. Vector/layout DMA bytes exclude matrix DMA. Queue includes matrix transfer/wait, PE excludes it. Whole plan includes fetch/control: do not add inclusive wall times."
+      },
+      "unfused": {
+        "host_to_ddr_payload_bytes": 19814464,
+        "ddr_to_host_payload_bytes": 34086912,
+        "layout_seconds": 0.07564110006205738,
+        "upload_seconds": 7.06920659984462,
+        "submit_wait_seconds": 0.9710008997644763,
+        "queue_cycles": 95245029,
+        "compute_cycles": 11223168,
+        "dma_read_bytes": 130831424,
+        "dma_write_bytes": 17774592,
+        "dma_read_bursts": 511505,
+        "dma_write_bursts": 69432,
+        "fetch_cycles": 33851,
+        "engine_wait_cycles": 95209992,
+        "retire_wait_cycles": 593,
+        "cpu_mmio_writes": 1773,
+        "alignment_gap_not_uploaded": 113344,
+        "native_matrix_queues": 591,
+        "native_matrix_tasks": 593,
+        "read_seconds": 7.336686399939936
+      },
+      "fused_boundary_input_bytes": 4539392,
+      "fused_boundary_output_bytes": 16508928,
+      "fused_boundary_upload_seconds": 1.9553766000462929,
+      "fused_boundary_download_seconds": 6.72448429997894,
+      "fused_board_wait_seconds": 14.02605620000395,
+      "fused_wall_seconds": 22.70688699997845,
+      "vs_v21_hardware": {
+        "encoder_memory": {
+          "pass_golden": true,
+          "actual_shape": [
+            1,
+            31,
+            512
+          ],
+          "expected_shape": [
+            1,
+            31,
+            512
+          ],
+          "actual_dtype": "float32",
+          "expected_dtype": "float32",
+          "shape_match": true,
+          "dtype_match": true,
+          "atol": 0.001,
+          "rtol": 0.001,
+          "all_finite": true,
+          "bit_exact": true,
+          "elements": 15872,
+          "acceptance": "Every element: abs(actual-golden) <= atol + rtol*abs(golden)",
+          "failing_elements": 0,
+          "max_abs_error": 0.0,
+          "rms_error": 0.0,
+          "worst_abs_index": [
+            0,
+            0,
+            0
+          ],
+          "worst_actual": -1.9921627044677734,
+          "worst_expected": -1.9921627044677734,
+          "first_failing_indices": []
+        },
+        "encoder_memory_lengths": {
+          "pass_golden": true,
+          "actual_shape": [
+            1
+          ],
+          "expected_shape": [
+            1
+          ],
+          "actual_dtype": "int64",
+          "expected_dtype": "int64",
+          "shape_match": true,
+          "dtype_match": true,
+          "atol": 0,
+          "rtol": 0,
+          "all_finite": true,
+          "bit_exact": true,
+          "elements": 1,
+          "acceptance": "Exact integer equality, no floating tolerance",
+          "failing_elements": 0
+        },
+        "decoder_log_probs": {
+          "pass_golden": true,
+          "actual_shape": [
+            1,
+            5000
+          ],
+          "expected_shape": [
+            1,
+            5000
+          ],
+          "actual_dtype": "float32",
+          "expected_dtype": "float32",
+          "shape_match": true,
+          "dtype_match": true,
+          "atol": 0.001,
+          "rtol": 0.001,
+          "all_finite": true,
+          "bit_exact": true,
+          "elements": 5000,
+          "acceptance": "Every element: abs(actual-golden) <= atol + rtol*abs(golden)",
+          "failing_elements": 0,
+          "max_abs_error": 0.0,
+          "rms_error": 0.0,
+          "worst_abs_index": [
+            0,
+            0
+          ],
+          "worst_actual": -11.022294998168945,
+          "worst_expected": -11.022294998168945,
+          "first_failing_indices": []
+        }
+      },
+      "vs_7bit_onnx": {
+        "encoder_memory": {
+          "pass_golden": false,
+          "actual_shape": [
+            1,
+            31,
+            512
+          ],
+          "expected_shape": [
+            1,
+            31,
+            512
+          ],
+          "actual_dtype": "float32",
+          "expected_dtype": "float32",
+          "shape_match": true,
+          "dtype_match": true,
+          "atol": 0.001,
+          "rtol": 0.001,
+          "all_finite": true,
+          "bit_exact": false,
+          "elements": 15872,
+          "acceptance": "Every element: abs(actual-golden) <= atol + rtol*abs(golden)",
+          "failing_elements": 2278,
+          "max_abs_error": 0.004179753363132477,
+          "rms_error": 0.0008112641751153727,
+          "worst_abs_index": [
+            0,
+            9,
+            10
+          ],
+          "worst_actual": -0.09919944405555725,
+          "worst_expected": -0.09501969069242477,
+          "first_failing_indices": [
+            [
+              0,
+              2,
+              2
+            ],
+            [
+              0,
+              2,
+              21
+            ],
+            [
+              0,
+              2,
+              26
+            ],
+            [
+              0,
+              2,
+              33
+            ],
+            [
+              0,
+              2,
+              40
+            ],
+            [
+              0,
+              2,
+              46
+            ],
+            [
+              0,
+              2,
+              60
+            ],
+            [
+              0,
+              2,
+              67
+            ]
+          ]
+        },
+        "encoder_memory_lengths": {
+          "pass_golden": true,
+          "actual_shape": [
+            1
+          ],
+          "expected_shape": [
+            1
+          ],
+          "actual_dtype": "int64",
+          "expected_dtype": "int64",
+          "shape_match": true,
+          "dtype_match": true,
+          "atol": 0,
+          "rtol": 0,
+          "all_finite": true,
+          "bit_exact": true,
+          "elements": 1,
+          "acceptance": "Exact integer equality, no floating tolerance",
+          "failing_elements": 0
+        },
+        "decoder_log_probs": {
+          "pass_golden": true,
+          "actual_shape": [
+            1,
+            5000
+          ],
+          "expected_shape": [
+            1,
+            5000
+          ],
+          "actual_dtype": "float32",
+          "expected_dtype": "float32",
+          "shape_match": true,
+          "dtype_match": true,
+          "atol": 0.001,
+          "rtol": 0.001,
+          "all_finite": true,
+          "bit_exact": false,
+          "elements": 5000,
+          "acceptance": "Every element: abs(actual-golden) <= atol + rtol*abs(golden)",
+          "failing_elements": 0,
+          "max_abs_error": 0.006225109100341797,
+          "rms_error": 0.0010071654647761197,
+          "worst_abs_index": [
+            0,
+            14
+          ],
+          "worst_actual": -7.448831558227539,
+          "worst_expected": -7.455056667327881,
+          "first_failing_indices": []
+        }
+      },
+      "ethernet": {
+        "transport": "udp-v4",
+        "session": 3556783201,
+        "next_sequence": 361389,
+        "active": true,
+        "poisoned": false,
+        "closed": false,
+        "close_confirmed": false,
+        "one_outstanding_batch": true,
+        "batches": 361388,
+        "max_batch_commands": 2,
+        "datagrams_sent": 361389,
+        "datagrams_received": 361389,
+        "retransmissions": 0,
+        "discarded_datagrams": 0,
+        "bytes_sent": 212179088,
+        "bytes_received": 223927779,
+        "exchange_wall_seconds": 117.7948868030362,
+        "exchange_timing_scope": "includes board execution, protocol and network waits; NOT pure network time",
+        "sram_write_cache": {
+          "policy": "skip identical fully-known upload chunks only; never cached numerical execution/read",
+          "requested_words": 48568490,
+          "skipped_words": 4347462,
+          "skipped_upload_bytes": 17389848,
+          "skipped_batches": 13243,
+          "known_words": 5000
+        }
+      },
+      "parameter_generation": 1,
+      "parameter_upload_bytes": 0
+    }
+  ],
+  "repeat_bit_exact": true,
+  "vs_v211": {
+    "previous_mean_seconds": 395.4782303000029,
+    "new_mean_seconds": 153.77517899999657,
+    "speed_ratio": 2.5717949598355645,
+    "wall_reduction_percent": 61.11665138095075
+  },
+  "vs_v21": {
+    "previous_seconds": 362.36489349999465,
+    "new_mean_seconds": 153.77517899999657,
+    "speed_ratio": 2.356458928264377,
+    "wall_reduction_percent": 57.563444539364895
+  },
+  "scope": "CASE0000 128features/16suppliedprefix tokens.68closedCONV/FFN PL plans/DDR intermediate arithmetic/layout. OuterDAG stillhost, nofreefirsttoken/CTC/WER. Phase1 integerPE storage stillserial, not yet A/Wprefetch/postedCwriteback.",
+  "encoding": "W7p8: bit7 even parity, bit6 sign S, bits5:4 table index J, bits3:0 mantissa M; W=(-1)^S*min(M<<P[J],32767). P[J] is position of mantissa LSB, not MSB. A16/C48; dynamic INT16 exact4nibble.",
+  "data_paths": [
+    "ClosedCONV/FFN: DRAM plan -> PL layout/im2col -> matrixHP0 -> C48DDR -> PL FP32/FMA/QDQ dualDMA -> intermediateDDR. PS only planstart/completion/error, no perinternalmatrix queries or payload copying.",
+    "Vector operands/output use ping-pong with separate read/writeDMA. Layout readcache64lines andbyte-maskedwritecombining. Depthwise epilogue only validM elements, avoids padded1024 floatconversion pergroup.",
+    "Outside closedplans: originalhostDAG/boundaryUDP and legacySRAM nonmatrix path remain. IntegerA/W/C DMA is stillserial."
+  ],
+  "timing_scope": "Queue includes PE, DMA, stalls andcontrol; queue-minus-PE is a residual, NOT isolated pureDMA. Vector/layout cycles include DDR/operator overhead. Wholeplan andhostnetwork/fusedwait include other intervals: do not add them as disjoint times.",
+  "evidence_sha256": {
+    "reports\\case0000_board001\\result.json": "44a76dfab40d0f30c38f4f6c938f5e815b9b8199890f62bf696cf4a9eff05808",
+    "reports\\case0000_board002\\result.json": "5cdcc093966adcc060f42db4fb83f2674015597ffcaf5ec4151cdad843289cc3"
+  }
+}

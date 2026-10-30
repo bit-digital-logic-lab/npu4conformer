@@ -1,0 +1,542 @@
+[
+  {
+    "DDR_GB_s": 2.0,
+    "compute_MHz": 150,
+    "tile": [
+      16,
+      16,
+      32
+    ],
+    "A_bytes": 1024,
+    "W_bytes": 512,
+    "C_write_bytes": 1536,
+    "MAC_per_byte": 2.6666666666666665,
+    "bandwidth_supported_PE_equivalent": 35.55555555555555,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 2.0,
+    "compute_MHz": 150,
+    "tile": [
+      32,
+      32,
+      32
+    ],
+    "A_bytes": 2048,
+    "W_bytes": 1024,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 3.5555555555555554,
+    "bandwidth_supported_PE_equivalent": 47.407407407407405,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 2.0,
+    "compute_MHz": 150,
+    "tile": [
+      32,
+      32,
+      256
+    ],
+    "A_bytes": 16384,
+    "W_bytes": 8192,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 8.533333333333333,
+    "bandwidth_supported_PE_equivalent": 113.77777777777777,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 2.0,
+    "compute_MHz": 150,
+    "tile": [
+      64,
+      128,
+      256
+    ],
+    "A_bytes": 32768,
+    "W_bytes": 32768,
+    "C_write_bytes": 49152,
+    "MAC_per_byte": 18.285714285714285,
+    "bandwidth_supported_PE_equivalent": 243.80952380952377,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 2.0,
+    "compute_MHz": 300,
+    "tile": [
+      16,
+      16,
+      32
+    ],
+    "A_bytes": 1024,
+    "W_bytes": 512,
+    "C_write_bytes": 1536,
+    "MAC_per_byte": 2.6666666666666665,
+    "bandwidth_supported_PE_equivalent": 17.777777777777775,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 2.0,
+    "compute_MHz": 300,
+    "tile": [
+      32,
+      32,
+      32
+    ],
+    "A_bytes": 2048,
+    "W_bytes": 1024,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 3.5555555555555554,
+    "bandwidth_supported_PE_equivalent": 23.703703703703702,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 2.0,
+    "compute_MHz": 300,
+    "tile": [
+      32,
+      32,
+      256
+    ],
+    "A_bytes": 16384,
+    "W_bytes": 8192,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 8.533333333333333,
+    "bandwidth_supported_PE_equivalent": 56.888888888888886,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 2.0,
+    "compute_MHz": 300,
+    "tile": [
+      64,
+      128,
+      256
+    ],
+    "A_bytes": 32768,
+    "W_bytes": 32768,
+    "C_write_bytes": 49152,
+    "MAC_per_byte": 18.285714285714285,
+    "bandwidth_supported_PE_equivalent": 121.90476190476188,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 2.0,
+    "compute_MHz": 600,
+    "tile": [
+      16,
+      16,
+      32
+    ],
+    "A_bytes": 1024,
+    "W_bytes": 512,
+    "C_write_bytes": 1536,
+    "MAC_per_byte": 2.6666666666666665,
+    "bandwidth_supported_PE_equivalent": 8.888888888888888,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 2.0,
+    "compute_MHz": 600,
+    "tile": [
+      32,
+      32,
+      32
+    ],
+    "A_bytes": 2048,
+    "W_bytes": 1024,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 3.5555555555555554,
+    "bandwidth_supported_PE_equivalent": 11.851851851851851,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 2.0,
+    "compute_MHz": 600,
+    "tile": [
+      32,
+      32,
+      256
+    ],
+    "A_bytes": 16384,
+    "W_bytes": 8192,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 8.533333333333333,
+    "bandwidth_supported_PE_equivalent": 28.444444444444443,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 2.0,
+    "compute_MHz": 600,
+    "tile": [
+      64,
+      128,
+      256
+    ],
+    "A_bytes": 32768,
+    "W_bytes": 32768,
+    "C_write_bytes": 49152,
+    "MAC_per_byte": 18.285714285714285,
+    "bandwidth_supported_PE_equivalent": 60.95238095238094,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.0,
+    "compute_MHz": 150,
+    "tile": [
+      16,
+      16,
+      32
+    ],
+    "A_bytes": 1024,
+    "W_bytes": 512,
+    "C_write_bytes": 1536,
+    "MAC_per_byte": 2.6666666666666665,
+    "bandwidth_supported_PE_equivalent": 71.1111111111111,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.0,
+    "compute_MHz": 150,
+    "tile": [
+      32,
+      32,
+      32
+    ],
+    "A_bytes": 2048,
+    "W_bytes": 1024,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 3.5555555555555554,
+    "bandwidth_supported_PE_equivalent": 94.81481481481481,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.0,
+    "compute_MHz": 150,
+    "tile": [
+      32,
+      32,
+      256
+    ],
+    "A_bytes": 16384,
+    "W_bytes": 8192,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 8.533333333333333,
+    "bandwidth_supported_PE_equivalent": 227.55555555555554,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.0,
+    "compute_MHz": 150,
+    "tile": [
+      64,
+      128,
+      256
+    ],
+    "A_bytes": 32768,
+    "W_bytes": 32768,
+    "C_write_bytes": 49152,
+    "MAC_per_byte": 18.285714285714285,
+    "bandwidth_supported_PE_equivalent": 487.61904761904754,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.0,
+    "compute_MHz": 300,
+    "tile": [
+      16,
+      16,
+      32
+    ],
+    "A_bytes": 1024,
+    "W_bytes": 512,
+    "C_write_bytes": 1536,
+    "MAC_per_byte": 2.6666666666666665,
+    "bandwidth_supported_PE_equivalent": 35.55555555555555,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.0,
+    "compute_MHz": 300,
+    "tile": [
+      32,
+      32,
+      32
+    ],
+    "A_bytes": 2048,
+    "W_bytes": 1024,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 3.5555555555555554,
+    "bandwidth_supported_PE_equivalent": 47.407407407407405,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.0,
+    "compute_MHz": 300,
+    "tile": [
+      32,
+      32,
+      256
+    ],
+    "A_bytes": 16384,
+    "W_bytes": 8192,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 8.533333333333333,
+    "bandwidth_supported_PE_equivalent": 113.77777777777777,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.0,
+    "compute_MHz": 300,
+    "tile": [
+      64,
+      128,
+      256
+    ],
+    "A_bytes": 32768,
+    "W_bytes": 32768,
+    "C_write_bytes": 49152,
+    "MAC_per_byte": 18.285714285714285,
+    "bandwidth_supported_PE_equivalent": 243.80952380952377,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.0,
+    "compute_MHz": 600,
+    "tile": [
+      16,
+      16,
+      32
+    ],
+    "A_bytes": 1024,
+    "W_bytes": 512,
+    "C_write_bytes": 1536,
+    "MAC_per_byte": 2.6666666666666665,
+    "bandwidth_supported_PE_equivalent": 17.777777777777775,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.0,
+    "compute_MHz": 600,
+    "tile": [
+      32,
+      32,
+      32
+    ],
+    "A_bytes": 2048,
+    "W_bytes": 1024,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 3.5555555555555554,
+    "bandwidth_supported_PE_equivalent": 23.703703703703702,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.0,
+    "compute_MHz": 600,
+    "tile": [
+      32,
+      32,
+      256
+    ],
+    "A_bytes": 16384,
+    "W_bytes": 8192,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 8.533333333333333,
+    "bandwidth_supported_PE_equivalent": 56.888888888888886,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.0,
+    "compute_MHz": 600,
+    "tile": [
+      64,
+      128,
+      256
+    ],
+    "A_bytes": 32768,
+    "W_bytes": 32768,
+    "C_write_bytes": 49152,
+    "MAC_per_byte": 18.285714285714285,
+    "bandwidth_supported_PE_equivalent": 121.90476190476188,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.8,
+    "compute_MHz": 150,
+    "tile": [
+      16,
+      16,
+      32
+    ],
+    "A_bytes": 1024,
+    "W_bytes": 512,
+    "C_write_bytes": 1536,
+    "MAC_per_byte": 2.6666666666666665,
+    "bandwidth_supported_PE_equivalent": 85.33333333333333,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.8,
+    "compute_MHz": 150,
+    "tile": [
+      32,
+      32,
+      32
+    ],
+    "A_bytes": 2048,
+    "W_bytes": 1024,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 3.5555555555555554,
+    "bandwidth_supported_PE_equivalent": 113.77777777777777,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.8,
+    "compute_MHz": 150,
+    "tile": [
+      32,
+      32,
+      256
+    ],
+    "A_bytes": 16384,
+    "W_bytes": 8192,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 8.533333333333333,
+    "bandwidth_supported_PE_equivalent": 273.06666666666666,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.8,
+    "compute_MHz": 150,
+    "tile": [
+      64,
+      128,
+      256
+    ],
+    "A_bytes": 32768,
+    "W_bytes": 32768,
+    "C_write_bytes": 49152,
+    "MAC_per_byte": 18.285714285714285,
+    "bandwidth_supported_PE_equivalent": 585.1428571428571,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.8,
+    "compute_MHz": 300,
+    "tile": [
+      16,
+      16,
+      32
+    ],
+    "A_bytes": 1024,
+    "W_bytes": 512,
+    "C_write_bytes": 1536,
+    "MAC_per_byte": 2.6666666666666665,
+    "bandwidth_supported_PE_equivalent": 42.666666666666664,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.8,
+    "compute_MHz": 300,
+    "tile": [
+      32,
+      32,
+      32
+    ],
+    "A_bytes": 2048,
+    "W_bytes": 1024,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 3.5555555555555554,
+    "bandwidth_supported_PE_equivalent": 56.888888888888886,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.8,
+    "compute_MHz": 300,
+    "tile": [
+      32,
+      32,
+      256
+    ],
+    "A_bytes": 16384,
+    "W_bytes": 8192,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 8.533333333333333,
+    "bandwidth_supported_PE_equivalent": 136.53333333333333,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.8,
+    "compute_MHz": 300,
+    "tile": [
+      64,
+      128,
+      256
+    ],
+    "A_bytes": 32768,
+    "W_bytes": 32768,
+    "C_write_bytes": 49152,
+    "MAC_per_byte": 18.285714285714285,
+    "bandwidth_supported_PE_equivalent": 292.57142857142856,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.8,
+    "compute_MHz": 600,
+    "tile": [
+      16,
+      16,
+      32
+    ],
+    "A_bytes": 1024,
+    "W_bytes": 512,
+    "C_write_bytes": 1536,
+    "MAC_per_byte": 2.6666666666666665,
+    "bandwidth_supported_PE_equivalent": 21.333333333333332,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.8,
+    "compute_MHz": 600,
+    "tile": [
+      32,
+      32,
+      32
+    ],
+    "A_bytes": 2048,
+    "W_bytes": 1024,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 3.5555555555555554,
+    "bandwidth_supported_PE_equivalent": 28.444444444444443,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.8,
+    "compute_MHz": 600,
+    "tile": [
+      32,
+      32,
+      256
+    ],
+    "A_bytes": 16384,
+    "W_bytes": 8192,
+    "C_write_bytes": 6144,
+    "MAC_per_byte": 8.533333333333333,
+    "bandwidth_supported_PE_equivalent": 68.26666666666667,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  },
+  {
+    "DDR_GB_s": 4.8,
+    "compute_MHz": 600,
+    "tile": [
+      64,
+      128,
+      256
+    ],
+    "A_bytes": 32768,
+    "W_bytes": 32768,
+    "C_write_bytes": 49152,
+    "MAC_per_byte": 18.285714285714285,
+    "bandwidth_supported_PE_equivalent": 146.28571428571428,
+    "assumptions": "full tile A/W reuse, C retained across full K then one write; no C read, layout/QDQ/padding/protocol overhead; upper bound not guaranteed architecture"
+  }
+]

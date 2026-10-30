@@ -1,0 +1,2119 @@
+{
+  "task": "ds_numeric_adversarial",
+  "date": "2026-10-29",
+  "scope": "Independent numeric acceptance audit. Logic simulation only (Icarus Verilog 14 + Python exact arithmetic + C libc cross-check). No synthesis, no Vivado, no board, no VNC, no push. No module under test was modified.",
+  "overall_pass": false,
+  "verdict": "NOT ACCEPTED. i48->f32 and f32->i16 pass the independent vectors; the repaired FMA still fails RNE tie-to-even and extreme exponent alignment; the repaired approx core still has factor-2 boundary errors and an RSQRT(-0) sign error; the epilogue stream engine corrupts A16 tags, duplicates A16 handshakes under 128-bit backpressure, ignores the parameter preload port, and allows a configuration change to hit an in-flight beat.",
+  "source_sha256": {
+    "old": {
+      "epilogue_i48_to_f32.sv": "637a7b327d35760bc5d741128d04f77bcddde87cc40886dcf24aff09cebd29bf",
+      "epilogue_fma_stage.sv": "eacf04eb3c5078b908c71533a9cdf318986f228dbc68e0ac01879bfb36faa032",
+      "epilogue_f32_to_i16.sv": "c51d3327a7fcfbe7e584f1efa275413644147669c9d216ea7f5fbf31b864af6b",
+      "epilogue_relu.sv": "0e008b394489fcdd2f453aeebee5288f1b812d715c5e8840d47f19bcb3142c4d",
+      "epilogue_lane.sv": "d00b4d57776a605cbed790d19e9a7be7bb4b0f1751d4f6b617a9ca35489435f7",
+      "epilogue_stream_engine_v023.sv": "b99a664bc3e49bed21acf79c22281506e85ce347777ad578bfbe2c2a78984bce",
+      "approx_div_sqrt.sv": "e360e7e455261ead4ee32ecacc93bed77f4de09458d3d689ae3eb3e948495ec1",
+      "approx_recip_lut.sv": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+      "approx_rsqrt_lut.sv": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153"
+    },
+    "fma_repair": {
+      "epilogue_i48_to_f32.sv": "637a7b327d35760bc5d741128d04f77bcddde87cc40886dcf24aff09cebd29bf",
+      "epilogue_fma_stage.sv": "5d52cbc54e1f61029a9c24544ae573ab345ffc8335bb57964dbfbbe8b62183bd",
+      "fp32_fma_pipe.sv": "3263c02d63a886f9a8701d19f8c07e3a1b66670ad737206b24846194736cb23f",
+      "asr_fma_ip.sv": "634eea1a15d1f8dbc7a2f8bae8eebd2b0e892da5978ed974ccb7645ff9b10599",
+      "epilogue_f32_to_i16.sv": "c51d3327a7fcfbe7e584f1efa275413644147669c9d216ea7f5fbf31b864af6b",
+      "epilogue_relu.sv": "0e008b394489fcdd2f453aeebee5288f1b812d715c5e8840d47f19bcb3142c4d",
+      "epilogue_lane.sv": "d00b4d57776a605cbed790d19e9a7be7bb4b0f1751d4f6b617a9ca35489435f7",
+      "epilogue_stream_engine_v023.sv": "b99a664bc3e49bed21acf79c22281506e85ce347777ad578bfbe2c2a78984bce"
+    },
+    "approx_repair": {
+      "approx_div_sqrt.sv": "298a1fb5772c6a156c118b983521e2366ee3d6c361cb85a7395c2f64e7e0c343",
+      "approx_recip_lut.sv": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+      "approx_rsqrt_lut.sv": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153"
+    },
+    "tests": {
+      "ref/c_ref.c": "ca29e37782e79ccd9d1b12deaf879fae2afbd49ac85c7a276cb8116e43dd6931",
+      "ref/real_model_scales.json": "546fbc3130885e6603c9471ab5f73f78b5e5cc413575b581d3c40b764ddd7056",
+      "ref/refmodel.py": "38eb7ed944f05d6ac45ff68b69fbaa4b0b5b895f0eef46fa33e138395ceb64e2",
+      "tb/tb_approx.sv": "3452f00b2fc112730d9b832dfacf2905f8e16731ab4a5056ab4b6d70d4dbb7aa",
+      "tb/tb_approx_flush.sv": "fee20bb56e0c581c3c73067c9120e1b1d4d8172f42d23e484f0ba9817cbf892a",
+      "tb/tb_asr_fma_ip.sv": "43761a64c4edf87a08604fa41d3ae54abf9c97bc062379b4db346149fa0d631f",
+      "tb/tb_f32_to_i16.sv": "35b33d07973202f2c864d818d55bf0f6f9281a9e71c5be9c018b3cc00ba3961f",
+      "tb/tb_flush.sv": "8be4161c687c20c98683c090f36a9a4a07db7a355716b92243ae3559839f4c80",
+      "tb/tb_fma.sv": "4d44ca1db240f7e40a48689b38626aedcb099735f0bdab809a60da78ce18b8e9",
+      "tb/tb_i48_to_f32.sv": "f0a4c68b9f9e1accbba9dd729d89430590ea098891baef681fe37c145857d80f",
+      "tb/tb_stream.sv": "da92157f6c5a6b3c3cdba0ab61d0e0981470dce7ba7e8f455bb241dc5fb1700c",
+      "scripts/audit_model.py": "6bb62c11dd490a76ae4d2e24b9c0a90a58bc38e8259d244300d8bb0429ee6423",
+      "scripts/consolidate.py": "b916d26c669e3921bbd8fefe674a9e0c59549358b9f1b82bba1648f1f0cbdcc5",
+      "scripts/crosscheck_c.py": "a73144fd65a92a20274e5909fd73573761b7912334d8562573f88e4e05ede698",
+      "scripts/gen_vectors.py": "4b4629b4b57b04cee989eaed013cf239d499c78e1cd4ed34cfccd3449e5d2c46",
+      "scripts/run_suite.py": "5bb1d64efaba019b0f6a4064122c3806fdfc064e1772a3eed09e8da93e8fc7e7"
+    }
+  },
+  "reference_independence": {
+    "method": "Python Fractions/integers implement RNE from first principles; no gemini golden model is imported.",
+    "c_crosscheck": {
+      "i48": {
+        "vectors": 37166,
+        "mismatches": 0
+      },
+      "f32_i16": {
+        "vectors": 464154,
+        "mismatches": 0
+      },
+      "fma_normal_finite_nonzero": {
+        "vectors": 7272,
+        "mismatches": 0
+      },
+      "pass": true
+    },
+    "note": "C fmaf/lrintf/cast are an independent implementation. The FMA crosscheck is restricted to normal-input finite non-zero results because the DUT and the contract differ on FTZ/special signed-zero conventions."
+  },
+  "model_audit": {
+    "claims": {
+      "model_family": "KWT-1 keyword transformer (64 features, 99 keywords)",
+      "layernorm_features": 64,
+      "layernorm_var_range": [
+        1e-06,
+        100.0
+      ],
+      "epsilon": 1e-06,
+      "softmax_row_length": 99
+    },
+    "observed": {
+      "model_family": "Conformer/Transformer ASR encoder-decoder (ONNX names: encoder.encoders.N, decoder.decoders.N, conv_module, norm_mha/norm_conv/norm_ff/norm_ff_macaron)",
+      "encoder_layers": 12,
+      "decoder_layers": 6,
+      "d_model": 512,
+      "layernorm_instances": 79,
+      "layernorm_output_scale_stats": {
+        "n": 79,
+        "min": 1.3564567780122161e-05,
+        "max": 0.0037580581847578287,
+        "median": 0.00011022004036931321,
+        "mean": 0.0006083733740156219
+      },
+      "layernorm_output_zero_point_stats": {
+        "n": 79,
+        "min": 0,
+        "max": 0,
+        "median": 0,
+        "mean": 0.0
+      },
+      "layernorm_gamma_stats": {
+        "n": 40960,
+        "min": -0.547856867313385,
+        "max": 12.318202018737793,
+        "median": 0.3502390682697296,
+        "mean": 1.0039388265510745
+      },
+      "layernorm_beta_stats": {
+        "n": 39936,
+        "min": -14.784724235534668,
+        "max": 8.1659574508667,
+        "median": 0.0018216398311778903,
+        "mean": 0.005705267608905699
+      },
+      "layernorm_gamma_nonunit_fraction": 1.0,
+      "layernorm_beta_nonzero_fraction": 0.9995743189102564,
+      "softmax_count_encoder": 12,
+      "softmax_count_decoder": 12,
+      "logsoftmax_count_decoder": 1,
+      "div_count_encoder": 25,
+      "div_count_decoder": 12,
+      "layernorm_count_encoder": 61,
+      "layernorm_count_decoder": 19,
+      "softmax_output_scale_stats": {
+        "n": 6,
+        "min": 1.5661078577977605e-05,
+        "max": 3.045370067411568e-05,
+        "median": 3.0421564588323236e-05,
+        "mean": 2.7938247815958068e-05
+      },
+      "case0000_frames": 128,
+      "case0000_supplied_tokens": 16
+    },
+    "verdict": {
+      "model_family": "REFUTED: the project image is a Conformer/Transformer ASR, not KWT-1",
+      "layernorm_features": "REFUTED: 512, not 64",
+      "layernorm_var_range": "UNVERIFIED for this model: no ONNX/calibration data in the read-only tree; the [1e-6,1e2] range is a KWT/old-competition assumption",
+      "epsilon": "UNVERIFIED for this model: epsilon is not present in the parameter image",
+      "softmax_row_length": "REFUTED as a model-wide claim: 24 Softmax ops over time-frame axes; case0000 has 128 frames/16 supplied tokens, not 99 keywords"
+    }
+  },
+  "tests": {
+    "old_baseline": {
+      "i48": {
+        "pass": true,
+        "rc": 0,
+        "vectors": 37166,
+        "mismatches": 0,
+        "last_errors": 0,
+        "stability_errors": 0,
+        "tag_errors": 0
+      },
+      "fma": {
+        "pass": false,
+        "rc": 0,
+        "vectors": 8734,
+        "mismatches": 4271,
+        "last_errors": 0,
+        "stability_errors": 0,
+        "tag_errors": 0,
+        "by_mode": {
+          "0": {
+            "mismatch": 0,
+            "total": 1000
+          },
+          "1": {
+            "mismatch": 3772,
+            "total": 6734
+          },
+          "2": {
+            "mismatch": 499,
+            "total": 1000
+          }
+        },
+        "by_class": {
+          "inf": {
+            "mismatch": 54,
+            "total": 106
+          },
+          "nan": {
+            "mismatch": 111,
+            "total": 140
+          },
+          "normal": {
+            "mismatch": 4067,
+            "total": 8311
+          },
+          "subnormal": {
+            "mismatch": 39,
+            "total": 153
+          },
+          "zero": {
+            "mismatch": 0,
+            "total": 24
+          }
+        }
+      },
+      "f32i16": {
+        "pass": true,
+        "rc": 0,
+        "vectors": 464154,
+        "mismatches": 0,
+        "last_errors": 0,
+        "stability_errors": 0,
+        "tag_errors": 0,
+        "by_class": {
+          "clamp": {
+            "mismatch": 0,
+            "total": 14304
+          },
+          "huge": {
+            "mismatch": 0,
+            "total": 75863
+          },
+          "inf": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "nan": {
+            "mismatch": 0,
+            "total": 788
+          },
+          "normal": {
+            "mismatch": 0,
+            "total": 372378
+          },
+          "subnormal": {
+            "mismatch": 0,
+            "total": 817
+          },
+          "zero": {
+            "mismatch": 0,
+            "total": 2
+          }
+        }
+      },
+      "approx": {
+        "approx_t0": {
+          "pass": false,
+          "rc": 0,
+          "vectors": 15168,
+          "special_mismatch": 3,
+          "flags_errors": 0,
+          "flag_semantic_errors": 0,
+          "stability_errors": 0,
+          "tag_errors": 0,
+          "order_errors": 0,
+          "latency": {
+            "div": {
+              "min": 4,
+              "median": 4,
+              "max": 4,
+              "n": 7144
+            },
+            "sqrt": {
+              "min": 4,
+              "median": 4,
+              "max": 4,
+              "n": 4012
+            },
+            "rsqrt": {
+              "min": 4,
+              "median": 4,
+              "max": 4,
+              "n": 4012
+            }
+          },
+          "ii": {
+            "min": 1,
+            "max": 1,
+            "common": [
+              [
+                1,
+                15167
+              ]
+            ]
+          },
+          "max_rel_err": {
+            "div": 1.0666427994078507,
+            "sqrt": 0.49804691964527703,
+            "rsqrt": 0.3338703669508703
+          },
+          "mean_rel_err": {
+            "div": 0.7328079483705399,
+            "sqrt": 0.19740769040545306,
+            "rsqrt": 0.1655475012913105
+          },
+          "underflow_results": 2,
+          "overflow_results": 2
+        },
+        "approx_t1": {
+          "pass": false,
+          "rc": 0,
+          "vectors": 15168,
+          "special_mismatch": 3,
+          "flags_errors": 0,
+          "flag_semantic_errors": 0,
+          "stability_errors": 0,
+          "tag_errors": 0,
+          "order_errors": 0,
+          "latency": {
+            "div": {
+              "min": 4,
+              "median": 4,
+              "max": 4,
+              "n": 7144
+            },
+            "sqrt": {
+              "min": 4,
+              "median": 4,
+              "max": 4,
+              "n": 4012
+            },
+            "rsqrt": {
+              "min": 4,
+              "median": 4,
+              "max": 4,
+              "n": 4012
+            }
+          },
+          "ii": {
+            "min": 1,
+            "max": 1,
+            "common": [
+              [
+                1,
+                15167
+              ]
+            ]
+          },
+          "max_rel_err": {
+            "div": 0.9988115648251892,
+            "sqrt": 5.781630932319191e-06,
+            "rsqrt": 0.9999985098839224
+          },
+          "mean_rel_err": {
+            "div": 0.0003711235047758363,
+            "sqrt": 1.137156493076221e-06,
+            "rsqrt": 0.0002509684020933249
+          },
+          "underflow_results": 2,
+          "overflow_results": 2
+        },
+        "approx_t2": {
+          "pass": false,
+          "rc": 0,
+          "vectors": 15168,
+          "special_mismatch": 3,
+          "flags_errors": 0,
+          "flag_semantic_errors": 0,
+          "stability_errors": 0,
+          "tag_errors": 0,
+          "order_errors": 0,
+          "latency": {
+            "div": {
+              "min": 4,
+              "median": 4,
+              "max": 4,
+              "n": 7144
+            },
+            "sqrt": {
+              "min": 4,
+              "median": 4,
+              "max": 4,
+              "n": 4012
+            },
+            "rsqrt": {
+              "min": 4,
+              "median": 4,
+              "max": 4,
+              "n": 4012
+            }
+          },
+          "ii": {
+            "min": 1,
+            "max": 1,
+            "common": [
+              [
+                1,
+                15167
+              ]
+            ]
+          },
+          "max_rel_err": {
+            "div": 0.9988115648251892,
+            "sqrt": 5.781630932319191e-06,
+            "rsqrt": 0.9999985098839224
+          },
+          "mean_rel_err": {
+            "div": 0.0003711235047758363,
+            "sqrt": 1.137156493076221e-06,
+            "rsqrt": 0.0002509684020933249
+          },
+          "underflow_results": 2,
+          "overflow_results": 2
+        }
+      },
+      "flush": {
+        "pass": true,
+        "rc": 0,
+        "flush_errors": 0
+      },
+      "stream": {
+        "stream_conv": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 255,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_fma": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 75,
+          "packed_mismatch": 63,
+          "spill_mismatch": 0,
+          "tag_mismatch": 255,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_fma_real": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 255,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_spill": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 255,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_abort": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 92,
+          "a16_count_mismatch": null,
+          "packed_count_mismatch": null,
+          "post_abort_outputs": 0
+        },
+        "stream_param_port": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 113,
+          "packed_mismatch": 91,
+          "spill_mismatch": 0,
+          "tag_mismatch": 255,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_reconfig": {
+          "pass": false,
+          "rc": 0,
+          "in_flight_corrupted": true,
+          "a16": [
+            "0001000100010001",
+            "0006000600060006"
+          ]
+        }
+      }
+    },
+    "fma_repair": {
+      "fma_bp0": {
+        "pass": false,
+        "rc": 0,
+        "vectors": 8734,
+        "mismatches": 137,
+        "last_errors": 0,
+        "stability_errors": 0,
+        "tag_errors": 0,
+        "by_mode": {
+          "0": {
+            "mismatch": 0,
+            "total": 1000
+          },
+          "1": {
+            "mismatch": 137,
+            "total": 6734
+          },
+          "2": {
+            "mismatch": 0,
+            "total": 1000
+          }
+        },
+        "by_class": {
+          "inf": {
+            "mismatch": 34,
+            "total": 106
+          },
+          "nan": {
+            "mismatch": 0,
+            "total": 140
+          },
+          "normal": {
+            "mismatch": 90,
+            "total": 8311
+          },
+          "subnormal": {
+            "mismatch": 11,
+            "total": 153
+          },
+          "zero": {
+            "mismatch": 2,
+            "total": 24
+          }
+        }
+      },
+      "asr_fma_ip_wrapper": {
+        "rc": 0,
+        "vectors": 8734,
+        "mismatches": 137,
+        "by_class": {
+          "inf/inf/inf": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "inf/inf/nan": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "inf/inf/normal": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "inf/inf/zero": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "inf/nan/inf": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "inf/nan/nan": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "inf/nan/normal": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "inf/nan/zero": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "inf/normal/inf": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "inf/normal/nan": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "inf/normal/normal": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "inf/normal/zero": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "inf/zero/inf": {
+            "mismatch": 8,
+            "total": 8
+          },
+          "inf/zero/nan": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "inf/zero/normal": {
+            "mismatch": 4,
+            "total": 4
+          },
+          "inf/zero/zero": {
+            "mismatch": 8,
+            "total": 8
+          },
+          "nan/inf/inf": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "nan/inf/nan": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "nan/inf/normal": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "nan/inf/zero": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "nan/nan/inf": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "nan/nan/nan": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "nan/nan/normal": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "nan/nan/zero": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "nan/normal/inf": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "nan/normal/nan": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "nan/normal/normal": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "nan/normal/zero": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "nan/zero/inf": {
+            "mismatch": 0,
+            "total": 8
+          },
+          "nan/zero/nan": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "nan/zero/normal": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "nan/zero/zero": {
+            "mismatch": 0,
+            "total": 8
+          },
+          "normal/inf/inf": {
+            "mismatch": 1,
+            "total": 2
+          },
+          "normal/inf/nan": {
+            "mismatch": 0,
+            "total": 1
+          },
+          "normal/inf/normal": {
+            "mismatch": 0,
+            "total": 1
+          },
+          "normal/inf/zero": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "normal/nan/inf": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "normal/nan/nan": {
+            "mismatch": 0,
+            "total": 1
+          },
+          "normal/nan/normal": {
+            "mismatch": 0,
+            "total": 1
+          },
+          "normal/nan/zero": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "normal/normal/inf": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "normal/normal/nan": {
+            "mismatch": 0,
+            "total": 1
+          },
+          "normal/normal/normal": {
+            "mismatch": 66,
+            "total": 7662
+          },
+          "normal/normal/subnormal": {
+            "mismatch": 8,
+            "total": 36
+          },
+          "normal/normal/zero": {
+            "mismatch": 24,
+            "total": 649
+          },
+          "normal/zero/inf": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "normal/zero/nan": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "normal/zero/normal": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "normal/zero/zero": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "subnormal/inf/inf": {
+            "mismatch": 3,
+            "total": 6
+          },
+          "subnormal/inf/nan": {
+            "mismatch": 0,
+            "total": 3
+          },
+          "subnormal/inf/normal": {
+            "mismatch": 0,
+            "total": 3
+          },
+          "subnormal/inf/zero": {
+            "mismatch": 0,
+            "total": 6
+          },
+          "subnormal/nan/inf": {
+            "mismatch": 0,
+            "total": 6
+          },
+          "subnormal/nan/nan": {
+            "mismatch": 0,
+            "total": 3
+          },
+          "subnormal/nan/normal": {
+            "mismatch": 0,
+            "total": 3
+          },
+          "subnormal/nan/zero": {
+            "mismatch": 0,
+            "total": 6
+          },
+          "subnormal/normal/inf": {
+            "mismatch": 0,
+            "total": 6
+          },
+          "subnormal/normal/nan": {
+            "mismatch": 0,
+            "total": 3
+          },
+          "subnormal/normal/normal": {
+            "mismatch": 0,
+            "total": 57
+          },
+          "subnormal/normal/subnormal": {
+            "mismatch": 0,
+            "total": 18
+          },
+          "subnormal/normal/zero": {
+            "mismatch": 3,
+            "total": 24
+          },
+          "subnormal/zero/inf": {
+            "mismatch": 0,
+            "total": 12
+          },
+          "subnormal/zero/nan": {
+            "mismatch": 0,
+            "total": 6
+          },
+          "subnormal/zero/normal": {
+            "mismatch": 0,
+            "total": 6
+          },
+          "subnormal/zero/zero": {
+            "mismatch": 0,
+            "total": 12
+          },
+          "zero/inf/inf": {
+            "mismatch": 4,
+            "total": 4
+          },
+          "zero/inf/nan": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "zero/inf/normal": {
+            "mismatch": 2,
+            "total": 2
+          },
+          "zero/inf/zero": {
+            "mismatch": 4,
+            "total": 4
+          },
+          "zero/nan/inf": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "zero/nan/nan": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "zero/nan/normal": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "zero/nan/zero": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "zero/normal/inf": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "zero/normal/nan": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "zero/normal/normal": {
+            "mismatch": 0,
+            "total": 2
+          },
+          "zero/normal/zero": {
+            "mismatch": 2,
+            "total": 4
+          },
+          "zero/zero/inf": {
+            "mismatch": 0,
+            "total": 8
+          },
+          "zero/zero/nan": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "zero/zero/normal": {
+            "mismatch": 0,
+            "total": 4
+          },
+          "zero/zero/zero": {
+            "mismatch": 0,
+            "total": 8
+          }
+        },
+        "examples": [
+          {
+            "x": "3f800003",
+            "scale": "3fc00000",
+            "bias": "00000000",
+            "got": "3fc00005",
+            "exp": "3fc00004"
+          },
+          {
+            "x": "3f800003",
+            "scale": "3f400000",
+            "bias": "00000000",
+            "got": "3f400005",
+            "exp": "3f400004"
+          },
+          {
+            "x": "3f800003",
+            "scale": "40400000",
+            "bias": "00000000",
+            "got": "40400005",
+            "exp": "40400004"
+          },
+          {
+            "x": "3f800003",
+            "scale": "3fc00000",
+            "bias": "00000000",
+            "got": "3fc00005",
+            "exp": "3fc00004"
+          },
+          {
+            "x": "3f800007",
+            "scale": "3fc00000",
+            "bias": "00000000",
+            "got": "3fc0000b",
+            "exp": "3fc0000a"
+          },
+          {
+            "x": "3f80000b",
+            "scale": "3fc00000",
+            "bias": "00000000",
+            "got": "3fc00011",
+            "exp": "3fc00010"
+          },
+          {
+            "x": "3f80000f",
+            "scale": "3fc00000",
+            "bias": "00000000",
+            "got": "3fc00017",
+            "exp": "3fc00016"
+          },
+          {
+            "x": "3f800013",
+            "scale": "3fc00000",
+            "bias": "00000000",
+            "got": "3fc0001d",
+            "exp": "3fc0001c"
+          },
+          {
+            "x": "3f800017",
+            "scale": "3fc00000",
+            "bias": "00000000",
+            "got": "3fc00023",
+            "exp": "3fc00022"
+          },
+          {
+            "x": "3ffffffe",
+            "scale": "3fc00000",
+            "bias": "00000000",
+            "got": "403fffff",
+            "exp": "403ffffe"
+          },
+          {
+            "x": "00800000",
+            "scale": "3f800001",
+            "bias": "00000000",
+            "got": "00c00001",
+            "exp": "00800001"
+          },
+          {
+            "x": "00800000",
+            "scale": "3f800001",
+            "bias": "3f800000",
+            "got": "0e800000",
+            "exp": "3f800000"
+          },
+          {
+            "x": "00800000",
+            "scale": "3f800001",
+            "bias": "bf800000",
+            "got": "8e800000",
+            "exp": "bf800000"
+          },
+          {
+            "x": "00800000",
+            "scale": "3f800001",
+            "bias": "00000000",
+            "got": "00c00001",
+            "exp": "00800001"
+          },
+          {
+            "x": "00800000",
+            "scale": "3f800001",
+            "bias": "3f800000",
+            "got": "0e800000",
+            "exp": "3f800000"
+          },
+          {
+            "x": "00800000",
+            "scale": "3f800001",
+            "bias": "bf800000",
+            "got": "8e800000",
+            "exp": "bf800000"
+          },
+          {
+            "x": "00800000",
+            "scale": "3fc00000",
+            "bias": "00000000",
+            "got": "01000000",
+            "exp": "00c00000"
+          },
+          {
+            "x": "00800000",
+            "scale": "3fc00000",
+            "bias": "3f800000",
+            "got": "0e800000",
+            "exp": "3f800000"
+          },
+          {
+            "x": "00800000",
+            "scale": "3fc00000",
+            "bias": "bf800000",
+            "got": "8e800000",
+            "exp": "bf800000"
+          },
+          {
+            "x": "00800000",
+            "scale": "3f000000",
+            "bias": "00000000",
+            "got": "00800000",
+            "exp": "00000000"
+          }
+        ],
+        "pass": false
+      },
+      "fma_bp1": {
+        "pass": false,
+        "rc": 0,
+        "vectors": 8734,
+        "mismatches": 137,
+        "last_errors": 0,
+        "stability_errors": 0,
+        "tag_errors": 0,
+        "by_mode": {
+          "0": {
+            "mismatch": 0,
+            "total": 1000
+          },
+          "1": {
+            "mismatch": 137,
+            "total": 6734
+          },
+          "2": {
+            "mismatch": 0,
+            "total": 1000
+          }
+        },
+        "by_class": {
+          "inf": {
+            "mismatch": 34,
+            "total": 106
+          },
+          "nan": {
+            "mismatch": 0,
+            "total": 140
+          },
+          "normal": {
+            "mismatch": 90,
+            "total": 8311
+          },
+          "subnormal": {
+            "mismatch": 11,
+            "total": 153
+          },
+          "zero": {
+            "mismatch": 2,
+            "total": 24
+          }
+        }
+      },
+      "flush": {
+        "rc": 0,
+        "flush_errors": 0,
+        "pass": true,
+        "log": "CMD: /home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/build/fma_repair_flush2_flush\nFLUSH_ERRORS=0\n"
+      },
+      "stream_bp0": {
+        "stream_conv": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 255,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_conv_relu": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 255,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_fma": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 255,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_fma_relu": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 255,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_fma_real": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 255,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_scale_only": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 255,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_spill": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 255,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_abort": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 90,
+          "a16_count_mismatch": null,
+          "packed_count_mismatch": null,
+          "post_abort_outputs": 0
+        },
+        "stream_param_port": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 113,
+          "packed_mismatch": 91,
+          "spill_mismatch": 0,
+          "tag_mismatch": 255,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_reconfig": {
+          "pass": false,
+          "rc": 0,
+          "in_flight_corrupted": true,
+          "a16": [
+            "0001000100010001",
+            "0006000600060006"
+          ]
+        }
+      },
+      "stream_bp1": {
+        "stream_conv": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 198,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_conv_relu": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 198,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_fma": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 198,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_fma_relu": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 198,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_fma_real": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 198,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_scale_only": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 198,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_spill": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 60,
+          "packed_mismatch": 45,
+          "spill_mismatch": 0,
+          "tag_mismatch": 195,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_abort": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 0,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 66,
+          "a16_count_mismatch": null,
+          "packed_count_mismatch": null,
+          "post_abort_outputs": 0
+        },
+        "stream_param_port": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 113,
+          "packed_mismatch": 91,
+          "spill_mismatch": 0,
+          "tag_mismatch": 198,
+          "a16_count_mismatch": 0,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_reconfig": {
+          "pass": false,
+          "rc": 0,
+          "in_flight_corrupted": true,
+          "a16": [
+            "0001000100010001",
+            "0006000600060006"
+          ]
+        }
+      },
+      "stream_bp2_packed_backpressure": {
+        "stream_conv": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 244,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 381,
+          "a16_count_mismatch": 146,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_conv_relu": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 244,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 381,
+          "a16_count_mismatch": 146,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_fma": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 244,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 381,
+          "a16_count_mismatch": 146,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_fma_relu": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 244,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 381,
+          "a16_count_mismatch": 146,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_fma_real": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 234,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 381,
+          "a16_count_mismatch": 146,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_scale_only": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 244,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 381,
+          "a16_count_mismatch": 146,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_spill": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 244,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 381,
+          "a16_count_mismatch": 146,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_abort": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 143,
+          "packed_mismatch": 0,
+          "spill_mismatch": 0,
+          "tag_mismatch": 194,
+          "a16_count_mismatch": null,
+          "packed_count_mismatch": null,
+          "post_abort_outputs": 0
+        },
+        "stream_param_port": {
+          "pass": false,
+          "rc": 0,
+          "a16_mismatch": 248,
+          "packed_mismatch": 91,
+          "spill_mismatch": 0,
+          "tag_mismatch": 381,
+          "a16_count_mismatch": 146,
+          "packed_count_mismatch": 0,
+          "post_abort_outputs": 0
+        },
+        "stream_reconfig": {
+          "pass": false,
+          "rc": 0,
+          "in_flight_corrupted": true,
+          "a16": [
+            "0001000100010001",
+            "0006000600060006"
+          ]
+        }
+      }
+    },
+    "approx_repair": {
+      "approx_t1_bp0": {
+        "rc": 0,
+        "tier": 1,
+        "bp": 0,
+        "has_flush": true,
+        "vectors": 15168,
+        "special_mismatch": 3,
+        "tag_errors": 0,
+        "order_errors": 0,
+        "flags_errors": 0,
+        "flag_semantic_errors": 0,
+        "underflow_results": 2,
+        "overflow_results": 2,
+        "max_rel_err": {
+          "div": 0.9988115648251892,
+          "sqrt": 5.781630932319191e-06,
+          "rsqrt": 0.9999985098839224
+        },
+        "mean_rel_err": {
+          "div": 0.0003711235047758363,
+          "sqrt": 1.137156493076221e-06,
+          "rsqrt": 0.0002509684020933249
+        },
+        "latency": {
+          "div": {
+            "min": 5,
+            "median": 5,
+            "max": 5,
+            "n": 7144
+          },
+          "sqrt": {
+            "min": 5,
+            "median": 5,
+            "max": 5,
+            "n": 4012
+          },
+          "rsqrt": {
+            "min": 5,
+            "median": 5,
+            "max": 5,
+            "n": 4012
+          }
+        },
+        "ii": {
+          "min": 1,
+          "max": 1,
+          "common": [
+            [
+              1,
+              15167
+            ]
+          ]
+        },
+        "stability_errors": 0,
+        "examples": [
+          {
+            "i": 15027,
+            "op": 2,
+            "a": "80000000",
+            "b": "00000000",
+            "got": "7f800000",
+            "exp": "ff800000",
+            "flags": "02",
+            "exp_flags": "02"
+          },
+          {
+            "i": 15097,
+            "op": 2,
+            "a": "80000001",
+            "b": "00000000",
+            "got": "7f800000",
+            "exp": "ff800000",
+            "flags": "0a",
+            "exp_flags": "0a"
+          },
+          {
+            "i": 15125,
+            "op": 2,
+            "a": "806ce3ee",
+            "b": "00000000",
+            "got": "7f800000",
+            "exp": "ff800000",
+            "flags": "0a",
+            "exp_flags": "0a"
+          }
+        ],
+        "pass": false
+      },
+      "approx_t1_bp1": {
+        "rc": 0,
+        "tier": 1,
+        "bp": 1,
+        "has_flush": true,
+        "vectors": 15168,
+        "special_mismatch": 3,
+        "tag_errors": 0,
+        "order_errors": 0,
+        "flags_errors": 0,
+        "flag_semantic_errors": 0,
+        "underflow_results": 2,
+        "overflow_results": 2,
+        "max_rel_err": {
+          "div": 0.9988115648251892,
+          "sqrt": 5.781630932319191e-06,
+          "rsqrt": 0.9999985098839224
+        },
+        "mean_rel_err": {
+          "div": 0.0003711235047758363,
+          "sqrt": 1.137156493076221e-06,
+          "rsqrt": 0.0002509684020933249
+        },
+        "latency": {
+          "div": {
+            "min": 5,
+            "median": 10,
+            "max": 32,
+            "n": 7144
+          },
+          "sqrt": {
+            "min": 5,
+            "median": 10,
+            "max": 30,
+            "n": 4012
+          },
+          "rsqrt": {
+            "min": 5,
+            "median": 10,
+            "max": 28,
+            "n": 4012
+          }
+        },
+        "ii": {
+          "min": 1,
+          "max": 16,
+          "common": [
+            [
+              1,
+              7559
+            ],
+            [
+              2,
+              3750
+            ],
+            [
+              3,
+              1928
+            ],
+            [
+              4,
+              954
+            ],
+            [
+              5,
+              476
+            ]
+          ]
+        },
+        "stability_errors": 0,
+        "examples": [
+          {
+            "i": 15027,
+            "op": 2,
+            "a": "80000000",
+            "b": "00000000",
+            "got": "7f800000",
+            "exp": "ff800000",
+            "flags": "02",
+            "exp_flags": "02"
+          },
+          {
+            "i": 15097,
+            "op": 2,
+            "a": "80000001",
+            "b": "00000000",
+            "got": "7f800000",
+            "exp": "ff800000",
+            "flags": "0a",
+            "exp_flags": "0a"
+          },
+          {
+            "i": 15125,
+            "op": 2,
+            "a": "806ce3ee",
+            "b": "00000000",
+            "got": "7f800000",
+            "exp": "ff800000",
+            "flags": "0a",
+            "exp_flags": "0a"
+          }
+        ],
+        "pass": false
+      },
+      "flush": {
+        "rc": 0,
+        "flush_errors": 0,
+        "pass": true,
+        "log": "CMD: /home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/build/approx_repair2_approx_flush\nAPPROX_FLUSH_ERRORS=0\n"
+      },
+      "param_rejection": {
+        "cases": {
+          "TIER=0": {
+            "rc": 1,
+            "rejected": true
+          },
+          "TIER=2": {
+            "rc": 1,
+            "rejected": true
+          },
+          "LATENCY=4": {
+            "rc": 2,
+            "rejected": true
+          },
+          "LATENCY=7": {
+            "rc": 2,
+            "rejected": true
+          }
+        },
+        "pass": true
+      }
+    }
+  },
+  "approx_worst_cases": {
+    "counts": {
+      "div": 1,
+      "sqrt": 0,
+      "rsqrt": 1
+    },
+    "worst": [
+      {
+        "op": "rsqrt",
+        "a": "7f7fffff",
+        "b": "00000000",
+        "got": "1ffffff4",
+        "flags": "10",
+        "rel_err": 0.9999985098839224,
+        "true": 5.421011023986243e-20,
+        "got_val": 1.0842013970036802e-19
+      },
+      {
+        "op": "div",
+        "a": "3f800000",
+        "b": "41fffad2",
+        "got": "3d7fde3c",
+        "flags": "10",
+        "rel_err": 0.9988115648251892,
+        "true": 0.03125247006269116,
+        "got_val": 0.062467798590660095
+      }
+    ]
+  },
+  "blocking_findings": [
+    {
+      "id": "FMA-1",
+      "module": "gemini_fma_repair candidate epilogue_fma_stage/fp32_fma_pipe/asr_fma_ip",
+      "summary": "RNE tie-to-even is still wrong for exact halfway products. Example 0x3f800003 * 0x3fc00000: correct 0x3fc00004, DUT 0x3fc00005. 90/8311 normal-input vectors mismatch (66 normal/normal/normal + 24 normal/normal/zero).",
+      "evidence": "result_fma_repair.json, tb/tb_fma.sv, refmodel.py"
+    },
+    {
+      "id": "FMA-2",
+      "module": "gemini_fma_repair candidate fp32_fma_pipe/asr_fma_ip",
+      "summary": "Extreme exponent alignment is broken. Example 0x00800000 * 0x3f800001 + 0x3f800000 should be 0x3f800000 (1.0) but returns 0x0e800000 (2^-97).",
+      "evidence": "result_fma_repair.json by_class normal; C fmaf crosscheck"
+    },
+    {
+      "id": "FMA-3",
+      "module": "gemini_fma_repair candidate fp32_fma_pipe/asr_fma_ip",
+      "summary": "Special values: inf*0 returns inf instead of NaN; inf + (-inf) returns inf instead of NaN; signed-zero cases are inverted. 34 inf-class and 2 zero-class mismatches.",
+      "evidence": "result_fma_repair.json by_class inf/zero"
+    },
+    {
+      "id": "APPROX-1",
+      "module": "gemini_approx_repair candidate approx_div_sqrt",
+      "summary": "DIV factor-2 boundary error: 1.0 / 31.9998 (0x3f800000/0x41fffad2) returns 0x3d7fde3c (0.06247) instead of 0.03125 (99.88% relative error). This is outside the claimed 0.108% bound.",
+      "evidence": "approx_worst_cases.json, result_approx_repair2.json"
+    },
+    {
+      "id": "APPROX-2",
+      "module": "gemini_approx_repair candidate approx_div_sqrt",
+      "summary": "RSQRT factor-2 boundary error at max finite: RSQRT(0x7f7fffff) returns 0x1ffffff4 (1.084e-19) instead of 5.421e-20 (99.99985% relative error).",
+      "evidence": "approx_worst_cases.json"
+    },
+    {
+      "id": "APPROX-3",
+      "module": "gemini_approx_repair candidate approx_div_sqrt",
+      "summary": "RSQRT(-0) and RSQRT(negative subnormal) return +inf; IEEE-754 sign is -inf. flags[1] is set, but the sign is wrong. Low model impact (LayerNorm var+eps > 0).",
+      "evidence": "result_approx_repair2.json special_mismatch=3"
+    },
+    {
+      "id": "STREAM-1",
+      "module": "epilogue_stream_engine_v023 (unchanged by FMA repair)",
+      "summary": "A16 tag is corrupted whenever the 128-bit packer holds a pending beat: a16_tag is muxed from p128_tag. 255/256 A16 tags wrong at BP0; example beat 2 gets tag 1 instead of 2.",
+      "evidence": "result_fma_repair_stream2.json stream_conv tag_mismatch=255"
+    },
+    {
+      "id": "STREAM-2",
+      "module": "epilogue_stream_engine_v023",
+      "summary": "A16 ready/valid violation under 128-bit packed backpressure: a16_valid stays high while the packer is full, so a consumer counting valid&&ready sees duplicates. 402 A16 handshakes for 256 beats (146 duplicates) at BP2.",
+      "evidence": "result_fma_repair_stream_bp2b.json a16_count_mismatch=146"
+    },
+    {
+      "id": "STREAM-3",
+      "module": "epilogue_stream_engine_v023",
+      "summary": "param_wr_* is completely inert: writing scale 0.5 through the parameter port while cfg_scale=1.0 produces the cfg_scale result (113/256 A16 beats differ from the parameter-port expectation).",
+      "evidence": "result_fma_repair_stream2.json stream_param_port"
+    },
+    {
+      "id": "STREAM-4",
+      "module": "epilogue_stream_engine_v023",
+      "summary": "cfg_ready=!in_burst allows a new descriptor to be loaded while the last accepted beat is still in the 9-stage lane. Beat accepted under scale 1.0 is output as 6 (new scale 3.0) instead of 2.",
+      "evidence": "result_fma_repair_stream2.json stream_reconfig"
+    }
+  ],
+  "nonblocking_findings": [
+    {
+      "id": "TIER-OLD",
+      "summary": "Old gemini_approx TIER=0 is broken by a factor of 2 (seed shifted by 8 instead of 7); mean DIV relative error 73.3%. TIER=2 is bit-identical to TIER=1 and all tiers have 4-cycle latency, confirming the old three-tier claim was fictitious.",
+      "evidence": "result_old_final.json approx_t0/t1/t2"
+    },
+    {
+      "id": "TIER-NEW",
+      "summary": "New approx core correctly prunes TIER 0/2 and rejects TIER!=1, LATENCY!=5, II!=1 at elaboration. Latency=5, II=1, flush works. This structural repair is accepted.",
+      "evidence": "result_approx_repair2.json approx_param_rejection/approx_flush"
+    },
+    {
+      "id": "APPROX-FLUSH-PORT",
+      "summary": "The new approx source declares `input wire flush` with no default, while INTERFACE.md claims a default of 0. The existing ds_vector candidate instantiates it without .flush(); the port is unconnected, so the engine's synchronous core_flush does not drain the approx pipeline.",
+      "evidence": "gemini_approx_repair/candidate/rtl/approx_div_sqrt.sv:27; ds_vector/candidate/rtl/ddr_vector_engine_pipe.sv:160"
+    },
+    {
+      "id": "FMA-FIXTURE",
+      "summary": "The repaired FMA's 1001-vector official fixture does not cover exact tie-to-even or extreme exponent alignment; it passes while our 90 normal-input adversarial vectors fail.",
+      "evidence": "result_fma_repair.json vs gemini_fma_repair/result.json"
+    }
+  ],
+  "passed_items": [
+    "i48->f32: 37,166 vectors, 0 mismatches, tags/last/stability OK; C cast cross-check 0 mismatches.",
+    "f32->i16: 464,154 vectors, 0 mismatches (RNE, ties, clamp, NaN/Inf), C lrintf cross-check 0 mismatches.",
+    "Epilogue leaf flush: i48/fma/f32i16/lane 0 errors; new FMA/lane latency-adjusted flush 0 errors.",
+    "Old/new epilogue mode 0 bypass, ReLU, spill data, 128-bit packing/zero padding: 0 data mismatches at BP0.",
+    "Stream abort: 0 post-abort outputs, statistics retained.",
+    "New approx: TIER/LATENCY/II rejection, flush, tag/order/stability, latency=5, II=1."
+  ],
+  "unverified": [
+    "No exhaustive proof of i48->f32 or f32->i16; only 37k/464k adversarial vectors plus C cross-check.",
+    "No synthesis/Vivado/STA; no 300/600 MHz claim is made or accepted.",
+    "No full ASR model accuracy/WER/CER; the actual model's LayerNorm variance/epsilon range cannot be verified because no ONNX/calibration data is present in the read-only tree.",
+    "FMA/special signed-zero and subnormal-input semantics may differ from the vendor IP contract; our reference uses FTZ, so subnormal-input mismatches are reported separately and are not used as the primary FMA blocking evidence.",
+    "The epilogue stream engine's packed A16 path was tested with a BFM, not with the real ds_vector/ds_layout consumer.",
+    "The new approx core was not re-tested inside the ds_vector wrapper with its unconnected flush port."
+  ],
+  "commands": {
+    "generate_vectors": "python3 scripts/gen_vectors.py",
+    "model_audit": "python3 scripts/audit_model.py",
+    "c_crosscheck": "python3 scripts/crosscheck_c.py",
+    "old_full": "python3 scripts/run_suite.py --label old_final",
+    "fma_repair": "python3 scripts/run_suite.py --label fma_repair --i48 .../candidate/epilogue_i48_to_f32.sv --fma .../candidate/epilogue_fma_stage.sv --fma-pipe .../candidate/fp32_fma_pipe.sv --f32i16 .../candidate/epilogue_f32_to_i16.sv --relu .../candidate/epilogue_relu.sv --lane .../candidate/epilogue_lane.sv --stream .../candidate/epilogue_stream_engine_v023.sv --only fma",
+    "approx_repair": "python3 scripts/run_suite.py --label approx_repair2 --approx .../candidate/rtl/approx_div_sqrt.sv --recip .../candidate/rtl/approx_recip_lut.sv --rsqrt .../candidate/rtl/approx_rsqrt_lut.sv --approx-has-flush --only approx"
+  },
+  "exit_codes": {
+    "old_full": 1,
+    "old_i48": 0,
+    "old_f32i16": 0,
+    "fma_repair_fma_bp0": 1,
+    "fma_repair_fma_bp1": 1,
+    "fma_repair_flush": 0,
+    "fma_repair_stream_bp0": 1,
+    "fma_repair_stream_bp1": 1,
+    "fma_repair_stream_bp2": 1,
+    "approx_repair_approx_bp0": 1,
+    "approx_repair_approx_bp1": 1,
+    "approx_repair_flush": 0,
+    "approx_repair_param_rejection": 0,
+    "run_all": 1
+  },
+  "logs": [
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair2_approx_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair2_approx_t1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair2_approx_t1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair2_reject_LATENCY_4.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair2_reject_LATENCY_7.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair2_reject_TIER_0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair2_reject_TIER_2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair_approx_t1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair_approx_t1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair_bp1_approx_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair_bp1_approx_t1_bp1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair_bp1_approx_t1_bp1.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair_bp1_reject_LATENCY_4.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair_bp1_reject_LATENCY_7.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair_bp1_reject_TIER_0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/approx_repair_bp1_reject_TIER_2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/asr_fma_ip.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_approx_repair2_approx_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_approx_repair2_approx_t1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_approx_repair_approx_t1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_approx_repair_bp1_approx_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_approx_repair_bp1_approx_t1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_asr_asr_fma_ip.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_asr_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_asr_fma_ip.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_bp1_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_flush2_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_full_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream2_stream_m0_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream2_stream_m0_r0_s0_a100_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream2_stream_m0_r0_s1_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream2_stream_m0_r1_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream2_stream_m1_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream2_stream_m1_r1_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream2_stream_m2_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream2_stream_m2_r0_s0_a-1_bp0_pe1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream2_stream_reconfig.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp1_stream_m0_r0_s0_a-1_bp1_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp1_stream_m0_r0_s0_a100_bp1_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp1_stream_m0_r0_s1_a-1_bp1_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp1_stream_m0_r1_s0_a-1_bp1_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp1_stream_m1_r0_s0_a-1_bp1_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp1_stream_m1_r1_s0_a-1_bp1_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp1_stream_m2_r0_s0_a-1_bp1_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp1_stream_m2_r0_s0_a-1_bp1_pe1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp1_stream_reconfig.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2_stream_m0_r0_s0_a-1_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2_stream_m0_r0_s0_a100_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2_stream_m0_r0_s1_a-1_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2_stream_m0_r1_s0_a-1_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2_stream_m1_r0_s0_a-1_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2_stream_m1_r1_s0_a-1_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2_stream_m2_r0_s0_a-1_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2_stream_m2_r0_s0_a-1_bp2_pe1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2_stream_reconfig.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2b_stream_m0_r0_s0_a-1_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2b_stream_m0_r0_s0_a100_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2b_stream_m0_r0_s1_a-1_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2b_stream_m0_r1_s0_a-1_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2b_stream_m1_r0_s0_a-1_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2b_stream_m1_r1_s0_a-1_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2b_stream_m2_r0_s0_a-1_bp2_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2b_stream_m2_r0_s0_a-1_bp2_pe1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_bp2b_stream_reconfig.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_stream_m0_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_stream_m0_r0_s0_a100_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_stream_m0_r0_s1_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_stream_m0_r1_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_stream_m1_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_stream_m1_r1_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_stream_m2_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_fma_repair_stream_stream_m2_r0_s0_a-1_bp0_pe1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_approx_approx_t0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_approx_approx_t1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_approx_approx_t2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_approx_bp1_approx_t0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_approx_bp1_approx_t1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_approx_bp1_approx_t2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_approx_t0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_approx_t1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_approx_t2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_check_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_f32i16.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_f32i16_f32i16.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_approx_t0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_approx_t1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_approx_t2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_f32i16.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_i48.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_stream_m0_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_stream_m0_r0_s0_a100_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_stream_m0_r0_s1_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_stream_m0_r1_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_stream_m1_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_stream_m1_r1_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_stream_m2_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_stream_m2_r0_s0_a-1_bp0_pe1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_final_stream_reconfig.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_flush_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_fma2_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_fma_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_i48.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_i48_i48.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream2_stream_m0_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream2_stream_m0_r0_s0_a100_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream2_stream_m0_r0_s1_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream2_stream_m0_r1_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream2_stream_m1_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream2_stream_m1_r1_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream2_stream_m2_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream2_stream_m2_r0_s0_a-1_bp0_pe1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream3_stream_m0_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream3_stream_m0_r0_s0_a100_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream3_stream_m0_r0_s1_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream3_stream_m0_r1_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream3_stream_m1_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream3_stream_m1_r1_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream3_stream_m2_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream3_stream_m2_r0_s0_a-1_bp0_pe1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_m0_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_m0_r0_s0_a100_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_m0_r0_s1_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_m0_r1_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_m1_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_m1_r1_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_m2_r0_s0_a-1_bp0_pe0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_m2_r0_s0_a-1_bp0_pe1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_stream_m0_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_stream_m0_r0_s0_a100_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_stream_m0_r0_s1_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_stream_m0_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_stream_m1_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_stream_m1_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/compile_old_stream_stream_m2_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_asr_asr_fma_ip.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_asr_asr_fma_ip.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_asr_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_asr_fma.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_asr_fma_ip.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_asr_fma_ip.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_bp1_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_bp1_fma.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_flush2_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_fma.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_full_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m0_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m0_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m0_r0_s0_a100_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m0_r0_s0_a100_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m0_r0_s1_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m0_r0_s1_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m0_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m0_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m1_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m1_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m1_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m1_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m2_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_m2_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_reconfig.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream2_stream_reconfig.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m0_r0_s0_a-1_bp1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m0_r0_s0_a-1_bp1.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m0_r0_s0_a100_bp1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m0_r0_s0_a100_bp1.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m0_r0_s1_a-1_bp1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m0_r0_s1_a-1_bp1.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m0_r1_s0_a-1_bp1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m0_r1_s0_a-1_bp1.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m1_r0_s0_a-1_bp1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m1_r0_s0_a-1_bp1.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m1_r1_s0_a-1_bp1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m1_r1_s0_a-1_bp1.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m2_r0_s0_a-1_bp1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_m2_r0_s0_a-1_bp1.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_reconfig.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp1_stream_reconfig.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m0_r0_s0_a-1_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m0_r0_s0_a-1_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m0_r0_s0_a100_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m0_r0_s0_a100_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m0_r0_s1_a-1_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m0_r0_s1_a-1_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m0_r1_s0_a-1_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m0_r1_s0_a-1_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m1_r0_s0_a-1_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m1_r0_s0_a-1_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m1_r1_s0_a-1_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m1_r1_s0_a-1_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m2_r0_s0_a-1_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_m2_r0_s0_a-1_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_reconfig.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2_stream_reconfig.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m0_r0_s0_a-1_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m0_r0_s0_a-1_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m0_r0_s0_a100_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m0_r0_s0_a100_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m0_r0_s1_a-1_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m0_r0_s1_a-1_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m0_r1_s0_a-1_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m0_r1_s0_a-1_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m1_r0_s0_a-1_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m1_r0_s0_a-1_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m1_r1_s0_a-1_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m1_r1_s0_a-1_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m2_r0_s0_a-1_bp2.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_m2_r0_s0_a-1_bp2.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_reconfig.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_bp2b_stream_reconfig.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m0_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m0_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m0_r0_s0_a100_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m0_r0_s0_a100_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m0_r0_s1_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m0_r0_s1_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m0_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m0_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m1_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m1_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m1_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m1_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m2_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/fma_repair_stream_stream_m2_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_approx_t0_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_approx_t0_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_approx_t1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_approx_t1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_approx_t2_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_approx_t2_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_bp1_approx_t0_bp1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_bp1_approx_t0_bp1.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_bp1_approx_t1_bp1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_bp1_approx_t1_bp1.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_bp1_approx_t2_bp1.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_bp1_approx_t2_bp1.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_t0_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_t0_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_t1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_t1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_t2_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_approx_t2_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_check_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_check_fma.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_f32i16.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_f32i16.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_f32i16_f32i16.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_f32i16_f32i16.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_approx_t0_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_approx_t0_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_approx_t1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_approx_t1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_approx_t2_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_approx_t2_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_f32i16.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_f32i16.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_fma.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_i48.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_i48.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m0_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m0_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m0_r0_s0_a100_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m0_r0_s0_a100_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m0_r0_s1_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m0_r0_s1_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m0_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m0_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m1_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m1_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m1_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m1_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m2_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_m2_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_reconfig.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_final_stream_reconfig.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_flush_flush.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_fma.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_fma2_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_fma2_fma.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_fma_fma.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_fma_fma.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_i48.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_i48.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_i48_i48.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_i48_i48.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m0_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m0_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m0_r0_s0_a100_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m0_r0_s0_a100_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m0_r0_s1_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m0_r0_s1_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m0_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m0_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m1_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m1_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m1_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m1_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m2_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream2_stream_m2_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m0_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m0_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m0_r0_s0_a100_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m0_r0_s0_a100_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m0_r0_s1_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m0_r0_s1_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m0_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m0_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m1_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m1_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m1_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m1_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m2_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream3_stream_m2_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m0_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m0_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m0_r0_s0_a100_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m0_r0_s0_a100_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m0_r0_s1_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m0_r0_s1_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m0_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m0_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m1_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m1_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m1_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m1_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m2_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_m2_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m0_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m0_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m0_r0_s0_a100_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m0_r0_s0_a100_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m0_r0_s1_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m0_r0_s1_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m0_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m0_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m1_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m1_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m1_r1_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m1_r1_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m2_r0_s0_a-1_bp0.log",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/old_stream_stream_m2_r0_s0_a-1_bp0.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/reconfig.out",
+    "/home/yang/Desktop/\u9879\u76ee/v023_repair/ds_numeric_adversarial/logs/run_all.log"
+  ],
+  "generated": "2026-10-29T22:26:09+0800"
+}

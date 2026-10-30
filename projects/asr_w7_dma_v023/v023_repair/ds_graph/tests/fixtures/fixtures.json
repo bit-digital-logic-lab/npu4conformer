@@ -1,0 +1,21 @@
+{
+  "mem_bytes": 1048576,
+  "mem_sha256": "48e03dfd0c06dfb8ce7d857258ca178242268365876189b4dcd967deba14c68e",
+  "plans": {
+    "small": 268468224,
+    "whole68": 268500992,
+    "ledger591": 268566528,
+    "bad_root": 268476416,
+    "no_output": 268480512,
+    "bad_hash": 268484608,
+    "forward_dep": 268488704
+  },
+  "input": 268439552,
+  "input_words": 64,
+  "scalars": {
+    "one": 268435456,
+    "two": 268435460
+  },
+  "gold_words": 64,
+  "gold_sha256": "b952a3ace72b8b84641b50d17d8a85786d8575dbd43f89f21b54fa8243ae246a"
+}

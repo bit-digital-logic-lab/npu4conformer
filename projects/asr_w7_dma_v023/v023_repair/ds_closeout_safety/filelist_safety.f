@@ -1,0 +1,39 @@
+// V0.23 abnormal-closeout unique filelist (single clock logic build).
+// Exactly one definition of each module; no optional approx/FMA candidate.
+rtl/fma_forbidden_stub.sv
+// V0.23 integrated unique filelist (single clock logic build).
+// Only one ddr_layout_engine definition is included: the burst candidate.
+rtl/axi_dma_v019.sv
+rtl/asr_fp32_alu.sv
+rtl/u16_divmod.sv
+rtl/asr_fp32_lane_fixed.sv
+rtl/vector_desc_check_pipe.sv
+rtl/ddr_vector_engine_pipe.sv
+rtl/v023_vector_axi.sv
+rtl/v023_vector_guard.sv
+rtl/ddr_layout_engine_v023_burst.sv
+rtl/v023_layout_axi.sv
+rtl/v023_layout_guard.sv
+rtl/block_address_v020.sv
+rtl/c_cache_banked4.sv
+rtl/c_cache_banked4_pipe.sv
+rtl/pe_w7_c48_cfg.sv
+rtl/array16_w7_c48_cfg.sv
+rtl/operand_banks_dual_v2.sv
+rtl/block_storage_stream_v2.sv
+rtl/block_engine_prefetch_v2.sv
+rtl/axi_dma_v020_multi_v2.sv
+rtl/matrix_p2_cluster_v2.sv
+rtl/task_queue.sv
+rtl/v023_matrix_queue_engine.sv
+rtl/wc_graph_ctrl.sv
+rtl/wc_graph_top.sv
+rtl/plan_submit_csr_v023.sv
+rtl/v023_axi_shared.sv
+rtl/v023_integrated_top.sv
+// control-fix modules not in the data path but part of the delivered set:
+rtl/pl_execution_plan_v023.sv
+rtl/ready_scan_banked_v1.sv
+rtl/block_address_v023.sv
+rtl/axi_dma_v023_multi.sv
+rtl/axi_dma_v023_bounded.sv

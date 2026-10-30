@@ -1,0 +1,84 @@
+{
+  "task": "ds_control_fixes",
+  "scope": "CSR/error/critical-control repair for V023; logic simulation only; no synthesis, no Vivado/STA, no board, no VNC, no push",
+  "status": "complete",
+  "user_updates": {
+    "read_at_start": true,
+    "read_again_during_work": true,
+    "content": "division/root may be approximate; measure error; all other quantization/host-once/PL-autonomy constraints retained"
+  },
+  "stages": [
+    {
+      "stage": 1,
+      "name": "contracts_and_read_only_sources",
+      "status": "complete",
+      "inputs": [
+        "v023_repair/USER_REPAIR_REQUEST.txt",
+        "EXECUTION_CONTRACT.md",
+        "work/DESIGN_CONTRACT_zh.txt",
+        "tasks/ds_protocol_audit/REPORT.md + INTERFACE.md",
+        "tasks/ds_critical_control/REPORT.md + INTERFACE.md",
+        "tasks/ds_pl_autonomy/rtl/wc_superplan_ctrl.sv (read only)",
+        "work/rtl plan/CSR/DMA/block_address/storage sources (read only)"
+      ],
+      "result": "read-only baseline SHA manifest in reports/SOURCE_SHA256.txt; no writes outside this task directory"
+    },
+    {
+      "stage": 2,
+      "name": "PA001_csr_snapshot",
+      "status": "complete",
+      "result": "original reproduced interleaved 64-bit high-word corruption (9 failing checks); v023 per-register snapshot bank passes"
+    },
+    {
+      "stage": 3,
+      "name": "PA002_bounded_fetch_and_drain",
+      "status": "complete",
+      "result": "original FETCH and ERROR_DRAIN confirmed unbounded; v023 DRAIN state, child_abort, second deadline, isolation_req, drained evidence implemented and tested with dead/late/restart cases"
+    },
+    {
+      "stage": 4,
+      "name": "PA003_PA004_dma",
+      "status": "complete",
+      "result": "40-bit running address and WSTRB-popcount byte count in both v023 DMAs; v020_multi wrap and 16B/beat count reproduced before fix"
+    },
+    {
+      "stage": 5,
+      "name": "ready_mask_128",
+      "status": "complete",
+      "result": "ready_scan_banked_v1: four 32-node bank scans + registered pick/output, dependency snapshot at scan_start; 405 deterministic/random scenarios pass"
+    },
+    {
+      "stage": 6,
+      "name": "block_address_and_storage_handshake",
+      "status": "complete",
+      "result": "block_address_v023 3-stage pipeline equals v020 on 3000 vectors; storage descriptor handshake test passes with pipelined address, bad read/write, good DMA read"
+    },
+    {
+      "stage": 7,
+      "name": "regression_and_report",
+      "status": "complete",
+      "result": "scripts/run_all.sh rc=0, RUN_ALL_PASS; REPORT/FINDINGS/INTERFACE/result/logs/SHA written"
+    }
+  ],
+  "tests": {
+    "pa001_original_failing_checks": 9,
+    "pa001_v023_checks": 15,
+    "pa002_before_unbounded_confirmations": 2,
+    "pa002_v023_phases": 10,
+    "pa003_pa004_before_bug_confirmations": 2,
+    "pa003_pa004_v023_multi_cases": 7,
+    "pa003_pa004_v023_bounded_cases": 2,
+    "ready_scan_deterministic_plus_random": 405,
+    "block_address_vectors": 3000,
+    "storage_handshake_cases": 4,
+    "lint_modules": 7
+  },
+  "limitations": [
+    "logic simulation only: no synthesis/STA/Fmax/bitstream/board/full-CASE0000",
+    "ready-mask and address changes are structural candidates; no timing signoff is claimed",
+    "storage candidate is a SHA-pinned copy of ds_critical_control; its 71-case equivalence is referenced, not re-run here",
+    "the AXI BFM is a protocol model, not DDR timing/bandwidth",
+    "no full-model quantization error evaluation in this task; division/root approximation is outside this worker's scope"
+  ],
+  "updated": "2026-10-29"
+}

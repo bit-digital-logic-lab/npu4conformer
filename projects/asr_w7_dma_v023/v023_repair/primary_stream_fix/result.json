@@ -1,0 +1,23 @@
+{
+  "status": "module_pass_system_pending",
+  "author": "primary_agent",
+  "primary_tests": {
+    "primary_bp0": 13,
+    "primary_bp1": 13,
+    "primary_bp2": 13,
+    "primary_bp3": 13,
+    "primary_bp4": 13
+  },
+  "total_passed": 65,
+  "negative_old_rc": 1,
+  "timing": "logic_simulation_only",
+  "packed_last_cycle_before": 394,
+  "packed_last_cycle_after": 267,
+  "source_manifest": "SOURCE_SHA256.json",
+  "limits": [
+    "no_per_channel",
+    "no_fp32_spill",
+    "no_full_model",
+    "no_sta"
+  ]
+}

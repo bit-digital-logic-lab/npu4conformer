@@ -1,0 +1,21 @@
+{
+  "approx_t1": {
+    "pass": true,
+    "mismatches": null,
+    "special_mismatch": 0,
+    "a16_mismatch": null
+  },
+  "approx_flush": {
+    "pass": true,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  },
+  "approx_param_rejection": {
+    "pass": true,
+    "mismatches": null,
+    "special_mismatch": null,
+    "a16_mismatch": null
+  }
+}
+RESULT /home/yang/Desktop/项目/v023_repair/primary_acceptance/round2/result_primary_approx.json PASS

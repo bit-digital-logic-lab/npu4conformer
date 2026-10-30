@@ -1,0 +1,9 @@
+BASE_HOST_SEQUENCE begin at cycle 15
+BASE_TOTAL start=16 done=55027 drain=55030 total_start_to_drain=55014 done_to_drain=3
+BASE_WINDOW matrix=15347..18661 (3315) vector=18664..44812 (26143) layout=17..55026 (25538) any_busy=54996
+BASE_MATRIX cycles=3315 compute=264 rblk=3 wblk=1 rdwait=450 wrwait=530 scalar=1537 c48_errs=0
+BASE_VECLAY vcyc=5057/8051/8088/4947 sum=26143 lcyc=10226/5100/10212 sum=25538
+BASE_AXI rburst=412 wburst=400 rbeats=1672 wbeats=1600 rdpeak=1 wrpeak=1 rdstall=114 wrstall=485 tag_err=0 bfm_rbeats=1672 bfm_wbeats=1600
+BASE_WAIT ar_stall=114 aw_stall=104 w_stall=381 r_stall=0 b_stall=0 bfm_read_busy=3817 bfm_write_busy=4932 bfm_bresp_wait=603
+BASE_RESULT PASS
+tb/tb_chain_baseline.sv:510: $finish called at 440244000 (1ps)

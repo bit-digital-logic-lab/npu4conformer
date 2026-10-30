@@ -1,0 +1,49 @@
+{
+  "arena": {
+    "base": 50331648,
+    "limit": 134217728,
+    "used": 56570880,
+    "free": 27315200
+  },
+  "external": {
+    "base": 134217728,
+    "limit": 268435456,
+    "used": 15545344,
+    "free": 118672384
+  },
+  "tensor_count": 1318,
+  "live_conflicts": 0,
+  "old_same_base_pairs": 225310,
+  "old_same_base_pairs_live_simultaneously": 2413,
+  "shared_temp": {
+    "base": 76677120,
+    "bytes": 30277632,
+    "policy": "single SEQ engine owns the shared temp extent; two concurrent 30.3MB extents do not fit the 80MiB arena (sum of all 68 extents ~126.4MB)",
+    "peak_parallel_temp_extents": 1,
+    "max_parallel_if_2x_temp": "infeasible: 2*max_temp + A/C exceeds the 80MiB arena"
+  },
+  "closed68": {
+    "count": 68,
+    "global_input_bytes": 4539392,
+    "global_output_bytes": 11005952
+  },
+  "ledger591": {
+    "count": 591,
+    "global_a_bytes": 8709888,
+    "global_c_bytes": 17577984
+  },
+  "negative_example": {
+    "a": "encoder|/encoder/embed/conv/conv.2/Conv::out",
+    "b": "encoder|/encoder/encoders.0/feed_forward_macaron::out",
+    "live_a": [
+      2,
+      68
+    ],
+    "live_b": [
+      3,
+      68
+    ],
+    "base": 141786112,
+    "bytes": 1206272
+  }
+}

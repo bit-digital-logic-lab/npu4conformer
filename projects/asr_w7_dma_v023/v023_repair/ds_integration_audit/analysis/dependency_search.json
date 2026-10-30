@@ -1,0 +1,78 @@
+{
+  "scope": [
+    "/home/yang/Desktop/\u9879\u76ee",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6",
+    "/home/yang/Desktop/software4npu"
+  ],
+  "files_seen": 31850,
+  "zip": "/home/yang/Desktop/\u9879\u76ee/model_a_v0_22(1).zip",
+  "missing_required_v022_host": {
+    "lowbit_executor.py": [],
+    "profiled_backend.py": [],
+    "vm_abi.py": []
+  },
+  "zip_hits_for_missing_or_onnx": [],
+  "host_import_probe": {
+    "base_v021": "ModuleNotFoundError: No module named 'profiled_backend'",
+    "backend_v021": "ModuleNotFoundError: No module named 'profiled_backend'",
+    "fusion_backend": "ModuleNotFoundError: No module named 'profiled_backend'"
+  },
+  "onnx_candidates": [
+    {
+      "path": "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/reference_data/models/int16_qdq_fix01/decoder.onnx",
+      "bytes": 71507829,
+      "sha256": "c59a0001e54cad634304c1b527771ebc22ecac7d165ef444666d0708db99ad3c"
+    },
+    {
+      "path": "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/reference_data/models/int16_qdq_fix01/encoder.onnx",
+      "bytes": 188800260,
+      "sha256": "58e3a6bb6a95cdb7c5cc5397793d8daac2cfd1f4e9500ad1a742295396fc0ed2"
+    },
+    {
+      "path": "/home/yang/Desktop/software4npu/third_party/espnet/espnet2/sds/end_to_end/mini_omni/utils/assets/silero_vad.onnx",
+      "bytes": 1807524,
+      "sha256": "591f853590d11ddde2f2a54f9e7ccecb2533a8af7716330e8adfa6f3849787a9"
+    }
+  ],
+  "executor_candidates": [
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/GitHub\u5019\u9009/asr_v5_fpga/asr/v5/host/onnx_executor_v5.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/GitHub\u5019\u9009/asr_v5_fpga/asr/releases/v2_20260922_pre_golden/v2/host/onnx_executor.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/GitHub\u5019\u9009/asr_v5_fpga/asr/releases/v2_20260922_pre_golden/host/fp32_reference.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/GitHub\u5019\u9009/asr_v5_fpga/asr/releases/v2_20260922_pre_golden/host/model_manifest.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/GitHub\u5019\u9009/asr_v5_fpga/asr/releases/v2_20260922_pre_golden/host/onnx_executor.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/GitHub\u5019\u9009/asr_v5_fpga/asr/releases/v2_20260922_pre_golden/host/integer_reference.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/GitHub\u5019\u9009/asr_v5_fpga/asr/releases/v2_20260922_pre_golden/host/model_a.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/GitHub\u5019\u9009/modelA_conformer_head_fpga/host/integer_reference.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/npu4conformer/projects/asr_qdq_fpga/v5/host/onnx_executor_v5.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/npu4conformer/projects/asr_qdq_fpga/releases/v2_20260922_pre_golden/v2/host/onnx_executor.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/npu4conformer/projects/asr_qdq_fpga/releases/v2_20260922_pre_golden/host/fp32_reference.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/npu4conformer/projects/asr_qdq_fpga/releases/v2_20260922_pre_golden/host/model_manifest.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/npu4conformer/projects/asr_qdq_fpga/releases/v2_20260922_pre_golden/host/onnx_executor.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/npu4conformer/projects/asr_qdq_fpga/releases/v2_20260922_pre_golden/host/integer_reference.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/npu4conformer/projects/asr_qdq_fpga/releases/v2_20260922_pre_golden/host/model_a.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/npu4conformer/projects/conformer_attention_head/host/integer_reference.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/v5/reports/cpu_teacher_001/onnx_executor_v5.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/v5/reports/cpu_native_001/onnx_executor_v5.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/v5/host/onnx_executor_v5.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v5_20260923_case0000_pass/reports/cpu_teacher_001/onnx_executor_v5.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v5_20260923_case0000_pass/reports/cpu_native_001/onnx_executor_v5.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v5_20260923_case0000_pass/dependencies/v2_20260922_pre_golden/v2/host/onnx_executor.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v5_20260923_case0000_pass/dependencies/v2_20260922_pre_golden/host/fp32_reference.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v5_20260923_case0000_pass/dependencies/v2_20260922_pre_golden/host/model_manifest.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v5_20260923_case0000_pass/dependencies/v2_20260922_pre_golden/host/onnx_executor.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v5_20260923_case0000_pass/dependencies/v2_20260922_pre_golden/host/integer_reference.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v5_20260923_case0000_pass/dependencies/v2_20260922_pre_golden/host/model_a.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v5_20260923_case0000_pass/host/onnx_executor_v5.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v2_20260922_pre_golden/v2/host/onnx_executor.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v2_20260922_pre_golden/host/fp32_reference.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v2_20260922_pre_golden/host/model_manifest.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v2_20260922_pre_golden/host/onnx_executor.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v2_20260922_pre_golden/host/integer_reference.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen/project/asr/releases/v2_20260922_pre_golden/host/model_a.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5/v5/reports/cpu_teacher_001/onnx_executor_v5.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5/v5/reports/cpu_native_001/onnx_executor_v5.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5/v5/host/onnx_executor_v5.py",
+    "/home/yang/Desktop/\u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/modelA_conformer_head_full_fpga/modelA_conformer_head_full_fpga/host/integer_reference.py"
+  ],
+  "conclusion": "lowbit_executor.py / profiled_backend.py / vm_abi.py are absent from the bounded local scopes and the sealed ZIP; work/host imports fail. ONNX candidates found in \u5f53\u524d\u5de5\u7a0b\u6587\u4ef6/\u89e3\u538b\u5f52\u6863/v5_xc7a35t_frozen are an int16 QDQ model bundle for a different (xc7a35t v5) release, not proven to be the V022 W7p8/A16/C48 graph. They are an unblock lead only; they do not justify a recovered 591 tensor DAG or full CASE0000."
+}

@@ -1,0 +1,19 @@
+{
+  "M": 64,
+  "N": 32,
+  "K": 96,
+  "C_VALID": 0,
+  "seed": 1234,
+  "positions": "0x76543210",
+  "clip": 1,
+  "A_BASE": "0x03000000",
+  "B_BASE": "0x03004000",
+  "C_BASE": "0x03005000",
+  "MEM_WORDS": 2048,
+  "nbr": 2,
+  "nbc": 1,
+  "nbk": 3,
+  "sha256_init": "edec4bd85aa4c1b96ca99d235cef82f961994563205d08f990dde668100cae0c",
+  "sha256_exp": "d45a8903118afdce0a7c3302d2a48f3b5149693aae6d0f3218e3498b31de13a9",
+  "note": "integer golden only; no FP32/QDQ path in this block engine test"
+}

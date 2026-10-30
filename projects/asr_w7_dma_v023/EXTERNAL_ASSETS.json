@@ -1,0 +1,160 @@
+{
+  "note": "Not uploaded. Original archives/weights/large fixtures retained locally; restore matching files or regenerate fixtures before affected runs. Build caches excluded separately.",
+  "files": [
+    {
+      "path": "model_a_v0_22(1).zip",
+      "bytes": 589462902,
+      "sha256": "327ea1b4b228a0415b370a208e2a6881e6547a49473b360105724a12655eda84"
+    },
+    {
+      "path": "v023_repair/ds_graph/analysis/small_real.bin",
+      "bytes": 832,
+      "sha256": "3905b0fbdd08a5bf236e05fbd08faf90cc34f0513f366952770b8edaf79fe221"
+    },
+    {
+      "path": "v023_repair/ds_graph/analysis/small_real_payloads.bin",
+      "bytes": 1048576,
+      "sha256": "8f448b701b9d9bead48a89ce9046e894b6a7097142e8c1ea9a18a88af202d2a5"
+    },
+    {
+      "path": "v023_repair/ds_graph/analysis/forward_dep.bin",
+      "bytes": 832,
+      "sha256": "f53d9c5ed004cfbbe8086ae72152364e2bb5179b254b32e2c046aeab5b0d5746"
+    },
+    {
+      "path": "v023_repair/ds_graph/analysis/no_output.bin",
+      "bytes": 832,
+      "sha256": "43d33121843abea6a6b603b96abc808d228326bd83294db8162f22ad58929607"
+    },
+    {
+      "path": "v023_repair/ds_graph/analysis/bad_hash.bin",
+      "bytes": 832,
+      "sha256": "818edecbb51b6883b28474832029f110a9ea93abbfc54445eaf538bb8bfb744f"
+    },
+    {
+      "path": "v023_repair/ds_graph/analysis/bad_root.bin",
+      "bytes": 832,
+      "sha256": "7925ad96787df72ca5d4171a590717e855d930de31238ad6c2e69aff0b7e5660"
+    },
+    {
+      "path": "v023_repair/ds_graph/analysis/whole68_global.bin",
+      "bytes": 26176,
+      "sha256": "0115aaeef2f7a97eece12371564a1ae449e4dc71c86aa272d320fc3afb413320"
+    },
+    {
+      "path": "v023_repair/ds_graph/analysis/ledger591.bin",
+      "bytes": 113536,
+      "sha256": "8da1513a5a51698114625b828d85d1c5d42601554a6616ad133daa283deeacbf"
+    },
+    {
+      "path": "v023_repair/ds_numeric_adversarial/logs/old_f32i16.out",
+      "bytes": 11845804,
+      "sha256": "5b2cd78cb2ad7f3f24a652a40adbf40c0a75612fbfdbb775ded4dcee24d09c0b"
+    },
+    {
+      "path": "v023_repair/ds_numeric_adversarial/logs/old_final_f32i16.out",
+      "bytes": 11845804,
+      "sha256": "5b2cd78cb2ad7f3f24a652a40adbf40c0a75612fbfdbb775ded4dcee24d09c0b"
+    },
+    {
+      "path": "v023_repair/ds_numeric_adversarial/logs/old_f32i16_f32i16.out",
+      "bytes": 11845804,
+      "sha256": "5b2cd78cb2ad7f3f24a652a40adbf40c0a75612fbfdbb775ded4dcee24d09c0b"
+    },
+    {
+      "path": "v023_repair/gemini_review/tb/sim_array_drain",
+      "bytes": 11087581,
+      "sha256": "b20116a963d7a52180dffa6b9dbcce0313fcad5129a9b48fd09a5d18dadcf158"
+    },
+    {
+      "path": "work/assets/parameters001/parameters.bin",
+      "bytes": 173715968,
+      "sha256": "f2a8150cba91659eaaa480398e5c0e4c7f911da60b28608bc1e7f04287558478"
+    },
+    {
+      "path": "work/assets/parameters002/parameters.bin",
+      "bytes": 173715968,
+      "sha256": "fc36806a0070407ae33adbe56f80810e5e57e73d4016f049eed2c4486ed18767"
+    },
+    {
+      "path": "tasks/gemini_compute/bench/array16_compare_sim.vvp",
+      "bytes": 9723280,
+      "sha256": "493cea7a7ce48706cdbaa006fcca47c5998260e4045cfff5a847ff061d5d2b95"
+    },
+    {
+      "path": "tasks/gemini_pipeline_control/bench/tb_full_array_integration.vvp",
+      "bytes": 11953878,
+      "sha256": "500fb6626adbd15de75de4c9ee9f583dd21f0e6aeaf9695c21b0bbc9b140f5b1"
+    },
+    {
+      "path": "tasks/gemini_pipeline_control/bench/tb_pipeline_latency_sweep.vvp",
+      "bytes": 18694642,
+      "sha256": "b264a94bb3abe35800074cab7b1ec1fe3a912b563bf78d0d619ebedf45771b17"
+    },
+    {
+      "path": "tasks/gemini_pipeline_control/bench/tb_debug.vvp",
+      "bytes": 18711710,
+      "sha256": "19811ad96c99edf9d163567103a87559545bb09ed234d3e390b80b6bc90a3e2d"
+    },
+    {
+      "path": "tasks/gemini_numeric_audit/tests/tb_flush_contract.vvp",
+      "bytes": 9723625,
+      "sha256": "d2c8324b1a8d766c377f8b2f62c827d93dbba37ebb87d4e5831d2097224f7ffc"
+    },
+    {
+      "path": "tasks/ds_pl_autonomy/analysis/whole68_serial.bin",
+      "bytes": 4416,
+      "sha256": "5b81b10d7e779eab02e137cbe4a0362e1b58cc288bf6440afa049e3cbedd0ff0"
+    },
+    {
+      "path": "tasks/ds_pl_autonomy/analysis/whole68_roots.bin",
+      "bytes": 4416,
+      "sha256": "aa15b17fa8902434594cb8283d3b87bbb6140793edd1d6edc138f342424fb667"
+    },
+    {
+      "path": "tasks/ds_pl_autonomy/assets/manifest_v022.json",
+      "bytes": 35895207,
+      "sha256": "5544fb82a416a994784cbe3da2d2524b5b4d28bef516d35018a2030e52a7ed1a"
+    },
+    {
+      "path": "tasks/ds_pl_autonomy/tests/fixtures/gold_mode10.bin",
+      "bytes": 256,
+      "sha256": "5fba449d72e8849aae440defc2ba18d109760173aaefc8d2219b61099c1c1857"
+    },
+    {
+      "path": "tasks/ds_pl_autonomy/tests/fixtures/gold_mode11.bin",
+      "bytes": 256,
+      "sha256": "69212ece86f5f5d9bfb66d2d485726a8a1fc41f3b02c3ec6af4efb73f83df451"
+    },
+    {
+      "path": "tasks/ds_pl_autonomy/tests/fixtures/gold_mode12.bin",
+      "bytes": 256,
+      "sha256": "0252e175ef135975af9ecceed06083a8640cd3418fbefd4360d4b45473b5044f"
+    },
+    {
+      "path": "tasks/ds_pe_pipeline/bench/array_cfg_sim.vvp",
+      "bytes": 45518318,
+      "sha256": "610f46c2b076d6dd41a3bce950a2b388c151ede741f416b47f6b75e37a891adf"
+    },
+    {
+      "path": "tasks/ds_pe_pipeline/bench/vectors/pe_exhaustive.vec",
+      "bytes": 15564800,
+      "sha256": "e1cbbd5386e2d21a06506b81ffa8f8708828ebb8d247204e92388f3d25614e76"
+    },
+    {
+      "path": "tasks/ds_pe_pipeline/bench/logs/pe_overflow.out",
+      "bytes": 10534680,
+      "sha256": "9f2dd687e238f59a80b06c2cf99adbadb984f31819664a3e679f01cc51945ef4"
+    },
+    {
+      "path": "tasks/ds_pe_pipeline/bench/logs/pe_exhaustive.out",
+      "bytes": 48565296,
+      "sha256": "9f24adaae67fdccbbb3f6f4bba3666000132074970fbf1baf069ea3ebe804ccd"
+    },
+    {
+      "path": "tasks/ds_ddr/fixtures/parameters002/manifest.json",
+      "bytes": 35895207,
+      "sha256": "5544fb82a416a994784cbe3da2d2524b5b4d28bef516d35018a2030e52a7ed1a"
+    }
+  ]
+}

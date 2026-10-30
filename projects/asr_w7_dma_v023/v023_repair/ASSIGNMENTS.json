@@ -1,0 +1,39 @@
+{
+  "ds_vector": {
+    "model": "ds",
+    "pid_supervisor": 79545
+  },
+  "ds_layout": {
+    "model": "ds",
+    "pid_supervisor": 79546
+  },
+  "ds_matrix": {
+    "model": "ds",
+    "pid_supervisor": 79547
+  },
+  "ds_graph": {
+    "model": "ds",
+    "pid_supervisor": 79548
+  },
+  "gemini_approx": {
+    "model": "gemini",
+    "pid_supervisor": 79549
+  },
+  "ds_control_fixes": {
+    "model": "ds",
+    "pid_supervisor": 79550
+  },
+  "gemini_epilogue": {
+    "model": "gemini",
+    "pid_supervisor": 79551
+  },
+  "gemini_review": {
+    "model": "gemini",
+    "pid_supervisor": 79552
+  },
+  "ds_integration": {
+    "model": "ds",
+    "pid_supervisor": 80333,
+    "queued": true
+  }
+}

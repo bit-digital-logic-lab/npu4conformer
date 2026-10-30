@@ -1,0 +1,31 @@
+COMPILE csr_orig rc=0
+RUN csr_orig rc=0 expect='PA001_INTERLEAVED_BUG' hit=1
+COMPILE csr_v023 rc=0
+RUN csr_v023 rc=0 expect='PA001_PASS' hit=1
+COMPILE plan_before rc=0
+RUN plan_before rc=0 expect='PA002_FETCH_UNBOUNDED_CONFIRMED' hit=1
+RUN plan_before rc=0 expect='PA002_ERROR_DRAIN_UNBOUNDED_CONFIRMED' hit=1
+COMPILE plan_v023 rc=0
+RUN plan_v023 rc=0 expect='PA002_PASS' hit=1
+COMPILE dma_before rc=0
+RUN dma_before rc=0 expect='PA003_WRAP_BUG_CONFIRMED' hit=1
+RUN dma_before rc=0 expect='PA004_STRB_COUNT_BUG_CONFIRMED' hit=1
+COMPILE dma_v023 rc=0
+RUN dma_v023 rc=0 expect='PA003_PA004_PASS' hit=1
+COMPILE dma_bounded rc=0
+RUN dma_bounded rc=0 expect='BOUNDED_PASS' hit=1
+COMPILE ready_scan rc=0
+RUN ready_scan rc=0 expect='READY_SCAN_PASS' hit=1
+COMPILE block_address rc=0
+RUN block_address rc=0 expect='BLOCK_ADDRESS_PASS' hit=1
+COMPILE storage_handshake rc=0
+RUN storage_handshake rc=0 expect='STORAGE_HANDSHAKE_PASS' hit=1
+LINT axi_dma_v023_bounded.sv rc=0
+LINT axi_dma_v023_multi.sv rc=0
+LINT block_address_v023.sv rc=0
+LINT block_storage_dma_wide4_v023.sv rc=0
+LINT pl_execution_plan_v023.sv rc=0
+LINT plan_submit_csr_v023.sv rc=0
+LINT ready_scan_banked_v1.sv rc=0
+SUMMARY fails=0
+RUN_ALL_PASS

@@ -1,0 +1,3487 @@
+{
+  "metadata": {
+    "title": "V0.22 Theoretical Roofline, Workload Accounting, and Bandwidth Matching",
+    "device": "XCZU15EG-2FFVB1156I",
+    "date": "2026-10-29",
+    "scope": "68 closed plans separated from whole model; read/write decomposed; tensor footprint quantified; PE systolic bandwidth matched"
+  },
+  "manifest_verification": {
+    "useful_mac": 3461011968,
+    "padded_mac": 3991404544,
+    "unique_c_outputs": 4471808,
+    "total_tiles": 121808,
+    "useful_mac_formula": "sum(M * K * N) over ops",
+    "padded_mac_formula": "tiles * 32 * 32 * 32"
+  },
+  "whole_case_vs_68plans_gap": {
+    "case0000_board_total_s": 154.8238,
+    "encoder_s": 124.1986,
+    "decoder_s": 27.6812,
+    "all_matrix_pe_s": 0.347,
+    "all_matrix_queue_s": 3.0354,
+    "closed_68_plan_s": 12.4866,
+    "unfused_and_boundary_overhead_s": 142.3372
+  },
+  "tensor_footprint_compulsory_bounds": {
+    "unique_weight_bytes": 81007616,
+    "boundary_input_bytes": 4539392,
+    "boundary_output_bytes": 16508928,
+    "unique_tensor_range_bytes": 12592128,
+    "compulsory_onchip_intermediate_lb_bytes": 102055936,
+    "all_intermediate_ddr_coarse_lb_bytes": 127240192,
+    "actual_measured_68plan_bytes": 933028896,
+    "preliminary_formula_bytes": 929293344,
+    "traffic_amplification_vs_onchip_lb": 9.14,
+    "vector_traffic_amplification_vs_tensor_footprint": 64.2
+  },
+  "read_write_decomposition": {
+    "read_bytes": 577473808,
+    "write_bytes": 355555088,
+    "sum_bytes": 933028896,
+    "read_ratio": 0.6189,
+    "write_ratio": 0.3811
+  },
+  "compute_frequency_scenarios": [
+    {
+      "compute_MHz": 125,
+      "useful_matrix_lb_s": 0.108157,
+      "padded_matrix_lb_s": 0.124731,
+      "measured_pe_scaled_s": 0.257258,
+      "vector_scaled_s": 6.815515,
+      "layout_scaled_s": 3.353493,
+      "serial_sum_scaled_s": 10.468272,
+      "notes": "Matrix lb is arithmetic only. Vector/layout is measured RTL cycle count scaled by frequency."
+    },
+    {
+      "compute_MHz": 150,
+      "useful_matrix_lb_s": 0.090131,
+      "padded_matrix_lb_s": 0.103943,
+      "measured_pe_scaled_s": 0.214382,
+      "vector_scaled_s": 5.679596,
+      "layout_scaled_s": 2.794578,
+      "serial_sum_scaled_s": 8.72356,
+      "notes": "Matrix lb is arithmetic only. Vector/layout is measured RTL cycle count scaled by frequency."
+    },
+    {
+      "compute_MHz": 300,
+      "useful_matrix_lb_s": 0.045065,
+      "padded_matrix_lb_s": 0.051971,
+      "measured_pe_scaled_s": 0.107191,
+      "vector_scaled_s": 2.839798,
+      "layout_scaled_s": 1.397289,
+      "serial_sum_scaled_s": 4.36178,
+      "notes": "Matrix lb is arithmetic only. Vector/layout is measured RTL cycle count scaled by frequency."
+    },
+    {
+      "compute_MHz": 600,
+      "useful_matrix_lb_s": 0.022533,
+      "padded_matrix_lb_s": 0.025986,
+      "measured_pe_scaled_s": 0.053596,
+      "vector_scaled_s": 1.419899,
+      "layout_scaled_s": 0.698644,
+      "serial_sum_scaled_s": 2.18089,
+      "notes": "Matrix lb is arithmetic only. Vector/layout is measured RTL cycle count scaled by frequency."
+    }
+  ],
+  "memory_bandwidth_scenarios": [
+    {
+      "channel": "HP0 @ 125MHz (Current Baseline)",
+      "peak_GB_s": 2.0,
+      "shared_serial_lb_s": 0.466514,
+      "concurrent_rw_lb_s": 0.288737,
+      "compulsory_onchip_lb_s": 0.051028,
+      "realistic_shared_75pct_s": 0.622019,
+      "realistic_concurrent_75pct_s": 0.384983
+    },
+    {
+      "channel": "HP0 @ 200MHz",
+      "peak_GB_s": 3.2,
+      "shared_serial_lb_s": 0.291572,
+      "concurrent_rw_lb_s": 0.180461,
+      "compulsory_onchip_lb_s": 0.031892,
+      "realistic_shared_75pct_s": 0.388762,
+      "realistic_concurrent_75pct_s": 0.240614
+    },
+    {
+      "channel": "HP0 @ 250MHz",
+      "peak_GB_s": 4.0,
+      "shared_serial_lb_s": 0.233257,
+      "concurrent_rw_lb_s": 0.144368,
+      "compulsory_onchip_lb_s": 0.025514,
+      "realistic_shared_75pct_s": 0.31101,
+      "realistic_concurrent_75pct_s": 0.192491
+    },
+    {
+      "channel": "HP0 @ 300MHz",
+      "peak_GB_s": 4.8,
+      "shared_serial_lb_s": 0.194381,
+      "concurrent_rw_lb_s": 0.120307,
+      "compulsory_onchip_lb_s": 0.021262,
+      "realistic_shared_75pct_s": 0.259175,
+      "realistic_concurrent_75pct_s": 0.160409
+    },
+    {
+      "channel": "HP0 @ 333MHz (DS925 Maximum)",
+      "peak_GB_s": 5.333,
+      "shared_serial_lb_s": 0.174954,
+      "concurrent_rw_lb_s": 0.108283,
+      "compulsory_onchip_lb_s": 0.019137,
+      "realistic_shared_75pct_s": 0.233272,
+      "realistic_concurrent_75pct_s": 0.144377
+    },
+    {
+      "channel": "Dual HP @ 250MHz (2x 128b)",
+      "peak_GB_s": 8.0,
+      "shared_serial_lb_s": 0.116629,
+      "concurrent_rw_lb_s": 0.072184,
+      "compulsory_onchip_lb_s": 0.012757,
+      "realistic_shared_75pct_s": 0.155505,
+      "realistic_concurrent_75pct_s": 0.096246
+    },
+    {
+      "channel": "PL DDR4-2400 (32-bit MIG Candidate)",
+      "peak_GB_s": 9.6,
+      "shared_serial_lb_s": 0.097191,
+      "concurrent_rw_lb_s": 0.060154,
+      "compulsory_onchip_lb_s": 0.010631,
+      "realistic_shared_75pct_s": 0.129587,
+      "realistic_concurrent_75pct_s": 0.080205
+    },
+    {
+      "channel": "PS DDR4-1600 (64-bit Physical Peak)",
+      "peak_GB_s": 12.8,
+      "shared_serial_lb_s": 0.072893,
+      "concurrent_rw_lb_s": 0.045115,
+      "compulsory_onchip_lb_s": 0.007973,
+      "realistic_shared_75pct_s": 0.097191,
+      "realistic_concurrent_75pct_s": 0.060154
+    }
+  ],
+  "pe_systolic_bandwidth_matching": [
+    {
+      "tile_name": "16x16x32 (Small tile)",
+      "shape": [
+        16,
+        16,
+        32
+      ],
+      "a_bytes": 1024,
+      "w_bytes": 512,
+      "c_bytes": 1536,
+      "total_bytes": 3072,
+      "macs": 8192,
+      "intensity_mac_per_b": 2.6667,
+      "intensity_ops_per_b": 5.3333,
+      "configurations": [
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 42.67,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 0.6667,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            },
+            "128PE": {
+              "utilization": 0.3333,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            },
+            "256PE": {
+              "utilization": 0.1667,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 35.56,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 0.5556,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            },
+            "128PE": {
+              "utilization": 0.2778,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            },
+            "256PE": {
+              "utilization": 0.1389,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 17.78,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 0.5556,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            },
+            "64PE": {
+              "utilization": 0.2778,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            },
+            "128PE": {
+              "utilization": 0.1389,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            },
+            "256PE": {
+              "utilization": 0.0694,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 8.89,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 0.5556,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            },
+            "32PE": {
+              "utilization": 0.2778,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            },
+            "64PE": {
+              "utilization": 0.1389,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            },
+            "128PE": {
+              "utilization": 0.0694,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            },
+            "256PE": {
+              "utilization": 0.0347,
+              "effective_throughput_GMAC_s": 5.33,
+              "effective_throughput_TOPS": 0.011,
+              "ideal_time_68plan_useful_s": 0.64894
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 85.33,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 0.6667,
+              "effective_throughput_GMAC_s": 10.67,
+              "effective_throughput_TOPS": 0.021,
+              "ideal_time_68plan_useful_s": 0.32447
+            },
+            "256PE": {
+              "utilization": 0.3333,
+              "effective_throughput_GMAC_s": 10.67,
+              "effective_throughput_TOPS": 0.021,
+              "ideal_time_68plan_useful_s": 0.32447
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 71.11,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 0.5556,
+              "effective_throughput_GMAC_s": 10.67,
+              "effective_throughput_TOPS": 0.021,
+              "ideal_time_68plan_useful_s": 0.32447
+            },
+            "256PE": {
+              "utilization": 0.2778,
+              "effective_throughput_GMAC_s": 10.67,
+              "effective_throughput_TOPS": 0.021,
+              "ideal_time_68plan_useful_s": 0.32447
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 35.56,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 0.5556,
+              "effective_throughput_GMAC_s": 10.67,
+              "effective_throughput_TOPS": 0.021,
+              "ideal_time_68plan_useful_s": 0.32447
+            },
+            "128PE": {
+              "utilization": 0.2778,
+              "effective_throughput_GMAC_s": 10.67,
+              "effective_throughput_TOPS": 0.021,
+              "ideal_time_68plan_useful_s": 0.32447
+            },
+            "256PE": {
+              "utilization": 0.1389,
+              "effective_throughput_GMAC_s": 10.67,
+              "effective_throughput_TOPS": 0.021,
+              "ideal_time_68plan_useful_s": 0.32447
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 17.78,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 0.5556,
+              "effective_throughput_GMAC_s": 10.67,
+              "effective_throughput_TOPS": 0.021,
+              "ideal_time_68plan_useful_s": 0.32447
+            },
+            "64PE": {
+              "utilization": 0.2778,
+              "effective_throughput_GMAC_s": 10.67,
+              "effective_throughput_TOPS": 0.021,
+              "ideal_time_68plan_useful_s": 0.32447
+            },
+            "128PE": {
+              "utilization": 0.1389,
+              "effective_throughput_GMAC_s": 10.67,
+              "effective_throughput_TOPS": 0.021,
+              "ideal_time_68plan_useful_s": 0.32447
+            },
+            "256PE": {
+              "utilization": 0.0694,
+              "effective_throughput_GMAC_s": 10.67,
+              "effective_throughput_TOPS": 0.021,
+              "ideal_time_68plan_useful_s": 0.32447
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 113.77,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 0.8888,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243368
+            },
+            "256PE": {
+              "utilization": 0.4444,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243368
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 94.81,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 0.7407,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243368
+            },
+            "256PE": {
+              "utilization": 0.3703,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243368
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 47.4,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 0.7407,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243368
+            },
+            "128PE": {
+              "utilization": 0.3703,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243368
+            },
+            "256PE": {
+              "utilization": 0.1852,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243368
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 23.7,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 0.7407,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243368
+            },
+            "64PE": {
+              "utilization": 0.3703,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243368
+            },
+            "128PE": {
+              "utilization": 0.1852,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243368
+            },
+            "256PE": {
+              "utilization": 0.0926,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243368
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 170.67,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 0.6667,
+              "effective_throughput_GMAC_s": 21.33,
+              "effective_throughput_TOPS": 0.043,
+              "ideal_time_68plan_useful_s": 0.162235
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 142.22,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "256PE": {
+              "utilization": 0.5556,
+              "effective_throughput_GMAC_s": 21.33,
+              "effective_throughput_TOPS": 0.043,
+              "ideal_time_68plan_useful_s": 0.162235
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 71.11,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "128PE": {
+              "utilization": 0.5556,
+              "effective_throughput_GMAC_s": 21.33,
+              "effective_throughput_TOPS": 0.043,
+              "ideal_time_68plan_useful_s": 0.162235
+            },
+            "256PE": {
+              "utilization": 0.2778,
+              "effective_throughput_GMAC_s": 21.33,
+              "effective_throughput_TOPS": 0.043,
+              "ideal_time_68plan_useful_s": 0.162235
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 35.56,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "64PE": {
+              "utilization": 0.5556,
+              "effective_throughput_GMAC_s": 21.33,
+              "effective_throughput_TOPS": 0.043,
+              "ideal_time_68plan_useful_s": 0.162235
+            },
+            "128PE": {
+              "utilization": 0.2778,
+              "effective_throughput_GMAC_s": 21.33,
+              "effective_throughput_TOPS": 0.043,
+              "ideal_time_68plan_useful_s": 0.162235
+            },
+            "256PE": {
+              "utilization": 0.1389,
+              "effective_throughput_GMAC_s": 21.33,
+              "effective_throughput_TOPS": 0.043,
+              "ideal_time_68plan_useful_s": 0.162235
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 204.8,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 0.8,
+              "effective_throughput_GMAC_s": 25.6,
+              "effective_throughput_TOPS": 0.051,
+              "ideal_time_68plan_useful_s": 0.135196
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 170.67,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "256PE": {
+              "utilization": 0.6667,
+              "effective_throughput_GMAC_s": 25.6,
+              "effective_throughput_TOPS": 0.051,
+              "ideal_time_68plan_useful_s": 0.135196
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 85.33,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "128PE": {
+              "utilization": 0.6667,
+              "effective_throughput_GMAC_s": 25.6,
+              "effective_throughput_TOPS": 0.051,
+              "ideal_time_68plan_useful_s": 0.135196
+            },
+            "256PE": {
+              "utilization": 0.3333,
+              "effective_throughput_GMAC_s": 25.6,
+              "effective_throughput_TOPS": 0.051,
+              "ideal_time_68plan_useful_s": 0.135196
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 42.67,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "64PE": {
+              "utilization": 0.6667,
+              "effective_throughput_GMAC_s": 25.6,
+              "effective_throughput_TOPS": 0.051,
+              "ideal_time_68plan_useful_s": 0.135196
+            },
+            "128PE": {
+              "utilization": 0.3333,
+              "effective_throughput_GMAC_s": 25.6,
+              "effective_throughput_TOPS": 0.051,
+              "ideal_time_68plan_useful_s": 0.135196
+            },
+            "256PE": {
+              "utilization": 0.1667,
+              "effective_throughput_GMAC_s": 25.6,
+              "effective_throughput_TOPS": 0.051,
+              "ideal_time_68plan_useful_s": 0.135196
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tile_name": "32x32x32 (V020 baseline tile)",
+      "shape": [
+        32,
+        32,
+        32
+      ],
+      "a_bytes": 2048,
+      "w_bytes": 1024,
+      "c_bytes": 6144,
+      "total_bytes": 9216,
+      "macs": 32768,
+      "intensity_mac_per_b": 3.5556,
+      "intensity_ops_per_b": 7.1111,
+      "configurations": [
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 56.89,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            },
+            "128PE": {
+              "utilization": 0.4444,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            },
+            "256PE": {
+              "utilization": 0.2222,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 47.41,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 0.7407,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            },
+            "128PE": {
+              "utilization": 0.3704,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            },
+            "256PE": {
+              "utilization": 0.1852,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 23.7,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 0.7407,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            },
+            "64PE": {
+              "utilization": 0.3704,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            },
+            "128PE": {
+              "utilization": 0.1852,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            },
+            "256PE": {
+              "utilization": 0.0926,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 11.85,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 0.7407,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            },
+            "32PE": {
+              "utilization": 0.3704,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            },
+            "64PE": {
+              "utilization": 0.1852,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            },
+            "128PE": {
+              "utilization": 0.0926,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            },
+            "256PE": {
+              "utilization": 0.0463,
+              "effective_throughput_GMAC_s": 7.11,
+              "effective_throughput_TOPS": 0.014,
+              "ideal_time_68plan_useful_s": 0.486705
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 113.78,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243352
+            },
+            "256PE": {
+              "utilization": 0.4444,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243352
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 94.81,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 0.7407,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243352
+            },
+            "256PE": {
+              "utilization": 0.3704,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243352
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 47.41,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 0.7407,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243352
+            },
+            "128PE": {
+              "utilization": 0.3704,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243352
+            },
+            "256PE": {
+              "utilization": 0.1852,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243352
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 23.7,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 0.7407,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243352
+            },
+            "64PE": {
+              "utilization": 0.3704,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243352
+            },
+            "128PE": {
+              "utilization": 0.1852,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243352
+            },
+            "256PE": {
+              "utilization": 0.0926,
+              "effective_throughput_GMAC_s": 14.22,
+              "effective_throughput_TOPS": 0.028,
+              "ideal_time_68plan_useful_s": 0.243352
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 151.69,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 0.5926,
+              "effective_throughput_GMAC_s": 18.96,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.182526
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 126.41,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 0.9876,
+              "effective_throughput_GMAC_s": 18.96,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.182526
+            },
+            "256PE": {
+              "utilization": 0.4938,
+              "effective_throughput_GMAC_s": 18.96,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.182526
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 63.21,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 0.9876,
+              "effective_throughput_GMAC_s": 18.96,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.182526
+            },
+            "128PE": {
+              "utilization": 0.4938,
+              "effective_throughput_GMAC_s": 18.96,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.182526
+            },
+            "256PE": {
+              "utilization": 0.2469,
+              "effective_throughput_GMAC_s": 18.96,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.182526
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 31.6,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 0.9876,
+              "effective_throughput_GMAC_s": 18.96,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.182526
+            },
+            "64PE": {
+              "utilization": 0.4938,
+              "effective_throughput_GMAC_s": 18.96,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.182526
+            },
+            "128PE": {
+              "utilization": 0.2469,
+              "effective_throughput_GMAC_s": 18.96,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.182526
+            },
+            "256PE": {
+              "utilization": 0.1234,
+              "effective_throughput_GMAC_s": 18.96,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.182526
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 227.56,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 28.44,
+              "effective_throughput_TOPS": 0.057,
+              "ideal_time_68plan_useful_s": 0.121676
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 189.63,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "256PE": {
+              "utilization": 0.7407,
+              "effective_throughput_GMAC_s": 28.44,
+              "effective_throughput_TOPS": 0.057,
+              "ideal_time_68plan_useful_s": 0.121676
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 94.81,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "128PE": {
+              "utilization": 0.7407,
+              "effective_throughput_GMAC_s": 28.44,
+              "effective_throughput_TOPS": 0.057,
+              "ideal_time_68plan_useful_s": 0.121676
+            },
+            "256PE": {
+              "utilization": 0.3704,
+              "effective_throughput_GMAC_s": 28.44,
+              "effective_throughput_TOPS": 0.057,
+              "ideal_time_68plan_useful_s": 0.121676
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 47.41,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "64PE": {
+              "utilization": 0.7407,
+              "effective_throughput_GMAC_s": 28.44,
+              "effective_throughput_TOPS": 0.057,
+              "ideal_time_68plan_useful_s": 0.121676
+            },
+            "128PE": {
+              "utilization": 0.3704,
+              "effective_throughput_GMAC_s": 28.44,
+              "effective_throughput_TOPS": 0.057,
+              "ideal_time_68plan_useful_s": 0.121676
+            },
+            "256PE": {
+              "utilization": 0.1852,
+              "effective_throughput_GMAC_s": 28.44,
+              "effective_throughput_TOPS": 0.057,
+              "ideal_time_68plan_useful_s": 0.121676
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 273.07,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 32.0,
+              "effective_throughput_TOPS": 0.064,
+              "ideal_time_68plan_useful_s": 0.108157
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 227.56,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "256PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 34.13,
+              "effective_throughput_TOPS": 0.068,
+              "ideal_time_68plan_useful_s": 0.101397
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 113.78,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "128PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 34.13,
+              "effective_throughput_TOPS": 0.068,
+              "ideal_time_68plan_useful_s": 0.101397
+            },
+            "256PE": {
+              "utilization": 0.4444,
+              "effective_throughput_GMAC_s": 34.13,
+              "effective_throughput_TOPS": 0.068,
+              "ideal_time_68plan_useful_s": 0.101397
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 56.89,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "64PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 34.13,
+              "effective_throughput_TOPS": 0.068,
+              "ideal_time_68plan_useful_s": 0.101397
+            },
+            "128PE": {
+              "utilization": 0.4444,
+              "effective_throughput_GMAC_s": 34.13,
+              "effective_throughput_TOPS": 0.068,
+              "ideal_time_68plan_useful_s": 0.101397
+            },
+            "256PE": {
+              "utilization": 0.2222,
+              "effective_throughput_GMAC_s": 34.13,
+              "effective_throughput_TOPS": 0.068,
+              "ideal_time_68plan_useful_s": 0.101397
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tile_name": "32x32x256 (K-deep tile)",
+      "shape": [
+        32,
+        32,
+        256
+      ],
+      "a_bytes": 16384,
+      "w_bytes": 8192,
+      "c_bytes": 6144,
+      "total_bytes": 30720,
+      "macs": 262144,
+      "intensity_mac_per_b": 8.5333,
+      "intensity_ops_per_b": 17.0667,
+      "configurations": [
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 136.53,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 0.5333,
+              "effective_throughput_GMAC_s": 17.07,
+              "effective_throughput_TOPS": 0.034,
+              "ideal_time_68plan_useful_s": 0.202794
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 113.78,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 17.07,
+              "effective_throughput_TOPS": 0.034,
+              "ideal_time_68plan_useful_s": 0.202794
+            },
+            "256PE": {
+              "utilization": 0.4444,
+              "effective_throughput_GMAC_s": 17.07,
+              "effective_throughput_TOPS": 0.034,
+              "ideal_time_68plan_useful_s": 0.202794
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 56.89,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 17.07,
+              "effective_throughput_TOPS": 0.034,
+              "ideal_time_68plan_useful_s": 0.202794
+            },
+            "128PE": {
+              "utilization": 0.4444,
+              "effective_throughput_GMAC_s": 17.07,
+              "effective_throughput_TOPS": 0.034,
+              "ideal_time_68plan_useful_s": 0.202794
+            },
+            "256PE": {
+              "utilization": 0.2222,
+              "effective_throughput_GMAC_s": 17.07,
+              "effective_throughput_TOPS": 0.034,
+              "ideal_time_68plan_useful_s": 0.202794
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 28.44,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 17.07,
+              "effective_throughput_TOPS": 0.034,
+              "ideal_time_68plan_useful_s": 0.202794
+            },
+            "64PE": {
+              "utilization": 0.4444,
+              "effective_throughput_GMAC_s": 17.07,
+              "effective_throughput_TOPS": 0.034,
+              "ideal_time_68plan_useful_s": 0.202794
+            },
+            "128PE": {
+              "utilization": 0.2222,
+              "effective_throughput_GMAC_s": 17.07,
+              "effective_throughput_TOPS": 0.034,
+              "ideal_time_68plan_useful_s": 0.202794
+            },
+            "256PE": {
+              "utilization": 0.1111,
+              "effective_throughput_GMAC_s": 17.07,
+              "effective_throughput_TOPS": 0.034,
+              "ideal_time_68plan_useful_s": 0.202794
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 273.07,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 32.0,
+              "effective_throughput_TOPS": 0.064,
+              "ideal_time_68plan_useful_s": 0.108157
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 227.56,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "256PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 34.13,
+              "effective_throughput_TOPS": 0.068,
+              "ideal_time_68plan_useful_s": 0.101397
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 113.78,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "128PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 34.13,
+              "effective_throughput_TOPS": 0.068,
+              "ideal_time_68plan_useful_s": 0.101397
+            },
+            "256PE": {
+              "utilization": 0.4444,
+              "effective_throughput_GMAC_s": 34.13,
+              "effective_throughput_TOPS": 0.068,
+              "ideal_time_68plan_useful_s": 0.101397
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 56.89,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "64PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 34.13,
+              "effective_throughput_TOPS": 0.068,
+              "ideal_time_68plan_useful_s": 0.101397
+            },
+            "128PE": {
+              "utilization": 0.4444,
+              "effective_throughput_GMAC_s": 34.13,
+              "effective_throughput_TOPS": 0.068,
+              "ideal_time_68plan_useful_s": 0.101397
+            },
+            "256PE": {
+              "utilization": 0.2222,
+              "effective_throughput_GMAC_s": 34.13,
+              "effective_throughput_TOPS": 0.068,
+              "ideal_time_68plan_useful_s": 0.101397
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 364.07,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 32.0,
+              "effective_throughput_TOPS": 0.064,
+              "ideal_time_68plan_useful_s": 0.108157
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 303.39,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 151.69,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "256PE": {
+              "utilization": 0.5926,
+              "effective_throughput_GMAC_s": 45.51,
+              "effective_throughput_TOPS": 0.091,
+              "ideal_time_68plan_useful_s": 0.076052
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 75.85,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "128PE": {
+              "utilization": 0.5926,
+              "effective_throughput_GMAC_s": 45.51,
+              "effective_throughput_TOPS": 0.091,
+              "ideal_time_68plan_useful_s": 0.076052
+            },
+            "256PE": {
+              "utilization": 0.2963,
+              "effective_throughput_GMAC_s": 45.51,
+              "effective_throughput_TOPS": 0.091,
+              "ideal_time_68plan_useful_s": 0.076052
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 546.13,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 32.0,
+              "effective_throughput_TOPS": 0.064,
+              "ideal_time_68plan_useful_s": 0.108157
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 455.11,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 227.56,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "256PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 68.27,
+              "effective_throughput_TOPS": 0.137,
+              "ideal_time_68plan_useful_s": 0.050698
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 113.78,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "128PE": {
+              "utilization": 0.8889,
+              "effective_throughput_GMAC_s": 68.27,
+              "effective_throughput_TOPS": 0.137,
+              "ideal_time_68plan_useful_s": 0.050698
+            },
+            "256PE": {
+              "utilization": 0.4444,
+              "effective_throughput_GMAC_s": 68.27,
+              "effective_throughput_TOPS": 0.137,
+              "ideal_time_68plan_useful_s": 0.050698
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 655.36,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 32.0,
+              "effective_throughput_TOPS": 0.064,
+              "ideal_time_68plan_useful_s": 0.108157
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 546.13,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 273.07,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 76.8,
+              "effective_throughput_TOPS": 0.154,
+              "ideal_time_68plan_useful_s": 0.045065
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 136.53,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 76.8,
+              "effective_throughput_TOPS": 0.154,
+              "ideal_time_68plan_useful_s": 0.045065
+            },
+            "256PE": {
+              "utilization": 0.5333,
+              "effective_throughput_GMAC_s": 81.92,
+              "effective_throughput_TOPS": 0.164,
+              "ideal_time_68plan_useful_s": 0.042249
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tile_name": "64x128x256 (Large fused tile)",
+      "shape": [
+        64,
+        128,
+        256
+      ],
+      "a_bytes": 32768,
+      "w_bytes": 32768,
+      "c_bytes": 49152,
+      "total_bytes": 114688,
+      "macs": 2097152,
+      "intensity_mac_per_b": 18.2857,
+      "intensity_ops_per_b": 36.5714,
+      "configurations": [
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 292.57,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 32.0,
+              "effective_throughput_TOPS": 0.064,
+              "ideal_time_68plan_useful_s": 0.108157
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 243.81,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "256PE": {
+              "utilization": 0.9524,
+              "effective_throughput_GMAC_s": 36.57,
+              "effective_throughput_TOPS": 0.073,
+              "ideal_time_68plan_useful_s": 0.094637
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 121.9,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "128PE": {
+              "utilization": 0.9524,
+              "effective_throughput_GMAC_s": 36.57,
+              "effective_throughput_TOPS": 0.073,
+              "ideal_time_68plan_useful_s": 0.094637
+            },
+            "256PE": {
+              "utilization": 0.4762,
+              "effective_throughput_GMAC_s": 36.57,
+              "effective_throughput_TOPS": 0.073,
+              "ideal_time_68plan_useful_s": 0.094637
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 125MHz (2.0 GB/s)",
+          "bandwidth_GB_s": 2.0,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 60.95,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "64PE": {
+              "utilization": 0.9524,
+              "effective_throughput_GMAC_s": 36.57,
+              "effective_throughput_TOPS": 0.073,
+              "ideal_time_68plan_useful_s": 0.094637
+            },
+            "128PE": {
+              "utilization": 0.4762,
+              "effective_throughput_GMAC_s": 36.57,
+              "effective_throughput_TOPS": 0.073,
+              "ideal_time_68plan_useful_s": 0.094637
+            },
+            "256PE": {
+              "utilization": 0.2381,
+              "effective_throughput_GMAC_s": 36.57,
+              "effective_throughput_TOPS": 0.073,
+              "ideal_time_68plan_useful_s": 0.094637
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 585.14,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 32.0,
+              "effective_throughput_TOPS": 0.064,
+              "ideal_time_68plan_useful_s": 0.108157
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 487.62,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 243.81,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "256PE": {
+              "utilization": 0.9524,
+              "effective_throughput_GMAC_s": 73.14,
+              "effective_throughput_TOPS": 0.146,
+              "ideal_time_68plan_useful_s": 0.047319
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 250MHz (4.0 GB/s)",
+          "bandwidth_GB_s": 4.0,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 121.9,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "128PE": {
+              "utilization": 0.9524,
+              "effective_throughput_GMAC_s": 73.14,
+              "effective_throughput_TOPS": 0.146,
+              "ideal_time_68plan_useful_s": 0.047319
+            },
+            "256PE": {
+              "utilization": 0.4762,
+              "effective_throughput_GMAC_s": 73.14,
+              "effective_throughput_TOPS": 0.146,
+              "ideal_time_68plan_useful_s": 0.047319
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 780.14,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 32.0,
+              "effective_throughput_TOPS": 0.064,
+              "ideal_time_68plan_useful_s": 0.108157
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 650.12,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 325.06,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 76.8,
+              "effective_throughput_TOPS": 0.154,
+              "ideal_time_68plan_useful_s": 0.045065
+            }
+          }
+        },
+        {
+          "bandwidth_name": "HP0 @ 333MHz (5.333 GB/s)",
+          "bandwidth_GB_s": 5.333,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 162.53,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 76.8,
+              "effective_throughput_TOPS": 0.154,
+              "ideal_time_68plan_useful_s": 0.045065
+            },
+            "256PE": {
+              "utilization": 0.6349,
+              "effective_throughput_GMAC_s": 97.52,
+              "effective_throughput_TOPS": 0.195,
+              "ideal_time_68plan_useful_s": 0.035491
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 1170.29,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 32.0,
+              "effective_throughput_TOPS": 0.064,
+              "ideal_time_68plan_useful_s": 0.108157
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 975.24,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 487.62,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 76.8,
+              "effective_throughput_TOPS": 0.154,
+              "ideal_time_68plan_useful_s": 0.045065
+            }
+          }
+        },
+        {
+          "bandwidth_name": "Dual HP @ 250MHz (8.0 GB/s)",
+          "bandwidth_GB_s": 8.0,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 243.81,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 76.8,
+              "effective_throughput_TOPS": 0.154,
+              "ideal_time_68plan_useful_s": 0.045065
+            },
+            "256PE": {
+              "utilization": 0.9524,
+              "effective_throughput_GMAC_s": 146.29,
+              "effective_throughput_TOPS": 0.293,
+              "ideal_time_68plan_useful_s": 0.023659
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 125,
+          "bandwidth_supported_P_equiv": 1404.34,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.0,
+              "effective_throughput_TOPS": 0.004,
+              "ideal_time_68plan_useful_s": 1.730506
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.0,
+              "effective_throughput_TOPS": 0.008,
+              "ideal_time_68plan_useful_s": 0.865253
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 8.0,
+              "effective_throughput_TOPS": 0.016,
+              "ideal_time_68plan_useful_s": 0.432626
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 16.0,
+              "effective_throughput_TOPS": 0.032,
+              "ideal_time_68plan_useful_s": 0.216313
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 32.0,
+              "effective_throughput_TOPS": 0.064,
+              "ideal_time_68plan_useful_s": 0.108157
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 150,
+          "bandwidth_supported_P_equiv": 1170.29,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 2.4,
+              "effective_throughput_TOPS": 0.005,
+              "ideal_time_68plan_useful_s": 1.442088
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 300,
+          "bandwidth_supported_P_equiv": 585.14,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 4.8,
+              "effective_throughput_TOPS": 0.01,
+              "ideal_time_68plan_useful_s": 0.721044
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 76.8,
+              "effective_throughput_TOPS": 0.154,
+              "ideal_time_68plan_useful_s": 0.045065
+            }
+          }
+        },
+        {
+          "bandwidth_name": "PL DDR4-2400 (9.6 GB/s)",
+          "bandwidth_GB_s": 9.6,
+          "compute_MHz": 600,
+          "bandwidth_supported_P_equiv": 292.57,
+          "pe_utilization": {
+            "16PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 9.6,
+              "effective_throughput_TOPS": 0.019,
+              "ideal_time_68plan_useful_s": 0.360522
+            },
+            "32PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 19.2,
+              "effective_throughput_TOPS": 0.038,
+              "ideal_time_68plan_useful_s": 0.180261
+            },
+            "64PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 38.4,
+              "effective_throughput_TOPS": 0.077,
+              "ideal_time_68plan_useful_s": 0.090131
+            },
+            "128PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 76.8,
+              "effective_throughput_TOPS": 0.154,
+              "ideal_time_68plan_useful_s": 0.045065
+            },
+            "256PE": {
+              "utilization": 1.0,
+              "effective_throughput_GMAC_s": 153.6,
+              "effective_throughput_TOPS": 0.307,
+              "ideal_time_68plan_useful_s": 0.022533
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "systolic_array_internal_feeding": [
+    {
+      "pe_count": 16,
+      "shape_R_x_C": "4x4",
+      "rows_R": 4,
+      "cols_C": 4,
+      "internal_boundary_feed_bytes_per_cycle": 12,
+      "internal_boundary_feed_bits_per_cycle": 96,
+      "internal_feed_GB_s_at_300MHz": 3.6,
+      "internal_feed_GB_s_at_600MHz": 7.2,
+      "required_onchip_bram_ports_min": 8,
+      "notes": "On-chip feed is handled by BRAM/URAM operand banks, NOT directly by DDR."
+    },
+    {
+      "pe_count": 16,
+      "shape_R_x_C": "2x8",
+      "rows_R": 2,
+      "cols_C": 8,
+      "internal_boundary_feed_bytes_per_cycle": 12,
+      "internal_boundary_feed_bits_per_cycle": 96,
+      "internal_feed_GB_s_at_300MHz": 3.6,
+      "internal_feed_GB_s_at_600MHz": 7.2,
+      "required_onchip_bram_ports_min": 10,
+      "notes": "On-chip feed is handled by BRAM/URAM operand banks, NOT directly by DDR."
+    },
+    {
+      "pe_count": 16,
+      "shape_R_x_C": "8x2",
+      "rows_R": 8,
+      "cols_C": 2,
+      "internal_boundary_feed_bytes_per_cycle": 18,
+      "internal_boundary_feed_bits_per_cycle": 144,
+      "internal_feed_GB_s_at_300MHz": 5.4,
+      "internal_feed_GB_s_at_600MHz": 10.8,
+      "required_onchip_bram_ports_min": 10,
+      "notes": "On-chip feed is handled by BRAM/URAM operand banks, NOT directly by DDR."
+    },
+    {
+      "pe_count": 32,
+      "shape_R_x_C": "4x8",
+      "rows_R": 4,
+      "cols_C": 8,
+      "internal_boundary_feed_bytes_per_cycle": 16,
+      "internal_boundary_feed_bits_per_cycle": 128,
+      "internal_feed_GB_s_at_300MHz": 4.8,
+      "internal_feed_GB_s_at_600MHz": 9.6,
+      "required_onchip_bram_ports_min": 12,
+      "notes": "On-chip feed is handled by BRAM/URAM operand banks, NOT directly by DDR."
+    },
+    {
+      "pe_count": 32,
+      "shape_R_x_C": "8x4",
+      "rows_R": 8,
+      "cols_C": 4,
+      "internal_boundary_feed_bytes_per_cycle": 20,
+      "internal_boundary_feed_bits_per_cycle": 160,
+      "internal_feed_GB_s_at_300MHz": 6.0,
+      "internal_feed_GB_s_at_600MHz": 12.0,
+      "required_onchip_bram_ports_min": 12,
+      "notes": "On-chip feed is handled by BRAM/URAM operand banks, NOT directly by DDR."
+    },
+    {
+      "pe_count": 64,
+      "shape_R_x_C": "8x8",
+      "rows_R": 8,
+      "cols_C": 8,
+      "internal_boundary_feed_bytes_per_cycle": 24,
+      "internal_boundary_feed_bits_per_cycle": 192,
+      "internal_feed_GB_s_at_300MHz": 7.2,
+      "internal_feed_GB_s_at_600MHz": 14.4,
+      "required_onchip_bram_ports_min": 16,
+      "notes": "On-chip feed is handled by BRAM/URAM operand banks, NOT directly by DDR."
+    },
+    {
+      "pe_count": 64,
+      "shape_R_x_C": "4x16",
+      "rows_R": 4,
+      "cols_C": 16,
+      "internal_boundary_feed_bytes_per_cycle": 24,
+      "internal_boundary_feed_bits_per_cycle": 192,
+      "internal_feed_GB_s_at_300MHz": 7.2,
+      "internal_feed_GB_s_at_600MHz": 14.4,
+      "required_onchip_bram_ports_min": 20,
+      "notes": "On-chip feed is handled by BRAM/URAM operand banks, NOT directly by DDR."
+    },
+    {
+      "pe_count": 64,
+      "shape_R_x_C": "16x4",
+      "rows_R": 16,
+      "cols_C": 4,
+      "internal_boundary_feed_bytes_per_cycle": 36,
+      "internal_boundary_feed_bits_per_cycle": 288,
+      "internal_feed_GB_s_at_300MHz": 10.8,
+      "internal_feed_GB_s_at_600MHz": 21.6,
+      "required_onchip_bram_ports_min": 20,
+      "notes": "On-chip feed is handled by BRAM/URAM operand banks, NOT directly by DDR."
+    },
+    {
+      "pe_count": 128,
+      "shape_R_x_C": "8x16",
+      "rows_R": 8,
+      "cols_C": 16,
+      "internal_boundary_feed_bytes_per_cycle": 32,
+      "internal_boundary_feed_bits_per_cycle": 256,
+      "internal_feed_GB_s_at_300MHz": 9.6,
+      "internal_feed_GB_s_at_600MHz": 19.2,
+      "required_onchip_bram_ports_min": 24,
+      "notes": "On-chip feed is handled by BRAM/URAM operand banks, NOT directly by DDR."
+    },
+    {
+      "pe_count": 128,
+      "shape_R_x_C": "16x8",
+      "rows_R": 16,
+      "cols_C": 8,
+      "internal_boundary_feed_bytes_per_cycle": 40,
+      "internal_boundary_feed_bits_per_cycle": 320,
+      "internal_feed_GB_s_at_300MHz": 12.0,
+      "internal_feed_GB_s_at_600MHz": 24.0,
+      "required_onchip_bram_ports_min": 24,
+      "notes": "On-chip feed is handled by BRAM/URAM operand banks, NOT directly by DDR."
+    },
+    {
+      "pe_count": 256,
+      "shape_R_x_C": "16x16",
+      "rows_R": 16,
+      "cols_C": 16,
+      "internal_boundary_feed_bytes_per_cycle": 48,
+      "internal_boundary_feed_bits_per_cycle": 384,
+      "internal_feed_GB_s_at_300MHz": 14.4,
+      "internal_feed_GB_s_at_600MHz": 28.8,
+      "required_onchip_bram_ports_min": 32,
+      "notes": "On-chip feed is handled by BRAM/URAM operand banks, NOT directly by DDR."
+    },
+    {
+      "pe_count": 256,
+      "shape_R_x_C": "8x32",
+      "rows_R": 8,
+      "cols_C": 32,
+      "internal_boundary_feed_bytes_per_cycle": 48,
+      "internal_boundary_feed_bits_per_cycle": 384,
+      "internal_feed_GB_s_at_300MHz": 14.4,
+      "internal_feed_GB_s_at_600MHz": 28.8,
+      "required_onchip_bram_ports_min": 40,
+      "notes": "On-chip feed is handled by BRAM/URAM operand banks, NOT directly by DDR."
+    },
+    {
+      "pe_count": 256,
+      "shape_R_x_C": "32x8",
+      "rows_R": 32,
+      "cols_C": 8,
+      "internal_boundary_feed_bytes_per_cycle": 72,
+      "internal_boundary_feed_bits_per_cycle": 576,
+      "internal_feed_GB_s_at_300MHz": 21.6,
+      "internal_feed_GB_s_at_600MHz": 43.2,
+      "required_onchip_bram_ports_min": 40,
+      "notes": "On-chip feed is handled by BRAM/URAM operand banks, NOT directly by DDR."
+    }
+  ],
+  "discrepancy_reconciliation": [
+    {
+      "topic": "MAC Count Metric",
+      "discrepancy": "Some reports cite 3.461e9 MACs, others cite 3.991e9 MACs.",
+      "reconciliation": "3.461e9 (3,461,011,968) is exact mathematical Useful MACs. 3.991e9 (3,991,404,544) is Hardware Padded MACs due to 32x32 PE block granularity (1.153x padding overhead). Both are valid but denote distinct lower bounds."
+    },
+    {
+      "topic": "DDR Traffic Metric",
+      "discrepancy": "Preliminary scripts cited 929,293,344 B (0.465s @ 2GB/s); Board counters show 933,028,896 B; Compulsory tensor footprint is only 102,055,936 B.",
+      "reconciliation": "929MB was an early approximation. 933MB (807.9MB vector/layout + 125.1MB matrix) is the exact measured hardware traffic of the unoptimized 68 plans. 0.465s is only valid under a serialized half-duplex channel. Furthermore, 933MB is NOT a mathematical minimum: true tensor lifetime analysis reveals compulsory on-chip data volume is 102MB (9.14x lower) and all-intermediate DDR volume is 127MB (7.33x lower)."
+    },
+    {
+      "topic": "Whole Case vs 68 Closed Plans",
+      "discrepancy": "Board case0000 takes 154.82s, while 68 closed plans take 12.49s.",
+      "reconciliation": "68 closed plans cover only the fused CONV/FFN kernels. The remaining 142.33s is dominated by unfused operators, CPU MMIO control loops, and boundary PCIe/network overhead. Acceleration of 68 plans alone cannot collapse whole case without full-graph PL migration."
+    },
+    {
+      "topic": "Clock Domain Separation",
+      "discrepancy": "600 MHz compute target vs DS925 PS AXI maximum 333 MHz.",
+      "reconciliation": "600 MHz is strictly restricted to PL local systolic arrays and DSP datapaths. The PS-PL AXI interface cannot exceed 333 MHz (-2 speed grade) and currently runs at 125 MHz. Asynchronous FIFOs and CDC are mandatory."
+    },
+    {
+      "topic": "DDR Physical Peak vs HP Interface Peak",
+      "discrepancy": "ps_properties shows DDR4 64-bit @ 800MHz (12.8 GB/s), but PL HP0 is only 2.0 GB/s.",
+      "reconciliation": "The PS DDR controller achieves 12.8 GB/s physical peak. However, all 6 PL masters converge through SmartConnect into a single 128-bit HP0 port at 125 MHz, creating an artificial 2.0 GB/s bottleneck. PL masters do not get 6x2 GB/s."
+    }
+  ],
+  "actionable_priority_roadmap": [
+    {
+      "priority": "P0 (Highest - No timing risk)",
+      "action": "PL Autonomous Control & Host Clearance",
+      "impact": "Eliminates host runtime polling, collapsing whole-case 142.3s overhead."
+    },
+    {
+      "priority": "P1 (High - Bandwidth multiplier)",
+      "action": "Multi-HP Port Expansion & Interface Frequency Boost",
+      "impact": "Split 6 masters across HP0-HP3, increase interface clock from 125MHz to 250MHz (4.0 GB/s per port, up to 8-12 GB/s aggregate)."
+    },
+    {
+      "priority": "P2 (High - Memory traffic reduction)",
+      "action": "Intermediate Tensor On-Chip Residency (Fusion)",
+      "impact": "Reduces vector/layout DDR traffic from 807MB toward compulsory 102MB-127MB (up to 7x bandwidth reduction)."
+    },
+    {
+      "priority": "P3 (Medium - Latency hiding)",
+      "action": "Multi-Outstanding Pipelined DMA (Depth 4-8) with 16-beat Bursts",
+      "impact": "AMD recommended 128-bit 16-beat bursts; hides round-trip read latency, boosting bus utilization from 30% to >90%."
+    },
+    {
+      "priority": "P4 (Architectural Candidate)",
+      "action": "PL Dedicated DDR4 MIG (Path B)",
+      "impact": "Provides 9.6 GB/s independent bandwidth if AXU15EG PL DDR4 is verified on hardware."
+    },
+    {
+      "priority": "P5 (Compute Frequency)",
+      "action": "PE Pipeline Pipelining to 300MHz (Local Domain)",
+      "impact": "Scales matrix compute time down to 45ms (useful) / 52ms (padded)."
+    }
+  ]
+}

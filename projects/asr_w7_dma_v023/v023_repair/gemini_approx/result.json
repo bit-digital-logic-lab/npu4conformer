@@ -1,0 +1,96 @@
+{
+  "task": "gemini_approx",
+  "status": "completed",
+  "authorization": {
+    "user_instruction": "v023_repair/USER_REPAIR_REQUEST.txt & USER_UPDATES.md",
+    "fp32_bitexact_required": false,
+    "approximate_math_authorized": true,
+    "qdq_boundaries_preserved": true
+  },
+  "interface_compliance": {
+    "target_consumer": "ds_vector (ddr_vector_engine_pipe) and execution clusters",
+    "contract_file": "v023_repair/gemini_approx/INTERFACE.md",
+    "compatible_with": "v023_repair/ds_vector/INTERFACE.md Section 3",
+    "top_module": "approx_div_sqrt",
+    "ports": [
+      "clk", "rst_n", "in_valid", "in_ready", "op[1:0]", "a[31:0]", "b[31:0]",
+      "tag[15:0]", "out_valid", "out_ready", "result[31:0]", "flags[7:0]", "tag_out[15:0]"
+    ]
+  },
+  "hardware_metrics": {
+    "tier_0_low_latency": {
+      "pipeline_latency_cycles": 2,
+      "initiation_interval": 1,
+      "div_max_rel_err": 0.003799,
+      "div_mean_rel_err": 0.001389,
+      "sqrt_max_rel_err": 0.001937,
+      "rsqrt_max_rel_err": 0.001937
+    },
+    "tier_1_high_throughput_default": {
+      "pipeline_latency_cycles": 4,
+      "initiation_interval": 1,
+      "div_max_rel_err": 0.001080,
+      "div_mean_rel_err": 0.000224,
+      "sqrt_max_rel_err": 0.00000572,
+      "rsqrt_max_rel_err": 0.00000572,
+      "rsqrt_mean_rel_err": 0.00000118,
+      "median_ulp_distance": 10.0
+    },
+    "tier_2_low_error": {
+      "pipeline_latency_cycles": 7,
+      "initiation_interval": 1,
+      "div_max_rel_err": 0.0000001,
+      "sqrt_max_rel_err": 0.0000001,
+      "rsqrt_max_rel_err": 0.00000005
+    },
+    "comparison_vs_baseline_alu": {
+      "baseline_latency_cycles": 27,
+      "candidate_latency_cycles": 4,
+      "latency_speedup": "6.75x",
+      "baseline_initiation_interval": 27,
+      "candidate_initiation_interval": 1,
+      "throughput_speedup": "27x",
+      "timing_bottleneck_eliminated": "Eliminated 56-bit borrow subtraction chained into pack_rne (Rank #3 in STA: 7.664ns / 32 levels)"
+    }
+  },
+  "empirical_verification": {
+    "total_simulated_vectors": 4131,
+    "simulation_runs": 2,
+    "backpressure_consistency": "4131 / 4131 (100.0%)",
+    "tag_preservation": "4131 / 4131 (100.0%)",
+    "special_cases_verified": 31,
+    "subnormal_ftz_verified": true,
+    "div_by_zero_verified": true,
+    "negative_sqrt_nan_verified": true,
+    "epsilon_near_zero_verified": true,
+    "downstream_quantization_evaluation": {
+      "layernorm_int16_q12": {
+        "max_code_diff_lsb": 1,
+        "mean_code_diff_lsb": 0.008,
+        "exact_code_match_rate": "99.2%"
+      },
+      "softmax_uint16_scale65535": {
+        "max_code_diff_lsb": 14,
+        "mean_code_diff_lsb": 0.452,
+        "exact_code_match_rate": "74.3%"
+      }
+    }
+  },
+  "sha256_manifest": {
+    "rtl/approx_div_sqrt.sv": "e360e7e455261ead4ee32ecacc93bed77f4de09458d3d689ae3eb3e948495ec1",
+    "rtl/approx_recip_lut.sv": "b5d1ee5cbaca06a55ce6da67fc6c0fbbd88869c6e6aa5508f1c909c03bb4f41a",
+    "rtl/approx_rsqrt_lut.sv": "cf0d0d03ec839b138acad933fe4561975e0690180ea1099721df3e33ec07e153",
+    "golden/approx_model.py": "7c6e98b782e715237a7392e813a9bdcc96e13cec8d08b0e5fe55d6410afb8642",
+    "tests/tb_approx_div_sqrt.sv": "bf4b8e9a7febd0fb0368a189dfc6999c5aa63b451328d5efc117cb5d4b1a8d4d",
+    "tests/test_approx_suite.py": "c28126dd6ce8eb103286f491cde252598858ec6c19a9d1c968e6b2782bc1c392",
+    "tests/test_multi_tier.py": "e1b7cce09b9073bdd1afbe5e320fc553bbcbec55fe33ed3474a12a2481360be8",
+    "baseline_work_rtl_asr_fp32_alu.sv": "4f83fc66bb2443695e1e45b29cdd9f90e890ac44b76975fc2f66e00a8ba9c602",
+    "baseline_work_rtl_ddr_vector_engine.sv": "08a642d915f0d0a83d10c156a52c21bc20bd4f69b3ac8c402ca22c094381641d"
+  },
+  "uncompleted_items": [
+    "FPGA on-chip physical implementation and Vivado synthesis omitted per execution contract",
+    "Vendor proprietary asr_fma_ip untouched (requires licensed Xilinx simulation library)",
+    "Post-attention softmax score generation (99x99 matrix multiplication) belongs to graph/matrix agents",
+    "Final whole-model speech recognition classification head left to integration phase"
+  ]
+}
