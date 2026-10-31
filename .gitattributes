@@ -18,3 +18,6 @@ projects/asr_qdq_fpga/releases/** -text
 **/validation_case0001/*.json -text
 **/validation_case0001/diagnostics/** -text
 **/validation_case0001/runs/** -text
+
+# Frozen 2026-10-31 submission and evidence retain manifest-identical bytes.
+projects/asr_w7_dma_v023/submissions/asr_submission_20261031/** -text -whitespace

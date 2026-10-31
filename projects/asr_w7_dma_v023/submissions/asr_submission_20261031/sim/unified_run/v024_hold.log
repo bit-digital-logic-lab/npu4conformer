@@ -1,0 +1,15 @@
+WAIT cyc=5000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+WAIT cyc=10000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+WAIT cyc=15000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=8
+WAIT cyc=20000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=8
+WAIT cyc=25000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=8
+WAIT cyc=30000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=8
+V024_CSR status=00000006 err=0000000e completed=5 last=3 cycles=30467 fetch=267 op=30194
+V024_CSR vec_total=6035 layout_total=10171 matrix_total=0 vec_ops=2 layout_ops=2 matrix_ops=0
+V024_FUSION used=1 c48_ddr_bytes=0 a16_bytes=0
+V024_AXI rburst=85 wburst=52 rbeats=1268 wbeats=832 tag_err=0 rpeak=1 wpeak=8
+V024_DRAIN rd_pending=0 wr_pending=0 b_pending=8 quiesced=0 iso_blocked=0 held_b=8 returned_b=44
+V024_END done=1 fault=1 error=0e iso=1 requires_reset=1 fetch_to=0 drain_timeout=0 cycles=30720
+V024_QUIESCE post_iso_req=0 rd=0 wr=0 b=8 quiesced=0
+V024_RESULT PASS
+sim/tb/tb_v024_unified.sv:267: $finish called at 246164000 (1ps)

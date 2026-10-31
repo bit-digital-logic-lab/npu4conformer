@@ -4,6 +4,12 @@
 
 **当前是多个可复跑的逻辑候选，尚未合成一个完整模型验收通过的发布版本。** 本轮没有运行 Vivado、综合、布线或上板；300/600 MHz 是目标，没有时序达标证据。历史约150秒是旧平台完整推理时间，下面局部周期不能换算为新的整模型秒数。
 
+## 2026年10月31日封存
+
+[封存入口](submissions/asr_submission_20261031/readme.md) · [设计报告](submissions/asr_submission_20261031/report/design_report.md) · [整改方案](submissions/asr_submission_20261031/report/remediation_plan.md) · [讲稿](submissions/asr_submission_20261031/report/narration.md) · [PPT](submissions/asr_submission_20261031/report/slides/architecture_roofline.pptx)
+
+此次增加独立封存资料，不覆盖既有源码。修复busy误标compute的技能口径，按同一任务N/Q/T绘制Roofline；矩阵局部点为I=9.1429 OP/B、P=45.1402 OP/周期。接口理论屋顶不是板级实测带宽。22项技能自测与分析复现通过，整理副本11项统一小图RTL命令返回0且独立判定通过；不代表完整模型验收。整改方案待实施，按收集与packer反压优先推进。
+
 ## 最新 V0.24 快照
 
 [本次同步状态](LATEST_PUBLICATION.md) · [清洁工程入口](v024_opt/ds_final_organize/final_export/README.md)

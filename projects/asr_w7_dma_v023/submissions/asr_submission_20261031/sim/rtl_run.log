@@ -1,0 +1,27 @@
+== 0. independent fixtures + gold ==
+== 1. serial compile ==
+== 2. fused small graph (A16 + per-channel + DIV + SQRT) ==
+v024_fused rc=0 seconds=132
+== 3. explicit fallback to legacy C48 path ==
+v024_fallback rc=0 seconds=124
+== 4. multi-consumer plan -> legacy fallback ==
+v024_multicons rc=0 seconds=141
+== 5. MATF without FUSION_ALLOW -> error 0x04 ==
+v024_badflag rc=0 seconds=4
+== 6. fused A16 write B held -> isolation, no false drain ==
+v024_hold rc=0 seconds=211
+== 7. directed single-rounding FMA vs mul+add ==
+v024_lane rc=0 seconds=0
+== 8. independent judge ==
+INFO DIV worst_rel=9.102e-04 bad=0
+INFO SQRT worst_rel=5.089e-06 bad=0
+INFO FMA vs mul+add differing vectors: 64/64
+V024_CHECK PASS
+== 9. focused baseline smoke (default header, no fusion) ==
+base_normal rc=0 seconds=80
+base_multitask rc=0 seconds=86
+base_bad_queue_magic rc=0 seconds=35
+base_bad_vec_op rc=0 seconds=41
+base_hold_b_c rc=0 seconds=44
+RUN_EXPORT_PASS (small-graph integrated candidate + focused baseline smoke;
+                 no full-model, synthesis, STA, board or frequency claim)

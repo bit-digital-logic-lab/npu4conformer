@@ -1,0 +1,12 @@
+python3 --version
+Python 3.12.12
+
+iverilog -V
+Icarus Verilog version 14.0 (devel) (s20251012-128-gc8097fb6f)
+
+vvp -V
+Icarus Verilog runtime version 14.0 (devel) (s20251012-128-gc8097fb6f)
+
+numpy 2.5.2
+
+matplotlib 3.11.1

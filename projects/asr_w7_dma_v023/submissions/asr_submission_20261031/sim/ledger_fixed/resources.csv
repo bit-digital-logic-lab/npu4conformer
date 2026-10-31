@@ -1,0 +1,8 @@
+﻿resource,unit,evidence,window,observed_ticks,known_ticks,known_coverage,states,valid_bytes,wire_bytes,payload_fraction,bytes_per_tick,seconds,effective_B_per_s,payload_B_per_tick,capacity_bytes_per_tick,ledger_valid_bytes,ledger_wire_bytes,ledger_minus_interval_valid_bytes,ledger_minus_interval_wire_bytes
+axi_r,cycle,RVALID&&RREADY / ARVALID&&ARREADY / outstanding count,23808,23808,23808,1.0,"{""idle_no_work"": 19949, ""command"": 130, ""wait_memory"": 1901, ""payload"": 1828}",29248,29248,0.07678091397849462,1.228494623655914,,,16.0,16,29248,29248,0,0
+axi_w,cycle,WVALID&&WREADY (WSTRB bytes) / AW / B,23808,23808,23808,1.0,"{""idle_no_work"": 20644, ""command"": 141, ""wait_memory"": 1282, ""payload"": 1600, ""response"": 141}",25600,25600,0.06720430107526881,1.075268817204301,,,16.0,16,25600,25600,0,0
+ddr_bfm,cycle,shared BFM R/W handshakes; union of both directions (separate R and W channels),23808,23808,23808,1.0,"{""idle_no_work"": 17546, ""command"": 250, ""wait_memory"": 2804, ""payload"": 3208}",54848,54848,0.13474462365591397,2.303763440860215,,,17.09725685785536,32,0,0,-54848,-54848
+graph,cycle,WCPG controller busy sample,23808,23808,23808,1.0,"{""idle_no_work"": 34, ""busy"": 23774}",0,0,0.0,0.0,,,,,0,0,0,0
+matrix,cycle,matrix queue child/core busy sample; no PE-cycle fabrication,23808,23808,23808,1.0,"{""idle_no_work"": 21908, ""busy"": 1900}",0,0,0.0,0.0,,,,,0,0,0,0
+vector,cycle,vector engine busy sample,23808,23808,23808,1.0,"{""idle_no_work"": 19165, ""busy"": 4643}",0,0,0.0,0.0,,,,,0,0,0,0
+layout,cycle,layout engine busy sample,23808,23808,23808,1.0,"{""idle_no_work"": 7020, ""busy"": 16788}",0,0,0.0,0.0,,,,,0,0,0,0

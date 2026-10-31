@@ -1,0 +1,151 @@
+--- before/traffic-ledger/SKILL.md
++++ after/traffic-ledger/SKILL.md
+@@ -42,3 +42,17 @@
+ - 优化前后用相同输入、数值合同、窗口及资源模型；报告真实握手并发，不以 prefetch 名称或 busy 标志作证。
+ 
+ 运行 `python3 scripts/selftest.py` 验证工具自身。工具的示例和自测不等于被分析工程已完成接入，不自动授权修改工程或运行板卡。
++
++## Roofline 与忙状态口径
++
++展示性能或定位瓶颈时，先区分 `busy`、FSM处于计算阶段和逐PE有效MAC。旧trace若把busy采样命名为compute，分析器会依据明确busy证据标为busy，并保留original_state；不能由busy或FSM阶段时长推导有效MAC利用率。
++
++Roofline使用同一次任务的有用运算N、同一命名存储边界的实际读写总字节Q和完整完成窗口T，计算I=N/Q、P=N/T。量化矩阵可约定1 MAC=2整数运算，不能称FP FLOPS。分块补齐与有用运算分别保留。
++
++带宽上限必须来自端口合同或独立带宽基准，不能使用Q/T反推roof。共享读写通道不相加；独立通道需保留方向限制。明确逻辑模型与板级测量、理论峰值与持续带宽。无可靠频率时使用OP/cycle和B/cycle，不补造MHz。
++
++traffic-ledger负责Q、重复候选及字节对账；module-activity-waveform负责T与等待/排空归因。有逐PE有效事件时才能报告有效计算重叠。Roofline之下的空隙不能仅凭点位断言全由带宽造成。
++
++已明确上述合同后，可用 `python3 scripts/roofline.py spec.json --out roofline.json` 核算。spec包含scope、memory_boundary、peak_source、bandwidth_source、bandwidth_basis（interface_contract或independent_benchmark）、clock_relation（same_cycle_domain）、traffic_basis（bus_bytes或valid_bytes_equal_bus_bytes）、peak_ops_per_cycle、bandwidth_bytes_per_cycle；cases逐项提供M/N/K、read_bytes、write_bytes、cycles、source。工具只计算有用GEMM的2MNK，不把不同算子操作数混在一起；共享或全双工限制应先在spec中正确确定。
++
++Roofline的Q还须声明字节口径：默认使用命名接口的实际bus/wire字节，包括补齐或无效字节占用；有效数据字节另列。只有已验证valid_bytes等于bus_bytes时可直接互用，不能用较小的逻辑数据量搭配较大的物理峰值伪造计算强度。
+--- before/traffic-ledger/scripts/selftest.py
++++ after/traffic-ledger/scripts/selftest.py
+@@ -31,6 +31,14 @@
+ 
+ 
+ class Tests(unittest.TestCase):
++    def test_busy_sample_not_effective_compute(self):
++        from analyze import normalize_interval
++        e = {'state':'compute', 'start':1, 'end':4, 'reason':'matrix child busy'}
++        fixed = normalize_interval(e, {'kind':'module'})
++        self.assertEqual(fixed['state'], 'busy')
++        self.assertEqual(e['state'], 'compute')
++        self.assertEqual(normalize_interval({'state':'compute'}, {'evidence':'FSM arithmetic phase'})['state'], 'compute')
++
+     def test_partial_repeats_and_versions(self):
+         s,_,_=analyze(fixture())
+         t=next(t for t in s['tensors'] if t['tensor']=='X' and t['version']=='v1')
+--- before/traffic-ledger/scripts/analyze.py
++++ after/traffic-ledger/scripts/analyze.py
+@@ -5,6 +5,17 @@
+ import json
+ from collections import defaultdict
+ from pathlib import Path
++
++
++def normalize_interval(event, cfg):
++    """Legacy busy samples must not become effective compute evidence."""
++    e = dict(event)
++    evidence = ' '.join(str(x) for x in (cfg.get('evidence', ''), e.get('evidence', ''), e.get('reason', ''))).lower()
++    if e.get('state') in ('compute', 'active') and (cfg.get('state_semantics') == 'busy_flag' or 'busy' in evidence):
++        e['original_state'] = e['state']
++        e['state'] = 'busy'
++        e['state_semantics'] = 'busy_flag_not_effective_compute'
++    return e
+ 
+ 
+ def union_length(spans):
+@@ -66,7 +77,7 @@
+             cap = cfg.get('capacity_bytes_per_tick')
+             if cap is not None and wire > cap * (e['end'] - e['start']):
+                 raise ValueError('资源传输超过配置容量')
+-            intervals[e['resource']].append(e)
++            intervals[e['resource']].append(normalize_interval(e, cfg))
+     summaries, timeline = [], []
+     for name, cfg in resources.items():
+         if cfg['unit'] not in ('cycle', 'ns') or cfg['end'] <= cfg['start']:
+--- before/module-activity-waveform/SKILL.md
++++ after/module-activity-waveform/SKILL.md
+@@ -37,3 +37,15 @@
+ 大trace先在采集侧合并同状态、同工作ID、同原因的相邻区间，或按目标窗口裁剪；不要把单拍done脉冲平均成活跃百分比。画面中很窄的事件通过放大和游标确认，不能仅凭全局截图判断不存在。
+ 
+ 若当前只采集DMA，就只展示DMA，不凭估算补出PE、缓存等活动。示例/演示数据要显著标为合成，不称为项目实测。`traffic-ledger`用于流量和重复数据分析，本skill用于活动波形；需要两者时读取对应skill再执行。
++
++## Roofline 与忙状态口径
++
++展示性能或定位瓶颈时，先区分 `busy`、FSM处于计算阶段和逐PE有效MAC。旧trace若把busy采样命名为compute，分析器会依据明确busy证据标为busy，并保留original_state；不能由busy或FSM阶段时长推导有效MAC利用率。
++
++Roofline使用同一次任务的有用运算N、同一命名存储边界的实际读写总字节Q和完整完成窗口T，计算I=N/Q、P=N/T。量化矩阵可约定1 MAC=2整数运算，不能称FP FLOPS。分块补齐与有用运算分别保留。
++
++带宽上限必须来自端口合同或独立带宽基准，不能使用Q/T反推roof。共享读写通道不相加；独立通道需保留方向限制。明确逻辑模型与板级测量、理论峰值与持续带宽。无可靠频率时使用OP/cycle和B/cycle，不补造MHz。
++
++traffic-ledger负责Q、重复候选及字节对账；module-activity-waveform负责T与等待/排空归因。有逐PE有效事件时才能报告有效计算重叠。Roofline之下的空隙不能仅凭点位断言全由带宽造成。
++
++Roofline的Q还须声明字节口径：默认使用命名接口的实际bus/wire字节，包括补齐或无效字节占用；有效数据字节另列。只有已验证valid_bytes等于bus_bytes时可直接互用，不能用较小的逻辑数据量搭配较大的物理峰值伪造计算强度。
+--- before/module-activity-waveform/scripts/viewer.html
++++ after/module-activity-waveform/scripts/viewer.html
+@@ -5,15 +5,15 @@
+ body{font:14px system-ui,sans-serif;color:#dae4ef;background:#101823;margin:0}header{padding:22px 28px;background:#172333}h1{font-size:23px;margin:0 0 8px}p{line-height:1.6;margin:6px 0}.muted{color:#a3b4c8}main{padding:18px 28px}button,input,select{background:#24364a;color:#edf3fa;border:1px solid #485d74;border-radius:5px;padding:8px;margin:3px}button{cursor:pointer}input{width:220px}#viewport{overflow:auto;border:1px solid #34485e;border-radius:8px;margin-top:14px}canvas{display:block}#tooltip{position:fixed;pointer-events:none;display:none;max-width:460px;background:#23384e;white-space:pre-wrap;padding:12px;border:1px solid #7393b2;border-radius:6px;font:12px monospace;z-index:10}table{border-collapse:collapse;width:100%;margin-top:12px}td,th{border-bottom:1px solid #34485e;text-align:left;padding:9px;word-break:break-word}.legend{display:inline-block;margin:8px 14px 4px 0}.dot{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px}#range{font:13px monospace;margin:10px 0}#empty{padding:20px;color:#a3b4c8}
+ </style>
+ <header><h1 id="heading"></h1><p id="scope"></p><p class="muted">滚轮缩放 · ← → 平移 · 点击波形锁定/释放游标 · 悬停查看事件 · 不同时间域分别显示</p></header>
+-<main><select id="domain" aria-label="时间域"></select><input id="search" placeholder="搜索模块 / 信号" aria-label="搜索模块"><button id="zoomIn">放大＋</button><button id="zoomOut">缩小－</button><button id="left">←</button><button id="right">→</button><button id="reset">全窗口</button><div id="range"></div><div id="legend"></div><div id="viewport"><canvas id="wave"></canvas></div><div id="empty" hidden>没有匹配的模块</div><h3>游标时刻的模块状态</h3><p id="cursor" class="muted">移动到波形上查看；点击可锁定游标。</p><table><thead><tr><th>模块 / 信号</th><th>状态</th><th>区间</th><th>任务与原因</th></tr></thead><tbody id="readout"></tbody></table><p class="muted">绿色是计算/有效传输；橙色是等待；灰色是明确空闲；斜纹是未知采样。busy信号高不等于有效计算。很窄的脉冲请放大查看。</p></main><div id="tooltip"></div>
++<main><select id="domain" aria-label="时间域"></select><input id="search" placeholder="搜索模块 / 信号" aria-label="搜索模块"><button id="zoomIn">放大＋</button><button id="zoomOut">缩小－</button><button id="left">←</button><button id="right">→</button><button id="reset">全窗口</button><div id="range"></div><div id="legend"></div><div id="viewport"><canvas id="wave"></canvas></div><div id="empty" hidden>没有匹配的模块</div><h3>游标时刻的模块状态</h3><p id="cursor" class="muted">移动到波形上查看；点击可锁定游标。</p><table><thead><tr><th>模块 / 信号</th><th>状态</th><th>区间</th><th>任务与原因</th></tr></thead><tbody id="readout"></tbody></table><p class="muted">绿色是计算阶段/有效传输；蓝灰色是忙状态（可能含等待）；橙色是等待；灰色是明确空闲；斜纹是未知采样。busy信号高不等于有效计算。很窄的脉冲请放大查看。</p></main><div id="tooltip"></div>
+ <script id="trace-data" type="application/json">__TRACE_JSON__</script>
+ <script>
+ 'use strict';
+ const DATA=JSON.parse(document.getElementById('trace-data').textContent);
+ const $=id=>document.getElementById(id),canvas=$('wave'),ctx=canvas.getContext('2d');
+ document.title=DATA.title;$('heading').textContent=DATA.title;$('scope').textContent=DATA.scope;
+-const colors={compute:'#5dbdaf',active:'#5dbdaf',payload:'#62caa3',idle_no_work:'#546379',idle_no_request:'#546379',unknown:'#87919f',backpressure:'#e99b6c',wait_memory:'#e8c06c',starved_input:'#c4a1e6',fifo_full:'#de8d9b',bank_conflict:'#dfb978',drain:'#70a9d7','0':'#80c9c2','1':'#80c9c2',X:'#e792a4',Z:'#d9b777'};
+-const labels={compute:'计算',active:'执行',payload:'有效传输',idle_no_work:'空闲',idle_no_request:'无请求',unknown:'未知',backpressure:'反压',wait_memory:'等待存储',starved_input:'缺输入',fifo_full:'FIFO满',bank_conflict:'Bank冲突',drain:'排空',dispatch_or_drain:'调度/排空'};
++const colors={busy:'#859bb9',compute:'#5dbdaf',active:'#5dbdaf',payload:'#62caa3',idle_no_work:'#546379',idle_no_request:'#546379',unknown:'#87919f',backpressure:'#e99b6c',wait_memory:'#e8c06c',starved_input:'#c4a1e6',fifo_full:'#de8d9b',bank_conflict:'#dfb978',drain:'#70a9d7','0':'#80c9c2','1':'#80c9c2',X:'#e792a4',Z:'#d9b777'};
++const labels={busy:'忙状态（含等待）',compute:'计算',active:'执行',payload:'有效传输',idle_no_work:'空闲',idle_no_request:'无请求',unknown:'未知',backpressure:'反压',wait_memory:'等待存储',starved_input:'缺输入',fifo_full:'FIFO满',bank_conflict:'Bank冲突',drain:'排空',dispatch_or_drain:'调度/排空'};
+ for(const g of DATA.groups){const opt=document.createElement('option');opt.value=g.name;opt.textContent=g.name+' · '+g.unit;$('domain').append(opt)}
+ let group=DATA.groups[0],lo=group?group.start:0,hi=group?group.end:1,cursor=null,locked=false,lanes=[],width=1100;
+ const labelWidth=260,top=42,rowHeight=44;
+--- before/module-activity-waveform/scripts/selftest.py
++++ after/module-activity-waveform/scripts/selftest.py
+@@ -19,6 +19,14 @@
+ 
+ 
+ class Tests(unittest.TestCase):
++    def test_busy_sample_not_effective_compute(self):
++        from render import normalize_interval
++        e = {'state':'compute', 'start':1, 'end':4, 'reason':'matrix child busy'}
++        fixed = normalize_interval(e, {'kind':'module'})
++        self.assertEqual(fixed['state'], 'busy')
++        self.assertEqual(e['state'], 'compute')
++        self.assertEqual(normalize_interval({'state':'compute'}, {'evidence':'FSM arithmetic phase'})['state'], 'compute')
++
+     def test_shared_time_and_unknown(self):
+         d=prepare(example());self.assertEqual(len(d['groups']),1)
+         self.assertEqual(d['lanes'][0]['states'],{'unknown':5,'compute':5})
+--- before/module-activity-waveform/scripts/render.py
++++ after/module-activity-waveform/scripts/render.py
+@@ -4,6 +4,17 @@
+ import json
+ from collections import defaultdict
+ from pathlib import Path
++
++
++def normalize_interval(event, cfg):
++    """Legacy busy samples must not become effective compute evidence."""
++    e = dict(event)
++    evidence = ' '.join(str(x) for x in (cfg.get('evidence', ''), e.get('evidence', ''), e.get('reason', ''))).lower()
++    if e.get('state') in ('compute', 'active') and (cfg.get('state_semantics') == 'busy_flag' or 'busy' in evidence):
++        e['original_state'] = e['state']
++        e['state'] = 'busy'
++        e['state_semantics'] = 'busy_flag_not_effective_compute'
++    return e
+ 
+ 
+ def prepare(events):
+@@ -20,7 +31,7 @@
+         cfg = resources[e['resource']]
+         if not cfg['start'] <= e['start'] < e['end'] <= cfg['end'] or not str(e.get('state', '')):
+             raise ValueError('时间越界/无状态')
+-        intervals[e['resource']].append(e)
++        intervals[e['resource']].append(normalize_interval(e, cfg))
+     for name, cfg in resources.items():
+         if cfg.get('unit') not in ('cycle', 'ns') or cfg['end'] <= cfg['start']:
+             raise ValueError('资源时间基准不合法')

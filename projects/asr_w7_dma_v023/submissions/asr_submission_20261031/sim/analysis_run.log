@@ -1,0 +1,36 @@
+test_busy_sample_not_effective_compute (__main__.Tests.test_busy_sample_not_effective_compute) ... ok
+test_capacity_rejected (__main__.Tests.test_capacity_rejected) ... ok
+test_coverage_units_and_parallel (__main__.Tests.test_coverage_units_and_parallel) ... ok
+test_failed_transfer_not_deduplicated (__main__.Tests.test_failed_transfer_not_deduplicated) ... ok
+test_formats_not_deduplicated (__main__.Tests.test_formats_not_deduplicated) ... ok
+test_logger_and_report (__main__.Tests.test_logger_and_report) ... ok
+test_non_payload_cannot_count_bytes (__main__.Tests.test_non_payload_cannot_count_bytes) ... ok
+test_overlap_rejected (__main__.Tests.test_overlap_rejected) ... ok
+test_partial_repeats_and_versions (__main__.Tests.test_partial_repeats_and_versions) ... ok
+test_window_and_id_rejected (__main__.Tests.test_window_and_id_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.003s
+
+OK
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
+test_busy_sample_not_effective_compute (__main__.Tests.test_busy_sample_not_effective_compute) ... ok
+test_different_domain_rejected (__main__.Tests.test_different_domain_rejected) ... ok
+test_html_json_injection (__main__.Tests.test_html_json_injection) ... ok
+test_overlap_rejected (__main__.Tests.test_overlap_rejected) ... ok
+test_same_frequency_not_autoaligned (__main__.Tests.test_same_frequency_not_autoaligned) ... ok
+test_shared_time_and_unknown (__main__.Tests.test_shared_time_and_unknown) ... ok
+test_signals_preserve_pulse (__main__.Tests.test_signals_preserve_pulse) ... ok
+test_window_rejected (__main__.Tests.test_window_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.003s
+
+OK
+{"resources": 7, "transfers": 271, "out": "sim/ledger_fixed"}
+{"out": "report/activity_fixed.html", "lanes": 7, "timebases": 1}
+METRICS_AND_BUSY_SEMANTICS_PASS

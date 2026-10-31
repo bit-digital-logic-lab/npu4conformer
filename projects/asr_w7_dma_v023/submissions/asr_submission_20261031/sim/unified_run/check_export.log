@@ -1,0 +1,4 @@
+INFO DIV worst_rel=9.102e-04 bad=0
+INFO SQRT worst_rel=5.089e-06 bad=0
+INFO FMA vs mul+add differing vectors: 64/64
+V024_CHECK PASS

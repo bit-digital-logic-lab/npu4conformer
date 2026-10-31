@@ -1,0 +1,46 @@
+{
+  "scope": "Matrix-only RTL/BFM normalized-cycle Roofline, not board/full ASR",
+  "memory_boundary": "AXI128 shared read+write BFM data channel; DUPLEX=0",
+  "clock_relation": "same_cycle_domain",
+  "peak_ops_per_cycle": 512,
+  "bandwidth_bytes_per_cycle": 16,
+  "bandwidth_basis": "interface_contract",
+  "peak_source": "src/unified/rtl/matrix/array16_w7_c48_cfg.sv; frozen specialist source hashes in data/sources_sha256.json",
+  "bandwidth_source": "data/source_records.json: original BFM DUPLEX=0, shared128bit/cycle; sources_sha256.json",
+  "cases": [
+    {
+      "name": "K96局部实测",
+      "M": 64,
+      "N": 32,
+      "K": 96,
+      "read_bytes": 30720,
+      "write_bytes": 12288,
+      "cycles": 8711,
+      "source": "data/matrix_k96_trace.jsonl + data/source_records.json",
+      "scope": "CVALID=1 trace window [0,8711); RTL/BFM"
+    },
+    {
+      "name": "权重复用关闭",
+      "M": 64,
+      "N": 32,
+      "K": 96,
+      "read_bytes": 18432,
+      "write_bytes": 12288,
+      "cycles": 7612,
+      "source": "data/source_records.json#reuse_off",
+      "scope": "CVALID=0; isolated optimization candidate; not unified top"
+    },
+    {
+      "name": "权重复用开启",
+      "M": 64,
+      "N": 32,
+      "K": 96,
+      "read_bytes": 15360,
+      "write_bytes": 12288,
+      "cycles": 7236,
+      "source": "data/source_records.json#reuse_on",
+      "scope": "CVALID=0; isolated optimization candidate; not unified top"
+    }
+  ],
+  "traffic_basis": "valid_bytes_equal_bus_bytes"
+}

@@ -1,0 +1,110 @@
+{
+  "reuse_off": {
+    "rc": 0,
+    "cluster": {
+      "fault": "0",
+      "code": "00",
+      "cycles": "7612",
+      "rdblk": "12",
+      "wrblk": "128",
+      "cgrp": "1536",
+      "a": "6",
+      "w": "6",
+      "c": "0",
+      "pairs": "0",
+      "wsaved": "0"
+    },
+    "dma": {
+      "rd_bursts": "72",
+      "rd_bytes": "18432",
+      "armax": "8",
+      "wr_bursts": "130",
+      "wr_bytes": "12288",
+      "bmax": "2"
+    },
+    "axi": {
+      "read_beats": "1152",
+      "read_bursts": "72",
+      "write_beats": "768",
+      "write_bursts": "130",
+      "aw": "130",
+      "w": "768",
+      "b": "130",
+      "strb_bytes": "12288",
+      "maxrd": "8",
+      "maxwr": "2"
+    },
+    "drain": {
+      "aw_cnt": "0",
+      "b_cnt": "0",
+      "wr_active": "0"
+    },
+    "verdict": "PASS",
+    "tb": "tb_reuse_cluster_axi",
+    "M": "64",
+    "N": "32",
+    "K": "96",
+    "CVALID": "0",
+    "REUSE": "0",
+    "cycles": "7612",
+    "AXI_W_bytes": "12288",
+    "AXI_W_beats": "768",
+    "AXI_W_bursts": "130",
+    "rd_bytes": "18432"
+  },
+  "reuse_on": {
+    "rc": 0,
+    "cluster": {
+      "fault": "0",
+      "code": "00",
+      "cycles": "7236",
+      "rdblk": "9",
+      "wrblk": "128",
+      "cgrp": "1536",
+      "a": "6",
+      "w": "3",
+      "c": "0",
+      "pairs": "1",
+      "wsaved": "3"
+    },
+    "dma": {
+      "rd_bursts": "60",
+      "rd_bytes": "15360",
+      "armax": "8",
+      "wr_bursts": "130",
+      "wr_bytes": "12288",
+      "bmax": "2"
+    },
+    "axi": {
+      "read_beats": "960",
+      "read_bursts": "60",
+      "write_beats": "768",
+      "write_bursts": "130",
+      "aw": "130",
+      "w": "768",
+      "b": "130",
+      "strb_bytes": "12288",
+      "maxrd": "8",
+      "maxwr": "2"
+    },
+    "drain": {
+      "aw_cnt": "0",
+      "b_cnt": "0",
+      "wr_active": "0"
+    },
+    "verdict": "PASS",
+    "tb": "tb_reuse_cluster_axi",
+    "M": "64",
+    "N": "32",
+    "K": "96",
+    "CVALID": "0",
+    "REUSE": "1",
+    "cycles": "7236",
+    "AXI_W_bytes": "12288",
+    "AXI_W_beats": "768",
+    "AXI_W_bursts": "130",
+    "rd_bytes": "15360"
+  },
+  "k96_compile_command": "verilator -GPIPE=4 -GM=64 -GN=32 -GK=96 ... --top-module tb_p2_cluster_axi; run +cvalid=1",
+  "shared_bfm_contract": "parameter DUPLEX=0; shared 128bit/cycle; testbench connects DUPLEX, build uses default; not board DDR"
+}

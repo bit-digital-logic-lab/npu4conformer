@@ -1,0 +1,113 @@
+{
+  "scope": "V0.23 integrated single-clock logic simulation; shared AXI128 BFM, not board DDR",
+  "input_sha256": "77c21324e8005b60e259f1842a8580f0a8fb58cbd6333b240b4afbc5a9fe052e",
+  "groups": [
+    {
+      "name": "tb_clk",
+      "unit": "cycle",
+      "clock_hz": null,
+      "start": 12,
+      "end": 23820
+    }
+  ],
+  "lanes": [
+    {
+      "name": "axi_r",
+      "group": "tb_clk",
+      "kind": "channel",
+      "start": 12,
+      "end": 23820,
+      "evidence": "RVALID&&RREADY / ARVALID&&ARREADY / outstanding count",
+      "states": {
+        "idle_no_work": 19949.0,
+        "command": 130.0,
+        "wait_memory": 1901.0,
+        "payload": 1828.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "axi_w",
+      "group": "tb_clk",
+      "kind": "channel",
+      "start": 12,
+      "end": 23820,
+      "evidence": "WVALID&&WREADY (WSTRB bytes) / AW / B",
+      "states": {
+        "idle_no_work": 20644.0,
+        "command": 141.0,
+        "wait_memory": 1282.0,
+        "payload": 1600.0,
+        "response": 141.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "ddr_bfm",
+      "group": "tb_clk",
+      "kind": "channel",
+      "start": 12,
+      "end": 23820,
+      "evidence": "shared BFM R/W handshakes; union of both directions (separate R and W channels)",
+      "states": {
+        "idle_no_work": 17546.0,
+        "command": 250.0,
+        "wait_memory": 2804.0,
+        "payload": 3208.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "graph",
+      "group": "tb_clk",
+      "kind": "module",
+      "start": 12,
+      "end": 23820,
+      "evidence": "WCPG controller busy sample",
+      "states": {
+        "idle_no_work": 34.0,
+        "busy": 23774.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "matrix",
+      "group": "tb_clk",
+      "kind": "module",
+      "start": 12,
+      "end": 23820,
+      "evidence": "matrix queue child/core busy sample; no PE-cycle fabrication",
+      "states": {
+        "idle_no_work": 21908.0,
+        "busy": 1900.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "vector",
+      "group": "tb_clk",
+      "kind": "module",
+      "start": 12,
+      "end": 23820,
+      "evidence": "vector engine busy sample",
+      "states": {
+        "idle_no_work": 19165.0,
+        "busy": 4643.0
+      },
+      "known_coverage": 1.0
+    },
+    {
+      "name": "layout",
+      "group": "tb_clk",
+      "kind": "module",
+      "start": 12,
+      "end": 23820,
+      "evidence": "layout engine busy sample",
+      "states": {
+        "idle_no_work": 7020.0,
+        "busy": 16788.0
+      },
+      "known_coverage": 1.0
+    }
+  ]
+}
