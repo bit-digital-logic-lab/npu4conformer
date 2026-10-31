@@ -4,6 +4,12 @@
 
 **当前是多个可复跑的逻辑候选，尚未合成一个完整模型验收通过的发布版本。** 本轮没有运行 Vivado、综合、布线或上板；300/600 MHz 是目标，没有时序达标证据。历史约150秒是旧平台完整推理时间，下面局部周期不能换算为新的整模型秒数。
 
+## 多智能体协同增补
+
+[新skill与流程图](updates/multi_agent_20261031/skill/multi-agent-feedback-loop/SKILL.md) · [增补说明](updates/multi_agent_20261031/report/multi_agent_addendum.md) · [新版PPT](updates/multi_agent_20261031/slides/architecture_multi_agent.pptx) · [讲稿](updates/multi_agent_20261031/report/narration.md)
+
+该页为协作与事件钩子的流程设计，本次未运行外部多模型联调。原封存保持不变。
+
 ## 2026年10月31日封存
 
 [封存入口](submissions/asr_submission_20261031/readme.md) · [设计报告](submissions/asr_submission_20261031/report/design_report.md) · [整改方案](submissions/asr_submission_20261031/report/remediation_plan.md) · [讲稿](submissions/asr_submission_20261031/report/narration.md) · [PPT](submissions/asr_submission_20261031/report/slides/architecture_roofline.pptx)

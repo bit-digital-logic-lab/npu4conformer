@@ -21,3 +21,6 @@ projects/asr_qdq_fpga/releases/** -text
 
 # Frozen 2026-10-31 submission and evidence retain manifest-identical bytes.
 projects/asr_w7_dma_v023/submissions/asr_submission_20261031/** -text -whitespace
+
+# Preserve generated evidence and presentation assets in the incremental update.
+projects/asr_w7_dma_v023/updates/multi_agent_20261031/** -text -whitespace

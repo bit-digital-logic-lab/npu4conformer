@@ -4,6 +4,8 @@
 
 当前新增：[W7p8/A16/C48 PL自主DMA优化候选](projects/asr_w7_dma_v023/README.md)。局部逻辑回归与周期对照已记录，完整模型和物理时序尚未验收。
 
+最新增量：[多智能体协同skill、闭环图与新版PPT](projects/asr_w7_dma_v023/updates/multi_agent_20261031/readme.md)。
+
 最新封存：[2026-10-31架构、Roofline与整改资料](projects/asr_w7_dma_v023/submissions/asr_submission_20261031/readme.md)。包含无封面PPT、讲稿、设计报告与修复后的skill。仅局部RTL与接口理论Roofline，整改待实施。
 
 ## 工程与状态

@@ -1,0 +1,3 @@
+interface:
+  display_name: "多智能体反馈闭环"
+  short_description: "GPT协调实现与独立复核，并以测试和证据触发有界返工"
