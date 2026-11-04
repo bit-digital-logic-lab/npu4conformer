@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "requests": 2,
+  "segment_samples": [
+    160000,
+    160000
+  ],
+  "audios": [
+    {
+      "samples": 160000,
+      "pcm_sha256": "8aff9072521b5f15f5db6d00e055a178bbd80d6c42d033c5a9ac8c06ac16f46a"
+    },
+    {
+      "samples": 160000,
+      "pcm_sha256": "59fe324e330067d3a1264f8c058f5d7c615c2de922f340c9a8eba7d31eba9526"
+    }
+  ],
+  "same_session": "816303b4923d4d25ab0237b875e3d45c",
+  "sequences": [
+    9,
+    10
+  ],
+  "text": "HELLO BERTIE ANY GOOD IN YOUR MIND STUFF IT INTO YOU HIS BELLY COUNSELLED HIM",
+  "board_seconds": [
+    36.75033975339753,
+    36.751679296792965
+  ],
+  "gpu_used": false
+}

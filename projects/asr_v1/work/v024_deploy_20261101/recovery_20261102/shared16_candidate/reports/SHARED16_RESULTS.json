@@ -1,0 +1,63 @@
+{
+  "status": "SIMULATION_PASS",
+  "regression_17_plus_2": "PASS exact output terminal drain and cycle vs baseline",
+  "three_parallel_faults": "PASS",
+  "continuous_modes": [
+    {
+      "sequence": 0,
+      "mode": "v024_fallback",
+      "cycles": 16979,
+      "output_sha256": "cf7c9dab48522d23ba780dd4219fd08de856d149b9fde44bf8e4debcbc8987ba",
+      "equal_safe16_single_run": true
+    },
+    {
+      "sequence": 1,
+      "mode": "v024_fused",
+      "cycles": 18844,
+      "output_sha256": "5a4951a676c7924c1b7dbf77cb613df3330138acfe8fd4beccfc47d8426be5c3",
+      "equal_safe16_single_run": true
+    },
+    {
+      "sequence": 2,
+      "mode": "v024_fallback",
+      "cycles": 17065,
+      "output_sha256": "cf7c9dab48522d23ba780dd4219fd08de856d149b9fde44bf8e4debcbc8987ba",
+      "equal_safe16_single_run": true
+    },
+    {
+      "sequence": 3,
+      "mode": "v024_fused",
+      "cycles": 18904,
+      "output_sha256": "5a4951a676c7924c1b7dbf77cb613df3330138acfe8fd4beccfc47d8426be5c3",
+      "equal_safe16_single_run": true
+    },
+    {
+      "sequence": 4,
+      "mode": "v024_fallback",
+      "cycles": 17065,
+      "output_sha256": "cf7c9dab48522d23ba780dd4219fd08de856d149b9fde44bf8e4debcbc8987ba",
+      "equal_safe16_single_run": true
+    },
+    {
+      "sequence": 5,
+      "mode": "v024_fused",
+      "cycles": 18863,
+      "output_sha256": "5a4951a676c7924c1b7dbf77cb613df3330138acfe8fd4beccfc47d8426be5c3",
+      "equal_safe16_single_run": true
+    }
+  ],
+  "continuation_cycle_comparison": "six cycles and full outputs match safe16 same harness",
+  "reset_mid_task": "PASS: global rst_n resets DUT and AXI BFM together during each active mode, then reloads fixture and executes six further tasks; not core-only warm reset",
+  "synthesis": "not run",
+  "frozen_run_sources_unchanged": true,
+  "sequence_tb_sha256": "6451889a1d310e7b3208d4f1fa426eed81c727aae2a1a05b327cc78c9ece64c2",
+  "sequence_baseline": [
+    "SEQUENCE_DONE seq=0 mode=0 cycles=16979",
+    "SEQUENCE_DONE seq=1 mode=1 cycles=18844",
+    "SEQUENCE_DONE seq=2 mode=0 cycles=17065",
+    "SEQUENCE_DONE seq=3 mode=1 cycles=18904",
+    "SEQUENCE_DONE seq=4 mode=0 cycles=17065",
+    "SEQUENCE_DONE seq=5 mode=1 cycles=18863"
+  ],
+  "source_manifest": "SOURCE_MANIFEST.json"
+}

@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "candidate_sha256": "23e8085155a9c3cc06d66b129a64aef4ed581581adeb8d5fcc7d49591af1efc1",
+  "generation_invalidation_cases": [
+    {
+      "state": 10,
+      "phase": "HHASH",
+      "status": "PASS",
+      "injected_at_word": 4,
+      "expected_error": "02",
+      "completed": 0,
+      "new_fetch_or_dispatch_after_invalidation": false,
+      "port_quiesced": true
+    },
+    {
+      "state": 11,
+      "phase": "NHASH",
+      "status": "PASS",
+      "injected_at_word": 4,
+      "expected_error": "02",
+      "completed": 0,
+      "new_fetch_or_dispatch_after_invalidation": false,
+      "port_quiesced": true
+    }
+  ]
+}

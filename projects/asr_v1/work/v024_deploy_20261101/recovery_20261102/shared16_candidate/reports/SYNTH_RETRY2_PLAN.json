@@ -1,0 +1,30 @@
+{
+  "status": "PREPARED_NOT_RUN",
+  "created": "2026-11-02T12:49:32.310637+08:00",
+  "changes": [
+    "Fresh short scratch and project directory",
+    "Reuse hash-verified official FMA OOC DCP; no repeated IP synthesis in core process"
+  ],
+  "unchanged": [
+    "All frozen RTL and IP configuration",
+    "20 ns pre-synthesis constraint",
+    "MAX_NODES=128",
+    "Single-thread rebuilt out-of-context synthesis"
+  ],
+  "scratch_directory": "C:\\Academic_Work\\CIM_learning\\_s16_retry2",
+  "script_sha256": "d6b2000b984e5ccfeaa724c15ca3de32744acff51f39682867fcda8bb0a21410",
+  "verified_ip_inputs": {
+    "ip/asr_fma_ip/asr_fma_ip.xci": "6d4e66d8c69c8d1ca6e687d65d304ed9d84f0563d8fdea342d2ca61b85902333",
+    "ip/asr_fma_ip/generated/asr_fma_ip.dcp": "3398344c3a787c46194e63ef81cd5968daa2bbcbd13176d1c2205819d8d6f10d"
+  },
+  "failure_evidence": "logs/synth_20261102_123634.log",
+  "prior_failure": "Designutils 20-411 temporary directory cleanup; actual locking process/root cause not established",
+  "acceptance_requires": [
+    "Actual expected DCP import at graph/vec/arithmetic/fused in current log",
+    "Correct IP status and 12-cycle config",
+    "Zero blackboxes",
+    "One original 16x16 array and 256 original PE instances",
+    "20ns core_clk",
+    "Actual resources and written core checkpoint"
+  ]
+}

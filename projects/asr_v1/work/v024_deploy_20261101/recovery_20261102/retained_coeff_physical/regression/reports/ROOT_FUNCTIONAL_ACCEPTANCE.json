@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "source_manifest_sha256": "78bed0c8d2a6da2f8304b16fb7492830d1acfe0e234f792a67b758f59993a333",
+  "acceptance_sha256": "2ccd562c761c6a092e014b4a563a8c7d17ad3ac59e0545a66c5ac3d6d577be9d",
+  "original_pe_array_source_hashes_unchanged": true,
+  "regression_cases": 19,
+  "scope": "2492 frozen source, 17+2 plus unit-level repair validation; no board claim"
+}

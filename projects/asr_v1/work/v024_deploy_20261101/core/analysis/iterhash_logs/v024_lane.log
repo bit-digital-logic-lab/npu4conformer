@@ -1,0 +1,4 @@
+Time resolution is 1 ps
+V024_LANE seen=64 gold_mismatch=0 muladd_diff_fixture=1
+V024_LANE_RESULT PASS
+$finish called at time : 956 ns : File "C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/sim/tb/tb_v024_epilogue.sv" Line 77

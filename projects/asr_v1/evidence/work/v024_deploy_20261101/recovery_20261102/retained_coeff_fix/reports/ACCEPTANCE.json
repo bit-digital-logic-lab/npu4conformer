@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "scope": "local retained parameter reset and real epilogue arithmetic unit only; full graph, synthesis, timing and board untested",
+  "time": "2026-11-02T16:25:23.188957+08:00",
+  "overlay": [
+    {
+      "entry": "rtl/epilogue/epilogue_stream_engine_v024.sv",
+      "source": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\shared16_candidate\\core\\rtl\\epilogue\\epilogue_stream_engine_v024.sv",
+      "source_sha256": "d9039f4a8f1c4885e378449bd1da95314af879875f949cc7bfe8ba614c660403",
+      "selected": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\rtl\\epilogue_stream_engine_v024.sv",
+      "selected_sha256": "8f715020dad2807ad6bb993b9955b00e96d564ac5b95264b1b782784465af1de"
+    },
+    {
+      "entry": "rtl/epilogue/matrix_stream_fusion_top_v024.sv",
+      "source": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\shared16_candidate\\core\\rtl\\epilogue\\matrix_stream_fusion_top_v024.sv",
+      "source_sha256": "5ac5cecf11d1527376743df5d8af89a8fea04243778295547a6053623d315886",
+      "selected": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\rtl\\matrix_stream_fusion_top_v024.sv",
+      "selected_sha256": "f488010e3ef9e5bb0da038e1c2005a12c1e87b83cac37e1c69333c684ceaf095"
+    },
+    {
+      "entry": "rtl/graph/v024_matrix_queue_engine.sv",
+      "source": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\shared16_candidate\\core\\rtl\\graph\\v024_matrix_queue_engine.sv",
+      "source_sha256": "dd0926df17f7a188b3386c8da8feb78a428b0632a49d65b1f9e152a6d48d677d",
+      "selected": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\rtl\\v024_matrix_queue_engine.sv",
+      "selected_sha256": "fd44c155b684496aabe333ccd7328a41a6b650864727e2a939c356bed953c11e"
+    }
+  ],
+  "preflight": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\reports\\PREFLIGHT.json",
+  "process_receipt": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\modelsim_unit\\20261102_162257\\PROCESS_RECEIPT.json",
+  "process_receipt_sha256": "7327e67bdd5be0f28019b1b42b196a07db681abce2b6f923f602c9983a35ed77",
+  "baseline_bug_reproduced": true,
+  "mode_reset_pulse_ns": 1,
+  "clock_period_ns": 10,
+  "retained_table_words": 64,
+  "retained_broadcast_words": 2,
+  "real_numeric_beats_checked": 7,
+  "accepted_parameter_writes": 66,
+  "hard_reset_defaults_verified": true,
+  "reset_parameter_handshake_blocked": true,
+  "data_plane_reset_unchanged": true,
+  "peak_simultaneous_tree_working_set_MiB": 346.379,
+  "all_steps_exit_zero": true,
+  "remaining_unit_processes": [],
+  "simulation_log_sha256": "6211e67dfaa2201d75bff955c298acc974fa8c38bdbff252f46f328d8b76f7f7"
+}

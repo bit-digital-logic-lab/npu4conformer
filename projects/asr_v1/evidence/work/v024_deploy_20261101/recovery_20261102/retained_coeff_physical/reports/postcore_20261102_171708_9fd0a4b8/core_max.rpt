@@ -1,0 +1,963 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date              : Mon Nov  2 17:31:56 2026
+| Host              : MILK running 64-bit major release  (build 9200)
+| Command           : report_timing -delay_type max -max_paths 5 -file C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/reports/postcore_20261102_171708_9fd0a4b8/core_max.rpt
+| Design            : v024_unified_top
+| Device            : xczu15eg-ffvb1156
+| Speed File        : -2  PRODUCTION 1.30 05-15-2022
+| Design State      : Synthesized
+| Temperature Grade : I
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             5.797ns  (required time - arrival time)
+  Source:                 graph/lay/arithmetic/cfg_reg[450]/C
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            graph/lay/arithmetic/pf_count_reg[0]/D
+                            (rising edge-triggered cell FDSE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             core_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (core_clk rise@20.000ns - core_clk rise@0.000ns)
+  Data Path Delay:        14.185ns  (logic 7.619ns (53.712%)  route 6.566ns (46.288%))
+  Logic Levels:           54  (CARRY8=18 DSP_A_B_DATA=2 DSP_ALU=4 DSP_M_DATA=2 DSP_MULTIPLIER=2 DSP_OUTPUT=4 DSP_PREADD_DATA=2 LUT1=1 LUT2=4 LUT3=2 LUT4=5 LUT5=2 LUT6=6)
+  Clock Path Skew:        -0.008ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.020ns = ( 20.020 - 20.000 ) 
+    Source Clock Delay      (SCD):    0.028ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.028     0.028    graph/lay/arithmetic/clk
+                         FDRE                                         r  graph/lay/arithmetic/cfg_reg[450]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.105 f  graph/lay/arithmetic/cfg_reg[450]/Q
+                         net (fo=6, unplaced)         0.208     0.313    graph/lay/arithmetic/cfg_reg_n_0_[450]
+                         LUT1 (Prop_LUT1_I0_O)        0.037     0.350 r  graph/lay/arithmetic/ix0__0_i_18/O
+                         net (fo=1, unplaced)         0.023     0.373    graph/lay/arithmetic/ix0__0_i_18_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_CO[7])
+                                                      0.197     0.570 r  graph/lay/arithmetic/ix0__0_i_2/CO[7]
+                         net (fo=1, unplaced)         0.005     0.575    graph/lay/arithmetic/ix0__0_i_2_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[5])
+                                                      0.116     0.691 f  graph/lay/arithmetic/ix0__0_i_1/O[5]
+                         net (fo=5, unplaced)         0.227     0.918    graph/lay/arithmetic/ix0__0/A[14]
+                         DSP_A_B_DATA (Prop_DSP_A_B_DATA_A[14]_A2_DATA[14])
+                                                      0.192     1.110 r  graph/lay/arithmetic/ix0__0/DSP_A_B_DATA_INST/A2_DATA[14]
+                         net (fo=1, unplaced)         0.000     1.110    graph/lay/arithmetic/ix0__0/DSP_A_B_DATA.A2_DATA<14>
+                         DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_A2_DATA[14]_A2A1[14])
+                                                      0.076     1.186 r  graph/lay/arithmetic/ix0__0/DSP_PREADD_DATA_INST/A2A1[14]
+                         net (fo=1, unplaced)         0.000     1.186    graph/lay/arithmetic/ix0__0/DSP_PREADD_DATA.A2A1<14>
+                         DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_A2A1[14]_U[34])
+                                                      0.505     1.691 f  graph/lay/arithmetic/ix0__0/DSP_MULTIPLIER_INST/U[34]
+                         net (fo=1, unplaced)         0.000     1.691    graph/lay/arithmetic/ix0__0/DSP_MULTIPLIER.U<34>
+                         DSP_M_DATA (Prop_DSP_M_DATA_U[34]_U_DATA[34])
+                                                      0.047     1.738 r  graph/lay/arithmetic/ix0__0/DSP_M_DATA_INST/U_DATA[34]
+                         net (fo=1, unplaced)         0.000     1.738    graph/lay/arithmetic/ix0__0/DSP_M_DATA.U_DATA<34>
+                         DSP_ALU (Prop_DSP_ALU_U_DATA[34]_ALU_OUT[47])
+                                                      0.585     2.323 f  graph/lay/arithmetic/ix0__0/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, unplaced)         0.000     2.323    graph/lay/arithmetic/ix0__0/DSP_ALU.ALU_OUT<47>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.122     2.445 r  graph/lay/arithmetic/ix0__0/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, unplaced)         0.014     2.459    graph/lay/arithmetic/ix0__1/PCIN[47]
+                         DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[0])
+                                                      0.546     3.005 f  graph/lay/arithmetic/ix0__1/DSP_ALU_INST/ALU_OUT[0]
+                         net (fo=1, unplaced)         0.000     3.005    graph/lay/arithmetic/ix0__1/DSP_ALU.ALU_OUT<0>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[0]_P[0])
+                                                      0.109     3.114 r  graph/lay/arithmetic/ix0__1/DSP_OUTPUT_INST/P[0]
+                         net (fo=2, unplaced)         0.154     3.268    graph/lay/arithmetic/ix0__1_n_105
+                         LUT2 (Prop_LUT2_I0_O)        0.052     3.320 r  graph/lay/arithmetic/b_kc0_i_35/O
+                         net (fo=1, unplaced)         0.023     3.343    graph/lay/arithmetic/b_kc0_i_35_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.204     3.547 r  graph/lay/arithmetic/b_kc0_i_20/O[4]
+                         net (fo=4, unplaced)         0.245     3.792    graph/lay/arithmetic/ix0__2[20]
+                         LUT2 (Prop_LUT2_I1_O)        0.037     3.829 r  graph/lay/arithmetic/m2_kx_end_far0_i_56/O
+                         net (fo=1, unplaced)         0.021     3.850    graph/lay/arithmetic/m2_kx_end_far0_i_56_n_0
+                         CARRY8 (Prop_CARRY8_S[4]_CO[7])
+                                                      0.163     4.013 r  graph/lay/arithmetic/m2_kx_end_far0_i_19/CO[7]
+                         net (fo=1, unplaced)         0.005     4.018    graph/lay/arithmetic/m2_kx_end_far0_i_19_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.067     4.085 r  graph/lay/arithmetic/m2_kx_end_far0_i_16/O[2]
+                         net (fo=5, unplaced)         0.250     4.335    graph/lay/arithmetic/m2_kx_end_far0_i_16_n_13
+                         LUT4 (Prop_LUT4_I2_O)        0.074     4.409 r  graph/lay/arithmetic/m2_kx_end_far0_i_31/O
+                         net (fo=1, unplaced)         0.231     4.640    graph/lay/arithmetic/m2_kx_end_far0_i_31_n_0
+                         CARRY8 (Prop_CARRY8_DI[5]_CO[7])
+                                                      0.097     4.737 r  graph/lay/arithmetic/m2_kx_end_far0_i_17/CO[7]
+                         net (fo=40, unplaced)        0.194     4.931    graph/lay/arithmetic/m2_kx_end_far0_i_17_n_0
+                         LUT4 (Prop_LUT4_I1_O)        0.053     4.984 f  graph/lay/arithmetic/m2_kx_end_far0__0_i_9/O
+                         net (fo=3, unplaced)         0.221     5.205    graph/lay/arithmetic/m2_kx_end_far0__0/A[8]
+                         DSP_A_B_DATA (Prop_DSP_A_B_DATA_A[8]_A2_DATA[8])
+                                                      0.192     5.397 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_A_B_DATA_INST/A2_DATA[8]
+                         net (fo=1, unplaced)         0.000     5.397    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_A_B_DATA.A2_DATA<8>
+                         DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_A2_DATA[8]_A2A1[8])
+                                                      0.076     5.473 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_PREADD_DATA_INST/A2A1[8]
+                         net (fo=1, unplaced)         0.000     5.473    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_PREADD_DATA.A2A1<8>
+                         DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_A2A1[8]_U[29])
+                                                      0.505     5.978 f  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_MULTIPLIER_INST/U[29]
+                         net (fo=1, unplaced)         0.000     5.978    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_MULTIPLIER.U<29>
+                         DSP_M_DATA (Prop_DSP_M_DATA_U[29]_U_DATA[29])
+                                                      0.047     6.025 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_M_DATA_INST/U_DATA[29]
+                         net (fo=1, unplaced)         0.000     6.025    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_M_DATA.U_DATA<29>
+                         DSP_ALU (Prop_DSP_ALU_U_DATA[29]_ALU_OUT[47])
+                                                      0.585     6.610 f  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, unplaced)         0.000     6.610    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_ALU.ALU_OUT<47>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.122     6.732 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, unplaced)         0.014     6.746    graph/lay/arithmetic/m2_kx_end_far0__1/PCIN[47]
+                         DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[0])
+                                                      0.546     7.292 f  graph/lay/arithmetic/m2_kx_end_far0__1/DSP_ALU_INST/ALU_OUT[0]
+                         net (fo=1, unplaced)         0.000     7.292    graph/lay/arithmetic/m2_kx_end_far0__1/DSP_ALU.ALU_OUT<0>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[0]_P[0])
+                                                      0.109     7.401 r  graph/lay/arithmetic/m2_kx_end_far0__1/DSP_OUTPUT_INST/P[0]
+                         net (fo=2, unplaced)         0.154     7.555    graph/lay/arithmetic/m2_kx_end_far0__1_n_105
+                         LUT2 (Prop_LUT2_I0_O)        0.052     7.607 r  graph/lay/arithmetic/pf_count[4]_i_536/O
+                         net (fo=1, unplaced)         0.023     7.630    graph/lay/arithmetic/pf_count[4]_i_536_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.204     7.834 r  graph/lay/arithmetic/pf_count_reg[4]_i_488/O[4]
+                         net (fo=1, unplaced)         0.232     8.066    graph/lay/arithmetic/pf_count_reg[4]_i_488_n_11
+                         LUT2 (Prop_LUT2_I1_O)        0.037     8.103 r  graph/lay/arithmetic/pf_count[4]_i_414/O
+                         net (fo=1, unplaced)         0.021     8.124    graph/lay/arithmetic/pf_count[4]_i_414_n_0
+                         CARRY8 (Prop_CARRY8_S[4]_CO[7])
+                                                      0.163     8.287 r  graph/lay/arithmetic/pf_count_reg[4]_i_345/CO[7]
+                         net (fo=1, unplaced)         0.005     8.292    graph/lay/arithmetic/pf_count_reg[4]_i_345_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.067     8.359 r  graph/lay/arithmetic/pf_count_reg[4]_i_358/O[2]
+                         net (fo=1, unplaced)         0.232     8.591    graph/lay/arithmetic/m2_kx_end_far[26]
+                         LUT6 (Prop_LUT6_I3_O)        0.090     8.681 r  graph/lay/arithmetic/pf_count[4]_i_286/O
+                         net (fo=6, unplaced)         0.254     8.935    graph/lay/arithmetic/pf_count[4]_i_286_n_0
+                         LUT4 (Prop_LUT4_I2_O)        0.074     9.009 r  graph/lay/arithmetic/pf_count[4]_i_328/O
+                         net (fo=1, unplaced)         0.231     9.240    graph/lay/arithmetic/pf_count[4]_i_328_n_0
+                         CARRY8 (Prop_CARRY8_DI[5]_CO[7])
+                                                      0.097     9.337 r  graph/lay/arithmetic/pf_count_reg[4]_i_253/CO[7]
+                         net (fo=92, unplaced)        0.214     9.551    graph/lay/arithmetic/pf_end1
+                         LUT3 (Prop_LUT3_I2_O)        0.070     9.621 r  graph/lay/arithmetic/pf_count[4]_i_306/O
+                         net (fo=3, unplaced)         0.238     9.859    graph/lay/arithmetic/pf_count[4]_i_306_n_0
+                         LUT6 (Prop_LUT6_I5_O)        0.038     9.897 f  graph/lay/arithmetic/pf_count[4]_i_273/O
+                         net (fo=1, unplaced)         0.256    10.153    graph/lay/arithmetic/pf_count[4]_i_273_n_0
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.127    10.280 f  graph/lay/arithmetic/pf_count_reg[4]_i_203/CO[7]
+                         net (fo=1, unplaced)         0.005    10.285    graph/lay/arithmetic/pf_count_reg[4]_i_203_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[6])
+                                                      0.092    10.377 f  graph/lay/arithmetic/pf_count_reg[4]_i_135/CO[6]
+                         net (fo=55, unplaced)        0.256    10.633    graph/lay/arithmetic/pf_last1
+                         LUT3 (Prop_LUT3_I1_O)        0.066    10.699 r  graph/lay/arithmetic/pf_count[4]_i_56/O
+                         net (fo=1, unplaced)         0.156    10.855    graph/lay/arithmetic/pf_count[4]_i_56_n_0
+                         CARRY8 (Prop_CARRY8_DI[3]_O[5])
+                                                      0.182    11.037 f  graph/lay/arithmetic/pf_count_reg[4]_i_20/O[5]
+                         net (fo=4, unplaced)         0.214    11.251    graph/lay/arithmetic/pf_run_lines[5]
+                         LUT5 (Prop_LUT5_I0_O)        0.099    11.350 r  graph/lay/arithmetic/pf_count[4]_i_139/O
+                         net (fo=1, unplaced)         0.251    11.601    graph/lay/arithmetic/pf_count[4]_i_139_n_0
+                         CARRY8 (Prop_CARRY8_DI[2]_CO[7])
+                                                      0.117    11.718 r  graph/lay/arithmetic/pf_count_reg[4]_i_67/CO[7]
+                         net (fo=1, unplaced)         0.005    11.723    graph/lay/arithmetic/pf_count_reg[4]_i_67_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.022    11.745 r  graph/lay/arithmetic/pf_count_reg[4]_i_21/CO[7]
+                         net (fo=44, unplaced)        0.198    11.943    graph/lay/arithmetic/pf_min11
+                         LUT4 (Prop_LUT4_I1_O)        0.038    11.981 f  graph/lay/arithmetic/pf_count[4]_i_186/O
+                         net (fo=2, unplaced)         0.232    12.213    graph/lay/arithmetic/pf_count[4]_i_186_n_0
+                         LUT6 (Prop_LUT6_I1_O)        0.038    12.251 r  graph/lay/arithmetic/pf_count[4]_i_125/O
+                         net (fo=1, unplaced)         0.279    12.530    graph/lay/arithmetic/pf_count[4]_i_125_n_0
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.140    12.670 r  graph/lay/arithmetic/pf_count_reg[4]_i_35/CO[7]
+                         net (fo=1, unplaced)         0.005    12.675    graph/lay/arithmetic/pf_count_reg[4]_i_35_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.022    12.697 r  graph/lay/arithmetic/pf_count_reg[4]_i_19/CO[7]
+                         net (fo=1, unplaced)         0.005    12.702    graph/lay/arithmetic/pf_min21
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.056    12.758 r  graph/lay/arithmetic/pf_count_reg[4]_i_5/O[0]
+                         net (fo=13, unplaced)        0.271    13.029    graph/lay/arithmetic/pf_count_reg[4]_i_5_n_15
+                         LUT4 (Prop_LUT4_I0_O)        0.038    13.067 f  graph/lay/arithmetic/pf_count[4]_i_97/O
+                         net (fo=1, unplaced)         0.232    13.299    graph/lay/arithmetic/pf_count[4]_i_97_n_0
+                         LUT6 (Prop_LUT6_I5_O)        0.038    13.337 r  graph/lay/arithmetic/pf_count[4]_i_28/O
+                         net (fo=1, unplaced)         0.232    13.569    graph/lay/arithmetic/pf_count[4]_i_28_n_0
+                         LUT6 (Prop_LUT6_I0_O)        0.038    13.607 f  graph/lay/arithmetic/pf_count[4]_i_8/O
+                         net (fo=1, unplaced)         0.232    13.839    graph/lay/arithmetic/pf_count[4]_i_8_n_0
+                         LUT6 (Prop_LUT6_I1_O)        0.038    13.877 f  graph/lay/arithmetic/pf_count[4]_i_3/O
+                         net (fo=5, unplaced)         0.250    14.127    graph/lay/arithmetic/pf_count[4]_i_3_n_0
+                         LUT5 (Prop_LUT5_I3_O)        0.038    14.165 r  graph/lay/arithmetic/pf_count[0]_i_1/O
+                         net (fo=1, unplaced)         0.048    14.213    graph/lay/arithmetic/pf_count[0]_i_1_n_0
+                         FDSE                                         r  graph/lay/arithmetic/pf_count_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core_clk rise edge)
+                                                     20.000    20.000 r  
+                                                      0.000    20.000 r  clk (IN)
+                         net (fo=171383, unset)       0.020    20.020    graph/lay/arithmetic/clk
+                         FDSE                                         r  graph/lay/arithmetic/pf_count_reg[0]/C
+                         clock pessimism              0.000    20.020    
+                         clock uncertainty           -0.035    19.985    
+                         FDSE (Setup_FDSE_C_D)        0.025    20.010    graph/lay/arithmetic/pf_count_reg[0]
+  -------------------------------------------------------------------
+                         required time                         20.010    
+                         arrival time                         -14.213    
+  -------------------------------------------------------------------
+                         slack                                  5.797    
+
+Slack (MET) :             5.797ns  (required time - arrival time)
+  Source:                 graph/lay/arithmetic/cfg_reg[450]/C
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            graph/lay/arithmetic/pf_count_reg[1]/D
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             core_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (core_clk rise@20.000ns - core_clk rise@0.000ns)
+  Data Path Delay:        14.185ns  (logic 7.619ns (53.712%)  route 6.566ns (46.288%))
+  Logic Levels:           54  (CARRY8=18 DSP_A_B_DATA=2 DSP_ALU=4 DSP_M_DATA=2 DSP_MULTIPLIER=2 DSP_OUTPUT=4 DSP_PREADD_DATA=2 LUT1=1 LUT2=4 LUT3=2 LUT4=5 LUT5=2 LUT6=6)
+  Clock Path Skew:        -0.008ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.020ns = ( 20.020 - 20.000 ) 
+    Source Clock Delay      (SCD):    0.028ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.028     0.028    graph/lay/arithmetic/clk
+                         FDRE                                         r  graph/lay/arithmetic/cfg_reg[450]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.105 f  graph/lay/arithmetic/cfg_reg[450]/Q
+                         net (fo=6, unplaced)         0.208     0.313    graph/lay/arithmetic/cfg_reg_n_0_[450]
+                         LUT1 (Prop_LUT1_I0_O)        0.037     0.350 r  graph/lay/arithmetic/ix0__0_i_18/O
+                         net (fo=1, unplaced)         0.023     0.373    graph/lay/arithmetic/ix0__0_i_18_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_CO[7])
+                                                      0.197     0.570 r  graph/lay/arithmetic/ix0__0_i_2/CO[7]
+                         net (fo=1, unplaced)         0.005     0.575    graph/lay/arithmetic/ix0__0_i_2_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[5])
+                                                      0.116     0.691 f  graph/lay/arithmetic/ix0__0_i_1/O[5]
+                         net (fo=5, unplaced)         0.227     0.918    graph/lay/arithmetic/ix0__0/A[14]
+                         DSP_A_B_DATA (Prop_DSP_A_B_DATA_A[14]_A2_DATA[14])
+                                                      0.192     1.110 r  graph/lay/arithmetic/ix0__0/DSP_A_B_DATA_INST/A2_DATA[14]
+                         net (fo=1, unplaced)         0.000     1.110    graph/lay/arithmetic/ix0__0/DSP_A_B_DATA.A2_DATA<14>
+                         DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_A2_DATA[14]_A2A1[14])
+                                                      0.076     1.186 r  graph/lay/arithmetic/ix0__0/DSP_PREADD_DATA_INST/A2A1[14]
+                         net (fo=1, unplaced)         0.000     1.186    graph/lay/arithmetic/ix0__0/DSP_PREADD_DATA.A2A1<14>
+                         DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_A2A1[14]_U[34])
+                                                      0.505     1.691 f  graph/lay/arithmetic/ix0__0/DSP_MULTIPLIER_INST/U[34]
+                         net (fo=1, unplaced)         0.000     1.691    graph/lay/arithmetic/ix0__0/DSP_MULTIPLIER.U<34>
+                         DSP_M_DATA (Prop_DSP_M_DATA_U[34]_U_DATA[34])
+                                                      0.047     1.738 r  graph/lay/arithmetic/ix0__0/DSP_M_DATA_INST/U_DATA[34]
+                         net (fo=1, unplaced)         0.000     1.738    graph/lay/arithmetic/ix0__0/DSP_M_DATA.U_DATA<34>
+                         DSP_ALU (Prop_DSP_ALU_U_DATA[34]_ALU_OUT[47])
+                                                      0.585     2.323 f  graph/lay/arithmetic/ix0__0/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, unplaced)         0.000     2.323    graph/lay/arithmetic/ix0__0/DSP_ALU.ALU_OUT<47>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.122     2.445 r  graph/lay/arithmetic/ix0__0/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, unplaced)         0.014     2.459    graph/lay/arithmetic/ix0__1/PCIN[47]
+                         DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[0])
+                                                      0.546     3.005 f  graph/lay/arithmetic/ix0__1/DSP_ALU_INST/ALU_OUT[0]
+                         net (fo=1, unplaced)         0.000     3.005    graph/lay/arithmetic/ix0__1/DSP_ALU.ALU_OUT<0>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[0]_P[0])
+                                                      0.109     3.114 r  graph/lay/arithmetic/ix0__1/DSP_OUTPUT_INST/P[0]
+                         net (fo=2, unplaced)         0.154     3.268    graph/lay/arithmetic/ix0__1_n_105
+                         LUT2 (Prop_LUT2_I0_O)        0.052     3.320 r  graph/lay/arithmetic/b_kc0_i_35/O
+                         net (fo=1, unplaced)         0.023     3.343    graph/lay/arithmetic/b_kc0_i_35_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.204     3.547 r  graph/lay/arithmetic/b_kc0_i_20/O[4]
+                         net (fo=4, unplaced)         0.245     3.792    graph/lay/arithmetic/ix0__2[20]
+                         LUT2 (Prop_LUT2_I1_O)        0.037     3.829 r  graph/lay/arithmetic/m2_kx_end_far0_i_56/O
+                         net (fo=1, unplaced)         0.021     3.850    graph/lay/arithmetic/m2_kx_end_far0_i_56_n_0
+                         CARRY8 (Prop_CARRY8_S[4]_CO[7])
+                                                      0.163     4.013 r  graph/lay/arithmetic/m2_kx_end_far0_i_19/CO[7]
+                         net (fo=1, unplaced)         0.005     4.018    graph/lay/arithmetic/m2_kx_end_far0_i_19_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.067     4.085 r  graph/lay/arithmetic/m2_kx_end_far0_i_16/O[2]
+                         net (fo=5, unplaced)         0.250     4.335    graph/lay/arithmetic/m2_kx_end_far0_i_16_n_13
+                         LUT4 (Prop_LUT4_I2_O)        0.074     4.409 r  graph/lay/arithmetic/m2_kx_end_far0_i_31/O
+                         net (fo=1, unplaced)         0.231     4.640    graph/lay/arithmetic/m2_kx_end_far0_i_31_n_0
+                         CARRY8 (Prop_CARRY8_DI[5]_CO[7])
+                                                      0.097     4.737 r  graph/lay/arithmetic/m2_kx_end_far0_i_17/CO[7]
+                         net (fo=40, unplaced)        0.194     4.931    graph/lay/arithmetic/m2_kx_end_far0_i_17_n_0
+                         LUT4 (Prop_LUT4_I1_O)        0.053     4.984 f  graph/lay/arithmetic/m2_kx_end_far0__0_i_9/O
+                         net (fo=3, unplaced)         0.221     5.205    graph/lay/arithmetic/m2_kx_end_far0__0/A[8]
+                         DSP_A_B_DATA (Prop_DSP_A_B_DATA_A[8]_A2_DATA[8])
+                                                      0.192     5.397 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_A_B_DATA_INST/A2_DATA[8]
+                         net (fo=1, unplaced)         0.000     5.397    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_A_B_DATA.A2_DATA<8>
+                         DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_A2_DATA[8]_A2A1[8])
+                                                      0.076     5.473 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_PREADD_DATA_INST/A2A1[8]
+                         net (fo=1, unplaced)         0.000     5.473    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_PREADD_DATA.A2A1<8>
+                         DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_A2A1[8]_U[29])
+                                                      0.505     5.978 f  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_MULTIPLIER_INST/U[29]
+                         net (fo=1, unplaced)         0.000     5.978    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_MULTIPLIER.U<29>
+                         DSP_M_DATA (Prop_DSP_M_DATA_U[29]_U_DATA[29])
+                                                      0.047     6.025 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_M_DATA_INST/U_DATA[29]
+                         net (fo=1, unplaced)         0.000     6.025    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_M_DATA.U_DATA<29>
+                         DSP_ALU (Prop_DSP_ALU_U_DATA[29]_ALU_OUT[47])
+                                                      0.585     6.610 f  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, unplaced)         0.000     6.610    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_ALU.ALU_OUT<47>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.122     6.732 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, unplaced)         0.014     6.746    graph/lay/arithmetic/m2_kx_end_far0__1/PCIN[47]
+                         DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[0])
+                                                      0.546     7.292 f  graph/lay/arithmetic/m2_kx_end_far0__1/DSP_ALU_INST/ALU_OUT[0]
+                         net (fo=1, unplaced)         0.000     7.292    graph/lay/arithmetic/m2_kx_end_far0__1/DSP_ALU.ALU_OUT<0>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[0]_P[0])
+                                                      0.109     7.401 r  graph/lay/arithmetic/m2_kx_end_far0__1/DSP_OUTPUT_INST/P[0]
+                         net (fo=2, unplaced)         0.154     7.555    graph/lay/arithmetic/m2_kx_end_far0__1_n_105
+                         LUT2 (Prop_LUT2_I0_O)        0.052     7.607 r  graph/lay/arithmetic/pf_count[4]_i_536/O
+                         net (fo=1, unplaced)         0.023     7.630    graph/lay/arithmetic/pf_count[4]_i_536_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.204     7.834 r  graph/lay/arithmetic/pf_count_reg[4]_i_488/O[4]
+                         net (fo=1, unplaced)         0.232     8.066    graph/lay/arithmetic/pf_count_reg[4]_i_488_n_11
+                         LUT2 (Prop_LUT2_I1_O)        0.037     8.103 r  graph/lay/arithmetic/pf_count[4]_i_414/O
+                         net (fo=1, unplaced)         0.021     8.124    graph/lay/arithmetic/pf_count[4]_i_414_n_0
+                         CARRY8 (Prop_CARRY8_S[4]_CO[7])
+                                                      0.163     8.287 r  graph/lay/arithmetic/pf_count_reg[4]_i_345/CO[7]
+                         net (fo=1, unplaced)         0.005     8.292    graph/lay/arithmetic/pf_count_reg[4]_i_345_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.067     8.359 r  graph/lay/arithmetic/pf_count_reg[4]_i_358/O[2]
+                         net (fo=1, unplaced)         0.232     8.591    graph/lay/arithmetic/m2_kx_end_far[26]
+                         LUT6 (Prop_LUT6_I3_O)        0.090     8.681 r  graph/lay/arithmetic/pf_count[4]_i_286/O
+                         net (fo=6, unplaced)         0.254     8.935    graph/lay/arithmetic/pf_count[4]_i_286_n_0
+                         LUT4 (Prop_LUT4_I2_O)        0.074     9.009 r  graph/lay/arithmetic/pf_count[4]_i_328/O
+                         net (fo=1, unplaced)         0.231     9.240    graph/lay/arithmetic/pf_count[4]_i_328_n_0
+                         CARRY8 (Prop_CARRY8_DI[5]_CO[7])
+                                                      0.097     9.337 r  graph/lay/arithmetic/pf_count_reg[4]_i_253/CO[7]
+                         net (fo=92, unplaced)        0.214     9.551    graph/lay/arithmetic/pf_end1
+                         LUT3 (Prop_LUT3_I2_O)        0.070     9.621 r  graph/lay/arithmetic/pf_count[4]_i_306/O
+                         net (fo=3, unplaced)         0.238     9.859    graph/lay/arithmetic/pf_count[4]_i_306_n_0
+                         LUT6 (Prop_LUT6_I5_O)        0.038     9.897 f  graph/lay/arithmetic/pf_count[4]_i_273/O
+                         net (fo=1, unplaced)         0.256    10.153    graph/lay/arithmetic/pf_count[4]_i_273_n_0
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.127    10.280 f  graph/lay/arithmetic/pf_count_reg[4]_i_203/CO[7]
+                         net (fo=1, unplaced)         0.005    10.285    graph/lay/arithmetic/pf_count_reg[4]_i_203_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[6])
+                                                      0.092    10.377 f  graph/lay/arithmetic/pf_count_reg[4]_i_135/CO[6]
+                         net (fo=55, unplaced)        0.256    10.633    graph/lay/arithmetic/pf_last1
+                         LUT3 (Prop_LUT3_I1_O)        0.066    10.699 r  graph/lay/arithmetic/pf_count[4]_i_56/O
+                         net (fo=1, unplaced)         0.156    10.855    graph/lay/arithmetic/pf_count[4]_i_56_n_0
+                         CARRY8 (Prop_CARRY8_DI[3]_O[5])
+                                                      0.182    11.037 f  graph/lay/arithmetic/pf_count_reg[4]_i_20/O[5]
+                         net (fo=4, unplaced)         0.214    11.251    graph/lay/arithmetic/pf_run_lines[5]
+                         LUT5 (Prop_LUT5_I0_O)        0.099    11.350 r  graph/lay/arithmetic/pf_count[4]_i_139/O
+                         net (fo=1, unplaced)         0.251    11.601    graph/lay/arithmetic/pf_count[4]_i_139_n_0
+                         CARRY8 (Prop_CARRY8_DI[2]_CO[7])
+                                                      0.117    11.718 r  graph/lay/arithmetic/pf_count_reg[4]_i_67/CO[7]
+                         net (fo=1, unplaced)         0.005    11.723    graph/lay/arithmetic/pf_count_reg[4]_i_67_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.022    11.745 r  graph/lay/arithmetic/pf_count_reg[4]_i_21/CO[7]
+                         net (fo=44, unplaced)        0.198    11.943    graph/lay/arithmetic/pf_min11
+                         LUT4 (Prop_LUT4_I1_O)        0.038    11.981 f  graph/lay/arithmetic/pf_count[4]_i_186/O
+                         net (fo=2, unplaced)         0.232    12.213    graph/lay/arithmetic/pf_count[4]_i_186_n_0
+                         LUT6 (Prop_LUT6_I1_O)        0.038    12.251 r  graph/lay/arithmetic/pf_count[4]_i_125/O
+                         net (fo=1, unplaced)         0.279    12.530    graph/lay/arithmetic/pf_count[4]_i_125_n_0
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.140    12.670 r  graph/lay/arithmetic/pf_count_reg[4]_i_35/CO[7]
+                         net (fo=1, unplaced)         0.005    12.675    graph/lay/arithmetic/pf_count_reg[4]_i_35_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.022    12.697 r  graph/lay/arithmetic/pf_count_reg[4]_i_19/CO[7]
+                         net (fo=1, unplaced)         0.005    12.702    graph/lay/arithmetic/pf_min21
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.056    12.758 r  graph/lay/arithmetic/pf_count_reg[4]_i_5/O[0]
+                         net (fo=13, unplaced)        0.271    13.029    graph/lay/arithmetic/pf_count_reg[4]_i_5_n_15
+                         LUT4 (Prop_LUT4_I0_O)        0.038    13.067 f  graph/lay/arithmetic/pf_count[4]_i_97/O
+                         net (fo=1, unplaced)         0.232    13.299    graph/lay/arithmetic/pf_count[4]_i_97_n_0
+                         LUT6 (Prop_LUT6_I5_O)        0.038    13.337 r  graph/lay/arithmetic/pf_count[4]_i_28/O
+                         net (fo=1, unplaced)         0.232    13.569    graph/lay/arithmetic/pf_count[4]_i_28_n_0
+                         LUT6 (Prop_LUT6_I0_O)        0.038    13.607 f  graph/lay/arithmetic/pf_count[4]_i_8/O
+                         net (fo=1, unplaced)         0.232    13.839    graph/lay/arithmetic/pf_count[4]_i_8_n_0
+                         LUT6 (Prop_LUT6_I1_O)        0.038    13.877 f  graph/lay/arithmetic/pf_count[4]_i_3/O
+                         net (fo=5, unplaced)         0.250    14.127    graph/lay/arithmetic/pf_count[4]_i_3_n_0
+                         LUT5 (Prop_LUT5_I3_O)        0.038    14.165 r  graph/lay/arithmetic/pf_count[1]_i_1/O
+                         net (fo=1, unplaced)         0.048    14.213    graph/lay/arithmetic/pf_count[1]_i_1_n_0
+                         FDRE                                         r  graph/lay/arithmetic/pf_count_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core_clk rise edge)
+                                                     20.000    20.000 r  
+                                                      0.000    20.000 r  clk (IN)
+                         net (fo=171383, unset)       0.020    20.020    graph/lay/arithmetic/clk
+                         FDRE                                         r  graph/lay/arithmetic/pf_count_reg[1]/C
+                         clock pessimism              0.000    20.020    
+                         clock uncertainty           -0.035    19.985    
+                         FDRE (Setup_FDRE_C_D)        0.025    20.010    graph/lay/arithmetic/pf_count_reg[1]
+  -------------------------------------------------------------------
+                         required time                         20.010    
+                         arrival time                         -14.213    
+  -------------------------------------------------------------------
+                         slack                                  5.797    
+
+Slack (MET) :             5.797ns  (required time - arrival time)
+  Source:                 graph/lay/arithmetic/cfg_reg[450]/C
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            graph/lay/arithmetic/pf_count_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             core_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (core_clk rise@20.000ns - core_clk rise@0.000ns)
+  Data Path Delay:        14.185ns  (logic 7.619ns (53.712%)  route 6.566ns (46.288%))
+  Logic Levels:           54  (CARRY8=18 DSP_A_B_DATA=2 DSP_ALU=4 DSP_M_DATA=2 DSP_MULTIPLIER=2 DSP_OUTPUT=4 DSP_PREADD_DATA=2 LUT1=1 LUT2=4 LUT3=2 LUT4=5 LUT5=2 LUT6=6)
+  Clock Path Skew:        -0.008ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.020ns = ( 20.020 - 20.000 ) 
+    Source Clock Delay      (SCD):    0.028ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.028     0.028    graph/lay/arithmetic/clk
+                         FDRE                                         r  graph/lay/arithmetic/cfg_reg[450]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.105 f  graph/lay/arithmetic/cfg_reg[450]/Q
+                         net (fo=6, unplaced)         0.208     0.313    graph/lay/arithmetic/cfg_reg_n_0_[450]
+                         LUT1 (Prop_LUT1_I0_O)        0.037     0.350 r  graph/lay/arithmetic/ix0__0_i_18/O
+                         net (fo=1, unplaced)         0.023     0.373    graph/lay/arithmetic/ix0__0_i_18_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_CO[7])
+                                                      0.197     0.570 r  graph/lay/arithmetic/ix0__0_i_2/CO[7]
+                         net (fo=1, unplaced)         0.005     0.575    graph/lay/arithmetic/ix0__0_i_2_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[5])
+                                                      0.116     0.691 f  graph/lay/arithmetic/ix0__0_i_1/O[5]
+                         net (fo=5, unplaced)         0.227     0.918    graph/lay/arithmetic/ix0__0/A[14]
+                         DSP_A_B_DATA (Prop_DSP_A_B_DATA_A[14]_A2_DATA[14])
+                                                      0.192     1.110 r  graph/lay/arithmetic/ix0__0/DSP_A_B_DATA_INST/A2_DATA[14]
+                         net (fo=1, unplaced)         0.000     1.110    graph/lay/arithmetic/ix0__0/DSP_A_B_DATA.A2_DATA<14>
+                         DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_A2_DATA[14]_A2A1[14])
+                                                      0.076     1.186 r  graph/lay/arithmetic/ix0__0/DSP_PREADD_DATA_INST/A2A1[14]
+                         net (fo=1, unplaced)         0.000     1.186    graph/lay/arithmetic/ix0__0/DSP_PREADD_DATA.A2A1<14>
+                         DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_A2A1[14]_U[34])
+                                                      0.505     1.691 f  graph/lay/arithmetic/ix0__0/DSP_MULTIPLIER_INST/U[34]
+                         net (fo=1, unplaced)         0.000     1.691    graph/lay/arithmetic/ix0__0/DSP_MULTIPLIER.U<34>
+                         DSP_M_DATA (Prop_DSP_M_DATA_U[34]_U_DATA[34])
+                                                      0.047     1.738 r  graph/lay/arithmetic/ix0__0/DSP_M_DATA_INST/U_DATA[34]
+                         net (fo=1, unplaced)         0.000     1.738    graph/lay/arithmetic/ix0__0/DSP_M_DATA.U_DATA<34>
+                         DSP_ALU (Prop_DSP_ALU_U_DATA[34]_ALU_OUT[47])
+                                                      0.585     2.323 f  graph/lay/arithmetic/ix0__0/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, unplaced)         0.000     2.323    graph/lay/arithmetic/ix0__0/DSP_ALU.ALU_OUT<47>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.122     2.445 r  graph/lay/arithmetic/ix0__0/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, unplaced)         0.014     2.459    graph/lay/arithmetic/ix0__1/PCIN[47]
+                         DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[0])
+                                                      0.546     3.005 f  graph/lay/arithmetic/ix0__1/DSP_ALU_INST/ALU_OUT[0]
+                         net (fo=1, unplaced)         0.000     3.005    graph/lay/arithmetic/ix0__1/DSP_ALU.ALU_OUT<0>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[0]_P[0])
+                                                      0.109     3.114 r  graph/lay/arithmetic/ix0__1/DSP_OUTPUT_INST/P[0]
+                         net (fo=2, unplaced)         0.154     3.268    graph/lay/arithmetic/ix0__1_n_105
+                         LUT2 (Prop_LUT2_I0_O)        0.052     3.320 r  graph/lay/arithmetic/b_kc0_i_35/O
+                         net (fo=1, unplaced)         0.023     3.343    graph/lay/arithmetic/b_kc0_i_35_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.204     3.547 r  graph/lay/arithmetic/b_kc0_i_20/O[4]
+                         net (fo=4, unplaced)         0.245     3.792    graph/lay/arithmetic/ix0__2[20]
+                         LUT2 (Prop_LUT2_I1_O)        0.037     3.829 r  graph/lay/arithmetic/m2_kx_end_far0_i_56/O
+                         net (fo=1, unplaced)         0.021     3.850    graph/lay/arithmetic/m2_kx_end_far0_i_56_n_0
+                         CARRY8 (Prop_CARRY8_S[4]_CO[7])
+                                                      0.163     4.013 r  graph/lay/arithmetic/m2_kx_end_far0_i_19/CO[7]
+                         net (fo=1, unplaced)         0.005     4.018    graph/lay/arithmetic/m2_kx_end_far0_i_19_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.067     4.085 r  graph/lay/arithmetic/m2_kx_end_far0_i_16/O[2]
+                         net (fo=5, unplaced)         0.250     4.335    graph/lay/arithmetic/m2_kx_end_far0_i_16_n_13
+                         LUT4 (Prop_LUT4_I2_O)        0.074     4.409 r  graph/lay/arithmetic/m2_kx_end_far0_i_31/O
+                         net (fo=1, unplaced)         0.231     4.640    graph/lay/arithmetic/m2_kx_end_far0_i_31_n_0
+                         CARRY8 (Prop_CARRY8_DI[5]_CO[7])
+                                                      0.097     4.737 r  graph/lay/arithmetic/m2_kx_end_far0_i_17/CO[7]
+                         net (fo=40, unplaced)        0.194     4.931    graph/lay/arithmetic/m2_kx_end_far0_i_17_n_0
+                         LUT4 (Prop_LUT4_I1_O)        0.053     4.984 f  graph/lay/arithmetic/m2_kx_end_far0__0_i_9/O
+                         net (fo=3, unplaced)         0.221     5.205    graph/lay/arithmetic/m2_kx_end_far0__0/A[8]
+                         DSP_A_B_DATA (Prop_DSP_A_B_DATA_A[8]_A2_DATA[8])
+                                                      0.192     5.397 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_A_B_DATA_INST/A2_DATA[8]
+                         net (fo=1, unplaced)         0.000     5.397    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_A_B_DATA.A2_DATA<8>
+                         DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_A2_DATA[8]_A2A1[8])
+                                                      0.076     5.473 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_PREADD_DATA_INST/A2A1[8]
+                         net (fo=1, unplaced)         0.000     5.473    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_PREADD_DATA.A2A1<8>
+                         DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_A2A1[8]_U[29])
+                                                      0.505     5.978 f  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_MULTIPLIER_INST/U[29]
+                         net (fo=1, unplaced)         0.000     5.978    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_MULTIPLIER.U<29>
+                         DSP_M_DATA (Prop_DSP_M_DATA_U[29]_U_DATA[29])
+                                                      0.047     6.025 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_M_DATA_INST/U_DATA[29]
+                         net (fo=1, unplaced)         0.000     6.025    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_M_DATA.U_DATA<29>
+                         DSP_ALU (Prop_DSP_ALU_U_DATA[29]_ALU_OUT[47])
+                                                      0.585     6.610 f  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, unplaced)         0.000     6.610    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_ALU.ALU_OUT<47>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.122     6.732 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, unplaced)         0.014     6.746    graph/lay/arithmetic/m2_kx_end_far0__1/PCIN[47]
+                         DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[0])
+                                                      0.546     7.292 f  graph/lay/arithmetic/m2_kx_end_far0__1/DSP_ALU_INST/ALU_OUT[0]
+                         net (fo=1, unplaced)         0.000     7.292    graph/lay/arithmetic/m2_kx_end_far0__1/DSP_ALU.ALU_OUT<0>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[0]_P[0])
+                                                      0.109     7.401 r  graph/lay/arithmetic/m2_kx_end_far0__1/DSP_OUTPUT_INST/P[0]
+                         net (fo=2, unplaced)         0.154     7.555    graph/lay/arithmetic/m2_kx_end_far0__1_n_105
+                         LUT2 (Prop_LUT2_I0_O)        0.052     7.607 r  graph/lay/arithmetic/pf_count[4]_i_536/O
+                         net (fo=1, unplaced)         0.023     7.630    graph/lay/arithmetic/pf_count[4]_i_536_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.204     7.834 r  graph/lay/arithmetic/pf_count_reg[4]_i_488/O[4]
+                         net (fo=1, unplaced)         0.232     8.066    graph/lay/arithmetic/pf_count_reg[4]_i_488_n_11
+                         LUT2 (Prop_LUT2_I1_O)        0.037     8.103 r  graph/lay/arithmetic/pf_count[4]_i_414/O
+                         net (fo=1, unplaced)         0.021     8.124    graph/lay/arithmetic/pf_count[4]_i_414_n_0
+                         CARRY8 (Prop_CARRY8_S[4]_CO[7])
+                                                      0.163     8.287 r  graph/lay/arithmetic/pf_count_reg[4]_i_345/CO[7]
+                         net (fo=1, unplaced)         0.005     8.292    graph/lay/arithmetic/pf_count_reg[4]_i_345_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.067     8.359 r  graph/lay/arithmetic/pf_count_reg[4]_i_358/O[2]
+                         net (fo=1, unplaced)         0.232     8.591    graph/lay/arithmetic/m2_kx_end_far[26]
+                         LUT6 (Prop_LUT6_I3_O)        0.090     8.681 r  graph/lay/arithmetic/pf_count[4]_i_286/O
+                         net (fo=6, unplaced)         0.254     8.935    graph/lay/arithmetic/pf_count[4]_i_286_n_0
+                         LUT4 (Prop_LUT4_I2_O)        0.074     9.009 r  graph/lay/arithmetic/pf_count[4]_i_328/O
+                         net (fo=1, unplaced)         0.231     9.240    graph/lay/arithmetic/pf_count[4]_i_328_n_0
+                         CARRY8 (Prop_CARRY8_DI[5]_CO[7])
+                                                      0.097     9.337 r  graph/lay/arithmetic/pf_count_reg[4]_i_253/CO[7]
+                         net (fo=92, unplaced)        0.214     9.551    graph/lay/arithmetic/pf_end1
+                         LUT3 (Prop_LUT3_I2_O)        0.070     9.621 r  graph/lay/arithmetic/pf_count[4]_i_306/O
+                         net (fo=3, unplaced)         0.238     9.859    graph/lay/arithmetic/pf_count[4]_i_306_n_0
+                         LUT6 (Prop_LUT6_I5_O)        0.038     9.897 f  graph/lay/arithmetic/pf_count[4]_i_273/O
+                         net (fo=1, unplaced)         0.256    10.153    graph/lay/arithmetic/pf_count[4]_i_273_n_0
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.127    10.280 f  graph/lay/arithmetic/pf_count_reg[4]_i_203/CO[7]
+                         net (fo=1, unplaced)         0.005    10.285    graph/lay/arithmetic/pf_count_reg[4]_i_203_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[6])
+                                                      0.092    10.377 f  graph/lay/arithmetic/pf_count_reg[4]_i_135/CO[6]
+                         net (fo=55, unplaced)        0.256    10.633    graph/lay/arithmetic/pf_last1
+                         LUT3 (Prop_LUT3_I1_O)        0.066    10.699 r  graph/lay/arithmetic/pf_count[4]_i_56/O
+                         net (fo=1, unplaced)         0.156    10.855    graph/lay/arithmetic/pf_count[4]_i_56_n_0
+                         CARRY8 (Prop_CARRY8_DI[3]_O[5])
+                                                      0.182    11.037 f  graph/lay/arithmetic/pf_count_reg[4]_i_20/O[5]
+                         net (fo=4, unplaced)         0.214    11.251    graph/lay/arithmetic/pf_run_lines[5]
+                         LUT5 (Prop_LUT5_I0_O)        0.099    11.350 r  graph/lay/arithmetic/pf_count[4]_i_139/O
+                         net (fo=1, unplaced)         0.251    11.601    graph/lay/arithmetic/pf_count[4]_i_139_n_0
+                         CARRY8 (Prop_CARRY8_DI[2]_CO[7])
+                                                      0.117    11.718 r  graph/lay/arithmetic/pf_count_reg[4]_i_67/CO[7]
+                         net (fo=1, unplaced)         0.005    11.723    graph/lay/arithmetic/pf_count_reg[4]_i_67_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.022    11.745 r  graph/lay/arithmetic/pf_count_reg[4]_i_21/CO[7]
+                         net (fo=44, unplaced)        0.198    11.943    graph/lay/arithmetic/pf_min11
+                         LUT4 (Prop_LUT4_I1_O)        0.038    11.981 f  graph/lay/arithmetic/pf_count[4]_i_186/O
+                         net (fo=2, unplaced)         0.232    12.213    graph/lay/arithmetic/pf_count[4]_i_186_n_0
+                         LUT6 (Prop_LUT6_I1_O)        0.038    12.251 r  graph/lay/arithmetic/pf_count[4]_i_125/O
+                         net (fo=1, unplaced)         0.279    12.530    graph/lay/arithmetic/pf_count[4]_i_125_n_0
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.140    12.670 r  graph/lay/arithmetic/pf_count_reg[4]_i_35/CO[7]
+                         net (fo=1, unplaced)         0.005    12.675    graph/lay/arithmetic/pf_count_reg[4]_i_35_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.022    12.697 r  graph/lay/arithmetic/pf_count_reg[4]_i_19/CO[7]
+                         net (fo=1, unplaced)         0.005    12.702    graph/lay/arithmetic/pf_min21
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.056    12.758 r  graph/lay/arithmetic/pf_count_reg[4]_i_5/O[0]
+                         net (fo=13, unplaced)        0.271    13.029    graph/lay/arithmetic/pf_count_reg[4]_i_5_n_15
+                         LUT4 (Prop_LUT4_I0_O)        0.038    13.067 f  graph/lay/arithmetic/pf_count[4]_i_97/O
+                         net (fo=1, unplaced)         0.232    13.299    graph/lay/arithmetic/pf_count[4]_i_97_n_0
+                         LUT6 (Prop_LUT6_I5_O)        0.038    13.337 r  graph/lay/arithmetic/pf_count[4]_i_28/O
+                         net (fo=1, unplaced)         0.232    13.569    graph/lay/arithmetic/pf_count[4]_i_28_n_0
+                         LUT6 (Prop_LUT6_I0_O)        0.038    13.607 f  graph/lay/arithmetic/pf_count[4]_i_8/O
+                         net (fo=1, unplaced)         0.232    13.839    graph/lay/arithmetic/pf_count[4]_i_8_n_0
+                         LUT6 (Prop_LUT6_I1_O)        0.038    13.877 f  graph/lay/arithmetic/pf_count[4]_i_3/O
+                         net (fo=5, unplaced)         0.250    14.127    graph/lay/arithmetic/pf_count[4]_i_3_n_0
+                         LUT5 (Prop_LUT5_I3_O)        0.038    14.165 r  graph/lay/arithmetic/pf_count[2]_i_1/O
+                         net (fo=1, unplaced)         0.048    14.213    graph/lay/arithmetic/pf_count[2]_i_1_n_0
+                         FDRE                                         r  graph/lay/arithmetic/pf_count_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core_clk rise edge)
+                                                     20.000    20.000 r  
+                                                      0.000    20.000 r  clk (IN)
+                         net (fo=171383, unset)       0.020    20.020    graph/lay/arithmetic/clk
+                         FDRE                                         r  graph/lay/arithmetic/pf_count_reg[2]/C
+                         clock pessimism              0.000    20.020    
+                         clock uncertainty           -0.035    19.985    
+                         FDRE (Setup_FDRE_C_D)        0.025    20.010    graph/lay/arithmetic/pf_count_reg[2]
+  -------------------------------------------------------------------
+                         required time                         20.010    
+                         arrival time                         -14.213    
+  -------------------------------------------------------------------
+                         slack                                  5.797    
+
+Slack (MET) :             5.797ns  (required time - arrival time)
+  Source:                 graph/lay/arithmetic/cfg_reg[450]/C
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            graph/lay/arithmetic/pf_count_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             core_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (core_clk rise@20.000ns - core_clk rise@0.000ns)
+  Data Path Delay:        14.185ns  (logic 7.619ns (53.712%)  route 6.566ns (46.288%))
+  Logic Levels:           54  (CARRY8=18 DSP_A_B_DATA=2 DSP_ALU=4 DSP_M_DATA=2 DSP_MULTIPLIER=2 DSP_OUTPUT=4 DSP_PREADD_DATA=2 LUT1=1 LUT2=4 LUT3=2 LUT4=5 LUT5=2 LUT6=6)
+  Clock Path Skew:        -0.008ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.020ns = ( 20.020 - 20.000 ) 
+    Source Clock Delay      (SCD):    0.028ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.028     0.028    graph/lay/arithmetic/clk
+                         FDRE                                         r  graph/lay/arithmetic/cfg_reg[450]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.105 f  graph/lay/arithmetic/cfg_reg[450]/Q
+                         net (fo=6, unplaced)         0.208     0.313    graph/lay/arithmetic/cfg_reg_n_0_[450]
+                         LUT1 (Prop_LUT1_I0_O)        0.037     0.350 r  graph/lay/arithmetic/ix0__0_i_18/O
+                         net (fo=1, unplaced)         0.023     0.373    graph/lay/arithmetic/ix0__0_i_18_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_CO[7])
+                                                      0.197     0.570 r  graph/lay/arithmetic/ix0__0_i_2/CO[7]
+                         net (fo=1, unplaced)         0.005     0.575    graph/lay/arithmetic/ix0__0_i_2_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[5])
+                                                      0.116     0.691 f  graph/lay/arithmetic/ix0__0_i_1/O[5]
+                         net (fo=5, unplaced)         0.227     0.918    graph/lay/arithmetic/ix0__0/A[14]
+                         DSP_A_B_DATA (Prop_DSP_A_B_DATA_A[14]_A2_DATA[14])
+                                                      0.192     1.110 r  graph/lay/arithmetic/ix0__0/DSP_A_B_DATA_INST/A2_DATA[14]
+                         net (fo=1, unplaced)         0.000     1.110    graph/lay/arithmetic/ix0__0/DSP_A_B_DATA.A2_DATA<14>
+                         DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_A2_DATA[14]_A2A1[14])
+                                                      0.076     1.186 r  graph/lay/arithmetic/ix0__0/DSP_PREADD_DATA_INST/A2A1[14]
+                         net (fo=1, unplaced)         0.000     1.186    graph/lay/arithmetic/ix0__0/DSP_PREADD_DATA.A2A1<14>
+                         DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_A2A1[14]_U[34])
+                                                      0.505     1.691 f  graph/lay/arithmetic/ix0__0/DSP_MULTIPLIER_INST/U[34]
+                         net (fo=1, unplaced)         0.000     1.691    graph/lay/arithmetic/ix0__0/DSP_MULTIPLIER.U<34>
+                         DSP_M_DATA (Prop_DSP_M_DATA_U[34]_U_DATA[34])
+                                                      0.047     1.738 r  graph/lay/arithmetic/ix0__0/DSP_M_DATA_INST/U_DATA[34]
+                         net (fo=1, unplaced)         0.000     1.738    graph/lay/arithmetic/ix0__0/DSP_M_DATA.U_DATA<34>
+                         DSP_ALU (Prop_DSP_ALU_U_DATA[34]_ALU_OUT[47])
+                                                      0.585     2.323 f  graph/lay/arithmetic/ix0__0/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, unplaced)         0.000     2.323    graph/lay/arithmetic/ix0__0/DSP_ALU.ALU_OUT<47>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.122     2.445 r  graph/lay/arithmetic/ix0__0/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, unplaced)         0.014     2.459    graph/lay/arithmetic/ix0__1/PCIN[47]
+                         DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[0])
+                                                      0.546     3.005 f  graph/lay/arithmetic/ix0__1/DSP_ALU_INST/ALU_OUT[0]
+                         net (fo=1, unplaced)         0.000     3.005    graph/lay/arithmetic/ix0__1/DSP_ALU.ALU_OUT<0>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[0]_P[0])
+                                                      0.109     3.114 r  graph/lay/arithmetic/ix0__1/DSP_OUTPUT_INST/P[0]
+                         net (fo=2, unplaced)         0.154     3.268    graph/lay/arithmetic/ix0__1_n_105
+                         LUT2 (Prop_LUT2_I0_O)        0.052     3.320 r  graph/lay/arithmetic/b_kc0_i_35/O
+                         net (fo=1, unplaced)         0.023     3.343    graph/lay/arithmetic/b_kc0_i_35_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.204     3.547 r  graph/lay/arithmetic/b_kc0_i_20/O[4]
+                         net (fo=4, unplaced)         0.245     3.792    graph/lay/arithmetic/ix0__2[20]
+                         LUT2 (Prop_LUT2_I1_O)        0.037     3.829 r  graph/lay/arithmetic/m2_kx_end_far0_i_56/O
+                         net (fo=1, unplaced)         0.021     3.850    graph/lay/arithmetic/m2_kx_end_far0_i_56_n_0
+                         CARRY8 (Prop_CARRY8_S[4]_CO[7])
+                                                      0.163     4.013 r  graph/lay/arithmetic/m2_kx_end_far0_i_19/CO[7]
+                         net (fo=1, unplaced)         0.005     4.018    graph/lay/arithmetic/m2_kx_end_far0_i_19_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.067     4.085 r  graph/lay/arithmetic/m2_kx_end_far0_i_16/O[2]
+                         net (fo=5, unplaced)         0.250     4.335    graph/lay/arithmetic/m2_kx_end_far0_i_16_n_13
+                         LUT4 (Prop_LUT4_I2_O)        0.074     4.409 r  graph/lay/arithmetic/m2_kx_end_far0_i_31/O
+                         net (fo=1, unplaced)         0.231     4.640    graph/lay/arithmetic/m2_kx_end_far0_i_31_n_0
+                         CARRY8 (Prop_CARRY8_DI[5]_CO[7])
+                                                      0.097     4.737 r  graph/lay/arithmetic/m2_kx_end_far0_i_17/CO[7]
+                         net (fo=40, unplaced)        0.194     4.931    graph/lay/arithmetic/m2_kx_end_far0_i_17_n_0
+                         LUT4 (Prop_LUT4_I1_O)        0.053     4.984 f  graph/lay/arithmetic/m2_kx_end_far0__0_i_9/O
+                         net (fo=3, unplaced)         0.221     5.205    graph/lay/arithmetic/m2_kx_end_far0__0/A[8]
+                         DSP_A_B_DATA (Prop_DSP_A_B_DATA_A[8]_A2_DATA[8])
+                                                      0.192     5.397 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_A_B_DATA_INST/A2_DATA[8]
+                         net (fo=1, unplaced)         0.000     5.397    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_A_B_DATA.A2_DATA<8>
+                         DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_A2_DATA[8]_A2A1[8])
+                                                      0.076     5.473 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_PREADD_DATA_INST/A2A1[8]
+                         net (fo=1, unplaced)         0.000     5.473    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_PREADD_DATA.A2A1<8>
+                         DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_A2A1[8]_U[29])
+                                                      0.505     5.978 f  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_MULTIPLIER_INST/U[29]
+                         net (fo=1, unplaced)         0.000     5.978    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_MULTIPLIER.U<29>
+                         DSP_M_DATA (Prop_DSP_M_DATA_U[29]_U_DATA[29])
+                                                      0.047     6.025 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_M_DATA_INST/U_DATA[29]
+                         net (fo=1, unplaced)         0.000     6.025    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_M_DATA.U_DATA<29>
+                         DSP_ALU (Prop_DSP_ALU_U_DATA[29]_ALU_OUT[47])
+                                                      0.585     6.610 f  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, unplaced)         0.000     6.610    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_ALU.ALU_OUT<47>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.122     6.732 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, unplaced)         0.014     6.746    graph/lay/arithmetic/m2_kx_end_far0__1/PCIN[47]
+                         DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[0])
+                                                      0.546     7.292 f  graph/lay/arithmetic/m2_kx_end_far0__1/DSP_ALU_INST/ALU_OUT[0]
+                         net (fo=1, unplaced)         0.000     7.292    graph/lay/arithmetic/m2_kx_end_far0__1/DSP_ALU.ALU_OUT<0>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[0]_P[0])
+                                                      0.109     7.401 r  graph/lay/arithmetic/m2_kx_end_far0__1/DSP_OUTPUT_INST/P[0]
+                         net (fo=2, unplaced)         0.154     7.555    graph/lay/arithmetic/m2_kx_end_far0__1_n_105
+                         LUT2 (Prop_LUT2_I0_O)        0.052     7.607 r  graph/lay/arithmetic/pf_count[4]_i_536/O
+                         net (fo=1, unplaced)         0.023     7.630    graph/lay/arithmetic/pf_count[4]_i_536_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.204     7.834 r  graph/lay/arithmetic/pf_count_reg[4]_i_488/O[4]
+                         net (fo=1, unplaced)         0.232     8.066    graph/lay/arithmetic/pf_count_reg[4]_i_488_n_11
+                         LUT2 (Prop_LUT2_I1_O)        0.037     8.103 r  graph/lay/arithmetic/pf_count[4]_i_414/O
+                         net (fo=1, unplaced)         0.021     8.124    graph/lay/arithmetic/pf_count[4]_i_414_n_0
+                         CARRY8 (Prop_CARRY8_S[4]_CO[7])
+                                                      0.163     8.287 r  graph/lay/arithmetic/pf_count_reg[4]_i_345/CO[7]
+                         net (fo=1, unplaced)         0.005     8.292    graph/lay/arithmetic/pf_count_reg[4]_i_345_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.067     8.359 r  graph/lay/arithmetic/pf_count_reg[4]_i_358/O[2]
+                         net (fo=1, unplaced)         0.232     8.591    graph/lay/arithmetic/m2_kx_end_far[26]
+                         LUT6 (Prop_LUT6_I3_O)        0.090     8.681 r  graph/lay/arithmetic/pf_count[4]_i_286/O
+                         net (fo=6, unplaced)         0.254     8.935    graph/lay/arithmetic/pf_count[4]_i_286_n_0
+                         LUT4 (Prop_LUT4_I2_O)        0.074     9.009 r  graph/lay/arithmetic/pf_count[4]_i_328/O
+                         net (fo=1, unplaced)         0.231     9.240    graph/lay/arithmetic/pf_count[4]_i_328_n_0
+                         CARRY8 (Prop_CARRY8_DI[5]_CO[7])
+                                                      0.097     9.337 r  graph/lay/arithmetic/pf_count_reg[4]_i_253/CO[7]
+                         net (fo=92, unplaced)        0.214     9.551    graph/lay/arithmetic/pf_end1
+                         LUT3 (Prop_LUT3_I2_O)        0.070     9.621 r  graph/lay/arithmetic/pf_count[4]_i_306/O
+                         net (fo=3, unplaced)         0.238     9.859    graph/lay/arithmetic/pf_count[4]_i_306_n_0
+                         LUT6 (Prop_LUT6_I5_O)        0.038     9.897 f  graph/lay/arithmetic/pf_count[4]_i_273/O
+                         net (fo=1, unplaced)         0.256    10.153    graph/lay/arithmetic/pf_count[4]_i_273_n_0
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.127    10.280 f  graph/lay/arithmetic/pf_count_reg[4]_i_203/CO[7]
+                         net (fo=1, unplaced)         0.005    10.285    graph/lay/arithmetic/pf_count_reg[4]_i_203_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[6])
+                                                      0.092    10.377 f  graph/lay/arithmetic/pf_count_reg[4]_i_135/CO[6]
+                         net (fo=55, unplaced)        0.256    10.633    graph/lay/arithmetic/pf_last1
+                         LUT3 (Prop_LUT3_I1_O)        0.066    10.699 r  graph/lay/arithmetic/pf_count[4]_i_56/O
+                         net (fo=1, unplaced)         0.156    10.855    graph/lay/arithmetic/pf_count[4]_i_56_n_0
+                         CARRY8 (Prop_CARRY8_DI[3]_O[5])
+                                                      0.182    11.037 f  graph/lay/arithmetic/pf_count_reg[4]_i_20/O[5]
+                         net (fo=4, unplaced)         0.214    11.251    graph/lay/arithmetic/pf_run_lines[5]
+                         LUT5 (Prop_LUT5_I0_O)        0.099    11.350 r  graph/lay/arithmetic/pf_count[4]_i_139/O
+                         net (fo=1, unplaced)         0.251    11.601    graph/lay/arithmetic/pf_count[4]_i_139_n_0
+                         CARRY8 (Prop_CARRY8_DI[2]_CO[7])
+                                                      0.117    11.718 r  graph/lay/arithmetic/pf_count_reg[4]_i_67/CO[7]
+                         net (fo=1, unplaced)         0.005    11.723    graph/lay/arithmetic/pf_count_reg[4]_i_67_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.022    11.745 r  graph/lay/arithmetic/pf_count_reg[4]_i_21/CO[7]
+                         net (fo=44, unplaced)        0.198    11.943    graph/lay/arithmetic/pf_min11
+                         LUT4 (Prop_LUT4_I1_O)        0.038    11.981 f  graph/lay/arithmetic/pf_count[4]_i_186/O
+                         net (fo=2, unplaced)         0.232    12.213    graph/lay/arithmetic/pf_count[4]_i_186_n_0
+                         LUT6 (Prop_LUT6_I1_O)        0.038    12.251 r  graph/lay/arithmetic/pf_count[4]_i_125/O
+                         net (fo=1, unplaced)         0.279    12.530    graph/lay/arithmetic/pf_count[4]_i_125_n_0
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.140    12.670 r  graph/lay/arithmetic/pf_count_reg[4]_i_35/CO[7]
+                         net (fo=1, unplaced)         0.005    12.675    graph/lay/arithmetic/pf_count_reg[4]_i_35_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.022    12.697 r  graph/lay/arithmetic/pf_count_reg[4]_i_19/CO[7]
+                         net (fo=1, unplaced)         0.005    12.702    graph/lay/arithmetic/pf_min21
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.056    12.758 r  graph/lay/arithmetic/pf_count_reg[4]_i_5/O[0]
+                         net (fo=13, unplaced)        0.271    13.029    graph/lay/arithmetic/pf_count_reg[4]_i_5_n_15
+                         LUT4 (Prop_LUT4_I0_O)        0.038    13.067 f  graph/lay/arithmetic/pf_count[4]_i_97/O
+                         net (fo=1, unplaced)         0.232    13.299    graph/lay/arithmetic/pf_count[4]_i_97_n_0
+                         LUT6 (Prop_LUT6_I5_O)        0.038    13.337 r  graph/lay/arithmetic/pf_count[4]_i_28/O
+                         net (fo=1, unplaced)         0.232    13.569    graph/lay/arithmetic/pf_count[4]_i_28_n_0
+                         LUT6 (Prop_LUT6_I0_O)        0.038    13.607 f  graph/lay/arithmetic/pf_count[4]_i_8/O
+                         net (fo=1, unplaced)         0.232    13.839    graph/lay/arithmetic/pf_count[4]_i_8_n_0
+                         LUT6 (Prop_LUT6_I1_O)        0.038    13.877 f  graph/lay/arithmetic/pf_count[4]_i_3/O
+                         net (fo=5, unplaced)         0.250    14.127    graph/lay/arithmetic/pf_count[4]_i_3_n_0
+                         LUT5 (Prop_LUT5_I3_O)        0.038    14.165 r  graph/lay/arithmetic/pf_count[3]_i_1/O
+                         net (fo=1, unplaced)         0.048    14.213    graph/lay/arithmetic/pf_count[3]_i_1_n_0
+                         FDRE                                         r  graph/lay/arithmetic/pf_count_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core_clk rise edge)
+                                                     20.000    20.000 r  
+                                                      0.000    20.000 r  clk (IN)
+                         net (fo=171383, unset)       0.020    20.020    graph/lay/arithmetic/clk
+                         FDRE                                         r  graph/lay/arithmetic/pf_count_reg[3]/C
+                         clock pessimism              0.000    20.020    
+                         clock uncertainty           -0.035    19.985    
+                         FDRE (Setup_FDRE_C_D)        0.025    20.010    graph/lay/arithmetic/pf_count_reg[3]
+  -------------------------------------------------------------------
+                         required time                         20.010    
+                         arrival time                         -14.213    
+  -------------------------------------------------------------------
+                         slack                                  5.797    
+
+Slack (MET) :             5.797ns  (required time - arrival time)
+  Source:                 graph/lay/arithmetic/cfg_reg[450]/C
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            graph/lay/arithmetic/pf_count_reg[4]/D
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             core_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            20.000ns  (core_clk rise@20.000ns - core_clk rise@0.000ns)
+  Data Path Delay:        14.185ns  (logic 7.619ns (53.712%)  route 6.566ns (46.288%))
+  Logic Levels:           54  (CARRY8=18 DSP_A_B_DATA=2 DSP_ALU=4 DSP_M_DATA=2 DSP_MULTIPLIER=2 DSP_OUTPUT=4 DSP_PREADD_DATA=2 LUT1=1 LUT2=4 LUT3=2 LUT4=5 LUT5=2 LUT6=6)
+  Clock Path Skew:        -0.008ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.020ns = ( 20.020 - 20.000 ) 
+    Source Clock Delay      (SCD):    0.028ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.028     0.028    graph/lay/arithmetic/clk
+                         FDRE                                         r  graph/lay/arithmetic/cfg_reg[450]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.077     0.105 f  graph/lay/arithmetic/cfg_reg[450]/Q
+                         net (fo=6, unplaced)         0.208     0.313    graph/lay/arithmetic/cfg_reg_n_0_[450]
+                         LUT1 (Prop_LUT1_I0_O)        0.037     0.350 r  graph/lay/arithmetic/ix0__0_i_18/O
+                         net (fo=1, unplaced)         0.023     0.373    graph/lay/arithmetic/ix0__0_i_18_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_CO[7])
+                                                      0.197     0.570 r  graph/lay/arithmetic/ix0__0_i_2/CO[7]
+                         net (fo=1, unplaced)         0.005     0.575    graph/lay/arithmetic/ix0__0_i_2_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[5])
+                                                      0.116     0.691 f  graph/lay/arithmetic/ix0__0_i_1/O[5]
+                         net (fo=5, unplaced)         0.227     0.918    graph/lay/arithmetic/ix0__0/A[14]
+                         DSP_A_B_DATA (Prop_DSP_A_B_DATA_A[14]_A2_DATA[14])
+                                                      0.192     1.110 r  graph/lay/arithmetic/ix0__0/DSP_A_B_DATA_INST/A2_DATA[14]
+                         net (fo=1, unplaced)         0.000     1.110    graph/lay/arithmetic/ix0__0/DSP_A_B_DATA.A2_DATA<14>
+                         DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_A2_DATA[14]_A2A1[14])
+                                                      0.076     1.186 r  graph/lay/arithmetic/ix0__0/DSP_PREADD_DATA_INST/A2A1[14]
+                         net (fo=1, unplaced)         0.000     1.186    graph/lay/arithmetic/ix0__0/DSP_PREADD_DATA.A2A1<14>
+                         DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_A2A1[14]_U[34])
+                                                      0.505     1.691 f  graph/lay/arithmetic/ix0__0/DSP_MULTIPLIER_INST/U[34]
+                         net (fo=1, unplaced)         0.000     1.691    graph/lay/arithmetic/ix0__0/DSP_MULTIPLIER.U<34>
+                         DSP_M_DATA (Prop_DSP_M_DATA_U[34]_U_DATA[34])
+                                                      0.047     1.738 r  graph/lay/arithmetic/ix0__0/DSP_M_DATA_INST/U_DATA[34]
+                         net (fo=1, unplaced)         0.000     1.738    graph/lay/arithmetic/ix0__0/DSP_M_DATA.U_DATA<34>
+                         DSP_ALU (Prop_DSP_ALU_U_DATA[34]_ALU_OUT[47])
+                                                      0.585     2.323 f  graph/lay/arithmetic/ix0__0/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, unplaced)         0.000     2.323    graph/lay/arithmetic/ix0__0/DSP_ALU.ALU_OUT<47>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.122     2.445 r  graph/lay/arithmetic/ix0__0/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, unplaced)         0.014     2.459    graph/lay/arithmetic/ix0__1/PCIN[47]
+                         DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[0])
+                                                      0.546     3.005 f  graph/lay/arithmetic/ix0__1/DSP_ALU_INST/ALU_OUT[0]
+                         net (fo=1, unplaced)         0.000     3.005    graph/lay/arithmetic/ix0__1/DSP_ALU.ALU_OUT<0>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[0]_P[0])
+                                                      0.109     3.114 r  graph/lay/arithmetic/ix0__1/DSP_OUTPUT_INST/P[0]
+                         net (fo=2, unplaced)         0.154     3.268    graph/lay/arithmetic/ix0__1_n_105
+                         LUT2 (Prop_LUT2_I0_O)        0.052     3.320 r  graph/lay/arithmetic/b_kc0_i_35/O
+                         net (fo=1, unplaced)         0.023     3.343    graph/lay/arithmetic/b_kc0_i_35_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.204     3.547 r  graph/lay/arithmetic/b_kc0_i_20/O[4]
+                         net (fo=4, unplaced)         0.245     3.792    graph/lay/arithmetic/ix0__2[20]
+                         LUT2 (Prop_LUT2_I1_O)        0.037     3.829 r  graph/lay/arithmetic/m2_kx_end_far0_i_56/O
+                         net (fo=1, unplaced)         0.021     3.850    graph/lay/arithmetic/m2_kx_end_far0_i_56_n_0
+                         CARRY8 (Prop_CARRY8_S[4]_CO[7])
+                                                      0.163     4.013 r  graph/lay/arithmetic/m2_kx_end_far0_i_19/CO[7]
+                         net (fo=1, unplaced)         0.005     4.018    graph/lay/arithmetic/m2_kx_end_far0_i_19_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.067     4.085 r  graph/lay/arithmetic/m2_kx_end_far0_i_16/O[2]
+                         net (fo=5, unplaced)         0.250     4.335    graph/lay/arithmetic/m2_kx_end_far0_i_16_n_13
+                         LUT4 (Prop_LUT4_I2_O)        0.074     4.409 r  graph/lay/arithmetic/m2_kx_end_far0_i_31/O
+                         net (fo=1, unplaced)         0.231     4.640    graph/lay/arithmetic/m2_kx_end_far0_i_31_n_0
+                         CARRY8 (Prop_CARRY8_DI[5]_CO[7])
+                                                      0.097     4.737 r  graph/lay/arithmetic/m2_kx_end_far0_i_17/CO[7]
+                         net (fo=40, unplaced)        0.194     4.931    graph/lay/arithmetic/m2_kx_end_far0_i_17_n_0
+                         LUT4 (Prop_LUT4_I1_O)        0.053     4.984 f  graph/lay/arithmetic/m2_kx_end_far0__0_i_9/O
+                         net (fo=3, unplaced)         0.221     5.205    graph/lay/arithmetic/m2_kx_end_far0__0/A[8]
+                         DSP_A_B_DATA (Prop_DSP_A_B_DATA_A[8]_A2_DATA[8])
+                                                      0.192     5.397 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_A_B_DATA_INST/A2_DATA[8]
+                         net (fo=1, unplaced)         0.000     5.397    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_A_B_DATA.A2_DATA<8>
+                         DSP_PREADD_DATA (Prop_DSP_PREADD_DATA_A2_DATA[8]_A2A1[8])
+                                                      0.076     5.473 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_PREADD_DATA_INST/A2A1[8]
+                         net (fo=1, unplaced)         0.000     5.473    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_PREADD_DATA.A2A1<8>
+                         DSP_MULTIPLIER (Prop_DSP_MULTIPLIER_A2A1[8]_U[29])
+                                                      0.505     5.978 f  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_MULTIPLIER_INST/U[29]
+                         net (fo=1, unplaced)         0.000     5.978    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_MULTIPLIER.U<29>
+                         DSP_M_DATA (Prop_DSP_M_DATA_U[29]_U_DATA[29])
+                                                      0.047     6.025 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_M_DATA_INST/U_DATA[29]
+                         net (fo=1, unplaced)         0.000     6.025    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_M_DATA.U_DATA<29>
+                         DSP_ALU (Prop_DSP_ALU_U_DATA[29]_ALU_OUT[47])
+                                                      0.585     6.610 f  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_ALU_INST/ALU_OUT[47]
+                         net (fo=1, unplaced)         0.000     6.610    graph/lay/arithmetic/m2_kx_end_far0__0/DSP_ALU.ALU_OUT<47>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[47]_PCOUT[47])
+                                                      0.122     6.732 r  graph/lay/arithmetic/m2_kx_end_far0__0/DSP_OUTPUT_INST/PCOUT[47]
+                         net (fo=1, unplaced)         0.014     6.746    graph/lay/arithmetic/m2_kx_end_far0__1/PCIN[47]
+                         DSP_ALU (Prop_DSP_ALU_PCIN[47]_ALU_OUT[0])
+                                                      0.546     7.292 f  graph/lay/arithmetic/m2_kx_end_far0__1/DSP_ALU_INST/ALU_OUT[0]
+                         net (fo=1, unplaced)         0.000     7.292    graph/lay/arithmetic/m2_kx_end_far0__1/DSP_ALU.ALU_OUT<0>
+                         DSP_OUTPUT (Prop_DSP_OUTPUT_ALU_OUT[0]_P[0])
+                                                      0.109     7.401 r  graph/lay/arithmetic/m2_kx_end_far0__1/DSP_OUTPUT_INST/P[0]
+                         net (fo=2, unplaced)         0.154     7.555    graph/lay/arithmetic/m2_kx_end_far0__1_n_105
+                         LUT2 (Prop_LUT2_I0_O)        0.052     7.607 r  graph/lay/arithmetic/pf_count[4]_i_536/O
+                         net (fo=1, unplaced)         0.023     7.630    graph/lay/arithmetic/pf_count[4]_i_536_n_0
+                         CARRY8 (Prop_CARRY8_S[1]_O[4])
+                                                      0.204     7.834 r  graph/lay/arithmetic/pf_count_reg[4]_i_488/O[4]
+                         net (fo=1, unplaced)         0.232     8.066    graph/lay/arithmetic/pf_count_reg[4]_i_488_n_11
+                         LUT2 (Prop_LUT2_I1_O)        0.037     8.103 r  graph/lay/arithmetic/pf_count[4]_i_414/O
+                         net (fo=1, unplaced)         0.021     8.124    graph/lay/arithmetic/pf_count[4]_i_414_n_0
+                         CARRY8 (Prop_CARRY8_S[4]_CO[7])
+                                                      0.163     8.287 r  graph/lay/arithmetic/pf_count_reg[4]_i_345/CO[7]
+                         net (fo=1, unplaced)         0.005     8.292    graph/lay/arithmetic/pf_count_reg[4]_i_345_n_0
+                         CARRY8 (Prop_CARRY8_CI_O[2])
+                                                      0.067     8.359 r  graph/lay/arithmetic/pf_count_reg[4]_i_358/O[2]
+                         net (fo=1, unplaced)         0.232     8.591    graph/lay/arithmetic/m2_kx_end_far[26]
+                         LUT6 (Prop_LUT6_I3_O)        0.090     8.681 r  graph/lay/arithmetic/pf_count[4]_i_286/O
+                         net (fo=6, unplaced)         0.254     8.935    graph/lay/arithmetic/pf_count[4]_i_286_n_0
+                         LUT4 (Prop_LUT4_I2_O)        0.074     9.009 r  graph/lay/arithmetic/pf_count[4]_i_328/O
+                         net (fo=1, unplaced)         0.231     9.240    graph/lay/arithmetic/pf_count[4]_i_328_n_0
+                         CARRY8 (Prop_CARRY8_DI[5]_CO[7])
+                                                      0.097     9.337 r  graph/lay/arithmetic/pf_count_reg[4]_i_253/CO[7]
+                         net (fo=92, unplaced)        0.214     9.551    graph/lay/arithmetic/pf_end1
+                         LUT3 (Prop_LUT3_I2_O)        0.070     9.621 r  graph/lay/arithmetic/pf_count[4]_i_306/O
+                         net (fo=3, unplaced)         0.238     9.859    graph/lay/arithmetic/pf_count[4]_i_306_n_0
+                         LUT6 (Prop_LUT6_I5_O)        0.038     9.897 f  graph/lay/arithmetic/pf_count[4]_i_273/O
+                         net (fo=1, unplaced)         0.256    10.153    graph/lay/arithmetic/pf_count[4]_i_273_n_0
+                         CARRY8 (Prop_CARRY8_DI[1]_CO[7])
+                                                      0.127    10.280 f  graph/lay/arithmetic/pf_count_reg[4]_i_203/CO[7]
+                         net (fo=1, unplaced)         0.005    10.285    graph/lay/arithmetic/pf_count_reg[4]_i_203_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[6])
+                                                      0.092    10.377 f  graph/lay/arithmetic/pf_count_reg[4]_i_135/CO[6]
+                         net (fo=55, unplaced)        0.256    10.633    graph/lay/arithmetic/pf_last1
+                         LUT3 (Prop_LUT3_I1_O)        0.066    10.699 r  graph/lay/arithmetic/pf_count[4]_i_56/O
+                         net (fo=1, unplaced)         0.156    10.855    graph/lay/arithmetic/pf_count[4]_i_56_n_0
+                         CARRY8 (Prop_CARRY8_DI[3]_O[5])
+                                                      0.182    11.037 f  graph/lay/arithmetic/pf_count_reg[4]_i_20/O[5]
+                         net (fo=4, unplaced)         0.214    11.251    graph/lay/arithmetic/pf_run_lines[5]
+                         LUT5 (Prop_LUT5_I0_O)        0.099    11.350 r  graph/lay/arithmetic/pf_count[4]_i_139/O
+                         net (fo=1, unplaced)         0.251    11.601    graph/lay/arithmetic/pf_count[4]_i_139_n_0
+                         CARRY8 (Prop_CARRY8_DI[2]_CO[7])
+                                                      0.117    11.718 r  graph/lay/arithmetic/pf_count_reg[4]_i_67/CO[7]
+                         net (fo=1, unplaced)         0.005    11.723    graph/lay/arithmetic/pf_count_reg[4]_i_67_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.022    11.745 r  graph/lay/arithmetic/pf_count_reg[4]_i_21/CO[7]
+                         net (fo=44, unplaced)        0.198    11.943    graph/lay/arithmetic/pf_min11
+                         LUT4 (Prop_LUT4_I1_O)        0.038    11.981 f  graph/lay/arithmetic/pf_count[4]_i_186/O
+                         net (fo=2, unplaced)         0.232    12.213    graph/lay/arithmetic/pf_count[4]_i_186_n_0
+                         LUT6 (Prop_LUT6_I1_O)        0.038    12.251 r  graph/lay/arithmetic/pf_count[4]_i_125/O
+                         net (fo=1, unplaced)         0.279    12.530    graph/lay/arithmetic/pf_count[4]_i_125_n_0
+                         CARRY8 (Prop_CARRY8_DI[0]_CO[7])
+                                                      0.140    12.670 r  graph/lay/arithmetic/pf_count_reg[4]_i_35/CO[7]
+                         net (fo=1, unplaced)         0.005    12.675    graph/lay/arithmetic/pf_count_reg[4]_i_35_n_0
+                         CARRY8 (Prop_CARRY8_CI_CO[7])
+                                                      0.022    12.697 r  graph/lay/arithmetic/pf_count_reg[4]_i_19/CO[7]
+                         net (fo=1, unplaced)         0.005    12.702    graph/lay/arithmetic/pf_min21
+                         CARRY8 (Prop_CARRY8_CI_O[0])
+                                                      0.056    12.758 f  graph/lay/arithmetic/pf_count_reg[4]_i_5/O[0]
+                         net (fo=13, unplaced)        0.271    13.029    graph/lay/arithmetic/pf_count_reg[4]_i_5_n_15
+                         LUT4 (Prop_LUT4_I0_O)        0.038    13.067 r  graph/lay/arithmetic/pf_count[4]_i_97/O
+                         net (fo=1, unplaced)         0.232    13.299    graph/lay/arithmetic/pf_count[4]_i_97_n_0
+                         LUT6 (Prop_LUT6_I5_O)        0.038    13.337 f  graph/lay/arithmetic/pf_count[4]_i_28/O
+                         net (fo=1, unplaced)         0.232    13.569    graph/lay/arithmetic/pf_count[4]_i_28_n_0
+                         LUT6 (Prop_LUT6_I0_O)        0.038    13.607 r  graph/lay/arithmetic/pf_count[4]_i_8/O
+                         net (fo=1, unplaced)         0.232    13.839    graph/lay/arithmetic/pf_count[4]_i_8_n_0
+                         LUT6 (Prop_LUT6_I1_O)        0.038    13.877 r  graph/lay/arithmetic/pf_count[4]_i_3/O
+                         net (fo=5, unplaced)         0.250    14.127    graph/lay/arithmetic/pf_count[4]_i_3_n_0
+                         LUT5 (Prop_LUT5_I1_O)        0.038    14.165 r  graph/lay/arithmetic/pf_count[4]_i_2/O
+                         net (fo=1, unplaced)         0.048    14.213    graph/lay/arithmetic/pf_count[4]_i_2_n_0
+                         FDRE                                         r  graph/lay/arithmetic/pf_count_reg[4]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core_clk rise edge)
+                                                     20.000    20.000 r  
+                                                      0.000    20.000 r  clk (IN)
+                         net (fo=171383, unset)       0.020    20.020    graph/lay/arithmetic/clk
+                         FDRE                                         r  graph/lay/arithmetic/pf_count_reg[4]/C
+                         clock pessimism              0.000    20.020    
+                         clock uncertainty           -0.035    19.985    
+                         FDRE (Setup_FDRE_C_D)        0.025    20.010    graph/lay/arithmetic/pf_count_reg[4]
+  -------------------------------------------------------------------
+                         required time                         20.010    
+                         arrival time                         -14.213    
+  -------------------------------------------------------------------
+                         slack                                  5.797    
+
+
+
+

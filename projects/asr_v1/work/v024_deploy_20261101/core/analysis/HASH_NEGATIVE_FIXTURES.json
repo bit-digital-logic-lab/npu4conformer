@@ -1,0 +1,26 @@
+[
+  {
+    "case": "v024_badcrc_stored",
+    "changed_flat_word": 204807,
+    "xor": 1,
+    "rehash": false,
+    "expected_error": 4,
+    "sha256": "2564f0f288afe7d2023ebf757e10952bf3f4f5c2ebbdef12937cd9e190424591"
+  },
+  {
+    "case": "v024_badcrc_header",
+    "changed_flat_word": 204803,
+    "xor": 512,
+    "rehash": false,
+    "expected_error": 4,
+    "sha256": "fa0ae77f380c892d2efed8566cd6e68180b9dedb24654e0b4f6c608789c182d0"
+  },
+  {
+    "case": "v024_badcrc_node",
+    "changed_flat_word": 204822,
+    "xor": 1,
+    "rehash": false,
+    "expected_error": 4,
+    "sha256": "e331a364d26e3529e0b2f978f7090bae563c456c8b17fc3c3ee3bbec8465c724"
+  }
+]

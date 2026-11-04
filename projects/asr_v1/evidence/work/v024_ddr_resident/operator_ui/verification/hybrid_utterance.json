@@ -1,0 +1,159 @@
+{
+  "at": "2026-11-02T20:03:48.762187+08:00",
+  "clip": "1089-134686-0003",
+  "mode": "hybrid",
+  "seconds": 2.68,
+  "dataset_text": "HELLO BERTIE ANY GOOD IN YOUR MIND",
+  "decoded_text": "HELLO BERTIE ANY GOOD IN YOUR MIND",
+  "identical_to_reference": true,
+  "events": [
+    {
+      "type": "start",
+      "mode": "hybrid",
+      "observed_seconds": 0.0138
+    },
+    {
+      "type": "progress",
+      "message": "正在通过 JTAG 核对 AXU15EGB 的镜像，并初始化计算核心。",
+      "observed_seconds": 0.2363
+    },
+    {
+      "type": "progress",
+      "message": "已确认 A51A2492。正在加载英文识别模型。",
+      "observed_seconds": 30.7624
+    },
+    {
+      "type": "progress",
+      "message": "正在用实板计算平方根，电脑解码整句。",
+      "observed_seconds": 40.8167
+    },
+    {
+      "type": "token",
+      "id": 10,
+      "piece": "▁HE",
+      "text": "HE",
+      "phase": "stable",
+      "observed_seconds": 50.568
+    },
+    {
+      "type": "token",
+      "id": 89,
+      "piece": "LL",
+      "text": "LL",
+      "phase": "stable",
+      "observed_seconds": 50.5681
+    },
+    {
+      "type": "token",
+      "id": 179,
+      "piece": "O",
+      "text": "O",
+      "phase": "stable",
+      "observed_seconds": 50.5681
+    },
+    {
+      "type": "token",
+      "id": 26,
+      "piece": "▁BE",
+      "text": " BE",
+      "phase": "stable",
+      "observed_seconds": 50.5682
+    },
+    {
+      "type": "token",
+      "id": 1256,
+      "piece": "RT",
+      "text": "RT",
+      "phase": "stable",
+      "observed_seconds": 50.5682
+    },
+    {
+      "type": "token",
+      "id": 462,
+      "piece": "IE",
+      "text": "IE",
+      "phase": "stable",
+      "observed_seconds": 50.5682
+    },
+    {
+      "type": "token",
+      "id": 97,
+      "piece": "▁ANY",
+      "text": " ANY",
+      "phase": "stable",
+      "observed_seconds": 50.5682
+    },
+    {
+      "type": "token",
+      "id": 102,
+      "piece": "▁GOOD",
+      "text": " GOOD",
+      "phase": "stable",
+      "observed_seconds": 50.5683
+    },
+    {
+      "type": "token",
+      "id": 8,
+      "piece": "▁IN",
+      "text": " IN",
+      "phase": "stable",
+      "observed_seconds": 50.5684
+    },
+    {
+      "type": "token",
+      "id": 81,
+      "piece": "▁YOUR",
+      "text": " YOUR",
+      "phase": "final",
+      "observed_seconds": 50.69
+    },
+    {
+      "type": "token",
+      "id": 240,
+      "piece": "▁MIND",
+      "text": " MIND",
+      "phase": "final",
+      "observed_seconds": 50.6901
+    },
+    {
+      "type": "result",
+      "text": "HELLO BERTIE ANY GOOD IN YOUR MIND",
+      "tokens": [
+        "▁HE",
+        "LL",
+        "O",
+        "▁BE",
+        "RT",
+        "IE",
+        "▁ANY",
+        "▁GOOD",
+        "▁IN",
+        "▁YOUR",
+        "▁MIND"
+      ],
+      "token_ids": [
+        10,
+        89,
+        179,
+        26,
+        1256,
+        462,
+        97,
+        102,
+        8,
+        81,
+        240
+      ],
+      "board_id": "0xA51A2492",
+      "board_serial": "210512180081",
+      "hardware_calls": 61,
+      "sum_pl_cycles": 1179252,
+      "observed_seconds": 52.0589
+    },
+    {
+      "type": "done",
+      "seconds": 52.079,
+      "observed_seconds": 52.0926
+    }
+  ]
+}

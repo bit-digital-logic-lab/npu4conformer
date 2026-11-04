@@ -1,0 +1,20 @@
+--- analysis/wc_graph_ctrl_iterhash.sv
++++ analysis/wc_graph_ctrl_iterhash_narrowdep.sv
+@@ -139,7 +139,7 @@
+  reg [511:0] header;
+  reg [1535:0] node_buf;
+  reg [511:0] nd_meta[0:MAX_NODES-1];
+- reg [1023:0] nd_dep[0:MAX_NODES-1];
++ reg [MAX_NODES-1:0] nd_dep[0:MAX_NODES-1];
+  reg [1:0] nstate[0:MAX_NODES-1];
+  reg [10:0] cons_count[0:MAX_NODES-1];
+  reg cons_bad[0:MAX_NODES-1];
+@@ -465,7 +465,7 @@
+        set_fault(8'h07);state<=FINISH;
+       end else begin
+        nd_meta[nfetch_index]<=node_buf[511:0];
+-       nd_dep[nfetch_index]<=node_buf[16*32+:1024];
++       nd_dep[nfetch_index]<=node_buf[16*32+:MAX_NODES];
+        // Record every consumer of an earlier node.  A consumer is only a legal
+        // partner for a fused MAT output when it explicitly carries 'A16C'.
+        for(kk=0;kk<MAX_NODES;kk=kk+1)begin

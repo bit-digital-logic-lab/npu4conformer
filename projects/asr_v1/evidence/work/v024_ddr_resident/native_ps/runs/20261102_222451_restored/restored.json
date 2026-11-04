@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "source_sha256": "c0ce4706835a5a462c3b5efbe283a29026db188f1e2675a0588323d0d53bca19",
+  "board_readback_sha256": "c0ce4706835a5a462c3b5efbe283a29026db188f1e2675a0588323d0d53bca19",
+  "bytes": 84994048,
+  "address": "0x10100000",
+  "runtime_boot": "20261102_222451_restored",
+  "image": "0xA51A2493",
+  "run": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\native_model\\board_loads\\20261102_215608",
+  "weight_full_readback_runtime_boot": "20261102_215234",
+  "preserved_across_processor_only_reload": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\native_ps\\runs\\20261102_222451_restored\\boot\\reload.log",
+  "previous_profile_reload": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\native_ps\\runs\\20261102_222451_profile\\boot\\reload.log"
+}

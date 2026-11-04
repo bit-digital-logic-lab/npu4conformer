@@ -1,0 +1,11 @@
+{
+  "status": "PROCESS_EXITED",
+  "stage": "generation_fault",
+  "started": "2026-11-02T16:49:32.955177+08:00",
+  "pid": 13504,
+  "script_sha256": "a6a509103adbfa2dad69194e93acb89f58c197f66ff5a4c82e835133c96d7219",
+  "plan_sha256": "d6e7bed5ee61d400fe66f047ad27b7845a27264c12340f6624a6d1d0e0f2e211",
+  "finished": "2026-11-02T16:50:25.297233+08:00",
+  "exit_code": 0,
+  "log_sha256": "f171b3eb0c4b967d11df52f48fc404ea272ce529dc698a040b62ac2f0ea74210"
+}

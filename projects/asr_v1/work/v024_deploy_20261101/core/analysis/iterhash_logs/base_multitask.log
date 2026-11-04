@@ -1,0 +1,31 @@
+Time resolution is 1 ps
+WAIT cyc=5000 busy=1 fault=0 err=00 iso=0 rd=0 wr=1 b=0
+WAIT cyc=10000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+MATST t=87124 st=1 core_done=0 acc=0
+MATST t=87132 st=2 core_done=0 acc=0
+MATST t=87140 st=3 core_done=0 acc=0
+MATST t=87148 st=4 core_done=0 acc=0
+MATDONE t=101908 st=5 acc=1 core_done=1 cyc=1844
+MATST t=101908 st=5 core_done=1 acc=1
+MATST t=101916 st=0 core_done=1 acc=1
+MATST t=102036 st=1 core_done=1 acc=1
+MATST t=102044 st=2 core_done=1 acc=1
+MATST t=102052 st=3 core_done=1 acc=1
+MATST t=102068 st=4 core_done=0 acc=1
+MATDONE t=117148 st=5 acc=2 core_done=1 cyc=1885
+MATST t=117148 st=5 core_done=1 acc=2
+MATST t=117156 st=0 core_done=1 acc=2
+WAIT cyc=15000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+WAIT cyc=20000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+WAIT cyc=25000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+SAFETY_CSR status=00000002 err=00 completed=9 last=8 cycles=26070 fetch=373 op=25169
+SAFETY_CSR vec_total=4632 layout_total=16758 matrix_total=3729 vec_ops=4 layout_ops=3 matrix_ops=2
+SAFETY_CSR iso_status=00000000 rd_pending=0 wr_pending=0 b_pending=0 iso_blocked=0 lockout_rej=0
+SAFETY_SUM vec_done=4 vec_sum=4632 lay_done=3 lay_sum=16758 mat_core_done=11593
+SAFETY_MATRIX ops=2 acc=2 st=0 completed=2 index=1 err=00 cyc=1885 total=3729
+SAFETY_OVERLAP seq_lay=0 seq_vec=0 seq_mat=0 seq_direct=0
+SAFETY_DRAIN rd_pending=0 wr_pending=0 b_pending=0 quiesced=1 iso_blocked=0 held_r=0 held_b=0 returned_b=206
+SAFETY_END done=1 fault=0 error=00 iso=0 requires_reset=0 seq_dto=0 seq_ito=0 fetch_to=0 drain_timeout=0 cycles=26215
+SAFETY_AXI rburst=143 wburst=206 rbeats=2024 wbeats=1984 tag_err=0 bfm_rbeats=2024 bfm_wbeats=1984
+SAFETY_RESULT PASS
+$finish called at time : 209724 ns : File "C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/sim/tb/tb_safety_integrated.sv" Line 381

@@ -1,0 +1,75 @@
+{
+  "status": "PROCESS_EXITED",
+  "started": "2026-11-02T17:17:08.259456+08:00",
+  "stage": "post_core_read_only_checks",
+  "output_dir": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\reports\\postcore_20261102_171708_9fd0a4b8",
+  "checks_kv": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\reports\\postcore_20261102_171708_9fd0a4b8\\checks.kv",
+  "inputs_sha256": {
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\build\\candidate_synth.dcp": "fa1da198dba0a712f540b101e3c63fa6d64deec5834c5070aa201bcb51a57716",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\synth\\build\\candidate_synth.dcp": "fa1da198dba0a712f540b101e3c63fa6d64deec5834c5070aa201bcb51a57716",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\reports\\READY_FOR_IMPLEMENTATION.json": "6e886d3e68f3ad4132791dfc52049f73662ed2fbc872023460f26f24973a8a67",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\build\\array16_ooc_clockless.dcp": "51e66fed3280e5ba8314cc6a31d9fd4607d0260cd76ab377b3e4c30269cc8e53",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\synth\\reports\\link_20261102_171258_process.json": "e0962f12499fc6f06fb99ea06fa0e5d68425cc9640da084fe8ebcf5485075f93",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\synth\\reports\\LINK_ACCEPTANCE.json": "9ed234c12ebe60c1e781680db1bf5af637a1516d57d6c4d19c7f4e2272a25f41",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\synth\\link_core.tcl": "e2752dbb8b2a11f923f0a44a9c7257560789f0a7e5dc43166b9a2e5d5452d872",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\synth\\PLAN.json": "5c387c07b249ce38addbba138eb9bbe7739d2950521193c5a339fccde00bd0c1",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\reports\\LEAF_ACCEPTANCE.json": "69997168f42015d7069fdae8895240cd84d4b5aed0c0e5632c60446681860a76",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\regression\\reports\\SOURCE_MANIFEST.json": "78bed0c8d2a6da2f8304b16fb7492830d1acfe0e234f792a67b758f59993a333",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\regression\\reports\\ROOT_FUNCTIONAL_ACCEPTANCE.json": "7e8e14e6e11f50b41724d8f56cfc1e22c632c390ac0806107d73befa6e9438f0",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\reports\\PARTITION_PLAN.json": "f7dacea464e848b36bf648895c314ba395fe8cd9866b1dce00185615ea90f6ad",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\post_core_review\\post_core_checks.tcl": "3d5049f87df2277f0684f6fa8c23ff0a5e77a9f31c7779f794879375888d4fe7",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\post_core_review\\review_post_core.py": "0fbd8d66ae40afde8060654037ca2c9a9884b92f0896021d4163fd33add703c9",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\post_core_review\\run_post_core_once.py": "2eb61d61d2576b3f9ff3e60aa61c1588d3399d29288ac73b1faabbc616c16f19",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\post_core_review\\POST_CORE_CHECK_TEMPLATE.json": "17ab7108f464358e1222ab65387f7ad034ec801c6a997831b19ff4e38faa46c2"
+  },
+  "core_dcp": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\build\\candidate_synth.dcp",
+  "leaf_dcp": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\build\\array16_ooc_clockless.dcp",
+  "core_receipt": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\synth\\reports\\link_20261102_171258_process.json",
+  "vivado_log": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\reports\\postcore_20261102_171708_9fd0a4b8\\vivado.log",
+  "resource_gate": {
+    "free_commit_GiB": 17.175704956054688,
+    "free_physical_GiB": 19.775634765625
+  },
+  "tracked_EDA_processes": [
+    {
+      "ProcessId": 22120,
+      "ParentProcessId": 9812,
+      "Name": "vivado.exe",
+      "birth": "2026-11-02T17:17:08.7313470+08:00"
+    }
+  ],
+  "scope": "post-synthesis structural/timing coverage inspection only; not routed closure",
+  "command": [
+    "cmd.exe",
+    "/d",
+    "/c",
+    "C:/Academic_Application/Vivado/2025.2/Vivado/bin/vivado.bat",
+    "-mode",
+    "batch",
+    "-nojournal",
+    "-log",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\reports\\postcore_20261102_171708_9fd0a4b8\\vivado.log",
+    "-source",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\post_core_review\\post_core_checks.tcl",
+    "-tclargs",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\build\\candidate_synth.dcp",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\build\\array16_ooc_clockless.dcp",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\reports\\postcore_20261102_171708_9fd0a4b8"
+  ],
+  "launcher_pid": 9812,
+  "exit_code": 0,
+  "wrapper_finished": "2026-11-02T17:32:35.212617+08:00",
+  "actual_vivado_exit_codes": [
+    {
+      "pid": 22120,
+      "birth": "2026-11-02T17:17:08.7313470+08:00",
+      "exit_code": 0
+    }
+  ],
+  "wrapper_exit_code": 0,
+  "finished": "2026-11-02T17:32:35.899807+08:00",
+  "elapsed_seconds": 927.656,
+  "remaining_EDA_processes": [],
+  "descendant_check_verified": true,
+  "inputs_unchanged_after_run": true
+}

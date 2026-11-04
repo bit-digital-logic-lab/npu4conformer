@@ -1,0 +1,31 @@
+{
+  "pass": true,
+  "hardware_access": false,
+  "cases": {
+    "exact_frozen_gold": "pass",
+    "empty": "correctly_rejected",
+    "truncated_one_byte": "correctly_rejected",
+    "truncated_copy": "correctly_rejected",
+    "extra_word": "correctly_rejected",
+    "a16_corrupt": "correctly_rejected",
+    "copy_last_corrupt": "correctly_rejected",
+    "div_nan": "correctly_rejected",
+    "sqrt_inf": "correctly_rejected",
+    "div_last_corrupt": "correctly_rejected",
+    "sqrt_last_corrupt": "correctly_rejected",
+    "short_gold": "correctly_rejected",
+    "terminal_contract_last_node_5_done_pulse_gone_csr_sticky": "pass",
+    "terminal_with_done_pulse_also_valid": "pass",
+    "terminal_bad_b_pending": "correctly_rejected",
+    "terminal_bad_rd_pending": "correctly_rejected",
+    "terminal_bad_wr_pending": "correctly_rejected",
+    "terminal_bad_board_status": "correctly_rejected",
+    "terminal_bad_csr_status": "correctly_rejected",
+    "terminal_bad_completed": "correctly_rejected",
+    "terminal_bad_last_node": "correctly_rejected",
+    "terminal_bad_csr_cycles_low": "correctly_rejected",
+    "terminal_bad_poll_timed_out": "correctly_rejected",
+    "terminal_bad_pc_verified_words": "correctly_rejected",
+    "terminal_bad_evidence_kind": "correctly_rejected"
+  }
+}

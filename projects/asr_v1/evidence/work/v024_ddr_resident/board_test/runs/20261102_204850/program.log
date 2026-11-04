@@ -1,0 +1,70 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Mon Nov  2 20:48:54 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source {C:\Academic_Work\CIM_learning\work\v024_ddr_resident\program_resident.tcl}
+# if {$argc != 2} {error "expected bitstream and unique output directory"}
+# set bit [file normalize [lindex $argv 0]]
+# set out [file normalize [lindex $argv 1]]
+# if {![file isfile $bit] || ![file isdirectory $out]} {error "missing verified image or output"}
+# open_hw_manager
+open_hw_manager: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 666.375 ; gain = 222.797
+# connect_hw_server -url 127.0.0.1:3121 -cs_url 127.0.0.1:3042
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:127.0.0.1:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:127.0.0.1:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2025.2.0
+  ****** Build date   : Nov 14 2025-07:16:52
+    **** Build number : 2025.2.1763075812
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+# try {
+#     set cables [get_hw_targets */Digilent/210512180081]
+#     if {[llength $cables] != 1} {error "designated cable absent or ambiguous"}
+#     current_hw_target [lindex $cables 0]
+#     set_property PARAM.FREQUENCY 6000000 [lindex $cables 0]
+#     open_hw_target
+#     set devices [get_hw_devices -filter {PART == xczu15}]
+#     if {[llength $devices] != 1} {error "expected exactly one xczu15"}
+#     set device [lindex $devices 0]
+#     current_hw_device $device
+#     refresh_hw_device $device
+#     set old [get_property REGISTER.USR_ACCESS $device]
+#     puts "PREVIOUS_USR_ACCESS=$old"
+#     if {$old != 0xA51A2492 && $old != 0xA51A2493} {error "unexpected existing image"}
+#     set_property PROBES.FILE {} $device
+#     set_property PROGRAM.FILE $bit $device
+#     program_hw_devices -mpsoc_reset no $device
+#     refresh_hw_device $device
+#     set actual [get_property REGISTER.USR_ACCESS $device]
+#     if {$actual != 0xA51A2493} {error "new image identity mismatch"}
+#     set f [open [file join $out identity.txt] {WRONLY CREAT EXCL}]
+#     puts $f "usr_access=[format 0x%08X $actual]\npart=[get_property PART $device]\nserial=210512180081"
+#     close $f
+#     puts "PROGRAM_2493_PASS ACTUAL_USR_ACCESS=[format 0x%08X $actual]"
+# } finally {
+#     catch {close_hw_target}
+#     disconnect_hw_server
+#     close_hw_manager
+# }
+INFO: [Labtoolstcl 44-466] Opening hw_target 127.0.0.1:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Labtools 27-2302] Device xczu15 (JTAG device index = 0) is programmed with a design that has 1 JTAG AXI core(s).
+PREVIOUS_USR_ACCESS=0xa51a2492
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 731.707 ; gain = 0.543
+INFO: [Labtools 27-1434] Device xczu15 (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+PROGRAM_2493_PASS ACTUAL_USR_ACCESS=0xA51A2493
+INFO: [Labtoolstcl 44-464] Closing hw_target 127.0.0.1:3121/xilinx_tcf/Digilent/210512180081
+# exit
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 20:49:40 2026...

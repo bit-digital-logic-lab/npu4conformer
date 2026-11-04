@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "scope": "2492 full physical implementation; no board result",
+  "receipt_sha256": "5e44d089ca821e9dd78dcef8d9019945a81e687a122ad5cda27b28678cbb3e90",
+  "plan_sha256": "521e4edccea81d7545e7f0ba7dd5b435bde1008c3eb36dd6533f9f5696ac6730",
+  "routed_checkpoint_sha256": "c1e906eaba1ea8f14125fade3004d1f12670cd10a8bee2118ab5edb38333276c",
+  "bitstream_sha256": "457d80d90392af722e4db84acf1c42f706ed5dc0b98c348895a052f7d1973edb",
+  "debug_probes_sha256": "96e6cc0500a5018aa54e014dd6746813e104d0728849395d31895cac0d8d98ff",
+  "route_counts": {
+    "routable": 361401,
+    "routed": 361401,
+    "errors": 0
+  },
+  "setup_wns_ns": 4.654,
+  "hold_whs_ns": 0.01,
+  "timing_coverage": {
+    "no_clock": 0,
+    "unconstrained_internal_endpoints": 0,
+    "no_input_delay": 0,
+    "no_output_delay": 0,
+    "multiple_clock": 0,
+    "generated_clocks": 0,
+    "loops": 0,
+    "latch_loops": 0
+  },
+  "drc_checks": 827,
+  "minimum_bus_skew_slack_ns": 19.485,
+  "bitstream_static_axss": {
+    "metadata": {
+      "a": "v024_platform_wrapper;COMPRESS=TRUE;UserID=0XFFFFFFFF;Version=2025.2;SW_CRC=41dadb12",
+      "b": "xczu15eg-ffvb1156-2-i",
+      "c": "2026/11/02",
+      "d": "18:25:08"
+    },
+    "sync_offset": 237,
+    "axss_packet_offset": 293,
+    "axss_value": "0xA51A2492",
+    "packet_count": 365246,
+    "type2_packets": 233,
+    "fdri_words_skipped": 4296042,
+    "payload_end": 20532049
+  },
+  "report_sha256": {
+    "pass": "fbf7903b10b81dc013cb51c4a899d1b180259996a6f345ed325cfb6dc9a5657d",
+    "route": "cc3129aa04028b1da28abc6584c99b5bc64a2ff4d252b418a49b62348a386230",
+    "timing": "365a03b358a789744d70324a686dd69bb83b40feb49e1398dec3dcaf4816f081",
+    "check": "b95a9233f930836b201c92e280f541126d7f503dddffb7e13d9eb29e602aa931",
+    "drc": "38e2c265fba1bf7a6b0e5ead609803853fefa552344b0ec013344f499e7b0436",
+    "skew": "c88f161535159313d4216e326486968f59917a54ab460a1ccfeafef627da2c94",
+    "io": "f6f99f47d952af857e41a8c581b0d9c68bfa3f6e04fd62001bf36f38f82f3ed6",
+    "clocks": "59ce4ee5503c12b25c54e5b8cff18f937bb1866558f50280b71582b579879f38",
+    "util": "c9258dd72397a4c0a577a9a1050855b3fbc5a712802ed53f15a9c7e714e749d7",
+    "routed": "c1e906eaba1ea8f14125fade3004d1f12670cd10a8bee2118ab5edb38333276c",
+    "bit": "457d80d90392af722e4db84acf1c42f706ed5dc0b98c348895a052f7d1973edb",
+    "ltx": "96e6cc0500a5018aa54e014dd6746813e104d0728849395d31895cac0d8d98ff"
+  }
+}

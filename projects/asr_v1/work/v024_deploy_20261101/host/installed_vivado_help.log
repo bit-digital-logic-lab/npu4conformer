@@ -1,0 +1,439 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sun Nov  1 19:09:09 2026
+# Process ID         : 28492
+# Current directory  : C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/host
+# Command line       : vivado.exe -mode batch -nojournal -log installed_vivado_help.log -source probe_help.tcl
+# Log file           : C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/host/installed_vivado_help.log
+# Journal file       : 
+# Running On         : MILK
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26300
+# Processor Detail   : Intel(R) Core(TM) Ultra 9 275HX
+# CPU Frequency      : 3072 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 24
+# Host memory        : 33676 MB
+# Swap memory        : 4312 MB
+# Total Virtual      : 37989 MB
+# Available Virtual  : 3064 MB
+#-----------------------------------------------------------
+source probe_help.tcl
+# puts "INSTALLED_VIVADO=[version -short]"
+INSTALLED_VIVADO=2025.2
+# load_features labtools
+# puts [help create_hw_axi_txn]
+create_hw_axi_txn
+
+Description: 
+Create hardware AXI transaction object
+
+Syntax: 
+create_hw_axi_txn  [-address <arg>] [-data <arg>] [-size <arg>] -type <arg>
+                   [-len <arg>] [-burst <arg>] [-cache <arg>] [-id <arg>]
+                   [-force] [-quiet] [-verbose] <name> <hw_axi>
+
+Returns: 
+New hardware AXI transaction object.
+
+Usage: 
+  Name        Description
+  -----------------------
+  [-address]  AXI read or write address.
+              Default: Address zero
+  [-data]     Transaction data.
+              Default: All zeroes
+  [-size]     Deprecated.  Data word size in bits.  This is now automatically
+              set based on the IP core properties.
+  -type       READ or WRITE transaction.
+  [-len]      Length of the transaction in data words.
+              Default: 1
+  [-burst]    Burst type: INCR,FIXED or WRAP.
+              Default: INCR
+  [-cache]    AXI cache type.
+              Default: 3
+  [-id]       Address ID.
+              Default: 0
+  [-force]    Overwrite an existing transaction with the specified name if it
+              exists, otherwise create a new transaction.
+              Default: 0
+  [-quiet]    Ignore command errors
+  [-verbose]  Suspend message limits during command execution
+  <name>      Name of new object.
+  <hw_axi>    Associated hardware AXI core object.
+
+Categories: 
+Hardware
+
+Description:
+
+  Define a read or write transaction for the JTAG to AXI Master core, hw_axi
+  object, specified by the get_hw_axis command.
+
+  The JTAG to AXI Master is a customizable IP core that works as an AXI
+  Master to drive AXI transactions and drive AXI signals that are internal to
+  the hardware device. The JTAG-AXI core supports all memory-mapped AXI
+  interfaces, except AXI4-Stream, and supports the AXI-Lite protocol.
+  Detailed documentation on the IP core can be found in the LogiCORE IP JTAG
+  to AXI Master Product Guide (PG174).
+
+  AXI transactions are read/write burst transactions from the JTAG to AXI
+  Master core onto AXI signals connected to the core. The AXI transaction
+  lets you configure aspects of the read or write transaction such as the
+  data to send and the address to send it to. These defined transactions are
+  stored as properties of the specified hw_axi object, waiting to be run and
+  reported using the run_hw_axi and report_hw_axi_txn commands.
+
+  The command returns the name of the hw_axi_txn object created, or returns
+  an error if it fails.
+
+Arguments:
+
+  -address <arg> - (Optional) Specify the address of the register on the
+  hw_axi object to read from, or write into. Default address 0000.
+
+  -data <arg> - (Optional) The data value specified in hexadecimal format to
+  write into the address location of the hw_axi for WRITE transactions. The
+  default data value is all zeros.
+
+  -type [ READ | WRITE ] - (Required) Specify the AXI transaction to READ
+  from the specified address, or WRITE into it.
+
+  -len <arg> - (Optional) The length of the READ or WRITE transaction,
+  specified as the number of data words to read or write, based on the -size
+  option. The default is 1.
+
+  -burst <arg> - (Optional) The type of AXI bursts to perform. Bursts can be
+  specified as INCR, FIXED, or WRAP. The default data burst is incremental
+  (INCR).
+
+  -cache <arg> - (Optional) The AXI command cache to implement, specified in
+  decimal form. The default value is 3. For more information on read/write
+  cache settings refer to the LogiCORE IP Product Guide: JTAG to AXI Master
+  (PG174).
+
+  -id <arg> - (Optional) The ID to assign to the AXI transaction, specified
+  in decimal form. This lets the tool identify responses to various read and
+  write transactions.
+
+  -quiet - (Optional) Execute the command quietly, returning no messages from
+  the command. The command also returns TCL_OK regardless of any errors
+  encountered during execution.
+
+  Note: Any errors encountered on the command-line, while launching the
+  command, will be returned. Only errors occurring inside the command will be
+  trapped.
+
+  -verbose - (Optional) Temporarily override any message limits and return
+  all messages from this command.
+
+  Note: Message limits can be defined with the set_msg_config command.
+
+  <name> - (Required) The name to give to the newly created AXI transaction
+  object. This name can be used to access or recall the transaction.
+
+  <hw_axi> - (Required) The hw_axi object to define the transaction for. The
+  hw_axi must be specified as an object returned by the get_hw_axi command,
+  and can not simply be specified by name.
+
+Example:
+
+  The following example specifies a WRITE transaction, with a data value of
+  decimal 10 specified as a hexadecimal value, to be written in a 2 data word
+  transaction for 32-bit data words:
+
+    create_hw_txn write_1 -type WRITE -data 0000_0000_0000_000A -size 32 -len 2 \  
+    [get_hw_axis hw_axi_1] 
+    
+
+  The following example creates a new hardware AXI transaction object,
+  hw_axi_txn, which writes the specified 128 bit data stream into the
+  specified address of the hw_axi object. The new AXI transaction is named
+  write_txn:
+
+    
+    create_hw_axi_txn write_txn [get_hw_axis hw_axi_1] -type WRITE \  
+    -len 4 -data {44444444_33333333_22222222_11111111} 
+    
+
+  This example creates AXI read and write transactions, runs the hw_axi, and
+  reports on the results:
+
+    create_hw_axi_txn wr_txn [lindex [get_hw_axis] 0] -address 80000000 \  
+    -data {11112222 33334444 55556666 77778888} -len 4 -type write  
+    create_hw_axi_txn rd_txn [lindex [get_hw_axis] 0] -address 80000000 \  
+    -len 4 -type read  
+     
+    run_hw_axi [get_hw_axi_txns wr_txn]  
+    set wr_report [report_hw_axi_txn wr_txn -w 32]  
+    puts $wr_report  
+     
+    run_hw_axi [get_hw_axi_txns rd_txn]  
+    set rd_report [report_hw_axi_txn rd_txn -w 32]  
+    puts $rd_report  
+     
+    close_hw_target;  
+    disconnect_hw_server; 
+    
+
+  This example creates a sequence of READ type hw_axi transactions, and then
+  runs them:
+
+    
+    # Read registers  
+    create_hw_axi_txn -address [format %08x [expr $baseaddr + \  
+       $MM2S_VDMACR_OFFSET]] -type read txn00 [get_hw_axis hw_axi_1]  
+    create_hw_axi_txn -address [format %08x [expr $baseaddr + \  
+       $MM2S_VDMASR_OFFSET]] -type read txn01 [get_hw_axis hw_axi_1]  
+    create_hw_axi_txn -address [format %08x [expr $baseaddr + \  
+       $MM2S_REG_INDEX_OFFSET]] -type read txn02 [get_hw_axis hw_axi_1]  
+    create_hw_axi_txn -address [format %08x [expr $baseaddr + \  
+       $PARK_PTR_REG_OFFSET]] -type read txn03 [get_hw_axis hw_axi_1]  
+    create_hw_axi_txn -address [format %08x [expr $baseaddr + \  
+       $VERSION_OFFSET]] -type read txn04 [get_hw_axis hw_axi_1]  
+    create_hw_axi_txn -address [format %08x [expr $baseaddr + \  
+       $S2MM_VDMACR_OFFSET]] -type read txn05 [get_hw_axis hw_axi_1]  
+    create_hw_axi_txn -address [format %08x [expr $baseaddr + \  
+       $S2MM_VDMASR_OFFSET]] -type read txn06 [get_hw_axis hw_axi_1]  
+    create_hw_axi_txn -address [format %08x [expr $baseaddr + \  
+       $S2MM_VDMA_IRQ_OFFSET]] -type read txn07 [get_hw_axis hw_axi_1]  
+    run_hw_axi -quiet [get_hw_axi_txns] 
+    
+
+See Also:
+
+   *  delete_hw_axi_txn
+   *  get_hw_axis
+   *  get_hw_axi_txns
+   *  refresh_hw_axi
+   *  report_hw_axi_txn
+   *  reset_hw_axi
+   *  run_hw_axi
+
+# puts [help run_hw_axi]
+run_hw_axi
+
+Description: 
+Run hardware AXI read/write transaction(s)and update transaction status in hw_axi object..
+
+Syntax: 
+run_hw_axi  [-queue] [-quiet] [-verbose] <hw_axi_txns>...
+
+Usage: 
+  Name           Description
+  --------------------------
+  [-queue]       Queue Transaction.
+                 Default: 0
+  [-quiet]       Ignore command errors
+  [-verbose]     Suspend message limits during command execution
+  <hw_axi_txns>  hardware AXI Transaction object to execute on the AXI bus.
+
+Categories: 
+Hardware
+
+Description:
+
+  Run the AXI transactions defined on the specified JTAG to AXI Master core.
+
+  AXI transactions are created with the create_hw_axi_txns command.
+
+  Run the specified hardware AXI read/write transactions on the AXI bus, and
+  update the transaction status on the associated hw_axi object.
+
+Arguments:
+
+  -queue - (Optional) Run the specified hw_axi transactions in queue mode.
+  Queued operation allows up to 16 read and 16 write transactions to be
+  queued in the JTAG to AXI Master FIFO and issued back-to-back for low
+  latency and higher performance between the transactions. Non-queued
+  transactions are simply run as submitted.
+
+  -quiet - (Optional) Execute the command quietly, returning no messages from
+  the command. The command also returns TCL_OK regardless of any errors
+  encountered during execution.
+
+  Note: Any errors encountered on the command-line, while launching the
+  command, will be returned. Only errors occurring inside the command will be
+  trapped.
+
+  -verbose - (Optional) Temporarily override any message limits and return
+  all messages from this command.
+
+  Note: Message limits can be defined with the set_msg_config command.
+
+  <hw_axi_txns> - (Required) Specify the hardware AXI Transaction objects to
+  run on the AXI bus. The objects can be returned by the get_hw_axi_txns
+  command.
+
+Example:
+
+  The following example runs the AXI transactions currently defined on the
+  specified hw_axi object:
+
+    run_hw_axi [get_hw_axi_txns [get_hw_axis]] 
+    
+
+  This example runs four AXI transactions in queued mode:
+
+    run_hw_axi -queue  [get_hw_axi_txns txn_1] [get_hw_axi_txns txn_2] \ 
+    [get_hw_axi_txns txn_3] [get_hw_axi_txns txn_4]  
+    
+
+  This example creates AXI read and write transactions, runs the hw_axi, and
+  reports on the results:
+
+    create_hw_axi_txn wr_txn [lindex [get_hw_axis] 0] -address 80000000 \  
+    -data {11112222 33334444 55556666 77778888} -len 4 -type write  
+    create_hw_axi_txn rd_txn [lindex [get_hw_axis] 0] -address 80000000 \  
+    -len 4 -type read  
+     
+    run_hw_axi [get_hw_axi_txns wr_txn]  
+    set wr_report [report_hw_axi_txn wr_txn -w 32]  
+    puts $wr_report  
+     
+    run_hw_axi [get_hw_axi_txns rd_txn]  
+    set rd_report [report_hw_axi_txn rd_txn -w 32]  
+    puts $rd_report  
+     
+    close_hw_target;  
+    disconnect_hw_server; 
+    
+
+See Also:
+
+   *  create_hw_axi_txns
+   *  delete_hw_axi_txn
+   *  get_hw_axis
+   *  get_hw_axi_txns
+   *  refresh_hw_axi
+   *  reset_hw_axi
+
+# puts [help report_hw_axi_txn]
+report_hw_axi_txn
+
+Description: 
+Report formatted hardware AXI Transaction data
+
+Syntax: 
+report_hw_axi_txn  [-w <arg>] [-t <arg>] [-quiet] [-verbose] <hw_axi_txns>...
+
+Usage: 
+  Name           Description
+  --------------------------
+  [-w]           Output data bytes per output line.
+                 Default: 8
+  [-t]             d[SIZE]    signed decimal, SIZE bytes per integer,
+                   b[SIZE]    binary, SIZE bytes per integer,
+                   o[SIZE]    octal, SIZE bytes per integer,
+                   u[SIZE]    unsigned decimal, SIZE bytes per integer,
+                   x[SIZE]    hexadecimal, SIZE bytes per integer
+                 Default: x4 (4-bytes in hex)
+  [-quiet]       Ignore command errors
+  [-verbose]     Suspend message limits during command execution
+  <hw_axi_txns>  hardware AXI Transaction object to report
+
+Categories: 
+Hardware
+
+Description:
+
+  Report the results of the specified AXI transactions on the JTAG to AXI
+  Master, hw_axi.
+
+  You can use this command after creating hw_axi_txn objects on existing
+  hw_axi objects, and then running the hw_axi to exercise the defined
+  transaction.
+
+  The JTAG to AXI Master core can only be controlled using Tcl commands. You
+  can issue AXI read and write transactions using the create_hw_axi_txns
+  command. However, before issuing these commands, it is important to reset
+  the JTAG to AXI Master core using the reset_hw_axi command.
+
+  This command reports the transaction data in the specified format, or
+  returns an error if it fails.
+
+Arguments:
+
+  -w <arg> - (Optional) The number of data bytes per output line. The default
+  is 8 bytes per line.
+
+  -t <arg> - (Optional) Specify the form and size of the output data. The
+  accepted values for formatting the transaction data are:
+
+   *  d[SIZE] signed decimal, SIZE bytes per integer
+
+   *  b[SIZE] binary, SIZE bytes per integer
+
+   *  o[SIZE] octal, SIZE bytes per integer
+
+   *  u[SIZE] unsigned decimal, SIZE bytes per integer
+
+   *  x[SIZE] hexadecimal, SIZE bytes per integer
+
+   *  The default output format is x4, or 4-bytes in hex.
+
+  -quiet - (Optional) Execute the command quietly, returning no messages from
+  the command. The command also returns TCL_OK regardless of any errors
+  encountered during execution.
+
+  Note: Any errors encountered on the command-line, while launching the
+  command, will be returned. Only errors occurring inside the command will be
+  trapped.
+
+  -verbose - (Optional) Temporarily override any message limits and return
+  all messages from this command.
+
+  Note: Message limits can be defined with the set_msg_config command.
+
+  <hw_axi_txns> - (Required) The hw_axi_txn objects to report. The hw_axi_txn
+  must be specified as an object returned by the get_hw_axi_txns command.
+
+Example:
+
+  This example resets the hw_axi core to a known state from which to begin
+  running AXI transactions; then creates an AXI transaction associated with
+  the hw_axi to read the contents of the first four locations of the AXI
+  core; then runs the hw_axi to process the transactions associated with the
+  core; and finally reports the data read from the transaction:
+
+    reset_hw_axi [get_hw_axis hw_axi_1]  
+    create_hw_axi_txn read_txn [get_hw_axis hw_axi_1] -type READ \  
+       -address 00000000 -size 32 -len 4 -cache 3 -id 0  
+    run_hw_axi [get_hw_axi_txns [get_hw_axis]]  
+    report_hw_axi_txn [get_hw_axi_txns read_txn]  
+    
+
+  This example creates AXI read and write transactions, runs the hw_axi, and
+  reports on the results:
+
+    create_hw_axi_txn wr_txn [lindex [get_hw_axis] 0] -address 80000000 \  
+    -data {11112222 33334444 55556666 77778888} -len 4 -type write  
+    create_hw_axi_txn rd_txn [lindex [get_hw_axis] 0] -address 80000000 \  
+    -len 4 -type read  
+     
+    run_hw_axi [get_hw_axi_txns wr_txn]  
+    set wr_report [report_hw_axi_txn wr_txn -w 32]  
+    puts $wr_report  
+     
+    run_hw_axi [get_hw_axi_txns rd_txn]  
+    set rd_report [report_hw_axi_txn rd_txn -w 32]  
+    puts $rd_report  
+     
+    close_hw_target;  
+    disconnect_hw_server; 
+    
+
+See Also:
+
+   *  create_hw_axi_txns
+   *  delete_hw_axi_txn
+   *  get_hw_axis
+   *  get_hw_axi_txns
+   *  refresh_hw_axi
+   *  reset_hw_axi
+
+# exit
+INFO: [Common 17-206] Exiting Vivado at Sun Nov  1 19:09:14 2026...

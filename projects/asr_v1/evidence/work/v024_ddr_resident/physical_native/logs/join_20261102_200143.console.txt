@@ -1,0 +1,124 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Mon Nov  2 20:01:44 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source {C:\Academic_Work\CIM_learning\work\v024_ddr_resident\physical_native\join_fast.tcl}
+# set work [file normalize [file dirname [info script]]]
+# set build [file join $work build]
+# set old [file normalize [file join $work .. .. v024_deploy_20261101 recovery_20261102 retained_coeff_physical]]
+# set part xczu15eg-ffvb1156-2-i
+# set_param general.maxThreads 8
+# puts "JOIN_THREADS_LIMIT=[get_param general.maxThreads]"
+JOIN_THREADS_LIMIT=8
+# proc require {ok message} {if {!$ok} {error $message}}
+# set output [file join $build core_ddr_synth.dcp]
+# if {$argc == 0} {
+#     create_project -in_memory -part $part
+#     set leaf [file join $old build array16_ooc_clockless.dcp]
+#     read_checkpoint [file join $build parent_unlinked.dcp]
+#     read_checkpoint $leaf
+#     set_property SCOPED_TO_CELLS {matrix/shared_array} [get_files $leaf]
+#     link_design -top v024_unified_top -part $part -mode out_of_context
+#     require [expr {![llength [get_cells -quiet -hier -filter {IS_BLACKBOX==1}]]}] "unresolved core black box"
+#     require [expr {[llength [get_cells -quiet graph/vec/arithmetic/fused]] == 1}] "FMA missing"
+#     require [expr {[llength [get_cells -quiet -hier -filter {REF_NAME =~ array16_w7_c48_cfg*}]] == 1}] "array count"
+#     require [expr {[llength [get_cells -quiet -hier -filter {REF_NAME =~ pe_w7_c48_cfg*}]] == 256}] "PE count"
+#     write_checkpoint -force $output
+#     puts "RESIDENT_CORE_LINK_PASS BLACKBOX=0 ARRAY=1 PE=256"
+#     close_project
+# }
+# open_checkpoint [file join $build shell_synth.dcp]
+Command: open_checkpoint C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/build/shell_synth.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 459.559 ; gain = 6.844
+INFO: [Device 21-403] Loading part xczu15eg-ffvb1156-2-i
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.245 . Memory (MB): peak = 1819.199 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 465 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1819.199 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Constraints 18-5170] The checkpoint was created with non-default parameter values which do not match the current Vivado settings.  Mismatching parameters are:
+  general.maxThreads
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2413.383 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 35 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 3 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 32 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:51 ; elapsed = 00:00:28 . Memory (MB): peak = 2413.383 ; gain = 1970.430
+# set cell [get_cells -quiet -hier -filter {IS_BLACKBOX == 1}]
+# require [expr {[llength $cell] == 1 && $cell eq "ps_ddr_i/core_wrap/inst/core_i"}] "wrong PS shell placeholder: $cell"
+# read_checkpoint -strict -cell $cell $output
+Command: read_checkpoint -strict -cell [get_cells -quiet -hier -filter {IS_BLACKBOX == 1}] C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/build/core_ddr_synth.dcp
+WARNING: [Vivado 12-12435] Any Tcl variable pointing to design objects become invalid when read_checkpoint is executed subsequently after open_checkpoint. The content of those variables need to be rebuilt after read_checkpoint. Otherwise this could result in unwanted behavior due to referencing objects that do not exist anymore.
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 2423.414 ; gain = 10.031
+INFO: [Project 1-5699] Read binary netlist with skipMacroContent - 1
+INFO: [Project 1-454] Reading design checkpoint 'C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/build/core_ddr_synth.dcp' for cell 'ps_ddr_i/core_wrap/inst/core_i'
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2552.277 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 39070 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 9 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/.Xil/Vivado-43772-MILK/readCheckpointCellTempDcp/temp/ps_ddr_wrapper_board.xdc]
+Finished Parsing XDC File [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/.Xil/Vivado-43772-MILK/readCheckpointCellTempDcp/temp/ps_ddr_wrapper_board.xdc]
+Parsing XDC File [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/.Xil/Vivado-43772-MILK/readCheckpointCellTempDcp/temp/ps_ddr_wrapper_early.xdc]
+Finished Parsing XDC File [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/.Xil/Vivado-43772-MILK/readCheckpointCellTempDcp/temp/ps_ddr_wrapper_early.xdc]
+Parsing XDC File [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/build/core_ddr_synth/v024_unified_top.xdc] for cell 'ps_ddr_i/core_wrap/inst/core_i'
+Finished Parsing XDC File [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/build/core_ddr_synth/v024_unified_top.xdc] for cell 'ps_ddr_i/core_wrap/inst/core_i'
+Parsing XDC File [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/.Xil/Vivado-43772-MILK/readCheckpointCellTempDcp/temp/ps_ddr_wrapper_late.xdc]
+Finished Parsing XDC File [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/.Xil/Vivado-43772-MILK/readCheckpointCellTempDcp/temp/ps_ddr_wrapper_late.xdc]
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.189 . Memory (MB): peak = 2990.637 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 11550 instances were transformed.
+  DSP48E1 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 2 instances
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 277 instances
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 8 instances
+  RAM16X1S => RAM32X1S (RAMS32): 8192 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 7 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 626 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 132 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 110 instances
+  RAM64M8 => RAM64M8 (RAMD64E(x8)): 2194 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 2 instances
+
+read_checkpoint: Time (s): cpu = 00:01:17 ; elapsed = 00:01:25 . Memory (MB): peak = 2990.637 ; gain = 577.254
+# unset cell
+# require [expr {![llength [get_cells -quiet -hier -filter {IS_BLACKBOX==1}]]}] "unresolved top black box"
+# reset_timing -invalid
+# read_xdc [file join $build shell_timing.xdc]
+Parsing XDC File [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/build/shell_timing.xdc]
+Finished Parsing XDC File [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/build/shell_timing.xdc]
+# set clocks [get_clocks -quiet *]
+# require [expr {[llength $clocks] == 1 && $clocks eq "clk_pl_0"}] "unexpected full-system clocks: $clocks"
+# set period [get_property PERIOD $clocks]
+# require [expr {abs($period - 20.625) < 0.001}] "shell clock changed: $period"
+# set clock_pin [get_pins -quiet ps_ddr_i/core_wrap/inst/core_i/clk]
+# require [expr {[llength $clock_pin] == 1 && [get_clocks -quiet -of_objects $clock_pin] eq $clocks}] "core clock not driven by PS PLCLK"
+# set pes [get_cells -quiet -hier -filter {REF_NAME =~ pe_w7_c48_cfg*}]
+# require [expr {[llength $pes] == 256}] "full-system PE count"
+# write_checkpoint -force [file join $build ps_ddr_synth.dcp]
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.591 . Memory (MB): peak = 4072.898 ; gain = 94.121
+INFO: [Common 17-1381] The checkpoint 'C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/build/ps_ddr_synth.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:23 ; elapsed = 00:00:15 . Memory (MB): peak = 4216.441 ; gain = 237.664
+# puts "RESIDENT_SYSTEM_LINK_PASS BLACKBOX=0 PE=[llength $pes] CLOCK_PERIOD_NS=$period"
+RESIDENT_SYSTEM_LINK_PASS BLACKBOX=0 PE=256 CLOCK_PERIOD_NS=20.625
+# report_utilization -file [file join $work reports ps_ddr_synth_utilization.rpt]
+# report_clocks -file [file join $work reports ps_ddr_synth_clocks.rpt]
+# close_project
+close_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 4216.441 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 20:04:23 2026...

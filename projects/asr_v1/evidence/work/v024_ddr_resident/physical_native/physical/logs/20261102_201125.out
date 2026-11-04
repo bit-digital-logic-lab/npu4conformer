@@ -1,0 +1,92 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Mon Nov  2 20:11:25 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source {C:\Academic_Work\CIM_learning\work\v024_ddr_resident\physical_native\physical\implement.tcl}
+# set work [file normalize [file dirname [info script]]]
+# set base [file dirname $work]
+# set b [file join $work build]
+# set r [file join $work reports]
+# set_param general.maxThreads 8
+# puts "PHYSICAL_THREADS_LIMIT=[get_param general.maxThreads]"
+PHYSICAL_THREADS_LIMIT=8
+# set stages {input optimized placed physopt routed}
+# set from [lindex $argv 0]
+# set rank [lsearch -exact $stages $from]
+# if {$rank < 0} {error "unknown resume point: $from"}
+# proc readfile {p} {set f [open $p]; set data [read $f]; close $f; return $data}
+# proc xdc_commands {p} {
+#     set result {}
+#     foreach line [split [readfile $p] \n] {
+#         set line [string trim $line]
+#         if {$line ne "" && ![string match "#*" $line]} {lappend result $line}
+#     }
+#     return $result
+# }
+# if {$rank == 0} {
+#     open_checkpoint [file join $base build ps_ddr_synth.dcp]
+#     write_xdc -force -type timing [file join $r input.xdc]
+#     if {[xdc_commands [file join $r input.xdc]] ne [xdc_commands [file join $base build shell_timing.xdc]]} {
+#         error "new system timing constraint commands differ from its signed PS shell"
+#     }
+#     set_property BITSTREAM.CONFIG.USR_ACCESS 0xA51A2493 [current_design]
+#     set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
+# } else {
+#     open_checkpoint [file join $b $from.dcp]
+# }
+Command: open_checkpoint C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/build/ps_ddr_synth.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 459.875 ; gain = 5.836
+INFO: [Device 21-403] Loading part xczu15eg-ffvb1156-2-i
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2103.441 ; gain = 4.805
+INFO: [Netlist 29-17] Analyzing 39070 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 9 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.731 . Memory (MB): peak = 2590.742 ; gain = 84.059
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.175 . Memory (MB): peak = 3831.133 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 11550 instances were transformed.
+  DSP48E1 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 2 instances
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 277 instances
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 8 instances
+  RAM16X1S => RAM32X1S (RAMS32): 8192 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 7 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 626 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 132 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 110 instances
+  RAM64M8 => RAM64M8 (RAMD64E(x8)): 2194 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 2 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:01:42 ; elapsed = 00:01:19 . Memory (MB): peak = 3831.133 ; gain = 3383.066
+# proc identity {} {
+#     if {[get_property PART [current_design]] ne "xczu15eg-ffvb1156-2-i" || [current_design] ne "ps_ddr_wrapper"} {error "wrong top or part"}
+#     if {[llength [get_ports -quiet *]] || [llength [get_cells -quiet -hier -filter {REF_NAME == PS8}]] != 1} {error "unexpected PL pins or PS8 count"}
+#     if {[llength [get_cells -quiet -hier -filter {IS_BLACKBOX == 1}]]} {error "unlinked blackbox"}
+#     if {[get_property BITSTREAM.CONFIG.USR_ACCESS [current_design]] != 0xA51A2493} {error "unexpected user access ID"}
+#     set clocks [get_clocks -quiet *]
+#     if {$clocks ne "clk_pl_0" || abs([get_property PERIOD $clocks] - 20.625) > 0.0001} {error "wrong PS clock"}
+# }
+# identity
+wrong top or part
+    while executing
+"error "wrong top or part""
+    invoked from within
+"if {[get_property PART [current_design]] ne "xczu15eg-ffvb1156-2-i" || [current_design] ne "ps_ddr_wrapper"} {error "wrong top or part"}"
+    (procedure "identity" line 2)
+    invoked from within
+"identity"
+    (file "C:\Academic_Work\CIM_learning\work\v024_ddr_resident\physical_native\physical\implement.tcl" line 39)
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 20:12:50 2026...

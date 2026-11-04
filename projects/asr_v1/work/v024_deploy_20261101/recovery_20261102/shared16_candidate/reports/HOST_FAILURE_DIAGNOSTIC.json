@@ -1,0 +1,98 @@
+{
+  "scope": "read-only Windows resource/event/process/failed-directory diagnosis; no system/pagefile changes; no user process terminated; no EDA run launched",
+  "query_window_local": {
+    "main": [
+      "2026-11-02 12:34:00",
+      "2026-11-02 12:43:00"
+    ],
+    "resource_crash_crosscheck": [
+      "2026-11-02 12:30:00",
+      "2026-11-02 12:45:00"
+    ],
+    "timezone": "Asia/Shanghai"
+  },
+  "actual_logs": [
+    "logs/synth_20261102_123634_console.log",
+    "logs/synth_20261102_123634.log"
+  ],
+  "observed_failure": {
+    "error": "Designutils20-411",
+    "message": "realtime directory could not be deleted and may be locked",
+    "process_pid": 43376,
+    "log_exit_local": "2026-11-02 12:40:42",
+    "memory_peak_MB": 7652.688,
+    "only_explicit_error_in_console": true
+  },
+  "events": {
+    "resource_exhaustion_detector_events": 0,
+    "application_event_1000_1001_1002": 0,
+    "main_window_observed": [
+      "hcmon USB-driver warnings12:36:14",
+      "SPP informational events",
+      "AppModel-State informational event12:40:01"
+    ],
+    "OOM_evidence_found": false,
+    "OOM_ruled_out": false
+  },
+  "snapshot": {
+    "timestamp": "2026-11-02T12:49:57.8664768+08:00",
+    "free_physical_GiB": 7.891319274902344,
+    "free_commit_GiB": 4.648002624511719,
+    "commit_limit_GiB": 35.776512145996094,
+    "automatic_managed_pagefile": true,
+    "pagefile_name": "C:/pagefile.sys",
+    "pagefile_allocated_MB": 4518,
+    "pagefile_current_MB": 1152,
+    "pagefile_peak_MB": 3701
+  },
+  "directory_checks": {
+    "relative_path": ".Xil/Vivado-43376-MILK/realtime",
+    "path_characters": 124,
+    "only_remaining_child": "v024_unified_top.tcl",
+    "child_path_characters": 145,
+    "child_length_bytes": 10065,
+    "child_lastwrite_local": "2026-11-02 12:38:10",
+    "child_attributes": "Archive",
+    "directory_attributes": "Directory",
+    "LongPathsEnabled": 1,
+    "read_only_exclusive_file_open": "succeeded at check time; file content not changed",
+    "ACL": "owner MILK/liuka; Modify allowed; no obvious delete-deny shown",
+    "lock_holder_identified": false,
+    "persistent_file_lock_proven_now": false,
+    "transient_original_lock_possible": true,
+    "long_path_limit_evidence": false
+  },
+  "process_snapshot_local": "2026-11-02 approximately12:48",
+  "processes_observed": [
+    {
+      "pid": 40860,
+      "name": "vivado.exe",
+      "role": "Luna layout_v12 OOC",
+      "created_local": "12:47:34"
+    },
+    {
+      "pid": 6248,
+      "name": "parallel_synth_helper.exe",
+      "role": "helper keyed to40860",
+      "created_local": "12:47:55"
+    }
+  ],
+  "failed_pid_43376_present": false,
+  "inference": {
+    "strongest_direct_evidence": "temporary-directory cleanup/delete failure",
+    "memory": "material pressure risk from7.65GB peak and limited system commit; failure not proven to be OOM",
+    "lock": "owner unknown; no historical handle trace; read-only exclusive open now succeeds",
+    "path": "failed directory and surviving child below260chars; shorter scratch reasonable isolation but long-path cause unproven"
+  },
+  "minimal_recommendations": [
+    "Preserve failed scratch/logs; use a new isolated short scratch for retry.",
+    "Avoid overlapping heavy EDA runs; ensure owned child/helper processes actually exit before retry.",
+    "Reuse hash-bound generated official FMA DCP to avoid duplicate synth_ip memory retention, with usual no-blackbox checks.",
+    "Record available system commit during retry; do not infer success or root cause from cleanup error alone."
+  ],
+  "public_search": {
+    "source": "GitHub connected search",
+    "related_issue": "https://github.com/eirikpre/VSCode-SystemVerilog/issues/204",
+    "use": "example of editor-indexing lock reports only; no evidence this extension is installed or caused this failure"
+  }
+}

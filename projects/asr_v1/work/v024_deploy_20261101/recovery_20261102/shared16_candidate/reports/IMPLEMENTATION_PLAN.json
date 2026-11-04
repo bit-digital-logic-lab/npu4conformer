@@ -1,0 +1,20 @@
+{
+  "status": "PREPARED_NOT_EXECUTED",
+  "usr_access": "0xA51A2491",
+  "platform_sha256": "5c1555994ef3953cb62830bfd33165b60c86e494a3d3a39562aadafddd187bba",
+  "script_sha256": "d79f505dbdd10544b7a8289209297bb9cf7a3fc19005e45ece225d1f63ceefed",
+  "source_platform": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\core_peripheral_candidate\\build\\platform_synth_copy.dcp",
+  "part": "xczu15eg-ffvb1156-2-i",
+  "clock_period_ns": 20,
+  "placement": [
+    "GPlace.ReduceCongestion.high",
+    "DPlace.ReducePinDensity.high"
+  ],
+  "route": "AlternateCLBRouting",
+  "requires": "Reviewed exact-source functional regression and core synthesis; no hardware access",
+  "usr_access_property_readback_checks": 2,
+  "implementation_runner_binds_script_to_plan_and_ready_gate": true,
+  "scope": "One shared original 16x16 array, original PE, bank mapping and controller fault drain fixes",
+  "required_array_instances": 1,
+  "required_pe_instances": 256
+}

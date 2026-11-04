@@ -1,0 +1,11 @@
+{
+  "stage": "shell_synthesis",
+  "status": "PROCESS_EXITED",
+  "started": "2026-11-02T19:35:32.039771+08:00",
+  "plan_sha256": "16336f07f7036230ad0f4bfed92696da26bbfd87d92ccaec99033089b9170941",
+  "script_sha256": "03f11f614b1b214f0ed59eee5f54663a02b3cdefc78e44c275486ac656f936d8",
+  "vivado_log": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\logs\\shell_20261102_193532.log",
+  "launcher_pid": 10568,
+  "finished": "2026-11-02T19:44:28.035752+08:00",
+  "exit_code": 0
+}

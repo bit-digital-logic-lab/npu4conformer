@@ -1,0 +1,20 @@
+[
+  {
+    "case": "v024_bound128",
+    "node_count": 128,
+    "expected_error": 0,
+    "sha256": "d9ff36d5efb2bf7120c8fa4c4e306d2e0931eba5fdf745735c0c3a86f5ff4e8c"
+  },
+  {
+    "case": "v024_over129",
+    "node_count": 129,
+    "expected_error": 4,
+    "sha256": "caf06b804ec903346bb36fe0b83a26cfa4837f90fc7cbd67e4811d6f20476d25"
+  },
+  {
+    "case": "v024_baddep128",
+    "node_count": 2,
+    "expected_error": 4,
+    "sha256": "c6db0566e35eaed6764974fd048e31c8ffe9aeb74f8f717518563ff728a793cd"
+  }
+]

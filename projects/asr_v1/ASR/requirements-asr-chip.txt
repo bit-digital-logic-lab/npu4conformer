@@ -1,0 +1,11 @@
+# 专用 ASR_chip 环境；先安装 constraints 中配对的 CUDA PyTorch/torchaudio。
+# 完整实测版本将在 environment/ASR_chip-pip-freeze.txt 中记录。
+espnet @ https://github.com/espnet/espnet/archive/2d9a6c37c8eef710debc903d86132f1ad9a40c9f.zip
+numpy==2.3.5
+soundfile==0.13.1
+jiwer==4.0.0
+loralib==0.1.2
+PyYAML==6.0.3
+sentencepiece==0.2.1
+pytest==8.3.5
+

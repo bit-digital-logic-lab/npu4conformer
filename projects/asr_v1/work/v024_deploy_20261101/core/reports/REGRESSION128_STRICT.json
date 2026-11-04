@@ -1,0 +1,90 @@
+{
+  "status": "PASS",
+  "scope": "MAX_NODES=128 real vendor FMA IP XSim; original eleven and three boundary cases; no board claim",
+  "cases": [
+    {
+      "case": "v024_fused",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 18731
+    },
+    {
+      "case": "v024_fallback",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 16948
+    },
+    {
+      "case": "v024_multicons",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 19317
+    },
+    {
+      "case": "v024_badflag",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 384
+    },
+    {
+      "case": "v024_hold",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 30731
+    },
+    {
+      "case": "v024_bound128",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 4054
+    },
+    {
+      "case": "v024_over129",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 268
+    },
+    {
+      "case": "v024_baddep128",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 324
+    },
+    {
+      "case": "base_normal",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 23892
+    },
+    {
+      "case": "base_multitask",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 25830
+    },
+    {
+      "case": "base_bad_queue_magic",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 10556
+    },
+    {
+      "case": "base_bad_vec_op",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 12456
+    },
+    {
+      "case": "base_hold_b_c",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 13563
+    },
+    {
+      "case": "v024_lane",
+      "status": "PASS",
+      "output_words": 64,
+      "cycles": null
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "total_seconds": 10.290774247742478,
+  "disjoint_parts": [
+    {
+      "name": "pl_graph_with_ddr",
+      "seconds": 4.7822112937500005
+    },
+    {
+      "name": "ps_c48_unpack_dequant_bias",
+      "seconds": 3.9504654846548464
+    },
+    {
+      "name": "ps_depthwise",
+      "seconds": 0.6783822038220382
+    },
+    {
+      "name": "ps_layernorm",
+      "seconds": 0.2726149161491615
+    },
+    {
+      "name": "ps_swish",
+      "seconds": 0.13731863318633186
+    },
+    {
+      "name": "activation_and_dynamic_weight_pack",
+      "seconds": 0.3547582275822758
+    },
+    {
+      "name": "ps_glu_softmax",
+      "seconds": 0.023853538535385355
+    },
+    {
+      "name": "submit_overhead",
+      "seconds": 0.010568864051577087
+    },
+    {
+      "name": "other",
+      "seconds": 0.0806010860108601
+    }
+  ],
+  "excluded_overlaps": [
+    {
+      "name": "submit_and_wait",
+      "seconds": 4.792780157801578,
+      "reason": "Includes PL graph interval; not added again"
+    }
+  ],
+  "source": "20261102_222451_profile/encode/profile.json"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PROCESS_EXITED",
+  "stage": "check2",
+  "started": "2026-11-02T16:50:25.505455+08:00",
+  "pid": 45332,
+  "script_sha256": "5e00bf66a0a4845efa491345ee71c1dc10a664a875ae356e124db2013137d1ad",
+  "plan_sha256": "d6e7bed5ee61d400fe66f047ad27b7845a27264c12340f6624a6d1d0e0f2e211",
+  "finished": "2026-11-02T16:50:25.574854+08:00",
+  "exit_code": 0,
+  "log_sha256": "ce549be1bf747ea3cc2cd340eefa5e70fb4819298dda81fceded7210266534df"
+}

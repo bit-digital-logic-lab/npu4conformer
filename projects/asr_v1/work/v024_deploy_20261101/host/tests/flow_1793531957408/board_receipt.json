@@ -1,0 +1,13 @@
+{
+  "schema": "1",
+  "evidence_kind": "in_memory_test_only",
+  "execution_state": "failed",
+  "axi_name": "mock_axi",
+  "vivado_version": "2025.2",
+  "poll_timeout_ms": "1000",
+  "utc_started": "2026-11-01T11:19:17Z",
+  "stage": "verify_board_identity",
+  "board_magic": "0",
+  "capacity": "0",
+  "error_message": "wrong board-control magic; no write issued"
+}

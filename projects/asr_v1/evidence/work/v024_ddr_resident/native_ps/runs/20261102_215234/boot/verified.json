@@ -1,0 +1,24 @@
+{
+  "mode": "boot",
+  "mailbox": {
+    "magic": 1347629620,
+    "abi": 1,
+    "state": 1,
+    "capabilities": 7,
+    "request_seq": 0,
+    "response_seq": 0,
+    "command": 0,
+    "feature_frames": 0,
+    "result": 0,
+    "encoder_frames": 0,
+    "pl_calls": 0,
+    "stage": 0,
+    "ticks_lo": 0,
+    "ticks_hi": 0,
+    "timer_hz": 33333000,
+    "selftest_mask": 0
+  },
+  "mailbox_sha256": "34cd0f3be53fd4f250df4e1de1f60ab8061dc231d7570e1460e378ad81609e2b",
+  "board_elapsed_seconds": 0.0,
+  "passed": true
+}

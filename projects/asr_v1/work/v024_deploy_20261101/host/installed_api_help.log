@@ -1,0 +1,672 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sun Nov  1 19:15:59 2026
+# Process ID         : 27472
+# Current directory  : C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/host
+# Command line       : vivado.exe -mode batch -nojournal -log installed_api_help.log -source probe_api_help.tcl
+# Log file           : C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/host/installed_api_help.log
+# Journal file       : 
+# Running On         : MILK
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26300
+# Processor Detail   : Intel(R) Core(TM) Ultra 9 275HX
+# CPU Frequency      : 3072 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 24
+# Host memory        : 33676 MB
+# Swap memory        : 5393 MB
+# Total Virtual      : 39069 MB
+# Available Virtual  : 869 MB
+#-----------------------------------------------------------
+source probe_api_help.tcl
+# load_features labtools
+# puts [help get_hw_axis]
+get_hw_axis
+
+Description: 
+Get a list of hardware AXI objects.
+
+Syntax: 
+get_hw_axis  [-of_objects <args>] [-regexp] [-nocase] [-filter <arg>] [-quiet]
+             [-verbose] [<patterns>]
+
+Returns: 
+hw_axi
+
+Usage: 
+  Name           Description
+  --------------------------
+  [-of_objects]  Get 'hw_axi' objects of these types: 'hw_device'.
+  [-regexp]      Patterns are full regular expressions
+  [-nocase]      Perform case-insensitive matching. (valid only when -regexp 
+                 specified)
+  [-filter]      Filter list with expression
+  [-quiet]       Ignore command errors
+  [-verbose]     Suspend message limits during command execution
+  [<patterns>]   Match the 'hw_axi' objects against patterns.
+                 Default: *
+
+Categories: 
+Hardware, Object
+
+Description:
+
+  Returns the JTAG to AXI Master core objects, or hw_axi objects, defined on
+  the current hardware device.
+
+  The JTAG to AXI Master is a customizable IP core that works as an AXI
+  Master to drive AXI transactions and drive AXI signals that are internal to
+  the hardware device. This IP can be used in Vivado IP integrator or can be
+  instantiated from the Xilinx IP catalog into the HDL of a Vivado project.
+  Run-time interaction with this core requires the use of the Vivado logic
+  analyzer feature.
+
+  The JTAG-AXI core supports all memory-mapped AXI interfaces, except
+  AXI4-Stream, and supports the AXI-Lite protocol. The AXI interface can be
+  defined as a property of the core. The width of the AXI data bus is
+  customizable. This IP can drive any AXI4-Lite or Memory Mapped Slave
+  directly, and can also be connected as the AXI Master to the interconnect.
+  Detailed documentation on the IP core can be found in the LogiCORE IP JTAG
+  to AXI Master Product Guide (PG174). A tutorial showing its use can be
+  found in the Vivado Design Suite Tutorial: Programming and Debugging
+  (UG936).
+
+  AXI cores can be found in the synthesized or implemented design netlist
+  using the get_debug_cores command. This will return instances of the debug
+  cores in the design that are related to the hw_axi objects, and other debug
+  cores on the hw_device.
+
+  This command returns a list of AXI Master core objects, hw_axis, on the
+  hw_device, or returns an error if it fails.
+
+Arguments:
+
+  -of_objects <arg> - (Optional) Return the AXI Master cores of the specified
+  hardware devices. The devices must be specified as objects using the
+  get_hw_devices or the current_hw_device commands.
+
+  Note: The -of_objects option requires objects to be specified using the
+  get_* commands, such as get_cells or get_pins, rather than specifying
+  objects by name. In addition, -of_objects cannot be used with a search
+  <pattern>.
+
+  -regexp - (Optional) Specifies that the search <patterns> are written as
+  regular expressions. Both search <patterns> and -filter expressions must be
+  written as regular expressions when this argument is used. AMD regular
+  expression Tcl commands are always anchored to the start of the search
+  string. You can add ".*" to the beginning or end of a search string to
+  widen the search to include a substring. See
+  http://perldoc.perl.org/perlre.html for help with regular expression
+  syntax.
+
+  Note: The Tcl built-in command regexp is not anchored, and works as a
+  standard Tcl command. For more information refer to
+  http://www.tcl.tk/man/tcl8.5/TclCmd/regexp.htm.
+
+  -nocase - (Optional) Perform case-insensitive matching when a pattern has
+  been specified. This argument applies to the use of -regexp only.
+
+  -filter <args> - (Optional) Filter the results list with the specified
+  expression. The -filter argument filters the list of objects returned by
+  get_hw_axis based on property values on the AXI Master cores. You can find
+  the properties on an object with the report_property or list_property
+  commands. In the case of the "hw_axi" object, "NAME" and "PROTOCOL" are two
+  of the properties that can be used to filter results.
+
+  The filter search pattern should be quoted to avoid having to escape
+  special characters that may be found in net, pin, or cell names, or other
+  properties. String matching is case-sensitive and is always anchored to the
+  start and to the end of the search string. The wildcard "*" character can
+  be used at the beginning or at the end of a search string to widen the
+  search to include a substring of the property value.
+
+  Note: The filter returns an object if a specified property exists on the
+  object, and the specified pattern matches the property value on the object.
+  In the case of the "*" wildcard character, this will match a property with
+  a defined value of "".
+
+  For string comparison, the specific operators that can be used in filter
+  expressions are "equal" (==), "not-equal" (!=), "match" (=~), and
+  "not-match" (!~). Numeric comparison operators <, >, <=, and >= can also be
+  used. Multiple filter expressions can be joined by AND and OR (&& and ||).
+  The following gets input pins that do NOT contain the "RESET" substring
+  within their name:
+
+    get_pins * -filter {DIRECTION == IN && NAME !~ "*RESET*"} 
+    
+
+  Boolean (bool) type properties can be directly evaluated in filter
+  expressions as true or not true:
+
+    -filter {IS_PRIMITIVE && !IS_LOC_FIXED} 
+    
+
+  -quiet - (Optional) Execute the command quietly, returning no messages from
+  the command. The command also returns TCL_OK regardless of any errors
+  encountered during execution.
+
+  Note: Any errors encountered on the command-line, while launching the
+  command, will be returned. Only errors occurring inside the command will be
+  trapped.
+
+  -verbose - (Optional) Temporarily override any message limits and return
+  all messages from this command.
+
+  Note: Message limits can be defined with the set_msg_config command.
+
+  <patterns> - (Optional) Match hw_axi objects against the specified
+  patterns. The default pattern is the wildcard `*` which gets a list of all
+  hw_axis available on the current hardware device.
+
+Example:
+
+  The following example gets the ILA debug cores defined on the current
+  hardware device:
+
+    get_hw_axis -of_objects [current_hw_device] 
+    
+
+See Also:
+
+   *  connect_hw_server
+   *  current_hw_device
+   *  program_hw_devices
+   *  set_property
+
+# puts [help connect_hw_server]
+connect_hw_server
+
+Description: 
+Open a connection to a hardware server
+
+Syntax: 
+connect_hw_server  [-url <arg>] [-cs_url <arg>] [-quiet] [-verbose]
+
+Returns: 
+hardware server
+
+Usage: 
+  Name        Description
+  -----------------------
+  [-url]      hw_server url
+              Default: localhost:3121
+  [-cs_url]   Url to use for cs_server.  If default url is used and no server
+              is running there, cs_server will be automatically launched on 
+              the default url.
+              Default: TCP:localhost:3042
+  [-quiet]    Ignore command errors
+  [-verbose]  Suspend message limits during command execution
+
+Categories: 
+Hardware
+
+Description:
+
+  Note: You must use the open_hw command to open the Hardware Manager in the
+  Vivado Design Suite before using this command.
+
+  To open a hardware target containing a JTAG chain of one or more devices,
+  for programming and/or debugging your design, you must first connect to a
+  AMD Vivado tools hardware server (hw_server) to manage the connection to
+  the hardware target (hw_target).
+
+  The hw_server manages the connection to the physical programming target. It
+  should be running on the machine connected to the hardware programmer, or
+  test board, connected either locally or remotely. The hw_server command
+  must be launched as a separate application, and can be found in the /bin
+  folder of your Vivado Design Suite installation directory.
+
+  To connect to a hardware server, the hw_server application must be running,
+  and the host name and port number noted for the -url argument of the
+  connect_hw_server command. The default URL for the hw_server process is
+  localhost:3121. For more information on setting up and running the Vivado
+  hardware server, refer to the Vivado Design Suite User Guide: Programming
+  and Debugging (UG908).
+
+  You can connect a single instance of the Vivado Design Suite to multiple
+  hardware servers, to support programming and debugging different device
+  configurations. However, you can only have one connection to a specific
+  hardware server as identified by the host name/port number combination. An
+  error is returned if you attempt to open a connection to a server that is
+  already connected.
+
+  The last connected hardware server is the current hardware server, unless
+  changed by the current_hw_server command. Any connected server can be
+  disconnected with the disconnect_hw_server command.
+
+  This command returns the host name of the hardware server that has been
+  connected.
+
+Arguments:
+
+  -url <arg> - (Optional) The URL of the running hw_server application. The
+  URL consists of <hostname>:<port_number>. The default setting is
+  localhost:3121.
+
+  -quiet - (Optional) Execute the command quietly, returning no messages from
+  the command. The command also returns TCL_OK regardless of any errors
+  encountered during execution.
+
+  Note: Any errors encountered on the command-line, while launching the
+  command, will be returned. Only errors occurring inside the command will be
+  trapped.
+
+  -verbose - (Optional) Temporarily override any message limits and return
+  all messages from this command.
+
+  Note: Message limits can be defined with the set_msg_config command.
+
+Example:
+
+  The following example connects to the hw_server on the remote host
+  trumpet3, through port 3121:
+
+    connect_hw_server -url trumpet3:3121
+
+  The following example connects to a running hw_server that is running
+  locally with the default URL
+
+    connect_hw_server
+
+  Note: The hw_server command must be run separately prior to connection.
+
+See Also:
+
+   *  current_hw_server
+   *  disconnect_hw_server
+   *  get_hw_servers
+   *  get_hw_targets
+   *  refresh_hw_server
+
+# puts [help refresh_hw_device]
+refresh_hw_device
+
+Description: 
+Refresh a hardware device. Read device and core information from device.
+
+Syntax: 
+refresh_hw_device  [-update_hw_probes <arg>] [-disable_done_check]
+                   [-force_poll] [-quiet] [-verbose] [<hw_device>]
+
+Usage: 
+  Name                   Description
+  ----------------------------------
+  [-update_hw_probes]    Update hardware probe information, read from probes 
+                         file
+  [-disable_done_check]  Disable done check for refresh device
+  [-force_poll]          Force poll of all targets
+  [-quiet]               Ignore command errors
+  [-verbose]             Suspend message limits during command execution
+  [<hw_device>]          hardware device
+                         Default: current hardware device
+
+Categories: 
+Hardware
+
+Description:
+
+  Refreshes the in-memory view of the device by scanning for debug and IBERT
+  cores on the specified hw_device object, and also reads a probe file when
+  directed.
+
+  The Hardware Manager in the Vivado Design Suite creates, deletes, or
+  updates the hw_ila, hw_vio, hw_sio*, and hw_axi objects based on the core
+  information found in the device, and also what is read from the probes file
+  in the case of ILA and VIO debug cores.
+
+  Use the refresh_hw_device after the program_hw_devices to keep the
+  in-memory hardware debug objects in sync with the state of the actual cores
+  on the physical device.
+
+Arguments:
+
+  -update_hw_probes <arg> - (Optional) Update the probes file (.ltx)
+  associated with the specified device by reading the specified probes file.
+
+  Note: The probes file is associated with a hw_device object through the use
+  of the set_property command to define the PROBES.FILE property.
+
+  -disable_done_check - (Optional) Disable the DONE check to enable the
+  hardware manager to scan for debug cores on the current device, even if the
+  DONE pin status is low. A High signal on the DONE pin indicates completion
+  of the configuration sequence. The DONE check waits for the high state on
+  the DONE pin to confirm configuration is complete.
+
+  -quiet - (Optional) Execute the command quietly, returning no messages from
+  the command. The command also returns TCL_OK regardless of any errors
+  encountered during execution.
+
+  Note: Any errors encountered on the command-line, while launching the
+  command, will be returned. Only errors occurring inside the command will be
+  trapped.
+
+  -verbose - (Optional) Temporarily override any message limits and return
+  all messages from this command.
+
+  Note: Message limits can be defined with the set_msg_config command.
+
+  <hw_device> - (Optional) Specify the hw_device object to refresh. The
+  hw_device must be specified as an object as returned by the get_hw_devices
+  or the current_hw_device commands. If the hardware device is not specified,
+  the current_hw_device will be returned.
+
+Example:
+
+  The following example refreshes the specified hw_device:
+
+    refresh_hw_device [lindex [get_hw_devices] 0]  
+    
+
+See Also:
+
+   *  current_hw_device
+   *  get_hw_devices
+   *  program_hw_devices
+
+# puts [help program_hw_devices]
+program_hw_devices
+
+Description: 
+Program hardware devices
+
+Syntax: 
+program_hw_devices  [-key <arg>] [-clear] [-skip_program_keys]
+                    [-skip_program_rsa] [-user_efuse <arg>]
+                    [-user_efuse_128 <arg>] [-control_efuse <arg>]
+                    [-security_efuse <arg>] [-only_export_efuse]
+                    [-svf_file <arg>] [-efuse_export_file <arg>]
+                    [-disable_eos_check] [-skip_reset] [-force] [-append]
+                    [-type <arg>] [-mpsoc_reset <arg>] [-controls_efuse <arg>]
+                    [-efuse_json <arg>] [-select_efuse <arg>]
+                    [-freq_efuse <arg>] [-verbose] [-finalize_efuse] [-quiet]
+                    [<hw_device>...]
+
+Returns: 
+hardware devices
+
+Usage: 
+  Name                  Description
+  ---------------------------------
+  [-key]                key option value for encryption programming: 
+                        efuse,bbr,none
+  [-clear]              clear bbr registers, only valid for bbr
+  [-skip_program_keys]  skip programming keys specified in NKY file, if any
+  [-skip_program_rsa]   skip programming RSA key specified in NKY file, if 
+                        any
+  [-user_efuse]         hex user fuse value for encryption programming
+  [-user_efuse_128]     hex user fuse 128 bit value for encryption 
+                        programming
+  [-control_efuse]      hex control fuse value for encryption programming
+  [-security_efuse]     hex security fuse value for encryption programming
+  [-only_export_efuse]  do not program eFUSE; just export settings to 
+                        efuse_export_file
+  [-svf_file]           svf file used to program device
+  [-efuse_export_file]  output file to store programmed eFUSE settings (.nkz 
+                        or .json for Spartan UltraScale+)
+  [-disable_eos_check]  Disables End of Startup check after programming
+  [-skip_reset]         Skips resetting the device before programming
+  [-force]              overwrites svf file and creates empty file
+  [-append]             append to svf file
+  [-type]               bitstream file type to be used for programming: 
+                        bit,bin,rbt
+  [-mpsoc_reset]        System reset MPSoC device before programming: yes, 
+                        no, auto
+  [-controls_efuse]     space-separated list of control bits to set (Spartan 
+                        UltraScale+ only)
+  [-efuse_json]         JSON file path for eFUSE programming (Spartan 
+                        UltraScale+ only)
+  [-select_efuse]       space-separated list of registers from JSON to write 
+                        (Spartan UltraScale+ only)
+  [-freq_efuse]         frequency for eFUSE programming in Hz (Spartan 
+                        UltraScale+ only)
+                        Default: 0
+  [-verbose]            enable verbose debug output during programming
+  [-finalize_efuse]     required when programming PPK0/PPK1/PPK2 or 
+                        force-required control registers
+  [-quiet]              Ignore command errors
+  [<hw_device>]         list of hardware devices
+                        Default: current hardware device
+
+Categories: 
+Hardware
+
+Description:
+
+  Program the specified hardware device object or objects on the open
+  hardware target of the current hardware server.
+
+  To access an AMD FPGA through the Hardware Manager, you must use the
+  following Tcl command sequence:
+
+   *  open_hw - Opens the Hardware Manager in the AMD Vivado Design Suite.
+
+   *  connect_hw_server - Makes a connection to a local or remote Vivado
+      hardware server application.
+
+   *  current_hw_target - Defines the hardware target of the connected server.
+
+   *  open_hw_target - Opens a connection to the hardware target.
+
+   *  current_hw_device - Specifies the AMD FPGA to use for programming and
+      debugging.
+
+  After connecting to the target hardware device, you must associate the
+  bitstream file (.bit, .rbt, .bin) from the design with the device, using
+  the set_property command:
+
+    set_property PROGRAM.FILE {C:/Data/design.bit} [current_hw_device]
+
+  For debug purposes, you can also associate a probes file (.ltx) with the
+  device using the PROBES.FILE property:
+
+    set_property PROBES.FILE {C:/Data/debug_nets.ltx} [current_hw_device]
+
+  Once the programming file has been associated with the hardware device, you
+  can program the hardware device using the program_hw_devices command, and
+  debug the device using any of a number of Hardware Manager Tcl commands. To
+  interactively debug the device open the Hardware Manager in the Vivado
+  Design Suite IDE.
+
+  You can also program an encrypted bitstream into the specified hw_device.
+  This requires the implemented design to have encryption properties assigned
+  prior to generating the bitstream with the write_bitstream command. You can
+  add ENCRYPTION properties to the design most easily using the Encryption
+  page of the Edit Device Properties dialog box in the Vivado IDE. Refer to
+  the Vivado Design Suite User Guide: Programming and Debugging (UG908) for
+  more information on the Edit Device Properties dialog box.
+
+  Programming a device for an encrypted bitstream is a two-step process that
+  requires running program_hw_devices once to program the encryption key into
+  the BBR or eFUSE registers, and a second time to program the encrypted
+  bitstream into the device:
+
+    program_hw_devices -key bbr [current_hw_device]
+    program_hw_device [current_hw_device]
+
+  Caution: eFUSEs are one-time programmable cells on the hardware device,
+  used to store the factory-programmed Device DNA, AES-GCM encryption key,
+  and user specified values. Refer to the UltraScale Architecture
+  Configuration (UG570) or 7 Series FPGAs Configuration User Guide (UG470)
+  for more information on eFUSE registers.
+
+  The program_hw_devices command can also generate a Serial Vector Format
+  (SVF) file for in-system and remote programming of Xilinx devices. SVF is
+  an industry standard file format that is used to describe JTAG chain
+  operations by describing the information that needs to be shifted into the
+  device chain. SVF files are ASCII files that can be written and modified in
+  any text editor. Many third-party programming utilities can use the SVF
+  file to program Xilinx devices in a JTAG chain.
+
+  This command returns a transcript of its actions, or returns an error if it
+  fails.
+
+Arguments:
+
+  -key [ bbr | efuse ] - (Optional) Specify that the encryption key should be
+  programmed into the battery-backed SRAM or the eFUSE registers of the
+  specified hw device. The encryption key is defined in the encryption key
+  (NKY or NKZ) file generated by the write_bitstream command for encrypted
+  bit files, and is associated with the hw_bitstream object with the
+  ENCRYPTION.FILE property. The key value is extracted from the file and is
+  stored in the ENCRYPTION.KEY property of the hw_bitstream object associated
+  with the hardware device.
+
+  Tip: The encryption properties of the bitstream must be defined prior to
+  creating the bitstream with the write_bitstream command.
+
+  -clear - (Optional) Clear the encryption key from the currently programmed
+  battery-backed SRAM (BBR). Use the -clear option with -key and with the
+  hw_device to clear the encryption key from the BBR.
+
+  -user_efuse <arg> - (Optional) Specify a 32-bit value to program into the
+  FUSE_USER eFUSE Register of the hw_device or devices.
+
+  -user_efuse_128 <arg> - (Optional) Specify a 128-bit value to program into
+  the FUSE_USER eFUSE Register of the hw_device or devices.
+
+  -control_efuse <arg> - (Optional) Specify a value to program into the
+  FUSE_CNTL eFUSE Register of the hw_device or devices. The specified value
+  can be a 14 bit number for 7 series devices, or a 21 bit number for
+  UltraScale devices.
+
+  -security_efuse <arg> - (Optional) Specify a 256-bit value to program into
+  the security eFUSE Register of the hw_device or devices.
+
+  -controls_efuse <arg> - (Optional) Specify a space-separated or comma-separated 
+  list of control register names to program into the FUSE_CNTL eFUSE Register. 
+  This is an alternative to -control_efuse that allows specifying individual 
+  control bits by name rather than a raw hex value. Names are case-insensitive. 
+  For Spartan UltraScale+ devices.
+
+  -select_efuse <arg> - (Optional) Specify a space-separated or comma-separated 
+  list of eFUSE register types to selectively program from a JSON file. Names 
+  are case-insensitive. Supported values include: key, user, ppk0, ppk1, ppk2, 
+  puf_hash, iv, dec_only, spk_revoke_id, frequency. For Spartan UltraScale+ only.
+
+  -efuse_json <arg> - (Optional) Specify a JSON file path containing eFUSE 
+  register values for programming. Used with -select_efuse to specify which 
+  registers from the JSON file should be programmed. For Spartan UltraScale+ only.
+
+  -freq_efuse <arg> - (Optional) Specify the frequency in Hz for eFUSE programming 
+  operations. For Spartan UltraScale+ only.
+
+  -finalize_efuse - (Optional) Required when programming PPK0, PPK1, PPK2
+  registers or any control registers marked as force-required. This flag
+  confirms intentional programming of critical security registers.
+
+  -skip_reset - (Optional) Skip resetting the device before programming.
+
+  -mpsoc_reset <arg> - (Optional) Control system reset of MPSoC device before 
+  programming. Valid values are: yes, no, auto. For Zynq UltraScale+ devices only.
+
+  -only_export_efuse - (Optional) Do not program the eFUSE registers; just
+  export the eFUSE settings to the file specified by -efuse_export_file. This
+  lets you check the eFUSE programming for the device before committing it to
+  the eFUSE registers.
+
+  -svf_file <arg> - (Optional) Create an SVF output file while programming
+  the device. The SVF file can be used by third party tools, and also
+  supports JTAG transaction tracing and improving Bullseye coverage. You can
+  also generate an SVF file from a programmed hw_device using the
+  write_hw_svf command.
+
+  Note: If the path is not specified as part of the file name, the file will
+  be written into the current working directory, or the directory from which
+  the tool was launched.
+
+  -efuse_export_file <arg> - (Optional) Specifies an output file (.nkz or .json) 
+  to write the current eFUSE settings. For Spartan UltraScale+ devices, .json 
+  format is supported. If this option is not specified, the current eFUSE 
+  settings will be written to a file named export_<FUSE_DNA>.nkz, where 
+  <FUSE_DNA> is the DNA value from the device.
+
+  Note: If the path is not specified as part of the file name, the file will
+  be written into the current working directory, or the directory from which
+  the tool was launched.
+
+  -disable_eos_check - (Optional) Disables "End of Startup" (EOS) check after
+  programming.
+
+  -force - (Optional) Overwrite the specified SVF file or eFUSE file if one
+  already exists.
+
+  Tip: If -force is specified with -append, the -append option is ignored,
+  and a new SVF file is created overwriting the existing file.
+
+  -append - (Optional) Append the SVF output to the specified file rather
+  than overwriting it.
+
+  -type [ bit | bin | rbt ] - (Optional) Specifies the type of bitstream file
+  as either a standard bitstream (.bit), a binary bitstream without header
+  (.bin), or a raw bitstream which is an ASCII file (.rbt).
+
+  -quiet - (Optional) Execute the command quietly, returning no messages from
+  the command. The command also returns TCL_OK regardless of any errors
+  encountered during execution.
+
+  Note: Any errors encountered on the command-line, while launching the
+  command, will be returned. Only errors occurring inside the command will be
+  trapped.
+
+  -verbose - (Optional) Displays the eFUSE register values of the programmed
+  hw_device or devices.
+
+  <hw_device> - (Optional) One or more hw_device objects to program. The
+  hw_device must be specified as an object as returned by the get_hw_devices
+  command. If the device is not specified, the current_hw_device will be
+  programmed.
+
+Example:
+
+  The following example sets the current hw_device object, then sets the
+  PROGRAM.FILE property for the device, and programs the device:
+
+    current_hw_device [lindex [get_hw_devices] 0]
+    set_property PROGRAM.FILE {C:/Data/design.bit} [current_hw_device]
+    program_hw_devices [current_hw_device]
+
+  The following example programs the encryption key into the battery-backed
+  RAM (BBR), and then programs the current hw_device:
+
+    program_hw_devices -key bbr [current_hw_device]
+    program_hw_devices [current_hw_device]
+
+  The following example writes an SVF file from the programmed device:
+
+    program_hw_devices -force -svf_file {C:/Data/test1.svf} [current_hw_device]
+
+  This example clears the BBR encryption key programming:
+
+    program_hw_devices -key bbr -clear [current_hw_device]
+
+  The following example programs specific eFUSE registers from a JSON file 
+  (Spartan UltraScale+ only):
+
+    program_hw_devices -efuse_json {C:/Data/efuse_config.json} \
+                       -select_efuse {ppk0,user,key} \
+                       -finalize_efuse [current_hw_device]
+
+  This example programs control registers by name with case-insensitive handling:
+
+    program_hw_devices -controls_efuse {DEC_ONLY,User_Key_Wipe} \
+                       -finalize_efuse [current_hw_device]
+
+See Also:
+
+   *  connect_hw_server
+   *  create_hw_device
+   *  create_hw_target
+   *  current_hw_device
+   *  current_hw_target
+   *  get_hw_devices
+   *  get_hw_targets
+   *  open_hw_target
+   *  verify_hw_devices
+   *  write_bitstream
+   *  write_hw_svf
+
+# exit
+INFO: [Common 17-206] Exiting Vivado at Sun Nov  1 19:16:04 2026...

@@ -1,0 +1,32 @@
+{
+  "mode": "encode",
+  "mailbox": {
+    "magic": 1347629620,
+    "abi": 1,
+    "state": 3,
+    "capabilities": 7,
+    "request_seq": 3,
+    "response_seq": 3,
+    "command": 2,
+    "feature_frames": 168,
+    "result": 0,
+    "encoder_frames": 41,
+    "pl_calls": 485,
+    "stage": 300,
+    "ticks_lo": 343022378,
+    "ticks_hi": 0,
+    "timer_hz": 33333000,
+    "selftest_mask": 31
+  },
+  "mailbox_sha256": "6c0c05cb3e9a97e09924328e260ca5826f543c842ebc488eecb5cac5a2c9cf49",
+  "board_elapsed_seconds": 10.290774247742478,
+  "output_sha256": "c18836aa2255963e5be655b1cf9baebebcb0654348989f3961ad07465e8a4ceb",
+  "output_shape": [
+    41,
+    512
+  ],
+  "expected_pl_calls": 485,
+  "minimum": -2.653136730194092,
+  "maximum": 1.9675493240356445,
+  "passed": true
+}

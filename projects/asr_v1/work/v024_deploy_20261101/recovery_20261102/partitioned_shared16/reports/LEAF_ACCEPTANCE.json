@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "array_checkpoint_sha256": "51e66fed3280e5ba8314cc6a31d9fd4607d0260cd76ab377b3e4c30269cc8e53",
+  "leaf_script_sha256": "0bfba9ba7957597de93aa135e6b516b6e8de4c9615e2dc5e07fb29e6ec4709cf",
+  "partition_plan_sha256": "f7dacea464e848b36bf648895c314ba395fe8cd9866b1dce00185615ea90f6ad",
+  "receipt_sha256": "d8668d5bd55075a196d2f1afae6f6b92a9653ec2c422b77b0fa3af601ebeb753",
+  "log_sha256": "f60dc1b1a88a0582b54eb7ac69f133bbf2cd73cfc15e69b9f905d3e77bda96d0",
+  "parameters": {
+    "PIPE_STAGES": 4,
+    "ACCUM_MODE": 0,
+    "CPA_PIPE": 1
+  },
+  "pe_count": 256,
+  "blackboxes": 0,
+  "leaf_clocks_at_export": 0,
+  "scope": "OOC array only; no full-core timing or hardware claim"
+}

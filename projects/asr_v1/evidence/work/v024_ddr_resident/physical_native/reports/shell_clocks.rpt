@@ -1,0 +1,46 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date              : Mon Nov  2 19:44:26 2026
+| Host              : MILK running 64-bit major release  (build 9200)
+| Command           : report_clocks -file C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/reports/shell_clocks.rpt
+| Design            : ps_ddr_wrapper
+| Device            : xczu15eg-ffvb1156
+| Speed File        : -2  PRODUCTION 1.30 05-15-2022
+| Design State      : Synthesized
+| Temperature Grade : I
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+Clock Report
+
+
+Attributes
+  P: Propagated
+  G: Generated
+  A: Auto-derived
+  R: Renamed
+  V: Virtual
+  I: Inverted
+  S: Pin phase-shifted with Latency mode
+
+Clock     Period(ns)  Waveform(ns)    Attributes  Sources
+clk_pl_0  20.625      {0.000 10.312}  P           {ps_ddr_i/ps/inst/PS8_i/PLCLK[0]}
+
+
+====================================================
+Generated Clocks
+====================================================
+
+
+
+====================================================
+User Uncertainty
+====================================================
+
+
+
+====================================================
+User Jitter
+====================================================
+
+

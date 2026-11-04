@@ -1,0 +1,2 @@
+# Keep frozen manifests, RTL and verification inputs byte-identical.
+* -text

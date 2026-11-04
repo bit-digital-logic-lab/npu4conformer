@@ -1,0 +1,3 @@
+usr_access=0xA51A2493
+part=xczu15
+serial=210512180081

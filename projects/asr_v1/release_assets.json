@@ -1,0 +1,284 @@
+{
+  "release": "v1",
+  "file": "asr_v1_assets.zip",
+  "bytes": 1249045103,
+  "sha256": "e10392a684b04bf869dbc94c5ed0edcbe32db8d58901b7febdfd66de038c3153",
+  "file_count": 68,
+  "uncompressed_bytes": 1353211676,
+  "restore": "ZIP entries start with asr_v1/. Extract beside the project folder to overlay assets at the preserved relative paths.",
+  "contains_python_environment": false,
+  "files": {
+    "ASR/artifacts/pyf98_librispeech_conformer/README.md": {
+      "bytes": 67015,
+      "sha256": "7e38888dd002c0199f6d9526ad40e2e239ce2c2dac347926c1f783674faa4974"
+    },
+    "ASR/artifacts/pyf98_librispeech_conformer/data/en_token_list/bpe_unigram5000/bpe.model": {
+      "bytes": 325073,
+      "sha256": "ec50979d91eb9f1cccff2c2e50371c89f24b7df19cf02902362cf4bcce640eb5"
+    },
+    "ASR/artifacts/pyf98_librispeech_conformer/exp/asr_stats_raw_en_bpe5000_sp/train/feats_stats.npz": {
+      "bytes": 1402,
+      "sha256": "ec719c1ea25aee757c6df57352d6746ab944e26098e5e98555f56d8dc66a26e4"
+    },
+    "ASR/artifacts/pyf98_librispeech_conformer/exp/asr_train_asr_conformer8_raw_en_bpe5000_sp/config.yaml": {
+      "bytes": 61537,
+      "sha256": "add4f9af8dceb9c8dfaf01fdf385e178de352360e25b2a1d3f22591cf0a5f708"
+    },
+    "ASR/artifacts/pyf98_librispeech_conformer/exp/asr_train_asr_conformer8_raw_en_bpe5000_sp/valid.acc.ave.pth": {
+      "bytes": 464957733,
+      "sha256": "8e94fe626aefaec3662a101cba7e112fd108de4871602c34852c27b09384b21b"
+    },
+    "ASR/artifacts/pyf98_librispeech_conformer/meta.yaml": {
+      "bytes": 304,
+      "sha256": "c1f393187edcb3662fbc2621b8b990d2088b38c8ed28058b30814d5f7917ee86"
+    },
+    "ASR/artifacts/pyf98_librispeech_conformer/model_manifest.json": {
+      "bytes": 3419,
+      "sha256": "e4b9d80750b7d3bc157bd38d5e303c838b1ec14f12d6a7c920bdaf15f83d4599"
+    },
+    "ASR/third_party/espnet/espnet2/sds/end_to_end/mini_omni/utils/assets/silero_vad.onnx": {
+      "bytes": 1807524,
+      "sha256": "591f853590d11ddde2f2a54f9e7ccecb2533a8af7716330e8adfa6f3849787a9"
+    },
+    "work/v024_ddr_resident/native_model/board_loads/20261102_215608/capture/weights_readback.bin": {
+      "bytes": 84994048,
+      "sha256": "c0ce4706835a5a462c3b5efbe283a29026db188f1e2675a0588323d0d53bca19"
+    },
+    "work/v024_ddr_resident/native_model/weights.bin": {
+      "bytes": 84994048,
+      "sha256": "c0ce4706835a5a462c3b5efbe283a29026db188f1e2675a0588323d0d53bca19"
+    },
+    "work/v024_ddr_resident/native_ps/build/encoder.elf": {
+      "bytes": 169984,
+      "sha256": "682dfd8096d4e62e325b107857461fbfd85f53fe722e494025cfd7d4082d1068"
+    },
+    "work/v024_ddr_resident/native_ps/build/encoder.map": {
+      "bytes": 44024,
+      "sha256": "12e3866ee47a4c42269d19bf92f706a132f0b9cc40a4b47711283be17cbbd612"
+    },
+    "work/v024_ddr_resident/native_ps/build/encoder_build.json": {
+      "bytes": 423,
+      "sha256": "3b189ee5a9e338830da8e35bd36d29000b7dc9c09dd2a18c15f032b7a8e32a90"
+    },
+    "work/v024_ddr_resident/native_ps/build/pltest.elf": {
+      "bytes": 168464,
+      "sha256": "091d4daef418f48e897aca9c2f073b9150efdb8597f2339f53fbfc8807e5b2dc"
+    },
+    "work/v024_ddr_resident/native_ps/build/pltest.map": {
+      "bytes": 33679,
+      "sha256": "7c6a8d7a92a7546830f9f0b21a184c1e0868f5dc9cf274228b01f81f85ac53cb"
+    },
+    "work/v024_ddr_resident/native_ps/build/pltest_build.json": {
+      "bytes": 422,
+      "sha256": "74d8c399f9556b8c55950138b3a0cf71f34365cc8e9528f76c5deed99899a80a"
+    },
+    "work/v024_ddr_resident/native_ps/build/selftest.elf": {
+      "bytes": 168064,
+      "sha256": "4b5532fbc25201ff2b48e34facf71e6315a2ccb62ddc28ee1da08e53784c7c1d"
+    },
+    "work/v024_ddr_resident/native_ps/build/selftest.map": {
+      "bytes": 29522,
+      "sha256": "c112988d90dc9eaca653045558a6328f184205407dd3a879016f3ee148e4755f"
+    },
+    "work/v024_ddr_resident/native_ps/build/selftest_build.json": {
+      "bytes": 424,
+      "sha256": "f7e42c97ba62981308614c05499949900a4a02965b9cb579f46432fb7e8d40e0"
+    },
+    "work/v024_ddr_resident/native_ps/perf_candidate/encoder_profile.elf": {
+      "bytes": 170104,
+      "sha256": "5603019fcb94cd1f7d0889246ede0b2f2adb063f9373bbae37e7f7798b7dae7e"
+    },
+    "work/v024_ddr_resident/native_ps/perf_candidate/generated/native_ps/build/encoder.elf": {
+      "bytes": 170104,
+      "sha256": "5603019fcb94cd1f7d0889246ede0b2f2adb063f9373bbae37e7f7798b7dae7e"
+    },
+    "work/v024_ddr_resident/native_ps/perf_candidate/generated/native_ps/build/encoder.map": {
+      "bytes": 44489,
+      "sha256": "cf76db065764866d58de49d5dd872d6028742d72454c48c9cea9bea3b318a531"
+    },
+    "work/v024_ddr_resident/native_ps/perf_candidate/generated/native_ps/build/encoder_build.json": {
+      "bytes": 461,
+      "sha256": "ec80dbd56ae3e22e0ca891f55688dc892d10f0cb4e9f499909a04d2d94aaaf1d"
+    },
+    "work/v024_ddr_resident/network_native/reuse_synth/network_ooc.dcp": {
+      "bytes": 1058736,
+      "sha256": "053877d02bbdabd5897e45ba0a79801c228e6e43228d29dbcfc70737891dcdb9"
+    },
+    "work/v024_ddr_resident/network_native/reuse_synth/original_v022_top.dcp": {
+      "bytes": 26362476,
+      "sha256": "2d5116794e26060b651446162ade23d25f98e9b8a3565bd8cd6cc21fd0975ec8"
+    },
+    "work/v024_ddr_resident/physical_native/build/core_ddr_synth.dcp": {
+      "bytes": 66164230,
+      "sha256": "25bba57f451f75c7890b4223450316801f7a4a3b83f3aab382a2fa41191ca06c"
+    },
+    "work/v024_ddr_resident/physical_native/build/parent_unlinked.dcp": {
+      "bytes": 47594749,
+      "sha256": "ad6d67e1372e93be23fabf584dcad2b809bab5a89a8dcf09c21aacaa4b253a1c"
+    },
+    "work/v024_ddr_resident/physical_native/build/ps_ddr_synth.dcp": {
+      "bytes": 68528642,
+      "sha256": "ff1aa598d88f103cbf3505b01f9cb2e3077a22a79ec0f9359d904ed2c9dbc170"
+    },
+    "work/v024_ddr_resident/physical_native/build/shell_synth.dcp": {
+      "bytes": 2982202,
+      "sha256": "5dea9c015db09bbd8a85c072202545592daef0e44537cb4f2daa08d2df7fa5cb"
+    },
+    "work/v024_ddr_resident/physical_native/build/shell_timing.xdc": {
+      "bytes": 14409,
+      "sha256": "55005016ad9d6242dc5ef21accfd72c63e0a589b94ea4b7d0944162e3434b805"
+    },
+    "work/v024_ddr_resident/physical_native/physical/build/candidate_A51A2493.bit": {
+      "bytes": 20511274,
+      "sha256": "83aa98bde402ff88276365070fc58c4941d49aa62cb76148736f372967e4b221"
+    },
+    "work/v024_ddr_resident/physical_native/physical/build/optimized.dcp": {
+      "bytes": 40275707,
+      "sha256": "3848f1d70e0812d719f778a13772fcd1551eb298189947f7091d0061ca267c6a"
+    },
+    "work/v024_ddr_resident/physical_native/physical/build/physopt.dcp": {
+      "bytes": 100930621,
+      "sha256": "4c4860d90496f116b2e6fd98a83bdf65317906bc972dd59a75427d55c75d0026"
+    },
+    "work/v024_ddr_resident/physical_native/physical/build/placed.dcp": {
+      "bytes": 100930109,
+      "sha256": "6457cafe192fe6bac3106cf3c5a23d63cd57415be833bf39367e0b550c4bdc87"
+    },
+    "work/v024_ddr_resident/physical_native/physical/build/routed.dcp": {
+      "bytes": 140995208,
+      "sha256": "10b14cae472ba3f6ef0d592fc904c1ea70447bd81422b20e68da3bffcf533a56"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/build/array16_ooc_clockless.dcp": {
+      "bytes": 19796539,
+      "sha256": "51e66fed3280e5ba8314cc6a31d9fd4607d0260cd76ab377b3e4c30269cc8e53"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/build/candidate_synth.dcp": {
+      "bytes": 66205388,
+      "sha256": "fa1da198dba0a712f540b101e3c63fa6d64deec5834c5070aa201bcb51a57716"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/build/platform_synth_copy.dcp": {
+      "bytes": 9035267,
+      "sha256": "5c1555994ef3953cb62830bfd33165b60c86e494a3d3a39562aadafddd187bba"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.cache/sim/ssm.db": {
+      "bytes": 554,
+      "sha256": "e0c6314cdb9befdc70a8e73bdf30a39fe608099c346210806a300382fabc236f"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.cache/wt/project.wpc": {
+      "bytes": 65,
+      "sha256": "85f8b5037d834db44caeed3f3f8b2d9b80b4263f7b885abf7993ff0ff392fdfb"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.cache/wt/xsim.wdf": {
+      "bytes": 239,
+      "sha256": "b986f962cc352b71cac258678a0d4733322cc86dcac7a75a58cfc03cc7fbac68"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.hw/v024_combinedsim.lpr": {
+      "bytes": 425,
+      "sha256": "b373cf9663fa8b6acdd3cceeb201aea1c7fbbee5cf7c6d675bf0c6ccd52f4c69"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.ip_user_files/README.txt": {
+      "bytes": 130,
+      "sha256": "fe9e48b0b3fcff2e6267f4bc6bdef859fa1201c41ac49c473b9e414120b0a8c4"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.ip_user_files/ip/asr_fma_ip/asr_fma_ip.veo": {
+      "bytes": 3700,
+      "sha256": "068679a126459eabf237e8ac4f72bcbb989b97959a78fad1ee8d8070212bc1fd"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.ip_user_files/ip/asr_fma_ip/asr_fma_ip.vho": {
+      "bytes": 3896,
+      "sha256": "bd9616784f5963d6c59023e851f0388a25e9279cd4c63f6e415c0d60e89ce054"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/compile.bat": {
+      "bytes": 1271,
+      "sha256": "68f72aaf2abafc570b5e2e6e6a66886dea31f851bd68648862f974bad61a8d1f"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/dfx_runtime.txt": {
+      "bytes": 113,
+      "sha256": "9f9e707b5dd8a3df414166959494ed073a85615ebc19d2cc41f05e2e53e2f286"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/elaborate.bat": {
+      "bytes": 1586,
+      "sha256": "7cff227a0426918d3de19ac128d8905fb215861c24995c655f6c505b6524479f"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/glbl.v": {
+      "bytes": 1762,
+      "sha256": "6270251cf35e1fce3119fc79f8fb968912f7983027e43cf030409ba68f048936"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/simulate.bat": {
+      "bytes": 1652,
+      "sha256": "7e65957ac2f812a236b9095a5ba719576dc5a851d06100973013f1388a1cd6b7"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/simulate.log": {
+      "bytes": 761,
+      "sha256": "c41408ee686d73178ca767be5761b3762778b95994c4e307b754d7dea61133d5"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/tb_safety_integrated.tcl": {
+      "bytes": 11,
+      "sha256": "2dfc6980036ddb831a18198a339ba273e1314161ee48e0e4335b534262d88f82"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/tb_v024_epilogue.tcl": {
+      "bytes": 11,
+      "sha256": "2dfc6980036ddb831a18198a339ba273e1314161ee48e0e4335b534262d88f82"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/tb_v024_iterhash.tcl": {
+      "bytes": 11,
+      "sha256": "2dfc6980036ddb831a18198a339ba273e1314161ee48e0e4335b534262d88f82"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/tb_v024_iterhash_genfault.tcl": {
+      "bytes": 11,
+      "sha256": "2dfc6980036ddb831a18198a339ba273e1314161ee48e0e4335b534262d88f82"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/tb_v024_iterhash_genfault_vhdl.prj": {
+      "bytes": 165,
+      "sha256": "df418ccfd319dd5c5302e8489893aad70fec08b5bee2bd67d949672afecf9218"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/tb_v024_iterhash_genfault_vlog.prj": {
+      "bytes": 2971,
+      "sha256": "49e6f4a797e908175dc7d83a846186dbb5dac414b2b2ffee69b6ab39b23bc82b"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/xsim.ini": {
+      "bytes": 29729,
+      "sha256": "95ab6a47881a673dec722fa22772901f4f5ab5a47efe811ff7f110a37712eaaa"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/xsim.ini.bak": {
+      "bytes": 29729,
+      "sha256": "95ab6a47881a673dec722fa22772901f4f5ab5a47efe811ff7f110a37712eaaa"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/xvhdl.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.sim/sim_1/behav/xsim/xvlog.log": {
+      "bytes": 295,
+      "sha256": "616f362fb47a14dca5508356964f08b783c9483891fdbd3bb3e8c8250b4ae201"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/build/combinedsim/v024_combinedsim.xpr": {
+      "bytes": 28021,
+      "sha256": "fc522f31432a6a394c2e7c31cb4ec4b32672d06e8b9584b5aab08f195c4be137"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/ip/asr_fma_ip/generated/asr_fma_ip.dcp": {
+      "bytes": 479664,
+      "sha256": "3398344c3a787c46194e63ef81cd5968daa2bbcbd13176d1c2205819d8d6f10d"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/ip/asr_fma_ip/generated/cmodel/floating_point_v7_1_bitacc_cmodel_lin64.zip": {
+      "bytes": 557293,
+      "sha256": "aec072b7c1c70f95663f7ed9a5ea6809713dffcacdf1593c74a6201a7f91a881"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/regression/ip/asr_fma_ip/generated/cmodel/floating_point_v7_1_bitacc_cmodel_nt64.zip": {
+      "bytes": 716415,
+      "sha256": "d2d15d50a7bc50a68c6234b1b694c625a3d19267b3e88410520c8caf895c5110"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/shared16_candidate/ip/asr_fma_ip/generated/asr_fma_ip.dcp": {
+      "bytes": 479664,
+      "sha256": "3398344c3a787c46194e63ef81cd5968daa2bbcbd13176d1c2205819d8d6f10d"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/shared16_candidate/ip/asr_fma_ip/generated/cmodel/floating_point_v7_1_bitacc_cmodel_lin64.zip": {
+      "bytes": 557293,
+      "sha256": "aec072b7c1c70f95663f7ed9a5ea6809713dffcacdf1593c74a6201a7f91a881"
+    },
+    "work/v024_deploy_20261101/recovery_20261102/shared16_candidate/ip/asr_fma_ip/generated/cmodel/floating_point_v7_1_bitacc_cmodel_nt64.zip": {
+      "bytes": 716415,
+      "sha256": "d2d15d50a7bc50a68c6234b1b694c625a3d19267b3e88410520c8caf895c5110"
+    }
+  }
+}

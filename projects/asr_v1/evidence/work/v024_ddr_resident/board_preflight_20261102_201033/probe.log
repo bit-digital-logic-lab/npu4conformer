@@ -1,0 +1,22 @@
+  1  Digilent JTAG-HS1 210512180081
+     2  xczu15 (idcode 14750093 irlen 12 fpga)
+        3  bscan-switch (idcode 04900101 irlen 1 fpga)
+           4  debug-hub (idcode 04900220 irlen 1 fpga)
+     5  arm_dap (idcode 5ba00477 irlen 4)
+  1  PS TAP
+     2  PMU
+     3  PL
+        4  Legacy Debug Hub
+           5  JTAG2AXI
+  6  PSU
+     7  RPU (Reset)
+        8  Cortex-R5 #0 (RPU Reset)
+        9  Cortex-R5 #1 (RPU Reset)
+    10  APU (L2 Cache Reset)
+       11  Cortex-A53 #0 (APU Reset)
+       12  Cortex-A53 #1 (APU Reset)
+       13  Cortex-A53 #2 (APU Reset)
+       14  Cortex-A53 #3 (APU Reset)
+DDRC_STAT=0
+A53_PC=pc: N/A
+

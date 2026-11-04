@@ -1,0 +1,11 @@
+{
+  "stage": "parent_synth",
+  "status": "PROCESS_EXITED",
+  "started": "2026-11-02T19:34:09.973572+08:00",
+  "plan_sha256": "ca01537da29e3442726823c8f045649fd1c249ee814a407b205bb8e2960f59f9",
+  "script_sha256": "ce5f17ff5ed9c976c08e1c760bde2f03285cbd5068ef2acb73c34cab57bcb2eb",
+  "vivado_log": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\logs\\parent_20261102_193409.log",
+  "launcher_pid": 22424,
+  "finished": "2026-11-02T19:57:05.398850+08:00",
+  "exit_code": 0
+}

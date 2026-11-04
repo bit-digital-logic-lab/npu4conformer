@@ -1,0 +1,32 @@
+{
+  "scope": "V024 fused seven-node graph only; address mapping from wc_safety_bfm",
+  "regions": [
+    {
+      "logical_address": "0x04000000",
+      "bfm_flat_byte_offset": "0x40000",
+      "size": 65536,
+      "binary": "inputs\\fused_arena64k.bin",
+      "sha256": "5457eee58143119ebf4e3fe4f41776d47ec6db8fff1c9fdcb489dfad3b1a6754",
+      "ram128_init": "inputs\\fused_arena64k_128.mem",
+      "endianness": "AXI byte lane 0 at lowest logical address; 128-bit mem word written MSB-first hex"
+    },
+    {
+      "logical_address": "0x10000000",
+      "bfm_flat_byte_offset": "0xc0000",
+      "size": 65536,
+      "binary": "inputs\\fused_param64k.bin",
+      "sha256": "e1d385b587a47d63f5b2b358a95ec0c5ebd9d40e83ef52c678a3a0a4513ed9de",
+      "ram128_init": "inputs\\fused_param64k_128.mem",
+      "endianness": "AXI byte lane 0 at lowest logical address; 128-bit mem word written MSB-first hex"
+    },
+    {
+      "logical_address": "0x10003000",
+      "bfm_flat_byte_offset": "0xc3000",
+      "size": 256,
+      "binary": "inputs\\fused_pc64.bin",
+      "sha256": "cc08b15dfc27f2f1d5a1f1c2bc7bfec107dec9a18f18e364017f116cd65dfe11",
+      "ram128_init": "inputs\\fused_pc64_128.mem",
+      "endianness": "AXI byte lane 0 at lowest logical address; 128-bit mem word written MSB-first hex"
+    }
+  ]
+}

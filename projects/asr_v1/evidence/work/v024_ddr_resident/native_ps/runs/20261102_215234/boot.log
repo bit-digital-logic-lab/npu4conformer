@@ -1,0 +1,5 @@
+WARNING: If the reset is being triggered after powering on the device,
+          write bootloop at reset vector address (0xffff0000), or use
+          -clear-registers option, to avoid unpredictable behavior.
+          Further warnings will be suppressed
+NATIVE_BOOT_PASS ABI=1 CAPABILITIES=7

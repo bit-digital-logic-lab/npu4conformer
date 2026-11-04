@@ -1,0 +1,14 @@
+[
+  {
+    "path": "rtl/graph/v024_unified_top.sv",
+    "original_sha256": "31c4a732d24282724b0ba5cdece7d8d5d3937d95bb871bfe80f0711fe317e040",
+    "deployed_sha256": "4633270ed9a3af892ddcd433ad2686630be281c7afbb371c72a952bc2725b2e5",
+    "change": "Add MAX_NODES=128 top parameter and pass to graph controller. No WCPG ABI or arithmetic change."
+  },
+  {
+    "path": "rtl/graph/v023_integrated_top.sv",
+    "original_sha256": "47bd31bc459e215f649eb2153ac106bfbe9498116cb632147daaf8ecec9248a3",
+    "deployed_sha256": "4b0393f810ecd63170743f1bf2f571197cbb7bc75fa8c444706074dd5b2c79d3",
+    "change": "Add MAX_NODES=128 top parameter and pass to graph controller. No WCPG ABI or arithmetic change."
+  }
+]

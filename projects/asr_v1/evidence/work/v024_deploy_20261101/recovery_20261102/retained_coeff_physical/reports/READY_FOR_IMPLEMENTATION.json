@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "source_manifest_sha256": "78bed0c8d2a6da2f8304b16fb7492830d1acfe0e234f792a67b758f59993a333",
+  "core_checkpoint_sha256": "fa1da198dba0a712f540b101e3c63fa6d64deec5834c5070aa201bcb51a57716",
+  "platform_checkpoint_sha256": "5c1555994ef3953cb62830bfd33165b60c86e494a3d3a39562aadafddd187bba",
+  "implementation_script_sha256": "0186bb2f970455c7b3da4280283cf909f5a7860612ece698a43e467c89d456a8",
+  "functional_acceptance_sha256": "7e8e14e6e11f50b41724d8f56cfc1e22c632c390ac0806107d73befa6e9438f0",
+  "leaf_acceptance_sha256": "69997168f42015d7069fdae8895240cd84d4b5aed0c0e5632c60446681860a76",
+  "leaf_checkpoint_sha256": "51e66fed3280e5ba8314cc6a31d9fd4607d0260cd76ab377b3e4c30269cc8e53",
+  "partition_plan_sha256": "f7dacea464e848b36bf648895c314ba395fe8cd9866b1dce00185615ea90f6ad",
+  "v2_plan_sha256": "5c387c07b249ce38addbba138eb9bbe7739d2950521193c5a339fccde00bd0c1",
+  "parent_acceptance_sha256": "9475dcb90c0173c2e02f0d23501a75ead08d13216a67586f93bd3eef523a1fc0",
+  "parent_checkpoint_sha256": "855a30611164034f3b8f1e8c2298a1a106c265efe03c2960baf5a3458dfe2ac8",
+  "parent_receipt_sha256": "5195f912316764ab3285ac44f6503776388d26ed32135f9d7f3fed301b4ce1b1",
+  "parent_log_sha256": "5a97efebeb5f8b574f7b11555cd6cc67a84b3ce2470af1268d2803acc4546068",
+  "link_receipt_sha256": "e0962f12499fc6f06fb99ea06fa0e5d68425cc9640da084fe8ebcf5485075f93",
+  "link_log_sha256": "173d0cfb2ff595b7ff5de8580de7ee186e11f9c52735935d28e888e1831c5247",
+  "link_acceptance_sha256": "9ed234c12ebe60c1e781680db1bf5af637a1516d57d6c4d19c7f4e2272a25f41",
+  "requires_post_core_port_identity": true,
+  "fma_checkpoint_sha256": "3398344c3a787c46194e63ef81cd5968daa2bbcbd13176d1c2205819d8d6f10d",
+  "part": "xczu15eg-ffvb1156-2-i",
+  "clock_period_ns": 20,
+  "array_count": 1,
+  "pe_count": 256,
+  "blackboxes": 0,
+  "resources": {
+    "CLB LUTs*": {
+      "used": 231225.0,
+      "available": 341280.0,
+      "percent": 67.75
+    },
+    "LUT as Memory": {
+      "used": 31276.0,
+      "available": 184320.0,
+      "percent": 16.97
+    },
+    "CLB Registers": {
+      "used": 134094.0,
+      "available": 682560.0,
+      "percent": 19.65
+    },
+    "CARRY8": {
+      "used": 8235.0,
+      "available": 42660.0,
+      "percent": 19.3
+    },
+    "F7 Muxes": {
+      "used": 13049.0,
+      "available": 170640.0,
+      "percent": 7.65
+    },
+    "F8 Muxes": {
+      "used": 5853.0,
+      "available": 85320.0,
+      "percent": 6.86
+    },
+    "F9 Muxes": {
+      "used": 0.0,
+      "available": 42660.0,
+      "percent": 0.0
+    },
+    "Block RAM Tile": {
+      "used": 2.0,
+      "available": 744.0,
+      "percent": 0.27
+    },
+    "DSPs": {
+      "used": 279.0,
+      "available": 3528.0,
+      "percent": 7.91
+    }
+  },
+  "regression_plan_sha256": "d6e7bed5ee61d400fe66f047ad27b7845a27264c12340f6624a6d1d0e0f2e211",
+  "fix_acceptance_sha256": "82982ce839fa644ce4cfdd61e7ed493511a09a91849ba7981e85b0e4a428d9ad",
+  "scope": "2492 modified RTL two distinct OOC synthesis/link phases; no route, timing closure, or hardware claim"
+}

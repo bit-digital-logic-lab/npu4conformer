@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "independent post-core structural and OOC checks; not routed closure",
+  "core_checkpoint_sha256": "fa1da198dba0a712f540b101e3c63fa6d64deec5834c5070aa201bcb51a57716",
+  "underlying_receipt": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\reports\\postcore_20261102_171708_9fd0a4b8\\PROCESS_RECEIPT.json",
+  "underlying_receipt_sha256": "02e68c01c6a9f76d396cab6666248e541d6e5495501154739687afcea7d96819",
+  "underlying_acceptance_sha256": "0423767b043155460ee517ece5a7fe97a0cefaeadf2fa0ffb2632a8f6de3090b"
+}

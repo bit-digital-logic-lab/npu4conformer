@@ -1,0 +1,214 @@
+{
+  "metrics": {
+    "board_identity_tool_s": 18.26093440002296,
+    "xsdb_ready_wait_s": 2.773398699995596,
+    "model_load_s": 7.911766500037629,
+    "model_device": "cuda:0",
+    "norm_roundtrips_s": 2.565376600192394,
+    "norm_calls": 61,
+    "encode_including_board_s": 3.1067798999720253,
+    "beam_decode_s": 0.5903758000349626,
+    "entry_to_finish_s": 36.565596500004176,
+    "invoke_to_finish_s": 36.436708999972325,
+    "encode_pc_remainder_s": 0.5414032997796312,
+    "board_graph_s": 0.023699671875,
+    "norm_host_remainder_s": 2.541676928317394
+  },
+  "result": {
+    "type": "result",
+    "text": "HELLO BERTIE ANY GOOD IN YOUR MIND",
+    "tokens": [
+      "▁HE",
+      "LL",
+      "O",
+      "▁BE",
+      "RT",
+      "IE",
+      "▁ANY",
+      "▁GOOD",
+      "▁IN",
+      "▁YOUR",
+      "▁MIND"
+    ],
+    "token_ids": [
+      10,
+      89,
+      179,
+      26,
+      1256,
+      462,
+      97,
+      102,
+      8,
+      81,
+      240
+    ],
+    "hardware_calls": 61,
+    "sum_pl_cycles": 1149075,
+    "sqrt_words": 2501,
+    "max_sqrt_relative_error": 5.526635157863805e-06,
+    "board_id": "0xA51A2493",
+    "board_serial": "210512180081",
+    "hardware_identity_checked_utc": "2026-11-02T12:56:50.902182+00:00",
+    "cold_qualification": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\board_test\\runs\\20261102_204850\\functional\\verification.json",
+    "mode": "hybrid",
+    "transport": "CPU+AXU15EGB_DDR_SQRT_XSDB",
+    "audio_sha256": "2db232f2d626af81adb8b224bdcc72d71ed94e9f7180194a6279e532a08c9115",
+    "audio_seconds": 2.68,
+    "audio_to_text_seconds": 3.700706200033892,
+    "setup_seconds": 32.29107340000337,
+    "nominal_pl_ms": 23.699671875
+  },
+  "events": [
+    {
+      "type": "progress",
+      "message": "正在核对实板镜像和常驻 DDR 七节点计划。",
+      "elapsed_s": 0.273993
+    },
+    {
+      "type": "progress",
+      "message": "已确认 2493 及其计划和系数，正在加载英文模型。",
+      "elapsed_s": 24.652162
+    },
+    {
+      "type": "progress",
+      "message": "实板处理 SQRT，电脑完成英文波束解码。",
+      "elapsed_s": 32.564706
+    },
+    {
+      "type": "token",
+      "id": 10,
+      "piece": "▁HE",
+      "text": "HE",
+      "phase": "stable",
+      "elapsed_s": 36.107142
+    },
+    {
+      "type": "token",
+      "id": 89,
+      "piece": "LL",
+      "text": "LL",
+      "phase": "stable",
+      "elapsed_s": 36.10717
+    },
+    {
+      "type": "token",
+      "id": 179,
+      "piece": "O",
+      "text": "O",
+      "phase": "stable",
+      "elapsed_s": 36.107179
+    },
+    {
+      "type": "token",
+      "id": 26,
+      "piece": "▁BE",
+      "text": " BE",
+      "phase": "stable",
+      "elapsed_s": 36.107186
+    },
+    {
+      "type": "token",
+      "id": 1256,
+      "piece": "RT",
+      "text": "RT",
+      "phase": "stable",
+      "elapsed_s": 36.107191
+    },
+    {
+      "type": "token",
+      "id": 462,
+      "piece": "IE",
+      "text": "IE",
+      "phase": "stable",
+      "elapsed_s": 36.107196
+    },
+    {
+      "type": "token",
+      "id": 97,
+      "piece": "▁ANY",
+      "text": " ANY",
+      "phase": "stable",
+      "elapsed_s": 36.107202
+    },
+    {
+      "type": "token",
+      "id": 102,
+      "piece": "▁GOOD",
+      "text": " GOOD",
+      "phase": "stable",
+      "elapsed_s": 36.107207
+    },
+    {
+      "type": "token",
+      "id": 8,
+      "piece": "▁IN",
+      "text": " IN",
+      "phase": "stable",
+      "elapsed_s": 36.107213
+    },
+    {
+      "type": "token",
+      "id": 81,
+      "piece": "▁YOUR",
+      "text": " YOUR",
+      "phase": "final",
+      "elapsed_s": 36.265385
+    },
+    {
+      "type": "token",
+      "id": 240,
+      "piece": "▁MIND",
+      "text": " MIND",
+      "phase": "final",
+      "elapsed_s": 36.265396
+    },
+    {
+      "type": "result",
+      "text": "HELLO BERTIE ANY GOOD IN YOUR MIND",
+      "tokens": [
+        "▁HE",
+        "LL",
+        "O",
+        "▁BE",
+        "RT",
+        "IE",
+        "▁ANY",
+        "▁GOOD",
+        "▁IN",
+        "▁YOUR",
+        "▁MIND"
+      ],
+      "token_ids": [
+        10,
+        89,
+        179,
+        26,
+        1256,
+        462,
+        97,
+        102,
+        8,
+        81,
+        240
+      ],
+      "hardware_calls": 61,
+      "sum_pl_cycles": 1149075,
+      "sqrt_words": 2501,
+      "max_sqrt_relative_error": 5.526635157863805e-06,
+      "board_id": "0xA51A2493",
+      "board_serial": "210512180081",
+      "hardware_identity_checked_utc": "2026-11-02T12:56:50.902182+00:00",
+      "cold_qualification": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\board_test\\runs\\20261102_204850\\functional\\verification.json",
+      "mode": "hybrid",
+      "transport": "CPU+AXU15EGB_DDR_SQRT_XSDB",
+      "audio_sha256": "2db232f2d626af81adb8b224bdcc72d71ed94e9f7180194a6279e532a08c9115",
+      "audio_seconds": 2.68,
+      "audio_to_text_seconds": 3.700706200033892,
+      "setup_seconds": 32.29107340000337,
+      "nominal_pl_ms": 23.699671875,
+      "elapsed_s": 36.436421
+    }
+  ],
+  "interpretation": "One new run. Wall-clock observers, no extra CUDA synchronizations. Norm time includes transport, polling, conversions and validation. PL time is cycle-derived duration of whole seven-node graphs."
+}

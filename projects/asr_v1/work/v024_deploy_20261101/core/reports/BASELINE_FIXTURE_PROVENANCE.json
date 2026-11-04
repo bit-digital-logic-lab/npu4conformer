@@ -1,0 +1,26 @@
+{
+  "source": "C:\\Academic_Work\\CIM_learning\\v0.24\\npu4conformer-main\\npu4conformer-main\\projects\\asr_w7_dma_v023\\v023_repair\\ds_closeout_safety\\fixtures",
+  "purpose": "Original baseline compatibility tests only; not replacing V024 core",
+  "files": [
+    {
+      "file": "mem_normal.hex",
+      "sha256": "1c657402c61de080db36933f2392b2ab21fb07d57c08f7f0e95c458c67c57f37",
+      "exact_copy": true
+    },
+    {
+      "file": "mem_multitask.hex",
+      "sha256": "0cd67e3cc02e9614a3d5233174bcf2eb5398ea5cd271f5baf96aa57cc8dae532",
+      "exact_copy": true
+    },
+    {
+      "file": "mem_bad_queue_magic.hex",
+      "sha256": "628fb50f19d890ead712751cd7c262099098807dba0b0110de1de57f5e0b3dd9",
+      "exact_copy": true
+    },
+    {
+      "file": "mem_bad_vec_op.hex",
+      "sha256": "e2dc2c8ffe219dc14817438c6be9271164735a6565573bf67ae599fc510caa67",
+      "exact_copy": true
+    }
+  ]
+}

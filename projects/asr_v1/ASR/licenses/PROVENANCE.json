@@ -1,0 +1,104 @@
+{
+  "recorded_date": "2026-09-18",
+  "files": [
+    {
+      "package": "espnet",
+      "version": "202604",
+      "source_path": "C:\\Users\\liuka\\.conda\\envs\\ASR_chip\\Lib\\site-packages\\espnet-202604.dist-info\\LICENSE",
+      "copy": "ESPnet-LICENSE.txt",
+      "sha256": "4696c3c9551da6fef1368be1e4ed2c80cf13e55448c6dcf2aba9462f5ff29ef5",
+      "bytes": 11372
+    },
+    {
+      "package": "loralib",
+      "version": "0.1.2",
+      "source_path": "C:\\Users\\liuka\\.conda\\envs\\ASR_chip\\Lib\\site-packages\\loralib-0.1.2.dist-info\\LICENSE.md",
+      "copy": "LoRA-LICENSE.txt",
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "bytes": 1141
+    },
+    {
+      "package": "torch",
+      "version": "2.8.0+cu128",
+      "source_path": "C:\\Users\\liuka\\.conda\\envs\\ASR_chip\\Lib\\site-packages\\torch-2.8.0+cu128.dist-info\\LICENSE",
+      "copy": "PyTorch-LICENSE.txt",
+      "sha256": "8bc4f2fa9143380a52a0644229bc9a4bcc158e0f9cab8c8340f1eab3f353dbe9",
+      "bytes": 509053
+    },
+    {
+      "package": "torchaudio",
+      "version": "2.8.0+cu128",
+      "source_path": "C:\\Users\\liuka\\.conda\\envs\\ASR_chip\\Lib\\site-packages\\torchaudio-2.8.0+cu128.dist-info\\licenses\\LICENSE",
+      "copy": "torchaudio-LICENSE.txt",
+      "sha256": "32638e179931bfe551eabf67b0e67a13b483e166b58dd7263634ab7f89f396f5",
+      "bytes": 1363
+    },
+    {
+      "package": "numpy",
+      "version": "2.3.5",
+      "source_path": "C:\\Users\\liuka\\.conda\\envs\\ASR_chip\\Lib\\site-packages\\numpy-2.3.5.dist-info\\LICENSE.txt",
+      "copy": "NumPy-LICENSE.txt",
+      "sha256": "596b953e1dcbe829b32ae444387efa15003fc6abdeca8a2179f364a6364c286e",
+      "bytes": 46841
+    },
+    {
+      "package": "soundfile",
+      "version": "0.13.1",
+      "source_path": "C:\\Users\\liuka\\.conda\\envs\\ASR_chip\\Lib\\site-packages\\soundfile-0.13.1.dist-info\\LICENSE",
+      "copy": "SoundFile-LICENSE.txt",
+      "sha256": "0dd2e411fed553ba891845077e5a32c5b726d1bbc46ff31a2118ae1ccf816752",
+      "bytes": 1512
+    },
+    {
+      "package": "jiwer",
+      "version": "4.0.0",
+      "source_path": "C:\\Users\\liuka\\.conda\\envs\\ASR_chip\\Lib\\site-packages\\jiwer-4.0.0.dist-info\\licenses\\LICENSE",
+      "copy": "jiwer-LICENSE.txt",
+      "sha256": "1b4a6cadfd851632af85030a912db202d4ec5eeca7ae72f0ddafb60261fa5e83",
+      "bytes": 11339
+    },
+    {
+      "package": "PyYAML",
+      "version": "6.0.3",
+      "source_path": "C:\\Users\\liuka\\.conda\\envs\\ASR_chip\\Lib\\site-packages\\pyyaml-6.0.3.dist-info\\licenses\\LICENSE",
+      "copy": "PyYAML-LICENSE.txt",
+      "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "bytes": 1101
+    },
+    {
+      "package": "pytest",
+      "version": "8.3.5",
+      "source_path": "C:\\Users\\liuka\\.conda\\envs\\ASR_chip\\Lib\\site-packages\\pytest-8.3.5.dist-info\\LICENSE",
+      "copy": "pytest-LICENSE.txt",
+      "sha256": "ca836a5f9ecca3b2f350230faa20a48fb8b145653b5568d784862df864706b9b",
+      "bytes": 1091
+    },
+    {
+      "package": "bundled libsndfile",
+      "host_package": "soundfile 0.13.1",
+      "source_path": "C:\\Users\\liuka\\.conda\\envs\\ASR_chip\\Lib\\site-packages\\_soundfile_data\\COPYING",
+      "copy": "libsndfile-COPYING.txt",
+      "sha256": "ad01ea5cd2755f6048383c8d54c88459cd6fcb17757c5c8892f8c5ea060f6140",
+      "bytes": 26518
+    },
+    {
+      "dataset": "LibriSpeech",
+      "subsets": [
+        "dev-clean",
+        "test-clean"
+      ],
+      "source_path": "C:\\Academic_Work\\CIM_learning\\software4npu-main\\data\\LibriSpeech\\LICENSE.TXT",
+      "copy": "LibriSpeech-LICENSE.txt",
+      "sha256": "908b0b565ae9bf61b7b41447cb0b83564f320375723bcc884ec30e5537a0d5dc",
+      "bytes": 193
+    },
+    {
+      "model": "pyf98/librispeech_conformer",
+      "revision": "b74448c3b089eceea913735bd59a76d5252d8eec",
+      "source_path": "C:\\Academic_Work\\CIM_learning\\software4npu-main\\artifacts\\pyf98_librispeech_conformer\\README.md",
+      "copy": "ModelA-model-card.md",
+      "sha256": "7e38888dd002c0199f6d9526ad40e2e239ce2c2dac347926c1f783674faa4974",
+      "bytes": 67015
+    }
+  ]
+}

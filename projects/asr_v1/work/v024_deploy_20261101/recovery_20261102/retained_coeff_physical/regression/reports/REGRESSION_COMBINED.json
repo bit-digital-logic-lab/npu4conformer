@@ -1,0 +1,114 @@
+{
+  "status": "PASS",
+  "candidate_sha256": "e988c20e49790dfda4ef6f167e9bad636d39d7851d1a50a09d4127f278cd24b8",
+  "fused_8192_words_bit_exact_vs_original128": true,
+  "scope": "COMBINED CONTROL AND VECTOR MEMORY CANDIDATES, MAX_NODES=128, real vendor FMA IP XSim; original11+boundary3+checksum3; no synthesis or board claim",
+  "cases": [
+    {
+      "case": "v024_fused",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 19061
+    },
+    {
+      "case": "v024_fallback",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 17211
+    },
+    {
+      "case": "v024_multicons",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 19696
+    },
+    {
+      "case": "v024_badflag",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 542
+    },
+    {
+      "case": "v024_hold",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 31059
+    },
+    {
+      "case": "v024_bound128",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 10278
+    },
+    {
+      "case": "v024_over129",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 268
+    },
+    {
+      "case": "v024_baddep128",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 388
+    },
+    {
+      "case": "v024_badcrc_stored",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 820
+    },
+    {
+      "case": "v024_badcrc_header",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 820
+    },
+    {
+      "case": "v024_badcrc_node",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 820
+    },
+    {
+      "case": "base_normal",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 24300
+    },
+    {
+      "case": "base_multitask",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 26215
+    },
+    {
+      "case": "base_bad_queue_magic",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 11002
+    },
+    {
+      "case": "base_bad_vec_op",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 12876
+    },
+    {
+      "case": "base_hold_b_c",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 14009
+    },
+    {
+      "case": "v024_lane",
+      "status": "PASS",
+      "output_words": 64,
+      "cycles": null
+    }
+  ],
+  "all_17_output_files_byte_identical": true,
+  "all_17_end_drain_fusion_markers_identical": true,
+  "control_sha256": "0b54c5640b3610691827539c46d689616871721d004586cc470f8dc823dfc1e2",
+  "fma_xci_note": "Local copy with generated output directory only changed; FMA IP functional parameters match core."
+}

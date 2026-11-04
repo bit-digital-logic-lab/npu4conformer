@@ -1,0 +1,14 @@
+{
+  "baseline": {
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\native_ps\\build\\encoder.elf": "682dfd8096d4e62e325b107857461fbfd85f53fe722e494025cfd7d4082d1068",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\native_ps\\firmware.c": "7be0d39b3ba02f38bbe3c5dc46731732dbcfbfda3495c95b4c932c251412db57",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\native_ps\\encoder.c": "5e11b8defd5882488ea8dbcd2769ccc781d793567e1fab428dad68139042e5fb",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\native_ps\\kernels.c": "ea683f8eeee479997923803e3fceed858b81b58b8842ee7c20b1cb077133913a",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\native_pl\\native_pl.c": "a670cb70374a43fca2e8c54b5be5f3dc6b9f8b6ba6d63025355a0f62bb30adbc"
+  },
+  "candidate_sha256": "5603019fcb94cd1f7d0889246ede0b2f2adb063f9373bbae37e7f7798b7dae7e",
+  "profile_bytes": 136,
+  "sideband_addr": "0x08000040",
+  "profile_period_ns": 20.625,
+  "qualified_on_board": false
+}

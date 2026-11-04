@@ -1,0 +1,86 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Nov  2 19:51:26 2026
+# Process ID         : 28164
+# Current directory  : C:/Academic_Work/CIM_learning/work/v024_ddr_resident/network_native/reuse_synth
+# Command line       : vivado.exe -mode batch -nojournal -log extract_network.log -source extract_network.tcl
+# Log file           : C:/Academic_Work/CIM_learning/work/v024_ddr_resident/network_native/reuse_synth/extract_network.log
+# Journal file       : 
+# Running On         : MILK
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26300
+# Processor Detail   : Intel(R) Core(TM) Ultra 9 275HX
+# CPU Frequency      : 3072 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 24
+# Host memory        : 33676 MB
+# Swap memory        : 5507 MB
+# Total Virtual      : 39184 MB
+# Available Virtual  : 7953 MB
+#-----------------------------------------------------------
+source extract_network.tcl
+# set dst [file normalize [file dirname [info script]]]
+# set_param general.maxThreads 8
+# puts "NETWORK_THREADS_LIMIT=[get_param general.maxThreads]"
+NETWORK_THREADS_LIMIT=8
+# open_checkpoint [file join $dst original_v022_top.dcp]
+Command: open_checkpoint C:/Academic_Work/CIM_learning/work/v024_ddr_resident/network_native/reuse_synth/original_v022_top.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 459.184 ; gain = 6.812
+INFO: [Device 21-403] Loading part xczu15eg-ffvb1156-2-i
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.139 . Memory (MB): peak = 1817.754 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1576 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.041 . Memory (MB): peak = 1817.754 ; gain = 0.000
+CRITICAL WARNING: [Project 1-560] Could not resolve non-primitive black box cell 'asr_fma_ip' instantiated as 'engine/legacy/fused'. 17 instances of this cell are unresolved black boxes. [D:/program/python/ASR-ONNX/software4npu/temp/model_a_lowbit_v13/rtl/asr_command_engine_parallel.sv:133]
+CRITICAL WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'ps_gateway_accelerator_0' instantiated as 'ps_system/ps_gateway_i/accelerator' [d:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22/soc_full/build/full002/project/full.gen/sources_1/bd/ps_gateway/synth/ps_gateway.v:412]
+CRITICAL WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'ps_gateway_control_connect_0' instantiated as 'ps_system/ps_gateway_i/control_connect' [d:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22/soc_full/build/full002/project/full.gen/sources_1/bd/ps_gateway/synth/ps_gateway.v:475]
+CRITICAL WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'ps_gateway_ddr_connect_0' instantiated as 'ps_system/ps_gateway_i/ddr_connect' [d:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22/soc_full/build/full002/project/full.gen/sources_1/bd/ps_gateway/synth/ps_gateway.v:585]
+CRITICAL WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'ps_gateway_mailbox_0' instantiated as 'ps_system/ps_gateway_i/mailbox' [d:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22/soc_full/build/full002/project/full.gen/sources_1/bd/ps_gateway/synth/ps_gateway.v:819]
+CRITICAL WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'ps_gateway_plans_0' instantiated as 'ps_system/ps_gateway_i/plans' [d:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22/soc_full/build/full002/project/full.gen/sources_1/bd/ps_gateway/synth/ps_gateway.v:854]
+CRITICAL WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'ps_gateway_ps_0' instantiated as 'ps_system/ps_gateway_i/ps' [d:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22/soc_full/build/full002/project/full.gen/sources_1/bd/ps_gateway/synth/ps_gateway.v:1031]
+CRITICAL WARNING: [Project 1-486] Could not resolve non-primitive black box cell 'ps_gateway_resident_0' instantiated as 'ps_system/ps_gateway_i/resident' [d:/program/python/ASR-ONNX/software4npu/temp/model_a_v0_22/soc_full/build/full002/project/full.gen/sources_1/bd/ps_gateway/synth/ps_gateway.v:1110]
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 2209.699 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 131 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 44 instances
+  IBUF => IBUF (IBUFCTRL, INBUF): 6 instances
+  IBUFDS => IBUFDS (DIFFINBUF, IBUFCTRL): 1 instance 
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 1 instance 
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 1 instance 
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 14 instances
+  RAM64M8 => RAM64M8 (RAMD64E(x8)): 32 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 32 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:49 ; elapsed = 00:00:24 . Memory (MB): peak = 2209.699 ; gain = 1766.805
+# set eth [get_cells -quiet board]
+# if {[llength $eth] != 1 || [get_property REF_NAME $eth] ne "asr_eth_board_zu15"} {error "unexpected original network hierarchy"}
+# set bb [get_cells -quiet -hier -filter {IS_BLACKBOX==1 && NAME =~ board/*}]
+# if {[llength $bb]} {error "unresolved cells in original network subtree: $bb"}
+# set rxdelay [get_cells -quiet -hier -filter {NAME =~ board/* && REF_NAME =~ rgmii_rx_delay*}]
+# if {[llength $rxdelay] != 1} {error "missing RGMII delay block"}
+# set pins [get_pins -quiet -of_objects $eth]
+# set f [open [file join $dst interface.txt] w]
+# foreach pin $pins {puts $f "[get_property DIRECTION $pin] [get_property REF_PIN_NAME $pin]"}
+# close $f
+# foreach pin {clk200_p clk200_n phy_rx_clk phy_rx_ctl phy_tx_clk phy_tx_ctl core_clk core_rst s_hdr_valid s_hdr_ready s_axis_tvalid s_axis_tready s_axis_tlast m_hdr_valid m_hdr_ready m_axis_tvalid m_axis_tready m_axis_tlast} {
+#     if {![llength [get_pins -quiet board/$pin]]} {error "network boundary missing $pin"}
+# }
+network boundary missing phy_rx_clk
+    while executing
+"error "network boundary missing $pin""
+    invoked from within
+"if {![llength [get_pins -quiet board/$pin]]} {error "network boundary missing $pin"}"
+    ("foreach" body line 2)
+    invoked from within
+"foreach pin {clk200_p clk200_n phy_rx_clk phy_rx_ctl phy_tx_clk phy_tx_ctl core_clk core_rst s_hdr_valid s_hdr_ready s_axis_tvalid s_axis_tready s_axi..."
+    (file "extract_network.tcl" line 17)
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 19:51:55 2026...

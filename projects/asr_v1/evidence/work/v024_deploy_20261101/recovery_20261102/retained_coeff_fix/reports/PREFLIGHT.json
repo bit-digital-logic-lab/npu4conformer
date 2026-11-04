@@ -1,0 +1,66 @@
+{
+  "status": "STATIC_PREFLIGHT_COMPLETE",
+  "runtime_validation": false,
+  "overlay": [
+    {
+      "entry": "rtl/epilogue/epilogue_stream_engine_v024.sv",
+      "source": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\shared16_candidate\\core\\rtl\\epilogue\\epilogue_stream_engine_v024.sv",
+      "source_sha256": "d9039f4a8f1c4885e378449bd1da95314af879875f949cc7bfe8ba614c660403",
+      "selected": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\rtl\\epilogue_stream_engine_v024.sv",
+      "selected_sha256": "8f715020dad2807ad6bb993b9955b00e96d564ac5b95264b1b782784465af1de"
+    },
+    {
+      "entry": "rtl/epilogue/matrix_stream_fusion_top_v024.sv",
+      "source": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\shared16_candidate\\core\\rtl\\epilogue\\matrix_stream_fusion_top_v024.sv",
+      "source_sha256": "5ac5cecf11d1527376743df5d8af89a8fea04243778295547a6053623d315886",
+      "selected": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\rtl\\matrix_stream_fusion_top_v024.sv",
+      "selected_sha256": "f488010e3ef9e5bb0da038e1c2005a12c1e87b83cac37e1c69333c684ceaf095"
+    },
+    {
+      "entry": "rtl/graph/v024_matrix_queue_engine.sv",
+      "source": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\shared16_candidate\\core\\rtl\\graph\\v024_matrix_queue_engine.sv",
+      "source_sha256": "dd0926df17f7a188b3386c8da8feb78a428b0632a49d65b1f9e152a6d48d677d",
+      "selected": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\rtl\\v024_matrix_queue_engine.sv",
+      "selected_sha256": "fd44c155b684496aabe333ccd7328a41a6b650864727e2a939c356bed953c11e"
+    }
+  ],
+  "instance_audit": [
+    {
+      "child": "epilogue_stream_engine_v024",
+      "parent": "matrix_stream_fusion_top_v024.sv",
+      "incoming_instances": 1,
+      "new_real_reset_connected": true
+    },
+    {
+      "child": "matrix_stream_fusion_top_v024",
+      "parent": "v024_matrix_queue_engine.sv",
+      "incoming_instances": 1,
+      "new_real_reset_connected": true
+    }
+  ],
+  "unchanged_original16_source_hashes": {
+    "array16_w7_c48_cfg.sv": "c4203e0b7fc21b1b11e82579343236089342352d70b167b70791b8e69c03daae",
+    "pe_w7_c48_cfg.sv": "d8b5089073f4629f113b7735316593b77335ad99d8adf0c6757bd2d70269f179"
+  },
+  "data_plane_after_configuration_marker_byte_equivalent": true,
+  "selected_filelist_count": 50,
+  "new_reset_route": "true core rst_n -> queue fusion.param_rst_n -> epilogue.param_rst_n; existing fusion_reset remains data reset",
+  "frozen_files": {
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\selected_filelist.f": "cb3b1e7e0b2b912165b46cc991545905ea87d6c78abfb6d35865aa6da40682d3",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\rtl\\epilogue_stream_engine_v024.sv": "8f715020dad2807ad6bb993b9955b00e96d564ac5b95264b1b782784465af1de",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\rtl\\matrix_stream_fusion_top_v024.sv": "f488010e3ef9e5bb0da038e1c2005a12c1e87b83cac37e1c69333c684ceaf095",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\rtl\\v024_matrix_queue_engine.sv": "fd44c155b684496aabe333ccd7328a41a6b650864727e2a939c356bed953c11e",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\unit\\epilogue_f32_to_i16.sv": "c51d3327a7fcfbe7e584f1efa275413644147669c9d216ea7f5fbf31b864af6b",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\unit\\epilogue_fma_stage_v024.sv": "5acd8af8494f3c13131aa6c510a50be275ab621d9def91affa4cfe2c8e2f76ce",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\unit\\epilogue_i48_to_f32_v024.sv": "4d452208a4c98260eaf62314328e424cbfcac4dc6018e34ddf8e5654f9bb4698",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\unit\\epilogue_lane_v024.sv": "379210680f50a8de2be84139374531be814f59ab9cc43c5c58f9f58bc86879f7",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\unit\\epilogue_relu.sv": "0e008b394489fcdd2f453aeebee5288f1b812d715c5e8840d47f19bcb3142c4d",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\unit\\epilogue_stream_engine_before.sv": "779fef21f3372b87ece31830bb7498a82e20f98fb8a39aad551dcb1c4f6898bf",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\unit\\fp32_fma_pipe.sv": "3c1114bc40078fd357bb968e8daecc53e68ad4da25a6ae586ce658b4d2a5e0c5",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\unit\\tb_retained_coeff.sv": "0c34cad8e1f9b01bc7b6262ddc117c41717f4d2e8727f79ce9b2d9fcf4240c48",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\scripts\\preflight.py": "9355116e03ca090af481f8f18abfb5c29e3e0ebf6b5712fafc960a57abcb6e8a",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\scripts\\prepare_rtl.py": "580738c489703ebfee85b6a7833a97bea9236117e2cca9edc34a892c6cc3e5ee",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_fix\\scripts\\prepare_tb.py": "f8d6cc3bfdf2d0769fe883ca46cf01742b0a643787ba9b0f9bd31408ed7ca219"
+  },
+  "scope": "static3-file overlay and local real epilogue arithmetic dependencies; no full graph/board"
+}

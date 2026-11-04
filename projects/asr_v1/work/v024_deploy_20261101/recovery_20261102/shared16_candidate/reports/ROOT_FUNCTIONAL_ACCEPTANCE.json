@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "source_manifest_sha256": "c8a155856faf302fd121bb591dab5dea8d1851e724cdedfd514fcf5b58e9493f",
+  "acceptance_sha256": "9a6e9cff40e5b5d81f53c1ff5bc57cb85b30bb3a68090eb7e70317f795dd32a7",
+  "changed_rtl": [
+    "rtl/epilogue/matrix_stream_fusion_top_v024.sv",
+    "rtl/graph/v024_matrix_queue_engine.sv",
+    "rtl/graph/wc_graph_ctrl.sv",
+    "rtl/matrix/block_engine_prefetch_v2.sv",
+    "rtl/matrix/matrix_p2_cluster_v2.sv",
+    "rtl/matrix/operand_banks_dual_v2.sv"
+  ],
+  "source_count": 50,
+  "regression_cases": 19,
+  "parallel_fault_cases": 3,
+  "continuous_mode_tasks": 6,
+  "continuation_cycles_equal_safe16": true,
+  "active_mode_global_reset_injections": 2,
+  "post_reset_recovery_tasks": 6,
+  "original_pe_array_source_hashes_unchanged": true,
+  "requires_physical_array_count": 1,
+  "requires_physical_pe_count": 256,
+  "scope": "Independent frozen-source simulation review; no synthesis, routing or hardware claim"
+}

@@ -1,0 +1,119 @@
+{
+  "dump_words": 8192,
+  "dump_bytes": 32768,
+  "a16": {
+    "packed_words": 512,
+    "int16_elements": 1024,
+    "exact_match": true
+  },
+  "a16_copy": {
+    "packed_words": 512,
+    "int16_elements": 1024,
+    "exact_match": true
+  },
+  "div": {
+    "elements": 1024,
+    "max_relative_error": 0.0009102456662437579,
+    "worst_index": 604,
+    "relative_tolerance": 0.0012,
+    "pass": true
+  },
+  "sqrt": {
+    "elements": 1024,
+    "max_relative_error": 5.0886000440163905e-06,
+    "worst_index": 8,
+    "relative_tolerance": 6e-06,
+    "pass": true
+  },
+  "unchanged_arena": {
+    "words": 5120,
+    "ranges": [
+      [
+        512,
+        1536
+      ],
+      [
+        4096,
+        8192
+      ]
+    ],
+    "reference": "frozen arena input bytes 0x4000:0xc000",
+    "exact_match": true
+  },
+  "passed": true,
+  "scope": "AXU15EGB XSDB PSU/DAP, first graph through HP0 DDR",
+  "utc": "2026-11-02T12:49:45.059267+00:00",
+  "serial": "210512180081",
+  "part": "xczu15",
+  "usr_access": "0xA51A2493",
+  "cycles": 18833,
+  "nominal_clock_period_ns": 20.625,
+  "nominal_ms": 0.388430625,
+  "nominal_clock_source": "implemented clk_pl_0 constraint; PL0_REF_CTRL checked on target",
+  "graph_starts": 1,
+  "ddr_probe_addresses": [
+    "0x0400f000",
+    "0x1000f000",
+    "0x1004f000"
+  ],
+  "ddr_probe_bytes_per_address": 64,
+  "output_sha256": "ea22596011193a1ea7c8853533ccb372a2a189776921ec1da4738f2a1df01379",
+  "changed_words_from_prestart": {
+    "a16": 503,
+    "div": 1024,
+    "sqrt": 1024,
+    "copy": 503
+  },
+  "hardware_registers": {
+    "xsdb_cable_serial": 210512180081,
+    "ddrc_stat": 1,
+    "pl0_ref": 16848386,
+    "board_magic": 2769953920,
+    "capacity": 128,
+    "cold_release": 0,
+    "cold_completed": 0,
+    "cold_cycles_low": 0,
+    "cold_cycles_high": 0,
+    "cold_rd": 0,
+    "cold_wr": 0,
+    "cold_b": 0,
+    "cold_status": 16,
+    "probe_arena_scalar": 1568506212,
+    "probe_param_scalar": 3942750552,
+    "probe_extended_scalar": 1279950798,
+    "arena_verified_words": 16384,
+    "param_verified_words": 16384,
+    "release_reset_readback": 1,
+    "csr_magic": 2769953488,
+    "pc_verified_words": 64,
+    "parameter_ready": 1,
+    "prestart_status": 0,
+    "plan_base_readback": 268468224,
+    "plan_count_readback": 1,
+    "start_count": 1,
+    "start_issued": 1,
+    "poll_timed_out": 0,
+    "board_status": 48,
+    "error": 0,
+    "completed": 7,
+    "last_node": 6,
+    "cycles_low": 18833,
+    "cycles_high": 0,
+    "rd_pending": 0,
+    "wr_pending": 0,
+    "b_pending": 0,
+    "c48_bytes": 0,
+    "a16_bytes": 2048,
+    "csr_status": 2,
+    "csr_completed": 7,
+    "csr_error": 0,
+    "csr_cycles_low": 18833,
+    "csr_cycles_high": 0,
+    "csr_requires_reset_isolation": 0,
+    "csr_rd_pending": 0,
+    "csr_wr_pending": 0,
+    "csr_b_pending": 0,
+    "csr_quiesced": 1,
+    "output_words": 8192
+  }
+}

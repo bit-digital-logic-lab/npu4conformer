@@ -1,0 +1,254 @@
+[
+  {
+    "name": "full",
+    "click": 1793631112567,
+    "firstArrival": 10789,
+    "firstWhileRecording": "停止录音 · 提交尾段",
+    "submits": [
+      {
+        "ms": 1793631123356,
+        "samples": 160000,
+        "sha": "8aff9072521b5f15f5db6d00e055a178bbd80d6c42d033c5a9ac8c06ac16f46a"
+      },
+      {
+        "ms": 1793631161457,
+        "samples": 160000,
+        "sha": "59fe324e330067d3a1264f8c058f5d7c615c2de922f340c9a8eba7d31eba9526"
+      }
+    ],
+    "responses": [
+      {
+        "text": "HELLO BERTIE ANY GOOD IN YOUR MIND",
+        "seconds": 38.086,
+        "board": 36.75033975339753,
+        "encoder_hash": "64ca091d2e059a7f8f7878062fe32fe1da01cb4cfd4852335b5976f9716e4f18",
+        "pl_calls": 659
+      },
+      {
+        "text": "STUFF IT INTO YOU HIS BELLY COUNSELLED HIM",
+        "seconds": 38.106,
+        "board": 36.751679296792965,
+        "encoder_hash": "74a3cb15b05ab67d3cd7b3840fecc5fb64808d6a010b889fdd1da6cb2aff2d7a",
+        "pl_calls": 659
+      }
+    ],
+    "transcript": "HELLO BERTIE ANY GOOD IN YOUR MIND STUFF IT INTO YOU HIS BELLY COUNSELLED HIM",
+    "logs": [],
+    "errors": [],
+    "trace": [
+      {
+        "id": "record-label",
+        "ms": 1793631112567,
+        "text": "开始分段录音"
+      },
+      {
+        "id": "segment-status",
+        "ms": 1793631112815,
+        "text": "正在录音 · 已完成 0 段"
+      },
+      {
+        "id": "record-label",
+        "ms": 1793631112815,
+        "text": "停止录音 · 提交尾段"
+      },
+      {
+        "id": "record-label",
+        "ms": 1793631122496,
+        "text": "停止录音 · 提交尾段"
+      },
+      {
+        "id": "segment-list",
+        "ms": 1793631123347,
+        "text": "第 1 段 · 0.0–10.0 秒 · 识别中"
+      },
+      {
+        "id": "segment-status",
+        "ms": 1793631123347,
+        "text": "正在录音 · 已完成 0 段"
+      },
+      {
+        "id": "record-label",
+        "ms": 1793631123347,
+        "text": "停止录音 · 提交尾段"
+      },
+      {
+        "id": "segment-list",
+        "ms": 1793631123361,
+        "text": "第 1 段 · 0.0–10.0 秒 · 识别中"
+      },
+      {
+        "id": "segment-status",
+        "ms": 1793631123361,
+        "text": "正在录音 · 已完成 0 段"
+      },
+      {
+        "id": "record-label",
+        "ms": 1793631132502,
+        "text": "停止录音 · 提交尾段"
+      },
+      {
+        "id": "segment-list",
+        "ms": 1793631133326,
+        "text": "第 1 段 · 0.0–10.0 秒 · 识别中第 2 段 · 10.0–20.0 秒 · 等待识别"
+      },
+      {
+        "id": "segment-status",
+        "ms": 1793631133326,
+        "text": "正在录音 · 已完成 0 段 · 排队 1 段"
+      },
+      {
+        "id": "record-label",
+        "ms": 1793631133326,
+        "text": "停止录音 · 提交尾段"
+      },
+      {
+        "id": "record-label",
+        "ms": 1793631133333,
+        "text": "停止录音 · 提交尾段"
+      },
+      {
+        "id": "record-label",
+        "ms": 1793631133333,
+        "text": "开始分段录音"
+      },
+      {
+        "id": "segment-list",
+        "ms": 1793631133333,
+        "text": "第 1 段 · 0.0–10.0 秒 · 识别中第 2 段 · 10.0–20.0 秒 · 等待识别"
+      },
+      {
+        "id": "segment-status",
+        "ms": 1793631133333,
+        "text": "录音已停止 · 已完成 0 段 · 等待剩余结果"
+      },
+      {
+        "id": "transcript",
+        "ms": 1793631161441,
+        "text": "HELLO BERTIE ANY GOOD IN YOUR MIND"
+      },
+      {
+        "id": "segment-list",
+        "ms": 1793631161441,
+        "text": "第 1 段 · 0.0–10.0 秒 · 识别中第 2 段 · 10.0–20.0 秒 · 等待识别"
+      },
+      {
+        "id": "segment-status",
+        "ms": 1793631161441,
+        "text": "录音已停止 · 已完成 0 段 · 等待剩余结果"
+      },
+      {
+        "id": "segment-latency",
+        "ms": 1793631161441,
+        "text": "首段文字：开始录音后 48.63 秒"
+      },
+      {
+        "id": "segment-list",
+        "ms": 1793631161453,
+        "text": "第 1 段 · 0.0–10.0 秒 · 已完成 · 计算 38.09 秒第 2 段 · 10.0–20.0 秒 · 识别中"
+      },
+      {
+        "id": "segment-status",
+        "ms": 1793631161453,
+        "text": "录音已停止 · 已完成 1 段 · 等待剩余结果"
+      },
+      {
+        "id": "segment-latency",
+        "ms": 1793631161453,
+        "text": "首段文字：开始录音后 48.63 秒"
+      },
+      {
+        "id": "transcript",
+        "ms": 1793631161453,
+        "text": "HELLO BERTIE ANY GOOD IN YOUR MIND"
+      },
+      {
+        "id": "segment-list",
+        "ms": 1793631161463,
+        "text": "第 1 段 · 0.0–10.0 秒 · 已完成 · 计算 38.09 秒第 2 段 · 10.0–20.0 秒 · 识别中"
+      },
+      {
+        "id": "segment-status",
+        "ms": 1793631161463,
+        "text": "录音已停止 · 已完成 1 段 · 等待剩余结果"
+      },
+      {
+        "id": "segment-latency",
+        "ms": 1793631161463,
+        "text": "首段文字：开始录音后 48.63 秒"
+      },
+      {
+        "id": "transcript",
+        "ms": 1793631199565,
+        "text": "HELLO BERTIE ANY GOOD IN YOUR MIND STUFF IT INTO YOU HIS BELLY COUNSELLED HIM"
+      },
+      {
+        "id": "segment-list",
+        "ms": 1793631199565,
+        "text": "第 1 段 · 0.0–10.0 秒 · 已完成 · 计算 38.09 秒第 2 段 · 10.0–20.0 秒 · 识别中"
+      },
+      {
+        "id": "segment-status",
+        "ms": 1793631199565,
+        "text": "录音已停止 · 已完成 1 段 · 等待剩余结果"
+      },
+      {
+        "id": "segment-latency",
+        "ms": 1793631199565,
+        "text": "首段文字：开始录音后 48.63 秒"
+      },
+      {
+        "id": "segment-list",
+        "ms": 1793631199570,
+        "text": "第 1 段 · 0.0–10.0 秒 · 已完成 · 计算 38.09 秒第 2 段 · 10.0–20.0 秒 · 已完成 · 计算 38.11 秒"
+      },
+      {
+        "id": "segment-status",
+        "ms": 1793631199570,
+        "text": "全部 2 段已完成"
+      },
+      {
+        "id": "segment-latency",
+        "ms": 1793631199570,
+        "text": "首段文字：开始录音后 48.63 秒 · 停止录音后等待 66.24 秒"
+      },
+      {
+        "id": "transcript",
+        "ms": 1793631199570,
+        "text": "HELLO BERTIE ANY GOOD IN YOUR MIND STUFF IT INTO YOU HIS BELLY COUNSELLED HIM"
+      },
+      {
+        "id": "record-label",
+        "ms": 1793631199570,
+        "text": "开始分段录音"
+      },
+      {
+        "id": "record-label",
+        "ms": 1793631199578,
+        "text": "开始分段录音"
+      }
+    ],
+    "wire": [
+      {
+        "begin": 1793631123353,
+        "header": 1793631123360,
+        "status": 200,
+        "end": 1793631161461
+      },
+      {
+        "begin": 1793631161455,
+        "header": 1793631161463,
+        "status": 200,
+        "end": 1793631199570
+      }
+    ],
+    "latency": "首段文字：开始录音后 48.63 秒 · 停止录音后等待 66.24 秒",
+    "accepted": 2,
+    "busy_409": 0,
+    "peak_recognition_requests": 1,
+    "stopped_ms": 1793631133333,
+    "first_shown_ms": 1793631161441,
+    "final_shown_ms": 1793631199565,
+    "first_visible_seconds": 48.874,
+    "after_stop_seconds": 66.232
+  }
+]

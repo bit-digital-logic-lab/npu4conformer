@@ -1,0 +1,24 @@
+  1  Digilent JTAG-HS1 210512180081
+     2  xczu15 (idcode 14750093 irlen 12 fpga)
+        3  bscan-switch (idcode 04900101 irlen 1 fpga)
+           4  debug-hub (idcode 04900220 irlen 1 fpga)
+     5  arm_dap (idcode 5ba00477 irlen 4)
+A53_TARGET={target_ctx JTAG-jsn-JTAG-HS1-210512180081-5ba00477-0A0 target_id 11 level 2 name {Cortex-A53 #0} parent_ctx JTAG-jsn-JTAG-HS1-210512180081-5ba00477-0A parent {APU (L2 Cache Reset)} state_reason {APU Reset} is_current 1 bscan {} jtag_device_id 5 jtag_device_ctx jsn-JTAG-HS1-210512180081-5ba00477-0 jtag_device_name arm_dap jtag_cable_id 1 jtag_cable_ctx jsn-JTAG-HS1-210512180081 jtag_cable_name {Digilent JTAG-HS1 210512180081} jtag_device_index 1 jtag_cable_manufacturer Digilent jtag_cable_product JTAG-HS1 jtag_cable_serial 210512180081 suspended 0}
+DDRC_STAT=1
+DDR mismatch at 0x07000000 index 0
+    while executing
+"error "DDR mismatch at $base index $i""
+    ("foreach" body line 13)
+    invoked from within
+"foreach seed {0x5a5aa5a5 0xa5a55a5a 0x00000000} {
+            set words {}
+            for {set i 0} {$i < 64} {incr i} {
+                lappend word..."
+    ("foreach" body line 2)
+    invoked from within
+"foreach base {0x07000000 0x07010000 0x17ff0000} {
+        foreach seed {0x5a5aa5a5 0xa5a55a5a 0x00000000} {
+            set words {}
+            for {..."
+    ("try" body line 18)
+    (file "C:\Academic_Work\CIM_learning\work\v024_ddr_resident\prepare_ddr.tcl" line 18)

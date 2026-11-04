@@ -1,0 +1,13 @@
+{
+  "status": "STOPPED_BY_ROOT_FOR_HOST_MEMORY",
+  "time": "2026-11-02T12:57:34.3311578+08:00",
+  "owned_pid": 19852,
+  "launcher_pid": 19980,
+  "tool_session": 32650,
+  "receipt": "synth_reuse_ip_20261102_125128_process.json",
+  "minimum_observed_free_commit_gib": 0.84,
+  "free_commit_gib_before_stop": 1.22,
+  "elapsed_seconds": 162.89,
+  "scope": "Build stopped before synthesis completion; no RTL or routing failure conclusion; user apps and system settings untouched",
+  "next": "Partition original array OOC then strict-link into core"
+}

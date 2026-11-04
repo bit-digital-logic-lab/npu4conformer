@@ -1,0 +1,172 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "equal",
+      "expected_pass": true,
+      "observed": {
+        "passed": true,
+        "count": 4,
+        "dtype": "f32",
+        "max_absolute_error": 0,
+        "reference_sha256": "16409442133932c17f245ede36e90a8391d1b93df98510eb5bc17eced140bfe4",
+        "actual_sha256": "16409442133932c17f245ede36e90a8391d1b93df98510eb5bc17eced140bfe4"
+      }
+    },
+    {
+      "case": "bad",
+      "expected_pass": false,
+      "observed": {
+        "passed": false,
+        "error": "mismatch at 3: expected 4.0, observed 8.0"
+      }
+    },
+    {
+      "case": "nan",
+      "expected_pass": false,
+      "observed": {
+        "passed": false,
+        "error": "nonfinite value at 2"
+      }
+    },
+    {
+      "case": "inf",
+      "expected_pass": false,
+      "observed": {
+        "passed": false,
+        "error": "nonfinite value at 2"
+      }
+    },
+    {
+      "case": "extra",
+      "expected_pass": false,
+      "observed": {
+        "passed": false,
+        "error": "length does not match declared element count"
+      }
+    },
+    {
+      "case": "short",
+      "expected_pass": false,
+      "observed": {
+        "passed": false,
+        "error": "length does not match declared element count"
+      }
+    },
+    {
+      "case": "near_with_tolerance",
+      "expected_pass": true,
+      "observed": {
+        "passed": true,
+        "count": 4,
+        "dtype": "f32",
+        "max_absolute_error": 0.00010001659393310547,
+        "reference_sha256": "16409442133932c17f245ede36e90a8391d1b93df98510eb5bc17eced140bfe4",
+        "actual_sha256": "87ec05c09edce1ec62b31ad8c480dd222a9cdd1f221f452b372ac7ea6d58f490"
+      }
+    },
+    {
+      "case": "partition",
+      "expected_pass": true,
+      "observed": {
+        "passed": true,
+        "total_seconds": 10.290774247742478,
+        "delta_seconds": -1.7763568394002505e-15,
+        "parts": [
+          {
+            "name": "pl_graph_with_ddr",
+            "seconds": 4.7822112937500005,
+            "percent": 46.47086000160863
+          },
+          {
+            "name": "ps_c48_unpack_dequant_bias",
+            "seconds": 3.9504654846548464,
+            "percent": 38.388418495542
+          },
+          {
+            "name": "ps_depthwise",
+            "seconds": 0.6783822038220382,
+            "percent": 6.592139595044145
+          },
+          {
+            "name": "ps_layernorm",
+            "seconds": 0.2726149161491615,
+            "percent": 2.6491195860113823
+          },
+          {
+            "name": "ps_swish",
+            "seconds": 0.13731863318633186,
+            "percent": 1.3343858283205068
+          },
+          {
+            "name": "activation_and_dynamic_weight_pack",
+            "seconds": 0.3547582275822758,
+            "percent": 3.4473424354839026
+          },
+          {
+            "name": "ps_glu_softmax",
+            "seconds": 0.023853538535385355,
+            "percent": 0.23179537283716223
+          },
+          {
+            "name": "submit_overhead",
+            "seconds": 0.010568864051577087,
+            "percent": 0.10270232148854704
+          },
+          {
+            "name": "other",
+            "seconds": 0.0806010860108601,
+            "percent": 0.7832363636637141
+          }
+        ],
+        "excluded_overlaps": [
+          {
+            "name": "submit_and_wait",
+            "seconds": 4.792780157801578,
+            "reason": "Includes PL graph interval; not added again"
+          }
+        ],
+        "boundary": "Sum consistency only. Disjointness must be established by instrumentation design."
+      }
+    },
+    {
+      "case": "wrong_sum",
+      "expected_pass": false,
+      "observed": {
+        "passed": false,
+        "error": "partition sum differs by -1.7092257522575238 seconds"
+      }
+    },
+    {
+      "case": "negative",
+      "expected_pass": false,
+      "observed": {
+        "passed": false,
+        "error": "invalid partition seconds"
+      }
+    },
+    {
+      "case": "duplicate",
+      "expected_pass": false,
+      "observed": {
+        "passed": false,
+        "error": "duplicate partition name"
+      }
+    },
+    {
+      "case": "qualified_baseline_vs_profile",
+      "expected_pass": true,
+      "observed": {
+        "passed": true,
+        "count": 20992,
+        "dtype": "f32",
+        "max_absolute_error": 0,
+        "reference_sha256": "c18836aa2255963e5be655b1cf9baebebcb0654348989f3961ad07465e8a4ceb",
+        "actual_sha256": "c18836aa2255963e5be655b1cf9baebebcb0654348989f3961ad07465e8a4ceb"
+      }
+    }
+  ],
+  "hardware_accessed": false,
+  "dependency": "Python 3.10+ standard library",
+  "scope": "Offline check capability; not cross-board validation"
+}

@@ -1,0 +1,54 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Mon Nov  2 21:01:38 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source {C:\Academic_Work\CIM_learning\work\v024_ddr_resident\board_test\voice_identity.tcl}
+# if {$argc != 1} {error "expected output file for current hardware identity"}
+# open_hw_manager
+open_hw_manager: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 668.027 ; gain = 224.207
+# connect_hw_server -url 127.0.0.1:3121 -cs_url 127.0.0.1:3042
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:127.0.0.1:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:127.0.0.1:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2025.2.0
+  ****** Build date   : Nov 14 2025-07:16:52
+    **** Build number : 2025.2.1763075812
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+# try {
+#     set cable [get_hw_targets */Digilent/210512180081]
+#     if {[llength $cable] != 1} {error "designated cable unavailable"}
+#     current_hw_target [lindex $cable 0]
+#     open_hw_target
+#     set dev [get_hw_devices -filter {PART == xczu15}]
+#     if {[llength $dev] != 1} {error "expected a single xczu15"}
+#     set dev [lindex $dev 0]
+#     refresh_hw_device $dev
+#     set usr [get_property REGISTER.USR_ACCESS $dev]
+#     if {$usr != 0xa51a2493} {error "the currently programmed board has USR_ACCESS=$usr"}
+#     set f [open [lindex $argv 0] {WRONLY CREAT EXCL}]
+#     try {
+#         puts $f "usr_access=[format 0x%08X $usr]\npart=[get_property PART $dev]\nserial=[lindex [split [lindex $cable 0] /] end]"
+#     } finally {close $f}
+#     puts "VOICE_CURRENT_IMAGE_2493"
+# } finally {
+#     catch {close_hw_target}
+#     disconnect_hw_server
+#     close_hw_manager
+# }
+INFO: [Labtoolstcl 44-466] Opening hw_target 127.0.0.1:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Labtools 27-1434] Device xczu15 (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+VOICE_CURRENT_IMAGE_2493
+INFO: [Labtoolstcl 44-464] Closing hw_target 127.0.0.1:3121/xilinx_tcf/Digilent/210512180081
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 21:01:55 2026...

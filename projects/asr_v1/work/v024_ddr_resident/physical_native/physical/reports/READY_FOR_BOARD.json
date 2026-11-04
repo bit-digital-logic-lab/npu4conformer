@@ -1,0 +1,48 @@
+{
+  "scope": "PS DDR implementation; static acceptance; not hardware readback",
+  "bit": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\physical\\build\\candidate_A51A2493.bit",
+  "sha256": "83aa98bde402ff88276365070fc58c4941d49aa62cb76148736f372967e4b221",
+  "header": {
+    "metadata": {
+      "a": "ps_ddr_wrapper;COMPRESS=TRUE;UserID=0XFFFFFFFF;Version=2025.2;SW_CRC=aa80eb31",
+      "b": "xczu15eg-ffvb1156-2-i",
+      "c": "2026/11/02",
+      "d": "20:47:56"
+    },
+    "sync_offset": 230,
+    "axss_packet_offset": 286,
+    "axss_value": "0xA51A2493",
+    "packet_count": 362874,
+    "type2_packets": 231,
+    "fdri_words_skipped": 4293438,
+    "payload_end": 20511274
+  },
+  "bytes": 20511274,
+  "setup_wns_ns": 3.884,
+  "hold_whs_ns": 0.01,
+  "coverage": {
+    "no_clock": "0",
+    "constant_clock": "0",
+    "pulse_width_clock": "0",
+    "unconstrained_internal_endpoints": "0",
+    "no_input_delay": "0",
+    "no_output_delay": "0",
+    "multiple_clock": "0",
+    "generated_clocks": "0",
+    "loops": "0",
+    "partial_input_delay": "0",
+    "partial_output_delay": "0",
+    "latch_loops": "0"
+  },
+  "drc_count": 821,
+  "drc": {
+    "DPIP-2": 242,
+    "DPOP-3": 236,
+    "DPOP-4": 269,
+    "DPOR-2": 69,
+    "RTSTAT-10": 1,
+    "AVAL-155": 2,
+    "AVAL-156": 2
+  },
+  "state_sha256": "6bad57cfa7d5e376122db6741eea4f96207e568c5d44ecfbdbe72722d9dabf5c"
+}

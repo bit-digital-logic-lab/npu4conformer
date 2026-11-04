@@ -1,0 +1,24 @@
+{
+  "mode": "selftest",
+  "mailbox": {
+    "magic": 1347629620,
+    "abi": 1,
+    "state": 3,
+    "capabilities": 7,
+    "request_seq": 1,
+    "response_seq": 1,
+    "command": 1,
+    "feature_frames": 0,
+    "result": 0,
+    "encoder_frames": 0,
+    "pl_calls": 0,
+    "stage": 0,
+    "ticks_lo": 143,
+    "ticks_hi": 0,
+    "timer_hz": 33333000,
+    "selftest_mask": 31
+  },
+  "mailbox_sha256": "597deab48df0895325a13345d3a745074a397f542924779df65bb87c758dbe6a",
+  "board_elapsed_seconds": 4.290042900429004e-06,
+  "passed": true
+}

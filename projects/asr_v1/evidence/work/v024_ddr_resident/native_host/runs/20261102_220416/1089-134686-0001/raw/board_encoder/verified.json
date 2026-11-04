@@ -1,0 +1,40 @@
+{
+  "mode": "encode",
+  "mailbox": {
+    "magic": 1347629620,
+    "abi": 1,
+    "state": 3,
+    "capabilities": 7,
+    "request_seq": 4,
+    "response_seq": 4,
+    "command": 2,
+    "feature_frames": 205,
+    "result": 0,
+    "encoder_frames": 50,
+    "pl_calls": 499,
+    "stage": 300,
+    "ticks_lo": 395418623,
+    "ticks_hi": 0,
+    "timer_hz": 33333000,
+    "selftest_mask": 31
+  },
+  "mailbox_sha256": "79ab08483433ef7605c3a7cae8b04578b8f7c8d8604c9d458f918ed4bb34c6ff",
+  "board_elapsed_seconds": 11.862677316773167,
+  "output_sha256": "96e8416e1beba4e565bc63f284b6b8488c1a18a44fb553018f117ee418bcded4",
+  "output_shape": [
+    50,
+    512
+  ],
+  "expected_pl_calls": 499,
+  "minimum": -2.841304063796997,
+  "maximum": 2.2101807594299316,
+  "passed": true,
+  "image": "0xA51A2493",
+  "serial": "210512180081",
+  "runtime_boot": "20261102_215234",
+  "model_sha256": "c0ce4706835a5a462c3b5efbe283a29026db188f1e2675a0588323d0d53bca19",
+  "cold_verification_utc": "2026-11-02T12:49:45.059267+00:00",
+  "weight_load": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\native_model\\board_loads\\20261102_215608",
+  "session_id": "ac4a3a889cee46fd80aa6bb8abe10176",
+  "xsdb_pid": 12540
+}

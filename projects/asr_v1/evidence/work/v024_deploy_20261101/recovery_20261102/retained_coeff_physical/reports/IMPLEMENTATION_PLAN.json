@@ -1,0 +1,22 @@
+{
+  "status": "PREPARED_NOT_EXECUTED",
+  "usr_access": "0xA51A2492",
+  "platform_sha256": "5c1555994ef3953cb62830bfd33165b60c86e494a3d3a39562aadafddd187bba",
+  "script_sha256": "0186bb2f970455c7b3da4280283cf909f5a7860612ece698a43e467c89d456a8",
+  "source_platform": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\shared16_candidate\\build\\platform_synth_copy.dcp",
+  "part": "xczu15eg-ffvb1156-2-i",
+  "clock_period_ns": 20,
+  "placement": [
+    "place_design -directive AltSpreadLogic_high"
+  ],
+  "route": "AlternateCLBRouting",
+  "requires": "Reviewed shared16 functional simulation, reviewed array OOC, reviewed partitioned core synthesis and strict link; no hardware access",
+  "usr_access_property_readback_checks": 2,
+  "implementation_runner_binds_script_to_plan_and_ready_gate": true,
+  "scope": "2492 new RTL; physical not yet executed",
+  "required_array_instances": 1,
+  "required_pe_instances": 256,
+  "source_manifest_path": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\regression\\reports\\SOURCE_MANIFEST.json",
+  "source_manifest_sha256": "78bed0c8d2a6da2f8304b16fb7492830d1acfe0e234f792a67b758f59993a333",
+  "partition_plan_sha256": "f7dacea464e848b36bf648895c314ba395fe8cd9866b1dce00185615ea90f6ad"
+}

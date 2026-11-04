@@ -1,0 +1,10 @@
+Time resolution is 1 ps
+ITERHASH_GENERATION_INJECT state=10 hash_word=4
+V024_CSR status=00000006 err=02 completed=0 last=0 cycles=19 fetch=12 op=0
+V024_CSR vec_total=0 layout_total=0 matrix_total=0 vec_ops=0 layout_ops=0 matrix_ops=0
+V024_FUSION used=0 c48_ddr_bytes=0 a16_bytes=0
+V024_AXI rburst=1 wburst=0 rbeats=4 wbeats=0 tag_err=0 rpeak=1 wpeak=0
+V024_DRAIN rd_pending=0 wr_pending=0 b_pending=0 quiesced=1 iso_blocked=0 held_b=0 returned_b=0
+V024_END done=1 fault=1 error=02 iso=0 requires_reset=0 fetch_to=0 drain_timeout=0 cycles=273
+V024_RESULT PASS
+$finish called at time : 2188 ns : File "C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/sim/tb/tb_v024_unified.sv" Line 267

@@ -1,0 +1,94 @@
+{
+  "algorithm": "sha256",
+  "scope": "All other files in this materials bundle; engineering tree is external.",
+  "files": {
+    "asr_v024_design_report_official.docx": {
+      "bytes": 376192,
+      "sha256": "0d3a408098a3192997aeca666775dc2122154ad29f658b699d302f0ed7eaf423"
+    },
+    "asr_v024_presentation_official.pptx": {
+      "bytes": 163094,
+      "sha256": "cb7218904e6c3c321ff167c3c39d4294e244e98b103e09e91d2884374876e2e6"
+    },
+    "README.md": {
+      "bytes": 1818,
+      "sha256": "82ac17467018b5d8b9c8e374efd1cf74a7fa0e6ec9565e9e8dbb2240260a14e8"
+    },
+    "report/ai_collaboration_excerpt.json": {
+      "bytes": 5298,
+      "sha256": "1c88dbdc60f49f006db4f5f57917c0eecd868ad918c16e7d89209d6d1829d224"
+    },
+    "report/ai_collaboration_excerpt.md": {
+      "bytes": 4152,
+      "sha256": "d010488b6187135c3839f3ad711b2fe9fb6a1f74b19b8b06649d4d25434f4a72"
+    },
+    "report/guide_source.json": {
+      "bytes": 309,
+      "sha256": "44400241a1224105ccd39e768d24d7b47e069de858647a30f9e5f39fa0dcdd10"
+    },
+    "report/metrics.json": {
+      "bytes": 1589,
+      "sha256": "f4244a7311e62d86cbaf70d707fce95101694b23727abcd25d025d1dd77b4207"
+    },
+    "report/official_guide.pdf": {
+      "bytes": 950952,
+      "sha256": "c6ad82acd4f7bdcd13bd412e232ed85d05f2a87dd5e2cdd04f9d219f88b569fc"
+    },
+    "report/reproduce.md": {
+      "bytes": 3500,
+      "sha256": "1590adca0953b8d82f03141d2867b15a6e18a1ee0a22fa415ff404bbe2fc1fe4"
+    },
+    "report/requirements_alignment.md": {
+      "bytes": 1934,
+      "sha256": "558ba34f13158ed552b99db1af26d05cf71bc70056ab004eeb82745f8a7b96a4"
+    },
+    "report/skill_validation.json": {
+      "bytes": 4867,
+      "sha256": "49d360076ad4dc3fa0921db00faf87c4431797cdca733b4732e6d09f2a6f8958"
+    },
+    "skill/audit_evidence.py": {
+      "bytes": 3401,
+      "sha256": "ef6102417acab55ca208cad4be1661eb34c3b1782732a2e5d0042ad1544c848d"
+    },
+    "skill/examples/bad_f32.bin": {
+      "bytes": 16,
+      "sha256": "0875ed1e348d94c9d17ad2584e22b6043f8183d7ff1e1af88895048b17b6c465"
+    },
+    "skill/examples/board_partition.json": {
+      "bytes": 1100,
+      "sha256": "cb2ee1065e9c0635d7befbace55aeb3f70c718d8e0143b06af0805c8b52484bc"
+    },
+    "skill/examples/equal_f32.bin": {
+      "bytes": 16,
+      "sha256": "16409442133932c17f245ede36e90a8391d1b93df98510eb5bc17eced140bfe4"
+    },
+    "skill/examples/extra_f32.bin": {
+      "bytes": 20,
+      "sha256": "3ea77db1fffd553a13d00364689b1a3085693798675d05a62b395804fb8b449a"
+    },
+    "skill/examples/inf_f32.bin": {
+      "bytes": 16,
+      "sha256": "e4cb713458de3fcf7c3d0721724384ee0389a9bdc197117533d6df601bc74f62"
+    },
+    "skill/examples/nan_f32.bin": {
+      "bytes": 16,
+      "sha256": "e18965c03b417eaa4a4392a5c0fa8979ca048fdbead28d4ab210913586de0560"
+    },
+    "skill/examples/near_f32.bin": {
+      "bytes": 16,
+      "sha256": "87ec05c09edce1ec62b31ad8c480dd222a9cdd1f221f452b372ac7ea6d58f490"
+    },
+    "skill/examples/reference_f32.bin": {
+      "bytes": 16,
+      "sha256": "16409442133932c17f245ede36e90a8391d1b93df98510eb5bc17eced140bfe4"
+    },
+    "skill/examples/short_f32.bin": {
+      "bytes": 12,
+      "sha256": "17872696b82c5c83b762a6c9c64adc526721b6057b76810da01b99082ec4237f"
+    },
+    "skill/README.md": {
+      "bytes": 2918,
+      "sha256": "9fb1b0d2e5b06da8513b0c1f4c2786c3276cd2f8eb904192efe37edcdd166cae"
+    }
+  }
+}

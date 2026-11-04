@@ -1,0 +1,16 @@
+{
+  "stage": "FAILED",
+  "started": "2026-11-02T20:11:25.085510+08:00",
+  "resume": "input",
+  "thread_limit": 8,
+  "input_sha256": "ff1aa598d88f103cbf3505b01f9cb2e3077a22a79ec0f9359d904ed2c9dbc170",
+  "script_sha256": "0e9800fb6982427d38ad08e6553df9e31b2782c05545627ae9212f036258e957",
+  "clock_sha256": "55005016ad9d6242dc5ef21accfd72c63e0a589b94ea4b7d0944162e3434b805",
+  "checkpoints": {},
+  "log": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\physical\\logs\\20261102_201125.log",
+  "runner_pid": 29156,
+  "launcher_pid": 18804,
+  "exit_code": 1,
+  "finished": "2026-11-02T20:12:51.603518+08:00",
+  "error": "Physical run failed; inspect C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\physical\\logs\\20261102_201125.log"
+}

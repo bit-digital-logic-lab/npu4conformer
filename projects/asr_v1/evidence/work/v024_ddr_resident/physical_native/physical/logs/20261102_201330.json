@@ -1,0 +1,21 @@
+{
+  "stage": "PASS",
+  "started": "2026-11-02T20:13:30.343515+08:00",
+  "resume": "input",
+  "thread_limit": 8,
+  "input_sha256": "ff1aa598d88f103cbf3505b01f9cb2e3077a22a79ec0f9359d904ed2c9dbc170",
+  "script_sha256": "2a816101857523962a1e42fbc16318de4dd15997a4f6e6a1ccac1a1943cfb7d1",
+  "clock_sha256": "55005016ad9d6242dc5ef21accfd72c63e0a589b94ea4b7d0944162e3434b805",
+  "checkpoints": {
+    "optimized": "3848f1d70e0812d719f778a13772fcd1551eb298189947f7091d0061ca267c6a",
+    "placed": "6457cafe192fe6bac3106cf3c5a23d63cd57415be833bf39367e0b550c4bdc87",
+    "physopt": "4c4860d90496f116b2e6fd98a83bdf65317906bc972dd59a75427d55c75d0026",
+    "routed": "10b14cae472ba3f6ef0d592fc904c1ea70447bd81422b20e68da3bffcf533a56"
+  },
+  "log": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\physical\\logs\\20261102_201330.log",
+  "runner_pid": 12628,
+  "launcher_pid": 34576,
+  "exit_code": 0,
+  "finished": "2026-11-02T20:48:05.496553+08:00",
+  "bit_sha256": "83aa98bde402ff88276365070fc58c4941d49aa62cb76148736f372967e4b221"
+}

@@ -1,0 +1,383 @@
+# V024 BRAM deployment acceptance. Source AFTER the caller connects/programs.
+# This file defines a procedure only; sourcing it does not access hardware.
+# Usage: v024_board_verify hw_axi_1 C:/.../unique_run_directory 60000
+# No open_hw*, program_hw*, PS register, or processor reset commands occur here.
+namespace eval v024host {
+    variable here [file normalize [file dirname [info script]]]
+    variable python {C:/Users/liuka/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe}
+    variable axi
+    variable log
+    variable receipt
+    variable run_dir
+    variable read_order uncalibrated
+    variable write_order uncalibrated
+    variable sequence 0
+}
+
+proc v024host::json_string {value} {
+    return "\"[string map [list \\ \\\\ \" \\\" \n \\n \r \\r \t \\t] $value]\""
+}
+proc v024host::save_receipt {} {
+    variable receipt
+    variable run_dir
+    set f [open [file join $run_dir board_receipt.json] w]
+    fconfigure $f -encoding utf-8 -translation lf
+    puts $f "\{"
+    set lines {}
+    dict for {k v} $receipt { lappend lines "  [json_string $k]: [json_string $v]" }
+    puts $f [join $lines ",\n"]
+    puts $f "\}"
+    close $f
+}
+proc v024host::stage {text} {
+    variable receipt
+    dict set receipt stage $text
+    save_receipt
+    puts "V024_STAGE: $text"
+}
+proc v024host::ensure {condition message} {
+    if {![uplevel 1 [list expr $condition]]} {error $message}
+}
+proc v024host::safe_address {addr count} {
+    ensure {$count >= 1 && $count <= 256} "AXI beat count outside 1..256: $count"
+    ensure {($addr & 3) == 0} "unaligned address"
+    set last [expr {$addr + 4*$count}]
+    if {($addr >= 0x04000000 && $last <= 0x04010000) ||
+        ($addr >= 0x10000000 && $last <= 0x10010000)} {
+        ensure {($addr >> 12) == (($last-1) >> 12)} "AXI burst crosses 4 KiB boundary"
+        return
+    }
+    ensure {$count == 1} "CSR accesses must be single beat"
+    ensure {($addr >= 0xa0000000 && $last <= 0xa0000100) ||
+            ($addr >= 0xa1000000 && $last <= 0xa1000208)} "address not in approved PL apertures"
+}
+proc v024host::properties {object} {
+    set d [dict create]
+    foreach prop [list_property $object] {
+        if {$prop ne "DATA"} {dict set d $prop [get_property $prop $object]}
+    }
+    return $d
+}
+proc v024host::check_response {object} {
+    # Vivado versions differ in exposed response properties. Never suppress a
+    # run_hw_axi error. Also reject explicit bus errors in all exposed fields.
+    set d [properties $object]
+    dict for {key value} $d {
+        if {[regexp -nocase {SLVERR|DECERR|TIMEOUT|TIMED.OUT|FAILED} $value]} {
+            error "AXI transaction $key reports $value"
+        }
+        if {[string toupper $key] in {BRESP RRESP RESPONSE}} {
+            set val [string toupper [string trim $value]]
+            ensure {$val in {0 00 0X0 0X00 0X00000000 00000000 OKAY OK SUCCESS}} \
+                "unrecognized or unsuccessful AXI response $key=$value"
+        }
+    }
+    return $d
+}
+proc v024host::raw_transaction {type addr count {data {}}} {
+    variable axi
+    variable log
+    variable sequence
+    safe_address $addr $count
+    incr sequence
+    set addrhex [format %08x $addr]
+    set start [clock milliseconds]
+    puts $log "BEGIN\t$sequence\t$type\t$addrhex\t$count\t$start"
+    flush $log
+    if {$type eq "WRITE"} {
+        ensure {[llength $data] == $count} "write data/count mismatch"
+        set txn [create_hw_axi_txn v024_host_write $axi -force -type WRITE \
+                 -address $addrhex -len $count -burst INCR -data [join $data _]]
+    } else {
+        set txn [create_hw_axi_txn v024_host_read $axi -force -type READ \
+                 -address $addrhex -len $count -burst INCR]
+    }
+    # -quiet must NOT be used: it converts internal command errors to TCL_OK.
+    run_hw_axi $txn
+    set txn_props [check_response $txn]
+    set axi_props [check_response $axi]
+    set raw [get_property DATA $txn]
+    puts $log "END\t$sequence\t[clock milliseconds]\t$raw\t$txn_props\t$axi_props"
+    flush $log
+    if {$type eq "WRITE"} {return {}}
+    regsub -all {[[:space:]_]} [string trim $raw] {} clean
+    regsub -nocase {^0x} $clean {} clean
+    ensure {[regexp {^[0-9a-fA-F]+$} $clean]} "read DATA contains non-hex/X/Z"
+    ensure {[string length $clean] == 8*$count} "read DATA length is not exactly $count 32-bit words"
+    set out {}
+    for {set i 0} {$i < $count} {incr i} {
+        lappend out [string tolower [string range $clean [expr {$i*8}] [expr {$i*8+7}]]]
+    }
+    return $out
+}
+proc v024host::read_words {addr count} {
+    variable read_order
+    set words [raw_transaction READ $addr $count]
+    if {$count > 1} {
+        ensure {$read_order ne "uncalibrated"} "read burst before calibration"
+        if {$read_order eq "descending"} {set words [lreverse $words]}
+    }
+    return $words
+}
+proc v024host::write_words {addr words} {
+    variable write_order
+    if {[llength $words] > 1} {
+        ensure {$write_order ne "uncalibrated"} "write burst before calibration"
+        if {$write_order eq "descending"} {set words [lreverse $words]}
+    }
+    raw_transaction WRITE $addr [llength $words] $words
+}
+proc v024host::read32 {addr} {
+    return [expr "0x[lindex [read_words $addr 1] 0]"]
+}
+proc v024host::write32 {addr word} {
+    write_words $addr [list [format %08x $word]]
+}
+proc v024host::load_hex {path count} {
+    set f [open $path r]
+    set content [read $f]
+    close $f
+    set words [split [string trim $content] \n]
+    ensure {[llength $words] == $count} "$path: wrong number of words"
+    set result {}
+    foreach word $words {
+        set word [string tolower [string trim $word]]
+        ensure {[regexp {^[0-9a-f]{8}$} $word]} "$path: invalid 32-bit hex word"
+        lappend result $word
+    }
+    return $result
+}
+proc v024host::save_hex {path words} {
+    set f [open $path w]
+    fconfigure $f -encoding ascii -translation lf
+    puts $f [join $words \n]
+    close $f
+}
+proc v024host::calibrate {} {
+    variable read_order
+    variable write_order
+    variable receipt
+    set scratch 0x0400f000
+    set p {01234567 89abcdef 13579bdf 2468ace0 f0e1d2c3 55aa33cc 10293847 6a5b4c3d}
+    # Single writes establish physical address order without burst assumptions.
+    for {set i 0} {$i < 8} {incr i} {
+        write_words [expr {$scratch+4*$i}] [list [lindex $p $i]]
+    }
+    set readback [raw_transaction READ $scratch 8]
+    if {$readback eq $p} {set read_order ascending
+    } elseif {[lreverse $readback] eq $p} {set read_order descending
+    } else {error "single-write/burst-read calibration failed"}
+    # Independent raw burst write, observed through single-word reads.
+    set scratch2 [expr {$scratch+128}]
+    raw_transaction WRITE $scratch2 8 $p
+    set single {}
+    for {set i 0} {$i < 8} {incr i} {
+        lappend single [lindex [read_words [expr {$scratch2+4*$i}] 1] 0]
+    }
+    if {$single eq $p} {set write_order ascending
+    } elseif {[lreverse $single] eq $p} {set write_order descending
+    } else {error "burst-write/single-read calibration failed"}
+    # Verify normalization with a second asymmetric pattern, all single reads.
+    set q {deadbeef 013579bd aaaaaaaa 00000001 80000000 7fffffff 2468ace1 cafe1234}
+    write_words $scratch2 $q
+    for {set i 0} {$i < 8} {incr i} {
+        ensure {[lindex [read_words [expr {$scratch2+4*$i}] 1] 0] eq [lindex $q $i]} \
+            "normalized burst write does not match physical address $i"
+    }
+    ensure {[read_words $scratch2 8] eq $q} "normalized burst read failed"
+    dict set receipt read_order $read_order
+    dict set receipt write_order $write_order
+    dict set receipt calibration_pass 1
+    save_receipt
+}
+proc v024host::chunk_size {addr remaining requested} {
+    return [expr {min($remaining,$requested,(4096-($addr&4095))/4)}]
+}
+proc v024host::upload_memory {base words} {
+    set count [llength $words]
+    for {set i 0} {$i < $count} {incr i $n} {
+        set addr [expr {$base+4*$i}]
+        set n [chunk_size $addr [expr {$count-$i}] 256]
+        write_words $addr [lrange $words $i [expr {$i+$n-1}]]
+    }
+}
+proc v024host::verify_memory {name base words} {
+    variable run_dir
+    variable receipt
+    set count [llength $words]
+    set all {}
+    # Different read/write burst lengths further prevent symmetric reversal.
+    for {set i 0} {$i < $count} {incr i $n} {
+        set addr [expr {$base+4*$i}]
+        set n [chunk_size $addr [expr {$count-$i}] 127]
+        set got [read_words $addr $n]
+        set expected [lrange $words $i [expr {$i+$n-1}]]
+        set all [concat $all $got]
+        if {$got ne $expected} {
+            save_hex [file join $run_dir ${name}_readback.hex] $all
+            error "$name full readback mismatch at word $i / address [format 0x%08x $addr]"
+        }
+    }
+    ensure {[llength $all] == $count} "$name full readback length mismatch"
+    save_hex [file join $run_dir ${name}_readback.hex] $all
+    dict set receipt ${name}_verified_words $count
+    save_receipt
+}
+proc v024host::upload_and_verify {name base words} {
+    upload_memory $base $words
+    verify_memory $name $base $words
+}
+proc v024host::snapshot {} {
+    variable receipt
+    foreach {key offset} {
+        board_status 0x10 error 0x14 completed 0x18 last_node 0x1c
+        cycles_low 0x20 cycles_high 0x24 rd_pending 0x28 wr_pending 0x2c
+        b_pending 0x30 c48_bytes 0x34 a16_bytes 0x38
+    } {dict set receipt $key [read32 [expr {0xa1000000+$offset}]]}
+    foreach {key offset} {
+        csr_status 0x04 csr_completed 0x14 csr_error 0x1c
+        csr_cycles_low 0x20 csr_cycles_high 0x24
+        csr_requires_reset_isolation 0xb0 csr_rd_pending 0xb4
+        csr_wr_pending 0xb8 csr_b_pending 0xbc csr_quiesced 0xc4
+    } {dict set receipt $key [read32 [expr {0xa0000000+$offset}]]}
+    save_receipt
+}
+proc v024host::body {timeout_ms} {
+    variable receipt
+    variable run_dir
+    variable here
+    variable python
+    variable axi
+    stage validate_frozen_host_inputs
+    # Vivado sets PYTHONHOME/PYTHONPATH for its own Python. -I isolates the
+    # bundled interpreter from that incompatible standard library.
+    puts [exec $python -I [file join $here verify_v024.py] prepare --out [file join $run_dir prepared]]
+    set arena [load_hex [file join $run_dir prepared arena.hex] 16384]
+    set param [load_hex [file join $run_dir prepared param.hex] 16384]
+    set pc [load_hex [file join $run_dir prepared pc.hex] 64]
+    stage verify_board_identity
+    dict set receipt board_magic [read32 0xa1000000]
+    dict set receipt capacity [read32 0xa1000004]
+    ensure {[dict get $receipt board_magic] == 0xa51a2480} "wrong board-control magic; no write issued"
+    ensure {[dict get $receipt capacity] == 128} "wrong graph capacity; no write issued"
+    # Do not reset an already running graph or one with undrained transactions.
+    set prior_status [read32 0xa1000010]
+    dict set receipt prior_board_status $prior_status
+    ensure {($prior_status & 1) == 0} "existing graph is busy; refuse core reset"
+    foreach offset {0x28 0x2c 0x30} {
+        ensure {[read32 [expr {0xa1000000+$offset}]] == 0} "existing transaction pending; refuse core reset"
+    }
+    stage hold_core_reset_and_calibrate_memory_transport
+    write32 0xa1000008 0
+    ensure {[read32 0xa1000008] == 0} "core reset hold did not read back"
+    calibrate
+    set upload_started [clock milliseconds]
+    stage upload_arena_65536_bytes
+    upload_memory 0x04000000 $arena
+    stage upload_parameters_65536_bytes
+    upload_memory 0x10000000 $param
+    dict set receipt input_upload_ms [expr {[clock milliseconds]-$upload_started}]
+    # Verify BOTH images after BOTH uploads: aliases cannot pass merely because
+    # the first window was checked before the second window overwrote its RAM.
+    stage verify_both_complete_memory_images_after_all_writes
+    set input_verify_started [clock milliseconds]
+    verify_memory arena 0x04000000 $arena
+    verify_memory param 0x10000000 $param
+    dict set receipt input_readback_verify_ms [expr {[clock milliseconds]-$input_verify_started}]
+    dict set receipt input_transfer_and_readback_ms [expr {[clock milliseconds]-$upload_started}]
+    stage release_core_and_load_all_64_scale_bias_words
+    write32 0xa1000008 1
+    dict set receipt release_reset_readback [read32 0xa1000008]
+    ensure {[dict get $receipt release_reset_readback] == 1} "core reset release failed"
+    dict set receipt csr_magic [read32 0xa0000000]
+    ensure {[dict get $receipt csr_magic] == 0xa51a22d0} "original V024 CSR magic mismatch"
+    for {set i 0} {$i < 64} {incr i} {
+        write_words [expr {0xa1000100+4*$i}] [list [lindex $pc $i]]
+    }
+    set pc_back {}
+    for {set i 0} {$i < 64} {incr i} {
+        lappend pc_back [lindex [read_words [expr {0xa1000100+4*$i}] 1] 0]
+    }
+    save_hex [file join $run_dir pc_readback.hex] $pc_back
+    ensure {[llength $pc_back] == 64 && $pc_back eq $pc} "64-word parameter shadow mismatch"
+    dict set receipt pc_verified_words 64
+    dict set receipt parameter_ready [read32 0xa0000090]
+    ensure {[dict get $receipt parameter_ready] == 1} "V024 parameter_ready is not asserted"
+    ensure {[read32 0xa0000004] == 0} "V024 CSR not idle/clear after reset"
+    stage configure_plan_and_start
+    write32 0xa0000008 0x10008000
+    write32 0xa000000c 1
+    dict set receipt plan_base_readback [read32 0xa0000008]
+    dict set receipt plan_count_readback [read32 0xa000000c]
+    ensure {[dict get $receipt plan_base_readback] == 0x10008000 &&
+            [dict get $receipt plan_count_readback] == 1} "plan CSR readback mismatch"
+    dict set receipt poll_timed_out 0
+    set task_started [clock milliseconds]
+    write32 0xa0000010 1
+    dict set receipt start_issued 1
+    stage wait_for_done_or_fault
+    set deadline [expr {$task_started+$timeout_ms}]
+    set polls 0
+    while {1} {
+        set status [read32 0xa1000010]
+        # core.done / board bit1 is a one-clock pulse. The original V024 CSR
+        # latches it until the next START, so JTAG polling cannot miss completion.
+        set csr_status [read32 0xa0000004]
+        incr polls
+        if {($status & 0x0c) != 0 || ($csr_status & 6) != 0} {break}
+        if {[clock milliseconds] >= $deadline} {
+            dict set receipt poll_timed_out 1
+            break
+        }
+        after 10
+    }
+    dict set receipt poll_count $polls
+    dict set receipt host_start_to_terminal_ms [expr {[clock milliseconds]-$task_started}]
+    snapshot
+    stage preserve_32768_byte_output
+    set output_read_started [clock milliseconds]
+    set all {}
+    for {set i 0} {$i < 8192} {incr i 256} {
+        set all [concat $all [read_words [expr {0x04004000+4*$i}] 256]]
+    }
+    ensure {[llength $all] == 8192} "output readback length mismatch"
+    save_hex [file join $run_dir output.hex] $all
+    dict set receipt output_readback_and_save_ms [expr {[clock milliseconds]-$output_read_started}]
+    dict set receipt output_words [llength $all]
+    dict set receipt execution_state completed
+    stage independently_verify_saved_status_and_numerical_output
+    puts [exec $python -I [file join $here verify_v024.py] verify --run $run_dir]
+    # Do not modify receipt after verification: its hash is recorded in JSON.
+    puts "V024_BOARD_ACCEPTANCE_PASS: $run_dir"
+}
+proc v024_board_verify {{axi_name hw_axi_1} {output_dir {}} {timeout_ms 60000}} {
+    set v024host::read_order uncalibrated
+    set v024host::write_order uncalibrated
+    set v024host::sequence 0
+    if {$output_dir eq {}} {
+        set output_dir [file join $v024host::here runs [clock format [clock seconds] -format %Y%m%d_%H%M%S]]
+    }
+    v024host::ensure {$timeout_ms >= 1 && $timeout_ms <= 600000} "poll timeout must be 1..600000 ms"
+    set v024host::run_dir [file normalize $output_dir]
+    v024host::ensure {![file exists $v024host::run_dir]} "output directory exists; refuse to overwrite prior evidence"
+    file mkdir $v024host::run_dir
+    set targets [get_hw_axis $axi_name]
+    v024host::ensure {[llength $targets] == 1} "expected exactly one connected hw_axi matching $axi_name"
+    set v024host::axi [lindex $targets 0]
+    set v024host::receipt [dict create schema 1 evidence_kind physical_board_jtag_axi \
+        execution_state running axi_name $axi_name vivado_version [version -short] \
+        poll_timeout_ms $timeout_ms utc_started [clock format [clock seconds] -gmt 1 -format %Y-%m-%dT%H:%M:%SZ]]
+    set v024host::log [open [file join $v024host::run_dir axi_transactions.tsv] w]
+    fconfigure $v024host::log -encoding utf-8 -translation lf
+    v024host::save_receipt
+    set failed [catch {v024host::body $timeout_ms} message options]
+    close $v024host::log
+    if {$failed} {
+        dict set v024host::receipt execution_state failed
+        dict set v024host::receipt error_message $message
+        v024host::save_receipt
+        puts stderr "V024_BOARD_ACCEPTANCE_FAIL: $message"
+        return -options $options $message
+    }
+    return $v024host::run_dir
+}

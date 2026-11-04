@@ -1,0 +1,13 @@
+{
+  "status": "PROCESS_EXITED",
+  "stage": "synth",
+  "started": "2026-11-02T12:51:28.443951+08:00",
+  "scope": "shared16 isolated build; no hardware access",
+  "source_manifest_sha256": "c8a155856faf302fd121bb591dab5dea8d1851e724cdedfd514fcf5b58e9493f",
+  "script_sha256": "d6b2000b984e5ccfeaa724c15ca3de32744acff51f39682867fcda8bb0a21410",
+  "vivado_log": "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\shared16_candidate\\logs\\synth_reuse_ip_20261102_125128.log",
+  "launcher_pid": 19980,
+  "exit_code": 4294967295,
+  "elapsed_seconds": 162.89,
+  "finished": "2026-11-02T12:54:11.341822+08:00"
+}

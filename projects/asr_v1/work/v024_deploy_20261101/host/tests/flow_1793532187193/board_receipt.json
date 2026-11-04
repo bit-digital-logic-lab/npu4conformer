@@ -1,0 +1,17 @@
+{
+  "schema": "1",
+  "evidence_kind": "in_memory_test_only",
+  "execution_state": "failed",
+  "axi_name": "mock_axi",
+  "vivado_version": "2025.2",
+  "poll_timeout_ms": "1000",
+  "utc_started": "2026-11-01T11:23:07Z",
+  "stage": "verify_both_complete_memory_images_after_all_writes",
+  "board_magic": "2769953920",
+  "capacity": "128",
+  "prior_board_status": "16",
+  "read_order": "descending",
+  "write_order": "descending",
+  "calibration_pass": "1",
+  "error_message": "arena full readback mismatch at word 0 / address 0x04000000"
+}

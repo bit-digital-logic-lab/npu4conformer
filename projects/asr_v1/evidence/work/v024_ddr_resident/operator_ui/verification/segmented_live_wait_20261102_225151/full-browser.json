@@ -1,0 +1,34 @@
+{
+  "submits": [
+    {
+      "ms": 1793631123356,
+      "samples": 160000,
+      "sha": "8aff9072521b5f15f5db6d00e055a178bbd80d6c42d033c5a9ac8c06ac16f46a"
+    },
+    {
+      "ms": 1793631161457,
+      "samples": 160000,
+      "sha": "59fe324e330067d3a1264f8c058f5d7c615c2de922f340c9a8eba7d31eba9526"
+    }
+  ],
+  "responses": [
+    {
+      "text": "HELLO BERTIE ANY GOOD IN YOUR MIND",
+      "seconds": 38.086,
+      "board": 36.75033975339753,
+      "encoder_hash": "64ca091d2e059a7f8f7878062fe32fe1da01cb4cfd4852335b5976f9716e4f18",
+      "pl_calls": 659
+    },
+    {
+      "text": "STUFF IT INTO YOU HIS BELLY COUNSELLED HIM",
+      "seconds": 38.106,
+      "board": 36.751679296792965,
+      "encoder_hash": "74a3cb15b05ab67d3cd7b3840fecc5fb64808d6a010b889fdd1da6cb2aff2d7a",
+      "pl_calls": 659
+    }
+  ],
+  "logs": [],
+  "errors": [],
+  "transcript": "HELLO BERTIE ANY GOOD IN YOUR MIND STUFF IT INTO YOU HIS BELLY COUNSELLED HIM",
+  "notice": ""
+}

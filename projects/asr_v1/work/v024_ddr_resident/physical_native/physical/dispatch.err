@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Academic_Work\CIM_learning\work\v024_ddr_resident\physical_native\physical\run_physical.py", line 68, in <module>
+    raise RuntimeError("Physical run failed; inspect " + str(log))
+RuntimeError: Physical run failed; inspect C:\Academic_Work\CIM_learning\work\v024_ddr_resident\physical_native\physical\logs\20261102_201125.log

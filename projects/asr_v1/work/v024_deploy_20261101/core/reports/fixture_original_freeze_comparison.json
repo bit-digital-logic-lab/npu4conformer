@@ -1,0 +1,82 @@
+[
+  {
+    "file": "sim/fixtures/mem_v024_fused.hex",
+    "expected": "fd05f8f4ff4f3754c3a9c89786887b69168c3cbe015be44e6d6718deae52e26b",
+    "actual": "2504534b0efaaf5357b3b028cc0203acd221ae288a90d03cfeacd47df2bdaac6",
+    "lf_canonical": "fd05f8f4ff4f3754c3a9c89786887b69168c3cbe015be44e6d6718deae52e26b",
+    "exact": false,
+    "lf_canonical_matches": true
+  },
+  {
+    "file": "sim/fixtures/mem_v024_fallback.hex",
+    "expected": "65215da2effd30717dc5be9b4f1372779b4ec305d14ea170b9640881de5f250d",
+    "actual": "50940838bb74b0a0db83f41d08ca992be36739dc2539bfef97a7d3f3e22ddc1f",
+    "lf_canonical": "65215da2effd30717dc5be9b4f1372779b4ec305d14ea170b9640881de5f250d",
+    "exact": false,
+    "lf_canonical_matches": true
+  },
+  {
+    "file": "sim/fixtures/mem_v024_badflag.hex",
+    "expected": "cf4ef665549dd063e82c26b20de239c4c2ce98382ab3dcdc23824e4ffa2ae655",
+    "actual": "b4835b6f450429c2b92a17eeeb3de87f54ff322fb9c2defb0fc0823595796fc5",
+    "lf_canonical": "cf4ef665549dd063e82c26b20de239c4c2ce98382ab3dcdc23824e4ffa2ae655",
+    "exact": false,
+    "lf_canonical_matches": true
+  },
+  {
+    "file": "sim/fixtures/mem_v024_multicons.hex",
+    "expected": "361471f76f5883c0efae32b9f968e2179832960799309e6199efadb372d76c98",
+    "actual": "013f6d70ad9868e54dda41e50e97f1ba7c419fde31c149dec022399fdcb316da",
+    "lf_canonical": "361471f76f5883c0efae32b9f968e2179832960799309e6199efadb372d76c98",
+    "exact": false,
+    "lf_canonical_matches": true
+  },
+  {
+    "file": "sim/fixtures/gold_a16.hex",
+    "expected": "da364d27fee9848fcfc8e637ce006557dafd4aead4031f4c7d8bd549ef9e3b8e",
+    "actual": "f7a5d64f45feb8862588793ef1d10227c58d674173f88128f08f911b1e504bf7",
+    "lf_canonical": "da364d27fee9848fcfc8e637ce006557dafd4aead4031f4c7d8bd549ef9e3b8e",
+    "exact": false,
+    "lf_canonical_matches": true
+  },
+  {
+    "file": "sim/fixtures/gold_fallback_i16.hex",
+    "expected": "ee7c68902f3b20a11f754d95d3f1ee88f7598d01eb7481de9f9c6e5d8f69d69d",
+    "actual": "b10478322cee5e397cdbc8ba791370e32e495f8df66004c8c3b1b21d3fed1880",
+    "lf_canonical": "ee7c68902f3b20a11f754d95d3f1ee88f7598d01eb7481de9f9c6e5d8f69d69d",
+    "exact": false,
+    "lf_canonical_matches": true
+  },
+  {
+    "file": "sim/fixtures/lane_vectors.hex",
+    "expected": "7bbc7913fdb539e87b78fd604b6682d6e0026174645491bc78f7556b64849afc",
+    "actual": "c3f16c3cd925987b0440e74c3c881fd0518b28b2fc2f86a07307bd8190e5e1a3",
+    "lf_canonical": "7bbc7913fdb539e87b78fd604b6682d6e0026174645491bc78f7556b64849afc",
+    "exact": false,
+    "lf_canonical_matches": true
+  },
+  {
+    "file": "sim/fixtures/lane_gold.hex",
+    "expected": "433b614cd1a545d75c7d9ff6f41bd6bc6b2afc48d9002e7b69f7e60960c52283",
+    "actual": "4641a06acb0d7c4906bed1e0b7710ab96d38d400e7ce0b43ae537e01cda8d5ba",
+    "lf_canonical": "433b614cd1a545d75c7d9ff6f41bd6bc6b2afc48d9002e7b69f7e60960c52283",
+    "exact": false,
+    "lf_canonical_matches": true
+  },
+  {
+    "file": "sim/fixtures/lane_muladd.hex",
+    "expected": "d2d10c6a095a3c20ef08efe97aec8fd6c24df5ea680f22b82130872249ca289e",
+    "actual": "1a13131719a8b88ad0b4a1ff277357a9b3b407e35c9d9234becd7a15a1ceb30b",
+    "lf_canonical": "d2d10c6a095a3c20ef08efe97aec8fd6c24df5ea680f22b82130872249ca289e",
+    "exact": false,
+    "lf_canonical_matches": true
+  },
+  {
+    "file": "sim/fixtures/v024_ref.json",
+    "expected": "3a04e69ffbf809abb25490d11182d0d3a74de8ed61d9cdc0eaf46e84327c0db8",
+    "actual": "3a04e69ffbf809abb25490d11182d0d3a74de8ed61d9cdc0eaf46e84327c0db8",
+    "lf_canonical": "3a04e69ffbf809abb25490d11182d0d3a74de8ed61d9cdc0eaf46e84327c0db8",
+    "exact": true,
+    "lf_canonical_matches": true
+  }
+]

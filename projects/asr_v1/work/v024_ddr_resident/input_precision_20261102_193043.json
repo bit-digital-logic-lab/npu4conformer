@@ -1,0 +1,236 @@
+{
+  "kind": "PC input format experiment; FP32 encoder/decoder; no board or live Ethernet",
+  "device": "cuda:0",
+  "cpu_threads": 4,
+  "benchmark_rounds": 60,
+  "primary": "1089-134686-0001",
+  "pcm_seconds": 3.275,
+  "float32_raw_audio_transcript": "STUFF IT INTO YOU HIS BELLY COUNSELLED HIM",
+  "calibration_dev_clips": [
+    "1272-128104-0000",
+    "174-168635-0000",
+    "2035-147960-0000",
+    "2277-149874-0001",
+    "2803-154320-0002",
+    "3081-166546-0001",
+    "3752-4943-0000",
+    "5338-24615-0001",
+    "6241-61943-0000",
+    "6319-275224-0000",
+    "7850-111771-0000",
+    "8842-302196-0001"
+  ],
+  "calibration_p9999": 3.316032648086548,
+  "full_scale": 4.0,
+  "encoding": "normalized Model A features; symmetric zero-point 0, RNE/saturate; signed step full_scale/2^(bits-1); fixed at startup; two signed int4 values per byte",
+  "old_upload_basis": "V0.22 CASE0000 aggregate subgraph upload, 4539392 B / 1.951413 s. Extrapolation excludes per-utterance overhead.",
+  "inputs": [
+    {
+      "id": "1089-134686-0001",
+      "feature_shape": [
+        205,
+        80
+      ],
+      "reference": "STUFF IT INTO YOU HIS BELLY COUNSELLED HIM",
+      "texts": {
+        "fp32": "STUFF IT INTO YOU HIS BELLY COUNSELLED HIM",
+        "fp16": "STUFF IT INTO YOU HIS BELLY COUNSELLED HIM",
+        "int16": "STUFF IT INTO YOU HIS BELLY COUNSELLED HIM",
+        "int8": "STUFF IT INTO YOU HIS BELLY COUNSELLED HIM",
+        "int4": "STUFF IT INTO YOU HIS BELLY COUNSELLED HIM"
+      }
+    },
+    {
+      "id": "1188-133604-0001",
+      "feature_shape": [
+        566,
+        80
+      ],
+      "reference": "THEY UNITE EVERY QUALITY AND SOMETIMES YOU WILL FIND ME REFERRING TO THEM AS COLORISTS SOMETIMES AS CHIAROSCURISTS",
+      "texts": {
+        "fp32": "THEY UNITE EVERY QUALITY AND SOMETIMES YOU WILL FIND ME REFERRING TO THEM AS COLORISTS SOMETIMES AS CHIAROSCURISTS",
+        "fp16": "THEY UNITE EVERY QUALITY AND SOMETIMES YOU WILL FIND ME REFERRING TO THEM AS COLORISTS SOMETIMES AS CHIAROSCURISTS",
+        "int16": "THEY UNITE EVERY QUALITY AND SOMETIMES YOU WILL FIND ME REFERRING TO THEM AS COLORISTS SOMETIMES AS CHIAROSCURISTS",
+        "int8": "THEY UNITE EVERY QUALITY AND SOMETIMES YOU WILL FIND ME REFERRING TO THEM AS COLORISTS SOMETIMES AS CHIAROSCURISTS",
+        "int4": "THEY UNITE EVERY QUALITY AND SOMETIMES YOU WILL FIND ME REFERRING TO THEM AS COLORISTS SOMETIMES AS KIAROSKURISTS"
+      }
+    },
+    {
+      "id": "1995-1826-0000",
+      "feature_shape": [
+        593,
+        80
+      ],
+      "reference": "IN THE DEBATE BETWEEN THE SENIOR SOCIETIES HER DEFENCE OF THE FIFTEENTH AMENDMENT HAD BEEN NOT ONLY A NOTABLE BIT OF REASONING BUT DELIVERED WITH REAL ENTHUSIASM",
+      "texts": {
+        "fp32": "IN THE DEBATE BETWEEN THE SENIOR SOCIETIES HER DEFENSE OF THE FIFTEENTH AMENDMENT HAD BEEN NOT ONLY A NOTABLE BIT OF REASONING BUT DELIVERED WITH REAL ENTHUSIASM",
+        "fp16": "IN THE DEBATE BETWEEN THE SENIOR SOCIETIES HER DEFENSE OF THE FIFTEENTH AMENDMENT HAD BEEN NOT ONLY A NOTABLE BIT OF REASONING BUT DELIVERED WITH REAL ENTHUSIASM",
+        "int16": "IN THE DEBATE BETWEEN THE SENIOR SOCIETIES HER DEFENSE OF THE FIFTEENTH AMENDMENT HAD BEEN NOT ONLY A NOTABLE BIT OF REASONING BUT DELIVERED WITH REAL ENTHUSIASM",
+        "int8": "IN THE DEBATE BETWEEN THE SENIOR SOCIETIES HER DEFENSE OF THE FIFTEENTH AMENDMENT HAD BEEN NOT ONLY A NOTABLE BIT OF REASONING BUT DELIVERED WITH REAL ENTHUSIASM",
+        "int4": "IN THE DEBATE BETWEEN THE SENIOR SOCIETIES HER DEFENSE OF THE FIFTEENTH AMENDMENT HAD BEEN NOT ONLY A NOTABLE BIT OF REASONING BUT DELIVERED WITH REAL ENTHUSIASM"
+      }
+    },
+    {
+      "id": "2961-960-0001",
+      "feature_shape": [
+        516,
+        80
+      ],
+      "reference": "THE INFLUENCE WITH THE TIMAEUS HAS EXERCISED UPON POSTERITY IS DUE PARTLY TO A MISUNDERSTANDING",
+      "texts": {
+        "fp32": "THE INFLUENCE WHICH THE TIMAEUS HAS EXERCISED UPON POSTERITY IS DUE PARTLY TO A MISUNDERSTANDING",
+        "fp16": "THE INFLUENCE WHICH THE TIMAEUS HAS EXERCISED UPON POSTERITY IS DUE PARTLY TO A MISUNDERSTANDING",
+        "int16": "THE INFLUENCE WHICH THE TIMAEUS HAS EXERCISED UPON POSTERITY IS DUE PARTLY TO A MISUNDERSTANDING",
+        "int8": "THE INFLUENCE WHICH THE TIMAEUS HAS EXERCISED UPON POSTERITY IS DUE PARTLY TO A MISUNDERSTANDING",
+        "int4": "THE INFLUENCE WHICH THE TIMAEUS HAS EXERCISED UPON POSTERITY IS DUE PARTLY TO A MISUNDERSTANDING"
+      }
+    },
+    {
+      "id": "4970-29093-0000",
+      "feature_shape": [
+        190,
+        80
+      ],
+      "reference": "YOU'LL NEVER DIG IT OUT OF THE ASTOR LIBRARY",
+      "texts": {
+        "fp32": "YOU'LL NEVER DIG IT OUT OF THE ASTOR LIBRARY",
+        "fp16": "YOU'LL NEVER DIG IT OUT OF THE ASTOR LIBRARY",
+        "int16": "YOU'LL NEVER DIG IT OUT OF THE ASTOR LIBRARY",
+        "int8": "YOU'LL NEVER DIG IT OUT OF THE ASTOR LIBRARY",
+        "int4": "YOU'LL NEVER DIG IT OUT OF THE ASTOR LIBRARY"
+      }
+    },
+    {
+      "id": "61-70968-0000",
+      "feature_shape": [
+        307,
+        80
+      ],
+      "reference": "HE BEGAN A CONFUSED COMPLAINT AGAINST THE WIZARD WHO HAD VANISHED BEHIND THE CURTAIN ON THE LEFT",
+      "texts": {
+        "fp32": "HE BEGAN A CONFUSED COMPLAINT AGAINST THE WIZARD WHO HAD VANISHED BEHIND THE CURTAIN ON THE LEFT",
+        "fp16": "HE BEGAN A CONFUSED COMPLAINT AGAINST THE WIZARD WHO HAD VANISHED BEHIND THE CURTAIN ON THE LEFT",
+        "int16": "HE BEGAN A CONFUSED COMPLAINT AGAINST THE WIZARD WHO HAD VANISHED BEHIND THE CURTAIN ON THE LEFT",
+        "int8": "HE BEGAN A CONFUSED COMPLAINT AGAINST THE WIZARD WHO HAD VANISHED BEHIND THE CURTAIN ON THE LEFT",
+        "int4": "HE BEGAN A CONFUSED COMPLAINT AGAINST THE WIZARD WHO HAD VANISHED BEHIND THE CURTAIN ON THE LEFT"
+      }
+    },
+    {
+      "id": "7176-88083-0000",
+      "feature_shape": [
+        356,
+        80
+      ],
+      "reference": "ALL ABOUT HIM WAS A TUMULT OF BRIGHT AND BROKEN COLOR SCATTERED IN BROAD SPLASHES",
+      "texts": {
+        "fp32": "ALL ABOUT HIM WAS A TUMULT OF BRIGHT AND BROKEN COLOR SCATTERED IN BROAD SPLASHES",
+        "fp16": "ALL ABOUT HIM WAS A TUMULT OF BRIGHT AND BROKEN COLOR SCATTERED IN BROAD SPLASHES",
+        "int16": "ALL ABOUT HIM WAS A TUMULT OF BRIGHT AND BROKEN COLOR SCATTERED IN BROAD SPLASHES",
+        "int8": "ALL ABOUT HIM WAS A TUMULT OF BRIGHT AND BROKEN COLOR SCATTERED IN BROAD SPLASHES",
+        "int4": "ALL ABOUT HIM WAS A TUMULT OF BRIGHT AND BROKEN COLOR SCATTERED IN BROAD SPLASHES"
+      }
+    },
+    {
+      "id": "908-157963-0003",
+      "feature_shape": [
+        193,
+        80
+      ],
+      "reference": "WHY FADE THESE CHILDREN OF THE SPRING",
+      "texts": {
+        "fp32": "WHY FADE THESE CHILDREN OF THE SPRING",
+        "fp16": "WHY FADE THESE CHILDREN OF THE SPRING",
+        "int16": "WHY FADE THESE CHILDREN OF THE SPRING",
+        "int8": "WHY FADE THESE CHILDREN OF THE SPRING",
+        "int4": "WHY FADE THESE CHILDREN OF THE SPRING"
+      }
+    }
+  ],
+  "formats": {
+    "fp32": {
+      "payload_bytes": 65600,
+      "pack_ms": {
+        "p50": 0.0032500000000000003,
+        "p95": 0.006924999999999999
+      },
+      "pcm_to_payload_ms": {
+        "p50": 1.1212,
+        "p95": 1.7768349999999997
+      },
+      "gigabit_payload_only_ms": 0.5248,
+      "estimated_old_application_upload_ms": 28.200404988157004,
+      "identical_to_fp32": 8,
+      "word_errors": 2,
+      "reference_words": 116,
+      "wer_percent": 1.7241379310344827
+    },
+    "fp16": {
+      "payload_bytes": 32800,
+      "pack_ms": {
+        "p50": 0.02355,
+        "p95": 0.05968
+      },
+      "pcm_to_payload_ms": {
+        "p50": 1.2030500000000002,
+        "p95": 1.802165
+      },
+      "gigabit_payload_only_ms": 0.2624,
+      "estimated_old_application_upload_ms": 14.100202494078502,
+      "identical_to_fp32": 8,
+      "word_errors": 2,
+      "reference_words": 116,
+      "wer_percent": 1.7241379310344827
+    },
+    "int16": {
+      "payload_bytes": 32800,
+      "pack_ms": {
+        "p50": 0.027950000000000003,
+        "p95": 0.04469499999999998
+      },
+      "pcm_to_payload_ms": {
+        "p50": 1.20295,
+        "p95": 1.7764149999999999
+      },
+      "gigabit_payload_only_ms": 0.2624,
+      "estimated_old_application_upload_ms": 14.100202494078502,
+      "identical_to_fp32": 8,
+      "word_errors": 2,
+      "reference_words": 116,
+      "wer_percent": 1.7241379310344827
+    },
+    "int8": {
+      "payload_bytes": 16400,
+      "pack_ms": {
+        "p50": 0.01675,
+        "p95": 0.045935000000000004
+      },
+      "pcm_to_payload_ms": {
+        "p50": 1.26905,
+        "p95": 1.7182699999999997
+      },
+      "gigabit_payload_only_ms": 0.1312,
+      "estimated_old_application_upload_ms": 7.050101247039251,
+      "identical_to_fp32": 8,
+      "word_errors": 2,
+      "reference_words": 116,
+      "wer_percent": 1.7241379310344827
+    },
+    "int4": {
+      "payload_bytes": 8200,
+      "pack_ms": {
+        "p50": 0.035699999999999996,
+        "p95": 0.08882
+      },
+      "pcm_to_payload_ms": {
+        "p50": 1.18765,
+        "p95": 1.845045
+      },
+      "gigabit_payload_only_ms": 0.0656,
+      "estimated_old_application_upload_ms": 3.5250506235196255,
+      "identical_to_fp32": 7,
+      "word_errors": 3,
+      "reference_words": 116,
+      "wer_percent": 2.586206896551724
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "board": {
+    "ready": false,
+    "verified": false,
+    "label": "板端常驻识别",
+    "detail": "常驻识别固件的电脑端适配器尚未接入。"
+  },
+  "hybrid": {
+    "state": "ready",
+    "detail": "板内编码器保持就绪。",
+    "ready": true,
+    "cold_seconds": 8.027042699977756,
+    "encoder_location": "AXU15EGB PS+PL",
+    "host_role": "CPU log-Mel and greedy CTC",
+    "gpu_used": false,
+    "session_id": "b22995f1a37145279637b2a4f66dd495",
+    "xsdb_pid": 19304,
+    "model_sha256": "c0ce4706835a5a462c3b5efbe283a29026db188f1e2675a0588323d0d53bca19",
+    "phase": "ready",
+    "label": "板内 Conformer"
+  },
+  "app": "axu15egb-asr-operator-v024",
+  "busy": false
+}

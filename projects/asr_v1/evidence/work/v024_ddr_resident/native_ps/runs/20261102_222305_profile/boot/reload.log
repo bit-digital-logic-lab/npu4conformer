@@ -1,0 +1,5 @@
+PIN 682dfd8096d4e62e325b107857461fbfd85f53fe722e494025cfd7d4082d1068 C:/Academic_Work/CIM_learning/work/v024_ddr_resident/native_ps/perf_candidate/../build/encoder.elf
+PIN 5603019fcb94cd1f7d0889246ede0b2f2adb063f9373bbae37e7f7798b7dae7e C:/Academic_Work/CIM_learning/work/v024_ddr_resident/native_ps/perf_candidate/encoder_profile.elf
+TARGET Cortex-A53 #0 Running
+TARGET Cortex-A53 #1 Power On Reset
+RELOAD_FAILED phase=untouched another A53 is active

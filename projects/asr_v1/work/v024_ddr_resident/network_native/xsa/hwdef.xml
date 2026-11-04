@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Project Version="1" Minor="7" DIGEST="">
+	<TOOL_VERSION Version="2025.2"/>
+	<MODE Name="Pre-Synthesis"/>
+	<SYSTEMINFO BOARD="" PART="xczu15eg-ffvb1156-2-i" ARCH="zynquplus" PACKAGE="ffvb1156" DEVICE="xczu15eg" SPEED="-2" LUT="341280" FF="682560" BRAM="744" DSP="3528"/>
+	<PART Name="xczu15eg-ffvb1156-2-i">
+		<SSIT IS_SSIT="0"/>
+		<NUM_OF_SLRS Value="1"/>
+	</PART>
+	<HIERARCHY Name="v10_full_top"/>
+	<File Type="HW_HANDOFF" Name="ps_gateway.hwh" src_db="ps_gateway.hwdef" DESIGN_HIERARCHY="ps_system/ps_gateway_i" BD_TYPE="DEFAULT_BD">
+	</File>
+	<File Type="BDA" Name="ps_gateway.bda" src_db="ps_gateway.hwdef">
+	</File>
+	<File Type="PS_FSBL_INIT" Name="psu_init.c" src_db="ps_gateway_ps_0.hwdef">
+	</File>
+	<File Type="PS_FSBL_INIT" Name="psu_init.h" src_db="ps_gateway_ps_0.hwdef">
+	</File>
+	<File Type="PS_FSBL_INIT_GPL" Name="psu_init_gpl.c" src_db="ps_gateway_ps_0.hwdef">
+	</File>
+	<File Type="PS_FSBL_INIT_GPL" Name="psu_init_gpl.h" src_db="ps_gateway_ps_0.hwdef">
+	</File>
+	<File Type="PS_INIT_HELP" Name="psu_init.html" src_db="ps_gateway_ps_0.hwdef">
+	</File>
+	<File Type="PS_XMD_INIT" Name="psu_init.tcl" src_db="ps_gateway_ps_0.hwdef">
+	</File>
+	<File Type="HW_HANDOFF" Name="ps_gateway_ddr_connect_0.hwh" src_db="ps_gateway_ddr_connect_0.hwdef" DESIGN_HIERARCHY="ps_system/ps_gateway_i/ddr_connect/inst" BD_TYPE="SCOPED_BD">
+	</File>
+	<File Type="HW_HANDOFF" Name="ps_gateway_control_connect_0.hwh" src_db="ps_gateway_control_connect_0.hwdef" DESIGN_HIERARCHY="ps_system/ps_gateway_i/control_connect/inst" BD_TYPE="SCOPED_BD">
+	</File>
+	<USEDRESOURCES LUT="136676" FF="101210" BRAM="524" DSP="217"/>
+	<DESIGN_DATA Type="rm">
+		<DESIGN_IDS DESIGN_ID="1318703786" PARENT_ID="0" NODE_ID="0"/>
+	</DESIGN_DATA>
+</Project>
+

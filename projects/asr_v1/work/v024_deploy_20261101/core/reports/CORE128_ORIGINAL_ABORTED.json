@@ -1,0 +1,85 @@
+{
+  "status": "INTENTIONALLY_ABORTED_BEFORE_COMPLETION",
+  "reason": "Switch to separately regression-verified iterative FNV candidate after structural review; no completed utilization/timing result was obtained, and timing failure was not measured.",
+  "time": "2026-11-01T19:27:58.9792672+08:00",
+  "source_log": "logs/synth_core128_ooc.log",
+  "owned_process_tree": [
+    {
+      "ProcessId": 9092,
+      "ParentProcessId": 46024,
+      "Name": "vivado.exe",
+      "Depth": 0,
+      "CommandLine": "\"C:/Academic_Application/Vivado/2025.2/Vivado/bin/unwrapped/win64.o/vivado.exe\"   -mode batch -source scripts/deploy/synth_core128_ooc.tcl -log logs/synth_core128_ooc.log -journal logs/synth_core128_ooc.jou"
+    },
+    {
+      "ProcessId": 35920,
+      "ParentProcessId": 9092,
+      "Name": "cmd.exe",
+      "Depth": 1,
+      "CommandLine": " /c C:/Academic_Application/Vivado/2025.2/Vivado/bin/vivado -exec parallel_synth_helper --key LaunchHelperProcessKey_9092_1793530720 --partid xczu15eg-ffvb1156-2-i --parent_pid 9092 --parent_exe vivado"
+    },
+    {
+      "ProcessId": 12368,
+      "ParentProcessId": 35920,
+      "Name": "parallel_synth_helper.exe",
+      "Depth": 2,
+      "CommandLine": "\"C:/Academic_Application/Vivado/2025.2/Vivado/bin/unwrapped/win64.o/parallel_synth_helper.exe\"   --key LaunchHelperProcessKey_9092_1793530720 --partid xczu15eg-ffvb1156-2-i --parent_pid 9092 --parent_exe vivado"
+    },
+    {
+      "ProcessId": 4500,
+      "ParentProcessId": 12368,
+      "Name": "cmd.exe",
+      "Depth": 3,
+      "CommandLine": " /c C:/Academic_Application/Vivado/2025.2/Vivado/bin/vivado -notrace -mode batch -source C:/Academic_Application/Vivado/2025.2/Vivado/scripts/rt/data/task_worker.tcl -nolog -nojournal -tclargs SYNTH_DESIGN_PARENT9092_0_1793530892_cfg SYNTH_DESIGN_PARENT9092_0_1793530892_buf SYNTH_DESIGN_PARENT9092_1793530892 xczu15eg-ffvb1156-2-i"
+    },
+    {
+      "ProcessId": 29544,
+      "ParentProcessId": 12368,
+      "Name": "cmd.exe",
+      "Depth": 3,
+      "CommandLine": " /c C:/Academic_Application/Vivado/2025.2/Vivado/bin/vivado -notrace -mode batch -source C:/Academic_Application/Vivado/2025.2/Vivado/scripts/rt/data/task_worker.tcl -nolog -nojournal -tclargs SYNTH_DESIGN_PARENT9092_1_1793530894_cfg SYNTH_DESIGN_PARENT9092_1_1793530894_buf SYNTH_DESIGN_PARENT9092_1793530892 xczu15eg-ffvb1156-2-i"
+    },
+    {
+      "ProcessId": 9040,
+      "ParentProcessId": 12368,
+      "Name": "cmd.exe",
+      "Depth": 3,
+      "CommandLine": " /c C:/Academic_Application/Vivado/2025.2/Vivado/bin/vivado -notrace -mode batch -source C:/Academic_Application/Vivado/2025.2/Vivado/scripts/rt/data/task_worker.tcl -nolog -nojournal -tclargs SYNTH_DESIGN_PARENT9092_2_1793530896_cfg SYNTH_DESIGN_PARENT9092_2_1793530896_buf SYNTH_DESIGN_PARENT9092_1793530892 xczu15eg-ffvb1156-2-i"
+    },
+    {
+      "ProcessId": 25860,
+      "ParentProcessId": 12368,
+      "Name": "cmd.exe",
+      "Depth": 3,
+      "CommandLine": " /c C:/Academic_Application/Vivado/2025.2/Vivado/bin/vivado -notrace -mode batch -source C:/Academic_Application/Vivado/2025.2/Vivado/scripts/rt/data/task_worker.tcl -nolog -nojournal -tclargs SYNTH_DESIGN_PARENT9092_3_1793530898_cfg SYNTH_DESIGN_PARENT9092_3_1793530898_buf SYNTH_DESIGN_PARENT9092_1793530892 xczu15eg-ffvb1156-2-i"
+    },
+    {
+      "ProcessId": 42936,
+      "ParentProcessId": 4500,
+      "Name": "vivado.exe",
+      "Depth": 4,
+      "CommandLine": "\"C:/Academic_Application/Vivado/2025.2/Vivado/bin/unwrapped/win64.o/vivado.exe\"   -notrace -mode batch -source C:/Academic_Application/Vivado/2025.2/Vivado/scripts/rt/data/task_worker.tcl -nolog -nojournal -tclargs SYNTH_DESIGN_PARENT9092_0_1793530892_cfg SYNTH_DESIGN_PARENT9092_0_1793530892_buf SYNTH_DESIGN_PARENT9092_1793530892 xczu15eg-ffvb1156-2-i"
+    },
+    {
+      "ProcessId": 19784,
+      "ParentProcessId": 29544,
+      "Name": "vivado.exe",
+      "Depth": 4,
+      "CommandLine": "\"C:/Academic_Application/Vivado/2025.2/Vivado/bin/unwrapped/win64.o/vivado.exe\"   -notrace -mode batch -source C:/Academic_Application/Vivado/2025.2/Vivado/scripts/rt/data/task_worker.tcl -nolog -nojournal -tclargs SYNTH_DESIGN_PARENT9092_1_1793530894_cfg SYNTH_DESIGN_PARENT9092_1_1793530894_buf SYNTH_DESIGN_PARENT9092_1793530892 xczu15eg-ffvb1156-2-i"
+    },
+    {
+      "ProcessId": 14488,
+      "ParentProcessId": 9040,
+      "Name": "vivado.exe",
+      "Depth": 4,
+      "CommandLine": "\"C:/Academic_Application/Vivado/2025.2/Vivado/bin/unwrapped/win64.o/vivado.exe\"   -notrace -mode batch -source C:/Academic_Application/Vivado/2025.2/Vivado/scripts/rt/data/task_worker.tcl -nolog -nojournal -tclargs SYNTH_DESIGN_PARENT9092_2_1793530896_cfg SYNTH_DESIGN_PARENT9092_2_1793530896_buf SYNTH_DESIGN_PARENT9092_1793530892 xczu15eg-ffvb1156-2-i"
+    },
+    {
+      "ProcessId": 45148,
+      "ParentProcessId": 25860,
+      "Name": "vivado.exe",
+      "Depth": 4,
+      "CommandLine": "\"C:/Academic_Application/Vivado/2025.2/Vivado/bin/unwrapped/win64.o/vivado.exe\"   -notrace -mode batch -source C:/Academic_Application/Vivado/2025.2/Vivado/scripts/rt/data/task_worker.tcl -nolog -nojournal -tclargs SYNTH_DESIGN_PARENT9092_3_1793530898_cfg SYNTH_DESIGN_PARENT9092_3_1793530898_buf SYNTH_DESIGN_PARENT9092_1793530892 xczu15eg-ffvb1156-2-i"
+    }
+  ]
+}

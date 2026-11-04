@@ -1,0 +1,228 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date              : Mon Nov  2 17:32:05 2026
+| Host              : MILK running 64-bit major release  (build 9200)
+| Command           : report_timing -delay_type min -max_paths 5 -file C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/reports/postcore_20261102_171708_9fd0a4b8/core_min.rpt
+| Design            : v024_unified_top
+| Device            : xczu15eg-ffvb1156
+| Speed File        : -2  PRODUCTION 1.30 05-15-2022
+| Design State      : Synthesized
+| Temperature Grade : I
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.013ns  (arrival time - required time)
+  Source:                 matrix/cluster/rdma/tag_wr_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            matrix/cluster/rdma/tag_reg_0_7_0_7/RAMA/WADR2
+                            (rising edge-triggered cell RAMD32 clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             core_clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (core_clk rise@0.000ns - core_clk rise@0.000ns)
+  Data Path Delay:        0.102ns  (logic 0.038ns (37.255%)  route 0.064ns (62.745%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.027ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.039ns
+    Source Clock Delay      (SCD):    0.012ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.012     0.012    matrix/cluster/rdma/clk
+                         FDRE                                         r  matrix/cluster/rdma/tag_wr_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.050 r  matrix/cluster/rdma/tag_wr_reg[2]/Q
+                         net (fo=9, unplaced)         0.064     0.114    matrix/cluster/rdma/tag_reg_0_7_0_7/ADDRD2
+                         RAMD32                                       r  matrix/cluster/rdma/tag_reg_0_7_0_7/RAMA/WADR2
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.039     0.039    matrix/cluster/rdma/tag_reg_0_7_0_7/WCLK
+                         RAMD32                                       r  matrix/cluster/rdma/tag_reg_0_7_0_7/RAMA/CLK
+                         clock pessimism              0.000     0.039    
+                         RAMD32 (Hold_RAMD32_CLK_WADR2)
+                                                      0.062     0.101    matrix/cluster/rdma/tag_reg_0_7_0_7/RAMA
+  -------------------------------------------------------------------
+                         required time                         -0.101    
+                         arrival time                           0.114    
+  -------------------------------------------------------------------
+                         slack                                  0.013    
+
+Slack (MET) :             0.013ns  (arrival time - required time)
+  Source:                 matrix/cluster/rdma/tag_wr_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            matrix/cluster/rdma/tag_reg_0_7_0_7/RAMA_D1/WADR2
+                            (rising edge-triggered cell RAMD32 clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             core_clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (core_clk rise@0.000ns - core_clk rise@0.000ns)
+  Data Path Delay:        0.102ns  (logic 0.038ns (37.255%)  route 0.064ns (62.745%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.027ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.039ns
+    Source Clock Delay      (SCD):    0.012ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.012     0.012    matrix/cluster/rdma/clk
+                         FDRE                                         r  matrix/cluster/rdma/tag_wr_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.050 r  matrix/cluster/rdma/tag_wr_reg[2]/Q
+                         net (fo=9, unplaced)         0.064     0.114    matrix/cluster/rdma/tag_reg_0_7_0_7/ADDRD2
+                         RAMD32                                       r  matrix/cluster/rdma/tag_reg_0_7_0_7/RAMA_D1/WADR2
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.039     0.039    matrix/cluster/rdma/tag_reg_0_7_0_7/WCLK
+                         RAMD32                                       r  matrix/cluster/rdma/tag_reg_0_7_0_7/RAMA_D1/CLK
+                         clock pessimism              0.000     0.039    
+                         RAMD32 (Hold_RAMD32_CLK_WADR2)
+                                                      0.062     0.101    matrix/cluster/rdma/tag_reg_0_7_0_7/RAMA_D1
+  -------------------------------------------------------------------
+                         required time                         -0.101    
+                         arrival time                           0.114    
+  -------------------------------------------------------------------
+                         slack                                  0.013    
+
+Slack (MET) :             0.013ns  (arrival time - required time)
+  Source:                 matrix/cluster/rdma/tag_wr_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            matrix/cluster/rdma/tag_reg_0_7_0_7/RAMB/WADR2
+                            (rising edge-triggered cell RAMD32 clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             core_clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (core_clk rise@0.000ns - core_clk rise@0.000ns)
+  Data Path Delay:        0.102ns  (logic 0.038ns (37.255%)  route 0.064ns (62.745%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.027ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.039ns
+    Source Clock Delay      (SCD):    0.012ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.012     0.012    matrix/cluster/rdma/clk
+                         FDRE                                         r  matrix/cluster/rdma/tag_wr_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.050 r  matrix/cluster/rdma/tag_wr_reg[2]/Q
+                         net (fo=9, unplaced)         0.064     0.114    matrix/cluster/rdma/tag_reg_0_7_0_7/ADDRD2
+                         RAMD32                                       r  matrix/cluster/rdma/tag_reg_0_7_0_7/RAMB/WADR2
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.039     0.039    matrix/cluster/rdma/tag_reg_0_7_0_7/WCLK
+                         RAMD32                                       r  matrix/cluster/rdma/tag_reg_0_7_0_7/RAMB/CLK
+                         clock pessimism              0.000     0.039    
+                         RAMD32 (Hold_RAMD32_CLK_WADR2)
+                                                      0.062     0.101    matrix/cluster/rdma/tag_reg_0_7_0_7/RAMB
+  -------------------------------------------------------------------
+                         required time                         -0.101    
+                         arrival time                           0.114    
+  -------------------------------------------------------------------
+                         slack                                  0.013    
+
+Slack (MET) :             0.013ns  (arrival time - required time)
+  Source:                 matrix/cluster/rdma/tag_wr_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            matrix/cluster/rdma/tag_reg_0_7_0_7/RAMB_D1/WADR2
+                            (rising edge-triggered cell RAMD32 clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             core_clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (core_clk rise@0.000ns - core_clk rise@0.000ns)
+  Data Path Delay:        0.102ns  (logic 0.038ns (37.255%)  route 0.064ns (62.745%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.027ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.039ns
+    Source Clock Delay      (SCD):    0.012ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.012     0.012    matrix/cluster/rdma/clk
+                         FDRE                                         r  matrix/cluster/rdma/tag_wr_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.050 r  matrix/cluster/rdma/tag_wr_reg[2]/Q
+                         net (fo=9, unplaced)         0.064     0.114    matrix/cluster/rdma/tag_reg_0_7_0_7/ADDRD2
+                         RAMD32                                       r  matrix/cluster/rdma/tag_reg_0_7_0_7/RAMB_D1/WADR2
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.039     0.039    matrix/cluster/rdma/tag_reg_0_7_0_7/WCLK
+                         RAMD32                                       r  matrix/cluster/rdma/tag_reg_0_7_0_7/RAMB_D1/CLK
+                         clock pessimism              0.000     0.039    
+                         RAMD32 (Hold_RAMD32_CLK_WADR2)
+                                                      0.062     0.101    matrix/cluster/rdma/tag_reg_0_7_0_7/RAMB_D1
+  -------------------------------------------------------------------
+                         required time                         -0.101    
+                         arrival time                           0.114    
+  -------------------------------------------------------------------
+                         slack                                  0.013    
+
+Slack (MET) :             0.013ns  (arrival time - required time)
+  Source:                 matrix/cluster/rdma/tag_wr_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            matrix/cluster/rdma/tag_reg_0_7_0_7/RAMC/WADR2
+                            (rising edge-triggered cell RAMD32 clocked by core_clk  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             core_clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (core_clk rise@0.000ns - core_clk rise@0.000ns)
+  Data Path Delay:        0.102ns  (logic 0.038ns (37.255%)  route 0.064ns (62.745%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.027ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    0.039ns
+    Source Clock Delay      (SCD):    0.012ns
+    Clock Pessimism Removal (CPR):    -0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.012     0.012    matrix/cluster/rdma/clk
+                         FDRE                                         r  matrix/cluster/rdma/tag_wr_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_FDRE_C_Q)         0.038     0.050 r  matrix/cluster/rdma/tag_wr_reg[2]/Q
+                         net (fo=9, unplaced)         0.064     0.114    matrix/cluster/rdma/tag_reg_0_7_0_7/ADDRD2
+                         RAMD32                                       r  matrix/cluster/rdma/tag_reg_0_7_0_7/RAMC/WADR2
+  -------------------------------------------------------------------    -------------------
+
+                         (clock core_clk rise edge)
+                                                      0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=171383, unset)       0.039     0.039    matrix/cluster/rdma/tag_reg_0_7_0_7/WCLK
+                         RAMD32                                       r  matrix/cluster/rdma/tag_reg_0_7_0_7/RAMC/CLK
+                         clock pessimism              0.000     0.039    
+                         RAMD32 (Hold_RAMD32_CLK_WADR2)
+                                                      0.062     0.101    matrix/cluster/rdma/tag_reg_0_7_0_7/RAMC
+  -------------------------------------------------------------------
+                         required time                         -0.101    
+                         arrival time                           0.114    
+  -------------------------------------------------------------------
+                         slack                                  0.013    
+
+
+
+

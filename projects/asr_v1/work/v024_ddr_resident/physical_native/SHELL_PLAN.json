@@ -1,0 +1,12 @@
+{
+  "scope": "PS+DDR shell without PL ethernet; staging only, no bit or board",
+  "inputs": {
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\synth_shell.tcl": "03f11f614b1b214f0ed59eee5f54663a02b3cdefc78e44c275486ac656f936d8",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\ps_ddr_shell.tcl": "c550a6a7d489d92f7ab385f5840357eb63f7f7f65118e542c7fa5be2ec921f32",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\run_shell.py": "b96a14b7efad34d526ba2c1e7771e952a6aeb184d1cfcff86a187f0e33c8a370",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\ps_platform\\alinx_ps_config_original.tcl": "c6d2b90fd7ad73791ac8fafca76348b403d69835ea53e4250434783fa7731f74",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\platform\\v024_unified_stub.sv": "673d5bd6a6b9cd5b108e17e2903a4cdaeda8a37d3bece51936133d4584d3f037",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\platform\\v024_core_wrapper.sv": "3a5bbcac9d7ea5c71fe4a55400973a74b3708871de0ec0cf0fbcbd0d3c00b792",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\board_control\\v024_board_control.sv": "bb2d25426d5dc57e3353fff40dadc790374f3257dd9ee7035c1f47753dadae3c"
+  }
+}

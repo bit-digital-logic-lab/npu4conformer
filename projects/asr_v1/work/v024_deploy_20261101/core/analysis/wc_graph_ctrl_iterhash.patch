@@ -1,0 +1,115 @@
+--- rtl/graph/wc_graph_ctrl.sv
++++ analysis/wc_graph_ctrl_iterhash.sv
+@@ -125,7 +125,7 @@
+  output wire mat_relu
+ );
+  localparam IDLE=0,HREQ=1,HFETCH=2,NREQ=3,NFETCH=4,PREQ=5,PFETCH=6,
+-  SCAN=7,DISPATCH=8,FINISH=9;
++  SCAN=7,DISPATCH=8,FINISH=9,HHASH=10,NHASH=11;
+  localparam T_MAT=1,T_VEC=2,T_LAY=3,T_SEQ=4,T_IN=5;
+  localparam [31:0] FUSE_MAGIC=32'h4D415446; // 'MATF'
+  localparam [31:0] A16C_MAGIC=32'h41313643; // 'A16C'
+@@ -151,6 +151,8 @@
+  reg [9:0] payload_node;
+  reg [2:0] payload_type;
+  reg [31:0] hash;
++ // One word per cycle; buffers remain stable until their hash completes.
++ reg [5:0] hash_word;
+  reg [31:0] target;
+  reg [7:0] hgot,ngot,pgot;
+  reg hbad,nbad,pbad;
+@@ -179,20 +181,11 @@
+  function [31:0] fnv(input [31:0] h,input [31:0] w);
+   begin fnv=(h^w)*32'h01000193;end
+  endfunction
+- function [31:0] hash_header(input [511:0] h);
+-  integer j;reg [31:0] t;
+-  begin t=HASH_SEED;
+-   for(j=0;j<16;j=j+1)if(j!=7)t=fnv(t,h[j*32+:32]);
+-   hash_header=t;
+-  end
+- endfunction
+- function [31:0] hash_node(input [31:0] h,input [1535:0] d);
+-  integer j;reg [31:0] t;
+-  begin t=h;
+-   for(j=0;j<48;j=j+1)t=fnv(t,d[j*32+:32]);
+-   hash_node=t;
+-  end
+- endfunction
++ // The same FNV-1a recurrence, shared by header and node hashing.
++ // Header word 7 stores the expected whole-plan checksum and is excluded.
++ wire [31:0] hash_data = (state==HHASH) ?
++  header[hash_word*32+:32] : node_buf[hash_word*32+:32];
++ wire [31:0] hash_next = fnv(hash,hash_data);
+  // Explicit fusion descriptor gate.  Without header FUSION_ALLOW the words
+  // must be zero exactly as V0.23 (so old negative tests still fire).
+  function node_word_ok(input [2:0] t,input [31:0] w14,input allow,
+@@ -348,7 +341,7 @@
+    drain_cycles<=0;drain_timeout<=0;irq<=0;output_retained<=0;output_count<=0;
+    last_output_tid<=0;last_output_base<=0;last_output_bytes<=0;root_count<=0;
+    header<=0;nfetch_index<=0;scan_idx<=0;gen_latched<=0;node_buf<=0;payload_buf<=0;
+-   payload_addr<=0;payload_beats<=0;payload_node<=0;payload_type<=0;hash<=HASH_SEED;
++   payload_addr<=0;payload_beats<=0;payload_node<=0;payload_type<=0;hash<=HASH_SEED;hash_word<=0;
+    target<=0;hgot<=0;ngot<=0;pgot<=0;hbad<=0;nbad<=0;pbad<=0;fault_latched<=0;
+    drain_wait<=0;fetch_wait<=0;seq_disp_wait<=0;seq_run_wait<=0;e_active<=0;
+    isolation_req<=0;requires_reset<=0;seq_dispatch_timeout<=0;
+@@ -391,7 +384,7 @@
+      drain_wait<=0;fetch_wait<=0;seq_disp_wait<=0;seq_run_wait<=0;
+      isolation_req<=0;requires_reset<=0;seq_dispatch_timeout<=0;
+      seq_inflight_timeout<=0;fetch_timeout<=0;seq_wait_cycles<=0;seq_run_cycles<=0;
+-     hash<=HASH_SEED;gen_latched<=generation;irq<=0;
++     hash<=HASH_SEED;hash_word<=0;gen_latched<=generation;irq<=0;
+      output_retained<=0;output_count<=0;last_output_tid<=0;last_output_base<=0;
+      last_output_bytes<=0;root_count<=0;
+      for(i=0;i<MAX_NODES;i=i+1)begin nstate[i]<=0;nd_meta[i]<=0;nd_dep[i]<=0;
+@@ -421,9 +414,17 @@
+         header[287:256]<EXTERNAL_BASE||header[319:288]>EXTERNAL_LIMIT)begin
+        set_fault(8'h04);state<=FINISH;
+       end else begin
+-       node_count<=header[95:64];hash<=hash_header(header);nfetch_index<=0;
+-       ngot<=0;nbad<=0;state<=NREQ;
++       node_count<=header[95:64];hash<=HASH_SEED;hash_word<=0;nfetch_index<=0;
++       ngot<=0;nbad<=0;state<=HHASH;
+       end
++     end
++    end
++    HHASH:begin
++     if(fault_latched||!parameter_ready||generation!=gen_latched)state<=FINISH;
++     else begin
++      if(hash_word!=6'd7)hash<=hash_next;
++      if(hash_word==6'd15)begin hash_word<=0;state<=NREQ;end
++      else hash_word<=hash_word+1'b1;
+      end
+     end
+     NREQ:if(fetch_req_ready)begin ngot<=0;nbad<=0;state<=NFETCH;end
+@@ -476,18 +477,20 @@
+        nstate[nfetch_index]<=N_PENDING;
+        if(node_buf[127:96]&1)root_count<=root_count+1;
+        if(node_buf[127:96]&2)output_count<=output_count+1;
+-       hash<=hash_node(hash,node_buf);
++       hash_word<=0;state<=NHASH;
++      end
++     end
++    end
++    NHASH:begin
++     if(fault_latched||!parameter_ready||generation!=gen_latched)state<=FINISH;
++     else begin
++      hash<=hash_next;
++      if(hash_word==6'd47)begin
+        if(nfetch_index+1==header[95:64])begin
+-`ifdef WC_DEBUG_CTRL
+-        $display("HASHCHECK idx=%0d run=%h calc=%h want=%h state=%0d",
+-         nfetch_index,hash,hash_node(hash,node_buf),header[255:224],state);
+-`endif
+-        if(hash_node(hash,node_buf)!=header[255:224])begin set_fault(8'h04);state<=FINISH;end
+-        else begin
+-         nfetch_index<=0;scan_idx<=0;state<=SCAN;
+-        end
++        if(hash_next!=header[255:224])begin set_fault(8'h04);state<=FINISH;end
++        else begin nfetch_index<=0;scan_idx<=0;state<=SCAN;end
+        end else begin nfetch_index<=nfetch_index+1;state<=NREQ;end
+-      end
++      end else hash_word<=hash_word+1'b1;
+      end
+     end
+     SCAN:begin

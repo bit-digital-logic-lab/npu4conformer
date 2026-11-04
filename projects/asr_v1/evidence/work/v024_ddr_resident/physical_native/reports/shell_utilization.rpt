@@ -1,0 +1,96 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Mon Nov  2 19:44:25 2026
+| Host         : MILK running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -file C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/reports/shell_utilization.rpt
+| Design       : ps_ddr_wrapper
+| Device       : xczu15eg-ffvb1156-2-i
+| Speed File   : -2
+| Design State : Synthesized
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-------------------------------------------------------------------+---------------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+|                              Instance                             |                             Module                            | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs | RAMB36 | RAMB18 | URAM | DSP Blocks |
++-------------------------------------------------------------------+---------------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+| ps_ddr_wrapper                                                    |                                                         (top) |       3624 |       3336 |     268 |   20 | 4911 |      0 |      0 |    0 |          0 |
+|   ps_ddr_i                                                        |                                                        ps_ddr |       3624 |       3336 |     268 |   20 | 4911 |      0 |      0 |    0 |          0 |
+|     ps                                                            |                                                   ps_ddr_ps_0 |        264 |        264 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|       inst                                                        |            ps_ddr_ps_0_zynq_ultra_ps_e_v3_5_8_zynq_ultra_ps_e |        264 |        264 |       0 |    0 |    0 |      0 |      0 |    0 |          0 |
+|     board_control                                                 |                                        ps_ddr_board_control_0 |        887 |        887 |       0 |    0 | 2244 |      0 |      0 |    0 |          0 |
+|       inst                                                        |                     ps_ddr_board_control_0_v024_board_control |        887 |        887 |       0 |    0 | 2244 |      0 |      0 |    0 |          0 |
+|     ctrl                                                          |                                                 ps_ddr_ctrl_0 |        962 |        961 |       0 |    1 | 1120 |      0 |      0 |    0 |          0 |
+|       inst                                                        |                                         ps_ddr_ctrl_0_bd_1661 |        962 |        961 |       0 |    1 | 1120 |      0 |      0 |    0 |          0 |
+|         s00_entry_pipeline                                        |                  ps_ddr_ctrl_0_s00_entry_pipeline_imp_1QAPO97 |        731 |        731 |       0 |    0 |  727 |      0 |      0 |    0 |          0 |
+|           s00_mmu                                                 |                                ps_ddr_ctrl_0_bd_1661_s00mmu_0 |        250 |        250 |       0 |    0 |  314 |      0 |      0 |    0 |          0 |
+|             inst                                                  |                              ps_ddr_ctrl_0_sc_mmu_v1_0_16_top |        250 |        250 |       0 |    0 |  314 |      0 |      0 |    0 |          0 |
+|               (inst)                                              |                              ps_ddr_ctrl_0_sc_mmu_v1_0_16_top |         74 |         74 |       0 |    0 |   20 |      0 |      0 |    0 |          0 |
+|               ar_reg_stall                                        |    ps_ddr_ctrl_0_sc_util_v1_0_4_axi_reg_stall__parameterized0 |         56 |         56 |       0 |    0 |  120 |      0 |      0 |    0 |          0 |
+|               aw_reg_stall                                        | ps_ddr_ctrl_0_sc_util_v1_0_4_axi_reg_stall__parameterized0_12 |         50 |         50 |       0 |    0 |  120 |      0 |      0 |    0 |          0 |
+|               gen_endpoint.decerr_slave_inst                      |                     ps_ddr_ctrl_0_sc_mmu_v1_0_16_decerr_slave |         56 |         56 |       0 |    0 |   49 |      0 |      0 |    0 |          0 |
+|           s00_si_converter                                        |                                ps_ddr_ctrl_0_bd_1661_s00sic_0 |        471 |        471 |       0 |    0 |  373 |      0 |      0 |    0 |          0 |
+|             inst                                                  |                     ps_ddr_ctrl_0_sc_si_converter_v1_0_16_top |        471 |        471 |       0 |    0 |  373 |      0 |      0 |    0 |          0 |
+|               gen_axilite_conv.axilite_conv_inst                  |            ps_ddr_ctrl_0_sc_si_converter_v1_0_16_axilite_conv |        469 |        469 |       0 |    0 |  369 |      0 |      0 |    0 |          0 |
+|         switchboards                                              |                        ps_ddr_ctrl_0_switchboards_imp_1821J45 |        105 |        105 |       0 |    0 |  221 |      0 |      0 |    0 |          0 |
+|           i_nodes                                                 |                              ps_ddr_ctrl_0_i_nodes_imp_P8A059 |         87 |         87 |       0 |    0 |  221 |      0 |      0 |    0 |          0 |
+|             i_r_node                                              |                                   ps_ddr_ctrl_0_bd_1661_rni_0 |         24 |         24 |       0 |    0 |   59 |      0 |      0 |    0 |          0 |
+|               inst                                                |            ps_ddr_ctrl_0_sc_node_v1_0_19_top__parameterized12 |         24 |         24 |       0 |    0 |   59 |      0 |      0 |    0 |          0 |
+|             i_w_node                                              |                                   ps_ddr_ctrl_0_bd_1661_wni_0 |         13 |         13 |       0 |    0 |   51 |      0 |      0 |    0 |          0 |
+|               inst                                                |            ps_ddr_ctrl_0_sc_node_v1_0_19_top__parameterized13 |         13 |         13 |       0 |    0 |   51 |      0 |      0 |    0 |          0 |
+|     ddr                                                           |                                                  ps_ddr_ddr_0 |       1492 |       1206 |     268 |   18 | 1507 |      0 |      0 |    0 |          0 |
+|       inst                                                        |                                          ps_ddr_ddr_0_bd_3de3 |       1492 |       1206 |     268 |   18 | 1507 |      0 |      0 |    0 |          0 |
+|         s00_nodes                                                 |                             ps_ddr_ddr_0_s00_nodes_imp_M2Z473 |        486 |        218 |     268 |    0 |  584 |      0 |      0 |    0 |          0 |
+|           s00_ar_node                                             |                                   ps_ddr_ddr_0_bd_3de3_sarn_0 |         95 |         43 |      52 |    0 |  106 |      0 |      0 |    0 |          0 |
+|             inst                                                  |                              ps_ddr_ddr_0_sc_node_v1_0_19_top |         95 |         43 |      52 |    0 |  106 |      0 |      0 |    0 |          0 |
+|               inst_mi_handler                                     |                       ps_ddr_ddr_0_sc_node_v1_0_19_mi_handler |         89 |         37 |      52 |    0 |   98 |      0 |      0 |    0 |          0 |
+|                 gen_normal_area.inst_fifo_node_payld              |                          ps_ddr_ddr_0_sc_node_v1_0_19_fifo_10 |         89 |         37 |      52 |    0 |   96 |      0 |      0 |    0 |          0 |
+|                   gen_xpm_memory_fifo.inst_fifo                   |                ps_ddr_ddr_0_sc_util_v1_0_4_xpm_memory_fifo_11 |         89 |         37 |      52 |    0 |   96 |      0 |      0 |    0 |          0 |
+|                     gen_mem_rep[0].inst_xpm_memory                |                             ps_ddr_ddr_0_xpm_memory_sdpram__1 |         52 |          0 |      52 |    0 |   74 |      0 |      0 |    0 |          0 |
+|                       xpm_memory_base_inst                        |                               ps_ddr_ddr_0_xpm_memory_base__1 |         52 |          0 |      52 |    0 |   74 |      0 |      0 |    0 |          0 |
+|           s00_aw_node                                             |                                   ps_ddr_ddr_0_bd_3de3_sawn_0 |         91 |         43 |      48 |    0 |  104 |      0 |      0 |    0 |          0 |
+|             inst                                                  |              ps_ddr_ddr_0_sc_node_v1_0_19_top__parameterized0 |         91 |         43 |      48 |    0 |  104 |      0 |      0 |    0 |          0 |
+|               inst_mi_handler                                     |       ps_ddr_ddr_0_sc_node_v1_0_19_mi_handler__parameterized0 |         85 |         37 |      48 |    0 |   96 |      0 |      0 |    0 |          0 |
+|                 gen_normal_area.inst_fifo_node_payld              |                             ps_ddr_ddr_0_sc_node_v1_0_19_fifo |         85 |         37 |      48 |    0 |   94 |      0 |      0 |    0 |          0 |
+|                   gen_xpm_memory_fifo.inst_fifo                   |                   ps_ddr_ddr_0_sc_util_v1_0_4_xpm_memory_fifo |         85 |         37 |      48 |    0 |   94 |      0 |      0 |    0 |          0 |
+|                     gen_mem_rep[0].inst_xpm_memory                |                                ps_ddr_ddr_0_xpm_memory_sdpram |         48 |          0 |      48 |    0 |   72 |      0 |      0 |    0 |          0 |
+|                       xpm_memory_base_inst                        |                                  ps_ddr_ddr_0_xpm_memory_base |         48 |          0 |      48 |    0 |   72 |      0 |      0 |    0 |          0 |
+|           s00_r_node                                              |                                    ps_ddr_ddr_0_bd_3de3_srn_0 |        124 |         44 |      80 |    0 |  163 |      0 |      0 |    0 |          0 |
+|             inst                                                  |              ps_ddr_ddr_0_sc_node_v1_0_19_top__parameterized2 |        124 |         44 |      80 |    0 |  163 |      0 |      0 |    0 |          0 |
+|               inst_mi_handler                                     |       ps_ddr_ddr_0_sc_node_v1_0_19_mi_handler__parameterized2 |        118 |         38 |      80 |    0 |  155 |      0 |      0 |    0 |          0 |
+|                 gen_normal_area.inst_fifo_node_payld              |             ps_ddr_ddr_0_sc_node_v1_0_19_fifo__parameterized1 |        118 |         38 |      80 |    0 |  153 |      0 |      0 |    0 |          0 |
+|                   gen_xpm_memory_fifo.inst_fifo                   |   ps_ddr_ddr_0_sc_util_v1_0_4_xpm_memory_fifo__parameterized1 |        118 |         38 |      80 |    0 |  153 |      0 |      0 |    0 |          0 |
+|                     gen_mem_rep[0].inst_xpm_memory                |                ps_ddr_ddr_0_xpm_memory_sdpram__parameterized1 |         80 |          0 |      80 |    0 |  131 |      0 |      0 |    0 |          0 |
+|                       xpm_memory_base_inst                        |                  ps_ddr_ddr_0_xpm_memory_base__parameterized1 |         80 |          0 |      80 |    0 |  131 |      0 |      0 |    0 |          0 |
+|           s00_w_node                                              |                                    ps_ddr_ddr_0_bd_3de3_swn_0 |        128 |         44 |      84 |    0 |  177 |      0 |      0 |    0 |          0 |
+|             inst                                                  |              ps_ddr_ddr_0_sc_node_v1_0_19_top__parameterized3 |        128 |         44 |      84 |    0 |  177 |      0 |      0 |    0 |          0 |
+|               inst_mi_handler                                     |       ps_ddr_ddr_0_sc_node_v1_0_19_mi_handler__parameterized3 |        122 |         38 |      84 |    0 |  169 |      0 |      0 |    0 |          0 |
+|                 gen_normal_area.inst_fifo_node_payld              |             ps_ddr_ddr_0_sc_node_v1_0_19_fifo__parameterized2 |        122 |         38 |      84 |    0 |  167 |      0 |      0 |    0 |          0 |
+|                   gen_xpm_memory_fifo.inst_fifo                   |   ps_ddr_ddr_0_sc_util_v1_0_4_xpm_memory_fifo__parameterized2 |        122 |         38 |      84 |    0 |  167 |      0 |      0 |    0 |          0 |
+|                     gen_mem_rep[0].inst_xpm_memory                |                ps_ddr_ddr_0_xpm_memory_sdpram__parameterized2 |         84 |          0 |      84 |    0 |  145 |      0 |      0 |    0 |          0 |
+|                       xpm_memory_base_inst                        |                  ps_ddr_ddr_0_xpm_memory_base__parameterized2 |         84 |          0 |      84 |    0 |  145 |      0 |      0 |    0 |          0 |
+|         m00_exit_pipeline                                         |                    ps_ddr_ddr_0_m00_exit_pipeline_imp_1O7TNTY |         64 |         59 |       0 |    5 |   29 |      0 |      0 |    0 |          0 |
+|           m00_exit                                                |                                   ps_ddr_ddr_0_bd_3de3_m00e_0 |         64 |         59 |       0 |    5 |   29 |      0 |      0 |    0 |          0 |
+|             inst                                                  |                              ps_ddr_ddr_0_sc_exit_v1_0_18_top |         64 |         59 |       0 |    5 |   29 |      0 |      0 |    0 |          0 |
+|         s00_entry_pipeline                                        |                    ps_ddr_ddr_0_s00_entry_pipeline_imp_P0TL9H |        928 |        916 |       0 |   12 |  864 |      0 |      0 |    0 |          0 |
+|           s00_mmu                                                 |                                 ps_ddr_ddr_0_bd_3de3_s00mmu_0 |        239 |        239 |       0 |    0 |  325 |      0 |      0 |    0 |          0 |
+|             inst                                                  |                               ps_ddr_ddr_0_sc_mmu_v1_0_16_top |        239 |        239 |       0 |    0 |  325 |      0 |      0 |    0 |          0 |
+|               (inst)                                              |                               ps_ddr_ddr_0_sc_mmu_v1_0_16_top |         93 |         93 |       0 |    0 |   33 |      0 |      0 |    0 |          0 |
+|               ar_reg_stall                                        |     ps_ddr_ddr_0_sc_util_v1_0_4_axi_reg_stall__parameterized0 |         61 |         61 |       0 |    0 |  136 |      0 |      0 |    0 |          0 |
+|               aw_reg_stall                                        |  ps_ddr_ddr_0_sc_util_v1_0_4_axi_reg_stall__parameterized0_26 |         52 |         52 |       0 |    0 |  136 |      0 |      0 |    0 |          0 |
+|           s00_si_converter                                        |                                 ps_ddr_ddr_0_bd_3de3_s00sic_0 |        688 |        676 |       0 |   12 |  536 |      0 |      0 |    0 |          0 |
+|             inst                                                  |                      ps_ddr_ddr_0_sc_si_converter_v1_0_16_top |        688 |        676 |       0 |   12 |  536 |      0 |      0 |    0 |          0 |
+|               converter.low_area_converter.low_area_wrap_inst     |             ps_ddr_ddr_0_sc_si_converter_v1_0_16_reduced_area |        665 |        656 |       0 |    9 |  519 |      0 |      0 |    0 |          0 |
+|                 (converter.low_area_converter.low_area_wrap_inst) |             ps_ddr_ddr_0_sc_si_converter_v1_0_16_reduced_area |        614 |        614 |       0 |    0 |  501 |      0 |      0 |    0 |          0 |
+|                 w_resp_fifo                                       | ps_ddr_ddr_0_sc_util_v1_0_4_axic_reg_srl_fifo__parameterized2 |         51 |         42 |       0 |    9 |   18 |      0 |      0 |    0 |          0 |
++-------------------------------------------------------------------+---------------------------------------------------------------+------------+------------+---------+------+------+--------+--------+------+------------+
+
+

@@ -1,0 +1,8 @@
+{
+  "status": "PREPARED_ONLY_NOT_COMPILED_NOT_SELECTED",
+  "base_sha256": "23e8085155a9c3cc06d66b129a64aef4ed581581adeb8d5fcc7d49591af1efc1",
+  "candidate_sha256": "833c82f08ff14ede1a4463dc6066620dc6ef75fd49a8b2d0f36254d9b2863bec",
+  "theoretical_removed_storage_bits_for_128": 114688,
+  "changed_lines": 2,
+  "production_current_source_unchanged": true
+}

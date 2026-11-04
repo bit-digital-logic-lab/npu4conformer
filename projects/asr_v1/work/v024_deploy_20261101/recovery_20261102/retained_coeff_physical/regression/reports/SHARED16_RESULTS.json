@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "scope": "2492 corrected RTL, actual 17+2 full system XSim and separate repair unit test; no hardware",
+  "regression_plan_sha256": "d6e7bed5ee61d400fe66f047ad27b7845a27264c12340f6624a6d1d0e0f2e211",
+  "regression17_sha256": "97d8ab6da2a9a04f2f1ad54da1979a7973396847cc27092f651a554368cb7fe7",
+  "fault2_sha256": "09486b580cb405fa5c7260e2b5aa0dc7d14adbba392dcf15a52d270fe5e53a68",
+  "fix_acceptance_sha256": "82982ce839fa644ce4cfdd61e7ed493511a09a91849ba7981e85b0e4a428d9ad",
+  "process_receipt_sha256": {
+    "regression": "9a82f74102581c33f39d6566e5a69d2a6cae613c0751734137362d5476255a9d",
+    "generation_fault": "22b6af01634220f6d9bd927b10d9661988d02b8e8c34030d9a3d48cd4358e933",
+    "check17": "70d500962fc938293eeb92b37b36b8fb395ceae2c549f7ceaa44a5e21406a2a0",
+    "check2": "ff2830fa6f3f84e67ddbc52d12ba33d61b11bb680542b1b4d5e4237c6684d9fb"
+  }
+}

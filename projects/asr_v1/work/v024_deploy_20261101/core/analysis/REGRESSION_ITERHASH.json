@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "candidate_sha256": "23e8085155a9c3cc06d66b129a64aef4ed581581adeb8d5fcc7d49591af1efc1",
+  "fused_8192_words_bit_exact_vs_original128": true,
+  "scope": "ITERATIVE HASH CANDIDATE, MAX_NODES=128, real vendor FMA IP XSim; original11+boundary3+checksum3; no synthesis or board claim",
+  "cases": [
+    {
+      "case": "v024_fused",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 19061
+    },
+    {
+      "case": "v024_fallback",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 17211
+    },
+    {
+      "case": "v024_multicons",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 19696
+    },
+    {
+      "case": "v024_badflag",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 542
+    },
+    {
+      "case": "v024_hold",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 31059
+    },
+    {
+      "case": "v024_bound128",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 10278
+    },
+    {
+      "case": "v024_over129",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 268
+    },
+    {
+      "case": "v024_baddep128",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 388
+    },
+    {
+      "case": "v024_badcrc_stored",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 820
+    },
+    {
+      "case": "v024_badcrc_header",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 820
+    },
+    {
+      "case": "v024_badcrc_node",
+      "status": "PASS",
+      "output_words": 8192,
+      "cycles": 820
+    },
+    {
+      "case": "base_normal",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 24300
+    },
+    {
+      "case": "base_multitask",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 26215
+    },
+    {
+      "case": "base_bad_queue_magic",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 11002
+    },
+    {
+      "case": "base_bad_vec_op",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 12876
+    },
+    {
+      "case": "base_hold_b_c",
+      "status": "PASS",
+      "output_words": 512,
+      "cycles": 14009
+    },
+    {
+      "case": "v024_lane",
+      "status": "PASS",
+      "output_words": 64,
+      "cycles": null
+    }
+  ]
+}

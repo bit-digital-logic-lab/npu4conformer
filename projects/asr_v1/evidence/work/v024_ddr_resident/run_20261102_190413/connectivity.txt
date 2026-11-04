@@ -1,0 +1,12 @@
+VIVADO_BD_VALIDATED_ONLY
+part=xczu15eg-ffvb1156-2-i
+core_port=core_wrap/M_AXI
+board_memory_port=ps/S_AXI_HP0_FPD
+DDR_port_bits=128
+DDR_enabled=1
+clock_MHz=50
+core_parameter_window=0x10000000..0x1fffffff (256 MiB, requires synthesis with the new PARAM_END generic)
+/ps/Data /ps/Data/SEG_board_control_reg0 offset=0x00A1000000 range=0x0000010000
+/ps/Data /ps/Data/SEG_core_wrap_reg0 offset=0x00A0000000 range=0x0001000000
+/core_wrap/M_AXI /core_wrap/M_AXI/SEG_ps_HP0_DDR_LOW offset=0x0000000000 range=0x0080000000
+This is a block design with a core placeholder. No synthesized system, timing, firmware, network interface or board result is claimed.

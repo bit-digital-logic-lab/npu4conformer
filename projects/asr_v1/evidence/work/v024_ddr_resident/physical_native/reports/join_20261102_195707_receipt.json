@@ -1,0 +1,18 @@
+{
+  "stage": "FAILED",
+  "thread_limit": 8,
+  "pid": 16968,
+  "updated": "2026-11-02T20:01:14.568503+08:00",
+  "inputs": {
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\build\\parent_unlinked.dcp": "ad6d67e1372e93be23fabf584dcad2b809bab5a89a8dcf09c21aacaa4b253a1c",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\build\\array16_ooc_clockless.dcp": "51e66fed3280e5ba8314cc6a31d9fd4607d0260cd76ab377b3e4c30269cc8e53",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\build\\shell_synth.dcp": "5dea9c015db09bbd8a85c072202545592daef0e44537cb4f2daa08d2df7fa5cb",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\build\\shell_timing.xdc": "55005016ad9d6242dc5ef21accfd72c63e0a589b94ea4b7d0944162e3434b805"
+  },
+  "script_sha256": "fe6a8d549ee11c9182ab67bd6a4cd7587458fbea675b2054567cd81bfcaab1e3",
+  "log": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\logs\\join_20261102_195707.log",
+  "launcher_pid": 43824,
+  "exit_code": 3221225477,
+  "core_sha256": "25bba57f451f75c7890b4223450316801f7a4a3b83f3aab382a2fa41191ca06c",
+  "error": "Vivado join failed: C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\logs\\join_20261102_195707.log"
+}

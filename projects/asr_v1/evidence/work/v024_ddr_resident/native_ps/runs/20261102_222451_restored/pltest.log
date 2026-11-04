@@ -1,0 +1,2 @@
+NATIVE_STAGE=0
+NATIVE_COMMAND_PASS mode=pltest seq=2 pl_calls=2 ticks_low=1609394

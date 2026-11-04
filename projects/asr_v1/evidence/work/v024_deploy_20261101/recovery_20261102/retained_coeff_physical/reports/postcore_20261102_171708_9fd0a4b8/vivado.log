@@ -1,0 +1,259 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Nov  2 17:17:08 2026
+# Process ID         : 22120
+# Current directory  : C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/post_core_review
+# Command line       : vivado.exe -mode batch -nojournal -log C:\Academic_Work\CIM_learning\work\v024_deploy_20261101\recovery_20261102\retained_coeff_physical\reports\postcore_20261102_171708_9fd0a4b8\vivado.log -source C:\Academic_Work\CIM_learning\work\v024_deploy_20261101\recovery_20261102\retained_coeff_physical\post_core_review\post_core_checks.tcl -tclargs C:\Academic_Work\CIM_learning\work\v024_deploy_20261101\recovery_20261102\retained_coeff_physical\build\candidate_synth.dcp C:\Academic_Work\CIM_learning\work\v024_deploy_20261101\recovery_20261102\retained_coeff_physical\build\array16_ooc_clockless.dcp C:\Academic_Work\CIM_learning\work\v024_deploy_20261101\recovery_20261102\retained_coeff_physical\reports\postcore_20261102_171708_9fd0a4b8
+# Log file           : C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/reports/postcore_20261102_171708_9fd0a4b8/vivado.log
+# Journal file       : 
+# Running On         : MILK
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26300
+# Processor Detail   : Intel(R) Core(TM) Ultra 9 275HX
+# CPU Frequency      : 3072 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 24
+# Host memory        : 33676 MB
+# Swap memory        : 5561 MB
+# Total Virtual      : 39237 MB
+# Available Virtual  : 18397 MB
+#-----------------------------------------------------------
+source {C:\Academic_Work\CIM_learning\work\v024_deploy_20261101\recovery_20261102\retained_coeff_physical\post_core_review\post_core_checks.tcl}
+# set here [file dirname [file normalize [info script]]]
+# set base [file dirname $here]
+# set core [file join $base build candidate_synth.dcp]
+# set leaf [file join $base build array16_ooc_clockless.dcp]
+# set out [file join $base reports post_core_[clock format [clock seconds] -format %Y%m%d_%H%M%S]]
+# if {$argc>=1} {set core [file normalize [lindex $argv 0]]}
+# if {$argc>=2} {set leaf [file normalize [lindex $argv 1]]}
+# if {$argc>=3} {set out [file normalize [lindex $argv 2]]}
+# file mkdir $out
+# set facts [open [file join $out checks.kv] w]
+# proc fact {key value} {global facts; puts $facts "$key=$value";flush $facts}
+# proc need {ok message} {if {!$ok} {fact status INCOMPLETE_OR_FAILED;fact reason $message;error $message}}
+# proc save_lines {path lines} {set f [open $path w];foreach line $lines {puts $f $line};close $f}
+# proc direction {d} {switch -nocase -- $d {IN - INPUT {return IN} OUT - OUTPUT {return OUT} INOUT {return INOUT} default {error "Unknown direction $d"}}}
+# proc signature {objects prefix} {
+#  set rows [list]
+#  foreach obj $objects {
+#   set name [get_property NAME $obj]
+#   if {$prefix ne ""} {need [string match "${prefix}/*" $name] "Pin outside leaf: $name";set name [string range $name [expr {[string length $prefix]+1}] end]}
+#   lappend rows "$name\t[direction [get_property DIRECTION $obj]]"
+#  }
+#  return [lsort -unique $rows]
+# }
+# proc ff_relative {cells prefix} {
+#  set names [list]
+#  foreach cell $cells {
+#   set name [get_property NAME $cell]
+#   if {$prefix ne ""} {set name [string range $name [expr {[string length $prefix]+1}] end]}
+#   lappend names $name
+#  }
+#  return [lsort -unique $names]
+# }
+# fact status NOT_COMPLETED
+# fact core_dcp $core
+# fact leaf_dcp $leaf
+# need [file isfile $core] "Core DCP missing"
+# need [file isfile $leaf] "Leaf DCP missing"
+# set_param general.maxThreads 1
+# open_checkpoint $leaf
+Command: open_checkpoint C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/build/array16_ooc_clockless.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 459.375 ; gain = 5.836
+INFO: [Device 21-403] Loading part xczu15eg-ffvb1156-2-i
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.632 . Memory (MB): peak = 1807.629 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 13056 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 3 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.210 . Memory (MB): peak = 1871.348 ; gain = 10.680
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.069 . Memory (MB): peak = 2732.820 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 8192 instances were transformed.
+  RAM16X1S => RAM32X1S (RAMS32): 8192 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:31 ; elapsed = 00:00:37 . Memory (MB): peak = 2732.820 ; gain = 2289.062
+# need [expr {[llength [get_clocks -quiet *]]==0}] "Leaf checkpoint is not clockless"
+# need [expr {[llength [get_cells -quiet -hier -filter {IS_BLACKBOX == 1}]]==0}] "Leaf contains blackboxes"
+# need [expr {[llength [get_cells -quiet -hier -filter {REF_NAME =~ pe_w7_c48_cfg*}]]==256}] "Leaf PE count not256"
+# fact leaf_clockless 1
+# fact leaf_blackboxes 0
+# set leaf_sig [signature [get_ports -quiet *] ""]
+# save_lines [file join $out leaf_ports.tsv] $leaf_sig
+# need [expr {[llength $leaf_sig]==12727}] "Leaf bit-port count differs from exact original interface12727"
+# set leaf_ff_names [ff_relative [get_cells -quiet -hier -filter {IS_PRIMITIVE == 1 && REF_NAME =~ FD*}] ""]
+# need [expr {[llength $leaf_ff_names]>0}] "Leaf FF collection empty"
+# save_lines [file join $out leaf_ff_relative.txt] $leaf_ff_names
+# fact leaf_bit_ports [llength $leaf_sig]
+# fact leaf_ff_count [llength $leaf_ff_names]
+# close_project
+# open_checkpoint $core
+Command: open_checkpoint C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/recovery_20261102/retained_coeff_physical/build/candidate_synth.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2812.496 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 2812.496 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 38652 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 8 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.658 . Memory (MB): peak = 2812.496 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.173 . Memory (MB): peak = 3793.664 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 11515 instances were transformed.
+  DSP48E1 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 2 instances
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 277 instances
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 8 instances
+  RAM16X1S => RAM32X1S (RAMS32): 8192 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 4 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 594 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 132 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 110 instances
+  RAM64M8 => RAM64M8 (RAMD64E(x8)): 2194 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 2 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
+open_checkpoint: Time (s): cpu = 00:00:56 ; elapsed = 00:01:00 . Memory (MB): peak = 3793.664 ; gain = 981.168
+# set leaf_name matrix/shared_array
+# set linked [get_cells -quiet $leaf_name]
+# need [expr {[llength $linked]==1}] "Missing exact leaf instance"
+# need [expr {[llength [get_cells -quiet -hier -filter {IS_BLACKBOX == 1}]]==0}] "Core still contains blackboxes"
+# set fma [get_cells -quiet graph/vec/arithmetic/fused]
+# need [expr {[llength $fma]==1}] "Missing unique graph/vec/arithmetic/fused FMA hierarchy"
+# need [expr {![get_property IS_BLACKBOX $fma]}] "FMA hierarchy is a blackbox"
+# fact fma_hierarchy_count 1
+# fact fma_blackbox 0
+# need [expr {[llength [get_cells -quiet -hier -filter {REF_NAME =~ pe_w7_c48_cfg*}]]==256}] "Core PE count not256"
+# need [expr {[llength [get_cells -quiet -hier -filter {REF_NAME =~ array16_w7_c48_cfg*}]]==1}] "Core array count not1"
+# fact leaf_and_linked_PE_count 256
+# set core_sig [signature [get_pins -quiet -of_objects $linked] $leaf_name]
+# save_lines [file join $out linked_pins.tsv] $core_sig
+# need [expr {$leaf_sig eq $core_sig}] "Leaf port/pin names, bit indices, direction or widths differ; inspect TSVs"
+# fact exact_leaf_interface 1
+# set clocks [get_clocks -quiet *]
+# need [expr {[llength $clocks]==1 && [get_property NAME [lindex $clocks 0]] eq "core_clk"}] "Expected only core_clk"
+# set clk [get_clocks core_clk]
+# need [expr {abs([get_property PERIOD $clk]-20.0)<0.001}] "core_clk period not20ns"
+# fact core_clock_name core_clk
+# fact core_clock_period_ns [get_property PERIOD $clk]
+# fact core_blackboxes 0
+# set leaf_clock_pin [get_pins -quiet ${leaf_name}/clk]
+# need [expr {[llength $leaf_clock_pin]==1}] "Missing leaf clk pin"
+# set arriving [get_clocks -quiet -of_objects $leaf_clock_pin]
+# need [expr {[llength $arriving]==1 && [get_property NAME [lindex $arriving 0]] eq "core_clk"}] "core_clk does not reach leaf clk pin"
+# fact leaf_clock_pin_core_clk 1
+# set ff [get_cells -quiet -hier -filter {IS_PRIMITIVE == 1 && REF_NAME =~ FD*}]
+# set leaf_ffs [list]
+# foreach cell $ff {if {[string match "${leaf_name}/*" [get_property NAME $cell]]} {lappend leaf_ffs $cell}}
+# set linked_ff_names [ff_relative $leaf_ffs $leaf_name]
+# save_lines [file join $out linked_ff_relative.txt] $linked_ff_names
+# need [expr {$leaf_ff_names eq $linked_ff_names}] "Linked leaf FF name/count differs from standalone leaf"
+# set core_regs [all_registers -clock $clk -cells]
+# set clocked_names [dict create]
+# set parent_regs [list]
+# foreach cell $core_regs {
+#  set name [get_property NAME $cell];dict set clocked_names $name 1
+#  if {![string match "${leaf_name}/*" $name]} {lappend parent_regs $cell}
+# }
+# set missing_clock [list]
+# foreach cell $leaf_ffs {set name [get_property NAME $cell];if {![dict exists $clocked_names $name]} {lappend missing_clock $name}}
+# save_lines [file join $out leaf_ff_without_core_clock.txt] $missing_clock
+# need [expr {[llength $missing_clock]==0}] "Some leaf FFs absent from core_clk register collection; investigate timing arcs/disabled clocks"
+# fact leaf_ff_clocked [llength $leaf_ffs]
+# fact leaf_ff_missing_clock 0
+# fact leaf_ff_names_preserved 1
+# need [expr {[llength $parent_regs]>0}] "Parent clocked register collection empty"
+# check_timing -verbose -file [file join $out check_timing.rpt]
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+check_timing: Time (s): cpu = 00:00:50 ; elapsed = 00:00:54 . Memory (MB): peak = 5287.398 ; gain = 1359.297
+# set f [open [file join $out check_timing.rpt] r]
+# set text [read $f]
+# close $f
+# foreach kind {no_clock unconstrained_internal_endpoints loops latch_loops} {
+#  set pattern [format {checking %s \(([0-9]+)\)} $kind]
+#  need [regexp $pattern $text -> n] "Missing check_timing category $kind"
+#  need [expr {$n==0}] "check_timing $kind=$n"
+#  fact $kind $n
+# }
+# foreach kind {parent_to_leaf leaf_to_parent leaf_internal} {
+#  if {$kind eq "parent_to_leaf"} {set src $parent_regs;set dst $leaf_ffs}
+#  if {$kind eq "leaf_to_parent"} {set src $leaf_ffs;set dst $parent_regs}
+#  if {$kind eq "leaf_internal"} {set src $leaf_ffs;set dst $leaf_ffs}
+#  foreach delay {max min} {
+#   set paths [get_timing_paths -from $src -to $dst -delay_type $delay -max_paths 5]
+#   need [expr {[llength $paths]>0}] "No $kind $delay paths; cannot claim boundary timing coverage"
+#   report_timing -from $src -to $dst -delay_type $delay -max_paths 5 -file [file join $out ${kind}_${delay}.rpt]
+#   fact ${kind}_${delay}_worst_slack [get_property SLACK [lindex $paths 0]]
+#  }
+# }
+CRITICAL WARNING: [Vivado 12-4439] The number of objects collected by the 'from' option of 'get_timing_paths' is very large: 118017. This may lead to serious performance issues and out-of-memory conditions in handling the results.
+Resolution: Further filtering of the command results, or narrowing the scope of the command is recommended.
+get_timing_paths: Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 5287.398 ; gain = 0.000
+CRITICAL WARNING: [Vivado 12-4439] The number of objects collected by the 'from' option of 'report_timing' is very large: 118017. This may lead to serious performance issues and out-of-memory conditions in handling the results.
+Resolution: Further filtering of the command results, or narrowing the scope of the command is recommended.
+INFO: [Timing 38-78] ReportTimingParams: -from_pins  -to_pins  -max_paths 5 -nworst 1 -delay_type max -sort_by slack.
+report_timing: Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 5380.305 ; gain = 92.906
+CRITICAL WARNING: [Vivado 12-4439] The number of objects collected by the 'from' option of 'get_timing_paths' is very large: 118017. This may lead to serious performance issues and out-of-memory conditions in handling the results.
+Resolution: Further filtering of the command results, or narrowing the scope of the command is recommended.
+get_timing_paths: Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 5380.305 ; gain = 0.000
+CRITICAL WARNING: [Vivado 12-4439] The number of objects collected by the 'from' option of 'report_timing' is very large: 118017. This may lead to serious performance issues and out-of-memory conditions in handling the results.
+Resolution: Further filtering of the command results, or narrowing the scope of the command is recommended.
+INFO: [Timing 38-78] ReportTimingParams: -from_pins  -to_pins  -max_paths 5 -nworst 1 -delay_type min -sort_by slack.
+report_timing: Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 5400.070 ; gain = 19.766
+CRITICAL WARNING: [Vivado 12-4439] The number of objects collected by the 'to' option of 'get_timing_paths' is very large: 118017. This may lead to serious performance issues and out-of-memory conditions in handling the results.
+Resolution: Further filtering of the command results, or narrowing the scope of the command is recommended.
+get_timing_paths: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 5400.070 ; gain = 0.000
+CRITICAL WARNING: [Vivado 12-4439] The number of objects collected by the 'to' option of 'report_timing' is very large: 118017. This may lead to serious performance issues and out-of-memory conditions in handling the results.
+Resolution: Further filtering of the command results, or narrowing the scope of the command is recommended.
+INFO: [Timing 38-78] ReportTimingParams: -from_pins  -to_pins  -max_paths 5 -nworst 1 -delay_type max -sort_by slack.
+report_timing: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 5418.785 ; gain = 18.715
+CRITICAL WARNING: [Vivado 12-4439] The number of objects collected by the 'to' option of 'get_timing_paths' is very large: 118017. This may lead to serious performance issues and out-of-memory conditions in handling the results.
+Resolution: Further filtering of the command results, or narrowing the scope of the command is recommended.
+get_timing_paths: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 5418.785 ; gain = 0.000
+CRITICAL WARNING: [Vivado 12-4439] The number of objects collected by the 'to' option of 'report_timing' is very large: 118017. This may lead to serious performance issues and out-of-memory conditions in handling the results.
+Resolution: Further filtering of the command results, or narrowing the scope of the command is recommended.
+INFO: [Timing 38-78] ReportTimingParams: -from_pins  -to_pins  -max_paths 5 -nworst 1 -delay_type min -sort_by slack.
+report_timing: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 5439.066 ; gain = 20.281
+get_timing_paths: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 5439.066 ; gain = 0.000
+INFO: [Timing 38-78] ReportTimingParams: -from_pins  -to_pins  -max_paths 5 -nworst 1 -delay_type max -sort_by slack.
+report_timing: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 5439.066 ; gain = 0.000
+get_timing_paths: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 5439.066 ; gain = 0.000
+INFO: [Timing 38-78] ReportTimingParams: -from_pins  -to_pins  -max_paths 5 -nworst 1 -delay_type min -sort_by slack.
+report_timing: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 5439.066 ; gain = 0.000
+# foreach delay {max min} {
+#  set paths [get_timing_paths -delay_type $delay -max_paths 1]
+#  need [expr {[llength $paths]>0}] "Core global $delay timing path absent"
+#  report_timing -delay_type $delay -max_paths 5 -file [file join $out core_${delay}.rpt]
+#  fact core_${delay}_worst_slack [get_property SLACK [lindex $paths 0]]
+# }
+get_timing_paths: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 5439.066 ; gain = 0.000
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 5 -nworst 1 -delay_type max -sort_by slack.
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 5 -nworst 1 -delay_type min -sort_by slack.
+# report_timing_summary -report_unconstrained -file [file join $out timing_summary.rpt]
+report_timing_summary: Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 5480.191 ; gain = 41.125
+# report_utilization -hierarchical -hierarchical_depth 6 -file [file join $out fma_utilization_hier.rpt]
+# fact status CHECKS_COMPLETED_REVIEW_REQUIRED
+# fact scope SYNTHESIZED_CORE_ONLY_NOT_ROUTED_CLOSURE
+# close $facts
+# close_project
+close_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 5497.051 ; gain = 0.000
+# puts POST_CORE_CHECKS_COMPLETED_REVIEW_REQUIRED
+POST_CORE_CHECKS_COMPLETED_REVIEW_REQUIRED
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 17:32:33 2026...

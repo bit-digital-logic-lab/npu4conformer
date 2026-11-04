@@ -1,0 +1,26 @@
+{
+  "status": "SELECTED_FOR_OOC_VIA_SOURCE_OVERRIDE_ORIGINAL_RTL_PRESERVED",
+  "base_sha256": "6976094c509debda7205bd438d6b93e7644751ad3bdf77a77a22f38eaa2475ac",
+  "candidate_sha256": "23e8085155a9c3cc06d66b129a64aef4ed581581adeb8d5fcc7d49591af1efc1",
+  "state_changes": [
+    "HHASH=10:16 cycles, skip word7",
+    "NHASH=11:48 cycles, all 48 words included"
+  ],
+  "known_latency_addition": "16 + 48*node_count hashing states; seven nodes 352 states; total runtime changes with AXI stalls",
+  "unchanged": [
+    "DMA firstcapture in HFETCH/NFETCH",
+    "header/node prior validation",
+    "complete FNV checksum and final compare before SCAN",
+    "existing production RTL and current OOC process"
+  ],
+  "regression": "REGRESSION_ITERHASH.json:17 strict passes",
+  "measured_fused_cycles": {
+    "original_TB": 18731,
+    "iterhash_TB": 19061,
+    "original_CSR": 18474,
+    "iterhash_CSR": 18804,
+    "measured_delta": 330,
+    "hash_state_cycles_added": 352,
+    "other_cycles_net_change": -22
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "stage": "SYNTH_SYSTEM_PASS",
+  "thread_limit": 8,
+  "pid": 27764,
+  "updated": "2026-11-02T20:04:24.432399+08:00",
+  "inputs": {
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\build\\parent_unlinked.dcp": "ad6d67e1372e93be23fabf584dcad2b809bab5a89a8dcf09c21aacaa4b253a1c",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\retained_coeff_physical\\build\\array16_ooc_clockless.dcp": "51e66fed3280e5ba8314cc6a31d9fd4607d0260cd76ab377b3e4c30269cc8e53",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\build\\shell_synth.dcp": "5dea9c015db09bbd8a85c072202545592daef0e44537cb4f2daa08d2df7fa5cb",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\build\\shell_timing.xdc": "55005016ad9d6242dc5ef21accfd72c63e0a589b94ea4b7d0944162e3434b805"
+  },
+  "script_sha256": "30481e42039d9eb091dbe34324ca77d4ab0639b034bc26848d805d443a5825e4",
+  "log": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\physical_native\\logs\\join_20261102_200143.log",
+  "launcher_pid": 25864,
+  "exit_code": 0,
+  "core_sha256": "25bba57f451f75c7890b4223450316801f7a4a3b83f3aab382a2fa41191ca06c",
+  "system_sha256": "ff1aa598d88f103cbf3505b01f9cb2e3077a22a79ec0f9359d904ed2c9dbc170",
+  "blackboxes": 0,
+  "pe_count": 256,
+  "clock_period_ns": 20.625,
+  "scope": "PS DDR, 256 MiB parameter window; synthesized netlist; no PL Ethernet"
+}

@@ -1,0 +1,32 @@
+{
+  "mode": "pltest",
+  "mailbox": {
+    "magic": 1347629620,
+    "abi": 1,
+    "state": 3,
+    "capabilities": 7,
+    "request_seq": 2,
+    "response_seq": 2,
+    "command": 3,
+    "feature_frames": 0,
+    "result": 0,
+    "encoder_frames": 0,
+    "pl_calls": 2,
+    "stage": 0,
+    "ticks_lo": 1609394,
+    "ticks_hi": 0,
+    "timer_hz": 33333000,
+    "selftest_mask": 31
+  },
+  "mailbox_sha256": "5d98f4a662ac64a84f33d32acc28e063e024fde81c62a8ffff11351a2595720e",
+  "board_elapsed_seconds": 0.04828230282302823,
+  "output_sha256": "aecaf2d800b08fb8639a1955f9a53e957b32103926cdbebc6f257bd04db9dacb",
+  "matrix": [
+    35,
+    1057,
+    129
+  ],
+  "checked_words": 4515,
+  "max_abs_error": 0.0,
+  "passed": true
+}

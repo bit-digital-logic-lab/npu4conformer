@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "method": "Fresh raw input reconstructed from each corpus FLAC; unpacked original A53 mailbox, independent NumPy CTC projection and token collapse on every board output word; reference compared only after decoding.",
+  "session": "ac4a3a889cee46fd80aa6bb8abe10176",
+  "xsdb_pid": 12540,
+  "firmware_session": "20261102_215234",
+  "image": "0xA51A2493",
+  "records": [
+    {
+      "clip": "1089-134686-0003",
+      "raw_path": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\native_host\\runs\\20261102_220416\\1089-134686-0003\\raw\\board_encoder",
+      "abi": 1,
+      "sequence": 3,
+      "source_flac_sha256": "d8692f61518fe07b45d4dad54e026c1d04f3fc016b0d39923d05fcbcff684563",
+      "saved_frontend_exact_upload_bytes": true,
+      "regenerated_logmel_max_abs_error": 9.5367431640625e-07,
+      "regenerated_logmel_exact_fraction": 0.9998511904761904,
+      "input_sha256": "c74c1b2d6aaaba46a5733035e8113437d625ea7eb5dab1f3b0c48e341c5879c4",
+      "output_sha256": "c18836aa2255963e5be655b1cf9baebebcb0654348989f3961ad07465e8a4ceb",
+      "word_count": 20992,
+      "shape": [
+        41,
+        512
+      ],
+      "pl_calls": 485,
+      "ticks": 343002466,
+      "timer_hz": 33333000,
+      "board_seconds": 10.290176881768817,
+      "independently_decoded": "HELLO BERTIE ANY GOOD IN YOUR MIND",
+      "reference_exact": true
+    },
+    {
+      "clip": "1089-134686-0001",
+      "raw_path": "C:\\Academic_Work\\CIM_learning\\work\\v024_ddr_resident\\native_host\\runs\\20261102_220416\\1089-134686-0001\\raw\\board_encoder",
+      "abi": 1,
+      "sequence": 4,
+      "source_flac_sha256": "3fc09ec6d4cc496c530b2019b17bd8fc8ef8a43d6697090971dd1d52cc3d4d89",
+      "saved_frontend_exact_upload_bytes": true,
+      "regenerated_logmel_max_abs_error": 9.5367431640625e-07,
+      "regenerated_logmel_exact_fraction": 0.9998170731707318,
+      "input_sha256": "97b5cd93a79f6ebf20401a57ba609901a11d633f2a5996415d8492c6928b16f8",
+      "output_sha256": "96e8416e1beba4e565bc63f284b6b8488c1a18a44fb553018f117ee418bcded4",
+      "word_count": 25600,
+      "shape": [
+        50,
+        512
+      ],
+      "pl_calls": 499,
+      "ticks": 395418623,
+      "timer_hz": 33333000,
+      "board_seconds": 11.862677316773167,
+      "independently_decoded": "STUFF IT INTO YOU HIS BELLY COUNSELLED HIM",
+      "reference_exact": true
+    }
+  ]
+}

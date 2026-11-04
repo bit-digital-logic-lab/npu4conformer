@@ -1,0 +1,2 @@
+# Optional cache-aware FastConformer environment.
+nemo_toolkit[asr]==2.5.3

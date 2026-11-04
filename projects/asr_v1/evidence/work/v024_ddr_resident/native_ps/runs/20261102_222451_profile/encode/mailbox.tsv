@@ -1,0 +1,16 @@
+magic	1347629620
+abi	1
+state	3
+capabilities	7
+request_seq	3
+response_seq	3
+command	2
+feature_frames	168
+result	0
+encoder_frames	41
+pl_calls	485
+stage	300
+ticks_lo	343022378
+ticks_hi	0
+timer_hz	33333000
+selftest_mask	31

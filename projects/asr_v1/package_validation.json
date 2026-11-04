@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "release": "v1",
+  "source_files_copied": 2670,
+  "source_original_bytes_unchanged": true,
+  "pinned_input_records_checked": 167,
+  "current_parent_plan_inputs": 63,
+  "python_owned_source_files_parsed": 95,
+  "potential_credential_pattern_hits": 0,
+  "independent_saved_matrix_readback": {
+    "result": "PASS",
+    "address": "0x07c40000",
+    "shape": [
+      35,
+      1057,
+      129
+    ],
+    "words": 4515,
+    "max_absolute_error": 0.0,
+    "raw_sha256": "aecaf2d800b08fb8639a1955f9a53e957b32103926cdbebc6f257bd04db9dacb"
+  },
+  "git_intended_files_ignored": 0,
+  "git_preserves_signed_line_endings": true,
+  "binary_asset_zip": {
+    "file": "asr_v1_assets.zip",
+    "bytes": 1249045103,
+    "sha256": "e10392a684b04bf869dbc94c5ed0edcbe32db8d58901b7febdfd66de038c3153",
+    "file_count": 68
+  },
+  "new_hardware_access": false,
+  "new_synthesis_or_implementation": false,
+  "clean_environment_reproduction": false,
+  "remote_uploaded": false,
+  "runtime_active_receipts_quarantined": true,
+  "local_docx_links_resolved": 9,
+  "restored_report_evidence_links": [
+    "work/v024_ddr_resident/physical_native/physical/reports/READY_FOR_BOARD.json",
+    "work/v024_ddr_resident/native_host/runs/20261102_220416/summary.json",
+    "work/v024_ddr_resident/native_ps/runs/20261102_222451_profile/encode/profile.json",
+    "work/v024_ddr_resident/operator_ui/verification/segmented_live_wait_20261102_225151/summary.json",
+    "work/v024_ddr_resident/native_ps/runs/20261102_215234/pltest/verified.json",
+    "work/v024_ddr_resident/native_model/board_loads/20261102_215608/verification.json"
+  ],
+  "nested_ignore_rules_checked": true,
+  "pinned_source_files_preserved_by_git": 62,
+  "offline_saved_cold_graph_recheck": {
+    "passed": true,
+    "saved_capture_only": true,
+    "new_board_test": false,
+    "words": 8192,
+    "cycles": 18833,
+    "nominal_ms": 0.388430625,
+    "output_sha256": "ea22596011193a1ea7c8853533ccb372a2a189776921ec1da4738f2a1df01379"
+  },
+  "actual_checkout_ignore_check": {
+    "passed": true,
+    "path_transport": "NUL-separated binary stdin",
+    "files_checked": 2676,
+    "ignored_count": 0,
+    "exact_selected_inputs_and_logs_allowed": 183,
+    "unrelated_ignore_rules_changed": false
+  },
+  "copy_to_user_checkout_verified": true
+}

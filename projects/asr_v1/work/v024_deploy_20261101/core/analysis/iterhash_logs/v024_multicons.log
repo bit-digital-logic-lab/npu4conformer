@@ -1,0 +1,13 @@
+Time resolution is 1 ps
+ITERHASH_FINAL computed=98766b78 expected=98766b78 header_steps=16 node_steps=336
+WAIT cyc=5000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+WAIT cyc=10000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+WAIT cyc=15000 busy=1 fault=0 err=00 iso=0 rd=0 wr=0 b=0
+V024_CSR status=00000002 err=00 completed=7 last=6 cycles=19439 fetch=286 op=18798
+V024_CSR vec_total=2573 layout_total=16912 matrix_total=1862 vec_ops=2 layout_ops=3 matrix_ops=1
+V024_FUSION used=0 c48_ddr_bytes=0 a16_bytes=0
+V024_AXI rburst=86 wburst=109 rbeats=1276 wbeats=1088 tag_err=0 rpeak=1 wpeak=1
+V024_DRAIN rd_pending=0 wr_pending=0 b_pending=0 quiesced=1 iso_blocked=0 held_b=0 returned_b=109
+V024_END done=1 fault=0 error=00 iso=0 requires_reset=0 fetch_to=0 drain_timeout=0 cycles=19696
+V024_RESULT PASS
+$finish called at time : 157572 ns : File "C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/sim/tb/tb_v024_unified.sv" Line 267

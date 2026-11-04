@@ -1,0 +1,698 @@
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Mon Nov  2 19:35:32 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source {C:\Academic_Work\CIM_learning\work\v024_ddr_resident\physical_native\synth_shell.tcl}
+# set out [file normalize [file dirname [info script]]]
+# set argv [list [file join $out shell_run]]
+# set argc 1
+# set_param general.maxThreads 1
+# source {C:/Academic_Work/CIM_learning/work/v024_ddr_resident/ps_ddr_shell.tcl}
+## if {$argc != 1} {error "expected a new project directory"}
+## set root [file normalize [file dirname [info script]]]
+## set deploy [file join $root .. v024_deploy_20261101]
+## set out [file normalize [lindex $argv 0]]
+## if {[file exists $out]} {error "output directory already exists"}
+## file mkdir $out
+## create_project resident [file join $out project] -part xczu15eg-ffvb1156-2-i
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project'
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 661.223 ; gain = 218.797
+## set_property target_language Verilog [current_project]
+## foreach file {platform/v024_unified_stub.sv board_control/v024_board_control.sv} {
+##     add_files [file join $deploy $file]
+## }
+## set input [open [file join $deploy platform v024_core_wrapper.sv] r]
+## set original [read $input]
+## close $input
+## set substitutions [list \
+##     {module v024_core_wrapper (} {module v024_ddr_core_wrapper (
+##  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI ARUSER" *) output wire [0:0] m_aruser,
+##  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI AWUSER" *) output wire [0:0] m_awuser,} \
+##     {PROTOCOL AXI4, DATA_WIDTH 128} {PROTOCOL AXI4, ARUSER_WIDTH 1, AWUSER_WIDTH 1, DATA_WIDTH 128} \
+##     { (* DONT_TOUCH = "yes" *)} { assign m_aruser = 1'b0;
+##  assign m_awuser = 1'b0;
+##  (* DONT_TOUCH = "yes" *)} \
+##     {.MAX_NODES(128), .SEQ_ENABLE(0)} {.MAX_NODES(128), .SEQ_ENABLE(0), .PARAM_END(32'h20000000)}]
+## foreach {needle replacement} $substitutions {
+##     if {[string first $needle $original] < 0 || [string first $needle $original] != [string last $needle $original]} {
+##         error "unexpected input wrapper: $needle"
+##     }
+## }
+## set wrapper [file join $out v024_ddr_core_wrapper.v]
+## set file [open $wrapper w]
+## puts -nonewline $file [string map $substitutions $original]
+## close $file
+## add_files $wrapper
+## set_property FILE_TYPE Verilog [get_files -filter {FILE_TYPE == SystemVerilog}]
+## create_bd_design ps_ddr
+Wrote  : <C:\Academic_Work\CIM_learning\work\v024_ddr_resident\physical_native\shell_run\project\resident.srcs\sources_1\bd\ps_ddr\ps_ddr.bd> 
+## create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.5 ps
+## source [file join $deploy ps_platform alinx_ps_config_original.tcl]
+### proc set_ps_config {bd_cell_name} {
+### set_property -dict [list CONFIG.PSU__CAN0__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__CAN0__PERIPHERAL__IO {MIO 38 .. 39}  \
+###      CONFIG.PSU__CAN1__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__CAN1__PERIPHERAL__IO {MIO 40 .. 41}  \
+###      CONFIG.PSU__DPAUX__PERIPHERAL__IO {MIO 27 .. 30}  \
+###      CONFIG.PSU__ENET2__PERIPHERAL__ENABLE {0}  \
+###      CONFIG.PSU__ENET3__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__ENET3__GRP_MDIO__ENABLE {1}  \
+###      CONFIG.PSU__GPIO1_MIO__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__I2C0__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__I2C0__PERIPHERAL__IO {MIO 34 .. 35}  \
+###      CONFIG.PSU__PCIE__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__PCIE__PERIPHERAL__ROOTPORT_IO {MIO 37}  \
+###      CONFIG.PSU__USB0__REF_CLK_SEL {Ref Clk1}  \
+###      CONFIG.PSU__PCIE__DEVICE_PORT_TYPE {Root Port}  \
+###      CONFIG.PSU__PCIE__BAR0_ENABLE {1}  \
+###      CONFIG.PSU__PCIE__CLASS_CODE_SUB {0x04}  \
+###      CONFIG.SUBPRESET1 {DDR4_MICRON_MT40A256M16GE_083E}  \
+###      CONFIG.PSU__QSPI__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__QSPI__PERIPHERAL__DATA_MODE {x4}  \
+### 	 CONFIG.PSU__QSPI__PERIPHERAL__IO {MIO 0 .. 12} \
+### 	 CONFIG.PSU__QSPI__PERIPHERAL__MODE {Dual Parallel} \
+###      CONFIG.PSU__QSPI__GRP_FBCLK__ENABLE {1}  \
+###      CONFIG.PSU__SD0__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__SD0__SLOT_TYPE {eMMC}  \
+###      CONFIG.PSU__SD0__RESET__ENABLE {1}  \
+###      CONFIG.PSU__SD1__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__SD1__PERIPHERAL__IO {MIO 46 .. 51}  \
+###      CONFIG.PSU__SD1__GRP_CD__ENABLE {1}  \
+###      CONFIG.PSU__SD1__SLOT_TYPE {SD 2.0}  \
+###      CONFIG.PSU__TTC0__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__TTC1__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__TTC2__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__TTC3__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__DDRC__DEVICE_CAPACITY {8192 MBits}  \
+###      CONFIG.PSU__DDRC__ROW_ADDR_COUNT {16}  \
+###      CONFIG.PSU__UART0__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__UART0__PERIPHERAL__IO {MIO 42 .. 43}  \
+###      CONFIG.PSU__USB0__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__USB0__RESET__ENABLE {1}  \
+###      CONFIG.PSU__USB0__RESET__IO {MIO 32}  \
+###      CONFIG.PSU__USB__RESET__MODE {Shared MIO Pin}  \
+###      CONFIG.PSU__USB3_0__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__USB3_0__PERIPHERAL__IO {GT Lane1}  \
+###      CONFIG.PSU_BANK_0_IO_STANDARD {LVCMOS18}  \
+###      CONFIG.PSU_BANK_1_IO_STANDARD {LVCMOS18}  \
+###      CONFIG.PSU_BANK_2_IO_STANDARD {LVCMOS18}  \
+###      CONFIG.PSU__DISPLAYPORT__PERIPHERAL__ENABLE {1}  \
+###      CONFIG.PSU__CRF_APB__DP_VIDEO_REF_CTRL__SRCSEL {VPLL}  \
+###      CONFIG.PSU__CRF_APB__DP_AUDIO_REF_CTRL__SRCSEL {RPLL}  \
+###      CONFIG.PSU__CRF_APB__DP_STC_REF_CTRL__SRCSEL {RPLL}  \
+###      CONFIG.PSU__CRF_APB__TOPSW_MAIN_CTRL__SRCSEL {APLL}  \
+###      CONFIG.PSU__CRL_APB__SDIO0_REF_CTRL__SRCSEL {IOPLL}  \
+###      CONFIG.PSU__CRL_APB__SDIO1_REF_CTRL__SRCSEL {IOPLL}] [get_bd_cells $bd_cell_name]
+### }
+## set_ps_config ps
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+## set ps [get_bd_cells ps]
+## set cfg [dict create]
+## foreach prop [list_property $ps] {
+##     if {[string match CONFIG.PSU__*__PERIPHERAL__ENABLE $prop]} {dict set cfg $prop 0}
+## }
+## foreach {prop value} {
+##     CONFIG.PSU__DDRC__ENABLE 1
+##     CONFIG.PSU__USE__DDR_INTF_REQUESTED 1
+##     CONFIG.PSU__USE__M_AXI_GP0 1
+##     CONFIG.PSU__USE__M_AXI_GP1 0
+##     CONFIG.PSU__USE__M_AXI_GP2 0
+##     CONFIG.PSU__USE__S_AXI_GP2 1
+##     CONFIG.PSU__SAXIGP2__DATA_WIDTH 128
+##     CONFIG.PSU__FPGA_PL0_ENABLE 1
+##     CONFIG.PSU__CRL_APB__PL0_REF_CTRL__FREQMHZ 50
+## } {dict set cfg $prop $value}
+## set_property -dict $cfg $ps
+## create_bd_cell -type module -reference v024_ddr_core_wrapper core_wrap
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'core_reset_n' of definition 'xilinx.com:signal:reset:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'core_reset_n' of definition 'xilinx.com:signal:reset:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'requires_reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'M_AXI'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'PROTOCOL' with value 'AXI4'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'ARUSER_WIDTH' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'AWUSER_WIDTH' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'DATA_WIDTH' with value '128'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'ADDR_WIDTH' with value '40'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'ID_WIDTH' with value '0'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'HAS_BURST' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'HAS_LOCK' with value '0'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'HAS_CACHE' with value '0'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'HAS_PROT' with value '0'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'HAS_QOS' with value '0'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'HAS_REGION' with value '0'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'MAX_BURST_LENGTH' with value '256'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'NUM_READ_OUTSTANDING' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'NUM_WRITE_OUTSTANDING' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'READ_WRITE_MODE' with value 'READ_WRITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'core_reset_n'.
+INFO: [IP_Flow 19-4728] Bus Interface 'core_reset_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'PROTOCOL' with value 'AXI4LITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'DATA_WIDTH' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'ADDR_WIDTH' with value '24'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'READ_WRITE_MODE' with value 'READ_WRITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_READ_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_WRITE_OUTSTANDING' with value '1'.
+WARNING: [IP_Flow 19-11770] Clock interface 'aclk' has no FREQ_HZ parameter.
+## create_bd_cell -type module -reference v024_board_control board_control
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'requires_reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'S_AXI'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'PROTOCOL' with value 'AXI4LITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'DATA_WIDTH' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'ADDR_WIDTH' with value '16'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'READ_WRITE_MODE' with value 'READ_WRITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_READ_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_WRITE_OUTSTANDING' with value '1'.
+WARNING: [IP_Flow 19-11770] Clock interface 'aclk' has no FREQ_HZ parameter.
+## foreach {name n} {ctrl 2 ddr 1} {
+##     create_bd_cell -type ip -vlnv xilinx.com:ip:smartconnect:1.0 $name
+##     set_property -dict [list CONFIG.NUM_SI 1 CONFIG.NUM_MI $n CONFIG.NUM_CLKS 1] [get_bd_cells $name]
+## }
+## foreach {a b} {
+##     ps/M_AXI_HPM0_FPD ctrl/S00_AXI
+##     ctrl/M00_AXI core_wrap/S_AXI
+##     ctrl/M01_AXI board_control/S_AXI
+##     core_wrap/M_AXI ddr/S00_AXI
+##     ddr/M00_AXI ps/S_AXI_HP0_FPD
+## } {connect_bd_intf_net [get_bd_intf_pins $a] [get_bd_intf_pins $b]}
+## create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 reset50
+## set_property CONFIG.C_AUX_RESET_HIGH 0 [get_bd_cells reset50]
+## foreach {cell val} {one 1 zero 0} {
+##     create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 $cell
+##     set_property CONFIG.CONST_VAL $val [get_bd_cells $cell]
+## }
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconstant:1.0 for the IP type xilinx.com:ip:xlconstant:1.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconstant:1.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconstant:1.0 for the IP type xilinx.com:ip:xlconstant:1.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconstant:1.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+## connect_bd_net [get_bd_pins ps/pl_resetn0] [get_bd_pins reset50/ext_reset_in]
+## connect_bd_net [get_bd_pins one/dout] [get_bd_pins reset50/aux_reset_in] [get_bd_pins reset50/dcm_locked]
+## connect_bd_net [get_bd_pins zero/dout] [get_bd_pins reset50/mb_debug_sys_rst]
+## set clk [get_bd_pins ps/pl_clk0]
+## foreach pin {ps/maxihpm0_fpd_aclk ps/saxihp0_fpd_aclk ctrl/aclk ddr/aclk core_wrap/aclk board_control/aclk reset50/slowest_sync_clk} {
+##     connect_bd_net $clk [get_bd_pins $pin]
+## }
+## connect_bd_net [get_bd_pins reset50/interconnect_aresetn] [get_bd_pins ctrl/aresetn] [get_bd_pins ddr/aresetn]
+## connect_bd_net [get_bd_pins reset50/peripheral_aresetn] [get_bd_pins board_control/aresetn]
+## connect_bd_net [get_bd_pins board_control/core_reset_n] [get_bd_pins core_wrap/core_reset_n]
+## foreach pin {pc_wr_valid pc_wr_addr pc_wr_data pc_wr_ready busy done fault requires_reset port_quiesced b_pending rd_pending wr_pending completed last_node error_code cycles matrix_fused_used fuse_c48_ddr_bytes fuse_a16_bytes} {
+##     connect_bd_net [get_bd_pins core_wrap/$pin] [get_bd_pins board_control/$pin]
+## }
+## set cpu [get_bd_addr_spaces ps/Data]
+## set pl [get_bd_addr_spaces core_wrap/M_AXI]
+## assign_bd_address -target_address_space $cpu -offset 0xA0000000 -range 16M [get_bd_addr_segs -of_objects [get_bd_intf_pins core_wrap/S_AXI]]
+Slave segment '/core_wrap/S_AXI/reg0' is being assigned into address space '/ps/Data' at <0xA000_0000 [ 16M ]>.
+## assign_bd_address -target_address_space $cpu -offset 0xA1000000 -range 64K [get_bd_addr_segs -of_objects [get_bd_intf_pins board_control/S_AXI]]
+Slave segment '/board_control/S_AXI/reg0' is being assigned into address space '/ps/Data' at <0xA100_0000 [ 64K ]>.
+## set low [get_bd_addr_segs -of_objects [get_bd_intf_pins ps/S_AXI_HP0_FPD] -filter {NAME == HP0_DDR_LOW}]
+## if {[llength $low] != 1} {error "missing verified HP0 low DDR segment: $low"}
+## assign_bd_address -target_address_space $pl -offset 0x00000000 -range 2G $low
+Slave segment '/ps/SAXIGP2/HP0_DDR_LOW' is being assigned into address space '/core_wrap/M_AXI' at <0x0000_0000 [ 2G ]>.
+## foreach seg [get_bd_addr_segs -of_objects [get_bd_intf_pins ps/S_AXI_HP0_FPD]] {
+##     if {$seg ne $low} {exclude_bd_addr_seg -target_address_space $pl $seg}
+## }
+Excluding slave segment /ps/SAXIGP2/HP0_LPS_OCM from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_DDR_HIGH from address space /core_wrap/M_AXI.
+## validate_bd_design
+WARNING: [BD 41-1629] Slave segment </ps/SAXIGP2/HP0_LPS_OCM> is excluded from all addressing paths.
+WARNING: [BD 41-1629] Slave segment </ps/SAXIGP2/HP0_DDR_HIGH> is excluded from all addressing paths.
+WARNING: [BD 41-3281] Instance '/ps' is connected on both sides by SmartConnects and cannot automatically configure itself to match the endpoints. Please manually configure its AXI interfaces as required for the design.
+WARNING: [BD 41-3281] Instance '/core_wrap' is connected on both sides by SmartConnects and cannot automatically configure itself to match the endpoints. Please manually configure its AXI interfaces as required for the design.
+Excluding slave segment /ps/SAXIGP2/HP0_DDR_HIGH from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_LPS_OCM from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_DDR_HIGH from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_LPS_OCM from address space /core_wrap/M_AXI.
+INFO: [BD 5-943] Reserving offset range <0xA000_0000 [ 16M ]> from slave interface '/ctrl/S00_AXI' to master interface '/ctrl/M00_AXI'. This will be used by smartconnect on path for routing.
+INFO: [BD 5-943] Reserving offset range <0xA100_0000 [ 64K ]> from slave interface '/ctrl/S00_AXI' to master interface '/ctrl/M01_AXI'. This will be used by smartconnect on path for routing.
+INFO: [xilinx.com:ip:smartconnect:1.0-1] ps_ddr_ctrl_0: SmartConnect ps_ddr_ctrl_0 is in Low-Area Mode.
+INFO: [BD 5-943] Reserving offset range <0x0000_0000 [ 2G ]> from slave interface '/ddr/S00_AXI' to master interface '/ddr/M00_AXI'. This will be used by smartconnect on path for routing.
+INFO: [xilinx.com:ip:smartconnect:1.0-1] ps_ddr_ddr_0: SmartConnect ps_ddr_ddr_0 is in High-performance Mode.
+Excluding slave segment /ps/SAXIGP2/HP0_DDR_HIGH from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_LPS_OCM from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_DDR_HIGH from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_LPS_OCM from address space /core_wrap/M_AXI.
+validate_bd_design: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 960.270 ; gain = 76.449
+## if {[get_property CONFIG.C_EXT_RESET_HIGH [get_bd_cells reset50]] != 0} {error "unexpected PS reset polarity"}
+## foreach prop {ARUSER_WIDTH AWUSER_WIDTH} {
+##     foreach pin {core_wrap/M_AXI ddr/M00_AXI ps/S_AXI_HP0_FPD} {
+##         if {[get_property CONFIG.$prop [get_bd_intf_pins $pin]] != 1} {error "$pin $prop missing"}
+##     }
+## }
+## save_bd_design
+Wrote  : <C:\Academic_Work\CIM_learning\work\v024_ddr_resident\physical_native\shell_run\project\resident.srcs\sources_1\bd\ps_ddr\ps_ddr.bd> 
+## write_bd_tcl [file join $out resident_bd.tcl]
+WARNING: [BD 41-2925] The design that will be created by this Tcl script contains the following module references: v024_ddr_core_wrapper, v024_board_control.
+Please add the sources of those modules before sourcing this Tcl script or use write_project_tcl.
+INFO: [BD 5-148] Tcl file written out <C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/resident_bd.tcl>.
+
+## set f [open [file join $out connectivity.txt] w]
+## puts $f "VIVADO_BD_VALIDATED_ONLY\npart=[get_property PART [current_project]]\ncore_port=core_wrap/M_AXI\nboard_memory_port=ps/S_AXI_HP0_FPD\nDDR_port_bits=[get_property CONFIG.PSU__SAXIGP2__DATA_WIDTH $ps]\nDDR_enabled=[get_property CONFIG.PSU__DDRC__ENABLE $ps]\nclock_MHz=[get_property CONFIG.PSU__CRL_APB__PL0_REF_CTRL__FREQMHZ $ps]"
+## puts $f "core_parameter_window=0x10000000..0x1fffffff (256 MiB, requires synthesis with the new PARAM_END generic)"
+## foreach space [list $cpu $pl] {
+##     foreach seg [get_bd_addr_segs -of_objects $space] {
+##         puts $f "$space $seg offset=[get_property OFFSET $seg] range=[get_property RANGE $seg]"
+##     }
+## }
+## puts $f "This is a block design with a core placeholder. No synthesized system, timing, firmware, network interface or board result is claimed."
+## close $f
+## close_project
+# set out [file normalize [file dirname [info script]]]
+# open_project [file join $out shell_run project resident.xpr]
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project'
+Scanning sources...
+Finished scanning sources
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vrk160:part0:1.0 available at C:/Academic_Application/Vivado/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vrk160\1.0\board.xml as part xcvr1602-vsva2488-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vrk160:part0:1.1 available at C:/Academic_Application/Vivado/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vrk160\1.1\board.xml as part xcvr1602-vsva2488-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at C:/Academic_Application/Vivado/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu208ld\production\2.0\board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Academic_Application/Vivado/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu216ld\production\2.0\board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Academic_Application/Vivado/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670ld\1.0\board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Project 1-5713] Board part '' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Academic_Application/Vivado/2025.2/Vivado/data/ip'.
+INFO: [Project 1-5698] Found the below utility IPs instantiated in block design C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.srcs/sources_1/bd/ps_ddr/ps_ddr.bd which have equivalent inline hdl with improved performance and reduced diskspace.
+It is recommended to migrate these utility IPs to inline hdl  using the command upgrade_project -migrate_to_inline_hdl.  The utility IPs may be deprecated in future releases.
+More information on inline hdl is available in UG994.
+Utility IP Component Instances:
+ ps_ddr_one_0
+ps_ddr_zero_0
+# set bd [get_files -quiet */ps_ddr.bd]
+# if {[llength $bd] != 1} {error "expected one PS+DDR BD: $bd"}
+# generate_target all $bd
+Excluding slave segment /ps/SAXIGP2/HP0_DDR_HIGH from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_LPS_OCM from address space /core_wrap/M_AXI.
+INFO: [BD 41-1662] The design 'ps_ddr.bd' is already validated. Therefore parameter propagation will not be re-run.
+Verilog Output written to : c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/synth/ps_ddr.v
+Verilog Output written to : c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/sim/ps_ddr.v
+Verilog Output written to : c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/hdl/ps_ddr_wrapper.v
+INFO: [xilinx.com:ip:zynq_ultra_ps_e:3.5-0] ps_ddr_ps_0: 
+Changes in your design (including the PCW configuration settings) are not automatically exported from Vivado to Amd's SDK, Petalinux or Yocto.
+This is by design to avoid disrupting existing embedded development efforts. To have any changes of your design taking effect in the embedded software flow please export your
+design by going through Vivado's main menu, click on File, then Export finally select Export Hardware, please ensure you click on the Include BitStream option.
+The auto-generated HDF file is all you need to import in Amd's SDK, Petalinux or Yocto for your changes to be reflected in the Embedded Software Flow.
+For more information, please consult PG201, section: Exporting PCW Settings to Embedded Software Flows
+INFO: [PSU-0] Address Range of DDR (0x7ff00000 to 0x7fffffff) is reserved by PMU for internal purpose.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI_HPM0_FPD'. A default connection has been created.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI_HP0_FPD'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block core_wrap .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block board_control .
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/s00_nodes/s00_ar_node/s_sc_payld'(168) to pin: '/s00_nodes/S_SC_AR_payld'(164) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/s00_nodes/s00_aw_node/s_sc_payld'(168) to pin: '/s00_nodes/S_SC_AW_payld'(164) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m00_nodes/m00_b_node/s_sc_payld'(9) to pin: '/m00_nodes/S_SC_B_payld'(7) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m00_nodes/m00_r_node/s_sc_payld'(55) to pin: '/m00_nodes/S_SC_R_payld'(53) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m01_nodes/m01_b_node/s_sc_payld'(9) to pin: '/m01_nodes/S_SC_B_payld'(7) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m01_nodes/m01_r_node/s_sc_payld'(55) to pin: '/m01_nodes/S_SC_R_payld'(53) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m00_sc2axi/s_sc_ar_payld'(164) to pin: '/m00_nodes/M_SC_AR_payld'(168) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m00_sc2axi/s_sc_aw_payld'(164) to pin: '/m00_nodes/M_SC_AW_payld'(168) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m01_sc2axi/s_sc_ar_payld'(164) to pin: '/m01_nodes/M_SC_AR_payld'(168) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m01_sc2axi/s_sc_aw_payld'(164) to pin: '/m01_nodes/M_SC_AW_payld'(168) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/s00_axi2sc/s_sc_b_payld'(7) to pin: '/s00_nodes/M_SC_B_payld'(9) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/s00_axi2sc/s_sc_r_payld'(53) to pin: '/s00_nodes/M_SC_R_payld'(55) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/s00_nodes/s00_ar_node/s_sc_payld'(168) to pin: '/s00_nodes/S_SC_AR_payld'(164) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/s00_nodes/s00_aw_node/s_sc_payld'(168) to pin: '/s00_nodes/S_SC_AW_payld'(164) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m00_nodes/m00_b_node/s_sc_payld'(9) to pin: '/m00_nodes/S_SC_B_payld'(7) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m00_nodes/m00_r_node/s_sc_payld'(55) to pin: '/m00_nodes/S_SC_R_payld'(53) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m01_nodes/m01_b_node/s_sc_payld'(9) to pin: '/m01_nodes/S_SC_B_payld'(7) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m01_nodes/m01_r_node/s_sc_payld'(55) to pin: '/m01_nodes/S_SC_R_payld'(53) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m00_sc2axi/s_sc_ar_payld'(164) to pin: '/m00_nodes/M_SC_AR_payld'(168) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m00_sc2axi/s_sc_aw_payld'(164) to pin: '/m00_nodes/M_SC_AW_payld'(168) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m01_sc2axi/s_sc_ar_payld'(164) to pin: '/m01_nodes/M_SC_AR_payld'(168) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/m01_sc2axi/s_sc_aw_payld'(164) to pin: '/m01_nodes/M_SC_AW_payld'(168) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/s00_axi2sc/s_sc_b_payld'(7) to pin: '/s00_nodes/M_SC_B_payld'(9) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/s00_axi2sc/s_sc_r_payld'(53) to pin: '/s00_nodes/M_SC_R_payld'(55) - Only lower order bits will be connected.
+Exporting to file c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ctrl_0/bd_0/hw_handoff/ps_ddr_ctrl_0.hwh
+Generated Hardware Definition File c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ctrl_0/bd_0/synth/ps_ddr_ctrl_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ctrl .
+Exporting to file c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ddr_0/bd_0/hw_handoff/ps_ddr_ddr_0.hwh
+Generated Hardware Definition File c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ddr_0/bd_0/synth/ps_ddr_ddr_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ddr .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block reset50 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block one .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block zero .
+Exporting to file c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/hw_handoff/ps_ddr.hwh
+Generated Hardware Definition File c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/synth/ps_ddr.hwdef
+INFO: [BD 41-3262] Generated VHDL Instantiation Template file c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ps_ddr.vho
+INFO: [BD 41-3262] Generated Verilog Instantiation Template file c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ps_ddr.veo
+INFO: [BD 41-3262] Generated System Verilog Instantiation Template file c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ps_ddr_sv.sveo
+generate_target: Time (s): cpu = 00:00:24 ; elapsed = 00:00:31 . Memory (MB): peak = 1041.246 ; gain = 71.070
+# set wrappers [make_wrapper -files $bd -top]
+# if {[llength $wrappers] != 1} {error "unexpected BD wrapper $wrappers"}
+# add_files -norecurse $wrappers
+# set_property top ps_ddr_wrapper [current_fileset]
+# update_compile_order -fileset sources_1
+# launch_runs synth_1 -jobs 1
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Mon Nov  2 19:36:38 2026] Launched ps_ddr_ps_0_synth_1, ps_ddr_core_wrap_0_synth_1, ps_ddr_ddr_0_synth_1, ps_ddr_reset50_0_synth_1, ps_ddr_board_control_0_synth_1, ps_ddr_ctrl_0_synth_1...
+Run output will be captured here:
+ps_ddr_ps_0_synth_1: C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/ps_ddr_ps_0_synth_1/runme.log
+ps_ddr_core_wrap_0_synth_1: C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/ps_ddr_core_wrap_0_synth_1/runme.log
+ps_ddr_ddr_0_synth_1: C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/ps_ddr_ddr_0_synth_1/runme.log
+ps_ddr_reset50_0_synth_1: C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/ps_ddr_reset50_0_synth_1/runme.log
+ps_ddr_board_control_0_synth_1: C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/ps_ddr_board_control_0_synth_1/runme.log
+ps_ddr_ctrl_0_synth_1: C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/ps_ddr_ctrl_0_synth_1/runme.log
+[Mon Nov  2 19:36:38 2026] Launched synth_1...
+Run output will be captured here: C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/runme.log
+# wait_on_run synth_1
+[Mon Nov  2 19:36:38 2026] Waiting for synth_1 to finish...
+
+
+*** Running vivado
+    with args -log ps_ddr_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ps_ddr_wrapper.tcl
+
+
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Mon Nov  2 19:43:05 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source ps_ddr_wrapper.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 661.336 ; gain = 218.980
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Academic_Application/Vivado/2025.2/Vivado/data/ip'.
+INFO: [Project 1-5698] Found the below utility IPs instantiated in block design C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.srcs/sources_1/bd/ps_ddr/ps_ddr.bd which have equivalent inline hdl with improved performance and reduced diskspace.
+It is recommended to migrate these utility IPs to inline hdl  using the command upgrade_project -migrate_to_inline_hdl.  The utility IPs may be deprecated in future releases.
+More information on inline hdl is available in UG994.
+Utility IP Component Instances:
+ ps_ddr_one_0
+ps_ddr_zero_0
+Command: synth_design -top ps_ddr_wrapper -part xczu15eg-ffvb1156-2-i
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu15eg'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu15eg'
+INFO: [Device 21-403] Loading part xczu15eg-ffvb1156-2-i
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 1 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 19948
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2083.531 ; gain = 221.211
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ps_ddr_wrapper' [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/hdl/ps_ddr_wrapper.v:13]
+INFO: [Synth 8-6157] synthesizing module 'ps_ddr' [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/synth/ps_ddr.v:13]
+INFO: [Synth 8-6157] synthesizing module 'ps_ddr_board_control_0' [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/.Xil/Vivado-25228-MILK/realtime/ps_ddr_board_control_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ps_ddr_board_control_0' (0#1) [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/.Xil/Vivado-25228-MILK/realtime/ps_ddr_board_control_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ps_ddr_core_wrap_0' [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/.Xil/Vivado-25228-MILK/realtime/ps_ddr_core_wrap_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ps_ddr_core_wrap_0' (0#1) [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/.Xil/Vivado-25228-MILK/realtime/ps_ddr_core_wrap_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ps_ddr_ctrl_0' [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/.Xil/Vivado-25228-MILK/realtime/ps_ddr_ctrl_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ps_ddr_ctrl_0' (0#1) [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/.Xil/Vivado-25228-MILK/realtime/ps_ddr_ctrl_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ps_ddr_ddr_0' [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/.Xil/Vivado-25228-MILK/realtime/ps_ddr_ddr_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ps_ddr_ddr_0' (0#1) [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/.Xil/Vivado-25228-MILK/realtime/ps_ddr_ddr_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ps_ddr_one_0' [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_one_0/synth/ps_ddr_one_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_10_xlconstant' [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ipshared/a165/hdl/xlconstant_v1_1_vl_rfs.v:68]
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_10_xlconstant' (0#1) [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ipshared/a165/hdl/xlconstant_v1_1_vl_rfs.v:68]
+INFO: [Synth 8-6155] done synthesizing module 'ps_ddr_one_0' (0#1) [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_one_0/synth/ps_ddr_one_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'ps_ddr_ps_0' [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/.Xil/Vivado-25228-MILK/realtime/ps_ddr_ps_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ps_ddr_ps_0' (0#1) [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/.Xil/Vivado-25228-MILK/realtime/ps_ddr_ps_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'saxigp2_bid' of module 'ps_ddr_ps_0' is unconnected for instance 'ps' [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/synth/ps_ddr.v:448]
+WARNING: [Synth 8-7071] port 'saxigp2_rid' of module 'ps_ddr_ps_0' is unconnected for instance 'ps' [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/synth/ps_ddr.v:448]
+WARNING: [Synth 8-7023] instance 'ps' of module 'ps_ddr_ps_0' has 82 connections declared, but only 80 given [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/synth/ps_ddr.v:448]
+INFO: [Synth 8-6157] synthesizing module 'ps_ddr_reset50_0' [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/.Xil/Vivado-25228-MILK/realtime/ps_ddr_reset50_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ps_ddr_reset50_0' (0#1) [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/.Xil/Vivado-25228-MILK/realtime/ps_ddr_reset50_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'ps_ddr_reset50_0' is unconnected for instance 'reset50' [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/synth/ps_ddr.v:529]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'ps_ddr_reset50_0' is unconnected for instance 'reset50' [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/synth/ps_ddr.v:529]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'ps_ddr_reset50_0' is unconnected for instance 'reset50' [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/synth/ps_ddr.v:529]
+WARNING: [Synth 8-7023] instance 'reset50' of module 'ps_ddr_reset50_0' has 10 connections declared, but only 7 given [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/synth/ps_ddr.v:529]
+INFO: [Synth 8-6157] synthesizing module 'ps_ddr_zero_0' [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_zero_0/synth/ps_ddr_zero_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_10_xlconstant__parameterized0' [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ipshared/a165/hdl/xlconstant_v1_1_vl_rfs.v:68]
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_10_xlconstant__parameterized0' (0#1) [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ipshared/a165/hdl/xlconstant_v1_1_vl_rfs.v:68]
+INFO: [Synth 8-6155] done synthesizing module 'ps_ddr_zero_0' (0#1) [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_zero_0/synth/ps_ddr_zero_0.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'ps_ddr' (0#1) [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/synth/ps_ddr.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'ps_ddr_wrapper' (0#1) [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/hdl/ps_ddr_wrapper.v:13]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2211.914 ; gain = 349.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2211.914 ; gain = 349.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2211.914 ; gain = 349.594
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2211.914 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ps_0/ps_ddr_ps_0/ps_ddr_ps_0_in_context.xdc] for cell 'ps_ddr_i/ps'
+Finished Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ps_0/ps_ddr_ps_0/ps_ddr_ps_0_in_context.xdc] for cell 'ps_ddr_i/ps'
+Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_core_wrap_0/ps_ddr_core_wrap_0/ps_ddr_core_wrap_0_in_context.xdc] for cell 'ps_ddr_i/core_wrap'
+Finished Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_core_wrap_0/ps_ddr_core_wrap_0/ps_ddr_core_wrap_0_in_context.xdc] for cell 'ps_ddr_i/core_wrap'
+Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_board_control_0/ps_ddr_board_control_0/ps_ddr_board_control_0_in_context.xdc] for cell 'ps_ddr_i/board_control'
+Finished Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_board_control_0/ps_ddr_board_control_0/ps_ddr_board_control_0_in_context.xdc] for cell 'ps_ddr_i/board_control'
+Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ctrl_0/ps_ddr_ctrl_0/ps_ddr_ctrl_0_in_context.xdc] for cell 'ps_ddr_i/ctrl'
+Finished Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ctrl_0/ps_ddr_ctrl_0/ps_ddr_ctrl_0_in_context.xdc] for cell 'ps_ddr_i/ctrl'
+Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ddr_0/ps_ddr_ddr_0/ps_ddr_ddr_0_in_context.xdc] for cell 'ps_ddr_i/ddr'
+Finished Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ddr_0/ps_ddr_ddr_0/ps_ddr_ddr_0_in_context.xdc] for cell 'ps_ddr_i/ddr'
+Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_reset50_0/ps_ddr_reset50_0/ps_ddr_reset50_0_in_context.xdc] for cell 'ps_ddr_i/reset50'
+Finished Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_reset50_0/ps_ddr_reset50_0/ps_ddr_reset50_0_in_context.xdc] for cell 'ps_ddr_i/reset50'
+Parsing XDC File [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2211.914 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 2211.914 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2211.914 ; gain = 349.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu15eg-ffvb1156-2-i
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2211.914 ; gain = 349.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2211.914 ; gain = 349.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2211.914 ; gain = 349.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 3528 (col length:168)
+BRAMs: 1488 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2224.156 ; gain = 361.836
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2938.754 ; gain = 1076.434
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2938.754 ; gain = 1076.434
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 2950.312 ; gain = 1087.992
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 3199.707 ; gain = 1337.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 3199.707 ; gain = 1337.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 3199.707 ; gain = 1337.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 3199.707 ; gain = 1337.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 3199.707 ; gain = 1337.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 3199.707 ; gain = 1337.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+-----------------------+----------+
+|      |BlackBox name          |Instances |
++------+-----------------------+----------+
+|1     |ps_ddr_board_control_0 |         1|
+|2     |ps_ddr_core_wrap_0     |         1|
+|3     |ps_ddr_ctrl_0          |         1|
+|4     |ps_ddr_ddr_0           |         1|
+|5     |ps_ddr_ps_0            |         1|
+|6     |ps_ddr_reset50_0       |         1|
++------+-----------------------+----------+
+
+Report Cell Usage: 
++------+---------------------+------+
+|      |Cell                 |Count |
++------+---------------------+------+
+|1     |ps_ddr_board_control |     1|
+|2     |ps_ddr_core_wrap     |     1|
+|3     |ps_ddr_ctrl          |     1|
+|4     |ps_ddr_ddr           |     1|
+|5     |ps_ddr_ps            |     1|
+|6     |ps_ddr_reset50       |     1|
++------+---------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 3199.707 ; gain = 1337.387
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 3199.707 ; gain = 1337.387
+Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 3199.707 ; gain = 1337.387
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 3199.707 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3199.707 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 85173299
+INFO: [Common 17-83] Releasing license: Synthesis
+41 Infos, 7 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:37 . Memory (MB): peak = 3199.707 ; gain = 2473.164
+INFO: [Common 17-1381] The checkpoint 'C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.runs/synth_1/ps_ddr_wrapper.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file ps_ddr_wrapper_utilization_synth.rpt -pb ps_ddr_wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 19:43:58 2026...
+[Mon Nov  2 19:44:03 2026] synth_1 finished
+wait_on_runs: Time (s): cpu = 00:00:01 ; elapsed = 00:07:25 . Memory (MB): peak = 1041.246 ; gain = 0.000
+# set status [get_property STATUS [get_runs synth_1]]
+# puts "SHELL_SYNTH_STATUS=$status"
+SHELL_SYNTH_STATUS=synth_design Complete!
+# if {![string match {*synth_design Complete*} $status]} {error "shell synth failed: $status"}
+# open_run synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xczu15eg-ffvb1156-2-i
+INFO: [Device 21-403] Loading part xczu15eg-ffvb1156-2-i
+INFO: [Project 1-5699] Read binary netlist with skipMacroContent - 1
+INFO: [Project 1-454] Reading design checkpoint 'c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_board_control_0/ps_ddr_board_control_0.dcp' for cell 'ps_ddr_i/board_control'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_core_wrap_0/ps_ddr_core_wrap_0.dcp' for cell 'ps_ddr_i/core_wrap'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ctrl_0/ps_ddr_ctrl_0.dcp' for cell 'ps_ddr_i/ctrl'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ddr_0/ps_ddr_ddr_0.dcp' for cell 'ps_ddr_i/ddr'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ps_0/ps_ddr_ps_0.dcp' for cell 'ps_ddr_i/ps'
+INFO: [Project 1-454] Reading design checkpoint 'c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_reset50_0/ps_ddr_reset50_0.dcp' for cell 'ps_ddr_i/reset50'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.235 . Memory (MB): peak = 2017.293 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 465 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2025.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ps_0/ps_ddr_ps_0.xdc] for cell 'ps_ddr_i/ps/inst'
+Finished Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ps_0/ps_ddr_ps_0.xdc] for cell 'ps_ddr_i/ps/inst'
+Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ctrl_0/bd_0/ip/ip_1/bd_1661_psr_aclk_0_board.xdc] for cell 'ps_ddr_i/ctrl/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ctrl_0/bd_0/ip/ip_1/bd_1661_psr_aclk_0_board.xdc] for cell 'ps_ddr_i/ctrl/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ctrl_0/smartconnect.xdc] for cell 'ps_ddr_i/ctrl/inst'
+Finished Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ctrl_0/smartconnect.xdc] for cell 'ps_ddr_i/ctrl/inst'
+Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ddr_0/bd_0/ip/ip_1/bd_3de3_psr_aclk_0_board.xdc] for cell 'ps_ddr_i/ddr/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ddr_0/bd_0/ip/ip_1/bd_3de3_psr_aclk_0_board.xdc] for cell 'ps_ddr_i/ddr/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ddr_0/smartconnect.xdc] for cell 'ps_ddr_i/ddr/inst'
+Finished Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_ddr_0/smartconnect.xdc] for cell 'ps_ddr_i/ddr/inst'
+Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_reset50_0/ps_ddr_reset50_0_board.xdc] for cell 'ps_ddr_i/reset50/U0'
+Finished Parsing XDC File [c:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/shell_run/project/resident.gen/sources_1/bd/ps_ddr/ip/ps_ddr_reset50_0/ps_ddr_reset50_0_board.xdc] for cell 'ps_ddr_i/reset50/U0'
+INFO: [Project 1-1714] 70 XPM XDC files have been applied to the design.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2797.957 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 35 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 3 instances
+  RAM32M16 => RAM32M16 (RAMD32(x14), RAMS32(x2)): 32 instances
+
+open_run: Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2797.957 ; gain = 1756.711
+# set bb [get_cells -hier -filter {IS_BLACKBOX==1}]
+# puts "SHELL_BLACKBOXES=$bb"
+SHELL_BLACKBOXES=ps_ddr_i/core_wrap/inst/core_i
+# if {[llength $bb] != 1 || ![string match */core_i [lindex $bb 0]]} {error "unexpected blackboxes: $bb"}
+# write_checkpoint -force [file join $out build shell_synth.dcp]
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 2797.957 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Academic_Work/CIM_learning/work/v024_ddr_resident/physical_native/build/shell_synth.dcp' has been generated.
+# report_utilization -hierarchical -file [file join $out reports shell_utilization.rpt]
+# report_clocks -file [file join $out reports shell_clocks.rpt]
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+# write_xdc -force -type timing [file join $out build shell_timing.xdc]
+# puts "SHELL_SYNTH_PASS ONE_CORE_BB NO_ETH NO_BOARD"
+SHELL_SYNTH_PASS ONE_CORE_BB NO_ETH NO_BOARD
+# close_project
+# exit
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 19:44:27 2026...

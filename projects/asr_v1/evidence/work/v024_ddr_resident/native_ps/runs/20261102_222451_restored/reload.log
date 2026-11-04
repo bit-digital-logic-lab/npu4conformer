@@ -1,0 +1,27 @@
+PIN 682dfd8096d4e62e325b107857461fbfd85f53fe722e494025cfd7d4082d1068 C:/Academic_Work/CIM_learning/work/v024_ddr_resident/native_ps/perf_candidate/../build/encoder.elf
+PIN 5603019fcb94cd1f7d0889246ede0b2f2adb063f9373bbae37e7f7798b7dae7e C:/Academic_Work/CIM_learning/work/v024_ddr_resident/native_ps/perf_candidate/encoder_profile.elf
+TARGET Cortex-A53 #0 Running
+TARGET Cortex-A53 #1 Power On Reset
+TARGET Cortex-A53 #2 Power On Reset
+TARGET Cortex-A53 #3 Power On Reset
+MATCH boot 0xfffc0000 0x10f0
+MATCH tables 0xfffc2000 0x6000
+MATCH text 0xf000000 0xfe80
+REG pc: 000000000f0000b4
+
+BEFORE cpsr: 600003cd
+
+BEFORE sp: 00000000fffcffa0
+
+REG pc: 00000000fffc00d8
+
+REG pc: 00000000fffc0108
+
+REG pc: 00000000fffc00e4
+
+REG r0: 0000000000c00818
+
+SCTLR_EL3_AFTER 0xc00818
+REG pc: 00000000fffc0108
+
+RELOAD_PASS target=baseline fresh_seq=0

@@ -1,0 +1,2 @@
+ARRAY_COUNT=1 PE_COUNT=256
+ARRAY=matrix/shared_array REF=array16_w7_c48_cfg

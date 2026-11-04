@@ -1,0 +1,255 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Mon Nov  2 19:02:27 2026
+# Process ID         : 9988
+# Current directory  : C:/Academic_Work/CIM_learning/work/v024_ddr_resident
+# Command line       : vivado.exe -mode batch -nojournal -log shell_20261102_190226.log -source ps_ddr_shell.tcl -tclargs run_20261102_190226
+# Log file           : C:/Academic_Work/CIM_learning/work/v024_ddr_resident/shell_20261102_190226.log
+# Journal file       : 
+# Running On         : MILK
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26300
+# Processor Detail   : Intel(R) Core(TM) Ultra 9 275HX
+# CPU Frequency      : 3072 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 24
+# Host memory        : 33676 MB
+# Swap memory        : 5507 MB
+# Total Virtual      : 39184 MB
+# Available Virtual  : 19421 MB
+#-----------------------------------------------------------
+source ps_ddr_shell.tcl
+# if {$argc != 1} {error "expected a new project directory"}
+# set root [file normalize [file dirname [info script]]]
+# set deploy [file join $root .. v024_deploy_20261101]
+# set out [file normalize [lindex $argv 0]]
+# if {[file exists $out]} {error "output directory already exists"}
+# file mkdir $out
+# create_project resident [file join $out project] -part xczu15eg-ffvb1156-2-i
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 665.215 ; gain = 219.273
+# set_property target_language Verilog [current_project]
+# foreach file {platform/v024_unified_stub.sv platform/v024_core_wrapper.sv board_control/v024_board_control.sv} {
+#     add_files [file join $deploy $file]
+# }
+# set_property FILE_TYPE Verilog [get_files -filter {FILE_TYPE == SystemVerilog}]
+# create_bd_design ps_ddr
+Wrote  : <C:\Academic_Work\CIM_learning\work\v024_ddr_resident\run_20261102_190226\project\resident.srcs\sources_1\bd\ps_ddr\ps_ddr.bd> 
+# create_bd_cell -type ip -vlnv xilinx.com:ip:zynq_ultra_ps_e:3.5 ps
+# source [file join $deploy ps_platform alinx_ps_config_original.tcl]
+## proc set_ps_config {bd_cell_name} {
+## set_property -dict [list CONFIG.PSU__CAN0__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__CAN0__PERIPHERAL__IO {MIO 38 .. 39}  \
+##      CONFIG.PSU__CAN1__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__CAN1__PERIPHERAL__IO {MIO 40 .. 41}  \
+##      CONFIG.PSU__DPAUX__PERIPHERAL__IO {MIO 27 .. 30}  \
+##      CONFIG.PSU__ENET2__PERIPHERAL__ENABLE {0}  \
+##      CONFIG.PSU__ENET3__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__ENET3__GRP_MDIO__ENABLE {1}  \
+##      CONFIG.PSU__GPIO1_MIO__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__I2C0__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__I2C0__PERIPHERAL__IO {MIO 34 .. 35}  \
+##      CONFIG.PSU__PCIE__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__PCIE__PERIPHERAL__ROOTPORT_IO {MIO 37}  \
+##      CONFIG.PSU__USB0__REF_CLK_SEL {Ref Clk1}  \
+##      CONFIG.PSU__PCIE__DEVICE_PORT_TYPE {Root Port}  \
+##      CONFIG.PSU__PCIE__BAR0_ENABLE {1}  \
+##      CONFIG.PSU__PCIE__CLASS_CODE_SUB {0x04}  \
+##      CONFIG.SUBPRESET1 {DDR4_MICRON_MT40A256M16GE_083E}  \
+##      CONFIG.PSU__QSPI__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__QSPI__PERIPHERAL__DATA_MODE {x4}  \
+## 	 CONFIG.PSU__QSPI__PERIPHERAL__IO {MIO 0 .. 12} \
+## 	 CONFIG.PSU__QSPI__PERIPHERAL__MODE {Dual Parallel} \
+##      CONFIG.PSU__QSPI__GRP_FBCLK__ENABLE {1}  \
+##      CONFIG.PSU__SD0__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__SD0__SLOT_TYPE {eMMC}  \
+##      CONFIG.PSU__SD0__RESET__ENABLE {1}  \
+##      CONFIG.PSU__SD1__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__SD1__PERIPHERAL__IO {MIO 46 .. 51}  \
+##      CONFIG.PSU__SD1__GRP_CD__ENABLE {1}  \
+##      CONFIG.PSU__SD1__SLOT_TYPE {SD 2.0}  \
+##      CONFIG.PSU__TTC0__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__TTC1__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__TTC2__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__TTC3__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__DDRC__DEVICE_CAPACITY {8192 MBits}  \
+##      CONFIG.PSU__DDRC__ROW_ADDR_COUNT {16}  \
+##      CONFIG.PSU__UART0__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__UART0__PERIPHERAL__IO {MIO 42 .. 43}  \
+##      CONFIG.PSU__USB0__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__USB0__RESET__ENABLE {1}  \
+##      CONFIG.PSU__USB0__RESET__IO {MIO 32}  \
+##      CONFIG.PSU__USB__RESET__MODE {Shared MIO Pin}  \
+##      CONFIG.PSU__USB3_0__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__USB3_0__PERIPHERAL__IO {GT Lane1}  \
+##      CONFIG.PSU_BANK_0_IO_STANDARD {LVCMOS18}  \
+##      CONFIG.PSU_BANK_1_IO_STANDARD {LVCMOS18}  \
+##      CONFIG.PSU_BANK_2_IO_STANDARD {LVCMOS18}  \
+##      CONFIG.PSU__DISPLAYPORT__PERIPHERAL__ENABLE {1}  \
+##      CONFIG.PSU__CRF_APB__DP_VIDEO_REF_CTRL__SRCSEL {VPLL}  \
+##      CONFIG.PSU__CRF_APB__DP_AUDIO_REF_CTRL__SRCSEL {RPLL}  \
+##      CONFIG.PSU__CRF_APB__DP_STC_REF_CTRL__SRCSEL {RPLL}  \
+##      CONFIG.PSU__CRF_APB__TOPSW_MAIN_CTRL__SRCSEL {APLL}  \
+##      CONFIG.PSU__CRL_APB__SDIO0_REF_CTRL__SRCSEL {IOPLL}  \
+##      CONFIG.PSU__CRL_APB__SDIO1_REF_CTRL__SRCSEL {IOPLL}] [get_bd_cells $bd_cell_name]
+## }
+# set_ps_config ps
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+# set ps [get_bd_cells ps]
+# set cfg [dict create]
+# foreach prop [list_property $ps] {
+#     if {[string match CONFIG.PSU__*__PERIPHERAL__ENABLE $prop]} {dict set cfg $prop 0}
+# }
+# foreach {prop value} {
+#     CONFIG.PSU__DDRC__ENABLE 1
+#     CONFIG.PSU__USE__DDR_INTF_REQUESTED 1
+#     CONFIG.PSU__USE__M_AXI_GP0 1
+#     CONFIG.PSU__USE__M_AXI_GP1 0
+#     CONFIG.PSU__USE__M_AXI_GP2 0
+#     CONFIG.PSU__USE__S_AXI_GP2 1
+#     CONFIG.PSU__SAXIGP2__DATA_WIDTH 128
+#     CONFIG.PSU__FPGA_PL0_ENABLE 1
+#     CONFIG.PSU__CRL_APB__PL0_REF_CTRL__FREQMHZ 50
+# } {dict set cfg $prop $value}
+# set_property -dict $cfg $ps
+# create_bd_cell -type module -reference v024_core_wrapper core_wrap
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'core_reset_n' of definition 'xilinx.com:signal:reset:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'core_reset_n' of definition 'xilinx.com:signal:reset:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'M_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'requires_reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'S_AXI'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'core_reset_n'.
+INFO: [IP_Flow 19-4728] Bus Interface 'core_reset_n': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'PROTOCOL' with value 'AXI4LITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'DATA_WIDTH' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'ADDR_WIDTH' with value '24'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'READ_WRITE_MODE' with value 'READ_WRITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_READ_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_WRITE_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'PROTOCOL' with value 'AXI4'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'DATA_WIDTH' with value '128'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'ADDR_WIDTH' with value '40'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'ID_WIDTH' with value '0'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'HAS_BURST' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'HAS_LOCK' with value '0'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'HAS_CACHE' with value '0'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'HAS_PROT' with value '0'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'HAS_QOS' with value '0'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'HAS_REGION' with value '0'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'MAX_BURST_LENGTH' with value '256'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'NUM_READ_OUTSTANDING' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'NUM_WRITE_OUTSTANDING' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'M_AXI': Added interface parameter 'READ_WRITE_MODE' with value 'READ_WRITE'.
+WARNING: [IP_Flow 19-11770] Clock interface 'aclk' has no FREQ_HZ parameter.
+# create_bd_cell -type module -reference v024_board_control board_control
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aclk' of definition 'xilinx.com:signal:clock:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'aresetn' of definition 'xilinx.com:signal:reset:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from X_INTERFACE_INFO parameter from HDL file).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'S_AXI' of definition 'xilinx.com:interface:aximm:1.0' (from 'X_INTERFACE_INFO' attribute).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'requires_reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_BUSIF' with value 'S_AXI'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aclk': Added interface parameter 'ASSOCIATED_RESET' with value 'aresetn'.
+INFO: [IP_Flow 19-4728] Bus Interface 'aresetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'PROTOCOL' with value 'AXI4LITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'DATA_WIDTH' with value '32'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'ADDR_WIDTH' with value '16'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'READ_WRITE_MODE' with value 'READ_WRITE'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_READ_OUTSTANDING' with value '1'.
+INFO: [IP_Flow 19-4728] Bus Interface 'S_AXI': Added interface parameter 'NUM_WRITE_OUTSTANDING' with value '1'.
+WARNING: [IP_Flow 19-11770] Clock interface 'aclk' has no FREQ_HZ parameter.
+# foreach {name n} {ctrl 2 ddr 1} {
+#     create_bd_cell -type ip -vlnv xilinx.com:ip:smartconnect:1.0 $name
+#     set_property -dict [list CONFIG.NUM_SI 1 CONFIG.NUM_MI $n CONFIG.NUM_CLKS 1] [get_bd_cells $name]
+# }
+# foreach {a b} {
+#     ps/M_AXI_HPM0_FPD ctrl/S00_AXI
+#     ctrl/M00_AXI core_wrap/S_AXI
+#     ctrl/M01_AXI board_control/S_AXI
+#     core_wrap/M_AXI ddr/S00_AXI
+#     ddr/M00_AXI ps/S_AXI_HP0_FPD
+# } {connect_bd_intf_net [get_bd_intf_pins $a] [get_bd_intf_pins $b]}
+# create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 reset50
+# set_property CONFIG.C_AUX_RESET_HIGH 0 [get_bd_cells reset50]
+# foreach {cell val} {one 1 zero 0} {
+#     create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 $cell
+#     set_property CONFIG.CONST_VAL $val [get_bd_cells $cell]
+# }
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconstant:1.0 for the IP type xilinx.com:ip:xlconstant:1.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconstant:1.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+INFO: [BD 5-1043] It is recommended to use inline hdl version xilinx.com:inline_hdl:ilconstant:1.0 for the IP type xilinx.com:ip:xlconstant:1.1 for improved performance and reduced disk space. IPs with VLNV xilinx.com:ip:xlconstant:1.1 will not be supported from release 2025.2. More information on inline hdl IP is available in UG994 
+# connect_bd_net [get_bd_pins ps/pl_resetn0] [get_bd_pins reset50/ext_reset_in]
+# connect_bd_net [get_bd_pins one/dout] [get_bd_pins reset50/aux_reset_in] [get_bd_pins reset50/dcm_locked]
+# connect_bd_net [get_bd_pins zero/dout] [get_bd_pins reset50/mb_debug_sys_rst]
+# set clk [get_bd_pins ps/pl_clk0]
+# foreach pin {ps/maxihpm0_fpd_aclk ps/saxihp0_fpd_aclk ctrl/aclk ddr/aclk core_wrap/aclk board_control/aclk reset50/slowest_sync_clk} {
+#     connect_bd_net $clk [get_bd_pins $pin]
+# }
+# connect_bd_net [get_bd_pins reset50/interconnect_aresetn] [get_bd_pins ctrl/aresetn] [get_bd_pins ddr/aresetn]
+# connect_bd_net [get_bd_pins reset50/peripheral_aresetn] [get_bd_pins board_control/aresetn]
+# connect_bd_net [get_bd_pins board_control/core_reset_n] [get_bd_pins core_wrap/core_reset_n]
+# foreach pin {pc_wr_valid pc_wr_addr pc_wr_data pc_wr_ready busy done fault requires_reset port_quiesced b_pending rd_pending wr_pending completed last_node error_code cycles matrix_fused_used fuse_c48_ddr_bytes fuse_a16_bytes} {
+#     connect_bd_net [get_bd_pins core_wrap/$pin] [get_bd_pins board_control/$pin]
+# }
+# set cpu [get_bd_addr_spaces ps/Data]
+# set pl [get_bd_addr_spaces core_wrap/M_AXI]
+# assign_bd_address -target_address_space $cpu -offset 0xA0000000 -range 16M [get_bd_addr_segs -of_objects [get_bd_intf_pins core_wrap/S_AXI]]
+Slave segment '/core_wrap/S_AXI/reg0' is being assigned into address space '/ps/Data' at <0xA000_0000 [ 16M ]>.
+# assign_bd_address -target_address_space $cpu -offset 0xA1000000 -range 64K [get_bd_addr_segs -of_objects [get_bd_intf_pins board_control/S_AXI]]
+Slave segment '/board_control/S_AXI/reg0' is being assigned into address space '/ps/Data' at <0xA100_0000 [ 64K ]>.
+# set low [get_bd_addr_segs -of_objects [get_bd_intf_pins ps/S_AXI_HP0_FPD] -filter {NAME == HP0_DDR_LOW}]
+# if {[llength $low] != 1} {error "missing verified HP0 low DDR segment: $low"}
+# assign_bd_address -target_address_space $pl -offset 0x00000000 -range 2G $low
+Slave segment '/ps/SAXIGP2/HP0_DDR_LOW' is being assigned into address space '/core_wrap/M_AXI' at <0x0000_0000 [ 2G ]>.
+# foreach seg [get_bd_addr_segs -of_objects [get_bd_intf_pins ps/S_AXI_HP0_FPD]] {
+#     if {$seg ne $low} {exclude_bd_addr_seg -target_address_space $pl $seg}
+# }
+Excluding slave segment /ps/SAXIGP2/HP0_LPS_OCM from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_DDR_HIGH from address space /core_wrap/M_AXI.
+# validate_bd_design
+WARNING: [BD 41-1629] Slave segment </ps/SAXIGP2/HP0_LPS_OCM> is excluded from all addressing paths.
+WARNING: [BD 41-1629] Slave segment </ps/SAXIGP2/HP0_DDR_HIGH> is excluded from all addressing paths.
+WARNING: [BD 41-3281] Instance '/core_wrap' is connected on both sides by SmartConnects and cannot automatically configure itself to match the endpoints. Please manually configure its AXI interfaces as required for the design.
+WARNING: [BD 41-3281] Instance '/ps' is connected on both sides by SmartConnects and cannot automatically configure itself to match the endpoints. Please manually configure its AXI interfaces as required for the design.
+Excluding slave segment /ps/SAXIGP2/HP0_DDR_HIGH from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_LPS_OCM from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_DDR_HIGH from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_LPS_OCM from address space /core_wrap/M_AXI.
+INFO: [BD 5-943] Reserving offset range <0xA000_0000 [ 16M ]> from slave interface '/ctrl/S00_AXI' to master interface '/ctrl/M00_AXI'. This will be used by smartconnect on path for routing.
+INFO: [BD 5-943] Reserving offset range <0xA100_0000 [ 64K ]> from slave interface '/ctrl/S00_AXI' to master interface '/ctrl/M01_AXI'. This will be used by smartconnect on path for routing.
+INFO: [xilinx.com:ip:smartconnect:1.0-1] ps_ddr_ctrl_0: SmartConnect ps_ddr_ctrl_0 is in Low-Area Mode.
+INFO: [BD 5-943] Reserving offset range <0x0000_0000 [ 2G ]> from slave interface '/ddr/S00_AXI' to master interface '/ddr/M00_AXI'. This will be used by smartconnect on path for routing.
+INFO: [xilinx.com:ip:smartconnect:1.0-1] ps_ddr_ddr_0: SmartConnect ps_ddr_ddr_0 is in High-performance Mode.
+Excluding slave segment /ps/SAXIGP2/HP0_DDR_HIGH from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_LPS_OCM from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_DDR_HIGH from address space /core_wrap/M_AXI.
+Excluding slave segment /ps/SAXIGP2/HP0_LPS_OCM from address space /core_wrap/M_AXI.
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ps/S_AXI_HP0_FPD(1) and /ddr/M00_AXI(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ps/S_AXI_HP0_FPD(1) and /ddr/M00_AXI(0)
+validate_bd_design: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 964.871 ; gain = 78.312
+# if {[get_property CONFIG.C_EXT_RESET_HIGH [get_bd_cells reset50]] != 0} {error "unexpected PS reset polarity"}
+# save_bd_design
+Wrote  : <C:\Academic_Work\CIM_learning\work\v024_ddr_resident\run_20261102_190226\project\resident.srcs\sources_1\bd\ps_ddr\ps_ddr.bd> 
+# write_bd_tcl [file join $out resident_bd.tcl]
+WARNING: [BD 41-2925] The design that will be created by this Tcl script contains the following module references: v024_core_wrapper, v024_board_control.
+Please add the sources of those modules before sourcing this Tcl script or use write_project_tcl.
+INFO: [BD 5-148] Tcl file written out <C:/Academic_Work/CIM_learning/work/v024_ddr_resident/run_20261102_190226/resident_bd.tcl>.
+
+# set f [open [file join $out connectivity.txt] w]
+# puts $f "VIVADO_BD_VALIDATED_ONLY\npart=[get_property PART [current_project]]\ncore_port=core_wrap/M_AXI\nboard_memory_port=ps/S_AXI_HP0_FPD\nDDR_port_bits=[get_property CONFIG.PSU__SAXIGP2__DATA_WIDTH $ps]\nDDR_enabled=[get_property CONFIG.PSU__DDRC__ENABLE $ps]\nclock_MHz=[get_property CONFIG.PSU__CRL_APB__PL0_REF_CTRL__FREQMHZ $ps]"
+# foreach space [list $cpu $pl] {
+#     foreach seg [get_bd_addr_segs -of_objects $space] {
+#         puts $f "$space $seg offset=[get_property OFFSET $seg] range=[get_property RANGE $seg]"
+#     }
+# }
+# puts $f "This is a block design with a core placeholder. No synthesized system, timing, firmware, network interface or board result is claimed."
+# close $f
+# close_project
+INFO: [Common 17-206] Exiting Vivado at Mon Nov  2 19:02:54 2026...

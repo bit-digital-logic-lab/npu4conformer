@@ -1,0 +1,95 @@
+{
+  "scope": "read-only source/generated-IP review; no hardware access; not STA proof",
+  "utc": "2026-11-01T11:29:46.731177+00:00",
+  "platform_checks": {
+    "arena_bram": {
+      "Write_Width_A": "128",
+      "Read_Width_A": "128",
+      "Write_Depth_A": "4096",
+      "Enable_32bit_Address": "true",
+      "Memory_Type": "Single_Port_RAM",
+      "Use_Byte_Write_Enable": "true",
+      "Byte_Size": "8"
+    },
+    "params_bram": {
+      "Write_Width_A": "128",
+      "Read_Width_A": "128",
+      "Write_Depth_A": "4096",
+      "Enable_32bit_Address": "true",
+      "Memory_Type": "Single_Port_RAM",
+      "Use_Byte_Write_Enable": "true",
+      "Byte_Size": "8"
+    },
+    "reset": {
+      "C_EXT_RESET_HIGH": "0",
+      "C_AUX_RESET_HIGH": "0",
+      "ext_aux_idle": "1",
+      "mb_debug_idle": "0"
+    },
+    "fabric": {
+      "S00_AXI": {
+        "DATA_WIDTH": "32",
+        "ADDR_WIDTH": "32",
+        "PROTOCOL": "AXI4",
+        "ID_WIDTH": "1"
+      },
+      "S01_AXI": {
+        "DATA_WIDTH": "128",
+        "ADDR_WIDTH": "40",
+        "PROTOCOL": "AXI4",
+        "ID_WIDTH": "0"
+      },
+      "M00_AXI": {
+        "DATA_WIDTH": "128",
+        "ADDR_WIDTH": "16",
+        "PROTOCOL": "AXI4",
+        "ID_WIDTH": "0"
+      },
+      "M01_AXI": {
+        "DATA_WIDTH": "128",
+        "ADDR_WIDTH": "16",
+        "PROTOCOL": "AXI4",
+        "ID_WIDTH": "0"
+      },
+      "M02_AXI": {
+        "DATA_WIDTH": "32",
+        "ADDR_WIDTH": "24",
+        "PROTOCOL": "AXI4LITE",
+        "ID_WIDTH": "0"
+      },
+      "M03_AXI": {
+        "DATA_WIDTH": "32",
+        "ADDR_WIDTH": "16",
+        "PROTOCOL": "AXI4LITE",
+        "ID_WIDTH": "0"
+      }
+    },
+    "wrapper": {
+      "core_port_count": 105,
+      "explicit_binding_count": 105,
+      "missing": [],
+      "unknown": []
+    }
+  },
+  "platform_review_pass": true,
+  "iterhash_review": {
+    "no_blocking_logic_defect_found": true,
+    "coverage": "HHASH 0..15 excluding7; NHASH0..47; compare hash_next; buffers stable; final checksum before SCAN; generation guard",
+    "timing_closure": "unknown pending implementation",
+    "cycles": "use measured CSR results; do not infer total delta only from extra hash-state cycles"
+  },
+  "fixed_findings": [
+    "two RAM windows originally aliased by automation; now distinct BMGs",
+    "reset inputs originally tied0 while active-low; now tied1",
+    "board done is one-cycle pulse; host polls original CSR done_latched",
+    "Vivado Python environment conflicts; bundled Python invoked with -I"
+  ],
+  "sha256": {
+    "platform/build_platform.tcl": "f212b0006355d82a6a56433eb2c9335fe3cc40b59973a565ca541d338ce410ba",
+    "platform/v024_core_wrapper.sv": "3a5bbcac9d7ea5c71fe4a55400973a74b3708871de0ec0cf0fbcbd0d3c00b792",
+    "platform/build/platform_bd.tcl": "a89571f4d2b13179e072e5ba6bac3227ad3a93653e2106ebec3b825d5d647e9b",
+    "core/analysis/wc_graph_ctrl_iterhash.patch": "12e4729c323b2ce5cb95ab3c5ea14111d2bbd403230c7679cba1e10f83194886",
+    "host/load_run_verify.tcl": "9523c668f09a51395d78adb185d8417eb118ba812ebf5dbdb521e2a783ef9f7d",
+    "host/verify_v024.py": "d2b3e8b579fda1e1c14ced909116e80bc7f2378116c32bd9676536506de3f974"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PROCESS_EXITED",
+  "stage": "regression",
+  "started": "2026-11-02T16:45:59.883881+08:00",
+  "pid": 42732,
+  "script_sha256": "cd1686ffde066244773ce20c1ec6e230cb7e034f2564ed59953294b7a9ea0346",
+  "plan_sha256": "d6e7bed5ee61d400fe66f047ad27b7845a27264c12340f6624a6d1d0e0f2e211",
+  "finished": "2026-11-02T16:49:32.928451+08:00",
+  "exit_code": 0,
+  "log_sha256": "590f056c3ef22d039d4ed06e1537130919f3596ce611b11e4da03f9093f0d3e6"
+}

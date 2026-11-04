@@ -1,0 +1,11 @@
+{
+  "schema": "1",
+  "evidence_kind": "in_memory_test_only",
+  "execution_state": "failed",
+  "axi_name": "mock_axi",
+  "vivado_version": "2025.2",
+  "poll_timeout_ms": "1000",
+  "utc_started": "2026-11-01T11:18:21Z",
+  "stage": "validate_frozen_host_inputs",
+  "error_message": "Traceback (most recent call last):\n  File \"C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\host\\verify_v024.py\", line 7, in <module>\n    import argparse\n  File \"C:\\Academic_Application\\Vivado\\2025.2\\Vivado\\tps\\win64\\python-3.13.0\\lib\\argparse.py\", line 89, in <module>\n    import re as _re\n  File \"C:\\Academic_Application\\Vivado\\2025.2\\Vivado\\tps\\win64\\python-3.13.0\\lib\\re\\__init__.py\", line 126, in <module>\n    from . import _compiler, _parser\n  File \"C:\\Academic_Application\\Vivado\\2025.2\\Vivado\\tps\\win64\\python-3.13.0\\lib\\re\\_compiler.py\", line 18, in <module>\n    assert _sre.MAGIC == MAGIC, \"SRE module mismatch\"\n           ^^^^^^^^^^^^^^^^^^^\nAssertionError: SRE module mismatch"
+}

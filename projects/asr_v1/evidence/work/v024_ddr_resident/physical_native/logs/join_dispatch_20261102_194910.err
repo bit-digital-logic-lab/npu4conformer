@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Academic_Work\CIM_learning\work\v024_ddr_resident\physical_native\run_join_fast.py", line 109, in <module>
+    main()
+  File "C:\Academic_Work\CIM_learning\work\v024_ddr_resident\physical_native\run_join_fast.py", line 96, in main
+    need(rc == 0 and not any(s.startswith("ERROR:") for s in lines),"Vivado join failed: "+str(log))
+  File "C:\Academic_Work\CIM_learning\work\v024_ddr_resident\physical_native\run_join_fast.py", line 34, in need
+    raise RuntimeError(message)
+RuntimeError: Vivado join failed: C:\Academic_Work\CIM_learning\work\v024_ddr_resident\physical_native\logs\join_20261102_195707.log

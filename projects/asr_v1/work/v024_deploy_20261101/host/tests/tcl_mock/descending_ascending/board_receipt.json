@@ -1,0 +1,8 @@
+{
+  "schema": "1",
+  "evidence_kind": "in_memory_test_only",
+  "read_order": "descending",
+  "write_order": "ascending",
+  "calibration_pass": "1",
+  "arena_verified_words": "16384"
+}

@@ -1,0 +1,28 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Mon Nov  2 16:50:37 2026
+| Host         : MILK running 64-bit major release  (build 9200)
+| Command      : report_ip_status
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+IP Status Summary
+
+1. Project IP Status
+--------------------
+Your project uses 1 IP. Some of these IP may have undergone changes in this release of the software. Please review the recommended actions.
+
+More information on the Xilinx versioning policy is available at www.xilinx.com.
+
+Project IP Instances
++---------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| Instance Name | Status     | Recommendation      | Change    | IP Name            | IP      | New Version   | New        | Original Part        |
+|               |            |                     | Log       |                    | Version |               | License    |                      |
++---------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+| asr_fma_ip    | Up-to-date | No changes required |  *(1)     | Floating-point     | 7.1     | 7.1 (Rev. 21) | Included   | xczu15eg-ffvb1156-2- |
+|               |            |                     |           |                    | (Rev.   |               |            |                      |
+|               |            |                     |           |                    | 21)     |               |            |                      |
++---------------+------------+---------------------+-----------+--------------------+---------+---------------+------------+----------------------+
+*(1) c:/Academic_Application/Vivado/2025.2/Vivado/data/ip/xilinx/floating_point_v7_1/doc/floating_point_v7_1_changelog.txt
+
+

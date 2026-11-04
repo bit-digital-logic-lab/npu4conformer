@@ -1,0 +1,39 @@
+{
+  "status": "PREPARED_NOT_RUN",
+  "scope": "Partitioned synthesis only; behavioral simulation from frozen shared16 RTL; no implementation or hardware claim",
+  "array_params": {
+    "PIPE_STAGES": 4,
+    "ACCUM_MODE": 0,
+    "CPA_PIPE": 1
+  },
+  "clock_ns": 20,
+  "part": "xczu15eg-ffvb1156-2-i",
+  "threads": 1,
+  "expected_link_cell": "matrix/shared_array",
+  "stub": "exact original module parameter/port declaration with black_box attribute only",
+  "leaf_clock": "20ns during OOC synthesis/reporting; reset_timing -invalid clears all timing constraints and verified zero clocks before DCP export; top clock checked after strict link",
+  "must_verify_before_core": [
+    "leaf Vivado actual exit 0",
+    "leaf pass and DCP freshness/hash, 256 PE, no blackboxes, no saved clocks",
+    "FMA DCP hash and actual import, original functional gate and frozen sources",
+    "one exact blackbox before link and zero after link",
+    "top core_clk 20 ns after link",
+    "one array and 256 PEs after link",
+    "fresh candidate DCP and resource reports"
+  ],
+  "inputs": {
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\partitioned_shared16\\rtl\\array16_w7_c48_cfg.sv": "c4203e0b7fc21b1b11e82579343236089342352d70b167b70791b8e69c03daae",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\partitioned_shared16\\rtl\\pe_w7_c48_cfg.sv": "d8b5089073f4629f113b7735316593b77335ad99d8adf0c6757bd2d70269f179",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\partitioned_shared16\\rtl\\array16_blackbox.sv": "6fde0712b2d7cff8f5575fa7f10c482fc5feb542e06bdb3de42ff4ca516f2c6c",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\partitioned_shared16\\array_ooc.tcl": "0bfba9ba7957597de93aa135e6b516b6e8de4c9615e2dc5e07fb29e6ec4709cf",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\partitioned_shared16\\array_ooc.xdc": "3d112860eb103c3a6cfbc1f19d3b1b580c3526eb89cf7f0ff41ad2dc2e083aa9",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\partitioned_shared16\\synth_partitioned.tcl": "3d3fcb2d4e367b415485760e618772485a3b0fb804e95a50d6090a0deb056ed3",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\shared16_candidate\\reports\\SOURCE_MANIFEST.json": "c8a155856faf302fd121bb591dab5dea8d1851e724cdedfd514fcf5b58e9493f",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\shared16_candidate\\reports\\ROOT_FUNCTIONAL_ACCEPTANCE.json": "d4b3a19ad88b40596d30e52d14e4111bded38cb4104c5268fab1a3e35d80b643",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\shared16_candidate\\ip\\asr_fma_ip\\asr_fma_ip.xci": "6d4e66d8c69c8d1ca6e687d65d304ed9d84f0563d8fdea342d2ca61b85902333",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\shared16_candidate\\ip\\asr_fma_ip\\generated\\asr_fma_ip.dcp": "3398344c3a787c46194e63ef81cd5968daa2bbcbd13176d1c2205819d8d6f10d",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\partitioned_shared16\\review_leaf.py": "e1b21e322d6745587acd530afd3094546464e42021432c5f2f17fd98abf24131",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\partitioned_shared16\\run_partition_core.py": "018ddd30eb802d99be4b36280c9bf07a92f027e70d3eeae35f7683edc9392dfc",
+    "C:\\Academic_Work\\CIM_learning\\work\\v024_deploy_20261101\\recovery_20261102\\partitioned_shared16\\run_array_leaf.py": "56880b93d0d7acbc4d07bccd2e64b57f6e7d8fae397db7016aa16ea4fd90eeef"
+  }
+}

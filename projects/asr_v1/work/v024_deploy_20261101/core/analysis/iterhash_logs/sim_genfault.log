@@ -1,0 +1,410 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sun Nov  1 19:29:54 2026
+# Process ID         : 8852
+# Current directory  : C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core
+# Command line       : vivado.exe -mode batch -source scripts/deploy/sim_iterhash_genfault.tcl -log analysis/iterhash_logs/sim_genfault.log -journal analysis/iterhash_logs/sim_genfault.jou
+# Log file           : C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/analysis/iterhash_logs/sim_genfault.log
+# Journal file       : C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core\analysis/iterhash_logs/sim_genfault.jou
+# Running On         : MILK
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26300
+# Processor Detail   : Intel(R) Core(TM) Ultra 9 275HX
+# CPU Frequency      : 3072 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 24
+# Host memory        : 33676 MB
+# Swap memory        : 4862 MB
+# Total Virtual      : 38538 MB
+# Available Virtual  : 4600 MB
+#-----------------------------------------------------------
+source scripts/deploy/sim_iterhash_genfault.tcl
+# set root [file normalize [file join [file dirname [info script]] ../..]]
+# cd $root
+# set_param general.maxThreads 1
+# open_project [file join $root build hashsim v024_hashsim.xpr]
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/build/hashsim/v024_hashsim.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vrk160:part0:1.0 available at C:/Academic_Application/Vivado/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vrk160\1.0\board.xml as part xcvr1602-vsva2488-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vrk160:part0:1.1 available at C:/Academic_Application/Vivado/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\vrk160\1.1\board.xml as part xcvr1602-vsva2488-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at C:/Academic_Application/Vivado/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu208ld\production\2.0\board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Academic_Application/Vivado/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu216ld\production\2.0\board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Academic_Application/Vivado/2025.2/data/xhub/boards\XilinxBoardStore\boards\Xilinx\zcu670ld\1.0\board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Project 1-5713] Board part '' set for the project  is not found. BoardPart property will be unset. Please select board from latest repo build 
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Academic_Application/Vivado/2025.2/Vivado/data/ip'.
+open_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 711.719 ; gain = 265.957
+# add_files -fileset sim_1 [file join $root analysis tb_v024_iterhash_genfault.sv]
+# set_property top tb_v024_iterhash_genfault [get_filesets sim_1]
+# set_property xsim.elaborate.debug_level off [get_filesets sim_1]
+# set_property xsim.simulate.runtime all [get_filesets sim_1]
+# foreach st {10 11} {
+#  set name v024_genfault_$st
+#  set options "-testplusarg memfile=$root/sim/fixtures/mem_v024_fused.hex -testplusarg outfile=$root/analysis/iterhash_logs/${name}_out.hex -testplusarg mode=3 -testplusarg expect_error=2 -testplusarg watchdog=100000 -testplusarg inject_state=$st"
+#  set_property -dict [list xsim.simulate.xsim.more_options $options] [get_filesets sim_1]
+#  update_compile_order -fileset sim_1
+#  if {$st==10} {launch_simulation -simset sim_1 -mode behavioral} else {launch_simulation -simset sim_1 -mode behavioral -step simulate}
+#  close_sim
+#  file copy -force [file join $root build hashsim v024_hashsim.sim sim_1 behav xsim simulate.log] [file join $root analysis iterhash_logs ${name}.log]
+# }
+update_compile_order: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 711.719 ; gain = 0.000
+Command: launch_simulation  -simset sim_1 -mode behavioral
+INFO: [Vivado 12-25911] Executing simulation for 'XSim' simulator
+INFO: [Vivado 12-28535] Process started - Sun Nov  1 19:30:11 2026
+
+INFO: [Vivado 12-12493] Simulation top is 'tb_v024_iterhash_genfault'
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/build/hashsim/v024_hashsim.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Academic_Application/Vivado/2025.2/Vivado/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Academic_Application/Vivado/2025.2/Vivado/data/xsim/xsim.ini' copied to run dir:'C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/build/hashsim/v024_hashsim.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_v024_iterhash_genfault' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/build/hashsim/v024_hashsim.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_v024_iterhash_genfault_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/analysis/tb_v024_iterhash_genfault.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_v024_iterhash_genfault
+"xvhdl --incr --relax -prj tb_v024_iterhash_genfault_vhdl.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/build/hashsim/v024_hashsim.sim/sim_1/behav/xsim'
+"xelab --incr --debug off --relax --mt auto -L xil_defaultlib -L xbip_utils_v3_0_15 -L axi_utils_v2_0_11 -L xbip_pipe_v3_0_11 -L xbip_dsp48_wrapper_v3_0_7 -L mult_gen_v12_0_24 -L floating_point_v7_1_21 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_v024_iterhash_genfault_behav xil_defaultlib.tb_v024_iterhash_genfault xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Academic_Application/Vivado/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug off --relax --mt auto -L xil_defaultlib -L xbip_utils_v3_0_15 -L axi_utils_v2_0_11 -L xbip_pipe_v3_0_11 -L xbip_dsp48_wrapper_v3_0_7 -L mult_gen_v12_0_24 -L floating_point_v7_1_21 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_v024_iterhash_genfault_behav xil_defaultlib.tb_v024_iterhash_genfault xil_defaultlib.glbl -log elaborate.log 
+Multi-threading is on. Using 22 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package floating_point_v7_1_21.floating_point_v7_1_21_viv_comp
+Compiling package xbip_utils_v3_0_15.xbip_utils_v3_0_15_pkg
+Compiling package axi_utils_v2_0_11.axi_utils_v2_0_11_pkg
+Compiling package floating_point_v7_1_21.floating_point_v7_1_21_consts
+Compiling package ieee.math_real
+Compiling package floating_point_v7_1_21.floating_point_v7_1_21_exp_table...
+Compiling package mult_gen_v12_0_24.mult_gen_v12_0_24_pkg
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package floating_point_v7_1_21.floating_point_v7_1_21_pkg
+Compiling package floating_point_v7_1_21.flt_utils
+Compiling package unisim.vcomponents
+Compiling package xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv_comp
+Compiling package mult_gen_v12_0_24.dsp_pkg
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling module xil_defaultlib.wc_safety_bfm
+Compiling module xil_defaultlib.plan_submit_csr_v023
+Compiling module xil_defaultlib.wc_graph_ctrl(ARENA_BASE=32'b010...
+Compiling module xil_defaultlib.axi_dma_v019
+Compiling module xil_defaultlib.vector_desc_check_pipe
+Compiling module xil_defaultlib.asr_fp32_lane_fixed
+Compiling module xil_defaultlib.asr_fp32_alu
+Compiling architecture muxcy_v of entity unisim.MUXCY [muxcy_default]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=4,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_21.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity floating_point_v7_1_21.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(length=0,fast_input=true)...]
+Compiling architecture rtl of entity floating_point_v7_1_21.special_detect [\special_detect(c_xdevicefamily=...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=2,fast_input=true)\]
+Compiling architecture synth of entity floating_point_v7_1_21.flt_fma_specialcase [\flt_fma_specialcase(c_xdevicefa...]
+Compiling architecture xilinx of entity mult_gen_v12_0_24.delay_line [\delay_line(c_xdevicefamily="zyn...]
+Compiling architecture xilinx of entity mult_gen_v12_0_24.delay_line [\delay_line(c_xdevicefamily="zyn...]
+Compiling architecture xilinx of entity mult_gen_v12_0_24.delay_line [\delay_line(c_xdevicefamily="zyn...]
+Compiling architecture xilinx of entity mult_gen_v12_0_24.delay_line [\delay_line(c_xdevicefamily="zyn...]
+Compiling architecture dsp48e2_v of entity unisim.DSP48E2 [\DSP48E2(acascreg=0,alumodereg=0...]
+Compiling architecture xilinx of entity mult_gen_v12_0_24.delay_line [\delay_line(c_xdevicefamily="zyn...]
+Compiling architecture dsp48e2_v of entity unisim.DSP48E2 [\DSP48E2(alumodereg=0,a_input="C...]
+Compiling architecture xilinx of entity mult_gen_v12_0_24.delay_line [\delay_line(c_xdevicefamily="zyn...]
+Compiling architecture xilinx of entity mult_gen_v12_0_24.op_resize [\op_resize(ai_width=24,bi_width=...]
+Compiling architecture xilinx of entity mult_gen_v12_0_24.dsp [\dsp(c_xdevicefamily="zynquplus"...]
+Compiling architecture xilinx of entity mult_gen_v12_0_24.mult_gen_v12_0_24_viv [\mult_gen_v12_0_24_viv(c_verbosi...]
+Compiling architecture rtl of entity floating_point_v7_1_21.flt_fma_mul [\flt_fma_mul(c_xdevicefamily="zy...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(length=2,fast_input=true)...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=9,length=0,fast_inp...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=9,length=2,fast_inp...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=3,fast_input=true)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=32,length=2)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=47,fast_input=true)...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(fast_input=true)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=47)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [delay_default]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=2,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=16)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=2)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=16,length=0)\]
+Compiling architecture muxf7_v of entity unisim.MUXF7 [muxf7_default]
+Compiling architecture muxf8_v of entity unisim.MUXF8 [muxf8_default]
+Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
+Compiling architecture fde_v of entity unisim.FDE [fde_default]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=13,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_21.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity floating_point_v7_1_21.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
+Compiling architecture rtl of entity floating_point_v7_1_21.zero_det_sel [\zero_det_sel(c_xdevicefamily="z...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=9,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_21.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture xorcy_v of entity unisim.XORCY [xorcy_default]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=5,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_21.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity floating_point_v7_1_21.compare_ge [\compare_ge(c_xdevicefamily="zyn...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=50)\]
+Compiling architecture rtl of entity floating_point_v7_1_21.shift_msb_first [\shift_msb_first(a_width=49,resu...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=50,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_21.flt_fma_alignment [\flt_fma_alignment(c_xdevicefami...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(length=2)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=49,length=0)\]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,adreg=0,alum...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=7,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=30,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=18,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=25,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_21.dsp48e1_wrapper [\dsp48e1_wrapper(a_width=30,b_wi...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=4,length=2)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=3,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=4)\]
+Compiling architecture struct of entity floating_point_v7_1_21.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=48,length=2)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=48,length=0)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=51)\]
+Compiling architecture synth of entity floating_point_v7_1_21.flt_fma_addsub_dsp1 [\flt_fma_addsub_dsp1(c_xdevicefa...]
+Compiling architecture rtl of entity floating_point_v7_1_21.flt_fma_addsub [\flt_fma_addsub(c_xdevicefamily=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.flt_fma_align_add [\flt_fma_align_add(c_xdevicefami...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=5,length=0,fast_inp...]
+Compiling architecture struct of entity floating_point_v7_1_21.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=8,fast_input=true)\]
+Compiling architecture rtl of entity floating_point_v7_1_21.mux4 [\mux4(c_xdevicefamily="zynquplus...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=4,fast_input=true)\]
+Compiling architecture rtl of entity floating_point_v7_1_21.mux4 [\mux4(c_xdevicefamily="zynquplus...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=2,length=2)\]
+Compiling architecture rtl of entity floating_point_v7_1_21.mux4 [\mux4(c_xdevicefamily="zynquplus...]
+Compiling architecture rtl of entity floating_point_v7_1_21.mux4 [\mux4(c_xdevicefamily="zynquplus...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=8,length=0,fast_inp...]
+Compiling architecture struct of entity floating_point_v7_1_21.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture rtl of entity floating_point_v7_1_21.lead_zero_encode [\lead_zero_encode(c_xdevicefamil...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=51,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_21.shift_msb_first [\shift_msb_first(a_width=51,resu...]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=0,adreg=0,areg...]
+Compiling architecture rtl of entity floating_point_v7_1_21.dsp48e1_wrapper [\dsp48e1_wrapper(b_width=18,c_wi...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=14)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=14,length=2)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=25)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=24,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_21.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity floating_point_v7_1_21.compare_ne_im [\compare_ne_im(c_xdevicefamily="...]
+Compiling architecture rtl of entity floating_point_v7_1_21.flt_fma_round_bit [\flt_fma_round_bit(c_xdevicefami...]
+Compiling architecture rtl of entity floating_point_v7_1_21.flt_fma_renorm_and_round_logic [\flt_fma_renorm_and_round_logic(...]
+Compiling architecture rtl of entity floating_point_v7_1_21.flt_fma_norm_logic [\flt_fma_norm_logic(c_xdevicefam...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(length=6)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=10,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_21.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=10,length=0,fast_in...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=10,length=6)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=8)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=8,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_21.carry_chain [\carry_chain(c_xdevicefamily="ki...]
+Compiling architecture synth of entity floating_point_v7_1_21.compare_eq_im [\compare_eq_im(c_xdevicefamily="...]
+Compiling architecture rtl of entity floating_point_v7_1_21.special_detect [\special_detect(a_w=57,a_fw=48)(...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=4,length=0,fast_inp...]
+Compiling architecture rtl of entity floating_point_v7_1_21.flt_to_flt_conv_exp [\flt_to_flt_conv_exp(a_w=57,a_ew...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=29,length=0)\]
+Compiling architecture struct of entity floating_point_v7_1_21.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity floating_point_v7_1_21.compare_gt [\compare_gt(c_xdevicefamily="zyn...]
+Compiling architecture synth of entity floating_point_v7_1_21.compare [\compare(c_xdevicefamily="zynqup...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=9,fast_input=true)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=9)\]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=10,fast_input=true)...]
+Compiling architecture struct of entity floating_point_v7_1_21.carry_chain [\carry_chain(c_xdevicefamily="zy...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=2,length=7,fast_inp...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(length=8,fast_input=true)...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(length=7,fast_input=true)...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=12,length=0)\]
+Compiling architecture rtl of entity floating_point_v7_1_21.flt_fma_add_exp [\flt_fma_add_exp(c_xdevicefamily...]
+Compiling architecture synth of entity floating_point_v7_1_21.flt_dec_op [\flt_dec_op(c_xdevicefamily="zyn...]
+Compiling architecture rtl of entity floating_point_v7_1_21.flt_fma_add_logic [\flt_fma_add_logic(c_xdevicefami...]
+Compiling architecture rtl of entity floating_point_v7_1_21.flt_fma_add [\flt_fma_add(c_xdevicefamily="zy...]
+Compiling architecture rtl of entity floating_point_v7_1_21.flt_fma [\flt_fma(c_xdevicefamily="zynqup...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_latency...]
+Compiling architecture synth of entity xbip_pipe_v3_0_11.xbip_pipe_v3_0_11_viv [\xbip_pipe_v3_0_11_viv(c_has_ce=...]
+Compiling architecture rtl of entity floating_point_v7_1_21.delay [\delay(width=32,length=0)\]
+Compiling architecture xilinx of entity floating_point_v7_1_21.floating_point_v7_1_21_viv [\floating_point_v7_1_21_viv(c_xd...]
+Compiling architecture xilinx of entity floating_point_v7_1_21.floating_point_v7_1_21 [\floating_point_v7_1_21(c_xdevic...]
+Compiling architecture asr_fma_ip_arch of entity xil_defaultlib.asr_fma_ip [asr_fma_ip_default]
+Compiling module xil_defaultlib.approx_recip_lut
+Compiling module xil_defaultlib.approx_rsqrt_lut
+Compiling module xil_defaultlib.approx_div_sqrt_default
+Compiling module xil_defaultlib.ddr_vector_engine_pipe(USE_APPRO...
+Compiling module xil_defaultlib.v023_vector_guard(WATCHDOG=20000...
+Compiling module xil_defaultlib.u16_divmod
+Compiling module xil_defaultlib.ddr_layout_engine
+Compiling module xil_defaultlib.v023_layout_guard(WATCHDOG=30000...
+Compiling module xil_defaultlib.wc_graph_top_v023(ARENA_BASE=32'...
+Compiling module xil_defaultlib.task_queue(ARENA_BASE=32'b010000...
+Compiling module xil_defaultlib.block_address_v020
+Compiling module xil_defaultlib.c_cache_banked4_pipe
+Compiling module xil_defaultlib.pe_w7_c48_cfg_default
+Compiling module xil_defaultlib.array16_w7_c48_cfg_default
+Compiling module xil_defaultlib.block_engine_prefetch_v2
+Compiling module xil_defaultlib.operand_banks_dual_v1
+Compiling module xil_defaultlib.block_storage_stream_v2
+Compiling module xil_defaultlib.axi_dma_v020_multi_v2_default
+Compiling module xil_defaultlib.matrix_p2_cluster_v2(ARENA_BASE=...
+Compiling module xil_defaultlib.fusion_c48_framer
+Compiling module xil_defaultlib.fusion_c48_fifo_default
+Compiling module xil_defaultlib.epilogue_i48_to_f32_v024
+Compiling module xil_defaultlib.fp32_fma_pipe(TAG_WIDTH=50)
+Compiling module xil_defaultlib.epilogue_fma_stage_v024_default
+Compiling module xil_defaultlib.epilogue_relu
+Compiling module xil_defaultlib.epilogue_f32_to_i16
+Compiling module xil_defaultlib.epilogue_lane_v024
+Compiling module xil_defaultlib.epilogue_stream_engine_v024_defa...
+Compiling module xil_defaultlib.fusion_a16_blockbuf
+Compiling module xil_defaultlib.fusion_a16_writer
+Compiling module xil_defaultlib.matrix_stream_fusion_top_v024(AR...
+Compiling module xil_defaultlib.v024_matrix_queue_engine(WATCHDO...
+Compiling module xil_defaultlib.v023_axi_shared_default
+Compiling module xil_defaultlib.v024_unified_top(MATRIX_WATCHDOG...
+Compiling module xil_defaultlib.tb_v024_unified
+Compiling module xil_defaultlib.tb_v024_iterhash
+Compiling module xil_defaultlib.tb_v024_iterhash_genfault
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_v024_iterhash_genfault_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:19 . Memory (MB): peak = 711.719 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '18' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/build/hashsim/v024_hashsim.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_v024_iterhash_genfault_behav -key {Behavioral:sim_1:Functional:tb_v024_iterhash_genfault} -tclbatch {tb_v024_iterhash_genfault.tcl} -log {simulate.log} -testplusarg memfile=C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/sim/fixtures/mem_v024_fused.hex -testplusarg outfile=C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/analysis/iterhash_logs/v024_genfault_10_out.hex -testplusarg mode=3 -testplusarg expect_error=2 -testplusarg watchdog=100000 -testplusarg inject_state=10"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_v024_iterhash_genfault.tcl
+## run all
+ITERHASH_GENERATION_INJECT state=10 hash_word=4
+V024_CSR status=00000006 err=02 completed=0 last=0 cycles=19 fetch=12 op=0
+V024_CSR vec_total=0 layout_total=0 matrix_total=0 vec_ops=0 layout_ops=0 matrix_ops=0
+V024_FUSION used=0 c48_ddr_bytes=0 a16_bytes=0
+V024_AXI rburst=1 wburst=0 rbeats=4 wbeats=0 tag_err=0 rpeak=1 wpeak=0
+V024_DRAIN rd_pending=0 wr_pending=0 b_pending=0 quiesced=1 iso_blocked=0 held_b=0 returned_b=0
+V024_END done=1 fault=1 error=02 iso=0 requires_reset=0 fetch_to=0 drain_timeout=0 cycles=273
+V024_RESULT PASS
+$finish called at time : 2188 ns : File "C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/sim/tb/tb_v024_unified.sv" Line 267
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_v024_iterhash_genfault_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for all
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:25 . Memory (MB): peak = 711.719 ; gain = 0.000
+INFO: [Simtcl 6-16] Simulation closed
+Command: launch_simulation -step simulate -simset sim_1 -mode behavioral
+INFO: [Vivado 12-25911] Executing simulation for 'XSim' simulator
+INFO: [Vivado 12-28535] Process started - Sun Nov  1 19:30:41 2026
+
+INFO: [Vivado 12-12493] Simulation top is 'tb_v024_iterhash_genfault'
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/build/hashsim/v024_hashsim.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-13660] Precompiled IP simulation library mode is enabled (default). The design IP libraries will be referenced from the compiled library path. Please note that if the precompiled version of the library is not found from the path or the IP is in locked state, then the library source files for these IPs will be compiled locally as part of the compile order.
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Academic_Application/Vivado/2025.2/Vivado/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Academic_Application/Vivado/2025.2/Vivado/data/xsim/xsim.ini' copied to run dir:'C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/build/hashsim/v024_hashsim.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_v024_iterhash_genfault' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/build/hashsim/v024_hashsim.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_v024_iterhash_genfault_behav -key {Behavioral:sim_1:Functional:tb_v024_iterhash_genfault} -tclbatch {tb_v024_iterhash_genfault.tcl} -log {simulate.log} -testplusarg memfile=C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/sim/fixtures/mem_v024_fused.hex -testplusarg outfile=C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/analysis/iterhash_logs/v024_genfault_11_out.hex -testplusarg mode=3 -testplusarg expect_error=2 -testplusarg watchdog=100000 -testplusarg inject_state=11"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_v024_iterhash_genfault.tcl
+## run all
+ITERHASH_GENERATION_INJECT state=11 hash_word=4
+V024_CSR status=00000006 err=02 completed=0 last=0 cycles=63 fetch=39 op=0
+V024_CSR vec_total=0 layout_total=0 matrix_total=0 vec_ops=0 layout_ops=0 matrix_ops=0
+V024_FUSION used=0 c48_ddr_bytes=0 a16_bytes=0
+V024_AXI rburst=2 wburst=0 rbeats=16 wbeats=0 tag_err=0 rpeak=1 wpeak=0
+V024_DRAIN rd_pending=0 wr_pending=0 b_pending=0 quiesced=1 iso_blocked=0 held_b=0 returned_b=0
+V024_END done=1 fault=1 error=02 iso=0 requires_reset=0 fetch_to=0 drain_timeout=0 cycles=317
+V024_RESULT PASS
+$finish called at time : 2540 ns : File "C:/Academic_Work/CIM_learning/work/v024_deploy_20261101/core/sim/tb/tb_v024_unified.sv" Line 267
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_v024_iterhash_genfault_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for all
+INFO: [Simtcl 6-16] Simulation closed
+# puts "ITERHASH_GENERATION_TESTS_COMPLETED_CHECK_SEPARATELY"
+ITERHASH_GENERATION_TESTS_COMPLETED_CHECK_SEPARATELY
+INFO: [Common 17-206] Exiting Vivado at Sun Nov  1 19:30:43 2026...
