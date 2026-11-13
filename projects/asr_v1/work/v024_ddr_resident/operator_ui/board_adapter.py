@@ -1,4 +1,8 @@
-"""Local operator bridge. Native transport belongs to the configured board driver.
+"""Optional external adapter and legacy transport helpers, not the v1 encoder.
+
+The v1 UI uses mode=hybrid -> native_host.backend.NativeHybrid ->
+native_ps.resident_host.BoardEncoder. That implemented path does NOT require
+ASR_RESIDENT_ADAPTER. Only the optional mode=board extension below requires it.
 
 ASR_RESIDENT_ADAPTER is a trusted absolute .py or .exe path on the operator PC.
 Its --status returns one JSON object: ready, board="AXU15EGB", mode="resident",
@@ -34,7 +38,7 @@ DDR_QUALIFICATION = HERE.parent / "board_test/active_qualification.json"
 def _native_command():
     value = os.environ.get("ASR_RESIDENT_ADAPTER")
     if not value:
-        raise ValueError("常驻识别固件的电脑端适配器尚未接入。")
+        raise ValueError("未配置可选的外部适配器；ASR v1 请使用板内 Conformer 页面（?mode=hybrid），无需 ASR_RESIDENT_ADAPTER。")
     path = Path(value)
     if not path.is_absolute() or not path.is_file() or path.suffix.lower() not in {".py", ".exe"}:
         raise ValueError("ASR_RESIDENT_ADAPTER 必须指向本机实际存在的 .py 或 .exe 的绝对路径。")

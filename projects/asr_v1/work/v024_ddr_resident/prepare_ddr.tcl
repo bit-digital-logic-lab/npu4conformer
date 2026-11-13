@@ -10,11 +10,15 @@ try {
     set devices [jtag targets]
     puts $devices
     if {![string match *210512180081* $devices]} {error "designated cable absent"}
-    targets -set -filter {name == "Cortex-A53 #0"}
-    set processor [targets -target-properties -filter {name == "Cortex-A53 #0"}]
+    set processors [targets -target-properties -filter {name == "Cortex-A53 #0" && jtag_cable_serial == "210512180081"}]
+    if {[llength $processors] != 1} {error "designated A53 target absent or ambiguous"}
+    set processor [lindex $processors 0]
+    targets -set [dict get $processor target_id]
     puts "A53_TARGET=$processor"
     if {![regexp -nocase {reset} $processor]} {error "APU must be reset before initializing unused DDR"}
-    targets -set -filter {name == "PSU"}
+    set psus [targets -target-properties -filter {name == "PSU" && jtag_cable_serial == "210512180081"}]
+    if {[llength $psus] != 1} {error "designated PSU target absent or ambiguous"}
+    targets -set [dict get [lindex $psus 0] target_id]
     source $init
     psu_init
     set stat [mrd -force -value 0xfd070004]

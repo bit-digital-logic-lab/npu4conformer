@@ -1,5 +1,7 @@
 # Caller verifies this image's implementation receipt before invoking Vivado.
-if {$argc != 2} {error "expected bitstream and unique output directory"}
+if {$argc ni {2 3}} {error "expected bitstream, unique output directory, optional --cold-boot"}
+set cold_boot [expr {$argc == 3 && [lindex $argv 2] eq "--cold-boot"}]
+if {$argc == 3 && !$cold_boot} {error "unknown programming option"}
 set bit [file normalize [lindex $argv 0]]
 set out [file normalize [lindex $argv 1]]
 if {![file isfile $bit] || ![file isdirectory $out]} {error "missing verified image or output"}
@@ -18,7 +20,8 @@ try {
     refresh_hw_device $device
     set old [get_property REGISTER.USR_ACCESS $device]
     puts "PREVIOUS_USR_ACCESS=$old"
-    if {$old != 0xA51A2492 && $old != 0xA51A2493} {error "unexpected existing image"}
+    if {$old != 0xA51A2492 && $old != 0xA51A2493 &&
+        !($cold_boot && ($old == 0 || $old == 0xffffffff))} {error "unexpected existing image"}
     set_property PROBES.FILE {} $device
     set_property PROGRAM.FILE $bit $device
     program_hw_devices -mpsoc_reset no $device

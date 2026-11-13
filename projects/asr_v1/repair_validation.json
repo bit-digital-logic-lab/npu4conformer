@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-13",
+  "base_tag": "v1",
+  "base_commit": "803ce945b105bbc10a002549b8748c19be8f01a9",
+  "scope": "v1 packaging and startup repair; offline validation only",
+  "assets": {
+    "passed": true,
+    "checked": 68,
+    "missing": [],
+    "mismatched": [],
+    "hardware_access": false
+  },
+  "automated_tests": {
+    "passed": true,
+    "count": 10,
+    "command": "tools/test_v1_recovery.py"
+  },
+  "archived_raw_recheck": {
+    "cold_graph_words": 8192,
+    "cycles": 18833,
+    "nominal_ms": 0.388430625,
+    "matrix_words": 4515,
+    "matrix_max_abs_error": 0.0
+  },
+  "live_hardware_access": false,
+  "new_cold_start_measured": false,
+  "clean_machine_reproduction": false,
+  "rtl_changed": false,
+  "bitstream_changed": false,
+  "weights_changed": false,
+  "elf_changed": false,
+  "gui": {
+    "window_render_observed": true,
+    "button_test_completed": false,
+    "reason": "User stopped Computer Use with Escape"
+  },
+  "known_limits": [
+    "New commissioning wrapper and blank USR_ACCESS path need live board testing",
+    "Fixed AXU15EGB JTAG serial 210512180081",
+    "Python ASR environment is not bundled; needs existing compatible environment"
+  ]
+}

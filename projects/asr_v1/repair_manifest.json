@@ -1,0 +1,71 @@
+{
+  "base_tag": "v1",
+  "base_commit": "803ce945b105bbc10a002549b8748c19be8f01a9",
+  "scope": "Overlay for snapshot_manifest.json; listed files override the original v1 hashes",
+  "files": {
+    ".gitignore": {
+      "bytes": 15835,
+      "sha256": "7fab4903260a46764fb3344e0db7a3222bf7e22914440e1c433bf5ee9ad5a0d4"
+    },
+    "DEPLOYMENT_V1.md": {
+      "bytes": 6400,
+      "sha256": "58b2c1a8bff76a935a6145e610ea47f90d266bb31ea06a98a6181219cdec602a"
+    },
+    "README.md": {
+      "bytes": 5475,
+      "sha256": "9efafcd26bf2434fe96fb3b54b10719b7ee974fb3894963d1d9758ffd926b3e0"
+    },
+    "cold_start.cmd": {
+      "bytes": 187,
+      "sha256": "15f336b1b249432d1acf1d4ffbeedd3b583025b8f69b8268a86c3c6a167cd821"
+    },
+    "repair_validation.json": {
+      "bytes": 1224,
+      "sha256": "5209557a6a6546b23b78ea9dc4d49e674e88365705b04c1881304a43b3ece98e"
+    },
+    "restore_assets.cmd": {
+      "bytes": 281,
+      "sha256": "7d75fc3c2ba1e0a37b65b79787e62820e24131457b2e6867c6c035a78c4c2ef7"
+    },
+    "tools/restore_assets.py": {
+      "bytes": 6968,
+      "sha256": "076d24e69da8966cc9b5ea1ba33af43427849e7b3c43544a54e4d979f7bf74ca"
+    },
+    "tools/test_v1_recovery.py": {
+      "bytes": 5542,
+      "sha256": "52e90af5827f4324ccd3f6bf1b650e69a46373a435225a87e88f607864b582de"
+    },
+    "work/v024_ddr_resident/cold_start.py": {
+      "bytes": 5785,
+      "sha256": "01919770c22b67d53ea9c993191a55e56815faa51d600bef0f6b1b309680ccd8"
+    },
+    "work/v024_ddr_resident/native_ps/resident_host.py": {
+      "bytes": 11505,
+      "sha256": "72fd8c40f57697dfd35bae36d0ff32e3c77520a0d1a239443023bf510743b4ab"
+    },
+    "work/v024_ddr_resident/operator_ui/board_adapter.py": {
+      "bytes": 11125,
+      "sha256": "6359e4a9048ffddb463e5e82d4df30fdfd6104ec2ae486bf91c5b09a19895de5"
+    },
+    "work/v024_ddr_resident/operator_ui/server.py": {
+      "bytes": 8282,
+      "sha256": "dd3d4d59cce07a8530fb3a0ae8e22292c012ba1e0b0f6d64946392f9ec6229a5"
+    },
+    "work/v024_ddr_resident/operator_ui/start.cmd": {
+      "bytes": 326,
+      "sha256": "796c46fd8f16ac564dbbb6a36e5d3a7b9caf79504d52b40f4b54375e2be59b12"
+    },
+    "work/v024_ddr_resident/prepare_ddr.tcl": {
+      "bytes": 2734,
+      "sha256": "bddf56f58665c830ee869081b89ce74ab1cf7c286e3d71796f54112e97b33b25"
+    },
+    "work/v024_ddr_resident/program_resident.tcl": {
+      "bytes": 1929,
+      "sha256": "4581928c795d00eaf4d01f598ce1212c96a5a9ec369a083da34c861e4894dcfc"
+    },
+    "work/v024_ddr_resident/run_board_2493.py": {
+      "bytes": 5293,
+      "sha256": "fa691d56910019a40a97cea52c6c6cf2358da2597260f52c9e8aaeb341695df4"
+    }
+  }
+}

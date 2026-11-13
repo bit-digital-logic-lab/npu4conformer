@@ -147,7 +147,7 @@ class Console(BaseHTTPRequestHandler):
                 return self.fail(503, str(exc))
         if url.path != "/api/recognize":
             return self.fail(404, "未找到。")
-        mode = parse_qs(url.query).get("mode", ["board"])[0]
+        mode = parse_qs(url.query).get("mode", ["hybrid"])[0]
         if mode not in MODES:
             return self.fail(400, "未知运行模式。")
         try:
@@ -201,6 +201,7 @@ def main():
     parser.add_argument("--open", action="store_true")
     args = parser.parse_args()
     url = f"http://127.0.0.1:{args.port}/"
+    page_url = url + "?mode=hybrid"
     try:
         server = ThreadingHTTPServer(("127.0.0.1", args.port), Console)
     except OSError:
@@ -208,11 +209,11 @@ def main():
             if json.load(response).get("app") != APP_ID:
                 raise RuntimeError("控制台端口已被其他程序使用。")
         if args.open:
-            webbrowser.open(url)
+            webbrowser.open(page_url)
         return
     print(f"ASR V0.24  {url}", flush=True)
     if args.open:
-        webbrowser.open(url)
+        webbrowser.open(page_url)
     with server:
         server.serve_forever()
 

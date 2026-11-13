@@ -16,6 +16,12 @@ envs/
 *.zip
 *.onnx
 *.npz
+# New-machine runtime state is generated locally, never restored from evidence.
+/.asset-restore-*/
+/work/v024_ddr_resident/cold_start_runs/
+/work/v024_ddr_resident/board_test/active_qualification.json
+/work/v024_ddr_resident/native_model/ACTIVE_BOARD_WEIGHTS.json
+*.stale.*
 # Selected small saved readbacks, logs and skill examples are intentional evidence.
 !evidence/**/*.bin
 !evidence/**/*.log

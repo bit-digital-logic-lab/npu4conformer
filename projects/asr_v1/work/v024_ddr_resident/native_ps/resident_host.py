@@ -3,6 +3,7 @@ import atexit
 from contextlib import ExitStack
 import json
 import math
+import os
 from pathlib import Path
 import shutil
 import struct
@@ -14,7 +15,7 @@ import uuid
 
 HERE = Path(__file__).resolve().parent
 MODEL = HERE.parent / "native_model"
-BIN = Path("C:/Academic_Application/Vivado/2025.2/Vivado/bin")
+BIN = Path(os.environ.get("ASR_VIVADO_BIN", "C:/Academic_Application/Vivado/2025.2/Vivado/bin"))
 IMAGE = "0xA51A2493"
 DIGEST = "c0ce4706835a5a462c3b5efbe283a29026db188f1e2675a0588323d0d53bca19"
 NBYTES = 84994048
@@ -38,6 +39,8 @@ def _publish(path, text):
 
 
 def _proof(control):
+    if not (MODEL / "ACTIVE_BOARD_WEIGHTS.json").is_file() or not (HERE.parent / "board_test/active_qualification.json").is_file():
+        raise ValueError("缺少本机冷启动凭据。请先按 DEPLOYMENT_V1.md 完成文件恢复和冷启动；不要复制 evidence 中的历史凭据。")
     manifest = _json(MODEL / "manifest.json")
     active = _json(MODEL / "ACTIVE_BOARD_WEIGHTS.json")
     if not (active["passed"] is True and
