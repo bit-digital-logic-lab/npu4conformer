@@ -20,8 +20,8 @@
       "sha256": "15f336b1b249432d1acf1d4ffbeedd3b583025b8f69b8268a86c3c6a167cd821"
     },
     "repair_validation.json": {
-      "bytes": 1224,
-      "sha256": "5209557a6a6546b23b78ea9dc4d49e674e88365705b04c1881304a43b3ece98e"
+      "bytes": 1182,
+      "sha256": "6fe047527f01b7e65e0227f20acb021cf9f378ee9cb72c04e1c0b4b1f0d25544"
     },
     "restore_assets.cmd": {
       "bytes": 281,
